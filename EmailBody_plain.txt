@@ -1,0 +1,43 @@
+<!-- Forgot Password Email Body -->
+শশুরবাড়ি পাসওয়ার্ড পুনরুদ্ধারের অনুরোধ
+
+আপনার অ্যাকাউন্টে লগ ইন করার জন্য পাসওয়ার্ড পুনরুদ্ধার করার জন্য একটি অনুরোধ করা হয়েছে।
+পাসওয়ার্ড: https://www.shoshurbari.rf.gd/new_password.php
+ই-মেইল:: <?php echo $email; ?>
+বি.দ্র.:  আপনার পাসওয়ার্ড সুরক্ষিত রাখতে অনুগ্রহ করে মনে রাখবেন। পাসওয়ার্ড কারো সাথে শেয়ার করবেন না।
+
+Connect with us:
+- Website: https://www.shoshurbari.com
+- Facebook: https://www.facebook.com/ShoshurBari.bd
+- Email: support@shoshurbari.com
+- YouTube: https://www.youtube.com/c/ShoshurBari
+
+(c) 2022-23 ShosurBari.com | All Rights Reserved
+
+
+
+
+<!-- Registration Confirmation Email Body -->
+Welcome to ShosurBari!
+
+Thank you for registering at ShosurBari. Here are your registration details:
+
+Biodata Number: <?php echo $id; ?>
+Full Name: <?php echo $fullname; ?>
+Username: <?php echo $username; ?>
+Email: <?php echo $email; ?>
+Phone Number: <?php echo $number; ?>
+Gender: <?php echo $gender; ?>
+Password: <?php echo $password; ?>
+
+Login to your account: https://www.shoshurbari.rf.gd/login.php
+
+Note: Please remember to keep your passwords secure. Do not share them with anyone.
+
+Connect with us:
+- Website: https://www.shoshurbari.com
+- Facebook: https://www.facebook.com/ShoshurBari.bd
+- Email: support@shoshurbari.com
+- YouTube: https://www.youtube.com/c/ShoshurBari
+
+(c) 2022-23 ShosurBari.com | All Rights Reserved
