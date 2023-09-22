@@ -1231,6 +1231,17 @@ form {
     margin-left: 32px;
     margin-right: -16px;
 }
+
+section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00bbff61; 
+    z-index: 1; 
+}
 </style>
 <script>
 const intervalText = document.getElementById("interval-text");

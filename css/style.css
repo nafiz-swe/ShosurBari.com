@@ -1024,7 +1024,7 @@ section {
     background-size: cover;
 }
 
-/* section::before {
+section::before {
     content: "";
     position: absolute;
     top: 0;
@@ -1033,7 +1033,7 @@ section {
     height: 100%;
     background-color: #00bbff61; 
     z-index: 1; 
-} */
+}
 
 
 .shosurbari-title{
@@ -1592,10 +1592,7 @@ span.m_3{
 	color: #e5007df0;
 	font-weight: 800;
     text-align: left;
-    background: #ffffff00;
-    border-radius: 20px;
     padding: 10px;
-    backdrop-filter: blur(3px);
     margin-bottom: 0px;
     text-align: left;
 }
@@ -1611,9 +1608,6 @@ span.m_3{
     color: #fff;
     text-align: left;
     margin-top: auto;
-    background: #0aa4ca4a;
-    backdrop-filter: blur(2px);
-    border-radius: 3px;
     padding: 10px;
 }
 
