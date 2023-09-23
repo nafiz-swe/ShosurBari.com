@@ -90,8 +90,89 @@
 				and guide you every step of the way. Start your search for love and companionship with us today.
 			</p>
 		</div>
+	</div>
+
+
+	<div class="about_middle">
+    <h2>Our Team</h2>
+    <div class="about_middle-grid1">
+
+      <div class="col-sm-6 testi_grid list-item-0">
+        <blockquote class="testi_grid_blockquote">
+
+          <figure class="featured-thumbnail">
+            <img src="images/nn.png"  class="img-responsive" alt=""/>
+          </figure>
+
+          <div>
+            <h3>Engr. Nafizul Noyon</h3>
+            <h4>CEO and Software Engineer:</h4>
+            <p>Leading Shosurbari.com with tech expertise, Nafizul ensures a seamless user experience as CEO and developer.</p>
+            <div class="clearfix"></div>
+          </div>
+
+			  </blockquote>
+		  </div>
+
+
+      <div class="col-sm-6 testi_grid list-item-1">
+        <blockquote class="testi_grid_blockquote">
+
+          <figure class="featured-thumbnail">
+            <img src="images/nafi.png" class="img-responsive" alt=""/>
+          </figure>
+
+          <div>
+            <h3>Dr. Nasimul Nayem</h3>
+            <h4>Security Consultant:</h4>
+            <p>Nasimul safeguards user data as our security consultant, ensuring privacy and trust on Shosurbari.com.</p>
+            <div class="clearfix"></div>
+          </div>
+
+        </blockquote>
+      </div>
+      <div class="clearfix"> </div>
+    </div>
+
+
+    <div class="about_middle-grid2">	
+      <div class="col-sm-6 testi_grid list-item-0">
+        <blockquote class="testi_grid_blockquote">
+
+          <figure class="featured-thumbnail">
+            <img src="images/nafizn.png" class="img-responsive" alt=""/>
+          </figure>
+
+          <div>
+            <h3>Engr. Aive Rahman</h3>
+            <h4>Customer Support Specialist:</h4>
+            <p>Aive provides exceptional customer support, ensuring user satisfaction and prompt assistance on our platform.</p>
+            <div class="clearfix"></div>
+          </div>
+        </blockquote>
+      </div>
+
+      <div class="col-sm-6 testi_grid list-item-1">
+        <blockquote class="testi_grid_blockquote">
+
+          <figure class="featured-thumbnail">
+            <img src="images/naf.png" class="img-responsive" alt=""/>
+          </figure>
+
+          <div>
+            <h3>Nafizul Islam Noyon</h3>
+            <h4>Security Consultant:</h4>
+            <p>Leading Shosurbari.com with tech expertise, Nafizul ensures a seamless user experience as CEO and developer.</p>
+            <div class="clearfix"></div>
+          </div>
+        </blockquote>
+      </div>
+
+      <div class="clearfix"> </div>
+    </div>
 
 	</div>
+
 	
 	<?php include_once("footer.php");?>
 </body>

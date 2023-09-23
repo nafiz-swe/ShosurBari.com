@@ -635,98 +635,7 @@ $result=search();
                 <span class="search-options">সকল জেলা</span>
                 <br>
 
-
-                  <!-- B A R I S H A L -->
-                  <label class="label-search-options">বরিশাল বিভাগ </label><br>
-                  
-                    <input type="checkbox" name="home_district_under_barishal[]" value="ঝালকাঠী" class="SelectBox val" />
-                    <span class="search-options">ঝালকাঠী</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_barishal[]" value="পটুয়াখালী" class="SelectBox val" />
-                    <span class="search-options">পটুয়াখালী</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_barishal[]" value="পিরোজপুর" class="SelectBox val" />
-                    <span class="search-options">পিরোজপুর</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_barishal[]" value="বরিশাল" class="SelectBox val" />
-                    <span class="search-options">বরিশাল</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_barishal[]" value="বরগুনা" class="SelectBox val" />
-                    <span class="search-options">বরগুনা</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_barishal[]" value="ভোলা" class="SelectBox val" />
-                    <span class="search-options">ভোলা</span>
-                  <br>
-
-
-                  <!-- C H A T T O G R A M -->
-                  <label class="label-search-options">চট্টগ্রাম বিভাগ </label><br>
-                  
-                    <input type="checkbox" name="home_district_under_chattogram[]" value="কক্সবাজার" class="SelectBox val" />
-                    <span class="search-options">কক্সবাজার</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_chattogram[]" value="কুমিল্লা" class="SelectBox val" />
-                    <span class="search-options">কুমিল্লা</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_chattogram[]" value="খাগড়াছড়ি" class="SelectBox val" />
-                    <span class="search-options">খাগড়াছড়ি</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_chattogram[]" value="চট্টগ্রাম" class="SelectBox val" />
-                    <span class="search-options">চট্টগ্রাম</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_chattogram[]" value="চাঁদপুর" class="SelectBox val" />
-                    <span class="search-options">চাঁদপুর</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_chattogram[]" value="নোয়াখালী" class="SelectBox val" />
-                    <span class="search-options">নোয়াখালী</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_chattogram[]" value="ফেনী" class="SelectBox val" />
-                    <span class="search-options">ফেনী</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_chattogram[]" value="বান্দরবান" class="SelectBox val" />
-                    <span class="search-options">বান্দরবান</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_chattogram[]" value="ব্রাহ্মনবাড়ীয়া" class="SelectBox val" />
-                    <span class="search-options">ব্রাহ্মনবাড়ীয়া</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_chattogram[]" value="লক্ষীপুর" class="SelectBox val" />
-                    <span class="search-options">লক্ষীপুর</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_chattogram[]" value="রাঙ্গামাটি" class="SelectBox val" />
-                    <span class="search-options">রাঙ্গামাটি</span>
-                  <br>
-
-
+                
                   <!--  D H A K A -->
                   <label class="label-search-options">ঢাকা বিভাগ</label> <br>
                   
@@ -792,6 +701,63 @@ $result=search();
                   
                     <input type="checkbox" name="home_district_under_dhaka[]" value="শরীয়তপুর" class="SelectBox val" />
                     <span class="search-options">শরীয়তপুর</span>
+                  <br>
+
+                  <!-- C H A T T O G R A M -->
+                  <label class="label-search-options">চট্টগ্রাম বিভাগ </label><br>
+                  
+                    <input type="checkbox" name="home_district_under_chattogram[]" value="কক্সবাজার" class="SelectBox val" />
+                    <span class="search-options">কক্সবাজার</span>
+                  <br>
+
+                  
+                    <input type="checkbox" name="home_district_under_chattogram[]" value="কুমিল্লা" class="SelectBox val" />
+                    <span class="search-options">কুমিল্লা</span>
+                  <br>
+
+                  
+                    <input type="checkbox" name="home_district_under_chattogram[]" value="খাগড়াছড়ি" class="SelectBox val" />
+                    <span class="search-options">খাগড়াছড়ি</span>
+                  <br>
+
+                  
+                    <input type="checkbox" name="home_district_under_chattogram[]" value="চট্টগ্রাম" class="SelectBox val" />
+                    <span class="search-options">চট্টগ্রাম</span>
+                  <br>
+
+                  
+                    <input type="checkbox" name="home_district_under_chattogram[]" value="চাঁদপুর" class="SelectBox val" />
+                    <span class="search-options">চাঁদপুর</span>
+                  <br>
+
+                  
+                    <input type="checkbox" name="home_district_under_chattogram[]" value="নোয়াখালী" class="SelectBox val" />
+                    <span class="search-options">নোয়াখালী</span>
+                  <br>
+
+                  
+                    <input type="checkbox" name="home_district_under_chattogram[]" value="ফেনী" class="SelectBox val" />
+                    <span class="search-options">ফেনী</span>
+                  <br>
+
+                  
+                    <input type="checkbox" name="home_district_under_chattogram[]" value="বান্দরবান" class="SelectBox val" />
+                    <span class="search-options">বান্দরবান</span>
+                  <br>
+
+                  
+                    <input type="checkbox" name="home_district_under_chattogram[]" value="ব্রাহ্মনবাড়ীয়া" class="SelectBox val" />
+                    <span class="search-options">ব্রাহ্মনবাড়ীয়া</span>
+                  <br>
+
+                  
+                    <input type="checkbox" name="home_district_under_chattogram[]" value="লক্ষীপুর" class="SelectBox val" />
+                    <span class="search-options">লক্ষীপুর</span>
+                  <br>
+
+                  
+                    <input type="checkbox" name="home_district_under_chattogram[]" value="রাঙ্গামাটি" class="SelectBox val" />
+                    <span class="search-options">রাঙ্গামাটি</span>
                   <br>
 
 
@@ -955,6 +921,40 @@ $result=search();
                     <input type="checkbox" name="home_district_under_rangpur[]" value="লালমনিরহাট" class="SelectBox val" />
                     <span class="search-options">লালমনিরহাট</span>
                   <br>
+
+
+                                  <!-- B A R I S H A L -->
+                                  <label class="label-search-options">বরিশাল বিভাগ </label><br>
+                  
+                  <input type="checkbox" name="home_district_under_barishal[]" value="ঝালকাঠী" class="SelectBox val" />
+                  <span class="search-options">ঝালকাঠী</span>
+                <br>
+
+                
+                  <input type="checkbox" name="home_district_under_barishal[]" value="পটুয়াখালী" class="SelectBox val" />
+                  <span class="search-options">পটুয়াখালী</span>
+                <br>
+
+                
+                  <input type="checkbox" name="home_district_under_barishal[]" value="পিরোজপুর" class="SelectBox val" />
+                  <span class="search-options">পিরোজপুর</span>
+                <br>
+
+                
+                  <input type="checkbox" name="home_district_under_barishal[]" value="বরিশাল" class="SelectBox val" />
+                  <span class="search-options">বরিশাল</span>
+                <br>
+
+                
+                  <input type="checkbox" name="home_district_under_barishal[]" value="বরগুনা" class="SelectBox val" />
+                  <span class="search-options">বরগুনা</span>
+                <br>
+
+                
+                  <input type="checkbox" name="home_district_under_barishal[]" value="ভোলা" class="SelectBox val" />
+                  <span class="search-options">ভোলা</span>
+                <br>
+
 
 
                   <!-- S Y L H E T-->
@@ -2198,37 +2198,72 @@ $result=search();
                 <br>
 
 
-                  <!-- B A R I S H A L -->
-                  <label class="label-search-options">বরিশাল বিভাগ </label><br>
+                                  <!--  D H A K A -->
+                                  <label class="label-search-options">ঢাকা বিভাগ</label> <br>
                   
-                    <input type="checkbox" name="home_district_under_barishal[]" value="ঝালকাঠী" class="SelectBox val" />
-                    <span class="search-options">ঝালকাঠী</span>
-                  <br>
+                  <input type="checkbox" name="home_district_under_dhaka[]" value="কিশোরগঞ্জ" class="SelectBox val" />
+                  <span class="search-options">কিশোরগঞ্জ</span>
+                <br>
 
-                  
-                    <input type="checkbox" name="home_district_under_barishal[]" value="পটুয়াখালী" class="SelectBox val" />
-                    <span class="search-options">পটুয়াখালী</span>
-                  <br>
+                
+                  <input type="checkbox" name="home_district_under_dhaka[]" value="গাজীপুর" class="SelectBox val" />
+                  <span class="search-options">গাজীপুর</span>
+                <br>
 
-                  
-                    <input type="checkbox" name="home_district_under_barishal[]" value="পিরোজপুর" class="SelectBox val" />
-                    <span class="search-options">পিরোজপুর</span>
-                  <br>
+                
+                  <input type="checkbox" name="home_district_under_dhaka[]" value="গোপালগঞ্জ" class="SelectBox val" />
+                  <span class="search-options">গোপালগঞ্জ</span>
+                <br>
 
-                  
-                    <input type="checkbox" name="home_district_under_barishal[]" value="বরিশাল" class="SelectBox val" />
-                    <span class="search-options">বরিশাল</span>
-                  <br>
+                
+                  <input type="checkbox" name="home_district_under_dhaka[]" value="টাঙ্গাইল" class="SelectBox val" />
+                  <span class="search-options">টাঙ্গাইল</span>
+                <br>
 
-                  
-                    <input type="checkbox" name="home_district_under_barishal[]" value="বরগুনা" class="SelectBox val" />
-                    <span class="search-options">বরগুনা</span>
-                  <br>
+                
+                  <input type="checkbox" name="home_district_under_dhaka[]" value="ঢাকা" class="SelectBox val" />
+                  <span class="search-options">ঢাকা</span>
+                <br>
 
-                  
-                    <input type="checkbox" name="home_district_under_barishal[]" value="ভোলা" class="SelectBox val" />
-                    <span class="search-options">ভোলা</span>
-                  <br>
+                
+                  <input type="checkbox" name="home_district_under_dhaka[]" value="নরসিংদী" class="SelectBox val" />
+                  <span class="search-options">নরসিংদী</span>
+                <br>
+
+                
+                  <input type="checkbox" name="home_district_under_dhaka[]" value="নারায়ণগঞ্জ" class="SelectBox val" />
+                  <span class="search-options">নারায়ণগঞ্জ</span>
+                <br>
+
+                
+                  <input type="checkbox" name="home_district_under_dhaka[]" value="ফরিদপুর" class="SelectBox val" />
+                  <span class="search-options">ফরিদপুর</span>
+                <br>
+
+                
+                  <input type="checkbox" name="home_district_under_dhaka[]" value="মাদারীপুর" class="SelectBox val" />
+                  <span class="search-options">মাদারীপুর</span>
+                <br>
+
+                
+                  <input type="checkbox" name="home_district_under_dhaka[]" value="মানিকগঞ্জ" class="SelectBox val" />
+                  <span class="search-options">মানিকগঞ্জ</span>
+                <br>
+
+                
+                  <input type="checkbox" name="home_district_under_dhaka[]" value="মুন্সীগঞ্জ" class="SelectBox val" />
+                  <span class="search-options">মুন্সীগঞ্জ</span>
+                <br>
+
+                
+                  <input type="checkbox" name="home_district_under_dhaka[]" value="রাজবাড়ী" class="SelectBox val" />
+                  <span class="search-options">রাজবাড়ী</span>
+                <br>
+
+                
+                  <input type="checkbox" name="home_district_under_dhaka[]" value="শরীয়তপুর" class="SelectBox val" />
+                  <span class="search-options">শরীয়তপুর</span>
+                <br>
 
 
                   <!-- C H A T T O G R A M -->
@@ -2286,74 +2321,6 @@ $result=search();
                   
                     <input type="checkbox" name="home_district_under_chattogram[]" value="রাঙ্গামাটি" class="SelectBox val" />
                     <span class="search-options">রাঙ্গামাটি</span>
-                  <br>
-
-
-                  <!--  D H A K A -->
-                  <label class="label-search-options">ঢাকা বিভাগ</label> <br>
-                  
-                    <input type="checkbox" name="home_district_under_dhaka[]" value="কিশোরগঞ্জ" class="SelectBox val" />
-                    <span class="search-options">কিশোরগঞ্জ</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_dhaka[]" value="গাজীপুর" class="SelectBox val" />
-                    <span class="search-options">গাজীপুর</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_dhaka[]" value="গোপালগঞ্জ" class="SelectBox val" />
-                    <span class="search-options">গোপালগঞ্জ</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_dhaka[]" value="টাঙ্গাইল" class="SelectBox val" />
-                    <span class="search-options">টাঙ্গাইল</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_dhaka[]" value="ঢাকা" class="SelectBox val" />
-                    <span class="search-options">ঢাকা</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_dhaka[]" value="নরসিংদী" class="SelectBox val" />
-                    <span class="search-options">নরসিংদী</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_dhaka[]" value="নারায়ণগঞ্জ" class="SelectBox val" />
-                    <span class="search-options">নারায়ণগঞ্জ</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_dhaka[]" value="ফরিদপুর" class="SelectBox val" />
-                    <span class="search-options">ফরিদপুর</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_dhaka[]" value="মাদারীপুর" class="SelectBox val" />
-                    <span class="search-options">মাদারীপুর</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_dhaka[]" value="মানিকগঞ্জ" class="SelectBox val" />
-                    <span class="search-options">মানিকগঞ্জ</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_dhaka[]" value="মুন্সীগঞ্জ" class="SelectBox val" />
-                    <span class="search-options">মুন্সীগঞ্জ</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_dhaka[]" value="রাজবাড়ী" class="SelectBox val" />
-                    <span class="search-options">রাজবাড়ী</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_dhaka[]" value="শরীয়তপুর" class="SelectBox val" />
-                    <span class="search-options">শরীয়তপুর</span>
                   <br>
 
 
@@ -2517,6 +2484,39 @@ $result=search();
                     <input type="checkbox" name="home_district_under_rangpur[]" value="লালমনিরহাট" class="SelectBox val" />
                     <span class="search-options">লালমনিরহাট</span>
                   <br>
+
+
+                            <!-- B A R I S H A L -->
+                            <label class="label-search-options">বরিশাল বিভাগ </label><br>
+                            
+                            <input type="checkbox" name="home_district_under_barishal[]" value="ঝালকাঠী" class="SelectBox val" />
+                            <span class="search-options">ঝালকাঠী</span>
+                          <br>
+
+                          
+                            <input type="checkbox" name="home_district_under_barishal[]" value="পটুয়াখালী" class="SelectBox val" />
+                            <span class="search-options">পটুয়াখালী</span>
+                          <br>
+
+                          
+                            <input type="checkbox" name="home_district_under_barishal[]" value="পিরোজপুর" class="SelectBox val" />
+                            <span class="search-options">পিরোজপুর</span>
+                          <br>
+
+                          
+                            <input type="checkbox" name="home_district_under_barishal[]" value="বরিশাল" class="SelectBox val" />
+                            <span class="search-options">বরিশাল</span>
+                          <br>
+
+                          
+                            <input type="checkbox" name="home_district_under_barishal[]" value="বরগুনা" class="SelectBox val" />
+                            <span class="search-options">বরগুনা</span>
+                          <br>
+
+                          
+                            <input type="checkbox" name="home_district_under_barishal[]" value="ভোলা" class="SelectBox val" />
+                            <span class="search-options">ভোলা</span>
+                          <br>
 
 
                   <!-- S Y L H E T-->
@@ -3439,20 +3439,20 @@ echo '<script> var count = ' . $c_count . '; </script>';
 ?>
 
 
-      
-    <!--Next & Previous Button For More Profile Show -->
+
+<!--Next & Previous Button For More Profile Show -->
     <div class="pagination">
       <span id="profiles-show-info" ></span>
-      <a href="#" id="prev-page-btn" style="display:none">&laquo; Previous</a>
+      <a href="#" id="prev-page-btn" style="display:none">&laquo; একধাপ পিছিয়ে যান</a>
       <span id="page-numbers"></span>
-      <a href="#" id="next-page-btn">Next &raquo;</a>
+      <a href="#" id="next-page-btn" style="display:none">একধাপ এগিয়ে যান &raquo;</a>
+      <!-- <a href="#" id="next-page-btn">Next &raquo;</a> -->
       <span id="profiles-info"></span>
     </div>
 
-
     <script>
       //After Search Number of ShosurBari Users Profiles Show Per Page.
-      const profilesPerPage = 15;
+      const profilesPerPage = 1;
       //Total number of profiles found
       const totalProfiles = <?php echo $c_count ?>;
       //Calculate the total number of pages
@@ -3508,77 +3508,82 @@ echo '<script> var count = ' . $c_count . '; </script>';
   return number.toString().replace(/[0-9]/g, (digit) => banglaNumbers[digit]);
 }
 
-      //Function to show profiles for the current page
-      function showProfiles() {
-        //Calculate the starting index and ending index of the profiles to show
-        const startIndex = (currentPage - 1) * profilesPerPage;
-        const endIndex = Math.min(startIndex + profilesPerPage, totalProfiles);
 
-        //Loop through the profiles and show only the profiles for the current page
-        for (let i = 0; i < totalProfiles; i++) {
-          const profileElem = document.getElementsByClassName("biodatalist")[i];
-          if (i >= startIndex && i < endIndex) {
-            profileElem.style.display = "block";
-          } else {
-          profileElem.style.display = "none";
-          }
 
-        }
 
-        //Update the page numbers
-        generatePageNumbers();
 
-        //Hide previous button if current page is the first page
-        if (currentPage === 1) {
-          document.getElementById("prev-page-btn").style.display = "none";
-        } else {
-        document.getElementById("prev-page-btn").style.display = "inline-block";
-        }
 
-        //Hide next button if current page is the last page
-        if (currentPage === totalPages) {
-          document.getElementById("next-page-btn").style.display = "none";
-        } else {
-          document.getElementById("next-page-btn").style.display = "inline-block";
-        }
+function showProfiles() {
+  // Hide all sections initially
+  document.getElementById("profiles-info").innerHTML = "";
+  document.getElementById("profiles-show-info").innerHTML = "";
+  document.getElementById("prev-page-btn").style.display = "none"; // Hide the "Prev" button initially
 
-        //Update the text in the profiles-info span
-        const profilesLeft = totalProfiles - endIndex;
-        if (totalProfiles > 0) {
-          document.getElementById("profiles-info").innerHTML = `"বাকি রয়েছে <span style="color: #0aa4ca;">${convertToBanglaNumber(profilesLeft)}</span> টি বায়োডাটা"`;
-        } else {
-          document.getElementById("profiles-info").style.display = "none";
-        }
+  // Calculate the starting index and ending index of the profiles to show
+  const startIndex = (currentPage - 1) * profilesPerPage;
+  const endIndex = Math.min(startIndex + profilesPerPage, totalProfiles);
 
-        let profilesshow;
-        if (totalProfiles === 0) {
-          document.getElementById("prev-page-btn").style.display = "none";
-          document.getElementById("next-page-btn").style.display = "none";
-        } else {
-          const startIndexBangla = convertToBanglaNumber(startIndex + 1);
-          const endIndexBangla = convertToBanglaNumber(Math.min(endIndex, totalProfiles));
-          profilesshow = `"এখন দেখছেন <span class="highlight-start">${startIndexBangla}</span> থেকে <span class="highlight-end">${endIndexBangla}</span> পর্যন্ত বায়োডাটা গুলো"`;
-          
-          // const startIndexBangla = convertToBanglaNumber(startIndex + 1);
-          // const endIndexBangla = convertToBanglaNumber(Math.min(endIndex, totalProfiles));
-          // profilesshow = `(এখন দেখছেন ${startIndexBangla} থেকে ${endIndexBangla} পর্যন্ত বায়োডাটা গুলো)`;
-          if (startIndex === 0) {
-          document.getElementById("prev-page-btn").style.display = "none";
-          } else {
-          document.getElementById("prev-page-btn").style.display = "inline";
-          }
-          if (endIndex >= totalProfiles) {
-          document.getElementById("next-page-btn").style.display = "none";
-          } else {
-          document.getElementById("next-page-btn").style.display = "inline";
-          }
-        }
-        // document.getElementById("profiles-show-info").textContent = profilesshow;
-        document.getElementById("profiles-show-info").innerHTML = profilesshow;
+  // Check if there are profiles to show
+  if (totalProfiles > 0) {
+    // Display the "Next" button
+    document.getElementById("next-page-btn").style.display = "inline-block";
+    
+    // Loop through the profiles and show only the profiles for the current page
+    for (let i = 0; i < totalProfiles; i++) {
+      const profileElem = document.getElementsByClassName("biodatalist")[i];
+      if (i >= startIndex && i < endIndex) {
+        profileElem.style.display = "block";
+      } else {
+        profileElem.style.display = "none";
       }
-      
-      // show the profiles for the first page
-      showProfiles();
+    }
+  
+    // Update the page numbers
+    generatePageNumbers();
+  
+    // Hide previous button if the current page is the first page
+    if (currentPage === 1) {
+      document.getElementById("prev-page-btn").style.display = "none";
+    } else {
+      document.getElementById("prev-page-btn").style.display = "inline-block";
+    }
+  
+    // Hide next button if the current page is the last page
+    if (currentPage === totalPages) {
+      document.getElementById("next-page-btn").style.display = "none";
+    } else {
+      document.getElementById("next-page-btn").style.display = "inline-block";
+    }
+  
+    // Update the text in the profiles-info span
+    const profilesLeft = totalProfiles - endIndex;
+    document.getElementById("profiles-info").innerHTML = `"বাকি রয়েছে <span style="color: #0aa4ca;">${convertToBanglaNumber(profilesLeft)}</span> টি বায়োডাটা"`;
+  
+    let profilesshow;
+    if (totalProfiles > 0) {
+      const startIndexBangla = convertToBanglaNumber(startIndex + 1);
+      const endIndexBangla = convertToBanglaNumber(Math.min(endIndex, totalProfiles));
+      profilesshow = `"এখন দেখছেন <span class="highlight-start">${startIndexBangla}</span> থেকে <span class="highlight-end">${endIndexBangla}</span> পর্যন্ত বায়োডাটা গুলো"`;
+    }
+  
+    document.getElementById("profiles-show-info").innerHTML = profilesshow;
+  } else {
+    // No profiles to show, hide the "Next" button
+    document.getElementById("next-page-btn").style.display = "none";
+  }
+}
+
+// Show the profiles for the first page
+showProfiles();
+
+
+
+
+
+
+
+
+
 
       // add click event listeners to the previous page and next page buttons
       document.getElementById("prev-page-btn").addEventListener("click", () => {

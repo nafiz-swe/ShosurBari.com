@@ -1164,6 +1164,7 @@ toggleLabels.forEach(label => {
   margin: auto;
   border: 2px solid #f0f0f0;
   border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 .inner-wrap {
@@ -1551,8 +1552,6 @@ function createSlides(data) {
             if ($occupation_count > 0) {
                 $occupation_label = array_keys($occupation_levels)[0];
                 $occupation_value = $occupation_levels[$occupation_label];
-
-
 
 					  //PRINTING THE PROFILE
             echo "<li class=\"sb_newbiodata\">";

@@ -5198,6 +5198,9 @@ label{
 
     .shosurbari-about {
         margin-top: 90px;
+        padding-left: 40px;
+        padding-right: 40px;
+        line-height: 50px;
     }
 
     .shosurbar-grrombride-about {
@@ -6081,6 +6084,11 @@ label{
 --      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width: 600px){
+    .sb-search-page-notice h2{
+        line-height: 40px;
+        margin: 150px auto 40px auto;
+    }
+
     .banner{
         width: auto;
     }
@@ -6411,6 +6419,10 @@ label{
 --      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width:480px){
+    .shosurbari-about {
+        line-height: 40px;
+    }
+
     .banner{
         height: 280px;
     }
@@ -6833,6 +6845,14 @@ label{
 --      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width:414px){
+    .sb-search-btn-banner {
+        left: 185px;
+    }
+
+    .sb-home-reg2 button, .sb-search-btn-banner button {
+        width: 160px;
+    }
+
     .slide p {
         font-size: 22px;
         width: 333px;
@@ -7085,6 +7105,31 @@ label{
 --      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width:384px){
+    .sb-home-reg2{
+        top: 165px;
+    }
+
+    .sb-search-btn-banner {
+        top: 212px;
+        left: 0px;
+    }
+
+    .slide h1 {
+        font-size: clamp(1.66em, 5vmax, 3px);
+        top: 6px;
+        line-height: 37px;
+        width: 300px;
+        padding: 10px;
+    }
+
+    .slide h5 {
+        top: 82px;
+    }
+
+    .sb-search-page .sb-search-btn2 {
+        width: 275px;
+    }
+
     .slide p {
         font-size: 21px;
         width: 317px;
@@ -7384,6 +7429,10 @@ label{
 --      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width: 350px) {
+    .slide h1, .slide h5 {
+        width: 330px;
+    }
+
     .slide p {
         font-size: 18px;
         width: 274px;

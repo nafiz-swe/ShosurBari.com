@@ -106,41 +106,40 @@ error_reporting(0);
 </style>
 
 
-  <div class="shosurbari-about-contact">
-		<div class="shosurbari-details">
-			<h1>How to Contact ShosurBari? </h1>
-			<p>
-        We're here to help you! If you have any questions, feedback, or inquiries, please feel free to get
-        in touch with us using the contact form below. Simply provide us with your details and message, and 
-        we'll get back to you as soon as possible.
-			</p>
+<div class="shosurbari-about-contact">
+  <div class="shosurbari-details">
+    <h1>How to Contact ShosurBari? </h1>
+    <p>
+      We're here to help you! If you have any questions, feedback, or inquiries, please feel free to get
+      in touch with us using the contact form below. Simply provide us with your details and message, and 
+      we'll get back to you as soon as possible.
+    </p>
 
-      <p>
-        Please ensure that you provide accurate contact information so that we can 
-        reach you effectively. We value your privacy and assure you that your personal 
-        details will be handled with utmost confidentiality.
-			</p>
+    <p>
+      Please ensure that you provide accurate contact information so that we can 
+      reach you effectively. We value your privacy and assure you that your personal 
+      details will be handled with utmost confidentiality.
+    </p>
 
-      <p>
-        Our dedicated team is committed to providing excellent customer service, 
-        and we strive to respond to all inquiries promptly. Whether you have a 
-        question about our services, need assistance with your account, or have 
-        any other concerns, we're here to assist you.
-			</p>
+    <p>
+      Our dedicated team is committed to providing excellent customer service, 
+      and we strive to respond to all inquiries promptly. Whether you have a 
+      question about our services, need assistance with your account, or have 
+      any other concerns, we're here to assist you.
+    </p>
 
-      <p>
-        Thank you for choosing shosurbari.com as your trusted matrimonial service 
-        provider. We look forward to serving you and helping you find your perfect match.
-			</p>
+    <p>
+      Thank you for choosing shosurbari.com as your trusted matrimonial service 
+      provider. We look forward to serving you and helping you find your perfect match.
+    </p>
 
-		</div>
-    
-	</div>
-
+	</div>  
+</div>
 
 
 
-  <div class="shosurbari-biodata-form">
+
+<div class="shosurbari-biodata-form">
 
   <div class="soshurbari-animation-icon">
     <div class="sb-icon-laptop">
@@ -149,144 +148,53 @@ error_reporting(0);
   </div>
 
   <div class="shosurbari-animation-form">
+    <div class="shosurbari-animation-form">
+      <form action="" method="POST" name="myForm" onsubmit="return validateForm()">
+        <div class="flex-container">
+          <div class="sb-register-login">
 
-  <div class="shosurbari-animation-form">
-    <form action="" method="POST" name="myForm" onsubmit="return validateForm()">
-      <div class="flex-container">
-        <div class="sb-register-login">
+            <div class="sb-biodata-field">
+              <h2>Contact Us</h2>
+            </div>
 
-          <div class="sb-biodata-field">
-            <h2>Contact Us</h2>
+            <div class="form-group">
+              <input type="text" id="name_contactus" placeholder="Your Full Name" name="name_contactus" value="" size="60" maxlength="60" class="form-text required">
+              <span id="name-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+            </div>
+
+            <div class="form-group">
+              <input type="email" id="email_contactus" placeholder="Your Email" name="email_contactus" value="" size="60" maxlength="60" class="form-text">
+              <span id="email-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+            </div>
+
+            <div class="form-group">
+              <input type="tel" id="number_contactus" placeholder="Your Phone Number" name="number_contactus" value="" size="60" minlength="10" maxlength="15" class="form-text required">
+              <span id="phone-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+            </div>
+
+            <div class="form-group">
+              <textarea rows="4" id="message_contactus" name="message_contactus" placeholder="Type Your Message..." class="form-text-describe required" maxlength="1000"></textarea>
+              <span id="message-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" id="edit-submit" name="op" class="btn_1 submit">Submit</button>
+            </div>
+
+            <!-- Popup message -->
+            <div class="popup-message">
+              <h3></h3>
+              <p></p>
+            </div>
+
+            <div class="overlay"></div>
           </div>
-
-          <div class="form-group">
-            <input type="text" id="name_contactus" placeholder="Your Full Name" name="name_contactus" value="" size="60" maxlength="60" class="form-text required">
-            <span id="name-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
-          </div>
-
-          <div class="form-group">
-            <input type="email" id="email_contactus" placeholder="Your Email" name="email_contactus" value="" size="60" maxlength="60" class="form-text">
-            <span id="email-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
-          </div>
-
-          <div class="form-group">
-            <input type="tel" id="number_contactus" placeholder="Your Phone Number" name="number_contactus" value="" size="60" minlength="10" maxlength="15" class="form-text required">
-            <span id="phone-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
-          </div>
-
-          <div class="form-group">
-            <textarea rows="4" id="message_contactus" name="message_contactus" placeholder="Type Your Message..." class="form-text-describe required" maxlength="1000"></textarea>
-            <span id="message-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
-          </div>
-
-          <div class="form-actions">
-            <button type="submit" id="edit-submit" name="op" class="btn_1 submit">Submit</button>
-          </div>
-
-          <!-- Popup message -->
-          <div class="popup-message">
-            <h3></h3>
-            <p></p>
-          </div>
-
-          <div class="overlay"></div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
-  </div>
-
-
-  <div class="about_middle">
-			<h2>Our Team</h2>
-			<div class="about_middle-grid1">
-
-				<div class="col-sm-6 testi_grid list-item-0">
-					<blockquote class="testi_grid_blockquote">
-
-						<figure class="featured-thumbnail">
-							<img src="images/nn.png"  class="img-responsive" alt=""/>
-						</figure>
-
-						<div>
-							<h3>Engr. Nafizul Noyon</h3>
-							<h4>CEO and Software Engineer:</h4>
-							<p>
-								Leading Shosurbari.com with tech expertise, Nafizul ensures a seamless user experience as CEO and developer.
-							</p>
-							<div class="clearfix"></div>
-						</div>
-
-					</blockquote>
-				</div>
-
-
-				<div class="col-sm-6 testi_grid list-item-1">
-					<blockquote class="testi_grid_blockquote">
-
-						<figure class="featured-thumbnail">
-							<img src="images/nafi.png" class="img-responsive" alt=""/>
-						</figure>
-
-						<div>
-							<h3>Dr. Nasimul Nayem</h3>
-							<h4>Security Consultant:</h4>
-							<p>
-								Nasimul safeguards user data as our security consultant, ensuring privacy and trust on Shosurbari.com.
-							</p>
-							<div class="clearfix"></div>
-						</div>
-
-					</blockquote>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-
-
-			<div class="about_middle-grid2">
-					
-				<div class="col-sm-6 testi_grid list-item-0">
-					<blockquote class="testi_grid_blockquote">
-
-						<figure class="featured-thumbnail">
-							<img src="images/nafizn.png" class="img-responsive" alt=""/>
-						</figure>
-
-						<div>
-							<h3>Engr. Aive Rahman</h3>
-							<h4>Customer Support Specialist:</h4>
-							<p>
-								Aive provides exceptional customer support, ensuring user satisfaction and prompt assistance on our platform.
-							</p>
-							<div class="clearfix"></div>
-						</div>
-
-					</blockquote>
-				</div>
-
-				<div class="col-sm-6 testi_grid list-item-1">
-					<blockquote class="testi_grid_blockquote">
-
-						<figure class="featured-thumbnail">
-							<img src="images/naf.png" class="img-responsive" alt=""/>
-						</figure>
-
-						<div>
-							<h3>Nafizul Islam Noyon</h3>
-							<h4>Security Consultant:</h4>
-							<p>
-								Leading Shosurbari.com with tech expertise, Nafizul ensures a seamless user experience as CEO and developer.
-							</p>
-							<div class="clearfix"></div>
-						</div>
-
-					</blockquote>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-
-		</div>
-  </div>
+  <!-- here about -->
+</div>
 
 
 
