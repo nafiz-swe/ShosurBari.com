@@ -1,3 +1,16 @@
+
+<?php include_once("includes/basic_includes.php");?>
+<?php include_once("functions.php"); ?>
+<?php
+error_reporting(0);
+require_once("includes/dbconn.php");
+if (!isset($_SESSION['id'])) {
+  // Redirect the user to the login page or display an error message
+  header("location: login.php");
+  exit;
+}
+?>
+
 <!doctype html>
 <html class="no-js" lang="">
 

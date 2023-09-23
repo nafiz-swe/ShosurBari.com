@@ -4635,3 +4635,7826 @@ body.box-layout {
 /*----------------------------------------*/
 .mCS-light-1.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{ background-color: #00c292; }
 .mCS-light-1.mCSB_scrollTools .mCSB_draggerRail{ background-color: #ccc; }
+
+
+
+
+
+
+
+
+
+/* below main css */
+.header{
+	background:#999;
+	padding:2em 0;
+}
+
+::selection {
+    color: #fff;
+    background: #0aa4ca;
+}
+
+#progress-bar {
+    --progress: 0;
+    height: 6px;
+    width: var(--progress);
+    background-color: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    font-size: 45px;
+}
+
+ul, ol {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+button{
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+    /* background: linear-gradient(#0aa4ca, #0acef1); */
+    color: #fff;
+}
+
+.selectsearch{
+    color: black;
+}
+
+.grid_3 {
+    padding-top: 5em;
+    padding-right: 0px;
+    padding-bottom: 0em;
+    padding-left: 0px;
+    margin-bottom: 10px;
+}
+
+.breadcrumb1 {
+    margin-bottom:2em;
+}
+
+.breadcrumb1 ul{
+	padding:0;
+	margin:0;
+	list-style:none;
+}
+
+.breadcrumb1 li {
+    position: relative;
+    margin-right: 10px;
+    padding-right: 10px;
+    display: inline-block;
+    color:#000;
+    font-size:1em;
+}
+
+.breadcrumb1 li a {
+    display:inline-block;
+    color:#06b6d4;
+}
+
+.breadcrumb1 li a:hover{
+	color:#000;
+	text-decoration:none;
+}
+
+i.home_1{
+	color:#06b6d4;
+	font-size: 27px;
+}
+
+.current-page h4{
+    font-size: 23px;
+}
+
+span.divider {
+    padding: 0 5px;
+    color: #ccc;
+}
+
+/*Form Type Start*/
+form {
+    max-width: 1100px;
+    width: 100%;
+    /* margin-left: 0;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: 0px; */
+    margin: auto;
+    background: none;
+    /* background: url(../images/shosurbari-big-heart-gif.gif); */
+    /* background: url(https://bestanimations.com/media/many-hearts/260842010many-little-heart-make-big-heart-gif.gif); */
+    border-radius: 4px;
+}
+
+.input-group input[type="text"], select{
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    font-size: 16px;
+    padding:5px;
+    display: block;
+    width: 50%;
+    color: black;
+    outline: none;
+    height: 33px;
+    background-color: #fff;
+    background: linear-gradient(#fff 20%,#f6f6f6 50%,#eee 52%,#f4f4f4 100%);
+    background-clip: padding-box;
+    -webkit-box-shadow: 0 0 3px #fff inset, 0 1px 1px rgb(0 0 0 / 10%);
+    box-shadow: 0 0 3px #fff inset, 0 1px 1px rgb(0 0 0 / 10%);
+}
+
+.form-text-describe {
+    display: block;
+    width: 100%;
+    height: 100px;
+    padding: 6px 12px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: black;
+    background-color: #4cafe809;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+label{
+    display: inline-block;
+    margin-bottom: 2px;
+    font-weight: 700;
+    margin-top: 2px;
+}
+
+.form-text-describe:focus{
+    border-color: #0aa4ca;
+    outline: 0;
+    box-shadow: none !important;
+}
+
+.form-text, .form-select, .form-textarea {
+    display: block;
+    width: 100%;
+    height: 38px;
+    padding: 6px 12px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: black;
+    background-color: #4cafe809;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.form-control:focus, .form-text:focus, .form-textarea:focus, .form-select:focus{
+    border-color: #0aa4ca;
+    outline: 0;
+    box-shadow: none !important;
+}
+
+select option:checked{
+    background: #06b6d4;
+    color: #fff;
+}
+
+.result-selected{
+    background: #06b6d4;
+    color: #fff;
+}
+
+.chosen-container{
+    display: block;
+    width: 50%;
+}
+
+.chosen-container-single .chosen-single {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding: 0 0 0 8px;
+    height: 35px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    background-color: #fff;
+    background: linear-gradient(#fff 20%,#f6f6f6 50%,#eee 52%,#f4f4f4 100%);
+    background-clip: padding-box;
+    -webkit-box-shadow: 0 0 3px #fff inset, 0 1px 1px rgb(0 0 0 / 10%);
+    box-shadow: 0 0 3px #fff inset, 0 1px 1px rgb(0 0 0 / 10%);
+    color: black;
+    text-decoration: none;
+    white-space: nowrap;
+    line-height: 33.333px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.input-group input[type="text"], select:hover{
+    color: black;
+}
+
+input.transparent{
+    background-color:#fff;
+    border: none;
+    outline: none;
+    font-size: 12px;
+    padding:5px;
+    color:#555;
+}
+
+.inline-block {
+    display: inline-block;
+    padding-right:5%;
+    color:#fff;
+}
+
+input#submit-btn {
+    background-color: rgba(255, 0, 0, 0);
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 0.85em;
+    padding: 6px 20px;
+    border: 1px solid #fff;
+}
+/*Form Type End*/
+
+
+/* FORM SUBMIT BUTTON START */
+.btn_1{
+    background: linear-gradient(#06b6d4, #0ea5e9);
+    border-radius: 4px;
+    width: 100%;
+    padding: 5px;
+    display: inline-block;
+    color: #fff;
+    text-transform: uppercase;
+    outline: none;
+    border: none;
+    margin: 0px;
+    font-size: 17px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn_1:hover {
+    background: linear-gradient(#0aa4ca, #0acef1);
+    color: #fff;
+}
+
+.form-actions p{
+    font-size: 14px;
+    color: black;
+}
+
+.form-actions a{
+    font-size: 15px;
+    color: black;
+    text-decoration: underline;
+    white-space: nowrap;
+}
+
+.form-actions a:hover{
+    background: none;
+    color: #0aa4ca;
+}
+/* FORM SUBMIT BUTTON END */
+
+
+/*For Remember Form Size with Media responsive START*/
+.mx-min-wd {
+    width: 400px;
+}
+
+.-wd-600 {
+    width: 350px;
+}
+
+.-wd-480 {
+    width: 300px;
+}
+
+.-wd-384 {
+    width: 270px;
+}
+
+.-wd-320 {
+    width: 263px;
+}
+/*For Remember Form Size with Media responsive END*/
+/*Form Type End*/
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                    E   N   D                  --
+--     SHOSUR BARI SOME OPTION USED ALL PAGE     --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                S  T  A  R  T                  --
+--   SHOSUR BARI WIDTH SCREEN  NAVIGATION BAR    --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+.navigation {
+    float: left;
+    margin-right: 3%;
+    margin-top: 10px;
+}
+
+.navbar-inner_1 {
+    padding: 0px 0px;
+    background: linear-gradient(#06b6d4, #0ea5e9);
+    border: none;
+    font-size: 0.85em;
+    box-shadow: none; /* Initially set box shadow to none */
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: box-shadow 0.3s; /* Add transition for smooth effect */
+}
+
+.navbar-header.nav_2 {
+    display: none;
+}
+
+.navbar-default {
+    background-color:#f1b458 !important;
+    border-color:#f1b458;
+    border-radius: 0px;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #fff;
+    font-weight: 300;
+}
+
+.navbar-default .navbar-nav > li > a span{
+	display:block;
+	border: none;
+}
+
+.navbar {
+    min-height: 0%;
+    margin-bottom:0;
+    border: 2px; 
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+}
+
+.navbar-nav { /*Include UserHome Page*/
+    margin:0;
+    float:right;
+}
+
+.navbar-brand {
+    height: 100%;
+    padding: 0;
+    margin: 20px 0 0 0;
+    padding-left: 15px;
+    font-size: 45px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 500;
+}
+
+.navbar-default .navbar-brand {
+    color: #fff;
+}
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+    color: #fff;
+    background-color: transparent;
+}
+
+.navbar-nav > li > a {
+    padding: 10px 15px;
+    text-align: center;
+    color: #fff;
+    font-weight: 450;
+    font-size:17px;
+}
+
+.dropdown-menu.columns-2 {
+    min-width: 400px;
+} 
+
+.dropdown-menu.columns-3 {
+    min-width:550px;
+}
+
+.multi-column-dropdown {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.multi-column-dropdown li a {
+    display: block;
+    clear: both;
+    line-height: 1.428571429;
+    color: #333;
+    white-space: normal;
+}
+
+.multi-column-dropdown li a:hover {
+    text-decoration: none;
+    color: #262626;
+    background-color: #f5f5f5;
+}
+
+.dropdown-menu li a {
+    padding: 5px 15px;
+    font-weight: 410;
+    font-size:14px;
+}
+
+.dropdown-menu {
+    right: 0 !important;
+    left:inherit;
+}   
+
+.nav_bottom{
+	background:none;
+}
+
+.nav-tabs > li > a, 
+.nav-tabs > li > a:hover, 
+.nav-tabs > li > a:focus, 
+.nav-tabs > li.active > a, 
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+    border: none;
+    border-radius: 0;
+    color: #fff;
+}
+
+.nav-list { border-bottom: 1px solid #eee; }
+.nav-list > li { 
+    padding:20px 15px 15px;
+    border-left: 1px solid #eee; 
+    margin-right: 0 !important;
+}
+
+.nav-list > li:last-child { border-right: 1px solid #eee; }
+.nav-list > li > a:hover { text-decoration: none; }
+.nav-list > li > a > span {
+    display: block;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.mega-dropdown { position: static !important; }
+.mega-dropdown-menu {
+    padding: 20px 15px 15px;
+    text-align: center;
+    width: 100%;
+}
+
+ul.nav_1{  /*Include UserHome Page*/
+	float:none;
+	margin: 0px 0 0 0;
+}
+
+ul.nav_1 li{
+	margin:1px;
+}
+
+.dropdown-menu{
+    background: linear-gradient(#06b6d4, #0ea5e9);
+}
+
+.dropdown-menu li a:hover{
+    background: linear-gradient(#0aa4ca, #0acef1);
+    color: #fff;
+}
+
+ul.nav_1 li a{
+    color:#fff;
+}
+
+.dropdown-menu>li>a {
+    color: white;
+}
+
+ul.nav_1 li.last{
+	margin-right:0;
+}
+
+.nav .open>a, .nav .open>a:hover, .nav .open>a:focus, .nav>li>a:hover, .nav>li>a:focus{
+    border-radius:  3px;
+    background: linear-gradient(#0aa4ca, #0acef1) !important;
+    color: #fff;
+    transform: scale(1); /*When Hover Navbar Item Zoom in Animation*/
+}
+
+.login-navbar-img .img-responsive {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    margin: -8px;
+}
+
+.login-navbar-icon a{
+    margin: 2px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+
+.login-navbar-icon a i{
+    font-size: 18px;
+    margin-left: -5px;
+}
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                   E   N   D                   --
+--   SHOSUR BARI WIDTH SCREEN  NAVIGATION BAR    --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                S  T  A  R  T                  --
+--      SHOSUR BARI MOBILE NAV / MENU BAR        --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+ul.nav_1{
+    font-size: 20px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.collapse_userprofile{  /*Include UserHome Page*/
+    margin: auto;
+    width: auto;
+}
+
+.UserProfile {
+    width: 100%;
+    margin: auto;
+}
+
+.navigationpro{  /*Include UserHome Page*/
+    width: 100%;
+}
+
+.navigationpro ul{
+    background: #fff;
+    width: 663px;
+    padding: 5px;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 5px 10px 0px #aaa;
+    margin: auto 0px auto auto;
+}
+
+.navigationpro ul li{
+    background: #06b6d4;
+    border: 1px solid #ccc;
+    margin: 5px;
+    text-align: center;
+    border-radius:2px;
+}
+
+.navigationpro .dropdown{
+    background: #06b6d4;
+    border: 1px solid #ccc;
+    margin: 5px;
+    text-align: center;
+    border-radius: 2px;
+}
+
+.navigationpro .navbar-nav>li>.dropdown-menu{
+    border-radius: 2px;
+    width: auto;
+}
+
+
+/*Menu Bar Menu Icon Start*/
+.bar1, .bar2, .bar3 {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.change .bar1 {
+    transform: translate(0, 11px) rotate(-45deg);
+    color: red;
+}
+
+.change .bar2 {
+    opacity: 0;
+}
+
+.change .bar3 {
+    transform: translate(0, -11px) rotate(45deg);
+    color: red;
+}
+
+.navbar-brand{
+    height: 100%;
+    padding: 0;
+    margin: 10px 0 0 0;
+    padding-left: 15px;
+    font-size: 45px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 500;
+    font-size: 17px;
+    color: #fff;
+}
+/*Menu Bar Menu Icon End*/
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                   E   N   D                   --
+--      SHOSUR BARI MOBILE NAV / MENU BAR        --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--              S  T  A  R  T                    --
+--         SHOSUR BARI - FOOTER SECTION          --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+.shosurbari-copy-right {
+    vertical-align: middle;
+}
+  
+.shosurbari-copy-right p {
+    display: inline;
+    padding-right: 10px; /* Add some spacing between the text and the image */
+}
+  
+.shosurbari-payment {
+    vertical-align: middle;
+    margin-bottom: -15px;
+}
+  
+.brn-payment {
+    width: 230px;
+    height: auto;
+}
+  
+.footer {
+    /* Add any necessary styles for the footer container here */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background: linear-gradient(#06b6d4, #0ea5e9);
+    padding: 1em 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 100px;
+}
+  
+.shosurbari-copy-right,
+.shosurbari-payment {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.shosurbari-copy-right p {
+    margin: 0;
+}
+
+.col_2 {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    padding: 25px;
+    padding-right: 0px;
+}
+
+.col_2 h4 {
+	color: #fff;
+	font-size:1.3em;
+	margin-bottom:1em;
+    text-align: right;
+}
+
+.col_2 p {
+    color: white;
+	font-size:14px;
+	line-height:1.8em;
+    text-align: justify;
+}
+
+ul.footer_links {
+	padding:0;
+	margin:0;
+	list-style:none;
+    text-align: center;
+}
+
+ul.footer_links li{
+	font-size:14px;
+	line-height:1.8em;
+    text-align: right;
+}
+
+ul.footer_links li a{
+    color: white;
+    transition: transform 0.3s;
+}
+
+ul.footer_links li a:hover{
+    padding: 4px;
+    text-decoration: underline;
+    color: #000;
+    transform: scale(1.1);
+}
+
+ul.footer_social {
+    padding: 0;
+    margin: 0 0 1em;
+    list-style: none;
+    text-align: right;
+}
+
+ul.footer_social li {
+    display: inline-block;
+    text-align: center;
+}
+
+i.fa1 {
+    background:#fff;
+    width: 26px;
+    height: 26px;
+    color: #06b6d4;
+    line-height: 26px;
+    border-radius: 4px;
+    transition: transform .3s;
+    margin: 3px;
+}
+
+i.fa1:hover {
+    background: linear-gradient(#0aa4ca, #0acef1);
+    color: #fff;
+    transform: scale(1.4);
+}
+
+.shosurbari-copy-right{
+	margin:3em 0 0 0;
+	text-align:center;
+    border-top: 1.5px solid #ccc;
+    padding-top: 20px;
+}
+
+.shosurbari-copy-right p{
+	color:#fff;
+    font-size: 13px;
+}
+
+.shosurbari-copy-right p img{
+    animation: backgroundAnimationDeveloped 10s linear infinite;
+    font-size: 15px;
+    transition: transform 0.4s;
+    padding: 2px;
+}
+
+@keyframes backgroundAnimationDeveloped {
+    0% {
+    background: green;
+    }
+
+    14.28% {
+        background: blue;
+    }
+
+    28.56% {
+        background: red;
+    }
+
+    42.84% {
+        background: #fdf4ff;
+    }
+
+    57.12% {
+        background: blue;
+    }
+
+    71.4% {
+        background:  red;
+    }
+
+    85.68% {
+        background: #fdf4ff;
+    }
+
+    100% {
+        background: green;
+    }
+}
+
+.shosurbari-copy-right p img:hover{
+	text-decoration:none;
+    padding: 2px;
+    border-radius: 3px;
+    background: linear-gradient(#0aa4ca, #0acef1);
+    color: #fff;
+    transform: scale(1.5);
+}
+
+#scroll-up-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    padding: 7px 14px;
+    background:  linear-gradient(#06b6d4, #0ea5e9);
+    color: #fff;
+    border-radius: 2px;
+    transition: transform 0.3s;
+}
+
+#scroll-up-btn:hover {
+    padding: 7px 14px;
+    border-radius: 3px;
+    background: linear-gradient(#0aa4ca, #0acef1);
+    color: #fff;
+    transform: scale(1.1);
+}
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                   E   N   D                   --
+--         SHOSUR BARI - FOOTER SECTION          --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                  S  T  A  R  T                --
+--           SHOSUR BARI   - HOME PAGE           --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/*Banner Section Start*/
+
+/*Banner Message/Info Start*/
+.banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    width: 1170px;
+    height: 95vh;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    /* background: linear-gradient(#0ea5e9, #06d2d4); */
+    margin: auto;
+}
+
+section {
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+    margin-top: 10px;
+    height: 95vh;
+    position: relative; /* Add relative positioning */
+    background-image: url(../images/shosurbari-home.png); /* Background image */
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00bbff61; 
+    z-index: 1; 
+}
+
+
+.shosurbari-title{
+    border: 1px solid;
+    border-radius: 10px;
+    animation: colorAnimation 10s linear infinite;
+    padding: 25px;
+    width: 650px;
+    margin:auto;
+    background: linear-gradient(#06b6d4, #0ea5e9);
+    backdrop-filter: blur(3px);
+    color: #fff;
+}
+
+.shosurbari-title h4 {
+    font-size: 25px;
+    font-family: 'AdorshoLipi';
+    text-align: center;
+    margin: auto;
+    line-height: 45px;
+}
+
+
+@keyframes colorAnimation {
+    0% {
+    border-color: #3EA055;
+    }
+
+    25% {
+    border-color: orange;
+    }
+
+    50% {
+    border-color: green;
+    }
+
+    75% {
+    border-color: #43C6DB;
+    }
+
+    100% {
+    border-color: #3EA055;
+    }
+}
+
+@keyframes slideLeft {
+    0% {
+    transform: translateX(100%);
+    color: red;
+    }
+    
+    33.33% {
+    transform: translateX(0%);
+    color: green;
+    }
+}
+/*Banner Message/Info End*/
+
+
+/*Banner Register Button Start*/
+.sb-home-reg  {
+    margin: auto;
+    text-align: center;
+}
+/*Banner Register Button End*/
+
+
+/*Banner Clock  Start*/
+.clock {
+    text-align:center;
+    border-left: 3px solid #06b6d4;
+    background-color: transparent;
+    margin-top: -375px;
+    margin-left: auto;
+    margin-right: 15px;
+    width: 200px;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.clock h4{
+    font-size: 22px;
+    color: #06b6d4;
+    padding-left: 10px;
+    display: inline-flex;
+}
+
+.clock p{
+    font-size: 15px;
+    color: #000;
+    padding-left: 10px;
+    display: inline-flex;
+    font-weight: 500;
+}
+
+.clock a{
+    font-size: 14px;
+    color: #000;
+    padding-left: 5px;
+    text-decoration: none;
+}
+/*Banner Clock  End*/
+/*Banner Section End*/
+
+
+/*Body Section Start*/
+/*Home Search Option Start*/
+.sb-search-btn-banner{
+    position: absolute;
+    top: 450px;
+    left: 350px;
+    z-index: 1;
+    padding: 20px;
+}
+
+.sb-home-reg2 button {
+    background: linear-gradient(#06b6d4, #0ea5e9);
+    padding: 10px;
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 20px;
+    width: 222px;
+    transition: transform 0.3s;
+}
+
+
+.sb-home-reg2 button:hover, .sb-search-btn-banner button:hover{
+    background: linear-gradient(#0aa4ca, #0acef1);
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.sb-search-btn2 button:hover {
+    background: linear-gradient(#0aa4ca, #0acef1);
+    color: #fff;
+    transform: scale(1.1);
+    border: 1px solid #0acef1;
+}
+
+.sb-search-page {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: auto;
+    padding-bottom: 30px;
+    margin: 0px auto;
+}
+
+.sb-search-logo img{
+   width: 40%;
+   height: 40%;
+   right: 0;
+}
+  
+.sb-search-page .sb-search-btn2 {
+    margin-left: auto;
+    margin-right: auto;
+    color: #fff;
+    text-align: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 0px;
+    border: 1px solid;
+    border-radius: 10px;
+    width: 375px;
+} 
+  
+.sb-search-page-notice h2 {
+    line-height: 58px;
+    margin: 150px auto 0px auto;
+    padding-top: 50px;
+    padding-left: 25px;
+    padding-right: 25px;
+    text-align: center;
+    background: linear-gradient(180deg,#F3F9F9 0%,rgba(238,246,253,0) 100%);
+}
+  
+.sb-search-options,
+.sb-search-logo {
+    flex-basis: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.sb-search-logo-btn{
+    display: flex;
+    margin: auto;
+}
+
+.sb-search-btn2 p{
+    color: #fff;
+    margin: 20px auto;
+    font-size: 25px;
+}
+
+.sb-search-btn2, .sb-search-btn-banner button {
+    background: linear-gradient(#06b6d4, #0ea5e9);
+    padding: 10px;
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 20px;
+    width: 222px;
+    transition: transform 0.3s;
+}
+
+.sb-search-btn2 button {
+    background: #fff;
+    padding: 10px;
+    margin-bottom: 30px;
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    color: #0ea5e9;
+    font-size: 20px;
+    width: 222px;
+    transition: transform 0.3s;
+}
+
+.sb-body-message {
+    text-align: center;
+    margin: auto;
+    max-width: auto; /* Optional: Set a max width to control text width */
+}
+
+.sb-home-reg2 {
+    position: absolute;
+    top: 450px;
+    left: 0px;
+    z-index: 1;
+    padding: 20px;
+    /* background-color: rgba(255, 255, 255, 0.8); Add a background color for better visibility */
+}
+
+@keyframes textAnimation {
+    0% {
+    color: red;
+    }
+
+    14.28% {
+    color: green;
+    }
+
+    28.56% {
+    color: #06b6d4;
+    }
+
+    42.84% {
+    color: orange;
+    }
+
+    57.12% {
+    color: blue;
+    }
+
+    71.4% {
+    color:  Maroon;
+    }
+
+    85.68% {
+    color: #0aa4ca;
+    }
+
+    100% {
+    color: red;
+    }
+}
+/*Home Search Option End*/
+
+
+/*Shosur Bari Heart Divider Start*/
+.sbhome-heart-divider {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.heart-divider {
+    height: 100%;
+    width: 100%;
+    margin-top: 100px;
+    margin-bottom: 80px;
+    text-align: center;
+    margin-left: 248px;
+}
+
+.grey-line {
+    width: 30px;
+    height: 8px;
+    display: inline-block;
+    border-top: solid 2px #e1dddd;
+}
+
+.pink-heart {
+    color:#06b6d4;
+    font-size: 18px;
+    position: relative;
+    z-index: 3;
+}
+
+.grey-heart {
+    color: #e1dddd;
+    font-size: 18px;
+    margin-left: -15px;
+    position: relative;
+    z-index: 2;
+}
+
+.grey-line {
+    width: 30px;
+    height: 8px;
+    display: inline-block;
+    border-top: solid 2px #e1dddd;
+}
+/*Shosur Bari Heart Divider End */
+
+
+/*Home Featured Profiles Start*/
+.sb-featured-profiles {
+    width: 100%;
+    margin: 150px auto 0px auto;
+    /* background: repeating-linear-gradient(45deg, #00bbff22 , transparent 30px),
+    repeating-linear-gradient(-45deg, #00bbff22 , transparent 30px); */
+    padding-bottom: 35px;
+    background: linear-gradient(180deg,#F3F9F9 0%,rgba(238,246,253,0) 100%);
+    padding-top: 50px;
+}
+
+.sb_newbiodata{
+    width: 80%;
+}
+
+.sb_featured_profile_head{
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 90%;
+    gap: 1.5rem;
+    padding: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    margin-top: 30px;
+    background: white;
+    transition: transform .2s;
+}
+
+.sb_featured_profile_head h3{
+    margin-bottom: auto;
+    margin-top: 30px;
+}
+
+.sb_featured_profile_head:hover{
+    background: #ecfeff;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    transform: scale(1.03); 
+}
+
+.sb_featured_profile_head img{
+    width: 75px;
+    height: 70px;
+    border-radius: 50%;
+    padding: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: 0px;
+    border: 2px solid #fff;
+}
+
+#flexiselDemo3{
+    left: 0px;
+}
+
+.nbs-flexisel-ul{
+    width: 80%;
+}
+
+
+.nbs-flexisel-item:first-child{
+	margin-left:0px;
+}
+
+.nbs-flexisel-item > img {
+	cursor: pointer;
+	position: relative;
+    height: 170px;
+    width: 160px;
+}
+
+.nbs-flexisel-ul {
+	position: relative;
+	width: 9999px;
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+	text-align: center;
+}
+
+.nbs-flexisel-inner {
+	overflow: hidden;
+	margin: 0 auto;
+	width:100%;
+}
+
+.sb_newbiodata li{
+    width: 33%;
+}
+
+.nbs-flexisel-nav-left, .nbs-flexisel-nav-right {
+    position: absolute;
+	cursor: pointer;
+	z-index: 100;
+	margin-top:0px;
+}
+
+.nbs-flexisel-nav-left{
+	left: -20px;
+}
+
+.nbs-flexisel-nav-left:after{
+	text-shadow: none;
+    -webkit-font-smoothing: antialiased;
+    font-family: 'fontawesome';
+    --speak: none;
+    font-weight: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-transform: none;
+    -moz-transition: 0.4s;
+    -o-transition: 0.4s;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    color:#06b6d4;
+    content: "\f104";
+    display: inline-block;
+    font-size: 50px;
+    top:-40px;
+}
+
+.nbs-flexisel-nav-right {
+	right: -20px;
+}
+
+.nbs-flexisel-nav-right:after{
+	text-shadow: none;
+    -webkit-font-smoothing: antialiased;
+    font-family: 'fontawesome';
+    --speak: none;
+    font-weight: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-transform: none;
+    -moz-transition: 0.4s;
+    -o-transition: 0.4s;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    color:#06b6d4;
+    content: "\f105";
+    display: inline-block;
+    font-size: 50px;
+    top:-40px;
+}
+
+ul#flexiselDemo3 h3{
+    font-size:12px;
+    line-height:1.8em;
+    margin: 10px;
+    border-style: double;
+    padding: 5px;
+}
+
+ul#flexiselDemo3 h3 a{
+	color:#000;
+}
+
+ul#flexiselDemo3 h3 a:hover{
+    color:#06b6d4;
+}
+/*Home Featured Profiles End*/
+
+
+.grid_1 h1, .grid_2 h2{
+	text-align: center;
+    font-family: 'Oswald', sans-serif;
+    color: #000;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+span.m_3{
+	color:#0aa4ca;
+    font-size: 14px;
+}
+
+.row_1-right h3{
+	margin-bottom:1.5em;
+	font-size:1.5em;
+	color:#000;
+}
+
+.row_1{
+    padding-top: 0px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: #0aa4ca;
+    border-radius: 4px;
+    width: 65%;
+    margin-left: 34.5%;
+    box-shadow: 1px 3px 20px 0px;
+}
+
+.banner-content {
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.english-text {
+    font-size: 18px; 
+    color: #fff;
+  }
+
+.slide {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	opacity: 0;
+	transition: opacity 1s;
+	box-sizing: border-box;
+    padding: 2px;
+    /* background: #00bbff61; */
+}
+/* 
+.slide img {
+    width: 100%;
+    height: 100%;
+} */
+
+.slide.active {
+	opacity: 1;
+}
+
+.slide h1 {
+	font-size: clamp(3.5em, 5vmax, 3em);
+	position: absolute;
+	z-index: 1;
+	left: 0px;
+    top: 200px;
+    line-height: 80px;
+	width: 750px;
+	color: #e5007df0;
+	font-weight: 800;
+    text-align: left;
+    padding: 10px;
+    margin-bottom: 0px;
+    text-align: left;
+}
+
+.slide h5 {
+	font-size: 18px;
+	position: absolute;
+	z-index: 1;
+	top: 390px;
+	left: 0px;
+	width: 600px;
+    line-height: 25px;
+    color: #fff;
+    text-align: left;
+    margin-top: auto;
+    padding: 10px;
+}
+
+.slide-indicators {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 137px;
+	padding: 20px 40px;
+	display: none;
+}
+
+.slide-indicator {
+	height: 2px;
+	background: #ddd;
+	margin: 0 2px;
+	width: 20px;
+	transition: width 0.2s ease-out;
+}
+
+.slide-indicator.active {
+	background: linear-gradient(to right, #555 50%, #ddd 50%);
+	background-size: 200% 100%;
+	animation: slide linear infinite;
+	animation-duration: var(--duration);
+	width: 67px;
+}
+
+.shosurbari-body-notice{
+    background: linear-gradient(180deg,#F3F9F9 0%,rgba(238,246,253,0) 100%);
+    padding-top: 50px;
+    padding-bottom: 30px;
+    margin: 150px auto 15px auto;
+}
+
+#banner_text{
+    text-align: center;
+    padding: 50px 50px 15px 50px;
+    line-height: 60px;
+    margin-bottom: 15px;
+    margin-top: 150px;
+    background: linear-gradient(180deg,#F3F9F9 0%,rgba(238,246,253,0) 100%);
+}
+
+.shosurbari-about {
+    text-align: center;
+    margin-top: 150px;
+    margin-bottom: 0px;
+    background: linear-gradient(180deg,#F3F9F9 0%,rgba(238,246,253,0) 100%);
+    padding-top: 50px;
+}
+
+.shosurbari-user-info{
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 90%;
+    margin-top: 50px;
+    margin-bottom: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+/*Body Section End*/
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                   E   N   D                   --
+--           SHOSUR BARI   - HOME PAGE           --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                  S  T  A  R  T                --
+--  SHOSUR BARI - USER PROFILE PAGE / VIEW BIO   --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/*Profile Short Heading Start*/
+.profile-header {
+    background: linear-gradient(180deg, #00bbff61 0%,rgba(238,246,253,0) 100%);
+    display: flex;
+    height: 140px;
+    position: relative;
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2); 
+    margin-top: 22px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.biodatanumber_head table {
+    max-width: 100%;
+    margin: auto;
+}
+
+.profile-img {
+    float: left;
+    min-width: 36%;
+    height: 200px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.profile-img img {
+    height: 168px;
+    width: 168px;
+    object-fit: cover;
+    border: 4px solid #fff;
+    position: relative;
+    top: 35px;
+    z-index: 5;
+    background: rgb(245, 242, 242);
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+    display: block;
+}
+
+.profile-nav-info {
+    float: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 0px;
+    width: 24.66%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.see_sb_biodata{
+    float: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 0px;
+    width: auto;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.nav-tabs1 {
+    display: inline-block;
+    border-bottom: none;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 500;
+    background: linear-gradient(#06b6d4, #0ea5e9);
+    width: auto;
+    padding: 0px;
+    margin: auto;
+    white-space: nowrap;
+}
+
+.nav-tabs1>li.active>a, .nav-tabs1>li.active>a:focus, .nav-tabs1>li.active>a:hover {
+    background:#fff;
+    border:none;
+    border-radius: 3px;
+    margin: 5px;
+}
+
+.nav-tabs1>li.active>a {
+    color: #000;
+}
+
+.nav-tabs1 .open>a, .nav-tabs1 .open>a:hover, .nav-tabs1 .open>a:focus, .nav-tabs1>li>a:hover, .nav-tabs1>li>a:focus {
+    background:#fff !important;
+    border-color:#06b6d4;
+    color: #000 !important;
+    margin: 5px;
+}
+
+.nav-tabs1>li{
+	margin-bottom:0;
+}
+
+.profile-nav-info h3 {
+    font-variant: small-caps;
+    font-size: 2rem;
+    text-align: left;
+    font-family: sans-serif;
+    font-weight: bold;
+    animation: textAnimation 10s linear infinite;
+}
+
+.profile-nav-info .address {
+    display: flex;
+    font-weight: bold;
+    color: #777;
+}
+  
+.profile-nav-info .address p {
+    margin-right: 5px;
+}
+
+.left-side{
+    width: 36%;
+    border-radius: 4px;
+}
+  
+.right-side {
+    width: 62%;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: 0;
+}
+  
+.separate_biodata_sector{
+    float: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 0px;
+    width: 100%;
+}
+  
+.biodatavalue_list {
+    width: 100%;
+    margin-top: 25px;
+    background: #fff;
+    border-radius: 4px;
+    padding: 3px;
+    border-top: 3px solid #06b6d4;
+    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+  
+.biodatavalue_list h3{
+    font-size: 1.5em;
+    text-align: center;
+    background: #fff;
+    margin-bottom: 0px;
+    padding: 10px;
+    border-radius: 4px 4px 0px 0px;
+    border-top: 1px #ccc;
+    border-bottom: 0px;
+    border-left: 1px #ccc;
+    border-right: 1px #ccc;
+    border-style: groove;
+    animation: textAnimation 10s linear infinite;
+}
+  
+.biodata_value_data{
+    width: 100%;
+}
+  
+.main-bd {
+    width: 90%;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.biodatanumber_head{
+	width: 100%;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+.profile-side {
+  	width: 100%;
+  	padding: 90px 3px 10px 3px;
+	font-family: "Bree Serif", serif;
+  	z-index: 99;
+    background: linear-gradient(0deg, #00bbff61 0%,rgba(238,246,253,0) 100%);
+    margin-left: auto;
+    margin-right: auto;
+	border-top:0px solid #ccc;
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+	border-left:1px solid #ccc;
+}
+
+.profile-side p {
+    margin-bottom: 7px;
+    color: #333;
+    font-size: 14px;
+}
+
+.profile-side p i {
+    color: #e40046;
+    margin-right: 10px;
+}
+
+.mobile-no i {
+    transform: rotateY(180deg);
+    color: #e40046;
+}
+
+#copy-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    background: #c5ffc5;
+    border: 1px solid green;
+    border-radius: 4px;
+    color: green;
+    font-size: 1rem;
+    opacity: 0;
+    display: none;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+#copy-message.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.contact-bio,
+.copy-sbbio-link {
+    padding: 0px;
+    width: 50%;
+    border-radius: 4px;
+    color: #fff;
+    font-family: "Bree Serif";
+    font-size: 1rem;
+    margin: 2px 15px;
+    cursor: pointer;
+    outline: none;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    transition:  0.3s ease-in-out;
+    box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.3);
+}
+
+.profile-btn2{
+	margin-top: 30px;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.profile-btn {
+  display: flex;
+  white-space: nowrap;
+  width: 100%;
+  margin: auto;
+}
+
+button.chatbtn{
+	width: 100%;
+	color: #fff;
+    border: 1px solid #ccc;
+    padding: 6px;
+    border-radius: 4px;
+    background: linear-gradient(#06b6d4, #0ea5e9);
+    cursor: pointer;
+    position: relative;
+    transition: all .2s ease;
+	white-space: nowrap;
+}
+
+button.copylink {
+	width: 100%;
+	color: #fff;
+    border: 1px solid #ccc;
+    padding: 6px;
+    border-radius: 4px;
+    background: linear-gradient(#06b6d4, #0ea5e9);
+    cursor: pointer;
+    position: relative;
+    transition: all .2s ease;
+    white-space: nowrap;
+}
+
+button.copylink:hover {
+    background: linear-gradient(#0aa4ca, #0acef1);
+	color: #fff;
+}
+
+button.chatbtn:hover {
+    background: linear-gradient(#0aa4ca, #0acef1);
+	color: #fff;
+}
+
+button.chatbtn i,
+button.copylink i {
+	margin-right: 5px;
+}
+
+.short_biodata_value{
+    border-radius: 5px;
+}
+
+.short_biodata_value tbody tr{
+    border-radius: 5px;
+}
+
+.short_biodata_value tbody tr td{
+    border-radius: 5px;
+    text-align: left;
+    width: 30%;
+}
+/*Profile Short Heading End*/
+
+
+/*Recent View Profile List Start*/
+.sbbiodata_profile_recentview {
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+    margin-top: 80px;
+    margin-bottom: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0px;
+}
+
+.sbbiodata_profile_recentview h3{
+    text-align: center;
+    width: 100%;
+    font-size: 27px;
+}
+
+.biodatarecent_viewlist{
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 47%;
+    gap: 1.5rem;
+    padding: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: 30px;
+    background: white;
+    transition: transform .2s;
+}
+
+.biodatarecent_viewlist h3{
+    margin-bottom: auto;
+    margin-top: 30px;
+}
+
+.biodatarecent_viewlist:hover{
+    background: #00bbff11;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    transform: scale(1.03); 
+}
+
+.biodatarecent_viewlist img{
+    width: 75px;
+    height: 70px;
+    border-radius: 50%;
+    padding: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: 0px;
+    border: 2px solid #fff;
+}
+
+.sbbio_header_recent_view{
+    background: linear-gradient(#06b6d4, #0ea5e9);
+    margin: 0px;
+    padding-top: 5px;
+    border-bottom: 1px solid #ccc;
+    border-radius: 6px 6px 100% 0% / 5px 5px 50% 100%;
+}
+
+.sbbio_number_recentview{
+    text-align: center;
+    padding: 2px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    margin-top: 2px;
+}
+
+.sb_biodatanumber_recentview{
+    font-size: 17px;
+    color: #fff;
+    font-weight: 500;
+    line-height: 22px;;
+}
+
+.sb_user_recentview{
+    text-align: center;
+    padding: 2px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.sb_single_data_recentview{
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.sb_user_recentview .sb_single_data_recentview{
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.sb_user_recentview .sb_value_recentview{
+    color: black;
+    padding: 3px;
+    font-size: 13px;
+    font-weight: 400;
+    border: 1px solid #d5d5d5;
+    border-style: groove;
+    width: 45%;
+    position: inherit;
+}
+
+.sb_user_recentview .sb_data_recentview{
+    color: black;
+    padding: 3px;
+    font-size: 13px;
+    font-weight: 400;
+    border: 1px solid #d5d5d5;
+    border-style: groove;
+    width: 55%;
+    position: inherit;
+}
+
+.view_sb_profile_recentview{
+    text-align: center;
+    border: 1px solid #d5d5d5;
+    padding: 4px;
+    margin-top: 5px;
+    margin-bottom: 3px;
+    border-radius: 5px;
+    background: linear-gradient(#06b6d4, #0ea5e9);
+    color: white;
+    width:100%;
+    font-size: 15px;
+}
+
+.view_sb_profile_recentview:hover{
+    background: linear-gradient(#0aa4ca, #0acef1);
+}
+
+.view_sb_profile_recentview a{
+    color: white;
+}
+/*Recent View Profile List End*/
+
+
+/*Contact Bio Bottom Info Start*/
+.contact-alert {
+    margin: auto;
+    padding: 0px;
+}
+    
+.contact-alert p {
+    margin-top: 0px;
+    text-align: center;
+    padding: 15px;
+    border: 1px solid #ccc;
+}
+    
+.contact-alert h4{
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+/*Contact Bio Bottom Info End*/
+
+
+/*Biodata Table Form / Data show Start*/
+td.day_label {
+    color: #000000;
+    padding: 8px;
+    font-weight: 450;
+    border: 1px #ccc;
+    border-style: groove;
+    width: 45%;
+    position: inherit;
+}
+
+td.day_value {
+    color: black;
+    padding: 8px;
+    font-weight: 400;
+    border: 1px #ccc;
+    border-style: groove;
+    width: 55%;
+}
+/*Biodata Table Form / Data show End*/
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                   E   N   D                   --
+--  SHOSUR BARI - USER PROFILE PAGE / VIEW BIO   --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                  S  T  A  R  T                --
+--            SHOSUR BARI - ABOUT PAGE           --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+.shosurbari-about-contact {
+    width: 90%;
+    margin: 10px auto;
+}
+
+.shosurbari-details {
+    width: 100%;
+    margin: -10px auto;
+    padding: 10px
+}
+
+.shosurbari-details h1 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.shosurbari-details h2,
+.shosurbari-details h3,
+.shosurbari-details h4 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    font-size: 30px;
+}
+
+.shosurbari-details p {
+    margin: 15px auto 30px auto;
+    font-size: 16px;
+    text-align: justify;
+}
+
+
+/*Our Team Start*/
+.about_middle{
+    padding: 0 25px;
+    margin-top: 150px;
+}
+
+.about_middle h2{
+	text-align: center;
+    color: black;
+    font-size:2.5em;
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 1em;
+}
+
+.testi_grid:nth-child(2n+1) {
+    margin-left: 0;
+}
+
+.testi_grid {
+    padding: 0;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.testi_grid {
+    overflow: hidden;
+    background: none;
+}
+
+.testi_grid:nth-child(2n+1) .testi_grid_blockquote {
+    text-align: right;
+}
+
+.testi_grid .testi_grid_blockquote {
+    background: none;
+    padding: 15px;
+    border-radius: 0;
+}
+
+.testi_grid blockquote {
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 30px;
+    border: none;
+    background: #dbdbdb;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    background-clip: padding-box;
+}
+
+.testi_grid:nth-child(2n+1) .testi_grid_blockquote .featured-thumbnail {
+    float: right;
+    margin: 0 0 0 30px;
+}
+
+.testi_grid .testi_grid_blockquote .featured-thumbnail {
+    margin: 0 30px 0 0;
+    width: 127px;
+    height: 127px;
+    overflow: visible;
+    position: relative;
+}
+
+.testi_grid .featured-thumbnail {
+    position: relative;
+    z-index: 2;
+    margin: 0 20px 0 10px;
+    width: 60px;
+    height: 60px;
+}
+
+.testi_grid .testi_grid_blockquote > div {
+    background: linear-gradient(#06b6d4, #0ea5e9);
+    padding: 20px 30px;
+    overflow: hidden;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    position: relative;
+}
+
+.testi_grid:nth-child(2n+1) .testi_grid_blockquote > div:before {
+    left: 0;
+}
+
+.testi_grid:hover .testi_grid_blockquote > div:before {
+    width: 100%;
+}
+
+.testi_grid:hover .testi_grid_blockquote > div p,
+.testi_grid:hover .testi_grid_blockquote > div h3,
+.testi_grid:hover .testi_grid_blockquote > div h4{
+    color: #323232;
+}
+
+.testi_grid .testi_grid_blockquote > div:before {
+    content: '';
+    width: 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: auto;
+    right: 0;
+    background: #ecfeff;
+    border: 1px solid #cffafe;
+    z-index: 10;
+    transition: all 0.3s ease 0s;
+}
+
+.testi_grid .testi_grid_blockquote > div p{
+    color: #fff;
+    position: relative;
+    z-index: 100;
+    font-size: 16px;
+    list-style: none;
+}
+
+.testi_grid .testi_grid_blockquote > div h3{
+    color: #fff;
+    position: relative;
+    z-index: 100;
+    font-size: 20px;
+    list-style: none;
+}
+
+.testi_grid .testi_grid_blockquote > div h4 {
+    color: #fff;
+    position: relative;
+    z-index: 100;
+    font-size: 16px;
+    font-weight: 500;
+    list-style: none;
+}
+
+.testi_grid:nth-child(2n+1) .testi_grid_blockquote .featured-thumbnail:before {
+    border-width: 17px 17px 0 0;
+    border-color: #06b6d4 transparent transparent transparent;
+    left: -30px;
+}
+
+.testi_grid .testi_grid_blockquote .featured-thumbnail:before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 17px 17px 0;
+    border-color: transparent #06b6d4 transparent transparent;
+    position: absolute;
+    top: 50%;
+    right: -30px;
+    margin-top: -5px;
+    z-index: 100;
+    transition: all 0.3s ease 0s;
+}
+
+.testi_grid:nth-child(2n+1):hover .testi_grid_blockquote .featured-thumbnail:before {
+    border-width: 17px 25px 0 0;
+    border-color: #ecfeff transparent transparent transparent;
+}
+
+.testi_grid:hover .testi_grid_blockquote .featured-thumbnail:before {
+    border-width: 0 25px 17px 0;
+    border-color: transparent #ecfeff transparent transparent;
+}
+
+.testi_grid:nth-child(2n+1) .testi-meta {
+    padding: 15px 157px 0 0;
+    text-align: right;
+    color: #fff;
+}
+
+.testi-meta1{
+    padding: 15px 320px 0 0;
+    text-align: right;
+    color: #fff;
+}
+
+.testi_grid .testi_grid_blockquote .featured-thumbnail img {
+    border-radius:50%;
+    overflow: hidden;
+}
+
+figure.featured-thumbnail {
+    float: left;
+}
+
+small.testi-meta {
+    float: right;
+}
+
+small.testi-meta1{
+    float: right;
+}
+
+.about_middle-grid1 {
+    margin-bottom: 3em;
+}
+/*Our Team End*/
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                   E   N   D                   --
+--            SHOSUR BARI - ABOUT PAGE           --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                  S  T  A  R  T                --
+--           SHOSUR BARI - CONTACT US PAGE       --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/*About Page & Contact Page used same class / Follow About Page*/
+
+
+/*PopUp Message For All PopUp Start*/
+.popup-message {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #c5ffc5;
+    border: 1px solid green;
+    border-radius: 4px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+}
+  
+.popup-message h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #04aa6d;
+    font-size: 24px;
+}
+  
+.popup-message p {
+    margin: 0;
+    font-size: 18px;
+    text-align: center;
+    color: #000;
+}
+  
+.popup-message button.close-button {
+    display: block;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px 10px;
+    background-color: #06b6d4;
+    color: #fff;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+  
+.popup-message button.close-button:hover {
+    background: linear-gradient(#0aa4ca, #0acef1);
+    color: #fff;
+}
+  
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+}
+/*PopUp Message For All PopUp End*/
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                   E   N   D                   --
+--           SHOSUR BARI - CONTACT US PAGE       --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+
+
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                  S  T  A  R  T                --
+--      SHOSUR BARI - CONTACT BIODATA PAGE       --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/*Payment Form Start*/
+.payment-form {
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 400px;
+    gap: 1.5rem;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 2;
+}
+
+.payment-form .form-group {
+    margin-bottom: 10px;
+}
+
+.payment-form .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.payment-form .form-group input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+}
+
+.payment-form .form-group select {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+}
+
+.payment-form .payment-method {
+    display: none;
+}
+/*Payment Form End*/
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                   E   N   D                   --
+--           SHOSUR BARI - CONTACT US PAGE       --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                  S  T  A  R  T                --
+--      SHOSUR BARI - TERMS & CONDITION PAGE     --
+--      SHOSUR BARI - PRIVACY & POLICY  PAGE     --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+.shosurbari-trmcnd-prvplcy{
+    width: 90%;
+    margin: 10px auto;
+}
+
+.shosurbari-security {
+    width: 100%;
+    margin: -10px auto;
+    padding: 10px
+}
+
+.shosurbari-security h1 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.shosurbari-security h2,
+.shosurbari-security h3,
+.shosurbari-security h4,
+.shosurbari-security h5 {
+    margin-top: 50px;
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 25px;
+}
+
+.shosurbari-security  p {
+    margin: 15px auto;
+    font-size: 16px;
+    text-align: justify;
+}
+
+ol li{
+    list-style-type: upper-roman;
+}
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                   E   N   D                   --
+--      SHOSUR BARI - TERMS & CONDITION PAGE     --
+--      SHOSUR BARI - PRIVACY & POLICY  PAGE     --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                  S  T  A  R  T                --
+--  SHOSUR BARI - FREQUENTLY ASK QUESTION PAGE   --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+.shosurbari-faq {
+    width: 70%;
+    margin: 10px auto;
+}
+
+.shosurbari-faq h1{
+	color: #000;
+    font-family: 'Oswald', sans-serif;
+    margin-bottom:10px;
+}
+
+.shosurbari-faq p{
+	color: #555;
+    font-size: 16px;
+    line-height:1.8em;
+    margin-bottom: 50px;
+}
+
+.jb-accordion-content {
+    padding: 0px;
+}
+
+.jb-accordion-content p{
+	font-size: 16px;
+    line-height: 1.5em;
+    margin-bottom: 0;
+    margin-top: 0px;
+    border: 1px solid #cffafe;
+    background: #ecfeff;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.jb-accordion-wrapper {
+    margin-bottom: 0px;
+    margin-top: 20px;
+}
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                   E   N   D                   --
+--  SHOSUR BARI - FREQUENTLY ASK QUESTION PAGE   --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                  S  T  A  R  T                --
+--     SHOSUR BARI - USER ACCOUNT HOME PAGE      --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+.navigationpro {
+    display: flex;
+    margin: auto;
+    background: linear-gradient(180deg,#F3F9F9 0%,rgba(238,246,253,0) 100%);
+}
+
+.shosurbari-userhome-status{
+    padding: 20px 0px;
+    margin-top: -2px;
+    width:  213px;
+}
+
+.shosurbari-userhome-status h3,
+.shosurbari-userhome-status h4{
+  font-size: 17px;
+  font-weight: 450;
+}
+
+.shosurbari-userhome-status form{
+    margin-left: 0px;
+    width: 185px;
+    margin-top: -10px;
+}
+
+.shosurbari-userhome-status form button{
+    margin-top: 10px;
+    margin-left: 0px;
+    width: 185px;
+    padding: 7px;
+    background: transparent;
+    color: #000;
+    border: 2px solid #06b6d4;
+    border-radius: 2px;
+    font-size: 17px;
+    transition: 0.4s;
+}
+
+.shosurbari-userhome-status form button:hover{
+    background: linear-gradient(#0aa4ca, #0acef1);
+    color: #fff;
+    transform: scale(1.1);
+}
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                   E   N   D                   --
+--     SHOSUR BARI - USER ACCOUNT HOME PAGE      --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                  S  T  A  R  T                --
+--           SHOSUR BARI - REGISTER PAGE         --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+.sb-register-login{
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 400px;
+    gap: 1.5rem;
+    padding: 20px;
+    margin: 20px auto;
+    background: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Password Show Eye Icon Start */
+.form-group{
+    position: relative;
+}
+
+.form-group input {
+    padding-right: 25px;
+    background: #4cafe809;
+}
+
+.form-group .show-password {
+    position: absolute;
+    right: 10px;
+    padding: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form-group:hover .fa-eye {
+    color: #0aa4ca;
+}
+
+.form-group:hover .fa-eye:before {
+    content: 'Show Password';
+}
+/* Password Show Eye Icon END */
+
+
+/*Gender Option Start*/
+.sb-profile-gender{
+    text-overflow: ellipsis;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #06b6d4;
+    border-radius: 4px;
+}
+
+.gender-select-reg{
+    padding: 00px 10px;
+    display: flex;
+	align-items: center;
+	border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    background: #4cafe809;
+}
+
+.gender-select-reg .gender-option{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 20px;
+    margin-right: -50px;
+    width: 78%;
+}
+
+.gender-select-reg .gender-option input[type="radio"]{
+	display: none;
+}
+
+.gender-select-reg .gender-option label{
+    display: inline-block;
+    padding: 3px;
+    transition: all 0.3s;
+	font-weight: 500;
+    cursor: pointer;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-left: -27px;
+    margin-right: 19px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+    background: white;
+}
+    
+.gender-select-reg .gender-option label i{
+    font-size: 17px;
+}
+
+.gender-select-reg .gender-option input[type="radio"]:checked + label{
+    background: #0aa4ca;
+    border: 1px solid #ccc;
+    color: #fff;
+	border-radius: 3px
+}
+
+.gender-error{
+	display: block;
+    margin-top: 0px;
+    margin-bottom: 25px;
+}
+
+.error {
+	text-align:left;
+	margin-top: 3px;
+    border-radius: 4px;
+    color: red;
+    font-size: 15px;
+}
+
+.success {
+    border: 1px solid green;
+}
+/*Gender Option End*/
+
+
+/*Terms & Conditions + Privacy & Policy Check Box Start*/
+.sb-terms-privacy-checkbox {
+    display: flex;
+    margin-bottom: 25px;
+}
+
+.sb-terms-privacy-checkbox input{
+  margin-top: -20px;
+}
+
+.checkbox-label {
+    margin-left: 5px;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+    color: #000;
+}
+
+.form-actions .checkbox-label a{
+    font-size: 14px;
+    font-weight: 400;
+    color: #06b6d4;
+}
+
+.checkbox-label a:hover{
+    color: #0aa4ca;
+}
+
+.sb-terms-privacy-checkbox {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-label {
+    margin-left: 5px;
+}
+/*Terms & Conditions + Privacy & Policy Check Box End*/
+
+
+/* Checkbox with Right Mark Start */
+#terms-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 21px;
+    height: 16px;
+    border: 1px solid #000;
+    border-radius: 3px;
+    outline: none;
+    transition: background-color 0.3s;
+    position: relative;
+}
+
+#terms-checkbox:checked {
+    background-color: #0aa4ca;
+    border-color: #0aa4ca;
+    color: #fff;
+}
+
+#terms-checkbox:checked::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 12px;
+    border: solid #fff;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+    top: 0px;
+    left: 4px;
+}
+/* Checkbox with Right Mark End */
+
+
+/*Used OR For Separate SignUp & SignIn Option Start*/
+.or{
+    font-size: 15px;
+    text-align: center;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    position: relative;
+    text-align: center;
+    z-index: 1;
+}
+
+.or::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background: #0aa4ca;
+    left: 0;
+    right: 0;
+    top: 50%;
+    z-index: -1;
+}
+
+.sb-or{
+    background: white;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.or p{
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+/*Used OR For Separate SignUp & SignIn Option End*/
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                   E   N   D                   --
+--           SHOSUR BARI - REGISTER PAGE         --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                  S  T  A  R  T                --
+--             SHOSUR BARI - LOGIN PAGE          --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/*Remember Check Box Start*/
+.remember-forgot{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+  
+.remember-forgot label {
+    margin-right: 10px;
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 400;
+}
+  
+.remember-forgot a {
+    font-size: 14px;
+    white-space: nowrap;
+    color: #0aa4ca;
+    font-weight: 400;
+}
+/*Remember Check Box End*/
+
+
+/*Checkbox with Right Mark Start */
+#edit-remember {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #000;
+    border-radius: 3px;
+    outline: none;
+    transition: background-color 0.3s;
+    position: relative;
+    margin-right: 4px;
+    margin-bottom: -3px;
+}
+
+#edit-remember:checked {
+    background-color: #0aa4ca;
+    border-color: #0aa4ca;
+    color: #fff;
+}
+
+#edit-remember:checked::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 12px;
+    border: solid #fff;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+    top: 0px;
+    left: 4px;
+}
+/*Checkbox with Right Mark End */
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                   E   N   D                   --
+--             SHOSUR BARI - LOGIN PAGE          --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                  S  T  A  R  T                --
+--      SHOSUR BARI - ACCOUNT UPDATE PAGE        --
+--       SHOSUR BARI - PHOTO UPDATE PAGE         --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+.shosurbari-user-account .form-actions {  /* Both Page*/
+    width: 100%;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.shosurbari-user-account{  /* Both Page*/
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 400px;
+    gap: 1.5rem;
+    padding: 20px;
+    margin:20px auto;
+    background: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.shosurbari-user-account form{   /* Both Page*/
+    background: white;
+}
+
+input[type=file] {
+    width: 230px;
+}
+
+input[type=submit] {
+    cursor: pointer;
+    width: 120px;
+    height: 35px;
+    margin-top: 10px;
+    background: #06b6d4;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #fff;
+    box-shadow: 1px 1px 4px #888;
+}
+
+.uploaded-photo {
+    margin-bottom: 20px;
+}
+
+.uploaded-photo span {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.update-image img {
+    height: 168px;
+    width: 168px;
+    padding: 2px;
+    background: #f5f2f2;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.update-image-input form{
+    width: 100px;
+    margin-left: 0;
+}
+
+.update-image-button{
+    gap: 10px;
+    margin-bottom: 0px;
+    font-size: 14px;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.update-image {
+    order: 2;
+}
+
+.update-image-input {
+    order: 1;
+    margin-top: 0px;
+    width: 40%;
+    margin-bottom: 20px;
+}
+
+.form-file {
+    margin-bottom: 10px;
+}
+
+.update-image .fa{
+    font-size: 30px;
+    color: #06b6d4;
+    box-shadow: 0px 5px 10px 0px #aaa;
+    background: #fff;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.5s, color 0.5s;
+
+}
+
+.update-image .fa:hover{
+    color: #fff;
+    background: linear-gradient(#0aa4ca, #0acef1);
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.update-image .fa::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background: #0aa4ca;
+    z-index: -1;
+}
+
+.update-image {
+    position: relative;
+}
+
+.image-wrapper{
+    width: 150px;
+    margin: 20px auto;
+    height: 150px;
+}
+
+.update-image .image-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.update-image .camera-wrapper {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.update-image .camera-wrapper i {
+    position: absolute;
+    font-size: 25px;
+    color: #06b6d4;
+    box-shadow: 0px 5px 10px 0px #aaa;
+    background: #fff;
+    padding: 8px;
+    border-radius: 50%;
+    margin-top: 120px;
+    margin-left: 115px;
+}
+
+#file-input-wrapper {
+    display: none;
+}
+
+.deleteimage {
+    padding: 10px;
+    margin-top:-10px; 
+    margin-left: 10px;
+}
+
+.delete-image {
+    order: 3;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-image form {
+    width: 100%;
+    padding-top: 5px;
+}
+
+.delete-image form button {
+    display: block;
+    margin: 0 auto;
+    width: 120px;
+    background: #ff0080;
+    color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.delete-image button:hover{
+    background: linear-gradient(#0aa4ca, #0acef1);
+    color: #fff;
+}
+
+.delete-image p{
+    margin-top: 15px;
+    font-size: 15px;
+    line-height: 24px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    background: #fff;
+    text-align: center;
+}
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                   E   N   D                   --
+--      SHOSUR BARI - ACCOUNT UPDATE PAGE        --
+--       SHOSUR BARI - PHOTO UPDATE PAGE         --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                  S  T  A  R  T                --
+--            SHOSUR BARI - SERVICE PAGE         --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+.shosurbari-service{
+    width: 90%;
+    margin: 10px auto;
+}
+
+.page_header{
+	text-align:center;
+	margin-bottom: 2em;
+}
+.page_header h1{
+	font-family: 'Oswald', sans-serif;
+    color: #000;
+    margin-bottom:1em;
+    font-weight: 500;
+}
+
+.page_header p{
+	font-size: 16px;
+    color:#000;
+    line-height:1.8em;
+    text-align: justify;
+}
+
+.item_content{
+    text-align: justify;
+}
+
+i.icon_4{
+	color:#06b6d4;
+	display: block;
+    font-size:70px;
+    line-height: 120px;
+}
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                     E   N   D                 --
+--            SHOSUR BARI - SERVICE PAGE         --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                S  T  A  R  T                  --
+--   SHOSUR BARI BIODATA POST PAGE / FORM LIST   --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+.sb-biodata{
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 95%;
+    gap: 1.5rem;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    background: white;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.sb-biodata-field{
+    padding: 10px 5px;
+    width: 100%;
+    margin-bottom: 25px;
+    margin-top: 0px;
+    background: linear-gradient(#06b6d4, #0ea5e9);
+    border-radius: 4px;
+}
+
+.sb-biodata-field h2{
+    text-align: center;
+    color: #fff;
+    margin: auto;
+    font-size: 28px;
+}
+
+.sb-biodata-field h2 span{
+    color: white;
+}
+
+.shosurbari-biodata{
+    display: flex;
+    flex-wrap: wrap;
+    background: linear-gradient(180deg,#F3F9F9 0%,rgba(238,246,253,0) 100%);
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.sb-register-login h2{
+    color: #fff;
+    font-size: 28px;
+    width: 100%;
+    margin-top: 0px;
+    background: linear-gradient(#06b6d4, #0ea5e9);
+    border-radius: 4px;
+}
+
+.flex-container{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.shosurbari-biodata .form-actions{
+    width: 100%;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.shosurbari-biodata-field{
+    padding: 10px 0px;
+    text-align: left;
+}
+
+#progressbar {
+    margin: auto;
+    overflow: hidden;
+    counter-reset: step;
+    padding: 10px 0px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+#progressbar li {
+    list-style-type: none;
+    color: #000;
+    font-size: 15px;
+    width: 112px;
+    float: left;
+    position: relative;
+    z-index: 2;
+}
+  
+#progressbar li:before {
+    content: counter(step);
+    counter-increment: step;
+    width: 34px;
+    line-height: 31px;
+    display: block;
+    font-size: 10px;
+    color: #fff;
+    background: #06b6d4;
+    border-radius: 50%;
+    margin: 10px auto;
+    font-size: 14px;
+    position: relative;
+    z-index: 2;
+}
+  
+#progressbar li:after {
+    content: '';
+    width: calc(50% + 23px);
+    height: 4px;
+    border-radius: 0px;
+    background: #06b6d4;
+    position: absolute;
+    left: -39px;
+    top: 24px;
+    z-index: 1;
+}
+  
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before,
+#progressbar li.active:after {
+    background: #27ae60;
+    color: white;
+    z-index: 3;
+}
+
+/* Progressbar color */
+#progressbar li:not(.active):after {
+    background: #ccc;
+}
+
+#height-error-message {
+    color: red;
+    font-size: 12px;
+}
+
+#biodataForm {
+    width: 100%;
+    margin: 0px auto;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+#biodataForm fieldset {
+    border: 0 none;
+    border-radius: 3px;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: auto;
+}
+
+/*Hide all except first fieldset*/
+#biodataForm fieldset:not(:first-of-type) {
+    display: none;
+}
+
+/*buttons*/
+#biodataForm .action-button,
+#biodataForm .biodata-submit {
+    width: 120px;
+    color: white;
+    background: #06b6d4;
+    border-radius: 2px;
+    border: 1px solid #f0f0f0;
+    cursor: pointer;
+    padding: 7px;
+    margin: 10px 5px;
+    text-transform: uppercase;
+    font-size: 20px;
+    transition: transform 0.3s;
+    box-shadow: 1px 1px 4px #888;
+}
+
+#biodataForm .action-button:hover,
+#biodataForm .biodata-submit:hover {
+    background: linear-gradient(#0aa4ca, #0acef1);
+    color: #fff;
+    transform: scale(1.1);
+}
+  
+#progressbar li:first-child:after {
+    /*connector not needed before the first step*/
+    content: none; 
+}
+  
+.error-message-empty{
+    color: red;
+}
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                    E   N   D                  --
+--   SHOSUR BARI BIODATA POST PAGE / FORM LIST   --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+
+
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                S  T  A  R  T                  --
+--      SHOSUR BARI SEARCH PAGE / FIND USER      --
+--  SHOSURBARI SINGLE / MULTIPLE BIODATA SEARCH  --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+.total_biodata{
+    margin-top: 10px;
+}
+
+.count-display {
+    font-weight: 400;
+    color: #000000;
+    margin-top: 10px;
+}
+
+
+/* After Search - Profile Next & Previous Option Start*/
+.pagination {
+    width: 90%;
+    margin: 50px auto 0px auto;
+    padding: 0px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+  
+.pagination a {
+    transition: background-color 0.3s ease;
+    color: #000;
+    padding: 5px 12px;
+    text-decoration: none;
+    font-size: 14px;
+    background: #eee;
+    border-radius: 50%;
+    margin: 8px 3px;
+    border: 1px solid #ccc;
+}
+
+#prev-page-btn{
+    margin-bottom: 15px;
+    margin-top: 0px;
+}
+
+#profiles-show-info{
+    margin-bottom: 10px;
+}
+
+.highlight-end, .highlight-start {
+    color: #0aa4ca;
+}
+  
+#next-page-btn{
+    margin-bottom: 0px;
+    margin-top: 15px;
+}
+
+#profiles-info{
+    margin-top: 10px;
+}
+  
+.pagination a:hover {
+    background: linear-gradient(#0aa4ca, #0acef1);
+    color: #fff;
+}
+  
+.pagination .active {
+    background: linear-gradient(#06b6d4, #0ea5e9);
+    color: #fff;
+    border: 1px solid #ddd;
+}
+/* After Search - Profile Next & Previous Option End*/
+
+
+/* After Search Profile List Start*/
+.flex-container-shosurbaribio {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: -50px;
+}
+
+.sb_biodata_profile{
+    display: flex;
+    flex-wrap: wrap;
+    width: 79%;
+    margin-top: -80px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding: 0px;
+}
+
+.biodatalist{
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 31%;
+    gap: 1.5rem;
+    padding: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: 30px;
+    background: white;
+    transition: transform .2s;
+}
+
+.biodatalist:hover{
+    background: #ecfeff;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    transform: scale(1.03); 
+}
+
+.sb_bio_header{
+    background: linear-gradient(#06b6d4, #0ea5e9);
+    margin: 0px;
+    padding-top: 10px;
+    border-bottom: 1px solid #ccc;
+    border-radius: 6px 6px 100% 0% / 5px 5px 50% 100%;
+}
+
+.biodatalist img{
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    padding: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: 0px;
+    border: 2px solid white;
+}
+
+.sb_bio_number{
+    text-align: center;
+    padding: 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-bottom: 25px;
+}
+
+.sb_biodatanumber{
+    font-size: 24px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.sb_user{
+    text-align: center;
+    padding: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.sb_single_data{
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.sb_user .sb_single_data{
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.sb_user .sb_value{
+    color: black;
+    padding: 6px;
+    font-size: 15px;
+    font-weight: 400;
+    border: 1px solid #d5d5d5;
+    border-style: groove;
+    width: 35%;
+    position: inherit;
+}
+
+.sb_user .sb_data{
+    color: black;
+    padding: 6px;
+    font-size: 15px;
+    font-weight: 400;
+    border: 1px solid #d5d5d5;
+    border-style: groove;
+    width: 65%;
+    position: inherit;
+}
+
+.view_sb_profile {
+    text-align: center;
+    border: 1px solid #d5d5d5;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    border-radius: 4px;
+    background: linear-gradient(#06b6d4, #0ea5e9);
+    color: white;
+    width: 100%;
+    height: 35px;
+}
+
+.view_sb_profile:hover {
+    background: linear-gradient(#0aa4ca, #0acef1);
+    color: #fff;
+}
+
+
+.view_sb_profile a{
+    color: white;
+}
+/*After Search Profile List End*/
+
+
+/* Single Biodata Search Start*/
+.sb_singlebio_search {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    width: 90%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding: 7px;
+    background-color: #fff;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+    
+.sb_singlebio_search input{
+    width: 100%;
+    padding-left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 35px;
+    margin-top: 10px;
+}
+    
+.sb_singlebio_search input:focus {
+    border: 1px solid #0aa4ca !important;
+}
+    
+.sb_singlebio_search button{
+    cursor: pointer;
+    width: 100%;
+    height: 35px;
+    margin-top: 10px;
+    background: linear-gradient(#06b6d4, #0ea5e9);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #fff;
+    box-shadow: 1px 1px 4px #888;
+}
+    
+.sb_singlebio_search button:hover{
+    background: linear-gradient(#0aa4ca, #0acef1);
+}
+/* Single Biodata Search End*/
+
+
+/* Multiple Biodata Search Start*/
+.search-options{
+    margin-left: 20px;
+    list-style: none;
+    margin-top: -22px;
+    display: list-item;
+    color: black;
+    font-size: 15px;
+    line-height: 21px;
+    margin-bottom: -13px;
+}
+
+.label-search-options{
+    color: #0aa4ca;
+    font-size: 17px;
+    font-weight: 500;
+    margin-top: 23px;
+}
+
+.sbbiodata-search form{
+    width: 90%;
+    padding: 10px;
+    margin-left: auto;
+    background: #fdfcfc;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+}
+
+.sbbiodata-search{
+    width: 257px;
+    position: inherit;
+    margin-top: -50px;
+    margin-left: 0px;
+    z-index: 1;
+}
+
+.form_radios {
+    color: #000;
+    font-size: 13px;
+    padding: 0px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.select-block1 select {
+    box-shadow: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: 0;
+    background: #ffffff;
+    height: 30px;
+    line-height: 14px;
+    padding: 5px 15px;
+    width: 150%;
+    color: black;
+    font-size: 13px;
+    margin-left: 15px
+}
+
+.control-lable1 {
+    padding: 0;
+    font-size: 14px;
+    color: #06b6d4;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-right: -15px;
+}
+
+.form_but1 {
+    margin-bottom: 10px;
+}
+
+input[type=submit] {   /* Include User Photo Update Page, Upload Button*/
+    cursor: pointer;
+    width: 100%;
+    height: 35px;
+    margin-top: 10px;
+    background: linear-gradient(#06b6d4, #0ea5e9);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #fff;
+    box-shadow: 1px 1px 4px #888;
+}
+
+input[type=submit]:hover {
+    background: linear-gradient(#0aa4ca, #0acef1);
+}
+
+.toggle-next{
+    border-radius: 0;
+}
+  
+.ellipsis {
+    text-overflow: ellipsis;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #06b6d4;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.apply-selection{
+    display: none;
+    width: 100%;
+    margin: 0;
+    padding: 5px 10px;
+    border-bottom: 1px solid #ccc;
+}
+  
+.ajax-link {
+    display: none;
+}
+    
+.checkboxes{
+    margin: 0;
+    display: none;
+    border: 1px solid #ccc;
+    border-top: 0;
+}
+
+.inner-wrap{
+    padding: 5px;
+    max-height: 200px;
+    overflow: auto;
+}
+
+.wrapper{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    margin: 10px auto;
+    padding: 7px;
+    background-color: #f1f1f1;
+    box-shadow: 1px 1px 4px #888;
+    border-radius: 4px;
+}
+
+label span {
+    color: red;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+label{
+    color: #0aa4ca;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.search-title{
+    margin: auto;
+    padding: 10px;
+    color: black;
+}
+
+.search-title h4{
+    font-size: 17px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 27px;
+    margin: auto;
+}
+
+.fa-female:before {
+    font-size: 15px;
+}
+
+.fa-male:before {
+    font-size: 15px;
+}
+
+.gender-radio-select{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 11px;
+    padding-right: 0px;
+    display: flex;
+	align-items: center;
+	border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    background: #fff;
+}
+
+.gender-radio-select .gender-option {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 28px;
+    margin-right: -16px;
+    width: 65%;
+}
+
+.gender-radio-select .gender-option input[type="radio"]{
+	display: none;
+}
+
+.gender-radio-select .gender-option label{
+    display: inline-block;
+    transition: all 0.3s;
+	font-weight: 500;
+    font-size: 15px;
+    cursor: pointer;
+	margin-top: 4px;
+    margin-bottom: 4px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+    text-align: center;
+    margin-left: -34px;
+    margin-right: 19px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 2px;
+    padding-bottom: 1px;
+
+}
+
+.gender-radio-select .gender-option label i{
+    font-size: 17px;
+}
+
+.gender-radio-select .gender-option input[type="radio"]:checked + label{
+    background: #0aa4ca;
+    border: 1px solid #ccc;
+    color: #fff;
+	border-radius: 3px
+}
+
+.wrapper .toggle-next .fa {
+    position: absolute; 
+    right: 10px;
+    top: 19px;
+    font-size: 12px;
+}
+
+.toggle-next span i {
+    transition: all 0.2s ease;
+}
+
+.toggle-next:hover span i {
+    transform: rotate(180deg);
+}
+/* Multiple Biodata Search End*/
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                 E    N    D                   --
+--      SHOSUR BARI SEARCH PAGE / FIND USER      --
+--  SHOSURBARI SINGLE / MULTIPLE BIODATA SEARCH  --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+
+
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--               S  T  A  R  T                   --
+--      Media Responsive / Phone Responsive      --
+--                                               --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+@media (min-width:1600px){
+    .contact-bio,
+    .copy-sbbio-link {
+        width: 50%;
+        margin-top: 20px;
+        margin-bottom: 0px;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    button.chatbtn,
+    button.copylink {
+        width: 100%;
+        padding: 3px;
+    }
+
+    .sb_user_recentview .sb_value_recentview {
+        font-size: 14px;
+    }
+
+    .sb_user_recentview .sb_data_recentview {
+        font-size: 14px;
+    }
+
+    td.day_label {
+        font-size: 16px;
+    }
+
+    td.day_value {
+        font-size: 15px;
+    }
+}
+    
+
+@media (max-width:1600px){
+    td.day_label {
+        font-size: 15px;
+    }
+
+    td.day_value {
+        font-size: 14px;
+    }
+}
+
+
+@media (max-width:1366px){
+    .biodatalist{
+        width: 31%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .sb_biodata_profile{
+        display: flex;
+        flex-wrap: wrap;
+        width: 79%;
+        margin-top: -80px;
+        margin-bottom: 0px;
+        margin-right: 0px;
+        margin-left: 0px;
+        padding: 0px;
+    }
+
+    .sb_user .sb_value{
+        font-size: 15px;
+        font-weight: 400;
+        width: 35%;
+    }
+
+    .sb_user .sb_data{
+        font-size: 15px;
+        font-weight: 400;
+        width: 65%;
+    }
+
+    .ellipsis {
+        font-size: 14px;
+    }
+}
+
+
+/* @media (max-width: 1400px){
+    .sb-search-page {
+        width: 1000px;
+    }  
+} */
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+--          max-width:1280px / S T A R T         --
+--      Media Responsive / Phone Responsive      --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+@media (max-width:1280px){
+    section{
+        padding: 0px;
+        height: auto;
+    }
+
+    .slide{
+        padding: 0px;
+    }
+
+    .slide h1 {
+        font-size: clamp(3.5em, 5vmax, 3em);
+        left: 0px;
+        top: 100px;
+        line-height: 80px;
+        width: 750px;
+        padding: 20px;
+    }
+    
+    .slide h5 {
+        font-size: 18px;
+        top: 290px;
+        left: 0px;
+        width: 600px;
+        line-height: 25px;
+        margin-top: auto;
+        text-align: left;
+    }
+    
+    .sb-home-reg2 {
+        position: absolute;
+        top: 350px;
+        left: 0px;
+        z-index: 1;
+        padding: 20px;
+    }
+    
+    .sb-search-btn-banner {
+        position: absolute;
+        top: 350px;
+        left: 350px;
+        z-index: 1;
+        padding: 20px;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 45px;
+    }
+
+    .profile-nav-info h3 {
+        font-size: 24px;
+        text-align: left;
+    }
+
+    .profile-img img {
+        height: 168px;
+        width: 168px;
+        top: 30px;
+    }
+
+    .profile-img {
+        min-width: 30%;
+    }
+
+    .left-side{
+        width: 30%;
+    }
+      
+    .right-side {
+        width: 68%;
+        margin-top: 50px;
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    .sb_user_recentview .sb_value_recentview {
+        font-size: 13px;
+    }
+    .sb_user_recentview .sb_data_recentview {
+        font-size: 13px;
+    }
+
+    .biodatarecent_viewlist {
+        width: 85%;
+    }
+
+    .sb_newbiodata li{
+        width: 33%;
+    }
+    
+    .sb_newbiodata .nbs-flexisel-item li{
+        width: 33%;
+    }
+    
+    .nbs-flexisel-item li{
+        width: 33%;
+    }
+
+    .nbs-flexisel-item {
+        float: left;
+        position: relative;
+        margin: auto 0px;
+        padding: 0px;
+        line-height: 17px;
+        min-height: 220px;
+    }
+
+    .sb_featured_profile_head {
+        width: 215px;
+    }
+
+    .nbs-flexisel-item:first-child{
+        margin-left: 0px;
+    }
+
+    ul.profile_item{
+        padding:0;
+        margin:0 0 1.5em 0;
+        list-style:none;
+        width: 110%;
+        display: flex;
+        font-size: 13px;
+    }
+
+    .sb_biodata_profile{
+        display: flex;
+        flex-wrap: wrap;
+        width: 74%;
+        margin-top: -80px;
+        margin-bottom: 0px;
+        margin-right: 0px;
+        margin-left: 0px;
+        padding: 0px;
+    }
+
+    .biodatalist{
+        width: 31%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .sb_user .sb_value{
+        font-size: 14px;
+        font-weight: 400;
+        width: 42%;
+    }
+
+    .sb_user .sb_data{
+        font-size: 14px;
+        font-weight: 400;
+        width: 58%;
+    }
+
+    .ellipsis {
+        font-size: 14px;
+    }
+
+    .profile-nav-info .address {
+        font-size: 14px;
+    }
+}
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+--           max-width:1280px / E  N  D          --
+--      Media Responsive / Phone Responsive      --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+@media(min-width: 1200px){
+    .navigationpro {
+        width: 930px;
+        padding: 39px;
+    }
+
+    .banner {
+        width: 1170px;
+    }
+}
+
+
+@media(max-width: 1200px){
+    .navigationpro {
+        width: 921px;
+        padding: 35px;
+    }
+
+    .banner {
+        width: 970px;
+    }
+}
+
+
+@media (min-width:1280px){
+    .shosurbari-about-contact,
+    .shosurbari-trmcnd-prvplcy,
+    .shosurbari-service {
+        width: 1170px;
+        margin: auto;
+    }
+
+    .shosurbari-faq {
+        width: 800px;
+        margin: auto;
+    }
+
+    .nbs-flexisel-item {
+        float: left;
+        position: relative;
+        margin: auto 0px;
+        padding: 0px;
+        line-height: 17px;
+        min-height: 220px;
+    }
+
+    .sb_featured_profile_head {
+        width: 215px;
+    }
+
+    .nbs-flexisel-item:first-child{
+        margin-left: 0px;
+    }
+  
+    .sb_newbiodata .nbs-flexisel-item li{
+      width: 33%;
+    }
+  
+    .sb_newbiodata li{
+      width: 33%;
+    }
+  
+    .nbs-flexisel-item li{
+      width: 33%;
+    }
+
+    .flex-container-shosurbaribio {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: -50px;
+        width: 1250px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+@media (min-width:1024px){
+    .nbs-flexisel-container {
+        position: relative;
+        width: 920px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+--          max-width:1024px / S T A R T         --
+--      Media Responsive / Phone Responsive      --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+@media (max-width:1024px){
+
+    
+    .banner{
+        width: 970px;
+    }
+
+    .sb-search-page {
+        flex-direction: column;
+        text-align: center;
+        width: auto;
+    }
+      
+    .sb-search-logo-btn {
+        display: block;
+    }
+    
+    .sb-search-options {
+        display: none; /* Hide the image */
+    }
+    
+    .nbs-flexisel-item {
+        float: left;
+        position: relative;
+        margin: auto 30px;
+        padding: 0px;
+        line-height: 17px;
+        min-height: 220px;
+    }
+
+    .sb_featured_profile_head {
+        width: 225px;
+    }
+
+    .nbs-flexisel-item:first-child{
+        margin-left: -50px;
+    }
+
+    .profile-img img {
+        height: 168px;
+        width: 168px;
+        top: 30px;
+    }
+    
+    .nav>li>a {
+        position: relative;
+        display: block;
+        padding: 10px 10px;
+    }
+    
+    .nav-tabs1>li.active>a, .nav-tabs1>li.active>a:focus, .nav-tabs1>li.active>a:hover {
+        padding: 6px;
+    }
+
+    .profile-nav-info {
+        width: 24%;
+    }
+
+    .profile-nav-info h3 {
+        font-size: 22px;
+    }
+
+    .profile-nav-info .address {
+        font-size: 13px;
+    }
+
+    .nav-tabs1 {
+        font-size: 14px;
+    }
+    
+    .see_sb_biodata {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .profile-img {
+        min-width: 32%;
+    }
+
+    .left-side{
+        width: 32%;
+    }
+      
+    .right-side {
+        width: 65%;
+        margin-top: 50px;
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    td.day_label {
+        font-size: 14px;
+    }
+    td.day_value {
+        font-size: 14px;
+    }
+
+    .hvr-shutter-out-horizontal {
+        padding: 8px 25px;
+        font-size: 18px;
+    }
+
+    .profile_search {
+        margin:7em 0 0 0;
+    }
+
+    .post-meta {
+        margin-right: 6%;
+    }
+
+    h4.post-title {
+        font-size: 0.95em;
+    }
+
+    .testi_grid .testi_grid_blockquote > div a {
+        font-size: 0.8125em;
+    }
+
+    .testi-meta1 {
+        padding: 15px 220px 0 0;
+    }
+
+    .post_networks ul li {
+        margin: 3.5em 0 0 0;
+    }
+
+    .profile_search1 input[type="text"] {
+        width: 72%;
+        margin-right: 0px;
+    }
+
+    .thumb_bottom {
+        margin:0;
+    }
+
+    a.order-btn {
+        width: 60%;
+    }
+
+    .newsletter input[type="submit"] {
+        padding: 8px 14px;
+    }
+
+    ul.profile_item{
+        padding:0;
+        margin:0 0 1.5em 0;
+        list-style:none;
+        width: 98%;
+        display: flex;
+        font-size: 10px;
+    }
+
+    .biodatanumber h2{
+        font-size: 30px;
+    }
+
+    .sb_biodata_profile{
+        display: flex;
+        flex-wrap: wrap;
+        width: 72%;
+        margin-top: -100px;
+        margin-bottom: 0px;
+        margin-right: auto;
+        margin-left: auto;
+        padding: 20px;
+    }
+
+    .biodatalist{
+        width: 45%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .sb_user .sb_value{
+        font-size: 14px;
+        width: 38%;
+    }
+
+    .sb_user .sb_data{
+        font-size: 14px;
+        width: 62%;
+    }
+
+    .sb_biodatanumber{
+        font-size: 20px;
+    }
+
+    ul.nav_1 li {
+        margin: 3px;
+    }
+
+    .nbs-flexisel-container{
+        width: 725px;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .navbar-nav > li > a {
+        padding: 10px;
+    }
+
+    .navigationpro ul {
+        width: 607px;
+        margin-left: 0;
+    }
+
+    .navigationpro .dropdown{
+        margin: 3px;
+    }
+
+    .navigationpro {
+        width: 865px;
+        padding: 35px;
+    }
+
+    .slide p{
+        font-size: clamp(0em, 4vmax, 3em);
+        top: 85px;
+        left: 60px;
+        width: 601px;
+        padding: 10px;
+        border-radius: 15px;
+    }
+}
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+--           max-width:1024px / E  N  D          --
+--      Media Responsive / Phone Responsive      --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+
+@media (min-width: 992px){
+    .col-md-2 {
+        width: 21.666667%;
+    }
+}
+
+
+@media (max-width: 992px){
+    
+    .banner {
+        width: 750px;
+    }
+
+    .navigationpro {
+        display: block;
+        width: 652px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    ul.footer_social {
+        text-align: right;
+    }
+
+    .col_2 h6 {
+        text-align: right;
+    }
+
+    .brn-payment {
+        width: 180px;
+    }
+}
+
+
+@media only screen and (min-width: 930px) {
+    .sbbiodata_profile_recentview-mobile{
+      display: none;
+    }
+}
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+--          max-width:930px / S T A R T         --
+--      Media Responsive / Phone Responsive      --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+@media (max-width:930px){
+    .slide p{
+        font-size: 35px;
+        width: 520px;
+        border-radius: 10px;
+    }
+
+    .payment-form{
+        margin-top: 50px;
+    }
+
+    .banner{
+        height: 450px;
+    }
+    .slide h1 {
+        font-size: clamp(2.8em, 5vmax, 3em);
+        top: 30px;
+        line-height: 70px;
+        width: 615px;
+    }
+
+    .slide h5 {
+        top: 200px;
+    }
+
+    .sb-home-reg2, .sb-search-btn-banner {
+        top: 260px;
+    }
+
+    .nbs-flexisel-item {
+        float: left;
+        position: relative;
+        margin: auto 30px;
+        padding: 0px;
+        line-height: 17px;
+        min-height: 220px;
+    }
+
+    .sb_featured_profile_head {
+        width: 220px;
+    }
+
+    .nbs-flexisel-item:first-child {
+        margin-left: -54px;
+    }
+
+    .col_2 p{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    ul.footer_social {
+        text-align: center;
+    }
+    
+    ul.footer_links li{
+        text-align: center;
+    }
+    
+    .col_2 h4 {
+        text-align: center;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 40px;
+    }
+
+    #progressbar li {
+        font-size: 15px;
+        width: 80px;
+    }
+
+    #progressbar li:after {
+        width: calc(30% + 23px);
+        left: -23px;
+    }
+
+    .sbbiodata_profile_recentview{
+        display: none;
+    }
+
+    .sbbiodata_profile_recentview-mobile h3{
+        text-align: center;
+        width: 100%;
+    }
+
+    .profile-nav-info .address {
+        justify-content: center;
+    }
+
+    .profile-side {
+        width: 100%;
+        text-align: center;
+        padding: 3px;
+        margin: auto;
+    }
+
+    .main-bd {
+        flex-direction: column;
+        padding-right: 0;
+    }
+
+    .profile-nav-info {
+        text-align: center;
+        width: 90%;
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .profile-img img {
+        position: relative;
+        height: 168px;
+        width: 168px;
+    }
+
+    .profile-img {
+        float: left;
+        width: 100%;
+        height: 200px;
+    }
+
+    .profile-nav-info h3 {
+        text-align: center;
+    }
+
+    .right-side {
+        width: 90%;
+        margin-top: 50px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .left-side {
+        width: 400px;
+        margin-top: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        border-top: 3px solid #06b6d4;
+    }
+
+    .biodatarecent_viewlist {
+        width: 30%;
+    }
+
+    .profile-header {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        text-align: center;
+        padding-bottom: 20px;
+        margin-top: 22px;
+    }
+
+    .navbar-nav > li > a {
+        padding: 10px;
+    }
+
+    ul.nav_1 li {
+        margin: 3px;
+    }
+
+    .inline-block {
+        padding-right: 1%;
+    }
+
+    .heart-divider {
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+
+    .bg_left {
+        padding: 1em;
+    }
+
+    .col-md-4.row_1-right {
+        margin: 3em 0 0 0;
+    }
+
+    .religion {
+        margin: 2em 0;
+    }
+
+    .grid_2 {
+        margin-bottom: 3em;
+    }
+
+    .bg_left h4 {
+        font-size: 1.3em;
+    }
+
+    .col_2 {
+        margin-bottom: 0em;
+        padding: 25px;
+    }
+
+    .col_2 h4 {
+        margin-bottom: 10px;
+    }
+
+    .faq-details {
+        padding-left: 25px;
+        padding-right: 25px;
+        margin: 2em 0 0 0;
+    }
+
+    .about_middle h2 {
+        font-size:2em;
+    }
+
+    .testi_grid .testi_grid_blockquote > div {
+        padding: 10px;
+        text-align: justify;
+    }
+
+    .testi_grid .testi_grid_blockquote > div a {
+        font-size: 12px;
+    }
+
+    .testi-meta1 {
+        padding: 15px 115px 0 0;
+    }
+
+    .about_grid1{
+        width:50%;
+        float:left;
+        margin-bottom:2em;
+    }
+
+    .about_bottom {
+        padding: 5em 0 3em;
+    }
+
+    .post_networks ul li {
+        margin: 6em 0 0 0;
+    }
+
+    .profile_left2 {
+        margin-bottom: 3em;
+    }
+
+    .match_right{
+        padding-left:0;
+    }
+
+    .col-md-9.profile_left {
+        padding-left: 0;
+        margin: 2em 0 0 0;
+    }
+
+    .col-md-9.members_box {
+        padding-left: 0;
+        margin: 2em 0 0 0;
+    }
+
+    .search_left {
+        padding-left: 0;
+        margin-bottom: 3em;
+    }
+
+    .profile_search1 {
+        margin-bottom: 2em;
+    }
+
+    .profile_left1 {
+        margin-bottom: 3em;
+    }
+
+    .col-md-9.members_box2 {
+        padding-left: 0;
+        margin: 2em 0 0 0;
+    }
+
+    .nav-tabs1 {
+        display: inline-block;
+        border-bottom: none;
+        border-radius: 4px;
+        font-size: 15px;
+        font-weight: 500;
+        background: linear-gradient(#06b6d4, #0ea5e9);
+        box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
+        width: auto;
+        padding-top: 0px;
+        margin: auto;
+        white-space: nowrap;
+    }
+
+    .pricing-table {
+        width: 50%;
+        float: left;
+    }
+
+    .grid_4 {
+        width: 220px;
+    }
+
+    .profile_right{
+        padding-left:0;
+        margin:3em 0 0 0;
+    }
+
+    ul.profile_item{
+        padding: 0;
+        list-style: none;
+        width: 55%;
+        display: flex;
+        font-size: 18px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .biodatanumber h2{
+        font-size: 28px;
+    }
+
+    .sb_biodata_profile{
+        display: flex;
+        flex-wrap: wrap;
+        width: 66%;
+        margin-top: -80px;
+        margin-bottom: 0px;
+        margin-right: 0px;
+        margin-left: 0px;
+        padding: 0px;
+    }
+
+    .biodatalist{
+        width: 45%;
+    }
+
+    .sb_user .sb_value{
+        font-size: 13px;
+        width: 41%;
+    }
+
+    .sb_user .sb_data{
+        font-size: 13px;
+        width: 59%;
+    }
+
+    .sb_biodatanumber{
+        font-size: 22px;
+    }
+
+    .ellipsis {
+        font-size: 14px;
+    }
+
+    .fa-chevron-down:before {
+        font-size: 10px;
+    }
+
+    .nbs-flexisel-container{
+        width: 701px;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .sbbiodata_profile_recentview-mobile {
+        width: 745px;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 80px;
+        margin-bottom: 0px;
+        margin-right: auto;
+        margin-left: auto;
+        padding: 0px;
+    }
+}
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+--          max-width:930px / E  N  D         --
+--      Media Responsive / Phone Responsive      --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+--          max-width:768px / S T A R T          --
+--      Media Responsive / Phone Responsive      --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+@media (max-width: 768px){
+    .slide h1 {
+        font-size: clamp(2.3em, 5vmax, 3em);
+        top: 20px;
+        line-height: 60px;
+        width: 520px;
+    }
+
+    .slide h5 {
+        top: 163px;
+        width: 445px;
+    }
+
+    .sb-home-reg2{
+        top: 250px;
+        padding: 10px;
+    }
+
+  .sb-search-btn-banner {
+        position: absolute;
+        top: 250px;
+        left: 250px;
+        z-index: 1;
+        padding: 10px;
+    }
+
+    .sb-home-reg2 button, .sb-search-btn-banner button {
+        background: linear-gradient(#06b6d4, #0ea5e9);
+        padding: 10px;
+        font-size: 18px;
+        width: 200px;
+    }
+
+    .slide p {
+        font-size: 30px;
+        width: 450px;
+        border-radius: 10px;
+        top: 60px;
+        left: 50px;
+    }
+
+    .testi_grid .testi_grid_blockquote{
+        padding: 0px;
+        margin-bottom: 40px;
+    }
+
+    #banner_text{
+        line-height: 50px;
+    }
+
+    .banner{
+        height: 350px;
+        margin-top: 0px;
+        width: 590px;
+    }
+
+    .slide{
+        height: 350px;
+    }
+
+    .banner-content {
+        height: 350px;
+    }
+
+    section{
+        margin-top: 22px;
+    }
+
+    #banner_text{
+        margin-top: 90px;
+    }
+
+    .shosurbari-body-notice {
+        margin: 90px auto 0px auto;
+    }
+
+    .shosurbari-user-info {
+        margin-top: 30px;
+        margin-bottom: 110px;
+    }
+
+    .shosurbari-about {
+        margin-top: 90px;
+        padding-left: 40px;
+        padding-right: 40px;
+        line-height: 50px;
+    }
+
+    .shosurbar-grrombride-about {
+        margin-top: 30px;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 35px;
+    }
+
+    .login-navbar-img .img-responsive {
+        margin: auto; /* This centers the image */
+    }
+
+    .login-navbar-icon a{
+        margin: auto;
+    }
+
+    .login-navbar-icon a i{
+        font-size: 18px;
+        margin: auto;
+    }
+
+    .shosurbari-details {
+        margin: -50px auto;
+    }
+
+    .shosurbari-security {
+        margin: -50px auto;
+    }
+
+    .sb-featured-profiles {
+        margin: 90px auto 0px auto;
+    }
+
+    .shosurbari-title {
+        margin:auto;
+        backdrop-filter: blur(5px);
+        width: 80%;
+    }
+
+    .shosurbari-title h4 {
+        font-size: 23px;
+        line-height: 40px;
+        font-weight: 550;
+    }
+
+    #biodataForm{
+        margin: -30px auto;
+    }
+
+    .navigationpro .dropdown{
+        margin: 5px;
+    }
+
+    .navigationpro {
+        display: block;
+        width: 400px;
+    }
+
+    .shosurbari-userhome-status {
+        margin: auto;
+    }
+
+    .shosurbari-userhome-status form {
+        margin: auto;
+    }
+
+    .shosurbari-userhome-status h3, .shosurbari-userhome-status h4 {
+        text-align: center;
+    }
+
+    .shosurbari-faq {
+        width: 80%;
+        margin: auto;
+    }
+
+    .biodatarecent_viewlist {
+        width: 45%;
+    }
+
+    .sbbiodata_profile_recentview-mobile{
+        width: 540px;
+    }
+
+    ul.nav_1 li {
+        margin: 5px;
+    }
+
+    .hvr-shutter-out-horizontal {
+        padding: 6px 15px;
+        font-size: 16px;
+    }
+
+    .profile_search {
+        margin: 5em 0 0 0;
+    }
+
+    .age_box1 {
+        width: 50% !important;
+    }
+
+    label.gender_1 {
+        margin-right: 0px;
+    }   
+
+    .grid_1 {
+        padding: 0;
+    }
+
+    .footer {
+        padding: 1em 0;
+    }
+
+    .shosurbari-copy-right {
+        margin: 3em 0 0 0;
+    }
+
+    .profile_search {
+    padding: 2em 1em;
+    }
+
+    .inline-block {
+        padding-right: 0;
+    }
+
+    .wrap_1{
+        width:720px;
+    }
+
+    .center-middle {
+        margin: 85px 0 0 0;
+    }
+
+    .navbar-nav > li > a {
+        padding: 8px 8px;
+        font-size: 14px;
+    }
+
+    .grid_3, .about_middle{
+        margin-bottom: 0px;
+        margin-top: 45px;
+    }
+
+    .about_bottom {
+        padding: 3em 0 2em;
+    }
+
+    i.icon_4 {
+        font-size: 50px;
+        line-height: 80px;
+    }
+
+    .row_2 ul img{
+        height: 160px;
+        width: 150px;
+        padding: 15px;
+        margin-top: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-bottom: 31px;
+    }
+
+    .biodatanumber h2{
+        font-size: 28px;
+    }
+
+    .sb_biodata_profile {
+        display: flex;
+        flex-wrap: wrap;
+        width: 90%;
+        margin-top: -80px;
+        margin-bottom: 0px;
+        margin-right: auto;
+        margin-left: auto;
+        padding: 0px;
+    }
+
+    .sbbiodata-search{
+        display: none;
+    }
+
+    /* Mobile Search Start / Multiple & Single Search */
+    .heart-divider {
+        margin-top: 30px;
+        margin-left: auto;
+    }
+
+    #search-bar {
+        width: 100%;
+        position: relative;
+        margin-top: 150px;
+        margin-bottom: 20px;
+    }
+
+    .sb_mobilesearch{
+        display: flex;
+        width: 100%;
+    }
+    /* Mobile Search End / Multiple & Single Search */
+
+
+
+    /* Mobile Search Start / Single Biodata*/
+    .sb_singlebio_mobilesearch {
+        width: 194px;
+        margin-left: 50px;
+        margin-right: auto;
+        padding: 7px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        background-color: #fff;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+    }
+    
+    .sb_singlebio_mobilesearch input{
+        width: 100%;
+        padding-left: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        height: 35px;
+    }
+
+    .sb_singlebio_mobilesearch input:focus {
+        border: 1px solid #0aa4ca !important;
+    }
+
+    .sb_singlebio_mobilesearch button{
+        cursor: pointer;
+        width: 100%;
+        height: 35px;
+        margin-top: 10px;
+        background: #06b6d4;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        color: #fff;
+        box-shadow: 1px 1px 4px #888;
+    }
+        
+    .sb_singlebio_mobilesearch button:hover{
+        background: linear-gradient(#0aa4ca, #0acef1);
+    }
+    /* Mobile Search End / Single Biodata*/
+
+
+
+
+    /* Mobile Search Start / Multiple Search Option */
+    .sb_mobilesearch #search-button{
+        width: 150px;
+        margin-left: auto;
+        margin-right: 50px;
+        background: #06b6d4;
+        color: #FFF;
+        padding: 8px;
+        border-radius: 5px;
+        font-size: 16px;
+        text-align: center;
+        cursor: pointer;
+        height: 40px;
+    }
+
+    .sb_mobilesearch #search-button:hover{
+        background: linear-gradient(#0aa4ca, #0acef1);
+    }
+
+    #close-button{
+        display: block;
+        width: 50px;
+        background: #06b6d4;
+        color: white;
+        padding: 3px;
+        margin-left: auto;
+        margin-right: 0px;
+        text-align: center;
+        border-radius: 3px;
+    }
+
+    #search-bar #search-button:hover{
+        background: linear-gradient(#0aa4ca, #0acef1);
+    }
+
+    #search-bar #filters{
+        display: none;
+    }
+
+    #close-button:hover {
+        background: linear-gradient(#0aa4ca, #0acef1);
+    }
+
+    .sbbiodata-search-mobile form{
+        width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0px;
+        padding: 10px;
+        background: #fdfcfc;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        font-size: 15px;
+        display: block;
+    }
+
+    .sbbiodata-search-mobile{
+        width: 100%;
+        position: inherit;
+        margin-top: 30px;
+        z-index: 1;
+    }
+    
+    .gender-radio-select .gender-option label {
+        display: inline-block;
+        font-size: 15px;
+        transition: all 0.3s;
+        font-weight: 500;
+        cursor: pointer;
+        margin-top: 4px;
+        margin-bottom: 4px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        margin-left: 25px;
+        margin-right: -15px;
+        padding-left: 4px;
+        padding-right: 4px;
+        padding-top: 2px;
+        padding-bottom: 1px;
+    }
+
+    .gender-radio-select .gender-option {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: -22px;
+        margin-right: 0px;
+        width: 142%;
+    }
+
+    .ellipsis {
+        font-size: 14px;
+    }
+    /* Mobile Search End / Multiple Search Option */ 
+
+    .navigationpro ul {
+        width: 280px;
+        margin: auto;
+    }
+
+    .shosurbari-userhome-status {
+        padding: 0px 0px 20px 0px;
+    }
+
+    .shosurbari-userhome-status form{
+        padding-top: 0; 
+        padding-bottom: 10px; 
+    }
+
+    .shosurbari-userhome-status form button {
+        width: 150px;
+        font-size: 15px;
+        padding: 3px;
+    }
+
+    .shosurbari-userhome-status form{
+        width: 150px;
+    }
+
+    .nbs-flexisel-container{
+        width: 696px;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .sb_user_recentview .sb_value_recentview {
+        width: 44%;
+    }
+
+    .sb_user_recentview .sb_data_recentview {
+        width: 56%;
+    }
+
+    .nbs-flexisel-item {
+        float: left;
+        position: relative;
+        margin: auto 0px;
+        padding: 0px;
+        line-height: 17px;
+        min-height: 220px;
+    }
+
+    .sb_featured_profile_head {
+        width: 225px;
+    }
+
+    .nbs-flexisel-item:first-child{
+        margin-left: 0px;
+    }
+}
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+--           max-width:768px / E  N  D           --
+--      Media Responsive / Phone Responsive      --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+  /* Mobile Search Start*/  
+@media only screen and (min-width: 768px) {
+    .sbbiodata-search-mobile form{
+        display: none;
+    }
+
+    .sb_singlebio_mobilesearch {
+        display: none;
+    }
+
+    .navbar-collapse.collapse {
+        display: block!important;
+        height: auto!important;
+        padding-bottom: 0;
+        overflow: visible!important;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+/* Mobile Search End*/
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+--          max-width:765px / S T A R T          --
+--      Media Responsive / Phone Responsive      --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+@media (max-width: 765px) {
+    .navbar-toggle1 {
+        height: 40px;
+        margin: 0px 15px 0 0px;
+        color: #fff;
+        padding:0px;
+    }
+    
+    .sb_biodata_profile {
+        display: flex;
+        flex-wrap: wrap;
+        width: 90%;
+        margin-top: -80px;
+        margin-bottom: 0px;
+        margin-right: auto;
+        margin-left: auto;
+        padding: 0px;
+    }
+
+    .sb_user .sb_value{
+        font-size: 14px;
+        width: 38%;
+    }
+
+    .sb_user .sb_data{
+        font-size: 14px;
+        width: 62%;
+    }
+
+    .sb_biodatanumber{
+        font-size: 22px;
+    }
+
+    .biodatalist{
+        width: 45%;
+    }
+}
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+--           max-width:765px / E  N  D           --
+--      Media Responsive / Phone Responsive      --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+
+
+
+
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+--          max-width:736px / S T A R T          --
+--      Media Responsive / Phone Responsive      --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+@media (max-width: 736px){
+    .shosurbari-biodata-form {
+        margin-top: -60px;
+    }
+
+    section{
+        margin-top: 68px;
+    }
+
+    .nbs-flexisel-item {
+        float: left;
+        position: relative;
+        margin: auto 40px;
+        padding: 0px;
+        line-height: 17px;
+        min-height: 220px;
+    }
+    
+    .sb_featured_profile_head {
+        width: 225px;
+    }
+    
+    .nbs-flexisel-item:first-child{
+        margin-left: -53px;
+    }
+
+    .col_2 {
+        margin-bottom: 2em;
+    }
+
+    .sb-search-logo {
+        margin: auto;
+    }
+
+    .shosurbari-title {
+        border: 1px solid;
+        border-radius: 6px;
+    }
+
+    .shosurbari-title h4 {
+        font-size: 22px;
+        line-height: 35px;
+        font-weight: 550;
+    }
+
+    #progressbar li:before{
+        width: 30px;
+        line-height: 28px;
+    }
+
+    #progressbar li {
+        font-size: 14px;
+        width: 65px;
+    }
+
+    #progressbar li:after {
+        width: calc(20% + 23px);
+        left: -18px;
+    }
+
+    .left-side {
+        width: 350px;
+    }
+
+    .columns {
+        margin: 2em 0 0 0;
+    }
+
+    .column_grid {
+        padding: 0;
+    }
+
+    .pull-right {
+        float: none!important;
+    }
+
+    .navigation {
+        margin-right: 30%;
+    }
+
+    .nav_bottom {
+        background: linear-gradient(#06b6d4, #0ea5e9); /* For Mobile Navbar / Menu Bar Background Color*/
+    }
+
+    .inline-block {
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+
+    .wrap_1 {
+        width:480px;
+    }
+
+    .age_box1 {
+        width: 50% !important;
+    }
+
+    .search_top {
+        margin-bottom:0;
+    }
+
+    .profile_search {
+        margin: 3em 0 0 0;
+        padding:10px;
+    }
+
+    .age_box2 {
+        max-width: 100% !important;
+    }
+
+    input#submit-btn {
+        font-size: 0.85em;
+        padding: 4px 10px;
+    }
+
+    .hvr-shutter-out-horizontal {
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+
+    .bg_left {
+        padding: 10px;
+        margin-bottom: 1em;
+    }
+
+    .bg {
+        min-height: 600px;
+        padding: 3em 0 0 0;
+    }
+
+    .testi_grid {
+        width:100%;
+    }
+
+    .testi_grid:nth-child(2n+1) .testi-meta {
+        padding: 5px 0px 0 0;
+        text-align: right;
+    }
+
+    .testi-meta1 {
+        padding: 5px 325px 0 0;
+    }
+
+    .testi_grid .testi_grid_blockquote .featured-thumbnail img {
+        width: 100%;
+    }
+
+    .about_middle-grid1 {
+        margin-bottom: 1em;
+    }
+
+    .navbar-nav {
+        margin: 18px 0 0 0;
+        float:left;
+        width:100%;
+    }
+
+    .navbar-header.nav_2 {
+        display:block;
+    }
+
+    .navbar-default .navbar-toggle {
+        border-color:#2f374c;
+        background-color:#2f374c;
+        border-radius: 2px;
+    }
+
+    .dropdown-menu>li>a {
+        color: #fff !important;
+    }
+
+    .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
+        background-color:#06b6d4;
+    }
+
+    .col-sm-3, .col-sm-6{
+        padding-left:0;
+    }
+
+    .suceess_story ul li:first-child {
+        padding-top: 1rem;
+    }
+
+    .suceess_story ul li {
+        padding-bottom: 1rem;
+    }
+
+    i.icon_4 {
+        font-size: 50px;
+        line-height: 60px;
+    }
+
+    .col-sm-4.item_content {
+        text-align: center;
+        margin-bottom: 2em;
+    }
+
+    .services_top {
+        margin-bottom: 0;
+    }
+
+    ul.login_details1 {
+        margin: 1em 0;
+    }
+
+    .form_radios {
+        padding-left: 0;
+    }
+
+    .col-sm-5.input-group1 {
+        padding-left: 0;
+        margin-bottom: 5px;
+    }
+
+    p + .addr, .addr + .addr, .terms + .addr {
+        margin-bottom: 0;
+    }
+
+    .grid_4 {
+        width: 160px;
+    }
+
+    #contact-form input[type='text'], #contact-form textarea {
+        padding: 10px;
+    } 
+
+    #contact-form input[type="submit"] {
+        padding:10px;
+    } 
+
+    .login_left {
+        margin-bottom: 2em;
+    }
+
+    label {
+        font-size: 13px;
+    } 
+
+    .sharing li {
+        margin-bottom: 10px;
+    }
+
+    .col-sm-4.form_box2 {
+        padding: 0;
+        margin: 5px 0;
+    }
+
+    .form_box, .form_box1{
+        padding:0;
+    }
+
+    ul.login_details1 {
+        margin: 5px 0;
+    }
+
+    .col_2 {
+        padding: 0;
+    }
+
+    .col-sm-8.row_1 {
+        padding: 15px;
+    }
+
+    ul.profile_item{
+        padding: 0;
+        list-style: none;
+        width: 60%;
+        display: flex;
+        font-size: 15px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .biodatanumber h2{
+        font-size: 27px;
+    }
+
+    .sb_biodata_profile{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-top: -100px;
+        margin-bottom: 0px;
+        margin-right: 0px;
+        margin-left: 0px;
+        padding: 20px;
+    }
+    
+    .sb_user .sb_value{
+        font-size: 14px;
+        width: 38%;
+    }
+
+    .sb_user .sb_data{
+        font-size: 14px;
+        width: 62%;
+    }
+
+    .sb_biodatanumber{
+        font-size: 20px;
+    }
+
+    .biodatalist{
+        width: 45%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 30px;
+        margin-bottom: auto;
+    }
+
+    .profile-header {
+        margin-top: 68px;
+    }
+
+    .sb_mobilesearch {
+        margin-top: 20px;
+    }
+
+    /*404 Error Page Start */
+    .error-message {
+        text-align: center;
+        margin-top: 100px;
+    }
+
+    .error-page {
+        background-color: #f8f9fa;
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    .error-title {
+        font-size: 1.7rem;
+        color: red;
+    }
+
+    .error-code {
+        font-size: 4rem;
+        font-weight: bold;
+        color: #000;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .error-text {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+    /*404 Error Page End */
+
+    .nbs-flexisel-container{
+        width: 538px; /* 399px; */
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+--           max-width:736px / E  N  D           --
+--      Media Responsive / Phone Responsive      --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+
+@media (min-width: 600px){
+    #biodataForm fieldset {
+        width: 550px;
+    }
+}
+
+
+@media (max-width: 601px){
+    .nbs-flexisel-item {
+        float: left;
+        position: relative;
+        margin: auto 65px;
+        padding: 0px;
+        line-height: 17px;
+        min-height: 220px;
+    }
+    
+    .sb_featured_profile_head {
+        width: 225px;
+    }
+    
+    .nbs-flexisel-item:first-child{
+        margin-left: 160px;
+    }
+}
+
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+--          max-width:600px / S T A R T          --
+--      Media Responsive / Phone Responsive      --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+@media (max-width: 600px){
+    .sb-search-page-notice h2{
+        line-height: 40px;
+        margin: 150px auto 40px auto;
+    }
+
+    .banner{
+        width: auto;
+    }
+
+    .slide h1 {
+        font-size: clamp(2em, 5vmax, 3em);
+        top: 30px;
+        line-height: 50px;
+        width: 450px;
+    }
+
+    .sb-home-reg2, .sb-search-btn-banner {
+        top: 250px;
+    }
+
+    .slide h5 {
+        top: 160px;
+    }
+
+    .slide p {
+        font-size: 26px;
+        width: 388px;
+        border-radius: 7px;
+        top: 40px;
+        left: 40px;
+    }
+
+    .sb-search-page h2{
+        line-height: 45px;
+    }
+
+    #banner_text{
+        line-height: 40px;
+    }
+
+    .nbs-flexisel-item {
+        float: left;
+        position: relative;
+        margin: auto 0px;
+        padding: 0px;
+        line-height: 17px;
+        min-height: 220px;
+    }
+    
+    .sb_featured_profile_head {
+        width: 225px;
+    }
+    
+    .nbs-flexisel-item:first-child{
+        margin-left: 0px;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 30px;
+    }
+
+    .sb_featured_profile_head {
+        width: 94%;
+    }
+
+    .form-actions a{
+        font-size: 14px;
+    }
+
+    .show-password i{
+        font-size: 16px;
+        top: 2px;
+    }
+
+    i .fa{
+        font-size: 15px;
+        top: 2px;
+    }
+
+    .btn_1 {
+        font-size: 15px;
+    }
+
+    .sb-biodata-field h2{
+        font-size: 25px;
+    }
+
+    .current-page h4 {
+        font-size: 21px;
+    }
+
+    .sb-search-logo {
+        margin: auto;
+    }
+
+    .shosurbari-title h4 {
+        font-size: 17px;
+        line-height: 30px;
+        font-weight: 550;
+    }
+
+    #progressbar li:before{
+        width: 25px;
+        line-height: 24px;
+        font-size: 13px;
+    }
+
+    #progressbar li {
+        font-size: 13px;
+        width: 55px;
+    }
+
+    #progressbar li:after {
+        width: calc(15% + 23px);
+        left: -15px;
+        top: 21px;
+    }
+
+    .navigationpro {
+        display: block;
+        width: auto;
+        padding: 30px;
+      }
+
+      .shosurbari-userhome-status {
+        width: 188px;
+        padding: 0px 0px 20px 0px;
+    }
+
+    #terms-checkbox {
+        width: 27px;
+    }
+
+    #terms-checkbox:checked::after{
+        left: 5px;
+    }
+
+    .biodatarecent_viewlist {
+        width: 60%;
+    }
+
+    .sbbiodata_profile_recentview-mobile{
+        width: 430px;
+    }
+
+    ul.profile_item{
+        padding: 0;
+        list-style: none;
+        width: 72%;
+        display: flex;
+        font-size: 13px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .biodatanumber h2{
+        font-size: 27px;
+    }
+
+    .sb_biodata_profile{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-top: -100px;
+        margin-bottom: 0px;
+        margin-right: 0px;
+        margin-left: 0px;
+        padding: 10px;
+    }
+
+    .sb_user .sb_value{
+        font-size: 14px;
+        width: 40%;
+    }
+
+    .sb_user .sb_data{
+        font-size: 14px;
+        width: 60%;
+    }
+
+    .sb_biodatanumber{
+        font-size: 20px;
+    }
+
+    .biodatalist{
+        width: 45%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 30px;
+        margin-bottom: auto;
+    }
+
+    .sb-register-login, .payment-form{
+        width: 350px;
+    }
+
+    .navigationpro ul {
+        width: 270px;
+    }
+
+    .nbs-flexisel-container{
+        width: 448px; /* 399px; */
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .shosurbari-user-account {
+        width: 350px;
+    }
+
+    .payment-form {
+        width: 350px;
+    }
+
+    #biodataForm fieldset {
+        width: 470px;
+    }
+}
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+--            max-width:600px / E  N  D          --
+--      Media Responsive / Phone Responsive      --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+
+
+
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+--          max-width:540px / S T A R T          --
+--      Media Responsive / Phone Responsive      --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+@media (max-width: 540px){
+
+    .slide h1 {
+        font-size: clamp(2em, 5vmax, 3em);
+        top: -20px;
+        line-height: 50px;
+        width: 450px;
+    }
+
+    .slide h5 {
+        top: 110px;
+    }
+
+    .sb-home-reg2, .sb-search-btn-banner {
+        top: 200px;
+    }
+
+    .slide{
+        height: 260px;
+    }
+
+    .banner-content {
+        height: 260px;
+    }
+
+    .biodatanumber h2{
+        font-size: 24px;
+    }
+
+    .sb_biodata_profile{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-top: -100px;
+        margin-bottom: 0px;
+        margin-right: 0px;
+        margin-left: 0px;
+        padding: 20px;
+    }
+
+    .sb_user .sb_value{
+        font-size: 14px;
+        width: 40%;
+    }
+
+    .sb_user .sb_data{
+        font-size: 14px;
+        width: 60%;
+    }
+
+    .sb_biodatanumber{
+        font-size: 22px;
+    }
+
+    .biodatalist{
+        width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 30px;
+        margin-bottom: auto;
+    }
+
+    .sb_mobilesearch #search-button {
+        width: 151px;
+    }
+
+    .nbs-flexisel-container{
+        width: 422px; /* 399px; */
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .sb-home-reg{
+        left: 20px;
+        bottom: 10px;
+        padding: 15px;
+    }
+
+    .sb-search-btn{
+        right: 20px;
+        margin-bottom: 120px;
+        padding: 15px;
+    }
+}
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+--           max-width:540px / E  N  D           --
+--      Media Responsive / Phone Responsive      --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+--          max-width:480px / S T A R T          --
+--      Media Responsive / Phone Responsive      --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+@media (max-width:480px){
+    .shosurbari-about {
+        line-height: 40px;
+    }
+
+    .banner{
+        height: 280px;
+    }
+
+    .slide h1 {
+        font-size: clamp(1.74em, 5vmax, 3px);
+        top: 5px;
+        line-height: 45px;
+        width: 367px;
+        padding: 10px;
+    }
+
+    .slide h5 {
+        font-size: 17px;
+        top: 95px;
+        width: 367px;
+        padding: 10px;
+    }
+
+    .sb-home-reg2 button, .sb-search-btn-banner button {
+        padding: 7px;
+        font-size: 17px;
+        width: 180px;
+    }
+
+    .sb-search-btn-banner {
+        left: 190px;
+    }
+
+    .slide p {
+        font-size: 23px;
+        width: 346px;
+        left: 30px;
+    }
+
+    .sb-search-page h2{
+        line-height: 40px;
+    }
+
+    .brn-payment {
+        width: 150px;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 25px;
+    }
+
+    .update-image .camera-wrapper i {
+        font-size: 18px;
+        padding: 7px;
+        margin-top: 110px;
+        margin-left: 100px;
+    }
+
+    .form-actions p {
+        font-size: 13px;
+    }
+
+    .shosurbari-details p {
+        font-size: 15px;
+    }
+
+    .remember-forgot label {
+        font-size: 13px;
+    }
+
+    .remember-forgot a {
+        font-size: 13px;
+    }
+
+    .btn_1 {
+        font-size: 14px;
+    }
+
+    .sb-biodata-field h2{
+        font-size: 23px;
+    }
+
+    .current-page h4 {
+        font-size: 20px;
+    }
+
+    i.home_1 {
+        font-size: 25px;
+    }
+
+    .sb-search-logo {
+        margin: auto;
+    }
+
+    .shosurbari-title h4 {
+        line-height: 30px;
+        font-weight: 550;
+    }
+
+    #progressbar {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        width: 300px;
+    }
+    
+    #progressbar li:after {
+        left: -28px;
+        top: 25px;
+        width: calc(40% + 23px);
+    }
+    
+    #progressbar li:nth-child(4):before {
+        margin-bottom: 10px;
+    }
+    
+    #progressbar li:nth-child(5) {
+        clear: left;
+    }
+    
+    #progressbar li {
+        width: 70px;
+        font-size: 14px;
+        float: left;
+        text-align: center;
+        padding: 5px;
+        margin-left: calc((40px - 35px) / 2);
+        margin-right: calc((40px - 35px) / 2);
+    }
+
+    #terms-checkbox {
+        width: 32px;
+    }
+
+    .contact-bio,
+    .copy-sbbio-link {
+        font-size: 13px;
+    }
+
+    .left-side {
+        width: 90%;
+    }
+
+    .sb_featured_profile_head {
+        width: 90%;
+    }
+
+    .shosurbari-user-account {
+        width: 300px;
+    }
+
+    .payment-form {
+        width: 300px;
+    }
+
+    .hvr-shutter-out-horizontal {
+        font-size: 13px;
+    }
+
+    .profile_search {
+        margin: 2em 0 0 0;
+        padding: 10px;
+    }
+
+    label.gender_1 {
+        font-size: 12px;
+    }   
+
+    .input-group input[type="text"], select, input.transparent{
+        font-size: 10px;
+    }   
+
+    input#submit-btn {
+        font-size: 0.8125em;
+        padding: 3px 8px;
+    }
+
+    .wrap_1 {
+        width: 452px;
+    }
+
+    .inline-block {
+        margin-bottom: 5px;
+    }
+
+    .heart-divider {
+        margin: 2em auto;
+    }
+
+    .religion_1-title {
+        font-size: 1.2em;
+    }
+
+    .grid_2 {
+        margin-bottom: 1em;
+    }
+
+    .col-sm-3, .col-sm-6 {
+        padding:0;
+    }
+
+    .bg {
+        min-height: 625px;
+    }
+
+    .map iframe {
+        height:200px;
+    }
+
+    .testi-meta1 {
+        padding: 5px 177px 0 0;
+    }
+
+    .testi_grid .testi_grid_blockquote .featured-thumbnail {
+        width: 80px;
+        height: 80px;
+    }
+
+    .nav>li>a {
+        padding: 8px 5px;
+        font-size: 13px;
+    }
+
+    p.description {
+        font-size: 12px;
+        line-height: 1.5em;
+    }
+
+    .jobs-item .top-btns li {
+        margin-left: 4px;
+    }
+
+    .menu ul li a {
+        line-height: 2em;
+    }
+
+    .jobs-item {
+        margin-bottom: 2em;
+    }
+
+    i.icon_1 {
+        font-size: 30px;
+    }
+
+    i.icon_2 {
+        font-size: 20px;
+    }
+
+    ul.phone li.phone_right p {
+        font-size: 12px;
+    }  
+
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .pricing-table {
+        width: 100%;
+        float: none;
+        margin-bottom:5px;
+    }
+
+    .grid_4 {
+        width: 140px;
+        margin: 0;
+    }
+
+    .nbs-flexisel-nav-right:after, .nbs-flexisel-nav-left:after  {
+        top:20px;
+    }
+
+    .nbs-flexisel-item {
+        float: left;
+        position: relative;
+        margin: auto 105px;
+        padding: 0px;
+        line-height: 17px;
+        min-height: 220px;
+    }
+
+    .sb_featured_profile_head {
+        width: 225px;
+    }
+
+    .nbs-flexisel-item:first-child{
+        margin-left: 70px;
+    }
+
+    ul.profile_item{
+        padding: 0;
+        list-style: none;
+        width: 81%;
+        display: flex;
+        font-size: 12px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .biodatanumber h2{
+        font-size: 18px;
+    }
+
+    .update-image-button{
+        font-size: 13px;
+        display: block;
+    }
+
+    .deleteimage {
+        padding: 10px;
+        margin-top: -15px;
+        margin-left: -9px;
+        width: 85%;
+    }
+
+    .update-image img {
+        height: 148px;
+        width: 148px;
+    }
+
+    .sb_biodata_profile{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-top: -50px;
+        margin-bottom: 0px;
+        margin-right: 0px;
+        margin-left: 0px;
+        padding: 20px;
+    }
+
+    .sb_user .sb_value{
+        font-size: 14px;
+        width: 40%;
+    }
+
+    .sb_user .sb_data{
+        font-size: 14px;
+        width: 60%;
+    }
+
+    .sb_biodatanumber{
+        font-size: 22px;
+    }
+
+    .sb_mobilesearch  .sb_singlebio_mobilesearch {
+        width: 194px;
+        margin-left: 25px;
+        margin-right: auto;
+    }
+
+    .sb_mobilesearch  #search-button{
+        width: 135px;
+        margin-left: auto;
+        margin-right: 25px;
+    }
+
+    .sb-register-login, .payment-form{
+        width: 300px;
+    }
+
+    .navigationpro ul {
+        width: 260px;
+    }
+
+.nbs-flexisel-container{
+    /* width: 280px; */
+    width: 245px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    .sb_user_recentview .sb_value_recentview {
+        width: 44%;
+    }
+
+    .sb_user_recentview .sb_data_recentview {
+        width: 56%;
+    }
+
+    .sbbiodata_profile_recentview-mobile{
+        width: 290px;
+    }
+
+    .biodatarecent_viewlist {
+        width: 85%;
+    }
+
+    #biodataForm fieldset {
+        width: 404px;
+    }
+}
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+--           max-width:480px / E  N  D           --
+--      Media Responsive / Phone Responsive      --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+@media (max-width: 479px){
+    .nbs-flexisel-item {
+        float: left;
+        position: relative;
+        margin: auto 0px;
+        padding: 0px;
+        line-height: 17px;
+        min-height: 220px;
+    }
+    
+    .sb_featured_profile_head {
+        width: 225px;
+    }
+    
+    .nbs-flexisel-item:first-child{
+        margin-left: 0px;
+    }
+}
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+--          max-width:414px / S T A R T          --
+--      Media Responsive / Phone Responsive      --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+@media (max-width:414px){
+    .sb-search-btn-banner {
+        left: 185px;
+    }
+
+    .sb-home-reg2 button, .sb-search-btn-banner button {
+        width: 160px;
+    }
+
+    .slide p {
+        font-size: 22px;
+        width: 333px;
+        left: 23px;
+    }
+
+    .message-footer p {
+        font-size: 16px;
+    }
+
+    .shosurbari-title h4 {
+        line-height: 25px;
+    }
+
+    .wrap_1 {
+        width: 375px;
+    }
+
+    .hvr-shutter-out-horizontal {
+        padding: 4px 8px;
+        font-size: 11px;
+    }	
+
+    .profile_search {
+        margin: 1em 0 0 0;
+        padding:5px;
+    }
+
+    .navigation {
+        margin-right: 23%;
+        margin-top: 0;
+    }
+
+    .bg_left h4 {
+        font-size: 1.1em;
+    }
+
+    .bg_left h5 {
+        font-size: 0.85em;
+    }
+
+    .bg {
+        min-height: 640px;
+        padding: 2em 0 0 0;
+    }
+
+    .col_2 {
+        margin-bottom: 2em;
+    }
+
+    .about_middle h2 {
+        font-size: 1.5em;
+    }
+
+    .grid_3, .about_middle {
+        margin-bottom: 0px;
+    }
+
+    .about_bottom h3 {
+        font-size: 1.8em;
+    }
+
+    .desc h4 {
+        font-size: 1.1em;
+    }
+
+    .post_networks ul li {
+        margin: 2.5em 0 0 0;
+    }
+
+    .profile_left h2 {
+        font-size: 1em;
+    }
+
+    .page_header h3 {
+        font-size: 1em;
+    }
+
+    .page_header h1 {
+        margin-bottom:10px;
+    }
+
+    i.icon_4 {
+        font-size: 35px;
+        line-height: 50px;
+    }
+
+    .col-sm-4.item_content {
+        margin-bottom: 1em;
+    }
+
+    .footer {
+        padding: 1em 0;
+    }
+
+    .about_bottom {
+        padding: 2em 0 0em;
+    }
+
+    ul.match_box {
+        margin: 0 0 1em 0;
+    }
+
+    ol.terms_list li {
+        font-size: 0.8125em;
+    } 
+
+    .nbs-flexisel-nav-right:after, .nbs-flexisel-nav-left:after  {
+        top:20px;
+    }
+
+    .terms h4 {
+        font-size: 1.2em;
+    }
+
+    .form_radios {
+        font-size: 12px;
+    }
+
+    .search_left {
+        margin-bottom: 1em;
+    }
+
+    .view_profile2 {
+        margin: 3em 0 0 0;
+    }
+
+    ul.pagination_1 {
+        margin: 0 0 2em 0;
+    }
+
+    .members_box2 p {
+        margin-bottom: 1em;
+    }
+
+    .addr dl dt, .addr dl dd {
+        font-size: 12px;
+    }
+
+    .grid_4 {
+        width: 115px;
+    }
+
+    form#contact-form {
+        width: 60%;
+    }
+
+    #contact-form input[type='text'], #contact-form textarea {
+        padding: 7px;
+    }
+
+    #contact-form input[type="submit"] {
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    ul.profile_item{
+        padding: 0;
+        list-style: none;
+        width: 84%;
+        display: flex;
+        font-size: 11px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .biodatanumber h2{
+        font-size: 16px;
+    }
+
+    .update-image-button{
+        font-size: 13px;
+        display: block;
+    }
+
+    .deleteimage {
+        padding: 10px;
+        margin-top: -15px;
+        margin-left: -9px;
+        width: 85%;
+    }
+
+    .sb_biodata_profile{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-top: -50px;
+        margin-bottom: 0px;
+        margin-right: 0px;
+        margin-left: 0px;
+        padding: 20px;
+    }
+
+    .sb_user .sb_value{
+        font-size: 14px;
+        width: 40%;
+    }
+
+    .sb_user .sb_data{
+        font-size: 14px;
+        width: 60%;
+    }
+
+    .sb_biodatanumber{
+        font-size: 22px;
+    }
+
+    .biodatalist{
+        width: 280px;
+    }
+
+    .gender-radio-select .gender-option label {
+        font-size: 14px;
+    }
+
+    .gender-radio-select .gender-option {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: -22px;
+        margin-right: 0px;
+        width: 142%;
+    }
+
+    .sb_mobilesearch #search-button {
+        width: 123px;
+    }
+
+    .navigationpro ul {
+        width: 245px;
+    }
+
+    #biodataForm fieldset {
+        width: 374px;
+    }
+}
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+--            max-width:414px / E  N  D          --
+--      Media Responsive / Phone Responsive      --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+--          max-width: 384px / S T A R T          --
+--      Media Responsive / Phone Responsive      --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+@media (max-width:384px){
+    .sb-home-reg2{
+        top: 165px;
+    }
+
+    .sb-search-btn-banner {
+        top: 212px;
+        left: 0px;
+    }
+
+    .slide h1 {
+        font-size: clamp(1.66em, 5vmax, 3px);
+        top: 6px;
+        line-height: 37px;
+        width: 300px;
+        padding: 10px;
+    }
+
+    .slide h5 {
+        top: 82px;
+    }
+
+    .sb-search-page .sb-search-btn2 {
+        width: 275px;
+    }
+
+    .slide p {
+        font-size: 21px;
+        width: 317px;
+        left: 17px;
+    }
+
+    .update-image .camera-wrapper i {
+        font-size: 17px;
+        padding: 6px;
+        margin-top: 115px;
+        margin-left: 100px;
+    }
+
+    .shosurbari-details p {
+        font-size: 14px;
+    }
+
+    .btn_1 {
+        font-size: 13px;
+    }
+
+    .sb-biodata-field h2{
+        font-size: 21px;
+    }
+
+    .current-page h4 {
+        font-size: 19px;
+    }
+
+    i.home_1 {
+        font-size: 24px;
+    }
+
+    .shosurbari-title h4 {
+        line-height: 25px;
+    }
+    
+    #terms-checkbox {
+        width: 36px;
+    }
+
+    .sb-terms-privacy-checkbox input {
+        margin-top: -40px;
+    }
+
+    a#profile-tab, a#home-tab, a#profile-tab1 {
+        font-size: 12px;
+    }
+
+    .nav-tabs1>li.active>a, .nav-tabs1>li.active>a:focus, .nav-tabs1>li.active>a:hover {
+        margin: 3px;
+    }
+
+    .shosurbari-user-account {
+        width: 270px;
+    }
+
+    .payment-form {
+        width: 270px;
+    }
+    
+    .wrap_1 {
+        width: 350px;
+    }	
+
+    .inline-block {
+        margin-bottom:2px;
+    }
+
+    a.brand img {
+        width: 150px;
+    }
+
+    .navigation {
+        margin-top: -6px;
+    }
+
+    .grid_1 {
+        padding: 2em 0;
+    }
+
+    .suceess_story-content-info h4 {
+        font-size: 1em;
+    }
+
+    .suceess_story-content-container, .suceess_story-date {
+        margin-left: 1.813rem;
+    }
+
+    .suceess_story-content-featured-image {
+        margin-right: 10px;
+        margin-bottom: 0;
+    }
+
+    .post-meta span.day {
+        font-size: 25px;
+    }
+
+    .post-content {
+        font-size: 0.8125em;
+        margin: 5px 0;
+    }
+
+    a.religion_1 {
+        font-size: 0.8125em;
+    }
+
+    .religion {
+        margin: 1em 0;
+    }
+
+    .religion_1-title {
+    margin-bottom: 5px;
+    }
+
+    .bg_left p, .col_2 p, .about_right p, .desc p,  .headings p, .column_grid p, .members_box2 p, .page_header p, .item_content p, .suceess_story-content-info p{
+        font-size:12px;
+    }
+
+    .profile_left2 {
+        margin-bottom: 2em;
+    }
+
+    .menu > li {
+        font-size:0.95em;
+    }
+
+    ul.login_details1 li p {
+        line-height: 1.5em;
+        margin: 1em 0;
+        font-size: 12px;
+    }
+
+    .phone_1 {
+        margin-right: 0%;
+    }
+
+    .span_1_of_3 {
+        width: 32.2%;
+    }
+
+    .profile_left1 {
+        margin-bottom: 2em;
+    }
+
+    .profile_left1 h1 {
+        margin-bottom: 1em;
+    }
+
+    .faq-list_h h4{
+        font-size:0.8125em;
+        color:#000;
+    }
+
+    .list_1 {
+        margin: 2em 0 0 0;
+    }
+
+    .list_1 h3 {
+        font-size: 1.3em;
+    }
+
+    .jobs-item .thumb {
+        margin-right: 10px;
+    }
+
+    .jobs-item .top-btns {
+        right: -15px;
+    }
+
+    .jobs-item .top-btns li {
+        margin-left: 2px;
+    }
+
+    p + .addr, .addr + .addr, .terms + .addr {
+        margin-top: 10px;
+    }
+
+    #contact-form input[type='text'], #contact-form textarea {
+        font-size: 12px;
+    }
+
+    #contact-form textarea{
+        height:100px;
+    }
+
+    input#submit-btn {
+        font-size: 0.8125em;
+        padding: 1px 5px;
+    }
+
+    .terms_1 h3, .terms_1 h5{
+        font-size: 1em;
+    }
+
+    .testi_grid .testi_grid_blockquote > div {
+        line-height: 16px;
+    }
+
+    ul.profile_item{
+        padding: 0;
+        list-style: none;
+        width: 100%;
+        display: flex;
+        font-size: 10px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .biodatanumber h2{
+        font-size: 12px;
+    }
+
+    .update-image-button{
+        font-size: 13px;
+        display: block;
+    }
+
+    .deleteimage {
+        padding: 10px;
+        margin-top: -15px;
+        margin-left: -9px;
+        width: 85%;
+    }
+
+    .sb_biodata_profile{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-top: -50px;
+        margin-bottom: 0px;
+        margin-right: 0px;
+        margin-left: 0px;
+        padding: 20px;
+    }
+
+    .sb_user .sb_value{
+        font-size: 14px;
+        width: 40%;
+    }
+
+    .sb_user .sb_data{
+        font-size: 14px;
+        width: 60%;
+    }
+
+    .sb_biodatanumber{
+        font-size: 20px;
+    }
+
+    .biodatalist{
+        width: 260px;
+    }
+
+    .sb_mobilesearch  .sb_singlebio_mobilesearch {
+        width: 194px;
+        margin-left: 10px;
+        margin-right: auto;
+    }
+
+    .sb_mobilesearch #search-button {
+        width: 123px;
+        margin-left: auto;
+        margin-right: 10px;
+    }
+
+    .sb-register-login, .payment-form {
+        width: 270px;
+    }
+
+    .gender-select-reg .gender-option label {
+        font-size: 12px;
+    }
+
+    .sb-profile-gender {
+        font-size: 12px;
+    }
+
+    #biodataForm fieldset {
+        width: 340px;
+    }
+}
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+--            max-width:384px / E  N  D          --
+--      Media Responsive / Phone Responsive      --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+--       max-width:350px / S  T  A  R  T         --
+--      Media Responsive / Phone Responsive      --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+@media (max-width: 350px) {
+    .slide h1, .slide h5 {
+        width: 330px;
+    }
+
+    .slide p {
+        font-size: 18px;
+        width: 274px;
+        left: 2px;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 23px;
+    }
+
+    .message-footer p {
+        font-size: 15px;
+    }
+
+    .shosurbari-title h4 {
+        line-height: 25px;
+    }
+
+    .sb_biodata_profile{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-top: -50px;
+        margin-bottom: 0px;
+        margin-right: 0px;
+        margin-left: 0px;
+        padding: 10px;
+    }
+
+    .sb_user .sb_value{
+        font-size: 14px;
+        width: 40%;
+    }
+
+    .sb_user .sb_data{
+        font-size: 14px;
+        width: 60%;
+    }
+
+    .sb_biodatanumber{
+        font-size: 20px;
+    }
+
+    .ellipsis {
+        font-size: 12.5px;
+    }
+
+    .sb_mobilesearch  #search-button {
+        width: 113px;
+        font-size: 14px;
+    }
+
+    .sb_mobilesearch  .sb_singlebio_mobilesearch {
+        width: 175px;
+        font-size: 14px;
+    }
+
+    .sbbiodata-search-mobile form {
+        width: 222px;
+    }
+
+    .navigationpro ul {
+        width: 235px;
+    }
+
+    #biodataForm fieldset {
+        width: 310px;
+    }
+
+    #progressbar {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        width: 260px;
+    }
+
+    #progressbar li:after {
+        left: -18px;
+        top: 25px;
+        width: calc(25% + 23px);
+    }
+
+    #progressbar li {
+        width: 70px;
+        font-size: 14px;
+        float: left;
+        text-align: center;
+        padding: 5px;
+        margin-left: calc((30px - 35px) / 2);
+        margin-right: calc((30px - 35px) / 2);
+    }
+}
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+--            max-width:350px / E  N  D          --
+--      Media Responsive / Phone Responsive      --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+--          max-width:320px / S T A R T          --
+--      Media Responsive / Phone Responsive      --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+@media (max-width:320px){
+
+    .sb-search-btn button, .sb-home-reg button {
+        padding: 3px 1px;
+        font-size: 13px;
+        width: 141px;
+    }
+
+    .sb-home-reg{
+        left: 4px;
+        padding: 2px;
+    }
+
+    .sb-search-btn{
+        right: 4px;
+        padding: 2px;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 22px;
+    }
+
+    .message-footer p {
+        font-size: 14px;
+    }
+
+    .shosurbari-title h4 {
+        line-height: 24px;
+    }
+
+    a#profile-tab, a#home-tab, a#profile-tab1 {
+        font-size: 14px;
+    }
+
+    .nav-tabs1>li.active>a, .nav-tabs1>li.active>a:focus, .nav-tabs1>li.active>a:hover {
+        margin: 5px;
+    }
+    
+    .nav-tabs1 {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0px;
+        margin: 0px;
+        white-space: normal;
+    }
+    
+    .profile-img img {
+        position: relative;
+        height: 168px;
+        width: 168px;
+    }
+
+    .sb_user_recentview .sb_value_recentview {
+        font-size: 13px;
+        width: 44%;
+    }
+
+    .sb_user_recentview .sb_data_recentview {
+        font-size: 13px;
+        width: 56%;
+    }
+
+    .sbbiodata_profile_recentview-mobile{
+        width: 240px;
+    }
+    
+    .biodatarecent_viewlist {
+        width: 90%;
+    }
+
+    .wrap_1 {
+        width: 330px;
+    }	
+
+    a.brand img {
+        width: 135px;
+    }
+
+    .navigation {
+        margin-right: 20%;
+    }
+
+    .row_1-right h3 {
+        margin-bottom: 1em;
+        font-size: 1.3em;
+    }
+
+    h4.post-title {
+        font-size: 0.85em;
+    }
+
+    .nbs-flexisel-nav-right:after, .nbs-flexisel-nav-left:after {
+        top: -15px;
+    }
+
+    a.religion_1 {
+        font-size: 12px;
+    }
+
+    .suceess_story,.col-md-4.row_1-right{
+        padding: 0;
+    }
+
+    .suceess_story:before, .suceess_story:after {
+        left: -8px;
+    }
+
+    .bg {
+        min-height: 660px;
+    }
+
+    .bg_left {
+        margin-bottom: 5px;
+    }
+
+    .col_2 h4 {
+        font-size: 1.1em;
+    }  
+
+    .shosurbari-copy-right p {
+        font-size: 0.8125em;
+    }
+
+    .jb-accordion-title {
+        padding: 5px 10px 7px;
+        font-size: 15px;
+    }
+
+    .about_grid1{
+        padding:0 5px;
+    }
+
+    .nav>li>a {
+        padding: 3px 5px;
+    }
+
+    .nav>li>a {
+        font-size: 12px;
+    }
+
+    .tab_box p {
+        font-size: 0.8125em;
+    }
+
+    .basic_1 h3 {
+        font-size: 1em;
+    }
+
+    .basic_1, .tab_box{
+        margin-bottom: 1em;
+    }
+
+    .profile_right {
+        margin: 2em 0 0 0;
+    }
+
+    .newsletter input[type="text"] {
+        padding: 8px 2%;
+        max-width: 74%;
+    }
+
+    .newsletter input[type="submit"] {
+        padding: 6px 14px;
+    }
+
+    .newsletter {
+        margin-bottom: 2em;
+    }
+
+    .view_profile h3 {
+        font-size: 1.1em;
+    }  
+
+    .view_profile1 {
+        margin: 2em 0 0 0;
+    }
+
+    ul.profile_item li.profile_item-desc h4, ul.profile_item li.profile_item-desc h5, ul.profile_item li.profile_item-desc p, ul.footer_links li {
+    font-size: 12px;
+    }
+
+    .faq-details {
+        margin: 1em 0 0 0;
+    }
+
+    .profile_top h2 {
+        font-size: 0.85em;
+    } 
+
+    .breadcrumb1 {
+        margin-bottom: 1em;
+    } 
+
+    .pagination>li >a {
+        padding: 4px 10px;
+        font-size: 12px;
+    }
+
+    .jobs-item .thumb img {
+        width: 70px;
+    }
+
+    h6.title {
+        font-size: 0.85em;
+    }
+
+    .jobs-item .top-btns li a {
+        font-size: 12px;
+    }
+
+    ul.login_details1 li {
+        font-size: 12px;
+    }
+
+    .breadcrumb1 li {
+        margin-right: 0;
+        padding-right: 0;
+        font-size: 0.85em;
+    }
+
+    ul.match_box li {
+        font-size: 12px;
+    }
+
+    .terms h4 {
+        font-size: 1em;
+    }
+
+    ol.terms_list {
+        margin-bottom: 1em;
+    }
+
+    .terms p {
+        margin-bottom: 1em;
+    }
+
+    p.m_4{
+        font-size:0.8125em;
+    }
+
+    .list_1 h3 {
+        font-size: 1.1em;
+    }
+
+    a.photo_view {
+        padding: 5px 8px;
+    } 
+
+    .pricing-table-grid ul li span {
+        padding:7px;
+        font-size: 13px;
+    }
+
+    .pricing-table-grid h3 {
+        padding: 10px 0 10px;
+        font-size: 1.2em;
+    }
+
+    span.month1 {
+        font-size: 12px;
+        line-height: 2em;
+    }
+
+    .pricing-table-grid ul li a, .pricing-table-grid ul li span {
+        padding: 8px 0;
+        font-size: 0.8125em;
+    }
+
+    a.order-btn {
+        width: 50%;
+        padding: 6px 10px;
+    }
+
+    .page_header {
+        margin-bottom: 1em;
+    }
+
+    ul.profile_item{
+        padding: 0;
+        list-style: none;
+        width: 110%;
+        display: flex;
+        font-size: 10px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .update-image-button{
+        font-size: 13px;
+        display: block;
+    }
+
+    .deleteimage {
+        padding: 10px;
+        margin-top: -15px;
+        margin-left: -9px;
+        width: 85%;
+    }
+
+    .sb_biodata_profile{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-top: -50px;
+        margin-bottom: 0px;
+        margin-right: 0px;
+        margin-left: 0px;
+        padding: 10px;
+    }
+
+    .sb_user .sb_value{
+        font-size: 13px;
+        width: 42%;
+    }
+
+    .sb_user .sb_data{
+        font-size: 13px;
+        width: 58%;
+    }
+
+    .sb_biodatanumber{
+        font-size: 18px;
+    }
+
+    .biodatalist{
+        width: 255px;
+    }
+
+    .ellipsis {
+        font-size: 12.5px;
+    }
+
+    .remember-forgot{
+        display: block;
+    }
+
+    .sb_mobilesearch #search-button {
+        width: 123px;
+        font-size: 13px;
+        margin-right: 3px;
+    }
+
+    .sb_mobilesearch  .sb_singlebio_mobilesearch {
+        width: 190px;
+        font-size: 13px;
+        margin-left: 5px;
+        margin-right: 6px;
+    }
+
+    .navigationpro ul {
+        width: 180px;
+    }
+
+    .shosurbari-user-account {
+        width: 263px;
+    }
+
+    .sb-register-login{
+        width: 263px;
+    }
+
+    .payment-form {
+        width: 263px;
+    }
+
+    #biodataForm fieldset {
+        width: 290px;
+    }
+}
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+--           max-width:320px / E  N  D           --
+--      Media Responsive / Phone Responsive      --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                 E    N    D                   --
+--      Media Responsive / Phone Responsive      --
+--                                               --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/

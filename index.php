@@ -74,7 +74,7 @@
 
 
 
-<h3 id="banner_text"></h3>
+<!-- <h3 id="banner_text"></h3> -->
 
 		<div class="droop-down">
       <div class="shosurbari-home-search">
@@ -1149,6 +1149,8 @@ toggleLabels.forEach(label => {
 
   typeText();
 </script>
+
+
 <style>
   .form-control {
     padding: 5px 6px;
@@ -1163,7 +1165,7 @@ toggleLabels.forEach(label => {
   width: 1010px;
   margin: auto;
   border: 2px solid #f0f0f0;
-  border-radius: 10px;
+  border-radius: 0px 0px 10px 10px;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
@@ -1450,36 +1452,7 @@ function createSlides(data) {
 
 </style>
 
-
-
-  <!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-  -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
-  --                 S  T  A  R  T                 --
-  --      SHOSURBARI HOME PAGE / BODY CONTENT      --
-  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
-  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-  <div class="sb-search-page-notice">
-      <h2>এখানে হাজারেরো বেশি যাচাইকৃত পাত্রপাত্রীর প্রোফাইল রয়েছে</h2>
-  </div>
-
-  <div class="sb-search-page">
-    <div class="sb-search-logo-btn">
-      <div class="sb-search-options">
-        <img src="images/shosurbari-search.png">
-      </div>
-
-      <div class="sb-search-logo">
-        <div class="sb-search-btn2">
-          <p> <i class="fa fa-search" style="font-size:24px"> </i>  খুঁজেনিন পছন্দের জীবনসঙ্গী </p>
-          <a href="search.php"><button > জীবনসঙ্গী খুজুন </button></a>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-
-
-  <!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
   -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
   --                 S  T  A  R  T                 --
   --    SHOSURBARI HOME PAGE / FEATURED PROFILES   --
@@ -1625,6 +1598,40 @@ function createSlides(data) {
   --    SHOSURBARI HOME PAGE / FEATURED PROFILES   --
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+
+
+  
+
+
+
+  <!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+  -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+  --                 S  T  A  R  T                 --
+  --      SHOSURBARI HOME PAGE / BODY CONTENT      --
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+  <div class="sb-search-page-notice">
+      <h2>এখানে হাজারেরো বেশি যাচাইকৃত পাত্রপাত্রীর প্রোফাইল রয়েছে</h2>
+  </div>
+
+  <div class="sb-search-page">
+    <div class="sb-search-logo-btn">
+      <div class="sb-search-options">
+        <img src="images/shosurbari-search.png">
+      </div>
+
+      <div class="sb-search-logo">
+        <div class="sb-search-btn2">
+          <p> <i class="fa fa-search" style="font-size:24px"> </i>  খুঁজেনিন পছন্দের জীবনসঙ্গী </p>
+          <a href="search.php"><button > জীবনসঙ্গী খুজুন </button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  
   <?php
           require_once("includes/dbconn.php");
 

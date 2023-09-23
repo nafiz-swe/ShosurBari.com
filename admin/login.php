@@ -457,6 +457,8 @@
                                 </li>
                             </ul>
                         </div>
+
+
                         <div id="Forms" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
                                 <li><a href="form-elements.html">Form Elements</a>
@@ -520,113 +522,108 @@
 
 
 
+    <style>
+.shosurbari-biodata-form {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 1400px;
+  margin: auto;
+  padding-top: 30px;
+  padding-bottom: 30px
+}
 
-<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
--- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
---                S  T  A  R  T                  --
---   SHOSURBARI BIODATA FORM FIELD ALL SECTION   --
---                                               --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-<div class="shosurbari-biodata">
-	
-    <form action="auth/auth.php?user=1" method="post">
-		<div class="flex-container">
-    <div class="sb-register-login">
+.soshurbari-animation-icon,
+.shosurbari-animation-form {
+  flex-basis: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-		  <div class="sb-biodata-field">
-		    <h2>Login Your <span>Account</span></h2>
+.soshurbari-animation-icon img{
+  justify-content: flex-end;
+  margin: auto;
+}
+
+@media (max-width: 1400px){
+  .shosurbari-biodata-form{
+    width: auto;
+  }
+}
+
+@media (max-width: 1024px) {
+  .soshurbari-animation-icon {
+    display: none;
+  }
+
+  .shosurbari-animation-form {
+    flex-basis: 100%;
+    justify-content: center;
+  }
+
+  .shosurbari-biodata-form {
+    width: auto;
+  }
+}
+</style>
+
+<div class="shosurbari-biodata-form">
+
+  <div class="soshurbari-animation-icon">
+    <div class="sb-icon-laptop">
+      <img src="images/shosurbari-login.png">
+    </div>
+  </div>
+
+  
+  <div class="shosurbari-animation-form">
+    <form action="auth/auth.php?user=1" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
+		  <div class="flex-container">
+        <div class="sb-register-login">
+
+          <div class="sb-biodata-field">
+            <h2>Login Your <span>Account</span></h2>
+          </div>
+
+          <div class="form-group">
+            <!--  <label for="edit-name">Email or Username <span class="form-required" title="This field is required.">*</span></label> -->
+            <input type="text" id="username_email" placeholder="Your Email or Username" name="username" value="<?php if(isset($_COOKIE['username'])) { echo $_COOKIE['username']; } ?>" size="60" maxlength="60" class="form-text required">
+            <span id="uname_email_error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+          </div>
+
+
+			    <div class="form-group">
+            <!-- <label for="edit-pass">Password <span class="form-required" title="This field is required.">*</span></label> -->
+            <!-- <input type="password" id="sb_log_pass" placeholder="Your Password" name="password" value="<?php if(isset($_COOKIE['password'])) { echo $_COOKIE['password']; } ?>" size="60" maxlength="128" class="form-text required"> -->
+            <input type="password" id="sb_log_pass" placeholder="Your Password" name="password" value="" size="60" maxlength="128" class="form-text required">
+            <span class="show-password" style="color:#0aa4ca;  font-size:15px; top: 2px;"><i style="color:black;  font-size:15px;" class="fa fa-eye" aria-hidden="true"></i></span> 
+            <span id="password_error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+          </div>
+
+          <!-- If the user clicks the Remember Me box when they login, the user's login information will be saved in their cookie.-->
+			    <div class="remember-forgot">
+            <label><input type="checkbox" id="edit-remember" name="remember" value="1" <?php if(isset($_COOKIE['username'])) { echo "checked"; } ?>> Remember me</label>
+            <a href="forgot_password.php">Forgot password?</a>
+          </div>
+
+		      <div class="form-actions">
+            <button  type="submit" id="edit-submit" name="op"  class="btn_1 submit"  > <span> </span> Login Your Account</button>
+          </div>
+
+        </div>
       </div>
-
-			<div class="form-group">
-      <!--  <label for="edit-name">Email or Username <span class="form-required" title="This field is required.">*</span></label> -->
-	      <input type="text" id="edit-name" placeholder="Your Email or Username" name="username" value="" size="60" maxlength="60" class="form-text required">
-      </div>
-
-
-			<div class="form-group">
-       <!-- <label for="edit-pass">Password <span class="form-required" title="This field is required.">*</span></label> -->
-	      <input type="password" id="edit-pass" placeholder="Your Password"  name="password" size="60" maxlength="128" class="form-text required">
-        <span class="show-password" style="color:#02a7e6;  font-size:18px;"><i style="color:black;  font-size:18px;" class="fa fa-eye" aria-hidden="true"></i></span> 
-      </div>
-
-			<div class="remember-forgot">
-        <label>
-          <input type="checkbox" name="remember" value="1"> Remember me
-        </label>
-        <a href="forgot_password.php">Forgot password?</a>
+	  </form>
+</div>
+  
 </div>
 
-      <style>
-.remember-forgot{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-  margin-top: -10px;
-}
-
-.remember-forgot label {
-  margin-right: 10px;
-  white-space: nowrap;
-  font-weight: 500;
-}
-
-.remember-forgot a {
-  font-size: 14px;
-  white-space: nowrap;
-  color: #06b6d4;
-}
-  </style>
-
-	<script>
-        let showPass = document.querySelectorAll('.show-password');
-        showPass.forEach(function(el) {
-            el.addEventListener('click', function(){
-                let input = this.previousElementSibling;
-                if (input.type === "password") {
-                    input.type = "text";
-                    this.innerHTML = "<i class='fa fa-eye-slash'></i>";
-                } else {
-                    input.type = "password";
-                    this.innerHTML = "<i class='fa fa-eye'></i>";
-                }
-            });
-        });
-    </script>
-
-
-
-		   <div class="form-actions">
-      <button  type="submit" id="edit-submit" name="op"  class="btn_2 submit"  > <span> </span> Login Your Account</button>
-    </div>
 
 
 
 
 
 
-		<div class="or">
-		    <p><span class="sb-or">OR</span></p>
-        </div>
-
-	  	<div class="form-actions">
-			<p>Don't have an account?</p>
-			<a class="btn_5 submit" href="register.php">Create New Account</a>
-	    </div>
-
-    </div>
-<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
--- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
---                   E   N   D                   --
---        Religion Details / sb-biodata-8        --
---                                               --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-
-    </div>
-	  </form>
-  </div>
 
 
       <!-- Start Footer area-->
