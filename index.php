@@ -654,39 +654,74 @@
                 <br>
 
 
-                  <!-- B A R I S H A L -->
-                  <label class="label-search-options">বরিশাল বিভাগ </label><br>
+                                  <!--  D H A K A -->
+                                  <label class="label-search-options">ঢাকা বিভাগ</label> <br>
                   
-                    <input type="checkbox" name="home_district_under_barishal[]" value="ঝালকাঠী" class="SelectBox val" />
-                    <span class="search-options">ঝালকাঠী</span>
-                  <br>
+                  <input type="checkbox" name="home_district_under_dhaka[]" value="কিশোরগঞ্জ" class="SelectBox val" />
+                  <span class="search-options">কিশোরগঞ্জ</span>
+                <br>
 
-                  
-                    <input type="checkbox" name="home_district_under_barishal[]" value="পটুয়াখালী" class="SelectBox val" />
-                    <span class="search-options">পটুয়াখালী</span>
-                  <br>
+                
+                  <input type="checkbox" name="home_district_under_dhaka[]" value="গাজীপুর" class="SelectBox val" />
+                  <span class="search-options">গাজীপুর</span>
+                <br>
 
-                  
-                    <input type="checkbox" name="home_district_under_barishal[]" value="পিরোজপুর" class="SelectBox val" />
-                    <span class="search-options">পিরোজপুর</span>
-                  <br>
+                
+                  <input type="checkbox" name="home_district_under_dhaka[]" value="গোপালগঞ্জ" class="SelectBox val" />
+                  <span class="search-options">গোপালগঞ্জ</span>
+                <br>
 
-                  
-                    <input type="checkbox" name="home_district_under_barishal[]" value="বরিশাল" class="SelectBox val" />
-                    <span class="search-options">বরিশাল</span>
-                  <br>
+                
+                  <input type="checkbox" name="home_district_under_dhaka[]" value="টাঙ্গাইল" class="SelectBox val" />
+                  <span class="search-options">টাঙ্গাইল</span>
+                <br>
 
-                  
-                    <input type="checkbox" name="home_district_under_barishal[]" value="বরগুনা" class="SelectBox val" />
-                    <span class="search-options">বরগুনা</span>
-                  <br>
+                
+                  <input type="checkbox" name="home_district_under_dhaka[]" value="ঢাকা" class="SelectBox val" />
+                  <span class="search-options">ঢাকা</span>
+                <br>
 
-                  
-                    <input type="checkbox" name="home_district_under_barishal[]" value="ভোলা" class="SelectBox val" />
-                    <span class="search-options">ভোলা</span>
-                  <br>
+                
+                  <input type="checkbox" name="home_district_under_dhaka[]" value="নরসিংদী" class="SelectBox val" />
+                  <span class="search-options">নরসিংদী</span>
+                <br>
 
+                
+                  <input type="checkbox" name="home_district_under_dhaka[]" value="নারায়ণগঞ্জ" class="SelectBox val" />
+                  <span class="search-options">নারায়ণগঞ্জ</span>
+                <br>
 
+                
+                  <input type="checkbox" name="home_district_under_dhaka[]" value="ফরিদপুর" class="SelectBox val" />
+                  <span class="search-options">ফরিদপুর</span>
+                <br>
+
+                
+                  <input type="checkbox" name="home_district_under_dhaka[]" value="মাদারীপুর" class="SelectBox val" />
+                  <span class="search-options">মাদারীপুর</span>
+                <br>
+
+                
+                  <input type="checkbox" name="home_district_under_dhaka[]" value="মানিকগঞ্জ" class="SelectBox val" />
+                  <span class="search-options">মানিকগঞ্জ</span>
+                <br>
+
+                
+                  <input type="checkbox" name="home_district_under_dhaka[]" value="মুন্সীগঞ্জ" class="SelectBox val" />
+                  <span class="search-options">মুন্সীগঞ্জ</span>
+                <br>
+
+                
+                  <input type="checkbox" name="home_district_under_dhaka[]" value="রাজবাড়ী" class="SelectBox val" />
+                  <span class="search-options">রাজবাড়ী</span>
+                <br>
+
+                
+                  <input type="checkbox" name="home_district_under_dhaka[]" value="শরীয়তপুর" class="SelectBox val" />
+                  <span class="search-options">শরীয়তপুর</span>
+                <br>
+
+           
                   <!-- C H A T T O G R A M -->
                   <label class="label-search-options">চট্টগ্রাম বিভাগ </label><br>
                   
@@ -742,74 +777,6 @@
                   
                     <input type="checkbox" name="home_district_under_chattogram[]" value="রাঙ্গামাটি" class="SelectBox val" />
                     <span class="search-options">রাঙ্গামাটি</span>
-                  <br>
-
-
-                  <!--  D H A K A -->
-                  <label class="label-search-options">ঢাকা বিভাগ</label> <br>
-                  
-                    <input type="checkbox" name="home_district_under_dhaka[]" value="কিশোরগঞ্জ" class="SelectBox val" />
-                    <span class="search-options">কিশোরগঞ্জ</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_dhaka[]" value="গাজীপুর" class="SelectBox val" />
-                    <span class="search-options">গাজীপুর</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_dhaka[]" value="গোপালগঞ্জ" class="SelectBox val" />
-                    <span class="search-options">গোপালগঞ্জ</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_dhaka[]" value="টাঙ্গাইল" class="SelectBox val" />
-                    <span class="search-options">টাঙ্গাইল</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_dhaka[]" value="ঢাকা" class="SelectBox val" />
-                    <span class="search-options">ঢাকা</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_dhaka[]" value="নরসিংদী" class="SelectBox val" />
-                    <span class="search-options">নরসিংদী</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_dhaka[]" value="নারায়ণগঞ্জ" class="SelectBox val" />
-                    <span class="search-options">নারায়ণগঞ্জ</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_dhaka[]" value="ফরিদপুর" class="SelectBox val" />
-                    <span class="search-options">ফরিদপুর</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_dhaka[]" value="মাদারীপুর" class="SelectBox val" />
-                    <span class="search-options">মাদারীপুর</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_dhaka[]" value="মানিকগঞ্জ" class="SelectBox val" />
-                    <span class="search-options">মানিকগঞ্জ</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_dhaka[]" value="মুন্সীগঞ্জ" class="SelectBox val" />
-                    <span class="search-options">মুন্সীগঞ্জ</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_dhaka[]" value="রাজবাড়ী" class="SelectBox val" />
-                    <span class="search-options">রাজবাড়ী</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="home_district_under_dhaka[]" value="শরীয়তপুর" class="SelectBox val" />
-                    <span class="search-options">শরীয়তপুর</span>
                   <br>
 
 
@@ -973,6 +940,39 @@
                     <input type="checkbox" name="home_district_under_rangpur[]" value="লালমনিরহাট" class="SelectBox val" />
                     <span class="search-options">লালমনিরহাট</span>
                   <br>
+
+
+                         <!-- B A R I S H A L -->
+                         <label class="label-search-options">বরিশাল বিভাগ </label><br>
+                  
+                  <input type="checkbox" name="home_district_under_barishal[]" value="ঝালকাঠী" class="SelectBox val" />
+                  <span class="search-options">ঝালকাঠী</span>
+                <br>
+
+                
+                  <input type="checkbox" name="home_district_under_barishal[]" value="পটুয়াখালী" class="SelectBox val" />
+                  <span class="search-options">পটুয়াখালী</span>
+                <br>
+
+                
+                  <input type="checkbox" name="home_district_under_barishal[]" value="পিরোজপুর" class="SelectBox val" />
+                  <span class="search-options">পিরোজপুর</span>
+                <br>
+
+                
+                  <input type="checkbox" name="home_district_under_barishal[]" value="বরিশাল" class="SelectBox val" />
+                  <span class="search-options">বরিশাল</span>
+                <br>
+
+                
+                  <input type="checkbox" name="home_district_under_barishal[]" value="বরগুনা" class="SelectBox val" />
+                  <span class="search-options">বরগুনা</span>
+                <br>
+
+                
+                  <input type="checkbox" name="home_district_under_barishal[]" value="ভোলা" class="SelectBox val" />
+                  <span class="search-options">ভোলা</span>
+                <br>
 
 
                   <!-- S Y L H E T-->

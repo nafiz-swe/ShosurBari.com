@@ -3845,14 +3845,15 @@ i.icon_4{
     color: black;
     font-size: 15px;
     line-height: 21px;
-    margin-bottom: -13px;
+    margin-bottom: -19px;
 }
 
 .label-search-options{
     color: #0aa4ca;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 500;
-    margin-top: 23px;
+    margin-top: 17px;
+    margin-bottom: 3px;
 }
 
 .sbbiodata-search form{
