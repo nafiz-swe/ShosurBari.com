@@ -1,16 +1,3 @@
-
-<?php include_once("includes/basic_includes.php");?>
-<?php include_once("functions.php"); ?>
-<?php
-error_reporting(0);
-require_once("includes/dbconn.php");
-if (!isset($_SESSION['id'])) {
-  // Redirect the user to the login page or display an error message
-  header("location: admin_login.php");
-  exit;
-}
-?>
-
 <!doctype html>
 <html class="no-js" lang="">
 
@@ -73,7 +60,6 @@ if (!isset($_SESSION['id'])) {
 </head>
 
 <body>
-
 
     <!-- Mobile Menu start -->
     <div class="mobile-menu-area">
@@ -143,252 +129,126 @@ if (!isset($_SESSION['id'])) {
         </div>
     </div>
     <!-- Main Menu area End-->
-    
-
-    <style>
-        @media (min-width:1280px){
-.user-database{
-    width: 1260px;
-    margin: auto;
-    padding: 20px 60px;
-}
-.admin-user-table th {
-    font-size: 18px;
-  }
-  
-}
 
 
-@media (max-width: 1280px){
-.user-database {
-    width: 1024px;
-    margin: auto;
-    padding: 20px 40px;
-
-}
-.admin-user-table th {
-    font-size: 18px;
-  }
-}
-
-@media (max-width: 1024px){
-.user-database {
-    width: auto;
-    margin: auto;
-    padding: 20px 30px;
-}
-.admin-user-table th {
-    font-size: 18px;
-  }
-}
-
-@media (max-width: 930px){
-.user-database {
-    width: auto;
-    margin: auto;
-    padding: 20px 15px;
-}
-.admin-user-table td {
-    font-size: 12px;
-  }
-  .admin-user-table th {
-    font-size: 15px;
-  }
-
-}
-
- table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-
-  .admin-user-table td {
-    padding: 8px;
-    text-align: left;
-    border: 2px solid #ccc;
-  }
-
-  .admin-user-table th {
-    background-color: #00c292;
-    color: white;
-    text-align: center;
-    font-weight: 600;
-    padding: 8px;
-    border: 2px solid #ccc;
-  }
-
-  .admin-user-table tr.active {
-    background-color: #fff;
-    color: #000;
-  }
 
 
-  .admin-user-table tr.inactive {
-    background-color: red;
-    color: #fff;
-  }
 
-  .user-database h2{
-    text-align: center;
-  }
+
+
 
 
 
-  .pagination{
+    <style>
+.shosurbari-biodata-form {
   display: flex;
-  margin-top: 30px;
-  margin-left:  auto;
-  margin-right: auto;
-  padding: 0;
-  list-style: none;
   align-items: center;
-  justify-content:center;
+  flex-wrap: wrap;
+  width: 1400px;
+  margin: auto;
+  padding-top: 30px;
+  padding-bottom: 30px
 }
 
-.page-link{
-  color: #000;
-  padding: 8px 12px;
-  text-decoration: none;
-  font-size: 14px;
-  background-color: #eee;
-  border-radius: 50%;
-  margin: 0 3px;
+.soshurbari-animation-icon,
+.shosurbari-animation-form {
+  flex-basis: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.page-link:hover{
-    background: #00c292;
-  color: #fff;
+.soshurbari-animation-icon img{
+  justify-content: flex-end;
+  margin: auto;
 }
 
-.page-link.active{
-  background: #00c292;
-  color: #fff;
+@media (max-width: 1400px){
+  .shosurbari-biodata-form{
+    width: auto;
+  }
 }
 
+@media (max-width: 1024px) {
+  .soshurbari-animation-icon {
+    display: none;
+  }
+
+  .shosurbari-animation-form {
+    flex-basis: 100%;
+    justify-content: center;
+  }
+
+  .shosurbari-biodata-form {
+    width: auto;
+  }
+}
 </style>
 
+<div class="shosurbari-biodata-form">
 
-<div class="user-database">
-<h2>User Management</h2>
-<h3>Users Table</h3>
+  <div class="soshurbari-animation-icon">
+    <div class="sb-icon-laptop">
+      <img src="images/shosurbari-login.png">
+    </div>
+  </div>
 
-<form method="POST">
-  <label for="num_rows">Show:</label>
-  <select name="num_rows" id="num_rows" onchange="this.form.submit()">
-  <option value="10" <?php if(isset($_POST['num_rows']) && $_POST['num_rows']=='10') echo 'selected'; ?>>10</option>
-    <option value="50" <?php if(isset($_POST['num_rows']) && $_POST['num_rows']=='50') echo 'selected'; ?>>50</option>
-    <option value="100" <?php if(isset($_POST['num_rows']) && $_POST['num_rows']=='100') echo 'selected'; ?>>100</option>
-    <option value="250" <?php if(isset($_POST['num_rows']) && $_POST['num_rows']=='250') echo 'selected'; ?>>250</option>
-    <option value="500" <?php if(isset($_POST['num_rows']) && $_POST['num_rows']=='500') echo 'selected'; ?>>500</option>
-    <option value="1000" <?php if(isset($_POST['num_rows']) && $_POST['num_rows']=='1000') echo 'selected'; ?>>1000</option>
-    <option value="all" <?php if(isset($_POST['num_rows']) && $_POST['num_rows']=='all') echo 'selected'; ?>>All</option>
-  </select>
-</form>
+  
+  <div class="shosurbari-animation-form">
+    <form action="auth/auth.php?user=1" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
+		  <div class="flex-container">
+        <div class="sb-register-login">
+
+          <div class="sb-biodata-field">
+            <h2>Login Your <span>Account</span></h2>
+          </div>
+
+          <div class="form-group">
+            <!--  <label for="edit-name">Email or Username <span class="form-required" title="This field is required.">*</span></label> -->
+            <input type="text" id="username_email" placeholder="Your Email or Username" name="username" value="<?php if(isset($_COOKIE['username'])) { echo $_COOKIE['username']; } ?>" size="60" maxlength="60" class="form-text required">
+            <span id="uname_email_error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+          </div>
 
 
+			<div class="form-group">
+            <!-- <label for="edit-pass">Password <span class="form-required" title="This field is required.">*</span></label> -->
+            <!-- <input type="password" id="sb_log_pass" placeholder="Your Password" name="password" value="<?php if(isset($_COOKIE['password'])) { echo $_COOKIE['password']; } ?>" size="60" maxlength="128" class="form-text required"> -->
+            <input type="password" id="sb_log_pass" placeholder="Your Password" name="password" value="" size="60" maxlength="128" class="form-text required">
+            <span class="show-password" style="color:#0aa4ca;  font-size:15px; top: 2px;"><i style="color:black;  font-size:15px;" class="fa fa-eye" aria-hidden="true"></i></span> 
+            <span id="password_error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+          </div>
 
-<?php
-  $conn = mysqli_connect("localhost", "root", "", "matrimony");
-  if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-  }
+          <!-- If the user clicks the Remember Me box when they login, the user's login information will be saved in their cookie.-->
+			    <div class="remember-forgot">
+            <label><input type="checkbox" id="edit-remember" name="remember" value="1" <?php if(isset($_COOKIE['username'])) { echo "checked"; } ?>> Remember me</label>
+            <a href="forgot_password.php">Forgot password?</a>
+          </div>
 
-  $num_rows = isset($_POST['num_rows']) ? $_POST['num_rows'] : 10;
-  $limit = ($num_rows == 'all') ? '' : "LIMIT $num_rows";
+		    <div class="form-actions">
+                <button  type="submit" id="edit-submit" name="op"  class="btn_1 submit"  > <span> </span> Login Your Account</button>
+            </div>
 
-  // Pagination variables
-  $page = isset($_GET['page']) ? $_GET['page'] : 1;
-  $start = ($page - 1) * $num_rows;
+            <div class="or">
+		        <p><span class="sb-or">OR</span></p>
+            </div>
 
-  $sql = "SELECT COUNT(*) as count FROM users";
-  $result = mysqli_query($conn, $sql);
-  $row = mysqli_fetch_assoc($result);
-  $total_pages = ceil($row['count'] / $num_rows);
+            <div class="form-actions" style="text-align: center;">
+                <p>Don't have an account?</p>
+                <a href="admin_register.php">Create New Account</a>
+            </div>
 
-  $sql = "SELECT * FROM users $limit OFFSET $start";
-  $result = mysqli_query($conn, $sql);
-  if (mysqli_num_rows($result) > 0) {
-    echo "<table class=\"admin-user-table\">";
-    echo "<tr class=\"admin-user-tr\">
-            <th>User
-            ID</th>
-            <th>FullName</th>
-            <th>UserName</th>
-            <th>Gender</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Reg.Date</th>
-            <th>Edit</th>
-            <th>Delete</th>
-            <th>Deactivate
-            /Activate</th>
-          </tr>";
-    while($row = mysqli_fetch_assoc($result)) {
-      $id=$row['id'];
-      $class = $row['active'] == 1 ? "active" : "inactive";
-      echo "<tr class='".$class."'><td>".$row['id']."</td>
-      <td>".$row['fullname']."</td>
-      <td>".$row['username']."</td>
-      <td>".$row['gender']."</td>
-      <td>".$row['email']."</td>
-      <td>".$row['number']."</td>
-      <td>".$row['register_date']."</td>
-      <td><a href='../userhome.php?id=$id'>Edit</a></td>
-      <td><a href='#' onclick='confirmDelete($id)'>Delete</a></td><td>";
-      
-      if($row['active']==1) {
-        echo "<a href='#' onclick='confirmDeactivate($id)'>Deactivate</a>";
-      } else {
-        echo "<a href='#' onclick='confirmActivate($id)'>Activate</a>";
-      }
-      echo "</td></tr>";
-    }
-    echo "</table>";
-
-    
-
-    // Pagination links
-    echo "<div class='pagination'>";
-    if ($total_pages > 1) {
-      if ($page > 1) {
-        echo "<a href='?page=".($page-1)."&num_rows=$num_rows' class='page-link'>Previous</a>";
-      }
-      for ($i = 1; $i <= $total_pages; $i++) {
-        $active = $i == $page ? "active" : "";
-        echo "<a href='?page=$i&num_rows=$num_rows' class='page-link $active'>$i</a>";
-      }
-      if ($page < $total_pages) {
-        echo "<a href='?page=".($page+1)."&num_rows=$num_rows' class='page-link'>Next</a>";
-      }
-    }
-    echo "</div>";
-    
-  }
-  mysqli_close($conn);
-?>
-
+        </div>
+      </div>
+	  </form>
+</div>
+  
 </div>
 
 
-<script>
-  function confirmDelete(id) {
-    if (confirm("Are you sure you want to delete this user?")) {
-      window.location.href = "delete_user.php?id=" + id;
-    }
-  }
 
-  function confirmDeactivate(id) {
-    if (confirm("Are you sure you want to deactivate this user?")) {
-      window.location.href = "deactivate_user.php?id=" + id;
-    }
-  }
 
-  function confirmActivate(id) {
-    if (confirm("Are you sure you want to activate this user?")) {
-      window.location.href = "activate_user.php?id=" + id;
-    }
-  }  
-</script>
+
+
 
 
 
@@ -407,6 +267,7 @@ if (!isset($_SESSION['id'])) {
     </div>
     <!-- End Footer area-->
 
-</body>
 
-</html>
+
+</body>
+</html>	

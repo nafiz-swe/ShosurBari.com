@@ -88,15 +88,16 @@ margin: 0;
 padding: 0
 }
 .clear{clear:both}
-body {}
+
 .mg-tb-40{
-	margin:40px 0px;
+    margin: 0px;
+    background: #00c292;
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
 }
 .mg-tb-30{
 	margin:30px 0px;
-}
-.mg-t-30{
-	margin-top:30px;
 }
 .mg-b-15{
 	margin-bottom:15px;
@@ -442,6 +443,7 @@ body {}
 .nav-tabs.notika-menu-wrap>li.active>a, .nav-tabs.notika-menu-wrap>li.active>a:focus, .nav-tabs.notika-menu-wrap>li.active>a:hover{
 	border: 0px solid #ddd;
 	border:none;
+    color: #000;
 }
 .notika-tab-menu-bg{
 	position:relative;
@@ -4663,8 +4665,12 @@ body.box-layout {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    margin-top: 0;
     font-size: 45px;
+    margin-top: 20px;
+}
+
+.user-database h2{
+    margin-top: 150px;
 }
 
 ul, ol {
@@ -7960,6 +7966,7 @@ i.icon_4{
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    margin-top: 100px;
 }
 
 .shosurbari-biodata .form-actions{

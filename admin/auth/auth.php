@@ -3,7 +3,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 	session_start();
 	error_reporting(0);
 	require_once("../includes/dbconn.php");
-	$userlevel = $_GET['user'];
+	$userlevel = $_GET['admin'];
 
 	$username = $_POST['username'];
 	$password = $_POST['password'];
@@ -16,7 +16,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 	// Hash the input password using SHA-256
 	$hashed_password = hash('sha256', $password);
 
-	$sql = "SELECT id, password FROM users WHERE (username = '$username' OR email = '$username')";
+	$sql = "SELECT id, password FROM admin WHERE (username = '$username' OR email = '$username')";
 	$result = $conn->query($sql);
 
 	if ($result->num_rows > 0) {
@@ -35,7 +35,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 				setcookie('password', $password, time() + (86400 * 30), '/');
 			}
 
-			header("location:../userhome.php?id={$row['id']}");
+			header("location:../admin/user.php?id={$row['id']}");
 		} else {
 			echo "Invalid username or password";
 		}
