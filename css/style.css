@@ -793,8 +793,10 @@ ul.nav_1{
 }
   
 .brn-payment {
-    width: 230px;
     height: auto;
+    width: 140px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
   
 .footer {
@@ -897,7 +899,6 @@ i.fa1:hover {
 }
 
 .shosurbari-copy-right{
-	margin:3em 0 0 0;
 	text-align:center;
     border-top: 1.5px solid #ccc;
     padding-top: 20px;
@@ -4712,10 +4713,6 @@ label{
     .col_2 h6 {
         text-align: right;
     }
-
-    .brn-payment {
-        width: 180px;
-    }
 }
 
 
@@ -5314,10 +5311,6 @@ label{
 
     .footer {
         padding: 1em 0;
-    }
-
-    .shosurbari-copy-right {
-        margin: 3em 0 0 0;
     }
 
     .profile_search {
@@ -6461,10 +6454,6 @@ label{
 
     .sb-search-page h2{
         line-height: 40px;
-    }
-
-    .brn-payment {
-        width: 150px;
     }
 
     h1, h2, h3, h4, h5, h6 {

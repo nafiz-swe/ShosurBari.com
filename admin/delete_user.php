@@ -1,7 +1,7 @@
 
 <html>
 	<head>
-		<title>Delete User</title>
+		<title>Delete | ShosurBari</title>
 		<script>
 			function confirmDelete(id) {
 				if (confirm("Are you sure you want to delete this user?")) {

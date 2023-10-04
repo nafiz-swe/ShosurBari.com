@@ -1,10 +1,12 @@
+<?php include_once("functions.php");?>
+<?php require_once('auth/auth.php');?>
 <!doctype html>
 <html class="no-js" lang="">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Dashboards Four | Notika - Notika Admin Template</title>
+    <title>Admin Login  | ShosurBari</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
@@ -77,10 +79,31 @@
                                 </li>
 
                                 <li><a data-toggle="collapse" data-target="#Pagemob" href="#">Pages</a>
-                                    <ul id="Pagemob" class="collapse dropdown-header-top">
-                                        <li><a href="admin_login.php">Login</a>
-                                        </li>
-                                        <li><a href="user.php">User Manage</a>
+                                    <ul class="notika-main-menu-dropdown">
+                                    <li><a href="admin_login.php">Login</a>
+                                    </li>
+                                    <li><a href="customer.php">Customer</a>
+                                    </li>
+                                    <li><a href="contact_us.php">ContactUs</a>
+                                    </li>
+                                    <li><a href="photos.php">Photos</a>
+                                    </li>
+                                    <li><a href="users.php">Users</a>
+                                    </li>
+                                    <li><a href="dataphysical_marital.php">PysicalMarital</a>
+                                    </li>
+                                    <li><a href="datalifestyle.php">LifeStyle</a>
+                                    </li>
+                                    <li><a href="dataeducation.php">Edcation</a>
+                                    </li>
+                                    <li><a href="dataaddress.php">Address</a>
+                                    </li>
+                                    <li><a href="datareligion.php">Religion</a>
+                                    </li>
+                                    <li><a href="datafamily.php">Family</a>
+                                    </li>
+                                    <li><a href="datapartner.php">Partner</a>
+                                    </li>
                                     </ul>
                                 </li>
                             </ul>
@@ -117,10 +140,30 @@
 
                         <div id="Page" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
-                                <li><a href="admin_login.php">Login</a>
-                                </li>
-                                <li><a href="user.php">User Manage</a>
-                                </li>
+                            <li><a href="admin_login.php">Login</a>
+                            </li>
+                            <li><a href="customer.php">Customer</a>
+                            </li>
+                            <li><a href="contact_us.php">ContactUs</a>
+                            </li>
+                            <li><a href="photos.php">Photos</a>
+                            </li>
+                            <li><a href="users.php">Users</a>
+                            </li>
+                            <li><a href="dataphysical_marital.php">PysicalMarital</a>
+                            </li>
+                            <li><a href="datalifestyle.php">LifeStyle</a>
+                            </li>
+                            <li><a href="dataeducation.php">Edcation</a>
+                            </li>
+                            <li><a href="dataaddress.php">Address</a>
+                            </li>
+                            <li><a href="datareligion.php">Religion</a>
+                            </li>
+                            <li><a href="datafamily.php">Family</a>
+                            </li>
+                            <li><a href="datapartner.php">Partner</a>
+                            </li>
                             </ul>
                         </div>
                     </div>
@@ -195,7 +238,7 @@
 
   
   <div class="shosurbari-animation-form">
-    <form action="auth/auth.php?user=1" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
+    <form action="auth/auth.php?admin=1" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
 		  <div class="flex-container">
         <div class="sb-register-login">
 

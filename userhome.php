@@ -155,6 +155,5 @@ $deactivated = $row['deactivated'];
     });
     });
   </script>   
-
 </body>
 </html>	

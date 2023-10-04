@@ -2,13 +2,13 @@
 <?php include_once("includes/basic_includes.php");?>
 <?php include_once("functions.php"); ?>
 <?php
-error_reporting(0);
-require_once("includes/dbconn.php");
-if (!isset($_SESSION['id'])) {
-  // Redirect the user to the login page or display an error message
-  header("location: admin_login.php");
-  exit;
-}
+// error_reporting(0);
+// require_once("includes/dbconn.php");
+// if (!isset($_SESSION['id'])) {
+//   // Redirect the user to the login page or display an error message
+//   header("location: admin_login.php");
+//   exit;
+// }
 ?>
 
 <!doctype html>
@@ -17,7 +17,7 @@ if (!isset($_SESSION['id'])) {
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Dashboards Four | Notika - Notika Admin Template</title>
+    <title>Profile Manage | ShosurBari</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
@@ -91,10 +91,31 @@ if (!isset($_SESSION['id'])) {
                                 </li>
 
                                 <li><a data-toggle="collapse" data-target="#Pagemob" href="#">Pages</a>
-                                    <ul id="Pagemob" class="collapse dropdown-header-top">
-                                        <li><a href="admin_login.php">Login</a>
-                                        </li>
-                                        <li><a href="user.php">User Manage</a>
+                                    <ul class="notika-main-menu-dropdown">
+                                    <li><a href="admin_login.php">Login</a>
+                                    </li>
+                                    <li><a href="customer.php">Customer</a>
+                                    </li>
+                                    <li><a href="contact_us.php">ContactUs</a>
+                                    </li>
+                                    <li><a href="photos.php">Photos</a>
+                                    </li>
+                                    <li><a href="users.php">Users</a>
+                                    </li>
+                                    <li><a href="dataphysical_marital.php">PysicalMarital</a>
+                                    </li>
+                                    <li><a href="datalifestyle.php">LifeStyle</a>
+                                    </li>
+                                    <li><a href="dataeducation.php">Edcation</a>
+                                    </li>
+                                    <li><a href="dataaddress.php">Address</a>
+                                    </li>
+                                    <li><a href="datareligion.php">Religion</a>
+                                    </li>
+                                    <li><a href="datafamily.php">Family</a>
+                                    </li>
+                                    <li><a href="datapartner.php">Partner</a>
+                                    </li>
                                     </ul>
                                 </li>
                             </ul>
@@ -131,10 +152,30 @@ if (!isset($_SESSION['id'])) {
 
                         <div id="Page" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
-                                <li><a href="admin_login.php">Login</a>
-                                </li>
-                                <li><a href="user.php">User Manage</a>
-                                </li>
+                            <li><a href="admin_login.php">Login</a>
+                            </li>
+                            <li><a href="customer.php">Customer</a>
+                            </li>
+                            <li><a href="contact_us.php">ContactUs</a>
+                            </li>
+                            <li><a href="photos.php">Photos</a>
+                            </li>
+                            <li><a href="users.php">Users</a>
+                            </li>
+                            <li><a href="dataphysical_marital.php">PysicalMarital</a>
+                            </li>
+                            <li><a href="datalifestyle.php">LifeStyle</a>
+                            </li>
+                            <li><a href="dataeducation.php">Edcation</a>
+                            </li>
+                            <li><a href="dataaddress.php">Address</a>
+                            </li>
+                            <li><a href="datareligion.php">Religion</a>
+                            </li>
+                            <li><a href="datafamily.php">Family</a>
+                            </li>
+                            <li><a href="datapartner.php">Partner</a>
+                            </li>
                             </ul>
                         </div>
                     </div>

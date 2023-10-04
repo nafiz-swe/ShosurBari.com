@@ -38,10 +38,6 @@
     	</div>
 
     	<div class="clearfix"> </div>
-			<div class="shosurbari-payment">
-				<img class="brn-payment" src="images/brn.png">
-			</div>
-
 			<div class="shosurbari-copy-right">
 				<p>
 					Copyright © 2022-23 ShosurBari.com | All Rights Reserved | Developed By <i class="fa fa-angle-double-right"></i>
@@ -49,6 +45,10 @@
 					<img src="images/noyon.png" alt="Nafiz Noyon" style="width: 35px; height: 35px; border-radius: 50%; object-fit: cover;">
 					</a>
 				</p>
+			</div>
+
+			<div class="shosurbari-payment">
+			<h4 style="color: white; font-size: 13px;"> We Accept	<img class="brn-payment" src="images/brn.png"> </h4>
 			</div>
     	</div>
 	</div>

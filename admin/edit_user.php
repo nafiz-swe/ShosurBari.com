@@ -1,178 +1,113 @@
-<?php include_once("includes/basic_includes.php");?>
-<?php include_once("functions.php"); ?>
-
 <?php
-$id=$_SESSION['id'];
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	address_update($id);
-	//processprofile_form
-}
+// Include necessary files and initialize the session
+include_once("includes/basic_includes.php");
+include_once("functions.php");
+require_once("includes/dbconn.php");
 ?>
 
 <?php
-// $id=$_GET['id'];
-if(isloggedin()){
- //do nothing stay here
-} else{
-   header("location:login.php");
+if (isset($_GET['id'])) {
+    // Get the user ID from the URL
+    $userId = $_GET['id'];
+
+    // Establish a database connection (update these values with your database credentials)
+    require_once("includes/dbconn.php");
+
+
+    // Fetch user data for the specified user ID
+    $sql = "SELECT * FROM 4bd_address_details WHERE id = $userId";
+    $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) == 1) {
+        $row = mysqli_fetch_assoc($result);
+
+                // Display the user data in input fields/options
+                $permanent_division = $row['permanent_division'];
+                $home_district_under_barishal = $row['home_district_under_barishal'];
+                $home_district_under_chattogram = $row['home_district_under_chattogram'];
+                $home_district_under_dhaka = $row['home_district_under_dhaka'];
+                $home_district_under_khulna = $row['home_district_under_khulna'];
+                $home_district_under_mymensingh = $row['home_district_under_mymensingh'];
+                $home_district_under_rajshahi = $row['home_district_under_rajshahi'];
+                $home_district_under_rangpur = $row['home_district_under_rangpur'];
+                $home_district_under_sylhet = $row['home_district_under_sylhet'];
+                $country_present_address = $row['country_present_address'];
+                $present_address_location = $row['present_address_location'];
+                $childhood = $row['childhood'];
+                
+    } else {
+        echo 'User not found.';
+        mysqli_close($conn);
+        exit;
+    }
+
+// Handle form submission to update user data
+if (isset($_POST['update'])) {
+    // Retrieve the updated data from the form
+    $permanent_division = mysqli_real_escape_string($conn, $_POST['permanent_division']);
+    $home_district_under_barishal = mysqli_real_escape_string($conn, $_POST['home_district_under_barishal']);
+    $home_district_under_chattogram = mysqli_real_escape_string($conn, $_POST['home_district_under_chattogram']);
+    $home_district_under_dhaka = mysqli_real_escape_string($conn, $_POST['home_district_under_dhaka']);
+    $home_district_under_khulna = mysqli_real_escape_string($conn, $_POST['home_district_under_khulna']);
+    $home_district_under_mymensingh = mysqli_real_escape_string($conn, $_POST['home_district_under_mymensingh']);
+    $home_district_under_rajshahi = mysqli_real_escape_string($conn, $_POST['home_district_under_rajshahi']);
+    $home_district_under_rangpur = mysqli_real_escape_string($conn, $_POST['home_district_under_rangpur']);
+    $home_district_under_sylhet = mysqli_real_escape_string($conn, $_POST['home_district_under_sylhet']);
+    $country_present_address = mysqli_real_escape_string($conn, $_POST['country_present_address']);
+    $present_address_location = mysqli_real_escape_string($conn, $_POST['present_address_location']);
+    $childhood = mysqli_real_escape_string($conn, $_POST['childhood']);
+
+    // Update user data in the database
+    $updateSql = "UPDATE 4bd_address_details SET
+        permanent_division = '$permanent_division',
+        home_district_under_barishal = '$home_district_under_barishal',
+        home_district_under_chattogram = '$home_district_under_chattogram',
+        home_district_under_dhaka = '$home_district_under_dhaka',
+        home_district_under_khulna = '$home_district_under_khulna',
+        home_district_under_mymensingh = '$home_district_under_mymensingh',
+        home_district_under_rajshahi = '$home_district_under_rajshahi',
+        home_district_under_rangpur = '$home_district_under_rangpur',
+        home_district_under_sylhet = '$home_district_under_sylhet',
+        country_present_address = '$country_present_address',
+        present_address_location = '$present_address_location',
+        childhood = '$childhood'
+        WHERE id = $userId";
+
+    if (mysqli_query($conn, $updateSql)) {
+        echo 'User data updated successfully.';
+    } else {
+        echo 'Error updating user data: ' . mysqli_error($conn);
+    }
+}
+
+    mysqli_close($conn);
+} else {
+    echo 'User ID not specified.';
+    exit;
 }
 ?>
 
-<!DOCTYPE HTML>
-<html>
-
-
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Edit Biodata | ShosurBari</title>
-<link rel="icon" href="images/shosurbari-icon.png" type="image/png">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/jquery.min.js"></script>
-<script src="js/optionsearch.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<!-- Custom Theme files -->
-<link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css">
-<link href="css/style.css" rel='stylesheet' type='text/css' />
-
-<link href='//fonts.googleapis.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
-<!--font-Awesome-->
-<link href="css/font-awesome.css" rel="stylesheet"> 
-<!--font-Awesome-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User</title>
+    <link rel="stylesheet" href="styles.css"> <!-- You can create a CSS file for styling -->
 </head>
-
-
-
 <body>
-	<!-- ============================  Navigation Start =========================== -->
-	<?php include_once("includes/navigation.php");?>
-	<!-- ============================  Navigation End ============================ -->
-	<div class="grid_3">
-		<div class="container">
-			<div class="breadcrumb1">
-				<ul>
-					<a href="index.php"><i class="fa fa-home home_1"></i></a>
-					<span class="divider">&nbsp;<|>&nbsp;</span>
-					<li class="current-page"><h4>Edit Biodata</h4></li>
-				</ul>
-
-				<?php
-					include("includes/dbconn.php");
-					//getting profile details from db
-					$sql="SELECT * FROM users WHERE id = $id";
-					$result = mysqlexec($sql);
-
-					if($result){
-					$row=mysqli_fetch_assoc($result);
-					if($row){
-					$username=$row['username'];
-					}
-					}
-				?>
-
-
-				<div class="shosurbari-userhome-status">
-					<h3><?php echo "Welcome: $username"; ?></h3>
-					<!-- Display the account status -->
-					<h4 >Account Status:
-					<?php if ($deactivated == 0) {
-						echo '<span style="color: green;">Active</span>';
-						} else {
-							echo '<span style="color: red;">Deactivated</span> <br>';
-							echo '<span style="color: #0aa4ca; font-size: 14px;">Please Active your account, Go back UserHome page !</span>';
-						} ?>
-					</h4>
-				</div>
-
-			</div>
-		</div>
-	</div>
 
 
 
 
 
-	<div class="shosurbari-biodata">
-		<!-- multistep form -->
-		<form action="" method="POST" id="biodataForm">
-			<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-			-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
-			--                S  T  A  R  T                  --
-			--       Address Details  /  sb-biodata-4        --
-			--                                               --
-			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
-			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-			<?php
-				include("includes/dbconn.php");
 
-				//getting profile details from db
-				$sql="SELECT * FROM 4bd_address_details WHERE user_id = $id";
-				$result = mysqlexec($sql);
 
-				if($result){
-				$row=mysqli_fetch_assoc($result);
-				if($row){
-				$permanent_division=$row['permanent_division'];
-				}
-				if($row){
-				$home_district_under_barishal=$row['home_district_under_barishal'];
-				}
-				if($row){
-				$home_district_under_chattogram=$row['home_district_under_chattogram'];
-				}
-				if($row){
-				$home_district_under_dhaka=$row['home_district_under_dhaka'];
-				}
-				if($row){
-				$home_district_under_khulna=$row['home_district_under_khulna'];
-				}
-				if($row){
-				$home_district_under_mymensingh=$row['home_district_under_mymensingh'];
-				}
-				if($row){
-				$home_district_under_rajshahi=$row['home_district_under_rajshahi'];
-				}
-				if($row){
-				$home_district_under_rangpur=$row['home_district_under_rangpur'];
-				}
-				if($row){
-				$home_district_under_sylhet=$row['home_district_under_sylhet'];
-				}
-				if($row){
-				$country_present_address=$row['country_present_address'];
-				}
-				if($row){
-				$present_address_location=$row['present_address_location'];
-				}
-				if($row){
-				$childhood=$row['childhood'];
-				}
-				}
-			?>
 
-			<script>
-			function showSection(selectedValue) {
-				// Hide all home_district_under sections
-				var sections = document.querySelectorAll('.shosurbari-biodata-field.section');
-				sections.forEach(function(section) {
-					section.style.display = 'none';
-				});
 
-				// Show the selected home_district_under section
-				if (selectedValue) {
-					var selectedSection = document.getElementById(selectedValue);
-					if (selectedSection) {
-						selectedSection.style.display = 'block';
-					}
-				}
-			}
-			</script>
-
-			<!--Fieldsets start-->
+    <h1>Edit User</h1>
+    <form method="POST">
+            <!--Fieldsets start-->
 			<fieldset>
 				<div class="sb-biodata" id="addressDetails">			
 					<div class="sb-biodata-field">
@@ -441,111 +376,12 @@ if(isloggedin()){
 					</div>
 				</div>
 
-				<button type="submit" id="edit-submit" name="op" class="biodata-submit"><span></span>Submit</button>			
+                <input type="submit" name="update" value="Update">
+
+				<!-- <button type="submit" id="edit-submit" name="op" class="biodata-submit"><span></span>Submit</button>			 -->
 			</fieldset>
-			<!--Fieldsets end-->
-			<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-			-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
-			--                   E   N   D                   --
-			--       Address Details  /  sb-biodata-4        --
-			--                                               --
-			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
-			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-		</form>
-	</div>
-	<?php include_once("footer.php");?>
+    </form>
+
+    <a href="dataaddress.php">Back to User List</a>
 </body>
 </html>
-
-<!-- jQuery -->
-<script src="http://thecodeplayer.com/uploads/js/jquery-1.9.1.min.js" type="text/javascript"></script>
-<!-- jQuery easing plugin -->
-<script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
-
-
-
-
-<script>
-	// jQuery time
-	var current_fs, next_fs, previous_fs; // fieldsets
-
-	$(".next").click(function() {
-		current_fs = $(this).closest("fieldset");
-		next_fs = current_fs.next("fieldset");
-
-		// Validate fields in the current fieldset
-		if (!validateFields(current_fs)) {
-			return; // Stop execution if fields are empty
-		}
-
-		// Activate next step on progressbar
-		$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-
-		// Show the next fieldset
-		next_fs.show();
-		// Hide the current fieldset
-		current_fs.hide();
-
-		// Smooth scroll to the top of the progress bar
-		$('html, body').animate({ scrollTop: $('#progressbar').offset().top }, 800);
-	});
-
-
-
-	$(".previous").click(function() {
-		current_fs = $(this).closest("fieldset");
-		previous_fs = current_fs.prev("fieldset");
-
-		// Show the previous fieldset
-		previous_fs.show();
-		// Hide the current fieldset
-		current_fs.hide();
-
-		// De-activate current step on progressbar
-		$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
-
-		// Smooth scroll to the top of the progress bar
-		$('html, body').animate({ scrollTop: $('#progressbar').offset().top }, 800);
-	});
-
-
-
-	// Validate the fields in the current fieldset
-	function validateFields(current_fs) {
-		var isValid = true;
-
-		// Get all required input fields within the current fieldset
-		var inputs = current_fs.find(":input[required]");
-
-		// Remove previous error messages
-		current_fs.find(".error-message-empty").remove();
-
-		// Loop through each input field and check if it's empty
-		inputs.each(function() {
-			if ($(this).val().trim() === "") {
-			$(this).addClass("error"); // Add error class to highlight the empty field
-			isValid = false;
-
-			// Show error message
-			var errorMessage = "<span class='error-message-empty'>This field is required.</span>";
-			$(this).after(errorMessage);
-			} else {
-			$(this).removeClass("error"); // Remove error class if the field is not empty
-			}
-		});
-
-
-		// Scroll to the first empty input field
-		if (!isValid) {
-			var firstEmptyField = current_fs.find(".error").first();
-			var windowHeight = $(window).height();
-			var fieldTop = firstEmptyField.offset().top;
-			var fieldHeight = firstEmptyField.outerHeight();
-			var middleOffset = (windowHeight / 2) - (fieldHeight / 2);
-			var scrollTo = fieldTop - middleOffset;
-
-			$('html, body').animate({ scrollTop: scrollTo }, 800);
-		}
-		return isValid;
-	}
-</script>

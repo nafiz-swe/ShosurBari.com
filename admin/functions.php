@@ -34,7 +34,7 @@
     /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
     -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
     --                S  T  A  R  T                  --
-    --           New User Register Function          --
+    --          New Admin Register Function          --
     --                                               --
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
@@ -55,6 +55,13 @@
             VALUES ('$fullname', '$user_admin', '$email', '$hashed_password', 1, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
 
         
+// Hash the input password using password_hash
+$hashed_password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+$sql = "INSERT INTO admin 
+        (fullname, username, email, password, active, active_status) 
+        VALUES ('$fullname', '$user_admin', '$email', '$hashed_password', 1, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+
 
 
             if (mysqli_query($conn,$sql)) {
@@ -69,7 +76,7 @@
                 mysqli_query($conn, $deactivate_sql);
 
                 // Redirect the user to the userhome.php page with the user ID as a parameter in the URL
-                header("location: admin/admin_login.php");
+                header("location: admin_login.php");
 
             } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
@@ -93,7 +100,7 @@
     /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
     -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
     --                   E   N   D                   --
-    --           New User Register Function          --
+    --          New Admin Register Function          --
     --                                               --
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/

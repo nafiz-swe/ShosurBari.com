@@ -697,7 +697,7 @@ if(isloggedin()){
 						</div>
 
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">পাত্র/পাত্রীর মোবাইল নাম্বার <span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required.">(এই অপশন লুকায়িত থাকবে)</span></label>
+							<label for="edit-name">পাত্র/পাত্রীর মোবাইল নাম্বার<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required.">(এই অপশন লুকায়িত থাকবে)</span></label>
 							<input type="text" id="edit-name" name="groom_bride__number" value="" size="100" maxlength="100" class="form-text" required>
 						</div>
 
@@ -1207,7 +1207,7 @@ if(isloggedin()){
 						<!--Diploma Higher Seconday End -->
 
 
-						<!-- Higher Education Start -->
+						<!-- University Education Start -->
 						<div class="shosurbari-biodata-field" id="varsity_pass">
 							<label for="university_pass">স্নাতক/সমমান পাস করেছেন?<span class="form-required" title="This field is required.">*</span></label>
 							<select name="uvarsity_pass" id="university_pass">
@@ -1273,7 +1273,7 @@ if(isloggedin()){
 							<label for="edu-method">স্নাতকে/সমমানে শিক্ষা প্রতিষ্ঠান<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text" name="uvarsity_name" id="university_name"  value="" size="250" maxlength="250" class="form-text required">
 						</div>
-						<!-- Higher Education End -->
+						<!-- University Education End -->
 
 						<div class="shosurbari-biodata-field">
 							<label for="edu-method">অন্যান্য শিক্ষাগত যোগ্যতা<span style="color: gray; font-size:14px;" class="form-required" title="This field is required."> (বাধ্যতামূলক নয়)</span></label>
