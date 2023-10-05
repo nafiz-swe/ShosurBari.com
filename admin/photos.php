@@ -75,12 +75,13 @@ require_once("includes/dbconn.php");
     $result = mysqlexec($sql);
 
     echo "<table>";
-    
+
     while ($row = mysqli_fetch_assoc($result)) {
         $profid = $row['user_id'];
 
         // Get the user's folder path
         $user_folder = "../profile/{$profid}/";
+        $trash_folder = "../profile/{$profid}/trash/";
 
         // Check if the folder exists
         if (is_dir($user_folder)) {
@@ -94,11 +95,35 @@ require_once("includes/dbconn.php");
 
                 foreach ($user_photos as $photo) {
                     if ($photo !== "." && $photo !== "..") {
-                        echo "<td>";
-                        echo "<a href=\"view_profile.php?id={$profid}\" target=\"_blank\">";
-                        echo "<img src=\"{$user_folder}{$photo}\"/>";
-                        echo "</a>";
-                        echo "</td>";
+                        // Check if $photo is a directory (folder)
+                        if (!is_dir("{$user_folder}{$photo}")) {
+                            echo "<td>";
+                            echo "<a href=\"../view_profile.php?id={$profid}\" target=\"_blank\">";
+                            echo "<img src=\"{$user_folder}{$photo}\"/>";
+                            echo "</a>";
+
+                            // Add a delete button for each image
+                            echo "<form method=\"POST\" action=\"delete_img.php\">";
+                            echo "<input type=\"hidden\" name=\"image_path\" value=\"{$user_folder}{$photo}\" />";
+                            echo "<input type=\"hidden\" name=\"user_id\" value=\"{$profid}\" />";
+                            echo "<input type=\"submit\" name=\"delete_image\" value=\"Delete\" />";
+                            echo "<a href=\"download_image.php?image_path={$user_folder}{$photo}\" download>Download</a>";
+                            echo "</form>";
+
+                            // Add a restore button for each image in the trash folder
+                            if (is_dir($trash_folder)) {
+                                $trash_photos = scandir($trash_folder);
+                                if (in_array($photo, $trash_photos)) {
+                                    echo "<form method=\"POST\" action=\"restore_img.php\">";
+                                    echo "<input type=\"hidden\" name=\"image_path\" value=\"{$trash_folder}{$photo}\" />";
+                                    echo "<input type=\"hidden\" name=\"user_id\" value=\"{$profid}\" />";
+                                    echo "<input type=\"submit\" name=\"restore_image\" value=\"Restore\" />";
+                                    echo "</form>";
+                                }
+                            }
+
+                            echo "</td>";
+                        }
                     }
                 }
 
@@ -106,10 +131,11 @@ require_once("includes/dbconn.php");
             }
         }
     }
-    
+
     echo "</table>";
     ?>
 </div>
+
 
 
 
@@ -121,26 +147,87 @@ require_once("includes/dbconn.php");
     }
 
     table {
-        width: 100%;
+        width: 300px;;
         border-collapse: collapse;
     }
 
     th {
-        border: 1px solid #00c292;
+        text-align: center;
+        border: 2px solid #00c292;
         white-space: nowrap;
         padding: 10px; /* Add padding to the table headers for spacing */
     }
 
     td {
-        border: 1px solid #00c292;
-        padding: 10px; /* Add padding to the table cells for spacing */
+        border: 2px solid #00c292;
+        padding: 15px; /* Add padding to the table cells for spacing */
     }
 
     img {
-        max-width: 200px;
-        max-height: 200px;
-        object-fit: cover;
+    height: 175px;
+    width: 220px;
+    object-fit: fill;
+    border: 4px solid #fff;
+    position: relative;
+    top: 5px;
+    z-index: 5;
+    background: rgb(245, 242, 242);
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+    display: block;
     }
+
+
+td form,
+td a {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px; /* Adjust the gap between buttons as needed */
+}
+
+/* Optionally, you can style the buttons for better visibility */
+td form input[type="submit"] {
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+
+    cursor: pointer;
+    width: 90px;
+    height: 30px;
+    margin: 15px auto;
+    /* background: linear-gradient(#06b6d4, #0ea5e9); */
+    background: red;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #fff;
+    box-shadow: 1px 1px 4px #888;
+}
+
+td form a{
+    color: white;
+    border: none;
+    cursor: pointer;
+
+    cursor: pointer;
+    width: 90px;
+    height: 30px;
+    margin: 15px auto;
+    background: green;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #fff;
+    box-shadow: 1px 1px 4px #888;
+}
+
+td form input[type="submit"]:hover, td form a:hover{
+    color: white;
+    background: linear-gradient(#0aa4ca, #0acef1);
+}
+
 </style>
 
 

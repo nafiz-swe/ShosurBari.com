@@ -1139,10 +1139,7 @@ conn.onmessage = function(e) {
 						}, 2000);
 						})
 					</script>
-
 				</div>
-
-
 
 
 
