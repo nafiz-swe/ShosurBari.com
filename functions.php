@@ -1612,50 +1612,48 @@ function account_details($id){
     --                                               --
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-    function uploadphoto($id){
-        $target = "profile/". $id ."/";
+    function uploadphoto($id) {
+        $target = "profile/" . $id . "/";
         if (!file_exists($target)) {
-        mkdir($target, 0777, true);
+            mkdir($target, 0777, true);
         }
-
-        //Specifying target for each file
-        $target1 = $target . basename( $_FILES['pic1']['name']);
-
-
+    
+        // Specifying target for each file
+        $target1 = $target . basename($_FILES['pic1']['name']);
+    
         // This gets all the other information from the form
-        $pic1=($_FILES['pic1']['name']);
-
-        $sql="SELECT id FROM photos WHERE user_id = '$id'";
+        $pic1 = ($_FILES['pic1']['name']);
+    
+        $sql = "SELECT id FROM photos WHERE user_id = '$id'";
         $result = mysqlexec($sql);
-
-        //code part to check weather a photo already exists
-        if(mysqli_num_rows($result) == 0) {
-            // no photo for curret user, do stuff
-            $sql="INSERT INTO photos (id, user_id, pic1) VALUES ('', '$id', '$pic1')";
+    
+        // Get the current date and time in the desired format
+        $currentDateTime = date('j F Y, g:i:s A');
+    
+        // Code part to check whether a photo already exists
+        if (mysqli_num_rows($result) == 0) {
+            // No photo for current user, do stuff
+            $sql = "INSERT INTO photos (id, user_id, pic1, profilecreationdate) VALUES ('', '$id', '$pic1', '$currentDateTime')";
             // Writes the information to the database
-            mysqlexec($sql);     
-        } 
-        
-        else {
-            // There is a photo for customer so up
-            $sql="UPDATE photos SET pic1 = '$pic1' WHERE user_id=$id";
-                // Writes the information to the database
+            mysqlexec($sql);
+        } else {
+            // There is a photo for the customer so update it
+            $sql = "UPDATE photos SET pic1 = '$pic1', profilecreationdate = '$currentDateTime' WHERE user_id=$id";
+            // Writes the information to the database
             mysqlexec($sql);
         }
-
+    
         // Writes the photo to the server
-        if(move_uploaded_file($_FILES['pic1']['tmp_name'], $target1)){
-            // Tells you if its all ok
-            //Thanlks! Successfull Uploaded Your Profile Photo - Showing JavaScript.
+        if (move_uploaded_file($_FILES['pic1']['tmp_name'], $target1)) {
+            // Tells you if it's all ok
+            // Thanks! Successfully Uploaded Your Profile Photo - Showing JavaScript.
+            echo "";
+        } else {
+            // Gives an error if it's not
+            // Sorry, there was a problem uploading your photo.
             echo "";
         }
-
-        else {
-            // Gives and error if its not
-            //Sorry, there was a problem uploading your photo.
-            echo "";
-        }
-    }
+    }    
     /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
     -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
     --                   E   N   D                   --

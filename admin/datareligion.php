@@ -271,6 +271,7 @@ h3{
 
     /* Progress bar styling */
     .progress-container {
+        margin-bottom: 16.7px;
         height: 8px;
         background-color: #ddd;
     }

@@ -304,8 +304,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ uploadphoto($id); }
                 </form>
             </div>
         </div>
-
-        </div>
     </div>
 
 

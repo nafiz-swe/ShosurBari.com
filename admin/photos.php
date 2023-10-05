@@ -67,14 +67,156 @@ require_once("includes/dbconn.php");
 
 <body>
 
-<div class="sbbiodata_profile_recentview">
-    <h3>Profiles Recent View</h3>
+
+    <!-- Mobile Menu start -->
+    <div class="mobile-menu-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="mobile-menu">
+                        <nav id="dropdown">
+                            <ul class="mobile-menu-nav">
+                                <li><a data-toggle="collapse" data-target="#Charts" href="#">Home</a>
+                                    <ul class="collapse dropdown-header-top">
+                                        <li><a href="index.html">Dashboard</a></li>
+                                        <li><a href="analytics.html">Analytics</a></li>
+                                    </ul>
+                                </li>
+
+                                <li><a data-toggle="collapse" data-target="#Pagemob" href="#">Pages</a>
+                                    <ul class="notika-main-menu-dropdown">
+                                      <li><a href="admin_login.php">Login</a>
+                                      </li>
+                                      <li><a href="customer.php">Customer</a>
+                                      </li>
+                                      <li><a href="contact_us.php">ContactUs</a>
+                                      </li>
+                                      <li><a href="photos.php">Photos</a>
+                                      </li>
+                                      <li><a href="users.php">Users</a>
+                                      </li>
+                                      <li><a href="dataphysical_marital.php">PysicalMarital</a>
+                                      </li>
+                                      <li><a href="datalifestyle.php">LifeStyle</a>
+                                      </li>
+                                      <li><a href="dataeducation.php">Edcation</a>
+                                      </li>
+                                      <li><a href="dataaddress.php">Address</a>
+                                      </li>
+                                      <li><a href="datareligion.php">Religion</a>
+                                      </li>
+                                      <li><a href="datafamily.php">Family</a>
+                                      </li>
+                                      <li><a href="datapartner.php">Partner</a>
+                                      </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Mobile Menu end -->
+
+
+
+    <!-- Main Menu area start-->
+    <div class="main-menu-area mg-tb-40">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
+                        <li class="active"><a data-toggle="tab" href="#Home"><i class="notika-icon notika-house"></i> Home</a>
+                        </li>
+                        <li><a data-toggle="tab" href="#Page"><i class="notika-icon notika-support"></i> Manage</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content custom-menu-content">
+                        <div id="Home" class="tab-pane active in notika-tab-menu-bg animated flipInX">
+                            <ul class="notika-main-menu-dropdown">
+                                <li><a href="index.html">Dashboard</a>
+                                </li>
+                                <li><a href="analytics.html">Analytics</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div id="Page" class="tab-pane notika-tab-menu-bg animated flipInX">
+                            <ul class="notika-main-menu-dropdown">
+                                <li><a href="admin_login.php">Login</a>
+                                </li>
+                                <li><a href="customer.php">Customer</a>
+                                </li>
+                                <li><a href="contact_us.php">ContactUs</a>
+                                </li>
+                                <li><a href="photos.php">Photos</a>
+                                </li>
+                                <li><a href="users.php">Users</a>
+                                </li>
+                                <li><a href="dataphysical_marital.php">PysicalMarital</a>
+                                </li>
+                                <li><a href="datalifestyle.php">LifeStyle</a>
+                                </li>
+                                <li><a href="dataeducation.php">Edcation</a>
+                                </li>
+                                <li><a href="dataaddress.php">Address</a>
+                                </li>
+                                <li><a href="datareligion.php">Religion</a>
+                                </li>
+                                <li><a href="datafamily.php">Family</a>
+                                </li>
+                                <li><a href="datapartner.php">Partner</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Main Menu area End-->
+
+
+
+
+
+
+
+
+    <div class="sbbiodata_profile_recentview">
+    <h1>User Uploaded Profile Pictures</h1>
     <?php
+
     // Getting unique user IDs
     $sql = "SELECT DISTINCT user_id FROM photos";
     $result = mysqlexec($sql);
-
+    echo '<div class="table-wrapper">';
     echo "<table>";
+
+    // Add the top row with column headings
+    echo "<tr>";
+    echo "<th>বায়োডাটা নং</th>"; // Left heading
+    echo "<th>Image-1</th>"; // New column heading with auto width
+    echo "<th>Image-2</th>";
+    echo "<th>Image-3</th>";
+    echo "<th>Image-4</th>";
+    echo "<th>Image-5</th>";
+    echo "<th>Image-6</th>";
+    echo "<th>Image-7</th>";
+    echo "<th>Image-8</th>";
+    echo "<th>Image-9</th>";
+    echo "<th>Image-10</th>";
+    echo "<th>Image-11</th>";
+    echo "<th>Image-12</th>";
+    echo "<th>Image-13</th>";
+    echo "<th>Image-14</th>";
+
+
+
+
+    echo "</tr>";
 
     while ($row = mysqli_fetch_assoc($result)) {
         $profid = $row['user_id'];
@@ -91,13 +233,22 @@ require_once("includes/dbconn.php");
             // Check if the user has photos
             if (count($user_photos) > 2) { // 2 because . and .. are also counted
                 echo "<tr>";
-                echo "<th>বায়োডাটা নং : {$profid}</th>";
+                echo "<td>{$profid}</td>"; // Left heading content
 
                 foreach ($user_photos as $photo) {
                     if ($photo !== "." && $photo !== "..") {
                         // Check if $photo is a directory (folder)
                         if (!is_dir("{$user_folder}{$photo}")) {
                             echo "<td>";
+
+                            // Retrieve profilecreationdate from the database
+                            $date_sql = "SELECT profilecreationdate FROM photos WHERE user_id = '$profid' AND pic1 = '$photo'";
+                            $date_result = mysqlexec($date_sql);
+                            if ($date_row = mysqli_fetch_assoc($date_result)) {
+                                $profile_creation_date = $date_row['profilecreationdate'];
+                                echo "<p>{$profile_creation_date}</p>";
+                            }
+
                             echo "<a href=\"../view_profile.php?id={$profid}\" target=\"_blank\">";
                             echo "<img src=\"{$user_folder}{$photo}\"/>";
                             echo "</a>";
@@ -133,6 +284,14 @@ require_once("includes/dbconn.php");
     }
 
     echo "</table>";
+
+    // Progress bar at the bottom
+    echo '<div class="progress-container">
+    <div class="progress-bar"></div>
+    </div>';
+
+    echo '</div>'; // Close the table-wrapper div
+
     ?>
 </div>
 
@@ -141,77 +300,99 @@ require_once("includes/dbconn.php");
 
 
 
+
 <style>
-    .sbbiodata_profile_recentview {
-        margin: 20px; /* Add margin to the container for spacing */
-    }
+  h1 {
+    padding: 10px 0;
+    margin: 150px auto 50px auto;
+    text-align: center;
+    font-size: 35px;
+    color: #00c292;
+  }
 
-    table {
-        width: 300px;;
-        border-collapse: collapse;
-    }
+  .sbbiodata_profile_recentview {
+    margin: 0px auto; 
+    padding: 0 20px;
+    border: 10px solid #00c292;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+  }
 
-    th {
-        text-align: center;
-        border: 2px solid #00c292;
-        white-space: nowrap;
-        padding: 10px; /* Add padding to the table headers for spacing */
-    }
 
-    td {
-        border: 2px solid #00c292;
-        padding: 15px; /* Add padding to the table cells for spacing */
-    }
+  table {
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
 
-    img {
+  tr{
+    border: 2px solid #00c292;
+  }
+
+  th {
+    background-color: #00c292;
+    color: white;
+    border: 2px solid #ccc;
+    text-align: center;
+    white-space: nowrap;
+    padding: 10px; /* Add padding to the table headers for spacing */
+  }
+
+  td {
+    border: 2px solid #00c292;
+    padding: 15px;
+    text-align: center;
+    font-size: 25px;
+    color: #00c292;
+    font-weight: bold;
+  }
+
+  img {
     height: 175px;
     width: 220px;
     object-fit: fill;
     border: 4px solid #fff;
     position: relative;
-    top: 5px;
+    top: -5px;
     z-index: 5;
     background: rgb(245, 242, 242);
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     margin: 0 auto;
     display: block;
-    }
+  }
 
-
-td form,
-td a {
+  td form,
+  td a {
+    margin: 10px auto -10px auto;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5px; /* Adjust the gap between buttons as needed */
-}
+    gap: 15px;
+  }
 
-/* Optionally, you can style the buttons for better visibility */
-td form input[type="submit"] {
-    color: white;
+  /* Optionally, you can style the buttons for better visibility */
+  td form input[type="submit"] {
     border: none;
     cursor: pointer;
     text-align: center;
-
     cursor: pointer;
     width: 90px;
     height: 30px;
     margin: 15px auto;
-    /* background: linear-gradient(#06b6d4, #0ea5e9); */
     background: red;
     border: 1px solid #ccc;
     border-radius: 4px;
-    color: #fff;
     box-shadow: 1px 1px 4px #888;
-}
+    font-size: 14px;
+    color: #fff;
+    font-weight: 400;
+  }
 
-td form a{
-    color: white;
+  td form a {
     border: none;
     cursor: pointer;
-
     cursor: pointer;
     width: 90px;
     height: 30px;
@@ -219,21 +400,30 @@ td form a{
     background: green;
     border: 1px solid #ccc;
     border-radius: 4px;
-    color: #fff;
     box-shadow: 1px 1px 4px #888;
-}
+    font-size: 14px;
+    color: #fff;
+    font-weight: 400;
+  }
 
-td form input[type="submit"]:hover, td form a:hover{
+  td form input[type="submit"]:hover,
+  td form a:hover {
     color: white;
     background: linear-gradient(#0aa4ca, #0acef1);
+  }
+
+  .progress-container {
+        margin-bottom: 16.7px;
+        height: 8px;
+        background-color: #ddd;
+    }
+
+    .progress-bar {
+    height: 100%;
+    width: 100%;
+    background-color: #00c292;
 }
-
 </style>
-
-
-
-
-
 
 
 
