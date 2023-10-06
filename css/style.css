@@ -641,6 +641,7 @@ ul.nav_1 li.last{
     border-radius: 50%;
     border: 2px solid #fff;
     margin: -8px;
+    object-fit: cover;
 }
 
 .login-navbar-icon a{
@@ -3160,7 +3161,7 @@ input[type=submit] {
     margin-right: auto;
     margin-bottom: 20px;
     border-radius: 50%;
-    object-fit: fill;
+    object-fit: cover;
 }
 
 .update-image-input form{

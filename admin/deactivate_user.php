@@ -24,7 +24,7 @@
         }
         mysqli_close($conn);
       ?>
-      <a href="user.php" class="btn">Go to Back User Page</a>
+      <a href="users.php" class="btn">Go to Back User Page</a>
       <a href="index.html" class="btn error-btn-mg">Go to Back Dashboard</a>
     </div>
   </div>

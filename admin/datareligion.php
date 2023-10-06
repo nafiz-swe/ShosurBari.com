@@ -228,7 +228,7 @@ h3{
     }
 
     label {
-        font-size: 18px;
+        font-size: 16px;
         color: #00c292;
     }
 
@@ -271,7 +271,6 @@ h3{
 
     /* Progress bar styling */
     .progress-container {
-        margin-bottom: 16.7px;
         height: 8px;
         background-color: #ddd;
     }

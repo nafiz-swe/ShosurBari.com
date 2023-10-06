@@ -272,28 +272,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ uploadphoto($id); }
 
                     <?php if (!empty($pic1)): ?>
                         <button type="submit" name="delete_photo" value="Delete" class="delete_photo-btn delete-button">Delete Photo</button>
-                        <p>আপনি যদি আপনার বর্তমান ছবি <br> পরিবর্তন বা  আপডেট করতে চান, <br> প্রথমে আপনার প্রোফাইল থেকে <br> বর্তমান ছবি ডিলিট করুন। তারপর <br>নতুন ছবি আপলোড করুন।</p>
+                        <p>আপনি যদি আপনার বর্তমান ছবি <br> পরিবর্তন করতে চান, প্রথমে আপনার <br> বর্তমান ছবি ডিলিট করুন। তারপর <br>নতুন ছবি আপলোড করুন।</p>
                     <?php endif; ?>
 
                     <?php
                         if (isset($_POST['delete_photo'])) {
-                        // Delete photo from profile folder
-                        $dir = 'profile/' . $user_id . '/';
-                        unlink($dir . $pic1);
+                            // Delete photo from profile folder
+                            $dir = 'profile/' . $user_id . '/';
+                            unlink($dir . $pic1);
 
-                        // Delete photo from database
-                        $sql = "UPDATE photos SET pic1 = NULL WHERE user_id = '$user_id'";
-                        $result = mysqli_query($conn, $sql);
+                            // Update the pic1 column to NULL in the database
+                            $sql = "UPDATE photos SET pic1 = NULL WHERE user_id = '$user_id'";
+                            $result = mysqli_query($conn, $sql);
 
-                        if ($result) {
-                        // Show green message
-                        echo "<div style='color:green;'>Photo deleted successfully! Please refresh the page.</div>";
-                        }
+                            if ($result) {
+                                // Show green message
+                                echo "<div style='color:green;'>Photo deleted successfully! Please refresh the page.</div>";
+                            }
                         }
                     ?>
 
                 </form>
             </div>
+
 
 
             <div class="update-image-input" id="file-input-wrapper">
@@ -303,6 +304,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ uploadphoto($id); }
                     <input type="submit" id="edit-submit" name="update_photo" value="Upload" class="update_photo-btn submit-button" />
                 </form>
             </div>
+        </div>
+
         </div>
     </div>
 
