@@ -253,20 +253,11 @@ if (isset($_POST['search'])) {
     // Add the top row with column headings
     echo "<tr>";
     echo "<th>বায়োডাটা নং</th>"; // Left heading
-    echo "<th>Image-1</th>"; // New column heading with auto width
-    echo "<th>Image-2</th>";
-    echo "<th>Image-3</th>";
-    echo "<th>Image-4</th>";
-    echo "<th>Image-5</th>";
-    echo "<th>Image-6</th>";
-    echo "<th>Image-7</th>";
-    echo "<th>Image-8</th>";
-    echo "<th>Image-9</th>";
-    echo "<th>Image-10</th>";
-    echo "<th>Image-11</th>";
-    echo "<th>Image-12</th>";
-    echo "<th>Image-13</th>";
-    echo "<th>Image-14</th>";
+
+    // Dynamically generate column headings for images
+    for ($i = 1; $i <= 15; $i++) {
+        echo "<th>Image-$i</th>";
+    }
 
     echo "</tr>";
 

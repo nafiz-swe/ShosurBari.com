@@ -185,13 +185,17 @@ require_once("includes/dbconn.php");
 
 
     <div class="sbbiodata_profile_recentview">
-    <h1>User Uploaded Profile Pictures</h1>
+    <h1>Trash File Profile Pictures</h1>
 
     <?php
     // Function to sanitize user input
     function sanitize($input) {
         return htmlspecialchars($input, ENT_QUOTES, 'UTF-8');
     }
+
+    // Get search query and per_page from URL parameters
+    $search = isset($_GET['search']) ? sanitize($_GET['search']) : '';
+    $per_page = isset($_GET['per_page']) ? intval($_GET['per_page']) : 10; // Default to 10 profiles per page
 
     // Check if the trash folder exists
     if (!is_dir("../profile")) {
@@ -203,30 +207,61 @@ require_once("includes/dbconn.php");
         // Create an array to keep track of user IDs that have already been displayed
         $displayedUserIDs = array();
 
+        // Count the total number of user profiles
+        $userCount = count($profile_folders) - 2; // Subtract 2 for '.' and '..' directories
+
+        // Initialize a variable to count the total user IDs in the trash folder
+        $totalUserIDsInTrash = 0;
+
         // Start the main table
-        echo '<table>';
-        echo "<tr>";
-        echo "<th>বায়োডাটা নং</th>"; // Left heading
-        echo "<th>User ID</th>"; // Add a new column heading for User ID
+        echo "<h3>Total number of user profiles: " . $userCount . "</h3>";
 
-        // Dynamically generate column headings for images
-        for ($i = 1; $i <= 14; $i++) {
-            echo "<th>Image-$i</th>";
-        }
+    echo '<table>';
 
-        echo "</tr>";
+    echo '<div id="search-form">
+    <form method="GET" action="">
+        <label for="search">Search User ID:</label>
+        <input type="text" name="search" id="search" value="' . (isset($_GET['search']) ? htmlspecialchars($_GET['search'], ENT_QUOTES, 'UTF-8') : '') . '" />
+        <button type="submit" />Search</button>
+        <button type="button" style="margin-left: 10px;" onclick="clearSearch()" />Clearch Search</button></br>
 
-        // Loop through each user's folder
-        foreach ($profile_folders as $user_folder) {
-            if ($user_folder !== "." && $user_folder !== "..") {
-                $trash_folder = "../profile/{$user_folder}/trash/";
+        <label for="per-page">Profiles Show</label>
+        <select name="per_page" id="per_page">
+            <option value="1" ' . (isset($_GET['per_page']) && $_GET['per_page'] == 1 ? 'selected' : '') . '>1</option>
+            <option value="2" ' . (isset($_GET['per_page']) && $_GET['per_page'] == 2 ? 'selected' : '') . '>2</option>
+            <option value="20" ' . (isset($_GET['per_page']) && $_GET['per_page'] == 20 ? 'selected' : '') . '>20</option>
+        </select>
 
-                // Check if the user's trash folder exists
-                if (is_dir($trash_folder)) {
-                    $deleted_images = scandir($trash_folder);
+    </form>
+</div>';
 
-                    // Check if there are deleted images in the trash folder
-                    if (count($deleted_images) > 2) { // 2 because . and .. are also counted
+
+    echo "<tr>";
+    echo "<th>বায়োডাটা নং</th>"; // Left heading
+
+    // Dynamically generate column headings for images
+    for ($i = 1; $i <= 14; $i++) {
+        echo "<th>Image-$i</th>";
+    }
+
+    echo "</tr>";
+
+    // Counter to keep track of displayed profiles
+    $displayedCount = 0;
+
+    // Loop through each user's folder
+    foreach ($profile_folders as $user_folder) {
+        if ($user_folder !== "." && $user_folder !== "..") {
+            $trash_folder = "../profile/{$user_folder}/trash/";
+
+            // Check if the user's trash folder exists
+            if (is_dir($trash_folder)) {
+                $deleted_images = scandir($trash_folder);
+
+                // Check if there are deleted images in the trash folder
+                if (count($deleted_images) > 2) { // 2 because . and .. are also counted
+                    // Filter profiles based on the search query
+                    if (empty($search) || strpos($user_folder, $search) !== false) {
                         // Display the user ID in the left column only if it hasn't been displayed before
                         if (!in_array($user_folder, $displayedUserIDs)) {
                             echo '<tr>';
@@ -242,6 +277,13 @@ require_once("includes/dbconn.php");
                             if ($deleted_image !== "." && $deleted_image !== "..") {
                                 // Display each profile picture as a column
                                 echo "<td><img src='" . htmlspecialchars($trash_folder . $deleted_image, ENT_QUOTES, 'UTF-8') . "' alt='Profile Image'>";
+                               
+                                // Add a permanent delete button
+                                echo "<form method='POST' action='permanent_delete_img.php'>";
+                                echo "<input type='hidden' name='image_path' value='" . sanitize($trash_folder . $deleted_image) . "' />";
+                                echo "<input type='hidden' name='user_id' value='" . sanitize($user_folder) . "' />";
+                                echo "<input style=\"background: red;\" type='submit' name='permanent_delete_image' value='Delete' />";
+                                echo "</form>";
 
                                 // Add a restore button below each image
                                 echo "<form method='POST' action='restore_img.php'>";
@@ -249,19 +291,29 @@ require_once("includes/dbconn.php");
                                 echo "<input type='hidden' name='user_id' value='" . sanitize($user_folder) . "' />";
                                 echo "<input type='submit' name='restore_image' value='Restore' />";
                                 echo "</form>";
+
                                 echo "</td>";
                             }
                         }
 
                         echo '</tr>';
+
+                        // Increment the displayed count
+                        $displayedCount++;
+
+                        // Check if the displayed count reaches the per_page limit
+                        if ($displayedCount >= $per_page) {
+                            break;
+                        }
                     }
                 }
             }
         }
-
-        // Close the table
-        echo '</table>';
     }
+
+    // Close the table
+    echo '</table>';
+}
     ?>
 </div>
 
@@ -270,6 +322,32 @@ require_once("includes/dbconn.php");
 
 
 
+<script>
+    // JavaScript function to clear the search query
+    function clearSearch() {
+        document.getElementById("search").value = "";
+        // Reload the page without the search query
+        window.location.href = window.location.pathname;
+    }
+
+    // JavaScript to auto-reload the page when the "Profiles Per Page" option is changed
+    document.getElementById("per_page").addEventListener("change", function () {
+        var selectedValue = this.value;
+        // Reload the page with the selected per_page value as a URL parameter
+        window.location.href = updateQueryStringParameter(window.location.href, "per_page", selectedValue);
+    });
+
+    // Function to update or add a URL parameter
+    function updateQueryStringParameter(uri, key, value) {
+        var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
+        var separator = uri.indexOf("?") !== -1 ? "&" : "?";
+        if (uri.match(re)) {
+            return uri.replace(re, "$1" + key + "=" + value + "$2");
+        } else {
+            return uri + separator + key + "=" + value;
+        }
+    }
+</script>
 
 
 
@@ -277,10 +355,12 @@ require_once("includes/dbconn.php");
 
 <style>
 
-    /* Style for profile images container */
-    .profile-images {
-        display: flex;
+
+
+    #search-form{
+        width: 100%;
     }
+
 
     h1 {
     padding: 10px 0;
@@ -342,7 +422,7 @@ require_once("includes/dbconn.php");
     margin: -5px auto 10px auto;
   }
 
-  label {
+    label {
         font-size: 16px;
         color: #00c292;
     }
@@ -383,14 +463,13 @@ require_once("includes/dbconn.php");
     display: block;
   }
 
-  td form,
-  td a {
-    margin: 5px auto -20px auto;
+  td form{
+    margin: 5px 5px -20px 5px;
     text-align: center;
-    display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    width: 50%;
+    display: inline;
   }
 
   /* Optionally, you can style the buttons for better visibility */
@@ -399,9 +478,9 @@ require_once("includes/dbconn.php");
     cursor: pointer;
     text-align: center;
     cursor: pointer;
-    width: 90px;
+    width: 75px;
     height: 30px;
-    margin: 0px auto 15px auto;
+    /* margin: 0px auto 15px auto; */
     background: green;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -411,24 +490,8 @@ require_once("includes/dbconn.php");
     font-weight: 400;
   }
 
-  td form a {
-    border: none;
-    cursor: pointer;
-    cursor: pointer;
-    width: 90px;
-    height: 30px;
-    margin: 15px auto;
-    background: green;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 1px 1px 4px #888;
-    font-size: 14px;
-    color: #fff;
-    font-weight: 400;
-  }
 
-  td form input[type="submit"]:hover,
-  td form a:hover {
+  td form input[type="submit"]:hover{
     color: white;
     background: linear-gradient(#0aa4ca, #0acef1);
   }
