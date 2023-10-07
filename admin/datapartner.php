@@ -247,7 +247,7 @@ h3{
 
     .table-wrapper {
       overflow: hidden;
-      width: 1880px;
+      width: 3080px;
       margin: auto;
     }
 
@@ -356,8 +356,8 @@ if (mysqli_num_rows($result) > 0) {
         <th>জীবনসঙ্গীর পেশা</th>
         <th>জীবনসঙ্গীর অর্থনৈতিক অবস্থা</th>
         <th>জীবনসঙ্গীর বৈশিষ্ঠ ও গুণাবলী</th>
-        <th>Data Upload</th>
-        <th>Action</th>
+        <th>তারিখ সময়</th>
+        <th>ডাটা ইডিট</th>
     </tr>';
     
     $count = 0;

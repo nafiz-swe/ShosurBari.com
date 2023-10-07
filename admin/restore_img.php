@@ -21,6 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Move the image from the trash folder to the user's profile folder
     if (rename($image_path, $user_image_path)) {
         echo "Image restored to the user's profile successfully.";
+        header("location:trash.php");
     } else {
         echo "Failed to restore the image.";
     }

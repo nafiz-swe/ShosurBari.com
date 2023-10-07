@@ -264,7 +264,7 @@ require_once("includes/dbconn.php");
         echo "<th>বায়োডাটা নং</th>"; // Left heading
 
         // Dynamically generate column headings for images
-        for ($i = 1; $i <= 14; $i++) {
+        for ($i = 1; $i <= 20; $i++) {
             echo "<th>Image-$i</th>";
         }
 

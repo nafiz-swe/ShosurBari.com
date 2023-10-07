@@ -246,7 +246,7 @@ h3{
 
     .table-wrapper {
       overflow: hidden;
-      width: 2880px;
+      width: 4080px;
       margin: auto;
     }
 
@@ -432,8 +432,8 @@ function displayResults($results)
             <th style="color: #b206a9;">শিক্ষার্থী বিয়ে করতে রাজি আছেন?</th>
             <th style="color: #b206a9;">বায়োডাটা টি যার, তার আপনি কে হন?<</th>
             
-            <th>Data Upload</th>
-            <th>Action</th>
+            <th>তারিখ সময়</th>
+            <th>ডাটা ইডিট</th>
         </tr>';
 
         // Output the data rows

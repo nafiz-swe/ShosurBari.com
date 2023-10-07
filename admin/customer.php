@@ -208,7 +208,7 @@ h3{
     th, td {
         border: 2px solid #00c292;
         padding: 8px;
-        text-align: left;
+        text-align: center;
     }
     
     th {
@@ -228,7 +228,7 @@ h3{
     }
 
     label {
-        font-size: 18px;
+        font-size: 16px;
         color: #00c292;
     }
 
@@ -247,7 +247,7 @@ h3{
 
     .table-wrapper {
       overflow: hidden;
-      width: 1880px;
+      width: 3080px;
       margin: auto;
     }
 
@@ -289,7 +289,7 @@ require_once("includes/dbconn.php");
 
 
     // Execute the SQL query
-    $sql = "SELECT COUNT(DISTINCT user_id) AS user_count FROM 8bd_religion_details";
+    $sql = "SELECT COUNT(DISTINCT user_id) AS user_count FROM customer";
     $result = $conn->query($sql);
 
     // Check if the query was successful
@@ -305,7 +305,7 @@ require_once("includes/dbconn.php");
 $profilesPerPage = isset($_GET['per_page']) ? intval($_GET['per_page']) : '50';
 
 // Fetch user data from the database
-$sql = "SELECT * FROM 8bd_religion_details";
+$sql = "SELECT * FROM customer";
 $result = mysqli_query($conn, $sql);
 
 
@@ -317,7 +317,7 @@ echo "<h3>Total number of user profiles: " . $userCount . "</h3>";
 
 echo '<div id="search-form">
     <form method="POST">
-        <label for="search-user-id">Search by User ID:</label>
+        <label for="search-user-id">Search User ID:</label>
         <input type="text" id="search-user-id" name="search-user-id">
         <button type="submit" name="search">Search</button>
         <button type="submit" name="clear" style="margin-left: 10px;">Clear Search</button></br>
@@ -338,18 +338,29 @@ echo '<div id="search-form">
 
 if (isset($_POST['search'])) {
     $searchUserId = mysqli_real_escape_string($conn, $_POST['search-user-id']);
-    $sql = "SELECT * FROM 8bd_religion_details WHERE user_id = $searchUserId";
+    $sql = "SELECT * FROM customer WHERE user_id = $searchUserId";
     $result = mysqli_query($conn, $sql);
 }
 
 if (mysqli_num_rows($result) > 0) {
     echo '<table>';
     echo '<tr>
-        <th>বায়োডাটা নং</th>
-        <th>ধর্ম</th>
-        <th>ধর্মীয় বিধিনিষেধ কতটুকু অনুসরণ করেন?</th>
-        <th>Data Upload</th>
-        <th>Action</th>
+        <th>আইডি নং</th>
+        <th>রেজিস্টার ইউজার /</br> বায়োডাটা নং</th>
+        <th>কাস্টমার নাম</th>
+        <th>কাস্টমার মোবাইল নম্বর</th>
+        <th>কাস্টমার ইমেইল</th>
+        <th>কাস্টমার স্থায়ী ঠিকানা</th>
+        <th>রিকোয়েস্ট বায়োডাটা</th>
+        <th>কয়টি বায়োডাটা &</br> মোট টাকা</th>
+        <th>পেমেন্ট মেথড</th>
+        <th>বিকাশ নাম্বার</th>
+        <th>বিকাশ ট্রানজেকশন আইডি</th>
+        <th>নগদ নাম্বার</th>
+        <th>নগদ ট্রানজেকশন আইডি</th>
+        <th>রকেট নাম্বার</th>
+        <th>রকেট ট্রানজেকশন আইডি</th>
+        <th>তারিখ সময়</th>
     </tr>';
     
     $count = 0;
@@ -360,11 +371,22 @@ if (mysqli_num_rows($result) > 0) {
             continue;
         }
         echo '<tr>';
+        echo '<td>' . $row['id_customer'] . '</td>';
         echo '<td>' . $row['user_id'] . '</td>';
-        echo '<td>' . $row['religion'] . '</td>';
-        echo '<td>' . $row['yourreligion_condition'] . '</td>';
-        echo '<td>' . $row['profilecreationdate'] . '</td>';
-        echo '<td><a href="edit_user.php?id=' . $row['id'] . '">Edit</a></td>';
+        echo '<td>' . $row['cust_name'] . '</td>';
+        echo '<td>' . $row['cust_number'] . '</td>';
+        echo '<td>' . $row['cust_email'] . '</td>';
+        echo '<td>' . $row['cust_permanent_address'] . '</td>';
+        echo '<td>' . $row['request_biodata_number'] . '</td>';
+        echo '<td>' . $row['biodata_quantities'] . '</td>';
+        echo '<td>' . $row['payment_method'] . '</td>';
+        echo '<td>' . $row['bkash_number'] . '</td>';
+        echo '<td>' . $row['bkash_transaction_id'] . '</td>';
+        echo '<td>' . $row['nagad_number'] . '</td>';
+        echo '<td>' . $row['nagad_transaction_id'] . '</td>';
+        echo '<td>' . $row['roket_number'] . '</td>';
+        echo '<td>' . $row['roket_transaction_id'] . '</td>';
+        echo '<td>' . $row['request_date'] . '</td>';
         echo '</tr>';
     }
     echo '</table>';

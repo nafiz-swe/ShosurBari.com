@@ -262,7 +262,7 @@ if (isset($_POST['search'])) {
     echo "<th>বায়োডাটা নং</th>"; // Left heading
 
     // Dynamically generate column headings for images
-    for ($i = 1; $i <= 15; $i++) {
+    for ($i = 1; $i <= 20; $i++) {
         echo "<th>Image-$i</th>";
     }
 

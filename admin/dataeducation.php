@@ -246,7 +246,7 @@ h3{
 
     .table-wrapper {
       overflow: hidden;
-      width: 2880px;
+      width: 4080px;
       margin: auto;
     }
 
@@ -434,8 +434,8 @@ function displayResults($results)
             <th style="color: #b206a9;">দাওরায়ে হাদিস পাসের বর্ষ</th>
             <th style="color: #b206a9;">মাদ্রাসায় বর্তমান অধ্যায়নরত জামাত</th>
 
-            <th>Data Upload</th>
-            <th>Action</th>
+            <th>তারিখ সময়</th>
+            <th>ডাটা ইডিট</th>
         </tr>';
 
         // Output the data rows

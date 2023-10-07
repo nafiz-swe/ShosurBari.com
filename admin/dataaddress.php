@@ -247,7 +247,7 @@ h3{
 
     .table-wrapper {
       overflow: hidden;
-      width: 1880px;
+      width: 3080px;
       margin: auto;
     }
 
@@ -359,8 +359,8 @@ if (mysqli_num_rows($result) > 0) {
         <th>যে দেশে আছেন</th>
         <th>বর্তমান বসবাসের ঠিকানা</th>
         <th>বাল্যকালে কোথায় থেকেছেন?	</th>
-        <th>Data Upload</th>
-        <th>Action</th>
+        <th>তারিখ সময়</th>
+        <th>ডাটা ইডিট</th>
     </tr>';
     
     $count = 0;
@@ -385,7 +385,7 @@ if (mysqli_num_rows($result) > 0) {
         echo '<td>' . $row['present_address_location'] . '</td>';
         echo '<td>' . $row['childhood'] . '</td>';
         echo '<td>' . $row['profilecreationdate'] . '</td>';
-        echo '<td><a href="edit_user.php?id=' . $row['id'] . '">Edit</a></td>';
+        echo '<td><a href="edit_address.php?id=' . $row['id'] . '">Edit</a></td>';
         echo '</tr>';
     }
     echo '</table>';

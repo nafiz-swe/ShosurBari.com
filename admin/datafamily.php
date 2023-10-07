@@ -247,7 +247,7 @@ h3{
 
     .table-wrapper {
       overflow: hidden;
-      width: 1880px;
+      width: 3080px;
       margin: auto;
     }
 
@@ -356,8 +356,8 @@ if (mysqli_num_rows($result) > 0) {
         <th>পারিবারিক শ্রেণী</th>
         <th>পরিবারের অর্থনৈতিক অবস্থা</th>
         <th>পারিবারিক ধর্মীয় ও সামাজিক অবস্থা</th>
-        <th>Data Upload</th>
-        <th>Action</th>
+        <th>তারিখ সময়</th>
+        <th>ডাটা ইডিট</th>
     </tr>';
     
     $count = 0;

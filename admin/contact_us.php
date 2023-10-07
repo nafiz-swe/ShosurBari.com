@@ -68,65 +68,332 @@ require_once("includes/dbconn.php");
 <body>
 
 
+    <!-- Mobile Menu start -->
+    <div class="mobile-menu-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="mobile-menu">
+                        <nav id="dropdown">
+                            <ul class="mobile-menu-nav">
+                                <li><a data-toggle="collapse" data-target="#Charts" href="#">Home</a>
+                                    <ul class="collapse dropdown-header-top">
+                                        <li><a href="index.html">Dashboard</a></li>
+                                        <li><a href="analytics.html">Analytics</a></li>
+                                    </ul>
+                                </li>
 
-<div class="sbbiodata_profile_recentview">
-    <h3>Profiles Recent View</h3>
-    <div class="photo-grid">
-        <?php
-        // Getting unique user IDs
-        $sql = "SELECT DISTINCT user_id FROM photos";
-        $result = mysqlexec($sql);
-
-        while ($row = mysqli_fetch_assoc($result)) {
-            $profid = $row['user_id'];
-
-            // Get all photos for the current user
-            $sql_photos = "SELECT * FROM photos WHERE user_id = {$profid}";
-            $result_photos = mysqlexec($sql_photos);
-
-            while ($photo_row = mysqli_fetch_assoc($result_photos)) {
-                $pic1 = $photo_row['pic1'];
-
-                echo "<div class=\"photo-item\">";
-                echo "<a href=\"view_profile.php?id={$profid}\" target=\"_blank\">";
-                if (!empty($pic1)) {
-                    echo "<img class=\"img-responsive\" src=\"../profile/{$profid}/{$pic1}\"/>";
-                } else {
-                    echo "<img class=\"img-responsive\" src=\"images/shosurbari-male-icon.jpg\"/>";
-                }
-                echo "</a>";
-                echo "<p>User ID: {$profid}</p>";
-                echo "</div>";
-            }
-        }
-        ?>
+                                <li><a data-toggle="collapse" data-target="#Pagemob" href="#">Pages</a>
+                                    <ul class="notika-main-menu-dropdown">
+                                      <li><a href="admin_login.php">Login</a>
+                                      </li>
+                                      <li><a href="customer.php">Customer</a>
+                                      </li>
+                                      <li><a href="contact_us.php">ContactUs</a>
+                                      </li>
+                                      <li><a href="photos.php">Photos</a>
+                                      </li>
+                                      <li><a href="users.php">Users</a>
+                                      </li>
+                                      <li><a href="dataphysical_marital.php">PysicalMarital</a>
+                                      </li>
+                                      <li><a href="datalifestyle.php">LifeStyle</a>
+                                      </li>
+                                      <li><a href="dataeducation.php">Edcation</a>
+                                      </li>
+                                      <li><a href="dataaddress.php">Address</a>
+                                      </li>
+                                      <li><a href="datareligion.php">Religion</a>
+                                      </li>
+                                      <li><a href="datafamily.php">Family</a>
+                                      </li>
+                                      <li><a href="datapartner.php">Partner</a>
+                                      </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+    <!-- Mobile Menu end -->
 
 
 
-<style>
-    .photo-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); /* Adjust the number of columns as needed */
-        gap: 20px; /* Adjust the gap between items */
+    <!-- Main Menu area start-->
+    <div class="main-menu-area mg-tb-40">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
+                        <li class="active"><a data-toggle="tab" href="#Home"><i class="notika-icon notika-house"></i> Home</a>
+                        </li>
+                        <li><a data-toggle="tab" href="#Page"><i class="notika-icon notika-support"></i> Manage</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content custom-menu-content">
+                        <div id="Home" class="tab-pane active in notika-tab-menu-bg animated flipInX">
+                            <ul class="notika-main-menu-dropdown">
+                                <li><a href="index.html">Dashboard</a>
+                                </li>
+                                <li><a href="analytics.html">Analytics</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div id="Page" class="tab-pane notika-tab-menu-bg animated flipInX">
+                            <ul class="notika-main-menu-dropdown">
+                                <li><a href="admin_login.php">Login</a>
+                                </li>
+                                <li><a href="customer.php">Customer</a>
+                                </li>
+                                <li><a href="contact_us.php">ContactUs</a>
+                                </li>
+                                <li><a href="photos.php">Photos</a>
+                                </li>
+                                <li><a href="users.php">Users</a>
+                                </li>
+                                <li><a href="dataphysical_marital.php">PysicalMarital</a>
+                                </li>
+                                <li><a href="datalifestyle.php">LifeStyle</a>
+                                </li>
+                                <li><a href="dataeducation.php">Edcation</a>
+                                </li>
+                                <li><a href="dataaddress.php">Address</a>
+                                </li>
+                                <li><a href="datareligion.php">Religion</a>
+                                </li>
+                                <li><a href="datafamily.php">Family</a>
+                                </li>
+                                <li><a href="datapartner.php">Partner</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Main Menu area End-->
+
+
+
+<?php
+
+echo '<style>
+h1{
+  padding: 10px 0;
+  margin: 150px auto 0px auto;
+  text-align: center;
+  font-size: 35px;
+  color: #00c292;
+}
+
+h3{
+  padding: 10px 0;
+  margin: 20px auto 0px auto;
+  font-size: 25px;
+  color: #00c292;
+}
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        padding: 20px;
+        border: 2px solid #00c292;
+        margin-bottom: 20px;
     }
-
-    .photo-item {
+    
+    th, td {
+        border: 2px solid #00c292;
+        padding: 8px;
         text-align: center;
     }
-
-    .photo-item img {
-        max-width: 100%;
-        height: auto;
+    
+    th {
+        background-color: #00c292;
+        color: white;
+        border: 2px solid #ccc;
     }
-</style>
+
+    #search-form {
+        margin-bottom: 20px;
+    }
+
+    form{
+        margin-left: 0px;
+        margin-top: 0px;
+        padding: 10px 0px;
+    }
+
+    label {
+        font-size: 16px;
+        color: #00c292;
+    }
+
+    .input-group input[type="text"], select {
+      font-size: 17px;
+      width: 110px;
+    }
+
+    .table-container {
+        padding: 0 20px;
+        border: 10px solid #00c292;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        overflow-x: auto;
+    }
+
+    .table-wrapper {
+      overflow: hidden;
+      width: 3080px;
+      margin: auto;
+    }
+
+    .table-wrapper table {
+        border-collapse: collapse;
+        width: 100%;
+        padding: 20px;
+        border: 2px solid #00c292;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        margin-top: -30px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #ddd;
+    }
+
+    /* Progress bar styling */
+    .progress-container {
+        height: 8px;
+        background-color: #ddd;
+    }
+
+    .progress-bar {
+        height: 100%;
+        width: 100%;
+        background-color: #00c292;
+    }
+</style>';
+
+
+// Establish a database connection (update these values with your database credentials)
+require_once("includes/dbconn.php");
 
 
 
+    // Execute the SQL query
+    $sql = "SELECT COUNT(DISTINCT user_id) AS user_count FROM contact_us";
+    $result = $conn->query($sql);
+
+    // Check if the query was successful
+    if ($result) {
+        $row = $result->fetch_assoc();
+        $userCount = $row["user_count"];
+    } else {
+        echo "Error: " . $conn->error;
+    }
+    
+
+// Number of profiles to display per page
+$profilesPerPage = isset($_GET['per_page']) ? intval($_GET['per_page']) : '50';
+
+// Fetch user data from the database
+$sql = "SELECT * FROM contact_us";
+$result = mysqli_query($conn, $sql);
 
 
+echo '<div class="table-container">';
+echo "<h1>বর্তমান এবং স্থায়ী ঠিকানা</h1>";
 
+echo '<div class="table-wrapper">';
+echo "<h3>Total number of user profiles: " . $userCount . "</h3>";
+
+echo '<div id="search-form">
+    <form method="POST">
+        <label for="search-user-id">Search User ID:</label>
+        <input type="text" id="search-user-id" name="search-user-id">
+        <button type="submit" name="search">Search</button>
+        <button type="submit" name="clear" style="margin-left: 10px;">Clear Search</button></br>
+        
+        <!-- Dropdown for profiles per page -->
+        <label for="per-page">Profiles Show</label>
+        <select id="per-page" name="per_page" onchange="updateProfilesPerPage()">
+          <option value=""> </option>
+            <option value="10" ' . ($profilesPerPage == 10 ? 'selected' : '') . '>10</option>
+            <option value="50" ' . ($profilesPerPage == 50 ? 'selected' : '') . '>50</option>
+            <option value="100" ' . ($profilesPerPage == 100 ? 'selected' : '') . '>100</option>
+            <option value="500" ' . ($profilesPerPage == 500 ? 'selected' : '') . '>500</option>
+            <option value="1000" ' . ($profilesPerPage == 1000 ? 'selected' : '') . '>1000</option>
+            <option value="10000" ' . ($profilesPerPage == 10000 ? 'selected' : '') . '>10000</option>
+        </select>
+    </form>
+</div>';
+
+if (isset($_POST['search'])) {
+    $searchUserId = mysqli_real_escape_string($conn, $_POST['search-user-id']);
+    $sql = "SELECT * FROM contact_us WHERE user_id = $searchUserId";
+    $result = mysqli_query($conn, $sql);
+}
+
+if (mysqli_num_rows($result) > 0) {
+    echo '<table>';
+    echo '<tr>
+        <th>আইডি নং</th>
+        <th>রেজিস্টার ইউজার /</br> বায়োডাটা নং</th>
+        <th>নাম</th>
+        <th>মোবাইল নম্বর</th>
+        <th>ইমেইল</th>
+        <th>মেসেজ</th>
+        <th>তারিখ সময়</th>
+    </tr>';
+    
+    $count = 0;
+    while ($row = mysqli_fetch_assoc($result)) {
+        $count++;
+        if ($profilesPerPage !== 'all' && $count > $profilesPerPage) {
+            // Hide profiles beyond the selected per page limit
+            continue;
+        }
+        echo '<tr>';
+        echo '<td>' . $row['contact_id'] . '</td>';
+        echo '<td>' . $row['user_id'] . '</td>';
+        echo '<td>' . $row['name_contactus'] . '</td>';
+        echo '<td>' . $row['number_contactus'] . '</td>';
+        echo '<td>' . $row['email_contactus'] . '</td>';
+        echo '<td>' . $row['message_contactus'] . '</td>';
+        echo '<td>' . $row['message_sendingdate'] . '</td>';
+        echo '</tr>';
+    }
+    echo '</table>';
+    
+    // Progress bar at the bottom
+    echo '<div class="progress-container">
+        <div class="progress-bar"></div>
+    </div>';
+} else {
+    echo 'No users found.';
+}
+
+echo '</div>'; // Close the table-wrapper div
+echo '</div>'; // Close the table-container div
+
+mysqli_close($conn);
+?>
+
+<script>
+function updateProfilesPerPage() {
+    const perPageSelect = document.getElementById('per-page');
+    const selectedValue = perPageSelect.value;
+    window.location.href = `?per_page=${selectedValue}`;
+}
+</script>
 
 
 
