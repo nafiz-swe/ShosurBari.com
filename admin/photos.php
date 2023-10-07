@@ -4,6 +4,9 @@ include_once("includes/basic_includes.php");
 include_once("functions.php");
 require_once("includes/dbconn.php");
 ?>
+
+
+
 <!doctype html>
 <html class="no-js" lang="">
 
@@ -93,6 +96,8 @@ require_once("includes/dbconn.php");
                                       </li>
                                       <li><a href="photos.php">Photos</a>
                                       </li>
+                                      <li><a href="trash.php">Trash</a>
+                                      </li>
                                       <li><a href="users.php">Users</a>
                                       </li>
                                       <li><a href="dataphysical_marital.php">PysicalMarital</a>
@@ -152,6 +157,8 @@ require_once("includes/dbconn.php");
                                 <li><a href="contact_us.php">ContactUs</a>
                                 </li>
                                 <li><a href="photos.php">Photos</a>
+                                </li>
+                                <li><a href="trash.php">Trash</a>
                                 </li>
                                 <li><a href="users.php">Users</a>
                                 </li>
@@ -219,7 +226,7 @@ require_once("includes/dbconn.php");
     echo "<table>";
     echo '<div id="search-form">
     <form method="POST">
-        <label for="search-user-id">Search by User ID:</label>
+        <label for="search-user-id">Search User ID:</label>
         <input type="text" id="search-user-id" name="search-user-id">
         <button type="submit" name="search">Search</button>
         <button type="submit" name="clear" style="margin-left: 10px;">Clear Search</button></br>

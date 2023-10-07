@@ -486,12 +486,18 @@
 
             require_once("includes/dbconn.php");
 
+            // Check if the user is logged in using your existing authentication logic
+            if (isset($_SESSION['id'])) {
+                $user_id = $_SESSION['id'];
+            } else {
+                $user_id = 0; // Default value for non-logged-in users
+            }
 
             $sql = "INSERT 
                 INTO
-                customer(cust_name, cust_email, cust_number, cust_permanent_address, request_biodata_number, biodata_quantities, payment_method, bkash_number, bkash_transaction_id, nagad_number, nagad_transaction_id, roket_number, roket_transaction_id, request_date) 
+                customer(user_id, cust_name, cust_email, cust_number, cust_permanent_address, request_biodata_number, biodata_quantities, payment_method, bkash_number, bkash_transaction_id, nagad_number, nagad_transaction_id, roket_number, roket_transaction_id, request_date) 
                 VALUES
-                ('$cust_name', '$cust_email', '$cust_number', '$cust_permanent_address', '$request_biodata_number', '$biodata_quantities', '$payment_method', '$bkash_number', '$bkash_transaction_id', '$nagad_number', '$nagad_transaction_id', '$roket_number', '$roket_transaction_id', CURDATE())";
+                ('$user_id', '$cust_name', '$cust_email', '$cust_number', '$cust_permanent_address', '$request_biodata_number', '$biodata_quantities', '$payment_method', '$bkash_number', '$bkash_transaction_id', '$nagad_number', '$nagad_transaction_id', '$roket_number', '$roket_transaction_id', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
 
             if (mysqli_query($conn,$sql)) {
 
@@ -526,31 +532,33 @@
     --                                               --
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-    function contact_us(){
+    function contact_us() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $name_contactus=$_POST['name_contactus'];
-            $number_contactus=$_POST['number_contactus'];
-            $email_contactus=$_POST['email_contactus'];
-            $message_contactus=$_POST['message_contactus'];
+            $name_contactus = $_POST['name_contactus'];
+            $number_contactus = $_POST['number_contactus'];
+            $email_contactus = $_POST['email_contactus'];
+            $message_contactus = $_POST['message_contactus'];
             require_once("includes/dbconn.php");
-
-
-            $sql = "INSERT 
-                    INTO
-                    contact_us
-                    ( user_id, name_contactus, number_contactus, email_contactus, message_contactus, message_sendingdate) 
-                    VALUES
-                    ('$id', '$name_contactus', '$number_contactus', '$email_contactus', '$message_contactus', CURDATE())";
-
-            if (mysqli_query($conn,$sql)) {
-
-            header("location: index.php");
-
+    
+            // Check if the user is logged in using your existing authentication logic
+            if (isset($_SESSION['id'])) {
+                $user_id = $_SESSION['id'];
             } else {
-            echo "Error";
+                $user_id = 0; // Default value for non-logged-in users
+            }
+    
+            // Insert the contact form data into the contact_us table
+            $sql = "INSERT INTO contact_us (user_id, name_contactus, number_contactus, email_contactus, message_contactus, message_sendingdate) 
+                    VALUES ('$user_id', '$name_contactus', '$number_contactus', '$email_contactus', '$message_contactus', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+    
+            if (mysqli_query($conn, $sql)) {
+                header("location: index.php");
+            } else {
+                echo "Error";
             }
         }
     }
+    
     /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
     -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
     --                   E   N   D                   --
@@ -915,7 +923,7 @@ if (mysqli_query($conn,$sql))
 $sql = "INSERT INTO 9bd_expected_life_partner
 (user_id, partner_religius, partner_district, partner_maritialstatus, partner_age, partner_skintones, partner_height, partner_education, partner_profession, partner_financial, partner_attributes, profilecreationdate  ) 
 VALUES
-('$id', '$partner_religius', '$partner_district', '$partner_maritialstatus', '$partner_age', '$partner_skintones', '$partner_height', '$partner_education', '$partner_profession', '$partner_financial', '$partner_attributes', CURDATE())";
+('$id', '$partner_religius', '$partner_district', '$partner_maritialstatus', '$partner_age', '$partner_skintones', '$partner_height', '$partner_education', '$partner_profession', '$partner_financial', '$partner_attributes', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
 if (mysqli_query($conn,$sql))
 {
     echo "Thanks! Successfully Uploaded New Biodata!";
