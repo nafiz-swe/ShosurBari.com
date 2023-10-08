@@ -180,92 +180,103 @@ require_once("includes/dbconn.php");
 
 
     <style>
-        @media (min-width:1280px){
-.user-database{
-    width: 1260px;
-    margin: auto;
-    padding: 20px 60px;
-}
-.admin-user-table th {
-    font-size: 18px;
-  }
-  
+h1{
+  padding: 10px 0;
+  margin: 150px auto 0px auto;
+  text-align: center;
+  font-size: 35px;
+  color: #00c292;
 }
 
-
-@media (max-width: 1280px){
-.user-database {
-    width: 1024px;
-    margin: auto;
-    padding: 20px 40px;
-
+h3{
+  padding: 10px 0;
+  margin: 20px auto 0px auto;
+  font-size: 25px;
+  color: #00c292;
 }
-.admin-user-table th {
-    font-size: 18px;
-  }
-}
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        padding: 20px;
+        border: 2px solid #00c292;
+        margin-bottom: 20px;
+    }
+    
+    th, td {
+        border: 2px solid #00c292;
+        padding: 8px;
+        text-align: left;
+    }
+    
+    th {
+        background-color: #00c292;
+        color: white;
+        border: 2px solid #ccc;
+    }
 
-@media (max-width: 1024px){
-.user-database {
-    width: auto;
-    margin: auto;
-    padding: 20px 30px;
-}
-.admin-user-table th {
-    font-size: 18px;
-  }
-}
+    #search-form {
+        margin-bottom: 20px;
+    }
 
-@media (max-width: 930px){
-.user-database {
-    width: auto;
-    margin: auto;
-    padding: 20px 15px;
-}
-.admin-user-table td {
-    font-size: 12px;
-  }
-  .admin-user-table th {
-    font-size: 15px;
-  }
+    form{
+        margin-left: 0px;
+        margin-top: 0px;
+        padding: 10px 0px;
+    }
 
-}
+    label {
+        font-size: 16px;
+        color: #00c292;
+    }
 
- table {
-    border-collapse: collapse;
-    width: 100%;
-  }
+    .input-group input[type="text"], select {
+      font-size: 17px;
+      width: 110px;
+    }
 
-  .admin-user-table td {
-    padding: 8px;
-    text-align: left;
-    border: 2px solid #ccc;
-  }
+    .table-container {
+        padding: 0 20px;
+        border: 10px solid #00c292;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        overflow-x: auto;
+    }
 
-  .admin-user-table th {
-    background-color: #00c292;
-    color: white;
-    text-align: center;
-    font-weight: 600;
-    padding: 8px;
-    border: 2px solid #ccc;
-  }
+    .table-wrapper {
+      overflow: hidden;
+      width: 2080px;
+      margin: auto;
+    }
 
-  .admin-user-table tr.active {
-    background-color: #fff;
-    color: #000;
-  }
+    .table-wrapper table {
+        border-collapse: collapse;
+        width: 100%;
+        padding: 20px;
+        border: 2px solid #00c292;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        margin-top: -30px;
+    }
 
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
 
-  .admin-user-table tr.inactive {
-    background-color: red;
-    color: #fff;
-  }
+    tr:hover {
+        background-color: #ddd;
+    }
 
-  .user-database h2{
-    text-align: center;
-  }
+    /* Progress bar styling */
+    .progress-container {
+        height: 8px;
+        background-color: #ddd;
+    }
 
+    .progress-bar {
+        height: 100%;
+        width: 100%;
+        background-color: #00c292;
+    }
 
 
   .pagination{
@@ -299,53 +310,86 @@ require_once("includes/dbconn.php");
   color: #fff;
 }
 
+/* Apply linear gradient background to deactivated user rows */
+tr.inactive {
+    background: linear-gradient(#06b6d4, #0ea5e9);
+    color: white; 
+}
 </style>
 
 
-<div class="user-database">
-<h2>User Management</h2>
-<h3>Users Table</h3>
-
-  <form method="POST">
-    <label for="num_rows">Show:</label>
-    <select name="num_rows" id="num_rows" onchange="this.form.submit()">
-    <option value="10" <?php if(isset($_POST['num_rows']) && $_POST['num_rows']=='10') echo 'selected'; ?>>10</option>
-      <option value="50" <?php if(isset($_POST['num_rows']) && $_POST['num_rows']=='50') echo 'selected'; ?>>50</option>
-      <option value="100" <?php if(isset($_POST['num_rows']) && $_POST['num_rows']=='100') echo 'selected'; ?>>100</option>
-      <option value="250" <?php if(isset($_POST['num_rows']) && $_POST['num_rows']=='250') echo 'selected'; ?>>250</option>
-      <option value="500" <?php if(isset($_POST['num_rows']) && $_POST['num_rows']=='500') echo 'selected'; ?>>500</option>
-      <option value="1000" <?php if(isset($_POST['num_rows']) && $_POST['num_rows']=='1000') echo 'selected'; ?>>1000</option>
-      <option value="all" <?php if(isset($_POST['num_rows']) && $_POST['num_rows']=='all') echo 'selected'; ?>>All</option>
-    </select>
-  </form>
-
-
-
   <?php
-    $conn = mysqli_connect("localhost", "root", "", "matrimony");
-    if (!$conn) {
-      die("Connection failed: " . mysqli_connect_error());
-    }
+  // Include the database connection code from datalifestyle.php
+  require_once("includes/dbconn.php");
 
-    $num_rows = isset($_POST['num_rows']) ? $_POST['num_rows'] : 10;
-    $limit = ($num_rows == 'all') ? '' : "LIMIT $num_rows";
+  // Number of users to display per page
+  $num_rows = isset($_POST['num_rows']) ? $_POST['num_rows'] : 10;
+  $limit = ($num_rows == 'all') ? '' : "LIMIT $num_rows";
 
-    // Pagination variables
-    $page = isset($_GET['page']) ? $_GET['page'] : 1;
-    $start = ($page - 1) * $num_rows;
+  // Pagination variables
+  $page = isset($_GET['page']) ? $_GET['page'] : 1;
+  $start = ($page - 1) * $num_rows;
 
-    $sql = "SELECT COUNT(*) as count FROM users";
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_assoc($result);
-    $total_pages = ceil($row['count'] / $num_rows);
+  // Execute the SQL query to count the total number of users
+  $sql = "SELECT COUNT(*) AS user_count FROM users";
+  $result = mysqli_query($conn, $sql);
 
+  if ($result) {
+      $row = mysqli_fetch_assoc($result);
+      $userCount = $row["user_count"];
+  } else {
+      echo "Error: " . mysqli_error($conn);
+  }
+
+  // Fetch user data from the database
+  $sql = "SELECT * FROM users $limit OFFSET $start";
+  $result = mysqli_query($conn, $sql);
+
+  echo '<div class="table-container">';
+  echo "<h1>বর্তমান এবং স্থায়ী ঠিকানা</h1>";
+
+  echo '<div class="table-wrapper">';
+  echo "<h3>Total number of user profiles: " . $userCount . "</h3>";
+
+  echo '<div id="search-form">
+  <form method="POST">
+      <label for="search-user-id">Search User ID:</label>
+      <input type="text" id="search-user-id" name="search-user-id">
+      <button type="submit" name="search">Search</button>
+      <button type="submit" name="clear" style="margin-left: 10px;">Clear Search</button></br>
+      
+      <!-- Dropdown for profiles per page -->
+      <label for="per-page">Profiles Show</label>
+      <select name="num_rows" id="num_rows" onchange="this.form.submit()">
+        <option value=""> </option>
+          <option value="10" ' . ($num_rows == 10 ? 'selected' : '') . '>10</option>
+          <option value="50" ' . ($num_rows == 50 ? 'selected' : '') . '>50</option>
+          <option value="100" ' . ($num_rows == 100 ? 'selected' : '') . '>100</option>
+          <option value="500" ' . ($num_rows == 500 ? 'selected' : '') . '>500</option>
+          <option value="1000" ' . ($num_rows == 1000 ? 'selected' : '') . '>1000</option>
+          <option value="10000" ' . ($num_rows == 10000 ? 'selected' : '') . '>10000</option>
+      </select>
+    </form>
+</div>';
+
+// User ID search functionality
+$searchUserId = isset($_POST['search-user-id']) ? $_POST['search-user-id'] : '';
+if (!empty($searchUserId)) {
+    $searchUserId = mysqli_real_escape_string($conn, $searchUserId);
+    $sql = "SELECT * FROM users WHERE id = $searchUserId $limit";
+} else {
     $sql = "SELECT * FROM users $limit OFFSET $start";
-    $result = mysqli_query($conn, $sql);
-    if (mysqli_num_rows($result) > 0) {
-      echo "<table class=\"admin-user-table\">";
-      echo "<tr class=\"admin-user-tr\">
-              <th>User
-              ID</th>
+}
+$result = mysqli_query($conn, $sql);
+
+
+
+if (mysqli_num_rows($result) > 0) {
+
+    // Display user data
+    echo "<table>";
+    echo "<tr>
+              <th>User ID</th>
               <th>FullName</th>
               <th>UserName</th>
               <th>Gender</th>
@@ -354,54 +398,62 @@ require_once("includes/dbconn.php");
               <th>Reg.Date</th>
               <th>Edit</th>
               <th>Delete</th>
-              <th>Deactivate
-              /Activate</th>
+              <th>Deactivate/Activate</th>
             </tr>";
-      while($row = mysqli_fetch_assoc($result)) {
-        $id=$row['id'];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $id = $row['id'];
         $class = $row['active'] == 1 ? "active" : "inactive";
-        echo "<tr class='".$class."'><td>".$row['id']."</td>
-        <td>".$row['fullname']."</td>
-        <td>".$row['username']."</td>
-        <td>".$row['gender']."</td>
-        <td>".$row['email']."</td>
-        <td>".$row['number']."</td>
-        <td>".$row['register_date']."</td>
+        echo "<tr class='" . $class . "'><td>" . $row['id'] . "</td>
+        <td>" . $row['fullname'] . "</td>
+        <td>" . $row['username'] . "</td>
+        <td>" . $row['gender'] . "</td>
+        <td>" . $row['email'] . "</td>
+        <td>" . $row['number'] . "</td>
+        <td>" . $row['register_date'] . "</td>
         <td><a href='../userhome.php?id=$id'>Edit</a></td>
         <td><a href='#' onclick='confirmDelete($id)'>Delete</a></td><td>";
-        
-        if($row['active']==1) {
-          echo "<a href='#' onclick='confirmDeactivate($id)'>Deactivate</a>";
+
+        if ($row['active'] == 1) {
+            echo "<a href='#'  onclick='confirmDeactivate($id)'>Deactivate</a>";
         } else {
-          echo "<a href='#' onclick='confirmActivate($id)'>Activate</a>";
+            echo "<a href='#' style=\"color: #fff;\" onclick='confirmActivate($id)'>Activate</a>";
         }
         echo "</td></tr>";
-      }
-      echo "</table>";
+    }
+    echo "</table>";
+
+      // Progress bar at the bottom
+      echo '<div class="progress-container">
+      <div class="progress-bar"></div>
+      </div>';
 
       
-
-      // Pagination links
-      echo "<div class='pagination'>";
-      if ($total_pages > 1) {
+    // Pagination links
+    echo "<div class='pagination'>";
+    if ($total_pages > 1) {
         if ($page > 1) {
-          echo "<a href='?page=".($page-1)."&num_rows=$num_rows' class='page-link'>Previous</a>";
+            echo "<a href='?page=" . ($page - 1) . "&num_rows=$num_rows' class='page-link'>Previous</a>";
         }
         for ($i = 1; $i <= $total_pages; $i++) {
-          $active = $i == $page ? "active" : "";
-          echo "<a href='?page=$i&num_rows=$num_rows' class='page-link $active'>$i</a>";
+            $active = $i == $page ? "active" : "";
+            echo "<a href='?page=$i&num_rows=$num_rows' class='page-link $active'>$i</a>";
         }
         if ($page < $total_pages) {
-          echo "<a href='?page=".($page+1)."&num_rows=$num_rows' class='page-link'>Next</a>";
+            echo "<a href='?page=" . ($page + 1) . "&num_rows=$num_rows' class='page-link'>Next</a>";
         }
-      }
-      echo "</div>";
-      
     }
-    mysqli_close($conn);
-  ?>
+echo "</div>";
 
-</div>
+} else {
+    echo "No users found.";
+}
+
+echo '</div>'; // Close the table-wrapper div
+echo '</div>'; // Close the table-container div
+
+mysqli_close($conn);
+?>
+
 
 
 <script>
