@@ -472,7 +472,7 @@ function displayResults($results)
             echo '<td style="color: #b206a9;">' . $row['profileby'] . '</td>';
 
             echo '<td>' . $row['profilecreationdate'] . '</td>';
-            echo '<td><a href="edit_user.php?id=' . $row['user_id'] . '">Edit</a></td>';
+            echo '<td><a href="edit_physical_marital.php?id=' . $row['user_id'] . '">Edit</a></td>';
             echo '</tr>';
         }
         echo '</table>';

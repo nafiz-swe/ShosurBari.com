@@ -808,9 +808,9 @@ if (mysqli_query($conn,$sql))
 --  Educational Qualifications  / sb-biodata-3   --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --*/
 $sql = "INSERT INTO 3bd_universityedu_method
-(user_id, scndry_edu_method, higher_secondary_edu_method, varsity_edu_method, uvarsity_pass, varsity_passing_year, university_subject, varsity_ending_year, uvarsity_name, others_edu_qualification, profilecreationdate ) 
+(user_id, varsity_edu_method, uvarsity_pass, varsity_passing_year, university_subject, varsity_ending_year, uvarsity_name, others_edu_qualification, profilecreationdate ) 
 VALUES
-('$id', '$scndry_edu_method', '$higher_secondary_edu_method', '$varsity_edu_method', '$uvarsity_pass', '$varsity_passing_year', '$university_subject', '$varsity_ending_year', '$uvarsity_name', '$others_edu_qualification', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+('$id', '$varsity_edu_method', '$uvarsity_pass', '$varsity_passing_year', '$university_subject', '$varsity_ending_year', '$uvarsity_name', '$others_edu_qualification', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
 if (mysqli_query($conn,$sql))
 {echo " ";}
 
@@ -1289,8 +1289,6 @@ if (mysqli_query($conn,$sql))
                     // Update query
                     if(mysqli_num_rows($result)>=1){
                     $sql = "UPDATE 3bd_universityedu_method SET 
-                                scndry_edu_method = '$scndry_edu_method',
-                                higher_secondary_edu_method = '$higher_secondary_edu_method',
                                 varsity_edu_method = '$varsity_edu_method',
                                 uvarsity_pass = '$uvarsity_pass',
                                 varsity_passing_year = '$varsity_passing_year',

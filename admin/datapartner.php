@@ -380,7 +380,7 @@ if (mysqli_num_rows($result) > 0) {
         echo '<td>' . $row['partner_financial'] . '</td>';
         echo '<td>' . $row['partner_attributes'] . '</td>';
         echo '<td>' . $row['profilecreationdate'] . '</td>';
-        echo '<td><a href="edit_user.php?id=' . $row['id'] . '">Edit</a></td>';
+        echo '<td><a href="edit_partner.php?id=' . $row['id'] . '">Edit</a></td>';
         echo '</tr>';
     }
     echo '</table>';

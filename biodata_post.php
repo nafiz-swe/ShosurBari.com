@@ -863,13 +863,6 @@ if(isloggedin()){
 				$row=mysqli_fetch_assoc($result);
 
 				if($row){
-					$scndry_edu_method=$row['scndry_edu_method'];
-				}
-				if($row){
-					$higher_secondary_edu_method=$row['higher_secondary_edu_method'];
-				}
-
-				if($row){
 				$varsity_edu_method=$row['varsity_edu_method'];
 				}
 				if($row){

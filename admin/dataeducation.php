@@ -427,8 +427,8 @@ function displayResults($results)
             <th style="color: blue;">স্নাতক আপনার সাবজেক্ট</th>
             <th style="color: blue;">স্নাতক অধ্যায়ন সম্পন্ন হবে</th>
             <th style="color: blue;">স্নাতকে শিক্ষা প্রতিষ্ঠান</th>
-            <th style="color: blue;">অন্যান্য শিক্ষাগত যোগ্যতা</th>
             
+            <th style="color: #b206a9;">অন্যান্য শিক্ষাগত যোগ্যতা</th>
             <th style="color: #b206a9;">আপনি কি হাফেজ</th>
             <th style="color: #b206a9;">দাওরায়ে হাদিস পাস করেছেন?</th>
             <th style="color: #b206a9;">দাওরায়ে হাদিস পাসের বর্ষ</th>
@@ -476,7 +476,7 @@ function displayResults($results)
             echo '<td style="color: #b206a9;">' . $row['kowmi_current_edu_level'] . '</td>';
 
             echo '<td>' . $row['profilecreationdate'] . '</td>';
-            echo '<td><a href="edit_user.php?id=' . $row['user_id'] . '">Edit</a></td>';
+            echo '<td><a href="edit_education.php?id=' . $row['user_id'] . '">Edit</a></td>';
             echo '</tr>';
         }
         echo '</table>';
