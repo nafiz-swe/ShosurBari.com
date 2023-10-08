@@ -167,6 +167,18 @@ if(isloggedin()){
 				if($row){
 				$aboutme=$row['aboutme'];
 				}
+				if($row){
+				$groom_bride_email=$row['groom_bride_email'];
+				}
+				if($row){
+				$groom_bride_number=$row['groom_bride_number'];
+				}
+				if($row){
+				$groom_bride_family_number=$row['groom_bride_family_number'];
+				}
+				if($row){
+				$family_number_relation=$row['family_number_relation'];
+				}
 				}
 			?>
 
@@ -440,22 +452,22 @@ if(isloggedin()){
 						
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">পাত্র/পাত্রীর ইমেইল<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required.">(এই অপশন লুকায়িত থাকবে)</span></label>
-							<input type="text" id="edit-name" name="groom_bride__email" value="" size="100" maxlength="100" class="form-text" required>
+							<input type="text" id="edit-name" name="groom_bride_email" value="" size="100" maxlength="100" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">পাত্র/পাত্রীর মোবাইল নাম্বার <span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required.">(এই অপশন লুকায়িত থাকবে)</span></label>
-							<input type="text" id="edit-name" name="groom_bride__number" value="" size="100" maxlength="100" class="form-text" required>
+							<input type="text" id="edit-name" name="groom_bride_number" value="" size="100" maxlength="100" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">পিতামাতা/আত্মীয়র মোবাইল নাম্বার<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required.">(এই অপশন লুকায়িত থাকবে)</span></label>
-							<input type="text" id="edit-name" name="parent_number" value="" size="100" maxlength="100" class="form-text" required>
+							<input type="text" id="edit-name" name="groom_bride_family_number" value="" size="100" maxlength="100" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">পিতামাতা/আত্মীয়র অপশনে মোবাইল নাম্বার টি যার, তার সাথে পাত্রপাত্রীর কি সম্পর্ক<span class="form-required" title="This field is required.">*</span> <span style="color: gray; font-size: 14px;" class="form-required" title="This field is required.">(এই অপশন লুকায়িত থাকবে)</span></label>
-							<input type="text" id="edit-name" name="groombride_relational_number" value="" size="100" maxlength="100" class="form-text" required>
+							<input type="text" id="edit-name" name="family_number_relation" value="" size="100" maxlength="100" class="form-text" required>
 						</div>
 
 					</div>

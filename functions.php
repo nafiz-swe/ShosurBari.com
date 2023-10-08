@@ -617,10 +617,10 @@
 	$occupation_describe=$_POST['occupation_describe'];
 	$dress_code=$_POST['dress_code'];
 	$aboutme=$_POST['aboutme'];
-    $groom_bride__email=$_POST['groom_bride__email'];		
-	$groom_bride__number=$_POST['groom_bride__number'];		
-	$parent_number=$_POST['parent_number'];		
-	$groombride_relational_number=$_POST['groombride_relational_number'];		
+    $groom_bride_email=$_POST['groom_bride_email'];		
+	$groom_bride_number=$_POST['groom_bride_number'];		
+	$groom_bride_family_number=$_POST['groom_bride_family_number'];		
+	$family_number_relation=$_POST['family_number_relation'];		
 		
 
 
@@ -754,9 +754,9 @@
 --     Personal & Life Style  / sb-biodata-2     --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
     $sql = "INSERT INTO 2bd_personal_lifestyle
-	(user_id, smoke, occupation_sector, other_occupation_sector, business_occupation_level, student_occupation_level, health_occupation_level, engineer_occupation_level, teacher_occupation_level, defense_occupation_level, foreigner_occupation_level, garments_occupation_level, driver_occupation_level, service_andcommon_occupation_level, mistri_occupation_level, occupation_describe, dress_code, aboutme, grrom_bride_email, grrom_bride_number, grrom_bride_family_number, family_number_relation, profilecreationdate  ) 
+	(user_id, smoke, occupation_sector, other_occupation_sector, business_occupation_level, student_occupation_level, health_occupation_level, engineer_occupation_level, teacher_occupation_level, defense_occupation_level, foreigner_occupation_level, garments_occupation_level, driver_occupation_level, service_andcommon_occupation_level, mistri_occupation_level, occupation_describe, dress_code, aboutme, groom_bride_email, groom_bride_number, groom_bride_family_number, family_number_relation, profilecreationdate  ) 
 	VALUES
-	('$id', '$smoke', '$occupation_sector', '$other_occupation_sector', '$business_occupation_level', '$student_occupation_level', '$health_occupation_level', '$engineer_occupation_level', '$teacher_occupation_level', '$defense_occupation_level', '$foreigner_occupation_level', '$garments_occupation_level', '$driver_occupation_level', '$service_andcommon_occupation_level', '$mistri_occupation_level', '$occupation_describe', '$dress_code', '$aboutme', '$groom_bride__email', '$groom_bride__number', '$parent_number', '$groombride_relational_number', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+	('$id', '$smoke', '$occupation_sector', '$other_occupation_sector', '$business_occupation_level', '$student_occupation_level', '$health_occupation_level', '$engineer_occupation_level', '$teacher_occupation_level', '$defense_occupation_level', '$foreigner_occupation_level', '$garments_occupation_level', '$driver_occupation_level', '$service_andcommon_occupation_level', '$mistri_occupation_level', '$occupation_describe', '$dress_code', '$aboutme', '$groom_bride_email', '$groom_bride_number', '$groom_bride_family_number', '$family_number_relation', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
     if (mysqli_query($conn,$sql))
 	{echo " ";}
 

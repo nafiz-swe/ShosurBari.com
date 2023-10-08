@@ -60,7 +60,6 @@ require_once("includes/dbconn.php");
     <link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="../css/style.css">
 	<link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css">
-
     <!-- responsive CSS
 		============================================ -->
     <link rel="stylesheet" href="css/responsive.css">
@@ -199,19 +198,19 @@ if (isset($_GET['id'])) {
     if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_assoc($result);
 
-                // Display the user data in input fields/options
-                $permanent_division = $row['permanent_division'];
-                $home_district_under_barishal = $row['home_district_under_barishal'];
-                $home_district_under_chattogram = $row['home_district_under_chattogram'];
-                $home_district_under_dhaka = $row['home_district_under_dhaka'];
-                $home_district_under_khulna = $row['home_district_under_khulna'];
-                $home_district_under_mymensingh = $row['home_district_under_mymensingh'];
-                $home_district_under_rajshahi = $row['home_district_under_rajshahi'];
-                $home_district_under_rangpur = $row['home_district_under_rangpur'];
-                $home_district_under_sylhet = $row['home_district_under_sylhet'];
-                $country_present_address = $row['country_present_address'];
-                $present_address_location = $row['present_address_location'];
-                $childhood = $row['childhood'];
+		// Display the user data in input fields/options
+		$permanent_division = $row['permanent_division'];
+		$home_district_under_barishal = $row['home_district_under_barishal'];
+		$home_district_under_chattogram = $row['home_district_under_chattogram'];
+		$home_district_under_dhaka = $row['home_district_under_dhaka'];
+		$home_district_under_khulna = $row['home_district_under_khulna'];
+		$home_district_under_mymensingh = $row['home_district_under_mymensingh'];
+		$home_district_under_rajshahi = $row['home_district_under_rajshahi'];
+		$home_district_under_rangpur = $row['home_district_under_rangpur'];
+		$home_district_under_sylhet = $row['home_district_under_sylhet'];
+		$country_present_address = $row['country_present_address'];
+		$present_address_location = $row['present_address_location'];
+		$childhood = $row['childhood'];
                 
     } else {
         echo 'User not found.';
@@ -264,9 +263,6 @@ if (isset($_POST['update'])) {
     exit;
 }
 ?>
-
-
-
 
 
 
@@ -542,12 +538,10 @@ if (isset($_POST['update'])) {
 						</div>
 					</div>
 				</div>
-
                 <input type="submit" name="update" value="Update">
-
 				<!-- <button type="submit" id="edit-submit" name="op" class="biodata-submit"><span></span>Submit</button>			 -->
 			</fieldset>
-    </form>
+    	</form>
 	</div>
 
 
@@ -557,13 +551,13 @@ if (isset($_POST['update'])) {
 .sb-biodata { /*Table body design & width*/
     border: 1px solid #ccc;
     border-radius: 6px;
-    width: 500px;
+    width: 400px;
     gap: 1.5rem;
     padding: 20px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 40px;
-    margin-top: 200px;
+    margin-top: 100px;
     background: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -571,15 +565,16 @@ if (isset($_POST['update'])) {
 input[type=submit] {
     cursor: pointer;
     height: 35px;
+	width: 400px;
     margin-top: 10px;
     background: linear-gradient(#06b6d4, #0ea5e9);
     border: 1px solid #ccc;
 	border-radius: 4px;
     color: #fff;
     box-shadow: 1px 1px 4px #888;
-    margin-left: auto;
+    /* margin-left: auto;
     margin-right: auto;
-    display: block;
+    display: block; */
 }
 
 html, body { /* Monitor Navigation Bar top Padding 0px */
