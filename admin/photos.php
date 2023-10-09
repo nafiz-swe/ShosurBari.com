@@ -355,6 +355,7 @@ if (isset($_POST['search'])) {
 
     // Calculate the total number of pages
 $total_pages = ceil($userCount / $profilesPerPage);
+$pages_to_show = 1; // You can adjust this number as needed
 
 // Pagination links
 echo "<div class='pagination'>";

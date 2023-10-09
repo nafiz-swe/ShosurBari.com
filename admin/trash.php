@@ -358,7 +358,9 @@ if (!is_dir("../profile")) {
         <div class="progress-bar"></div>
         </div>';
 
-
+        // Calculate the total number of pages
+        $pages_to_show = 1; // You can adjust this number as needed
+    
     // Pagination links
     echo "<div class='pagination'>";
     if ($total_pages > 1) {

@@ -280,15 +280,81 @@ h3{
         width: 100%;
         background-color: #00c292;
     }
-</style>';
 
+
+    .pagination{
+      display: inline-block;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      margin-left:  auto;
+      margin-right: auto;
+      padding: 0;
+      list-style: none;
+      align-items: center;
+      justify-content:center;
+    }
+    
+    .page-link{
+      color: #000;
+      padding: 8px 12px;
+      text-decoration: none;
+      font-size: 14px;
+      background-color: #eee;
+      border-radius: 50%;
+      margin: 0 3px;
+    }
+    
+    .page-link:hover{
+        background: #00c292;
+      color: #fff;
+    }
+    
+    .page-link.active{
+      background: #00c292;
+      color: #fff;
+    }
+</style>';
 
 // Establish a database connection (update these values with your database credentials)
 require_once("includes/dbconn.php");
 
+// Number of profiles to display per page
+$profilesPerPage = isset($_GET['per_page']) ? intval($_GET['per_page']) : 2;
 
+// Current page
+$currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
 
-    // Execute the SQL query
+// Offset for the SQL query
+$offset = ($currentPage - 1) * $profilesPerPage;
+
+// Initialize search variables
+$searchUserId = "";
+$searchCriteria = "";
+
+// Check if a search request was submitted
+if (isset($_POST['search'])) {
+    // Get search criteria and user ID from the form
+    $searchCriteria = isset($_POST['search-criteria']) ? mysqli_real_escape_string($conn, $_POST['search-criteria']) : "";
+    $searchUserId = isset($_POST['search-user-id']) ? mysqli_real_escape_string($conn, $_POST['search-user-id']) : "";
+
+    // Construct the SQL query for searching
+    $searchQuery = "SELECT * FROM contact_us WHERE 1=1";
+
+    if (!empty($searchUserId)) {
+        $searchQuery .= " AND user_id = '$searchUserId'";
+    }
+
+    if (!empty($searchCriteria)) {
+        $searchQuery .= " AND (name_contactus LIKE '%$searchCriteria%' OR email_contactus LIKE '%$searchCriteria%')";
+    }
+
+    // Execute the search query
+    $result = mysqli_query($conn, $searchQuery);
+
+    // Recalculate the total number of profiles based on the search results
+    $userCount = mysqli_num_rows($result);
+} else {
+    // Execute the SQL query to get the total number of users
     $sql = "SELECT COUNT(DISTINCT user_id) AS user_count FROM contact_us";
     $result = $conn->query($sql);
 
@@ -299,15 +365,11 @@ require_once("includes/dbconn.php");
     } else {
         echo "Error: " . $conn->error;
     }
-    
 
-// Number of profiles to display per page
-$profilesPerPage = isset($_GET['per_page']) ? intval($_GET['per_page']) : '50';
-
-// Fetch user data from the database
-$sql = "SELECT * FROM contact_us";
-$result = mysqli_query($conn, $sql);
-
+    // Construct the SQL query for pagination
+    $paginationQuery = "SELECT * FROM contact_us LIMIT $offset, $profilesPerPage";
+    $result = mysqli_query($conn, $paginationQuery);
+}
 
 echo '<div class="table-container">';
 echo "<h1>বর্তমান এবং স্থায়ী ঠিকানা</h1>";
@@ -318,14 +380,16 @@ echo "<h3>Total number of user profiles: " . $userCount . "</h3>";
 echo '<div id="search-form">
     <form method="POST">
         <label for="search-user-id">Search User ID:</label>
-        <input type="text" id="search-user-id" name="search-user-id">
+        <input type="text" id="search-user-id" name="search-user-id" value="' . $searchUserId . '">
+        <label for="search-criteria">Search by Name/Email:</label>
+        <input type="text" id="search-criteria" name="search-criteria" value="' . $searchCriteria . '">
         <button type="submit" name="search">Search</button>
         <button type="submit" name="clear" style="margin-left: 10px;">Clear Search</button></br>
         
         <!-- Dropdown for profiles per page -->
         <label for="per-page">Profiles Show</label>
         <select id="per-page" name="per_page" onchange="updateProfilesPerPage()">
-          <option value=""> </option>
+            <option value="2" ' . ($profilesPerPage == 2 ? 'selected' : '') . '>2</option>
             <option value="10" ' . ($profilesPerPage == 10 ? 'selected' : '') . '>10</option>
             <option value="50" ' . ($profilesPerPage == 50 ? 'selected' : '') . '>50</option>
             <option value="100" ' . ($profilesPerPage == 100 ? 'selected' : '') . '>100</option>
@@ -335,12 +399,6 @@ echo '<div id="search-form">
         </select>
     </form>
 </div>';
-
-if (isset($_POST['search'])) {
-    $searchUserId = mysqli_real_escape_string($conn, $_POST['search-user-id']);
-    $sql = "SELECT * FROM contact_us WHERE user_id = $searchUserId";
-    $result = mysqli_query($conn, $sql);
-}
 
 if (mysqli_num_rows($result) > 0) {
     echo '<table>';
@@ -354,13 +412,7 @@ if (mysqli_num_rows($result) > 0) {
         <th>তারিখ সময়</th>
     </tr>';
     
-    $count = 0;
     while ($row = mysqli_fetch_assoc($result)) {
-        $count++;
-        if ($profilesPerPage !== 'all' && $count > $profilesPerPage) {
-            // Hide profiles beyond the selected per page limit
-            continue;
-        }
         echo '<tr>';
         echo '<td>' . $row['contact_id'] . '</td>';
         echo '<td>' . $row['user_id'] . '</td>';
@@ -373,10 +425,33 @@ if (mysqli_num_rows($result) > 0) {
     }
     echo '</table>';
     
-    // Progress bar at the bottom
-    echo '<div class="progress-container">
+
+// Calculate the total number of pages based on profilesPerPage
+$totalPages = ceil($userCount / $profilesPerPage);
+
+// Pagination controls
+echo '<div class="pagination">';
+if ($totalPages > 1) {
+    echo '<span class="page-info">Page ' . $currentPage . ' of ' . $totalPages . '</span>';
+
+    if ($currentPage > 1) {
+        echo '<a href="?page=1&per_page=' . $profilesPerPage . '">First</a>';
+        echo '<a href="?page=' . ($currentPage - 1) . '&per_page=' . $profilesPerPage . '">Previous</a>';
+    }
+
+    if ($currentPage < $totalPages) {
+        echo '<a href="?page=' . ($currentPage + 1) . '&per_page=' . $profilesPerPage . '">Next</a>';
+        echo '<a href="?page=' . $totalPages . '&per_page=' . $profilesPerPage . '">Last</a>';
+    }
+}
+echo '</div>'; // Close the pagination div
+
+        // Progress bar at the bottom
+        echo '<div class="progress-container">
         <div class="progress-bar"></div>
-    </div>';
+        </div>';
+    
+        
 } else {
     echo 'No users found.';
 }
@@ -386,6 +461,7 @@ echo '</div>'; // Close the table-container div
 
 mysqli_close($conn);
 ?>
+
 
 <script>
 function updateProfilesPerPage() {
