@@ -258,6 +258,12 @@ h3{
         margin-top: -30px;
     }
 
+/* Apply linear gradient background to deactivated user rows */
+tr.inactive {
+    background: linear-gradient(#06b6d4, #0ea5e9);
+    color: white; 
+}
+
     tr:nth-child(even) {
         background-color: #f2f2f2;
     }
@@ -280,8 +286,9 @@ h3{
 
 
   .pagination{
-  display: flex;
+  display: inline-block;
   margin-top: 30px;
+  margin-bottom: 30px;
   margin-left:  auto;
   margin-right: auto;
   padding: 0;
@@ -310,11 +317,6 @@ h3{
   color: #fff;
 }
 
-/* Apply linear gradient background to deactivated user rows */
-tr.inactive {
-    background: linear-gradient(#06b6d4, #0ea5e9);
-    color: white; 
-}
 </style>
 
 
@@ -323,7 +325,7 @@ tr.inactive {
   require_once("includes/dbconn.php");
 
   // Number of users to display per page
-  $num_rows = isset($_POST['num_rows']) ? $_POST['num_rows'] : 10;
+  $num_rows = isset($_POST['num_rows']) ? $_POST['num_rows'] : 2;
   $limit = ($num_rows == 'all') ? '' : "LIMIT $num_rows";
 
   // Pagination variables
@@ -428,21 +430,36 @@ if (mysqli_num_rows($result) > 0) {
       </div>';
 
       
-    // Pagination links
-    echo "<div class='pagination'>";
-    if ($total_pages > 1) {
-        if ($page > 1) {
-            echo "<a href='?page=" . ($page - 1) . "&num_rows=$num_rows' class='page-link'>Previous</a>";
-        }
-        for ($i = 1; $i <= $total_pages; $i++) {
+// Calculate the total number of pages
+$total_pages = ceil($userCount / $num_rows);
+
+// Define how many pages to show before and after the current page
+$pages_to_show = 1; // You can adjust this number as needed
+
+// Pagination links
+echo "<div class='pagination'>";
+if ($total_pages > 1) {
+    if ($page > 1) {
+        echo "<a href='?page=" . ($page - 1) . "&num_rows=$num_rows' class='page-link'>Previous</a>";
+    }
+    
+    for ($i = 1; $i <= $total_pages; $i++) {
+        if ($i == 1 || $i == $total_pages || ($i >= $page - $pages_to_show && $i <= $page + $pages_to_show)) {
             $active = $i == $page ? "active" : "";
             echo "<a href='?page=$i&num_rows=$num_rows' class='page-link $active'>$i</a>";
-        }
-        if ($page < $total_pages) {
-            echo "<a href='?page=" . ($page + 1) . "&num_rows=$num_rows' class='page-link'>Next</a>";
+        } elseif ($i == $page - $pages_to_show - 1 || $i == $page + $pages_to_show + 1) {
+            // Add "dot dot" nodes
+            echo "<span class='page-link'>...</span>";
         }
     }
+    
+    if ($page < $total_pages) {
+        echo "<a href='?page=" . ($page + 1) . "&num_rows=$num_rows' class='page-link'>Next</a>";
+    }
+}
 echo "</div>";
+
+
 
 } else {
     echo "No users found.";
