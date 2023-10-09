@@ -279,28 +279,62 @@ h3{
         width: 100%;
         background-color: #00c292;
     }
+
+    .pagination{
+      display: inline-block;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      margin-left:  auto;
+      margin-right: auto;
+      padding: 0;
+      list-style: none;
+      align-items: center;
+      justify-content:center;
+    }
+    
+    .page-link{
+      color: #000;
+      padding: 8px 12px;
+      text-decoration: none;
+      font-size: 14px;
+      background-color: #eee;
+      border-radius: 50%;
+      margin: 0 3px;
+    }
+    
+    .page-link:hover{
+        background: #00c292;
+      color: #ffffff;
+    }
+    
+    .page-link.active{
+      background: #00c292;
+      color: #fff;
+    }
 </style>';
 
-// Establish a database connection (update these values with your database credentials)
+
+// Include the database connection code from dbconn.php
 require_once("includes/dbconn.php");
 
-// Execute the SQL query to get the user count from the first table
-$sql = "SELECT COUNT(DISTINCT user_id) AS user_count FROM 1bd_personal_physical";
+// Number of profiles to display per page
+$profilesPerPage = isset($_GET['per_page']) ? intval($_GET['per_page']) : 2;
+$limit = ($profilesPerPage == 'all') ? '' : "LIMIT $profilesPerPage";
+
+// Pagination variables
+$page = isset($_GET['page']) ? $_GET['page'] : 1;
+$start = ($page - 1) * $profilesPerPage;
+
+// Execute the SQL query to count the total number of user profiles
+$sql = "SELECT COUNT(DISTINCT user_id) AS user_count FROM 3bd_secondaryedu_method";
 $result = $conn->query($sql);
 
-// Check if the query was successful
 if ($result) {
     $row = $result->fetch_assoc();
     $userCount = $row["user_count"];
 } else {
     echo "Error: " . $conn->error;
 }
-
-// Number of profiles to display per page
-$profilesPerPage = isset($_GET['per_page']) ? intval($_GET['per_page']) : '50';
-
-// Create an empty array to store the combined results
-$combinedResults = [];
 
 // Execute a single SQL query to retrieve data from all tables
 $sql = "SELECT
@@ -340,18 +374,10 @@ $sql = "SELECT
         FROM 1bd_personal_physical AS p
         LEFT JOIN 6bd_7bd_marital_status AS mf ON p.user_id = mf.user_id
         LEFT JOIN 6bd_marriage_related_qs_male AS m ON p.user_id = m.user_id
-        LEFT JOIN 7bd_marriage_related_qs_female AS f ON p.user_id = f.user_id";
+        LEFT JOIN 7bd_marriage_related_qs_female AS f ON p.user_id = f.user_id
+        $limit OFFSET $start";
 
 $result = $conn->query($sql);
-
-// Check if the query was successful
-if ($result) {
-    while ($row = $result->fetch_assoc()) {
-        $combinedResults[] = $row;
-    }
-} else {
-    echo "Error: " . $conn->error;
-}
 
 echo '<div class="table-container">';
 echo "<h1>বর্তমান এবং স্থায়ী ঠিকানা</h1>";
@@ -360,47 +386,119 @@ echo '<div class="table-wrapper">';
 echo "<h3>Total number of user profiles: " . $userCount . "</h3>";
 
 echo '<div id="search-form">
-    <form method="POST">
-        <label for="search-user-id">Search User ID:</label>
-        <input type="text" id="search-user-id" name="search-user-id">
-        <button type="submit" name="search">Search</button>
-        <button type="submit" name="clear" style="margin-left: 10px;">Clear Search</button></br>
-        
-        <!-- Dropdown for profiles per page -->
-        <label for="per-page">Profiles Show</label>
-        <select id="per-page" name="per_page" onchange="updateProfilesPerPage()">
-          <option value=""> </option>
-            <option value="10" ' . ($profilesPerPage == 10 ? 'selected' : '') . '>10</option>
-            <option value="50" ' . ($profilesPerPage == 50 ? 'selected' : '') . '>50</option>
-            <option value="100" ' . ($profilesPerPage == 100 ? 'selected' : '') . '>100</option>
-            <option value="500" ' . ($profilesPerPage == 500 ? 'selected' : '') . '>500</option>
-            <option value="1000" ' . ($profilesPerPage == 1000 ? 'selected' : '') . '>1000</option>
-            <option value="10000" ' . ($profilesPerPage == 10000 ? 'selected' : '') . '>10000</option>
-        </select>
-    </form>
+<form method="POST">
+    <label for="search-user-id">Search User ID:</label>
+    <input type="text" id="search-user-id" name="search-user-id">
+    <button type="submit" name="search">Search</button>
+    <button type="submit" name="clear" style="margin-left: 10px;">Clear Search</button></br>
+    
+    <!-- Dropdown for profiles per page -->
+    <label for="per-page">Profiles Show</label>
+    <select name="per_page" id="per-page" onchange="this.form.submit()">
+        <option value=""> </option>
+        <option value="10" ' . ($profilesPerPage == 10 ? 'selected' : '') . '>10</option>
+        <option value="50" ' . ($profilesPerPage == 50 ? 'selected' : '') . '>50</option>
+        <option value="100" ' . ($profilesPerPage == 100 ? 'selected' : '') . '>100</option>
+        <option value="500" ' . ($profilesPerPage == 500 ? 'selected' : '') . '>500</option>
+        <option value="1000" ' . ($profilesPerPage == 1000 ? 'selected' : '') . '>1000</option>
+        <option value="10000" ' . ($profilesPerPage == 10000 ? 'selected' : '') . '>10000</option>
+        <option value="all" ' . ($profilesPerPage == 'all' ? 'selected' : '') . '>All</option>
+    </select>
+</form>
 </div>';
 
-// Process the combined results
-if (isset($_POST['search'])) {
-    $searchUserId = mysqli_real_escape_string($conn, $_POST['search-user-id']);
-    // Filter the combined results based on the user ID
-    $filteredResults = array_filter($combinedResults, function ($row) use ($searchUserId) {
-        return $row['user_id'] == $searchUserId;
-    });
 
-    // Display the filtered results
-    displayResults($filteredResults);
+
+// User ID search functionality
+$searchUserId = isset($_POST['search-user-id']) ? $_POST['search-user-id'] : '';
+if (!empty($searchUserId)) {
+    $searchUserId = mysqli_real_escape_string($conn, $searchUserId);
+    $sql = "SELECT
+            p.user_id,
+            p.biodatagender,
+            p.dateofbirth,
+            p.height,
+            p.weight,
+            p.physicalstatus,
+            p.Skin_tones,
+            p.bloodgroup,
+            p.profilecreationdate,  -- Add profilecreationdate from secondaryedu_method
+
+            mf.maritalstatus,
+            mf.divorce_reason,
+            mf.how_widow,
+            mf.how_widower,
+            mf.how_many_son,
+            mf.son_details,
+            mf.get_wife_permission,
+            mf.get_family_permission,
+            mf.why_again_married,
+
+            m.guardians_agree,
+            m.allowstudy_aftermarriage,
+            m.allowjob_aftermarriage,
+            m.livewife_aftermarriage,
+            m.profileby,
+
+            f.guardians_agree,
+            f.anyjob_aftermarriage,
+            f.studies_aftermarriage,
+            f.agree_marriage_student,
+            f.profileby
+
+            FROM 1bd_personal_physical AS p
+            LEFT JOIN 6bd_7bd_marital_status AS mf ON p.user_id = mf.user_id
+            LEFT JOIN 6bd_marriage_related_qs_male AS m ON p.user_id = m.user_id
+            LEFT JOIN 7bd_marriage_related_qs_female AS f ON p.user_id = f.user_id
+        WHERE p.user_id = $searchUserId
+        $limit OFFSET $start";
 } else {
-    // Display all combined results
-    displayResults($combinedResults);
+    $sql = "SELECT
+        p.user_id,
+        p.biodatagender,
+        p.dateofbirth,
+        p.height,
+        p.weight,
+        p.physicalstatus,
+        p.Skin_tones,
+        p.bloodgroup,
+        p.profilecreationdate,  -- Add profilecreationdate from secondaryedu_method
+
+        mf.maritalstatus,
+        mf.divorce_reason,
+        mf.how_widow,
+        mf.how_widower,
+        mf.how_many_son,
+        mf.son_details,
+        mf.get_wife_permission,
+        mf.get_family_permission,
+        mf.why_again_married,
+
+        m.guardians_agree,
+        m.allowstudy_aftermarriage,
+        m.allowjob_aftermarriage,
+        m.livewife_aftermarriage,
+        m.profileby,
+
+        f.guardians_agree,
+        f.anyjob_aftermarriage,
+        f.studies_aftermarriage,
+        f.agree_marriage_student,
+        f.profileby
+
+        FROM 1bd_personal_physical AS p
+        LEFT JOIN 6bd_7bd_marital_status AS mf ON p.user_id = mf.user_id
+        LEFT JOIN 6bd_marriage_related_qs_male AS m ON p.user_id = m.user_id
+        LEFT JOIN 7bd_marriage_related_qs_female AS f ON p.user_id = f.user_id
+        $limit OFFSET $start";
 }
 
-// Function to display results
-function displayResults($results)
-{
-    if (!empty($results)) {
-        echo '<table>';
-        echo '<tr>
+$result = $conn->query($sql);
+
+if ($result) {
+    // Display user data
+    echo '<table>';
+    echo '<tr>
             <th>বায়োডাটা নং</th>
             <th>বায়োডাটার ধরণ</th>
             <th>জন্ম তারিখ মাস সন</th>
@@ -436,9 +534,8 @@ function displayResults($results)
             <th>ডাটা ইডিট</th>
         </tr>';
 
-        // Output the data rows
-        foreach ($results as $row) {
-            echo '<tr>';
+        while ($row = $result->fetch_assoc()) {
+          echo '<tr>';
             echo '<td>' . $row['user_id'] . '</td>';
 
             echo '<td>' . $row['biodatagender'] . '</td>';
@@ -475,23 +572,54 @@ function displayResults($results)
             echo '<td><a href="edit_physical_marital.php?id=' . $row['user_id'] . '">Edit</a></td>';
             echo '</tr>';
         }
-        echo '</table>';
 
-        // Progress bar at the bottom
-        echo '<div class="progress-container">
-            <div class="progress-bar"></div>
-        </div>';
+        echo '</table>';
+    
+    
+          // Progress bar at the bottom
+          echo '<div class="progress-container">
+          <div class="progress-bar"></div>
+          </div>';
+      
+          // Calculate the total number of pages
+          $total_pages = ceil($userCount / $profilesPerPage);
+      
+          // Define how many pages to show before and after the current page
+          $pages_to_show = 1; // You can adjust this number as needed
+    
+          
+        // Pagination links
+        echo "<div class='pagination'>";
+        if ($total_pages > 1) {
+            if ($page > 1) {
+                echo "<a href='?page=" . ($page - 1) . "&per_page=$profilesPerPage' class='page-link'>Previous</a>";
+            }
+    
+            for ($i = 1; $i <= $total_pages; $i++) {
+                if ($i == 1 || $i == $total_pages || ($i >= $page - $pages_to_show && $i <= $page + $pages_to_show)) {
+                    $active = $i == $page ? "active" : "";
+                    echo "<a href='?page=$i&per_page=$profilesPerPage' class='page-link $active'>$i</a>";
+                } elseif ($i == $page - $pages_to_show - 1 || $i == $page + $pages_to_show + 1) {
+                    // Add "dot dot" nodes
+                    echo "<span class='page-link'>...</span>";
+                }
+            }
+    
+            if ($page < $total_pages) {
+                echo "<a href='?page=" . ($page + 1) . "&per_page=$profilesPerPage' class='page-link'>Next</a>";
+            }
+        }
+        echo "</div>";
     } else {
         echo 'No users found.';
     }
-}
-
-echo '</div>'; // Close the table-wrapper div
-echo '</div>'; // Close the table-container div
-
-mysqli_close($conn);
-?>
-
+    
+    echo '</div>'; // Close the table-wrapper div
+    echo '</div>'; // Close the table-container div
+    
+    mysqli_close($conn);
+    ?>
+    
 
 
 

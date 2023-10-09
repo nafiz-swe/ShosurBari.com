@@ -321,114 +321,115 @@ tr.inactive {
 
 
 <?php
-// Include the database connection code from datalifestyle.php
 require_once("includes/dbconn.php");
 
-// Number of users to display per page
-$num_rows = isset($_POST['num_rows']) ? $_POST['num_rows'] : 2;
-$limit = ($num_rows == 'all') ? '' : "LIMIT $num_rows";
+// Number of profiles to display per page
+$profilesPerPage = isset($_GET['per_page']) ? intval($_GET['per_page']) : 2;
+$limit = ($profilesPerPage == 'all') ? '' : "LIMIT $profilesPerPage";
 
 // Pagination variables
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
-$start = ($page - 1) * $num_rows;
+$start = ($page - 1) * $profilesPerPage;
 
-// Execute the SQL query to count the total number of users
-$sql = "SELECT COUNT(*) AS user_count FROM users";
-$result = mysqli_query($conn, $sql);
+// Execute the SQL query to count the total number of user profiles
+$sql = "SELECT COUNT(DISTINCT id) AS user_count FROM users";
+$result = $conn->query($sql);
 
+// Check if the query was successful
 if ($result) {
-    $row = mysqli_fetch_assoc($result);
+    $row = $result->fetch_assoc();
     $userCount = $row["user_count"];
 } else {
-    echo "Error: " . mysqli_error($conn);
+    echo "Error: " . $conn->error;
 }
 
-// Fetch user data from the database
-$sql = "SELECT * FROM users $limit OFFSET $start";
-$result = mysqli_query($conn, $sql);
-
-echo '<div class="table-container">';
-echo "<h1>বর্তমান এবং স্থায়ী ঠিকানা</h1>";
-
-echo '<div class="table-wrapper">';
-echo "<h3>Total number of user profiles: " . $userCount . "</h3>";
-
-
-echo '<div id="search-form">
-<form method="POST">
-    <label for="search-user-id">Search User ID:</label>
-    <input type="text" id="search-user-id" name="search-user-id">
-    <button type="submit" name="search">Search</button>
-    <button type="submit" name="clear" style="margin-left: 10px;">Clear Search</button></br>
-    
-    <!-- Dropdown for profiles per page -->
-    <label for="num_rows">Profiles Show</label>
-    <select name="num_rows" id="num_rows" onchange="this.form.submit()">
-        <option value=""> </option>
-        <option value="10" ' . ($num_rows == 10 ? 'selected' : '') . '>10</option>
-        <option value="50" ' . ($num_rows == 50 ? 'selected' : '') . '>50</option>
-        <option value="100" ' . ($num_rows == 100 ? 'selected' : '') . '>100</option>
-        <option value="500" ' . ($num_rows == 500 ? 'selected' : '') . '>500</option>
-        <option value="1000" ' . ($num_rows == 1000 ? 'selected' : '') . '>1000</option>
-        <option value="10000" ' . ($num_rows == 10000 ? 'selected' : '') . '>10000</option>
-      </select>
-</form>
-</div>';
-
-// User ID search functionality
-$searchUserId = isset($_POST['search-user-id']) ? $_POST['search-user-id'] : '';
-if (!empty($searchUserId)) {
-    $searchUserId = mysqli_real_escape_string($conn, $searchUserId);
+if (isset($_POST['search'])) {
+    $searchUserId = mysqli_real_escape_string($conn, $_POST['search-user-id']);
     $sql = "SELECT * FROM users WHERE id = $searchUserId $limit";
+    $result = mysqli_query($conn, $sql);
 } else {
     $sql = "SELECT * FROM users $limit OFFSET $start";
+    $result = mysqli_query($conn, $sql);
 }
-$result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
-    // Display user data
-    echo "<table>";
-    echo "<tr>
-              <th>User ID</th>
-              <th>FullName</th>
-              <th>UserName</th>
-              <th>Gender</th>
-              <th>Email</th>
-              <th>Phone</th>
-              <th>Reg.Date</th>
-              <th>Edit</th>
-              <th>Delete</th>
-              <th>Deactivate/Activate</th>
-          </tr>";
+    echo "<div class='table-container'>";
+    echo "<h1>User Profiles</h1>";
+
+    // Display user data in a table
+    echo '<div class="table-wrapper">';
+    echo "<h3>Total number of user profiles: " . $userCount . "</h3>";
+
+    echo '<div id="search-form">
+        <form method="POST">
+            <label for="search-user-id">Search User ID:</label>
+            <input type="text" id="search-user-id" name="search-user-id" required>
+            <button type="submit" name="search">Search</button>
+            <button type="submit" name="clear" style="margin-left: 10px;">Clear Search</button></br>
+            
+            <!-- Dropdown for profiles per page -->
+            <label for="per-page">Profiles Show</label>
+            <select id="per-page" name="per_page" onchange="updateProfilesPerPage()">
+            <option value=""> </option>
+            <option value="10" ' . ($profilesPerPage == 10 ? 'selected' : '') . '>10</option>
+            <option value="50" ' . ($profilesPerPage == 50 ? 'selected' : '') . '>50</option>
+            <option value="100" ' . ($profilesPerPage == 100 ? 'selected' : '') . '>100</option>
+            <option value="500" ' . ($profilesPerPage == 500 ? 'selected' : '') . '>500</option>
+            <option value="1000" ' . ($profilesPerPage == 1000 ? 'selected' : '') . '>1000</option>
+            <option value="10000" ' . ($profilesPerPage == 10000 ? 'selected' : '') . '>10000</option>
+        </select>
+        </form>
+    </div>';
+
+    echo '<table>';
+    echo '<tr>
+        <th>User ID</th>
+        <th>FullName</th>
+        <th>UserName</th>
+        <th>Gender</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Reg.Date</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>Deactivate/Activate</th>
+    </tr>';
+
+    $count = 0;
     while ($row = mysqli_fetch_assoc($result)) {
+        $count++;
+        if ($profilesPerPage !== 'all' && $count > $profilesPerPage) {
+            // Hide profiles beyond the selected per page limit
+            continue;
+        }
         $id = $row['id'];
         $class = $row['active'] == 1 ? "active" : "inactive";
-        echo "<tr class='" . $class . "'><td>" . $row['id'] . "</td>
-        <td>" . $row['fullname'] . "</td>
-        <td>" . $row['username'] . "</td>
-        <td>" . $row['gender'] . "</td>
-        <td>" . $row['email'] . "</td>
-        <td>" . $row['number'] . "</td>
-        <td>" . $row['register_date'] . "</td>
-        <td><a href='../userhome.php?id=$id'>Edit</a></td>
-        <td><a href='#' onclick='confirmDelete($id)'>Delete</a></td><td>";
-
+        echo '<tr class="' . $class . '">';
+        echo '<td>' . $row['id'] . '</td>';
+        echo '<td>' . $row['fullname'] . '</td>';
+        echo '<td>' . $row['username'] . '</td>';
+        echo '<td>' . $row['gender'] . '</td>';
+        echo '<td>' . $row['email'] . '</td>';
+        echo '<td>' . $row['number'] . '</td>';
+        echo '<td>' . $row['register_date'] . '</td>';
+        echo '<td><a href="../userhome.php?id=' . $id . '">Edit</a></td>';
+        echo '<td><a href="#" onclick="confirmDelete(' . $id . ')">Delete</a></td><td>';
         if ($row['active'] == 1) {
-            echo "<a href='#'  onclick='confirmDeactivate($id)'>Deactivate</a>";
+            echo '<a href="#"  onclick="confirmDeactivate(' . $id . ')">Deactivate</a>';
         } else {
-            echo "<a href='#' style=\"color: #fff;\" onclick='confirmActivate($id)'>Activate</a>";
+            echo '<a href="#" style="color: #fff;" onclick="confirmActivate(' . $id . ')">Activate</a>';
         }
-        echo "</td></tr>";
+        echo '</td></tr>';
     }
-    echo "</table>";
+    echo '</table>';
 
     // Progress bar at the bottom
     echo '<div class="progress-container">
-    <div class="progress-bar"></div>
+        <div class="progress-bar"></div>
     </div>';
 
     // Calculate the total number of pages
-    $total_pages = ceil($userCount / $num_rows);
+    $total_pages = ceil($userCount / $profilesPerPage);
 
     // Define how many pages to show before and after the current page
     $pages_to_show = 1; // You can adjust this number as needed
@@ -437,13 +438,13 @@ if (mysqli_num_rows($result) > 0) {
     echo "<div class='pagination'>";
     if ($total_pages > 1) {
         if ($page > 1) {
-            echo "<a href='?page=" . ($page - 1) . "&num_rows=$num_rows' class='page-link'>Previous</a>";
+            echo "<a href='?page=" . ($page - 1) . "&per_page=$profilesPerPage' class='page-link'>Previous</a>";
         }
 
         for ($i = 1; $i <= $total_pages; $i++) {
             if ($i == 1 || $i == $total_pages || ($i >= $page - $pages_to_show && $i <= $page + $pages_to_show)) {
                 $active = $i == $page ? "active" : "";
-                echo "<a href='?page=$i&num_rows=$num_rows' class='page-link $active'>$i</a>";
+                echo "<a href='?page=$i&per_page=$profilesPerPage' class='page-link $active'>$i</a>";
             } elseif ($i == $page - $pages_to_show - 1 || $i == $page + $pages_to_show + 1) {
                 // Add "dot dot" nodes
                 echo "<span class='page-link'>...</span>";
@@ -451,7 +452,7 @@ if (mysqli_num_rows($result) > 0) {
         }
 
         if ($page < $total_pages) {
-            echo "<a href='?page=" . ($page + 1) . "&num_rows=$num_rows' class='page-link'>Next</a>";
+            echo "<a href='?page=" . ($page + 1) . "&per_page=$profilesPerPage' class='page-link'>Next</a>";
         }
     }
     echo "</div>";
@@ -487,6 +488,7 @@ mysqli_close($conn);
     }
   }  
 </script>
+
 
 
    <!-- Start Footer area-->
