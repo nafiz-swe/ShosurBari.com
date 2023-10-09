@@ -319,7 +319,7 @@ h3{
 require_once("includes/dbconn.php");
 
 // Number of profiles to display per page
-$profilesPerPage = isset($_POST['per_page']) ? intval($_POST['per_page']) : 2;
+$profilesPerPage = isset($_GET['per_page']) ? intval($_GET['per_page']) : 2;
 $limit = ($profilesPerPage == 'all') ? '' : "LIMIT $profilesPerPage";
 
 // Pagination variables
@@ -328,13 +328,14 @@ $start = ($page - 1) * $profilesPerPage;
 
 // Execute the SQL query to count the total number of user profiles
 $sql = "SELECT COUNT(DISTINCT user_id) AS user_count FROM 8bd_religion_details";
-$result = mysqli_query($conn, $sql);
+$result = $conn->query($sql);
 
+// Check if the query was successful
 if ($result) {
-    $row = mysqli_fetch_assoc($result);
+    $row = $result->fetch_assoc();
     $userCount = $row["user_count"];
 } else {
-    echo "Error: " . mysqli_error($conn);
+    echo "Error: " . $conn->error;
 }
 
 // Fetch user data from the database with pagination
@@ -348,24 +349,24 @@ echo '<div class="table-wrapper">';
 echo "<h3>Total number of user profiles: " . $userCount . "</h3>";
 
 echo '<div id="search-form">
-<form method="POST">
-    <label for="search-user-id">Search User ID:</label>
-    <input type="text" id="search-user-id" name="search-user-id">
-    <button type="submit" name="search">Search</button>
-    <button type="submit" name="clear" style="margin-left: 10px;">Clear Search</button></br>
-    
-    <!-- Dropdown for profiles per page -->
-    <label for="per-page">Profiles Show</label>
-    <select name="per_page" id="per-page" onchange="this.form.submit()">
-        <option value=""> </option>
-        <option value="10" ' . ($profilesPerPage == 10 ? 'selected' : '') . '>10</option>
-        <option value="50" ' . ($profilesPerPage == 50 ? 'selected' : '') . '>50</option>
-        <option value="100" ' . ($profilesPerPage == 100 ? 'selected' : '') . '>100</option>
-        <option value="500" ' . ($profilesPerPage == 500 ? 'selected' : '') . '>500</option>
-        <option value="1000" ' . ($profilesPerPage == 1000 ? 'selected' : '') . '>1000</option>
-        <option value="10000" ' . ($profilesPerPage == 10000 ? 'selected' : '') . '>10000</option>
-    </select>
-</form>
+    <form method="POST">
+        <label for="search-user-id">Search User ID:</label>
+        <input type="text" id="search-user-id" name="search-user-id">
+        <button type="submit" name="search">Search</button>
+        <button type="submit" name="clear" style="margin-left: 10px;">Clear Search</button></br>
+        
+        <!-- Dropdown for profiles per page -->
+        <label for="per-page">Profiles Show</label>
+        <select id="per-page" name="per_page" onchange="updateProfilesPerPage()">
+          <option value=""> </option>
+            <option value="10" ' . ($profilesPerPage == 10 ? 'selected' : '') . '>10</option>
+            <option value="50" ' . ($profilesPerPage == 50 ? 'selected' : '') . '>50</option>
+            <option value="100" ' . ($profilesPerPage == 100 ? 'selected' : '') . '>100</option>
+            <option value="500" ' . ($profilesPerPage == 500 ? 'selected' : '') . '>500</option>
+            <option value="1000" ' . ($profilesPerPage == 1000 ? 'selected' : '') . '>1000</option>
+            <option value="10000" ' . ($profilesPerPage == 10000 ? 'selected' : '') . '>10000</option>
+        </select>
+    </form>
 </div>';
 
 if (isset($_POST['search'])) {
@@ -387,6 +388,10 @@ if (mysqli_num_rows($result) > 0) {
     $count = 0;
     while ($row = mysqli_fetch_assoc($result)) {
         $count++;
+        if ($profilesPerPage !== 'all' && $count > $profilesPerPage) {
+            // Hide profiles beyond the selected per page limit
+            continue;
+        }
         echo '<tr>';
         echo '<td>' . $row['user_id'] . '</td>';
         echo '<td>' . $row['religion'] . '</td>';
@@ -401,20 +406,20 @@ if (mysqli_num_rows($result) > 0) {
     echo '<div class="progress-container">
         <div class="progress-bar"></div>
     </div>';
-
+    
     // Calculate the total number of pages
     $total_pages = ceil($userCount / $profilesPerPage);
-
+    
     // Define how many pages to show before and after the current page
     $pages_to_show = 1; // You can adjust this number as needed
-
+    
     // Pagination links
     echo "<div class='pagination'>";
     if ($total_pages > 1) {
         if ($page > 1) {
             echo "<a href='?page=" . ($page - 1) . "&per_page=$profilesPerPage' class='page-link'>Previous</a>";
         }
-        
+    
         for ($i = 1; $i <= $total_pages; $i++) {
             if ($i == 1 || $i == $total_pages || ($i >= $page - $pages_to_show && $i <= $page + $pages_to_show)) {
                 $active = $i == $page ? "active" : "";
@@ -424,7 +429,7 @@ if (mysqli_num_rows($result) > 0) {
                 echo "<span class='page-link'>...</span>";
             }
         }
-        
+    
         if ($page < $total_pages) {
             echo "<a href='?page=" . ($page + 1) . "&per_page=$profilesPerPage' class='page-link'>Next</a>";
         }
@@ -439,6 +444,16 @@ echo '</div>'; // Close the table-container div
 
 mysqli_close($conn);
 ?>
+
+
+
+
+
+
+
+
+
+
 
 <script>
 function updateProfilesPerPage() {
