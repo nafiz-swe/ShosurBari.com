@@ -313,14 +313,21 @@ h3{
     }
 </style>';
 
-// Establish a database connection (update these values with your database credentials)
+// Include the database connection code from dbconn.php
 require_once("includes/dbconn.php");
 
-// Execute the SQL query to get the user count from the first table
-$sql = "SELECT COUNT(DISTINCT user_id) AS user_count FROM 3bd_higher_secondaryedu_method";
+// Number of profiles to display per page
+$profilesPerPage = isset($_GET['per_page']) ? intval($_GET['per_page']) : 2;
+$limit = ($profilesPerPage == 'all') ? '' : "LIMIT $profilesPerPage";
+
+// Pagination variables
+$page = isset($_GET['page']) ? $_GET['page'] : 1;
+$start = ($page - 1) * $profilesPerPage;
+
+// Execute the SQL query to count the total number of user profiles
+$sql = "SELECT COUNT(DISTINCT user_id) AS user_count FROM 3bd_secondaryedu_method";
 $result = $conn->query($sql);
 
-// Check if the query was successful
 if ($result) {
     $row = $result->fetch_assoc();
     $userCount = $row["user_count"];
@@ -328,25 +335,16 @@ if ($result) {
     echo "Error: " . $conn->error;
 }
 
-// Number of profiles to display per page
-$profilesPerPage = isset($_GET['per_page']) ? intval($_GET['per_page']) : '50';
-
-// Create an empty array to store the combined results
-$combinedResults = [];
-
-// Execute a single SQL query to retrieve data from all tables
+// Fetch user data from the database
 $sql = "SELECT
             s.user_id,
-
             s.scndry_edu_method,
             s.maxedu_qulfctn,
             s.gnrl_mdrs_secondary_pass,
             s.gnrl_mdrs_secondary_pass_year,
             s.gnrl_mdrs_secondary_end_year,
             s.gnrlmdrs_secondary_running_std,
-            s.profilecreationdate,  -- Add profilecreationdate from secondaryedu_method
-
-
+            s.profilecreationdate,
             h.higher_secondary_edu_method,
             h.gnrlmdrs_hrsecondary_pass,
             h.gnrlmdrs_hrsecondary_pass_year,
@@ -357,7 +355,6 @@ $sql = "SELECT
             h.diploma_hrsecondary_pass_year,
             h.diploma_hrsecondary_sub,
             h.diploma_hrsecondary_endingyear,
-
             u.varsity_edu_method,
             u.uvarsity_pass,
             u.varsity_passing_year,
@@ -365,7 +362,6 @@ $sql = "SELECT
             u.varsity_ending_year,
             u.uvarsity_name,
             u.others_edu_qualification,
-
             k.qawmi_madrasa_hafez,
             k.qawmimadrasa_dawrapass,
             k.kowmi_dawrapas_year,
@@ -373,18 +369,10 @@ $sql = "SELECT
         FROM 3bd_secondaryedu_method AS s
         LEFT JOIN 3bd_higher_secondaryedu_method AS h ON s.user_id = h.user_id
         LEFT JOIN 3bd_universityedu_method AS u ON s.user_id = u.user_id
-        LEFT JOIN 3bd_kowmi_madrasaedu_method AS k ON s.user_id = k.user_id";
+        LEFT JOIN 3bd_kowmi_madrasaedu_method AS k ON s.user_id = k.user_id
+        $limit OFFSET $start";
 
 $result = $conn->query($sql);
-
-// Check if the query was successful
-if ($result) {
-    while ($row = $result->fetch_assoc()) {
-        $combinedResults[] = $row;
-    }
-} else {
-    echo "Error: " . $conn->error;
-}
 
 echo '<div class="table-container">';
 echo "<h1>বর্তমান এবং স্থায়ী ঠিকানা</h1>";
@@ -393,133 +381,217 @@ echo '<div class="table-wrapper">';
 echo "<h3>Total number of user profiles: " . $userCount . "</h3>";
 
 echo '<div id="search-form">
-    <form method="POST">
-        <label for="search-user-id">Search User ID:</label>
-        <input type="text" id="search-user-id" name="search-user-id">
-        <button type="submit" name="search">Search</button>
-        <button type="submit" name="clear" style="margin-left: 10px;">Clear Search</button></br>
-        
-        <!-- Dropdown for profiles per page -->
-        <label for="per-page">Profiles Show</label>
-        <select id="per-page" name="per_page" onchange="updateProfilesPerPage()">
-          <option value=""> </option>
-            <option value="10" ' . ($profilesPerPage == 10 ? 'selected' : '') . '>10</option>
-            <option value="50" ' . ($profilesPerPage == 50 ? 'selected' : '') . '>50</option>
-            <option value="100" ' . ($profilesPerPage == 100 ? 'selected' : '') . '>100</option>
-            <option value="500" ' . ($profilesPerPage == 500 ? 'selected' : '') . '>500</option>
-            <option value="1000" ' . ($profilesPerPage == 1000 ? 'selected' : '') . '>1000</option>
-            <option value="10000" ' . ($profilesPerPage == 10000 ? 'selected' : '') . '>10000</option>
-        </select>
-    </form>
+<form method="POST">
+    <label for="search-user-id">Search User ID:</label>
+    <input type="text" id="search-user-id" name="search-user-id">
+    <button type="submit" name="search">Search</button>
+    <button type="submit" name="clear" style="margin-left: 10px;">Clear Search</button></br>
+    
+    <!-- Dropdown for profiles per page -->
+    <label for="per-page">Profiles Show</label>
+    <select name="per_page" id="per-page" onchange="this.form.submit()">
+        <option value=""> </option>
+        <option value="10" ' . ($profilesPerPage == 10 ? 'selected' : '') . '>10</option>
+        <option value="50" ' . ($profilesPerPage == 50 ? 'selected' : '') . '>50</option>
+        <option value="100" ' . ($profilesPerPage == 100 ? 'selected' : '') . '>100</option>
+        <option value="500" ' . ($profilesPerPage == 500 ? 'selected' : '') . '>500</option>
+        <option value="1000" ' . ($profilesPerPage == 1000 ? 'selected' : '') . '>1000</option>
+        <option value="10000" ' . ($profilesPerPage == 10000 ? 'selected' : '') . '>10000</option>
+        <option value="all" ' . ($profilesPerPage == 'all' ? 'selected' : '') . '>All</option>
+    </select>
+</form>
 </div>';
 
-// Process the combined results
-if (isset($_POST['search'])) {
-    $searchUserId = mysqli_real_escape_string($conn, $_POST['search-user-id']);
-    // Filter the combined results based on the user ID
-    $filteredResults = array_filter($combinedResults, function ($row) use ($searchUserId) {
-        return $row['user_id'] == $searchUserId;
-    });
-
-    // Display the filtered results
-    displayResults($filteredResults);
+// User ID search functionality
+$searchUserId = isset($_POST['search-user-id']) ? $_POST['search-user-id'] : '';
+if (!empty($searchUserId)) {
+    $searchUserId = mysqli_real_escape_string($conn, $searchUserId);
+    $sql = "SELECT
+            s.user_id,
+            s.scndry_edu_method,
+            s.maxedu_qulfctn,
+            s.gnrl_mdrs_secondary_pass,
+            s.gnrl_mdrs_secondary_pass_year,
+            s.gnrl_mdrs_secondary_end_year,
+            s.gnrlmdrs_secondary_running_std,
+            s.profilecreationdate,
+            h.higher_secondary_edu_method,
+            h.gnrlmdrs_hrsecondary_pass,
+            h.gnrlmdrs_hrsecondary_pass_year,
+            h.gnrlmdrs_hrsecondary_exam_year,
+            h.gnrlmdrs_hrsecondary_group,
+            h.gnrlmdrs_hrsecondary_rningstd,
+            h.diploma_hrsecondary_pass,
+            h.diploma_hrsecondary_pass_year,
+            h.diploma_hrsecondary_sub,
+            h.diploma_hrsecondary_endingyear,
+            u.varsity_edu_method,
+            u.uvarsity_pass,
+            u.varsity_passing_year,
+            u.university_subject,
+            u.varsity_ending_year,
+            u.uvarsity_name,
+            u.others_edu_qualification,
+            k.qawmi_madrasa_hafez,
+            k.qawmimadrasa_dawrapass,
+            k.kowmi_dawrapas_year,
+            k.kowmi_current_edu_level
+        FROM 3bd_secondaryedu_method AS s
+        LEFT JOIN 3bd_higher_secondaryedu_method AS h ON s.user_id = h.user_id
+        LEFT JOIN 3bd_universityedu_method AS u ON s.user_id = u.user_id
+        LEFT JOIN 3bd_kowmi_madrasaedu_method AS k ON s.user_id = k.user_id
+        WHERE s.user_id = $searchUserId
+        $limit OFFSET $start";
 } else {
-    // Display all combined results
-    displayResults($combinedResults);
+    $sql = "SELECT
+            s.user_id,
+            s.scndry_edu_method,
+            s.maxedu_qulfctn,
+            s.gnrl_mdrs_secondary_pass,
+            s.gnrl_mdrs_secondary_pass_year,
+            s.gnrl_mdrs_secondary_end_year,
+            s.gnrlmdrs_secondary_running_std,
+            s.profilecreationdate,
+            h.higher_secondary_edu_method,
+            h.gnrlmdrs_hrsecondary_pass,
+            h.gnrlmdrs_hrsecondary_pass_year,
+            h.gnrlmdrs_hrsecondary_exam_year,
+            h.gnrlmdrs_hrsecondary_group,
+            h.gnrlmdrs_hrsecondary_rningstd,
+            h.diploma_hrsecondary_pass,
+            h.diploma_hrsecondary_pass_year,
+            h.diploma_hrsecondary_sub,
+            h.diploma_hrsecondary_endingyear,
+            u.varsity_edu_method,
+            u.uvarsity_pass,
+            u.varsity_passing_year,
+            u.university_subject,
+            u.varsity_ending_year,
+            u.uvarsity_name,
+            u.others_edu_qualification,
+            k.qawmi_madrasa_hafez,
+            k.qawmimadrasa_dawrapass,
+            k.kowmi_dawrapas_year,
+            k.kowmi_current_edu_level
+        FROM 3bd_secondaryedu_method AS s
+        LEFT JOIN 3bd_higher_secondaryedu_method AS h ON s.user_id = h.user_id
+        LEFT JOIN 3bd_universityedu_method AS u ON s.user_id = u.user_id
+        LEFT JOIN 3bd_kowmi_madrasaedu_method AS k ON s.user_id = k.user_id
+        $limit OFFSET $start";
 }
 
-// Function to display results
-function displayResults($results)
-{
-    if (!empty($results)) {
-        echo '<table>';
-        echo '<tr>
-            <th>বায়োডাটা নং</th>
-            <th>মাধ্যমিক শিক্ষার মাধ্যম</th>
-            <th>সর্বোচ্চ শিক্ষাগত যোগ্যতা</th>
-            <th>মাধ্যমিক পাস করেছেন?</th>
-            <th>মাধ্যমিক পাসের বর্ষ</th>
-            <th>মাধ্যমিক বোর্ড পরীক্ষার বর্ষ</th>
-            <th>মাধ্যমিক বর্তমান অধ্যায়নরত ক্লাস</th>
+$result = $conn->query($sql);
 
-            <th style="color: #ad0000;">উচ্চমাধ্যমিক শিক্ষার মাধ্যম</th>
-            <th style="color: #ad0000;">উচ্চমাধ্যমিক পাস করেছেন?</th>
-            <th style="color: #ad0000;">উচ্চমাধ্যমিক পাসের বর্ষ</th>
-            <th style="color: #ad0000;">উচ্চমাধ্যমিক বোর্ড পরীক্ষার বর্ষ</th>
-            <th style="color: #ad0000;">উচ্চমাধ্যমিক গ্রুপ</th>
-            <th style="color: #ad0000;">উচ্চমাধ্যমিক বর্তমান অধ্যায়নরত ক্লাস</th>
-            <th style="color: #ad0000;">ডিপ্লোমা পাস করেছেন?</th>
-            <th style="color: #ad0000;">ডিপ্লোমা পাসের বর্ষ</th>
-            <th style="color: #ad0000;">ডিপ্লোমায় আপনার সাবজেক্ট</th>
-            <th style="color: #ad0000;">ডিপ্লোমা অধ্যায়ন সম্পন্ন হবে</th>
-            
-            <th style="color: blue;">স্নাতক শিক্ষার মাধ্যম</th>
-            <th style="color: blue;">স্নাতক পাস করেছেন?</th>
-            <th style="color: blue;">স্নাতক পাসের বর্ষ</th>
-            <th style="color: blue;">স্নাতক আপনার সাবজেক্ট</th>
-            <th style="color: blue;">স্নাতক অধ্যায়ন সম্পন্ন হবে</th>
-            <th style="color: blue;">স্নাতকে শিক্ষা প্রতিষ্ঠান</th>
-            
-            <th style="color: #b206a9;">অন্যান্য শিক্ষাগত যোগ্যতা</th>
-            <th style="color: #b206a9;">আপনি কি হাফেজ</th>
-            <th style="color: #b206a9;">দাওরায়ে হাদিস পাস করেছেন?</th>
-            <th style="color: #b206a9;">দাওরায়ে হাদিস পাসের বর্ষ</th>
-            <th style="color: #b206a9;">মাদ্রাসায় বর্তমান অধ্যায়নরত জামাত</th>
+if ($result) {
+    // Display user data
+    echo "<table>";
+    echo "<tr>
+              <th>বায়োডাটা নং</th>
+              <th>মাধ্যমিক শিক্ষার মাধ্যম</th>
+              <th>সর্বোচ্চ শিক্ষাগত যোগ্যতা</th>
+              <th>মাধ্যমিক পাস করেছেন?</th>
+              <th>মাধ্যমিক পাসের বর্ষ</th>
+              <th>মাধ্যমিক বোর্ড পরীক্ষার বর্ষ</th>
+              <th>মাধ্যমিক বর্তমান অধ্যায়নরত ক্লাস</th>
+              <th style='color: #ad0000;'>উচ্চমাধ্যমিক শিক্ষার মাধ্যম</th>
+              <th style='color: #ad0000;'>উচ্চমাধ্যমিক পাস করেছেন?</th>
+              <th style='color: #ad0000;'>উচ্চমাধ্যমিক পাসের বর্ষ</th>
+              <th style='color: #ad0000;'>উচ্চমাধ্যমিক বোর্ড পরীক্ষার বর্ষ</th>
+              <th style='color: #ad0000;'>উচ্চমাধ্যমিক গ্রুপ</th>
+              <th style='color: #ad0000;'>উচ্চমাধ্যমিক বর্তমান অধ্যায়নরত ক্লাস</th>
+              <th style='color: #ad0000;'>ডিপ্লোমা পাস করেছেন?</th>
+              <th style='color: #ad0000;'>ডিপ্লোমা পাসের বর্ষ</th>
+              <th style='color: #ad0000;'>ডিপ্লোমায় আপনার সাবজেক্ট</th>
+              <th style='color: #ad0000;'>ডিপ্লোমা অধ্যায়ন সম্পন্ন হবে</th>
+              <th style='color: blue;'>স্নাতক শিক্ষার মাধ্যম</th>
+              <th style='color: blue;'>স্নাতক পাস করেছেন?</th>
+              <th style='color: blue;'>স্নাতক পাসের বর্ষ</th>
+              <th style='color: blue;'>স্নাতক আপনার সাবজেক্ট</th>
+              <th style='color: blue;'>স্নাতক অধ্যায়ন সম্পন্ন হবে</th>
+              <th style='color: blue;'>স্নাতকে শিক্ষা প্রতিষ্ঠান</th>
+              <th style='color: #b206a9;'>অন্যান্য শিক্ষাগত যোগ্যতা</th>
+              <th style='color: #b206a9;'>আপনি কি হাফেজ</th>
+              <th style='color: #b206a9;'>দাওরায়ে হাদিস পাস করেছেন?</th>
+              <th style='color: #b206a9;'>দাওরায়ে হাদিস পাসের বর্ষ</th>
+              <th style='color: #b206a9;'>মাদ্রাসায় বর্তমান অধ্যায়নরত জামাত</th>
+              <th>তারিখ সময়</th>
+              <th>ডাটা ইডিট</th>
+          </tr>";
 
-            <th>তারিখ সময়</th>
-            <th>ডাটা ইডিট</th>
-        </tr>';
-
-        // Output the data rows
-        foreach ($results as $row) {
-            echo '<tr>';
-            echo '<td>' . $row['user_id'] . '</td>';
-
-            echo '<td>' . $row['scndry_edu_method'] . '</td>';
-            echo '<td>' . $row['maxedu_qulfctn'] . '</td>';
-            echo '<td>' . $row['gnrl_mdrs_secondary_pass'] . '</td>';
-            echo '<td>' . $row['gnrl_mdrs_secondary_pass_year'] . '</td>';
-            echo '<td>' . $row['gnrl_mdrs_secondary_end_year'] . '</td>';
-            echo '<td>' . $row['gnrlmdrs_secondary_running_std'] . '</td>';
-
-            echo '<td style="color: #ad0000;">' . $row['higher_secondary_edu_method'] . '</td>';
-            echo '<td style="color: #ad0000;">' . $row['gnrlmdrs_hrsecondary_pass'] . '</td>';
-            echo '<td style="color: #ad0000;">' . $row['gnrlmdrs_hrsecondary_pass_year'] . '</td>';
-            echo '<td style="color: #ad0000;">' . $row['gnrlmdrs_hrsecondary_exam_year'] . '</td>';
-            echo '<td style="color: #ad0000;">' . $row['gnrlmdrs_hrsecondary_group'] . '</td>';
-            echo '<td style="color: #ad0000;">' . $row['gnrlmdrs_hrsecondary_rningstd'] . '</td>';
-            echo '<td style="color: #ad0000;">' . $row['diploma_hrsecondary_pass'] . '</td>';
-            echo '<td style="color: #ad0000;">' . $row['diploma_hrsecondary_pass_year'] . '</td>';
-            echo '<td style="color: #ad0000;">' . $row['diploma_hrsecondary_sub'] . '</td>';
-            echo '<td style="color: #ad0000;">' . $row['diploma_hrsecondary_endingyear'] . '</td>';
-            
-            echo '<td style="color: blue;">' . $row['varsity_edu_method'] . '</td>';
-            echo '<td style="color: blue;">' . $row['uvarsity_pass'] . '</td>';
-            echo '<td style="color: blue;">' . $row['varsity_passing_year'] . '</td>';
-            echo '<td style="color: blue;">' . $row['university_subject'] . '</td>';
-            echo '<td style="color: blue;">' . $row['varsity_ending_year'] . '</td>';
-            echo '<td style="color: blue;">' . $row['uvarsity_name'] . '</td>';
-            echo '<td style="color: blue;">' . $row['others_edu_qualification'] . '</td>';
-
-            
-            echo '<td style="color: #b206a9;">' . $row['qawmi_madrasa_hafez'] . '</td>';
-            echo '<td style="color: #b206a9;">' . $row['qawmimadrasa_dawrapass'] . '</td>';
-            echo '<td style="color: #b206a9;">' . $row['kowmi_dawrapas_year'] . '</td>';
-            echo '<td style="color: #b206a9;">' . $row['kowmi_current_edu_level'] . '</td>';
-
-            echo '<td>' . $row['profilecreationdate'] . '</td>';
-            echo '<td><a href="edit_education.php?id=' . $row['user_id'] . '">Edit</a></td>';
-            echo '</tr>';
-        }
-        echo '</table>';
-
-        // Progress bar at the bottom
-        echo '<div class="progress-container">
-            <div class="progress-bar"></div>
-        </div>';
-    } else {
-        echo 'No users found.';
+    while ($row = $result->fetch_assoc()) {
+        echo '<tr>';
+        echo '<td>' . $row['user_id'] . '</td>';
+        echo '<td>' . $row['scndry_edu_method'] . '</td>';
+        echo '<td>' . $row['maxedu_qulfctn'] . '</td>';
+        echo '<td>' . $row['gnrl_mdrs_secondary_pass'] . '</td>';
+        echo '<td>' . $row['gnrl_mdrs_secondary_pass_year'] . '</td>';
+        echo '<td>' . $row['gnrl_mdrs_secondary_end_year'] . '</td>';
+        echo '<td>' . $row['gnrlmdrs_secondary_running_std'] . '</td>';
+        echo '<td style="color: #ad0000;">' . $row['higher_secondary_edu_method'] . '</td>';
+        echo '<td style="color: #ad0000;">' . $row['gnrlmdrs_hrsecondary_pass'] . '</td>';
+        echo '<td style="color: #ad0000;">' . $row['gnrlmdrs_hrsecondary_pass_year'] . '</td>';
+        echo '<td style="color: #ad0000;">' . $row['gnrlmdrs_hrsecondary_exam_year'] . '</td>';
+        echo '<td style="color: #ad0000;">' . $row['gnrlmdrs_hrsecondary_group'] . '</td>';
+        echo '<td style="color: #ad0000;">' . $row['gnrlmdrs_hrsecondary_rningstd'] . '</td>';
+        echo '<td style="color: #ad0000;">' . $row['diploma_hrsecondary_pass'] . '</td>';
+        echo '<td style="color: #ad0000;">' . $row['diploma_hrsecondary_pass_year'] . '</td>';
+        echo '<td style="color: #ad0000;">' . $row['diploma_hrsecondary_sub'] . '</td>';
+        echo '<td style="color: #ad0000;">' . $row['diploma_hrsecondary_endingyear'] . '</td>';
+        echo '<td style="color: blue;">' . $row['varsity_edu_method'] . '</td>';
+        echo '<td style="color: blue;">' . $row['uvarsity_pass'] . '</td>';
+        echo '<td style="color: blue;">' . $row['varsity_passing_year'] . '</td>';
+        echo '<td style="color: blue;">' . $row['university_subject'] . '</td>';
+        echo '<td style="color: blue;">' . $row['varsity_ending_year'] . '</td>';
+        echo '<td style="color: blue;">' . $row['uvarsity_name'] . '</td>';
+        echo '<td style="color: #b206a9;">' . $row['others_edu_qualification'] . '</td>';
+        echo '<td style="color: #b206a9;">' . $row['qawmi_madrasa_hafez'] . '</td>';
+        echo '<td style="color: #b206a9;">' . $row['qawmimadrasa_dawrapass'] . '</td>';
+        echo '<td style="color: #b206a9;">' . $row['kowmi_dawrapas_year'] . '</td>';
+        echo '<td style="color: #b206a9;">' . $row['kowmi_current_edu_level'] . '</td>';
+        echo '<td>' . $row['profilecreationdate'] . '</td>';
+        echo '<td><a href="edit_education.php?id=' . $row['user_id'] . '">Edit</a></td>';
+        echo '</tr>';
     }
+
+    echo '</table>';
+
+
+      // Progress bar at the bottom
+      echo '<div class="progress-container">
+      <div class="progress-bar"></div>
+      </div>';
+  
+      // Calculate the total number of pages
+      $total_pages = ceil($userCount / $profilesPerPage);
+  
+      // Define how many pages to show before and after the current page
+      $pages_to_show = 1; // You can adjust this number as needed
+
+      
+    // Pagination links
+    echo "<div class='pagination'>";
+    if ($total_pages > 1) {
+        if ($page > 1) {
+            echo "<a href='?page=" . ($page - 1) . "&per_page=$profilesPerPage' class='page-link'>Previous</a>";
+        }
+
+        for ($i = 1; $i <= $total_pages; $i++) {
+            if ($i == 1 || $i == $total_pages || ($i >= $page - $pages_to_show && $i <= $page + $pages_to_show)) {
+                $active = $i == $page ? "active" : "";
+                echo "<a href='?page=$i&per_page=$profilesPerPage' class='page-link $active'>$i</a>";
+            } elseif ($i == $page - $pages_to_show - 1 || $i == $page + $pages_to_show + 1) {
+                // Add "dot dot" nodes
+                echo "<span class='page-link'>...</span>";
+            }
+        }
+
+        if ($page < $total_pages) {
+            echo "<a href='?page=" . ($page + 1) . "&per_page=$profilesPerPage' class='page-link'>Next</a>";
+        }
+    }
+    echo "</div>";
+} else {
+    echo 'No users found.';
 }
 
 echo '</div>'; // Close the table-wrapper div
@@ -540,6 +612,7 @@ function updateProfilesPerPage() {
     window.location.href = `?per_page=${selectedValue}`;
 }
 </script>
+
 
 
 
