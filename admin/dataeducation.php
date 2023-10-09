@@ -279,6 +279,38 @@ h3{
         width: 100%;
         background-color: #00c292;
     }
+
+    .pagination{
+      display: inline-block;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      margin-left:  auto;
+      margin-right: auto;
+      padding: 0;
+      list-style: none;
+      align-items: center;
+      justify-content:center;
+    }
+    
+    .page-link{
+      color: #000;
+      padding: 8px 12px;
+      text-decoration: none;
+      font-size: 14px;
+      background-color: #eee;
+      border-radius: 50%;
+      margin: 0 3px;
+    }
+    
+    .page-link:hover{
+        background: #00c292;
+      color: #fff;
+    }
+    
+    .page-link.active{
+      background: #00c292;
+      color: #ffffff;
+    }
 </style>';
 
 // Establish a database connection (update these values with your database credentials)

@@ -320,58 +320,59 @@ tr.inactive {
 </style>
 
 
-  <?php
-  // Include the database connection code from datalifestyle.php
-  require_once("includes/dbconn.php");
+<?php
+// Include the database connection code from datalifestyle.php
+require_once("includes/dbconn.php");
 
-  // Number of users to display per page
-  $num_rows = isset($_POST['num_rows']) ? $_POST['num_rows'] : 2;
-  $limit = ($num_rows == 'all') ? '' : "LIMIT $num_rows";
+// Number of users to display per page
+$num_rows = isset($_POST['num_rows']) ? $_POST['num_rows'] : 2;
+$limit = ($num_rows == 'all') ? '' : "LIMIT $num_rows";
 
-  // Pagination variables
-  $page = isset($_GET['page']) ? $_GET['page'] : 1;
-  $start = ($page - 1) * $num_rows;
+// Pagination variables
+$page = isset($_GET['page']) ? $_GET['page'] : 1;
+$start = ($page - 1) * $num_rows;
 
-  // Execute the SQL query to count the total number of users
-  $sql = "SELECT COUNT(*) AS user_count FROM users";
-  $result = mysqli_query($conn, $sql);
+// Execute the SQL query to count the total number of users
+$sql = "SELECT COUNT(*) AS user_count FROM users";
+$result = mysqli_query($conn, $sql);
 
-  if ($result) {
-      $row = mysqli_fetch_assoc($result);
-      $userCount = $row["user_count"];
-  } else {
-      echo "Error: " . mysqli_error($conn);
-  }
+if ($result) {
+    $row = mysqli_fetch_assoc($result);
+    $userCount = $row["user_count"];
+} else {
+    echo "Error: " . mysqli_error($conn);
+}
 
-  // Fetch user data from the database
-  $sql = "SELECT * FROM users $limit OFFSET $start";
-  $result = mysqli_query($conn, $sql);
+// Fetch user data from the database
+$sql = "SELECT * FROM users $limit OFFSET $start";
+$result = mysqli_query($conn, $sql);
 
-  echo '<div class="table-container">';
-  echo "<h1>বর্তমান এবং স্থায়ী ঠিকানা</h1>";
+echo '<div class="table-container">';
+echo "<h1>বর্তমান এবং স্থায়ী ঠিকানা</h1>";
 
-  echo '<div class="table-wrapper">';
-  echo "<h3>Total number of user profiles: " . $userCount . "</h3>";
+echo '<div class="table-wrapper">';
+echo "<h3>Total number of user profiles: " . $userCount . "</h3>";
 
-  echo '<div id="search-form">
-  <form method="POST">
-      <label for="search-user-id">Search User ID:</label>
-      <input type="text" id="search-user-id" name="search-user-id">
-      <button type="submit" name="search">Search</button>
-      <button type="submit" name="clear" style="margin-left: 10px;">Clear Search</button></br>
-      
-      <!-- Dropdown for profiles per page -->
-      <label for="per-page">Profiles Show</label>
-      <select name="num_rows" id="num_rows" onchange="this.form.submit()">
+
+echo '<div id="search-form">
+<form method="POST">
+    <label for="search-user-id">Search User ID:</label>
+    <input type="text" id="search-user-id" name="search-user-id">
+    <button type="submit" name="search">Search</button>
+    <button type="submit" name="clear" style="margin-left: 10px;">Clear Search</button></br>
+    
+    <!-- Dropdown for profiles per page -->
+    <label for="num_rows">Profiles Show</label>
+    <select name="num_rows" id="num_rows" onchange="this.form.submit()">
         <option value=""> </option>
-          <option value="10" ' . ($num_rows == 10 ? 'selected' : '') . '>10</option>
-          <option value="50" ' . ($num_rows == 50 ? 'selected' : '') . '>50</option>
-          <option value="100" ' . ($num_rows == 100 ? 'selected' : '') . '>100</option>
-          <option value="500" ' . ($num_rows == 500 ? 'selected' : '') . '>500</option>
-          <option value="1000" ' . ($num_rows == 1000 ? 'selected' : '') . '>1000</option>
-          <option value="10000" ' . ($num_rows == 10000 ? 'selected' : '') . '>10000</option>
+        <option value="10" ' . ($num_rows == 10 ? 'selected' : '') . '>10</option>
+        <option value="50" ' . ($num_rows == 50 ? 'selected' : '') . '>50</option>
+        <option value="100" ' . ($num_rows == 100 ? 'selected' : '') . '>100</option>
+        <option value="500" ' . ($num_rows == 500 ? 'selected' : '') . '>500</option>
+        <option value="1000" ' . ($num_rows == 1000 ? 'selected' : '') . '>1000</option>
+        <option value="10000" ' . ($num_rows == 10000 ? 'selected' : '') . '>10000</option>
       </select>
-    </form>
+</form>
 </div>';
 
 // User ID search functionality
@@ -384,10 +385,7 @@ if (!empty($searchUserId)) {
 }
 $result = mysqli_query($conn, $sql);
 
-
-
 if (mysqli_num_rows($result) > 0) {
-
     // Display user data
     echo "<table>";
     echo "<tr>
@@ -401,7 +399,7 @@ if (mysqli_num_rows($result) > 0) {
               <th>Edit</th>
               <th>Delete</th>
               <th>Deactivate/Activate</th>
-            </tr>";
+          </tr>";
     while ($row = mysqli_fetch_assoc($result)) {
         $id = $row['id'];
         $class = $row['active'] == 1 ? "active" : "inactive";
@@ -424,45 +422,41 @@ if (mysqli_num_rows($result) > 0) {
     }
     echo "</table>";
 
-      // Progress bar at the bottom
-      echo '<div class="progress-container">
-      <div class="progress-bar"></div>
-      </div>';
+    // Progress bar at the bottom
+    echo '<div class="progress-container">
+    <div class="progress-bar"></div>
+    </div>';
 
-      
-// Calculate the total number of pages
-$total_pages = ceil($userCount / $num_rows);
+    // Calculate the total number of pages
+    $total_pages = ceil($userCount / $num_rows);
 
-// Define how many pages to show before and after the current page
-$pages_to_show = 1; // You can adjust this number as needed
+    // Define how many pages to show before and after the current page
+    $pages_to_show = 1; // You can adjust this number as needed
 
-// Pagination links
-echo "<div class='pagination'>";
-if ($total_pages > 1) {
-    if ($page > 1) {
-        echo "<a href='?page=" . ($page - 1) . "&num_rows=$num_rows' class='page-link'>Previous</a>";
-    }
-    
-    for ($i = 1; $i <= $total_pages; $i++) {
-        if ($i == 1 || $i == $total_pages || ($i >= $page - $pages_to_show && $i <= $page + $pages_to_show)) {
-            $active = $i == $page ? "active" : "";
-            echo "<a href='?page=$i&num_rows=$num_rows' class='page-link $active'>$i</a>";
-        } elseif ($i == $page - $pages_to_show - 1 || $i == $page + $pages_to_show + 1) {
-            // Add "dot dot" nodes
-            echo "<span class='page-link'>...</span>";
+    // Pagination links
+    echo "<div class='pagination'>";
+    if ($total_pages > 1) {
+        if ($page > 1) {
+            echo "<a href='?page=" . ($page - 1) . "&num_rows=$num_rows' class='page-link'>Previous</a>";
+        }
+
+        for ($i = 1; $i <= $total_pages; $i++) {
+            if ($i == 1 || $i == $total_pages || ($i >= $page - $pages_to_show && $i <= $page + $pages_to_show)) {
+                $active = $i == $page ? "active" : "";
+                echo "<a href='?page=$i&num_rows=$num_rows' class='page-link $active'>$i</a>";
+            } elseif ($i == $page - $pages_to_show - 1 || $i == $page + $pages_to_show + 1) {
+                // Add "dot dot" nodes
+                echo "<span class='page-link'>...</span>";
+            }
+        }
+
+        if ($page < $total_pages) {
+            echo "<a href='?page=" . ($page + 1) . "&num_rows=$num_rows' class='page-link'>Next</a>";
         }
     }
-    
-    if ($page < $total_pages) {
-        echo "<a href='?page=" . ($page + 1) . "&num_rows=$num_rows' class='page-link'>Next</a>";
-    }
-}
-echo "</div>";
-
-
-
+    echo "</div>";
 } else {
-    echo "No users found.";
+    echo 'No users found.';
 }
 
 echo '</div>'; // Close the table-wrapper div
@@ -470,6 +464,7 @@ echo '</div>'; // Close the table-container div
 
 mysqli_close($conn);
 ?>
+
 
 
 

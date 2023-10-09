@@ -316,11 +316,11 @@ h3{
 </style>';
 
 
-// Establish a database connection (update these values with your database credentials)
+// Include the database connection code from datalifestyle.php
 require_once("includes/dbconn.php");
 
 // Number of profiles to display per page
-$profilesPerPage = isset($_POST['per_page']) ? intval($_POST['per_page']) : 2;
+$profilesPerPage = isset($_GET['per_page']) ? intval($_GET['per_page']) : 2;
 $limit = ($profilesPerPage == 'all') ? '' : "LIMIT $profilesPerPage";
 
 // Pagination variables
@@ -328,7 +328,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : 1;
 $start = ($page - 1) * $profilesPerPage;
 
 // Execute the SQL query to count the total number of user profiles
-$sql = "SELECT COUNT(DISTINCT user_id) AS user_count FROM 4bd_address_details";
+$sql = "SELECT COUNT(*) AS user_count FROM 4bd_address_details";
 $result = mysqli_query($conn, $sql);
 
 if ($result) {
@@ -338,7 +338,7 @@ if ($result) {
     echo "Error: " . mysqli_error($conn);
 }
 
-// Fetch user data from the database with pagination
+// Fetch user data from the database
 $sql = "SELECT * FROM 4bd_address_details $limit OFFSET $start";
 $result = mysqli_query($conn, $sql);
 
@@ -364,40 +364,42 @@ echo '<div id="search-form">
         <option value="100" ' . ($profilesPerPage == 100 ? 'selected' : '') . '>100</option>
         <option value="500" ' . ($profilesPerPage == 500 ? 'selected' : '') . '>500</option>
         <option value="1000" ' . ($profilesPerPage == 1000 ? 'selected' : '') . '>1000</option>
-        <option value="10000" ' . ($profilesPerPage == 10000 ? 'selected' : '') . '>10000</option>
+        <option value="all" ' . ($profilesPerPage == 'all' ? 'selected' : '') . '>All</option>
     </select>
 </form>
 </div>';
 
-if (isset($_POST['search'])) {
-    $searchUserId = mysqli_real_escape_string($conn, $_POST['search-user-id']);
+// User ID search functionality
+$searchUserId = isset($_POST['search-user-id']) ? $_POST['search-user-id'] : '';
+if (!empty($searchUserId)) {
+    $searchUserId = mysqli_real_escape_string($conn, $searchUserId);
     $sql = "SELECT * FROM 4bd_address_details WHERE user_id = $searchUserId $limit";
-    $result = mysqli_query($conn, $sql);
+} else {
+    $sql = "SELECT * FROM 4bd_address_details $limit OFFSET $start";
 }
+$result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
-    echo '<table>';
-    echo '<tr>
-        <th>বায়োডাটা নং</th>
-        <th>স্থায়ী ঠিকানার বিভাগ</th>
-        <th>বরিশাল</th>
-        <th>চট্টগ্রাম</th>
-        <th>ঢাকা</th>
-        <th>খুলনা</th>
-        <th>ময়মনসিংহ</th>
-        <th>রাজশাহী</th>
-        <th>রংপুর</th>
-        <th>সিলেট</th>
-        <th>যে দেশে আছেন</th>
-        <th>বর্তমান বসবাসের ঠিকানা</th>
-        <th>বাল্যকালে কোথায় থেকেছেন?	</th>
-        <th>তারিখ সময়</th>
-        <th>ডাটা ইডিট</th>
-    </tr>';
-    
-    $count = 0;
+    // Display user data
+    echo "<table>";
+    echo "<tr>
+              <th>বায়োডাটা নং</th>
+              <th>স্থায়ী ঠিকানার বিভাগ</th>
+              <th>বরিশাল</th>
+              <th>চট্টগ্রাম</th>
+              <th>ঢাকা</th>
+              <th>খুলনা</th>
+              <th>ময়মনসিংহ</th>
+              <th>রাজশাহী</th>
+              <th>রংপুর</th>
+              <th>সিলেট</th>
+              <th>যে দেশে আছেন</th>
+              <th>বর্তমান বসবাসের ঠিকানা</th>
+              <th>বাল্যকালে কোথায় থেকেছেন?</th>
+              <th>তারিখ সময়</th>
+              <th>ডাটা ইডিট</th>
+          </tr>";
     while ($row = mysqli_fetch_assoc($result)) {
-        $count++;
         echo '<tr>';
         echo '<td>' . $row['user_id'] . '</td>';
         echo '<td>' . $row['permanent_division'] . '</td>';
@@ -417,10 +419,10 @@ if (mysqli_num_rows($result) > 0) {
         echo '</tr>';
     }
     echo '</table>';
-    
+
     // Progress bar at the bottom
     echo '<div class="progress-container">
-        <div class="progress-bar"></div>
+    <div class="progress-bar"></div>
     </div>';
 
     // Calculate the total number of pages
@@ -435,7 +437,7 @@ if (mysqli_num_rows($result) > 0) {
         if ($page > 1) {
             echo "<a href='?page=" . ($page - 1) . "&per_page=$profilesPerPage' class='page-link'>Previous</a>";
         }
-        
+
         for ($i = 1; $i <= $total_pages; $i++) {
             if ($i == 1 || $i == $total_pages || ($i >= $page - $pages_to_show && $i <= $page + $pages_to_show)) {
                 $active = $i == $page ? "active" : "";
@@ -445,7 +447,7 @@ if (mysqli_num_rows($result) > 0) {
                 echo "<span class='page-link'>...</span>";
             }
         }
-        
+
         if ($page < $total_pages) {
             echo "<a href='?page=" . ($page + 1) . "&per_page=$profilesPerPage' class='page-link'>Next</a>";
         }

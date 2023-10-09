@@ -320,7 +320,7 @@ h3{
 require_once("includes/dbconn.php");
 
 // Number of profiles to display per page
-$profilesPerPage = isset($_POST['per_page']) ? intval($_POST['per_page']) : 2;
+$profilesPerPage = isset($_GET['per_page']) ? intval($_GET['per_page']) : 2;
 $limit = ($profilesPerPage == 'all') ? '' : "LIMIT $profilesPerPage";
 
 // Pagination variables

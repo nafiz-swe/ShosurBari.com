@@ -351,7 +351,7 @@ echo "<h3>Total number of user profiles: " . $userCount . "</h3>";
 echo '<div id="search-form">
     <form method="POST">
         <label for="search-user-id">Search User ID:</label>
-        <input type="text" id="search-user-id" name="search-user-id">
+        <input type="text" id="search-user-id" name="search-user-id" required>
         <button type="submit" name="search">Search</button>
         <button type="submit" name="clear" style="margin-left: 10px;">Clear Search</button></br>
         
