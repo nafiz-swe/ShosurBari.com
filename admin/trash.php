@@ -192,155 +192,199 @@ require_once("includes/dbconn.php");
     <h1>Trash File Profile Pictures</h1>
 
     <?php
-    // Function to sanitize user input
-    function sanitize($input) {
-        return htmlspecialchars($input, ENT_QUOTES, 'UTF-8');
+// Function to sanitize user input
+function sanitize($input) {
+    return htmlspecialchars($input, ENT_QUOTES, 'UTF-8');
+}
+
+// Get search query, per_page, and page number from URL parameters
+$search = isset($_GET['search']) ? sanitize($_GET['search']) : '';
+$per_page = isset($_GET['per_page']) ? intval($_GET['per_page']) : 2; // Default to 50 profiles per page
+$page = isset($_GET['page']) ? intval($_GET['page']) : 1; // Get the current page number
+
+// Check if the trash folder exists
+if (!is_dir("../profile")) {
+    echo "<p>Trash folder does not exist.</p>";
+} else {
+    // Open the profile folder
+    $profile_folders = scandir("../profile");
+
+    // Create an array to keep track of user IDs that have already been displayed
+    $displayedUserIDs = array();
+
+    // Initialize a variable to count the total user IDs in the trash folder
+    $totalUserIDsInTrash = 0;
+
+    // Loop through each user's folder
+    foreach ($profile_folders as $user_folder) {
+        if ($user_folder !== "." && $user_folder !== "..") {
+            $trash_folder = "../profile/{$user_folder}/trash/";
+
+            // Check if the user's trash folder exists
+            if (is_dir($trash_folder)) {
+                $deleted_images = scandir($trash_folder);
+
+                // Check if there are deleted images in the trash folder
+                if (count($deleted_images) > 2) { // 2 because . and .. are also counted
+                    // Filter profiles based on the search query
+                    if (empty($search) || strpos($user_folder, $search) !== false) {
+                        // Increment the total user count
+                        $totalUserIDsInTrash++;
+                    }
+                }
+            }
+        }
     }
 
-    // Get search query and per_page from URL parameters
-    $search = isset($_GET['search']) ? sanitize($_GET['search']) : '';
-    $per_page = isset($_GET['per_page']) ? intval($_GET['per_page']) : 50; // Default to 10 profiles per page
+    // Calculate the total number of pages
+    $total_pages = ceil($totalUserIDsInTrash / $per_page);
 
-    // Check if the trash folder exists
-    if (!is_dir("../profile")) {
-        echo "<p>Trash folder does not exist.</p>";
-    } else {
-        // Open the profile folder
-        $profile_folders = scandir("../profile");
+    // Ensure the current page is within valid bounds
+    if ($page < 1) {
+        $page = 1;
+    } elseif ($page > $total_pages) {
+        $page = $total_pages;
+    }
 
-        // Create an array to keep track of user IDs that have already been displayed
-        $displayedUserIDs = array();
+    // Calculate the OFFSET for SQL LIMIT based on the current page
+    $offset = ($page - 1) * $per_page;
 
-        // Initialize a variable to count the total user IDs in the trash folder
-        $totalUserIDsInTrash = 0;
+    // Display the total number of user profiles found in this page/file at the top
+    echo '<h3>Total number of user profiles in this page: ' . $totalUserIDsInTrash . '</h3>';
 
-        // Loop through each user's folder
-        foreach ($profile_folders as $user_folder) {
-            if ($user_folder !== "." && $user_folder !== "..") {
-                $trash_folder = "../profile/{$user_folder}/trash/";
+    // Start the main table
+    echo '<table>';
 
-                // Check if the user's trash folder exists
-                if (is_dir($trash_folder)) {
-                    $deleted_images = scandir($trash_folder);
+    echo '<div id="search-form">
+    <form method="GET" action="">
+        <label for="search">Search User ID:</label>
+        <input type="text" name="search" id="search" value="' . (isset($_GET['search']) ? htmlspecialchars($_GET['search'], ENT_QUOTES, 'UTF-8') : '') . '" />
+        <button type="submit">Search</button>
+        <button type="button" style="margin-left: 10px;" onclick="clearSearch()">Clear Search</button><br>
 
-                    // Check if there are deleted images in the trash folder
-                    if (count($deleted_images) > 2) { // 2 because . and .. are also counted
-                        // Filter profiles based on the search query
-                        if (empty($search) || strpos($user_folder, $search) !== false) {
-                            // Increment the total user count
-                            $totalUserIDsInTrash++;
+        <label for="per-page">Profiles Show</label>
+        <select name="per_page" id="per_page">
+            <option value="10" ' . ($per_page == 10 ? 'selected' : '') . '>10</option>
+            <option value="50" ' . ($per_page == 50 ? 'selected' : '') . '>50</option>
+            <option value="100" ' . ($per_page == 100 ? 'selected' : '') . '>100</option>
+            <option value="500" ' . ($per_page == 500 ? 'selected' : '') . '>500</option>
+            <option value="1000" ' . ($per_page == 1000 ? 'selected' : '') . '>1000</option>
+            <option value="10000" ' . ($per_page == 10000 ? 'selected' : '') . '>10000</option>
+        </select>
+    </form>
+</div>';
+
+    echo "<tr>";
+    echo "<th>বায়োডাটা নং</th>"; // Left heading
+
+    // Dynamically generate column headings for images
+    for ($i = 1; $i <= 20; $i++) {
+        echo "<th>Image-$i</th>";
+    }
+
+    echo "</tr>";
+
+    // Counter to keep track of displayed profiles
+    $displayedCount = 0;
+
+    // Loop through each user's folder and display the images
+    foreach ($profile_folders as $user_folder) {
+        if ($user_folder !== "." && $user_folder !== "..") {
+            $trash_folder = "../profile/{$user_folder}/trash/";
+
+            // Check if the user's trash folder exists
+            if (is_dir($trash_folder)) {
+                $deleted_images = scandir($trash_folder);
+
+                // Check if there are deleted images in the trash folder
+                if (count($deleted_images) > 2) { // 2 because . and .. are also counted
+                    // Filter profiles based on the search query
+                    if (empty($search) || strpos($user_folder, $search) !== false) {
+                        // Display the user ID in the left column only if it hasn't been displayed before
+                        if (!in_array($user_folder, $displayedUserIDs)) {
+                            echo '<tr>';
+                            echo '<td>' . sanitize($user_folder) . '</td>'; // Display User ID
+                            $displayedUserIDs[] = $user_folder; // Add the user ID to the displayed list
+                        } else {
+                            // If the user ID has been displayed, show an empty cell in the left column
+                            echo '<tr><td></td>';
+                        }
+
+                        // Display User ID in a new column for each deleted image
+                        foreach ($deleted_images as $deleted_image) {
+                            if ($deleted_image !== "." && $deleted_image !== "..") {
+                                // Display each profile picture as a column
+                                echo "<td><img src='" . htmlspecialchars($trash_folder . $deleted_image, ENT_QUOTES, 'UTF-8') . "' alt='Profile Image'>";
+                               
+                                // Add a permanent delete button
+                                echo "<form method='POST' action='permanent_delete_img.php'>";
+                                echo "<input type='hidden' name='image_path' value='" . sanitize($trash_folder . $deleted_image) . "' />";
+                                echo "<input type='hidden' name='user_id' value='" . sanitize($user_folder) . "' />";
+                                echo "<input style=\"background: red;\" type='submit' name='permanent_delete_image' value='Delete' />";
+                                echo "</form>";
+
+                                // Add a restore button below each image
+                                echo "<form method='POST' action='restore_img.php'>";
+                                echo "<input type='hidden' name='image_path' value='" . sanitize($trash_folder . $deleted_image) . "' />";
+                                echo "<input type='hidden' name='user_id' value='" . sanitize($user_folder) . "' />";
+                                echo "<input type='submit' name='restore_image' value='Restore' />";
+                                echo "</form>";
+
+                                echo "</td>";
+                            }
+                        }
+
+                        echo '</tr>';
+
+                        // Increment the displayed count
+                        $displayedCount++;
+
+                        // Check if the displayed count reaches the per_page limit
+                        if ($displayedCount >= $per_page) {
+                            break;
                         }
                     }
                 }
             }
         }
+    }
 
-        // Display the total number of user profiles found in this page/file at the top
-        echo '<h3>Total number of user profiles in this page: ' . $totalUserIDsInTrash . '</h3>';
+    // Close the table
+    echo '</table>';
 
-        // Start the main table
-        echo '<table>';
 
-        echo '<div id="search-form">
-        <form method="GET" action="">
-            <label for="search">Search User ID:</label>
-            <input type="text" name="search" id="search" value="' . (isset($_GET['search']) ? htmlspecialchars($_GET['search'], ENT_QUOTES, 'UTF-8') : '') . '" />
-            <button type="submit" />Search</button>
-            <button type="button" style="margin-left: 10px;" onclick="clearSearch()" />Clear Search</button></br>
+        // Progress bar at the bottom
+        echo '<div class="progress-container">
+        <div class="progress-bar"></div>
+        </div>';
 
-            <label for="per-page">Profiles Show</label>
-            <select name="per_page" id="per_page">
-              <option value="10" ' . (isset($_GET['per_page']) && $_GET['per_page'] == 10 ? 'selected' : '') . '>10</option>
-              <option value="50" ' . (isset($_GET['per_page']) && $_GET['per_page'] == 50 ? 'selected' : '') . '>50</option>
-              <option value="100" ' . (isset($_GET['per_page']) && $_GET['per_page'] == 100 ? 'selected' : '') . '>100</option>
-              <option value="500" ' . (isset($_GET['per_page']) && $_GET['per_page'] == 500 ? 'selected' : '') . '>500</option>
-              <option value="1000" ' . (isset($_GET['per_page']) && $_GET['per_page'] == 1000 ? 'selected' : '') . '>1000</option>
-              <option value="10000" ' . (isset($_GET['per_page']) && $_GET['per_page'] == 10000 ? 'selected' : '') . '>10000</option>
-            </select>
-        </form>
-    </div>';
 
-        echo "<tr>";
-        echo "<th>বায়োডাটা নং</th>"; // Left heading
-
-        // Dynamically generate column headings for images
-        for ($i = 1; $i <= 20; $i++) {
-            echo "<th>Image-$i</th>";
+    // Pagination links
+    echo "<div class='pagination'>";
+    if ($total_pages > 1) {
+        if ($page > 1) {
+            echo "<a href='trash.php?page=" . ($page - 1) . "&per_page=$per_page&search=$search' class='page-link'>Previous</a>";
         }
 
-        echo "</tr>";
-
-        // Counter to keep track of displayed profiles
-        $displayedCount = 0;
-
-        // Loop through each user's folder
-        foreach ($profile_folders as $user_folder) {
-            if ($user_folder !== "." && $user_folder !== "..") {
-                $trash_folder = "../profile/{$user_folder}/trash/";
-
-                // Check if the user's trash folder exists
-                if (is_dir($trash_folder)) {
-                    $deleted_images = scandir($trash_folder);
-
-                    // Check if there are deleted images in the trash folder
-                    if (count($deleted_images) > 2) { // 2 because . and .. are also counted
-                        // Filter profiles based on the search query
-                        if (empty($search) || strpos($user_folder, $search) !== false) {
-                            // Display the user ID in the left column only if it hasn't been displayed before
-                            if (!in_array($user_folder, $displayedUserIDs)) {
-                                echo '<tr>';
-                                echo '<td>' . sanitize($user_folder) . '</td>'; // Display User ID
-                                $displayedUserIDs[] = $user_folder; // Add the user ID to the displayed list
-                            } else {
-                                // If the user ID has been displayed, show an empty cell in the left column
-                                echo '<tr><td></td>';
-                            }
-
-                            // Display User ID in a new column for each deleted image
-                            foreach ($deleted_images as $deleted_image) {
-                                if ($deleted_image !== "." && $deleted_image !== "..") {
-                                    // Display each profile picture as a column
-                                    echo "<td><img src='" . htmlspecialchars($trash_folder . $deleted_image, ENT_QUOTES, 'UTF-8') . "' alt='Profile Image'>";
-                                   
-                                    // Add a permanent delete button
-                                    echo "<form method='POST' action='permanent_delete_img.php'>";
-                                    echo "<input type='hidden' name='image_path' value='" . sanitize($trash_folder . $deleted_image) . "' />";
-                                    echo "<input type='hidden' name='user_id' value='" . sanitize($user_folder) . "' />";
-                                    echo "<input style=\"background: red;\" type='submit' name='permanent_delete_image' value='Delete' />";
-                                    echo "</form>";
-
-                                    // Add a restore button below each image
-                                    echo "<form method='POST' action='restore_img.php'>";
-                                    echo "<input type='hidden' name='image_path' value='" . sanitize($trash_folder . $deleted_image) . "' />";
-                                    echo "<input type='hidden' name='user_id' value='" . sanitize($user_folder) . "' />";
-                                    echo "<input type='submit' name='restore_image' value='Restore' />";
-                                    echo "</form>";
-
-                                    echo "</td>";
-                                }
-                            }
-
-                            echo '</tr>';
-
-                            // Increment the displayed count
-                            $displayedCount++;
-
-                            // Check if the displayed count reaches the per_page limit
-                            if ($displayedCount >= $per_page) {
-                                break;
-                            }
-                        }
-                    }
-                }
+        for ($i = 1; $i <= $total_pages; $i++) {
+            if ($i == 1 || $i == $total_pages || ($i >= $page - 2 && $i <= $page + 2)) {
+                $active = $i == $page ? "active" : "";
+                echo "<a href='trash.php?page=$i&per_page=$per_page&search=$search' class='page-link $active'>$i</a>";
+            } elseif ($i == $page - 3 || $i == $page + 3) {
+                // Add "dot dot" nodes
+                echo "<span class='page-link'>...</span>";
             }
         }
 
-        // Close the table
-        echo '</table>';
+        if ($page < $total_pages) {
+            echo "<a href='trash.php?page=" . ($page + 1) . "&per_page=$per_page&search=$search' class='page-link'>Next</a>";
+        }
     }
-    ?>
+    echo "</div>";
+}
+?>
+
 </div>
-
 
 
 
@@ -525,6 +569,48 @@ require_once("includes/dbconn.php");
     background: linear-gradient(#0aa4ca, #0acef1);
   }
 
+.progress-container {
+        height: 8px;
+        background-color: #00c292;
+    }
+
+    .progress-bar {
+    height: 100%;
+    width: 100%;
+    background-color: #00c292;
+}
+
+.pagination{
+  display: inline-block;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left:  auto;
+  margin-right: auto;
+  padding: 0;
+  list-style: none;
+  align-items: center;
+  justify-content:center;
+}
+
+.page-link{
+  color: #000;
+  padding: 8px 12px;
+  text-decoration: none;
+  font-size: 14px;
+  background-color: #eee;
+  border-radius: 50%;
+  margin: 0 3px;
+}
+
+.page-link:hover{
+    background: #00c292;
+  color: #fff;
+}
+
+.page-link.active{
+  background: #00c292;
+  color: #fff;
+}
 </style>
 
 
