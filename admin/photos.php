@@ -209,7 +209,7 @@ require_once("includes/dbconn.php");
 
 
     // Number of profiles to display per page
-    $profilesPerPage = isset($_GET['per_page']) ? intval($_GET['per_page']) : 50;
+    $profilesPerPage = isset($_GET['per_page']) ? intval($_GET['per_page']) : 2;
 
     // Get the current page number
     $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
@@ -352,6 +352,33 @@ if (isset($_POST['search'])) {
     echo '<div class="progress-container">
     <div class="progress-bar"></div>
     </div>';
+
+    // Calculate the total number of pages
+$total_pages = ceil($userCount / $profilesPerPage);
+
+// Pagination links
+echo "<div class='pagination'>";
+if ($total_pages > 1) {
+    if ($currentPage > 1) {
+        echo "<a href='photos.php?page=" . ($currentPage - 1) . "&per_page=$profilesPerPage' class='page-link'>Previous</a>";
+    }
+
+    for ($i = 1; $i <= $total_pages; $i++) {
+        if ($i == 1 || $i == $total_pages || ($i >= $currentPage - $pages_to_show && $i <= $currentPage + $pages_to_show)) {
+            $active = $i == $currentPage ? "active" : "";
+            echo "<a href='photos.php?page=$i&per_page=$profilesPerPage' class='page-link $active'>$i</a>";
+        } elseif ($i == $currentPage - $pages_to_show - 1 || $i == $currentPage + $pages_to_show + 1) {
+            // Add "dot dot" nodes
+            echo "<span class='page-link'>...</span>";
+        }
+    }
+
+    if ($currentPage < $total_pages) {
+        echo "<a href='photos.php?page=" . ($currentPage + 1) . "&per_page=$profilesPerPage' class='page-link'>Next</a>";
+    }
+}
+echo "</div>";
+
 
     echo '</div>'; // Close the table-wrapper div
 
@@ -536,6 +563,38 @@ form {
     height: 100%;
     width: 100%;
     background-color: #00c292;
+}
+
+.pagination{
+  display: inline-block;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left:  auto;
+  margin-right: auto;
+  padding: 0;
+  list-style: none;
+  align-items: center;
+  justify-content:center;
+}
+
+.page-link{
+  color: #000;
+  padding: 8px 12px;
+  text-decoration: none;
+  font-size: 14px;
+  background-color: #eee;
+  border-radius: 50%;
+  margin: 0 3px;
+}
+
+.page-link:hover{
+    background: #00c292;
+  color: #fff;
+}
+
+.page-link.active{
+  background: #00c292;
+  color: #fff;
 }
 </style>
 
