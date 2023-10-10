@@ -360,7 +360,7 @@ echo '<div id="search-form">
         <label for="per-page">Profiles Show</label>
         <select id="per-page" name="per_page" onchange="updateProfilesPerPage()">
           <option value=""> </option>
-            <option value="4" ' . ($profilesPerPage == 4 ? 'selected' : '') . '>4</option>
+            <option value="10" ' . ($profilesPerPage == 10 ? 'selected' : '') . '>10</option>
             <option value="50" ' . ($profilesPerPage == 50 ? 'selected' : '') . '>50</option>
             <option value="100" ' . ($profilesPerPage == 100 ? 'selected' : '') . '>100</option>
             <option value="500" ' . ($profilesPerPage == 500 ? 'selected' : '') . '>500</option>
