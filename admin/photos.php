@@ -4,7 +4,15 @@ include_once("includes/basic_includes.php");
 include_once("functions.php");
 require_once("includes/dbconn.php");
 ?>
-
+<?php
+error_reporting(0);
+require_once("includes/dbconn.php");
+if (!isset($_SESSION['id'])) {
+  // Redirect the user to the login page or display an error message
+  header("location: ../admin/admin_login.php");
+  exit;
+}
+?>
 
 
 <!doctype html>

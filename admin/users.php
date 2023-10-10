@@ -6,6 +6,9 @@ require_once("includes/dbconn.php");
 ?>
 
 <?php
+// When user logs in, set a session variable
+$_SESSION['user_logged_in'] = true;
+
 error_reporting(0);
 require_once("includes/dbconn.php");
 if (!isset($_SESSION['id'])) {
@@ -74,6 +77,9 @@ if (!isset($_SESSION['id'])) {
     <!-- modernizr JS
 		============================================ -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+<!-- fa fa icon / logout icon
+    ============================================ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -96,30 +102,24 @@ if (!isset($_SESSION['id'])) {
 
                                 <li><a data-toggle="collapse" data-target="#Pagemob" href="#">Pages</a>
                                     <ul class="notika-main-menu-dropdown">
-                                      <li><a href="admin_login.php">Login</a>
-                                      </li>
-                                      <li><a href="customer.php">Customer</a>
-                                      </li>
-                                      <li><a href="contact_us.php">ContactUs</a>
-                                      </li>
-                                      <li><a href="photos.php">Photos</a>
-                                      </li>
-                                      <li><a href="users.php">Users</a>
-                                      </li>
-                                      <li><a href="dataphysical_marital.php">PhysicalMarital</a>
-                                      </li>
-                                      <li><a href="datalifestyle.php">LifeStyle</a>
-                                      </li>
-                                      <li><a href="dataeducation.php">Edcation</a>
-                                      </li>
-                                      <li><a href="dataaddress.php">Address</a>
-                                      </li>
-                                      <li><a href="datareligion.php">Religion</a>
-                                      </li>
-                                      <li><a href="datafamily.php">Family</a>
-                                      </li>
-                                      <li><a href="datapartner.php">Partner</a>
-                                      </li>
+                                      <li><a href="customer.php">Customer</a></li>
+                                      <li><a href="contact_us.php">ContactUs</a></li>
+                                      <li><a href="photos.php">Photos</a></li>
+                                      <li><a href="users.php">Users</a></li>
+                                      <li><a href="dataphysical_marital.php">PhysicalMarital</a></li>
+                                      <li><a href="datalifestyle.php">LifeStyle</a></li>
+                                      <li><a href="dataeducation.php">Edcation</a></li>
+                                      <li><a href="dataaddress.php">Address</a></li>
+                                      <li><a href="datareligion.php">Religion</a></li>
+                                      <li><a href="datafamily.php">Family</a></li>
+                                      <li><a href="datapartner.php">Partner</a></li>
+                                      <?php if(isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in']) { ?>
+                                        <!-- User is logged in, show logout option -->
+                                        <li><a href="admin_logout.php" style="padding: 8px 15px;"><i class="fa fa-sign-out"></i></a></li>
+                                      <?php } else { ?>
+                                        <!-- User is not logged in, show login option -->
+                                        <li><a href="admin_login.php">Login</a></li>
+                                      <?php } ?>
                                     </ul>
                                 </li>
                             </ul>
@@ -155,35 +155,25 @@ if (!isset($_SESSION['id'])) {
                         </div>
 
                         <div id="Page" class="tab-pane notika-tab-menu-bg animated flipInX">
-                            <ul class="notika-main-menu-dropdown">
+                          <ul class="notika-main-menu-dropdown">
+                            <li><a href="customer.php">Customer</a></li>
+                              <li><a href="contact_us.php">ContactUs</a></li>
+                              <li><a href="photos.php">Photos</a></li>
+                              <li><a href="users.php">Users</a></li>
+                              <li><a href="dataphysical_marital.php">PhysicalMarital</a></li>
+                              <li><a href="datalifestyle.php">LifeStyle</a></li>
+                              <li><a href="dataeducation.php">Edcation</a></li>
+                              <li><a href="dataaddress.php">Address</a></li>
+                              <li><a href="datareligion.php">Religion</a></li>
+                              <li><a href="datafamily.php">Family</a></li>
+                              <li><a href="datapartner.php">Partner</a></li>
                               <?php if(isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in']) { ?>
-                              <!-- User is logged in, show logout option -->
-                              <li><a href="admin_logout.php">Logout</a></li>
+                                <!-- User is logged in, show logout option -->
+                                <li><a href="admin_logout.php" style="padding: 8px 15px;"><i class="fa fa-sign-out"></i></a></li>
                               <?php } else { ?>
-                              <!-- User is not logged in, show login option -->
-                              <li><a href="admin_login.php">Login</a></li>
+                                <!-- User is not logged in, show login option -->
+                                <li><a href="admin_login.php">Login</a></li>
                               <?php } ?>
-                              <li><a href="customer.php">Customer</a></li>
-                                <li><a href="contact_us.php">ContactUs</a>
-                                </li>
-                                <li><a href="photos.php">Photos</a>
-                                </li>
-                                <li><a href="users.php">Users</a>
-                                </li>
-                                <li><a href="dataphysical_marital.php">PhysicalMarital</a>
-                                </li>
-                                <li><a href="datalifestyle.php">LifeStyle</a>
-                                </li>
-                                <li><a href="dataeducation.php">Edcation</a>
-                                </li>
-                                <li><a href="dataaddress.php">Address</a>
-                                </li>
-                                <li><a href="datareligion.php">Religion</a>
-                                </li>
-                                <li><a href="datafamily.php">Family</a>
-                                </li>
-                                <li><a href="datapartner.php">Partner</a>
-                                </li>
                             </ul>
                         </div>
                     </div>
@@ -194,7 +184,7 @@ if (!isset($_SESSION['id'])) {
     <!-- Main Menu area End-->
 
 
-    <style>
+<style>
 h1{
   padding: 10px 0;
   margin: 150px auto 0px auto;
