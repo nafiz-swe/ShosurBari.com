@@ -470,6 +470,18 @@ mysqli_close($conn);
 
 
 <script>
+function updateProfilesPerPage() {
+    const perPageSelect = document.getElementById('per-page');
+    const selectedValue = perPageSelect.value;
+    window.location.href = `?per_page=${selectedValue}`;
+}
+</script>
+
+
+
+
+
+<script>
   function confirmDelete(id) {
     if (confirm("Are you sure you want to delete this user?")) {
       window.location.href = "delete_user.php?id=" + id;
