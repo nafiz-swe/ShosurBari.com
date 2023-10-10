@@ -342,7 +342,7 @@ $sql = "SELECT * FROM 2bd_personal_lifestyle $limit OFFSET $start";
 $result = mysqli_query($conn, $sql);
 
 echo '<div class="table-container">';
-echo "<h1>বর্তমান এবং স্থায়ী ঠিকানা</h1>";
+echo "<h1>ব্যক্তিগত তথ্য</h1>";
 
 echo '<div class="table-wrapper">';
 echo "<h3>Total number of user profiles: " . $userCount . "</h3>";

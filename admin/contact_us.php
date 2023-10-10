@@ -20,7 +20,7 @@ if (!isset($_SESSION['id'])) {
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Admin - ContactUs| ShosurBari</title>
+    <title>Admin - ContactUs | ShosurBari</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
@@ -340,7 +340,7 @@ if ($result) {
 }
 
 echo '<div class="table-container">';
-echo "<h1>বর্তমান এবং স্থায়ী ঠিকানা</h1>";
+echo "<h1>রিপোর্ট এবং সাপোর্ট ম্যাসেজ</h1>";
 
 echo '<div class="table-wrapper">';
 echo "<h3>Total number of user profiles: " . $userCount . "</h3>";

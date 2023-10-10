@@ -359,7 +359,7 @@ if (isset($_POST['search'])) {
 
 if (mysqli_num_rows($result) > 0) {
     echo "<div class='table-container'>";
-    echo "<h1>User Profiles</h1>";
+    echo "<h1>রেজিস্ট্রার পাত্রপাত্রীদের বায়োডাটা</h1>";
 
     // Display user data in a table
     echo '<div class="table-wrapper">';

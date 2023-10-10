@@ -102,6 +102,7 @@ if (!isset($_SESSION['id'])) {
                                       <li><a href="customer.php">Customer</a></li>
                                       <li><a href="contact_us.php">ContactUs</a></li>
                                       <li><a href="photos.php">Photos</a></li>
+                                      <li><a href="trash.php">Trash</a></li>
                                       <li><a href="users.php">Users</a></li>
                                       <li><a href="dataphysical_marital.php">PhysicalMarital</a></li>
                                       <li><a href="datalifestyle.php">LifeStyle</a></li>
@@ -156,6 +157,7 @@ if (!isset($_SESSION['id'])) {
                             <li><a href="customer.php">Customer</a></li>
                               <li><a href="contact_us.php">ContactUs</a></li>
                               <li><a href="photos.php">Photos</a></li>
+                              <li><a href="trash.php">Trash</a></li>
                               <li><a href="users.php">Users</a></li>
                               <li><a href="dataphysical_marital.php">PhysicalMarital</a></li>
                               <li><a href="datalifestyle.php">LifeStyle</a></li>
@@ -183,7 +185,7 @@ if (!isset($_SESSION['id'])) {
 
 
 <div class="sbbiodata_profile_recentview">
-    <h1>User Uploaded Profile Pictures</h1>
+    <h1>পাত্রপাত্রীদের প্রোফাইল ছবি</h1>
 
     <?php
     // Establish a database connection (update these values with your database credentials)

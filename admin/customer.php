@@ -339,7 +339,7 @@ if ($result) {
 }
 
 echo '<div class="table-container">';
-echo "<h1>বর্তমান এবং স্থায়ী ঠিকানা</h1>";
+echo "<h1>কাস্টমার ও পেমেন্ট</h1>";
 
 echo '<div class="table-wrapper">';
 echo "<h3>Total number of user profiles: " . $userCount . "</h3>";

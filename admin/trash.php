@@ -100,7 +100,8 @@ if (!isset($_SESSION['id'])) {
                                       <li><a href="customer.php">Customer</a></li>
                                       <li><a href="contact_us.php">ContactUs</a></li>
                                       <li><a href="photos.php">Photos</a></li>
-                                      <li><a href="users.php">Users</a></li>
+                                      <li><a href="photos.php">Photos</a></li>
+                                      <li><a href="trash.php">Trash</a></li>
                                       <li><a href="dataphysical_marital.php">PhysicalMarital</a></li>
                                       <li><a href="datalifestyle.php">LifeStyle</a></li>
                                       <li><a href="dataeducation.php">Edcation</a></li>
@@ -154,6 +155,7 @@ if (!isset($_SESSION['id'])) {
                             <li><a href="customer.php">Customer</a></li>
                               <li><a href="contact_us.php">ContactUs</a></li>
                               <li><a href="photos.php">Photos</a></li>
+                              <li><a href="trash.php">Trash</a></li>
                               <li><a href="users.php">Users</a></li>
                               <li><a href="dataphysical_marital.php">PhysicalMarital</a></li>
                               <li><a href="datalifestyle.php">LifeStyle</a></li>
@@ -184,8 +186,8 @@ if (!isset($_SESSION['id'])) {
     
 
 
-    <div class="sbbiodata_profile_recentview">
-    <h1>Trash File Profile Pictures</h1>
+<div class="sbbiodata_profile_recentview">
+<h1>পাত্রপাত্রীদের ডিলিট হওয়া ছবি</h1>
 
     <?php
 // Function to sanitize user input
