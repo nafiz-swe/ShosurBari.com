@@ -10,6 +10,6 @@ echo "Successfully logged out";
 	<link rel="icon" href="images/shosurbari-icon.png" type="image/png">
 </head>
 <body>
-<a href="../admin/index.html">Back to home</a>
+<a href="../admin/index.php">Back to home</a>
 </body>
 </html>

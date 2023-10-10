@@ -66,7 +66,7 @@ function admin_register(){
             $_SESSION['id'] = $id;
             
             // Redirect the user to the userhome.php page with the user ID as a parameter in the URL
-            header("location: ../admin/analytics.php?id=$id");
+            header("location: ../admin/index.php?id=$id");
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
@@ -98,7 +98,7 @@ function admin_login(){
                 $_SESSION['id'] = $id;
                 
                 // Redirect the user to the userhome.php page with the user ID as a parameter in the URL
-                header("location: ../admin/analytics.php?id=$id");
+                header("location: ../admin/index.php?id=$id");
             } else {
                 echo "Invalid password";
             }
