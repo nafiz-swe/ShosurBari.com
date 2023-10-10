@@ -471,7 +471,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 
 
-<!-- Phone Number Country Code With Country Flag -->
+<!-- Password Slash -->
 <script>
   let showPass = document.querySelectorAll('.show-password');
   showPass.forEach(function(el) {
