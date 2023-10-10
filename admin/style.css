@@ -8660,6 +8660,65 @@ label{
 
 
 
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--               S  T  A  R  T                   --
+--      This is for Admin Customigation CSS      --
+--                                               --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+#search-user-id,
+#search-keyword,
+#search { /*admin page search input field design */
+    border: 2px solid #00c292;
+    border-radius: 3px;
+    height: 30px;
+    font-size: 18px;
+    padding: 0 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.input-group input[type="text"], select{
+    height: 30px;
+}
+
+.search-admin{
+    border: 2px solid #00c292;
+    border-radius: 3px;
+    height: 30px;
+    font-size: 18px;
+    padding: 0 10px;
+    margin-left: -10px;
+    background: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.search-clear-admin{
+    border: 2px solid #00c292;
+    border-radius: 3px;
+    height: 30px;
+    font-size: 18px;
+    padding: 0 10px;
+    margin-left: 10px;
+    background: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+}
+
+.search-admin:hover,
+.search-clear-admin:hover{
+    background: #00c292;
+    color: white;
+}
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                 E    N    D                   --
+--      This is for Admin Customigation CSS      --
+--                                               --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 
 
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --

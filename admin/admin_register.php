@@ -83,7 +83,7 @@
                                 <li><a data-toggle="collapse" data-target="#Charts" href="#">Home</a>
                                     <ul class="collapse dropdown-header-top">
                                         <li><a href="index.html">Dashboard</a></li>
-                                        <li><a href="analytics.html">Analytics</a></li>
+                                        <li><a href="analytics.php">Analytics</a></li>
                                     </ul>
                                 </li>
 
@@ -136,7 +136,7 @@
                             <ul class="notika-main-menu-dropdown">
                                 <li><a href="index.html">Dashboard</a>
                                 </li>
-                                <li><a href="analytics.html">Analytics</a>
+                                <li><a href="analytics.php">Analytics</a>
                                 </li>
                             </ul>
                         </div>

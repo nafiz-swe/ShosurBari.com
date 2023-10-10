@@ -91,7 +91,7 @@ if (!isset($_SESSION['id'])) {
                                 <li><a data-toggle="collapse" data-target="#Charts" href="#">Home</a>
                                     <ul class="collapse dropdown-header-top">
                                         <li><a href="index.html">Dashboard</a></li>
-                                        <li><a href="analytics.html">Analytics</a></li>
+                                        <li><a href="analytics.php">Analytics</a></li>
                                     </ul>
                                 </li>
 
@@ -144,7 +144,7 @@ if (!isset($_SESSION['id'])) {
                             <ul class="notika-main-menu-dropdown">
                                 <li><a href="index.html">Dashboard</a>
                                 </li>
-                                <li><a href="analytics.html">Analytics</a>
+                                <li><a href="analytics.php">Analytics</a>
                                 </li>
                             </ul>
                         </div>
@@ -346,8 +346,8 @@ echo "<h3>Total number of user profiles: " . $userCount . "</h3>";
 
 echo '<div id="search-form">
 <form method="POST">
-    <label for="search-user-id">Search User ID:</label>
-    <input type="text" id="search-user-id" name="search-user-id">
+    <input type="text" id="search-user-id" name="search-user-id" placeholder="Search User ID">
+    <button class="search-admin" type="submit" name="search">Search</button>
 
     <select style="margin-top: 20px;" name="search-criteria" id="search-criteria">
         <option value="cust_email">User Email</option>
@@ -355,11 +355,10 @@ echo '<div id="search-form">
         <option value="cust_number">Phone Number</option>
     </select>
 
-    <label for="search-keyword">Search Keyword:</label>
-    <input type="text" id="search-keyword" name="search-keyword">
+    <input type="text" id="search-keyword" name="search-keyword" placeholder="Email / Name / Number">
 
-    <button type="submit" name="search">Search</button>
-    <button type="submit" name="clear" style="margin-left: 10px;">Clear Search</button></br>
+    <button class="search-admin" type="submit" name="search">Search</button>
+    <button class="search-clear-admin" type="submit" name="clear">Clear Search</button></br>
     
     <label for="per-page" style="margin-top: 20px;">Profiles Show</label>
     <select name="per_page" id="per-page" onchange="this.form.submit()">

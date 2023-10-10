@@ -1,11 +1,19 @@
-
+<?php
+error_reporting(0);
+require_once("includes/dbconn.php");
+if (!isset($_SESSION['id'])) {
+  // Redirect the user to the login page or display an error message
+  header("location: ../admin/admin_login.php");
+  exit;
+}
+?>
 <!doctype html>
 <html class="no-js" lang="">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Analytics | ShosurBari</title>
+    <title>Admin - Partner | ShosurBari</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
@@ -28,22 +36,24 @@
     <!-- meanmenu CSS
 		============================================ -->
     <link rel="stylesheet" href="css/meanmenu/meanmenu.min.css">
-    <!-- Notika icon CSS
-		============================================ -->
-    <link rel="stylesheet" href="css/notika-custom-icon.css">
-    <!-- mCustomScrollbar CSS
-		============================================ -->
-    <link rel="stylesheet" href="css/scrollbar/jquery.mCustomScrollbar.min.css">
     <!-- animate CSS
 		============================================ -->
     <link rel="stylesheet" href="css/animate.css">
     <!-- normalize CSS
 		============================================ -->
     <link rel="stylesheet" href="css/normalize.css">
-	<!-- wave CSS
+    <!-- mCustomScrollbar CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/scrollbar/jquery.mCustomScrollbar.min.css">
+    <!-- jvectormap CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/jvectormap/jquery-jvectormap-2.0.3.css">
+    <!-- Notika icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/notika-custom-icon.css">
+    <!-- wave CSS
 		============================================ -->
     <link rel="stylesheet" href="css/wave/waves.min.css">
-    <link rel="stylesheet" href="css/wave/button.css">
     <!-- main CSS
 		============================================ -->
     <link rel="stylesheet" href="css/main.css">
@@ -56,9 +66,14 @@
     <!-- modernizr JS
 		============================================ -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+<!-- fa fa icon / logout icon
+    ============================================ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
+
+
     <!-- Mobile Menu start -->
     <div class="mobile-menu-area">
         <div class="container">
@@ -70,36 +85,30 @@
                                 <li><a data-toggle="collapse" data-target="#Charts" href="#">Home</a>
                                     <ul class="collapse dropdown-header-top">
                                         <li><a href="index.html">Dashboard</a></li>
-                                        <li><a href="analytics.html">Analytics</a></li>
+                                        <li><a href="analytics.php">Analytics</a></li>
                                     </ul>
                                 </li>
 
                                 <li><a data-toggle="collapse" data-target="#Pagemob" href="#">Pages</a>
                                     <ul class="notika-main-menu-dropdown">
-                                    <li><a href="admin_login.php">Login</a>
-                                    </li>
-                                    <li><a href="customer.php">Customer</a>
-                                    </li>
-                                    <li><a href="contact_us.php">ContactUs</a>
-                                    </li>
-                                    <li><a href="photos.php">Photos</a>
-                                    </li>
-                                    <li><a href="users.php">Users</a>
-                                    </li>
-                                    <li><a href="dataphysical_marital.php">PhysicalMarital</a>
-                                    </li>
-                                    <li><a href="datalifestyle.php">LifeStyle</a>
-                                    </li>
-                                    <li><a href="dataeducation.php">Edcation</a>
-                                    </li>
-                                    <li><a href="dataaddress.php">Address</a>
-                                    </li>
-                                    <li><a href="datareligion.php">Religion</a>
-                                    </li>
-                                    <li><a href="datafamily.php">Family</a>
-                                    </li>
-                                    <li><a href="datapartner.php">Partner</a>
-                                    </li>
+                                      <li><a href="customer.php">Customer</a></li>
+                                      <li><a href="contact_us.php">ContactUs</a></li>
+                                      <li><a href="photos.php">Photos</a></li>
+                                      <li><a href="users.php">Users</a></li>
+                                      <li><a href="dataphysical_marital.php">PhysicalMarital</a></li>
+                                      <li><a href="datalifestyle.php">LifeStyle</a></li>
+                                      <li><a href="dataeducation.php">Edcation</a></li>
+                                      <li><a href="dataaddress.php">Address</a></li>
+                                      <li><a href="datareligion.php">Religion</a></li>
+                                      <li><a href="datafamily.php">Family</a></li>
+                                      <li><a href="datapartner.php">Partner</a></li>
+                                      <?php if(isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in']) { ?>
+                                        <!-- User is logged in, show logout option -->
+                                        <li><a href="admin_logout.php" style="padding: 8px 15px;"><i class="fa fa-sign-out"></i></a></li>
+                                      <?php } else { ?>
+                                        <!-- User is not logged in, show login option -->
+                                        <li><a href="admin_login.php">Login</a></li>
+                                      <?php } ?>
                                     </ul>
                                 </li>
                             </ul>
@@ -129,37 +138,31 @@
                             <ul class="notika-main-menu-dropdown">
                                 <li><a href="index.html">Dashboard</a>
                                 </li>
-                                <li><a href="analytics.html">Analytics</a>
+                                <li><a href="analytics.php">Analytics</a>
                                 </li>
                             </ul>
                         </div>
 
                         <div id="Page" class="tab-pane notika-tab-menu-bg animated flipInX">
-                            <ul class="notika-main-menu-dropdown">
-                            <li><a href="admin_login.php">Login</a>
-                            </li>
-                            <li><a href="customer.php">Customer</a>
-                            </li>
-                            <li><a href="contact_us.php">ContactUs</a>
-                            </li>
-                            <li><a href="photos.php">Photos</a>
-                            </li>
-                            <li><a href="users.php">Users</a>
-                            </li>
-                            <li><a href="dataphysical_marital.php">PhysicalMarital</a>
-                            </li>
-                            <li><a href="datalifestyle.php">LifeStyle</a>
-                            </li>
-                            <li><a href="dataeducation.php">Edcation</a>
-                            </li>
-                            <li><a href="dataaddress.php">Address</a>
-                            </li>
-                            <li><a href="datareligion.php">Religion</a>
-                            </li>
-                            <li><a href="datafamily.php">Family</a>
-                            </li>
-                            <li><a href="datapartner.php">Partner</a>
-                            </li>
+                          <ul class="notika-main-menu-dropdown">
+                            <li><a href="customer.php">Customer</a></li>
+                              <li><a href="contact_us.php">ContactUs</a></li>
+                              <li><a href="photos.php">Photos</a></li>
+                              <li><a href="users.php">Users</a></li>
+                              <li><a href="dataphysical_marital.php">PhysicalMarital</a></li>
+                              <li><a href="datalifestyle.php">LifeStyle</a></li>
+                              <li><a href="dataeducation.php">Edcation</a></li>
+                              <li><a href="dataaddress.php">Address</a></li>
+                              <li><a href="datareligion.php">Religion</a></li>
+                              <li><a href="datafamily.php">Family</a></li>
+                              <li><a href="datapartner.php">Partner</a></li>
+                              <?php if(isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in']) { ?>
+                                <!-- User is logged in, show logout option -->
+                                <li><a href="admin_logout.php" style="padding: 8px 15px;"><i class="fa fa-sign-out"></i></a></li>
+                              <?php } else { ?>
+                                <!-- User is not logged in, show login option -->
+                                <li><a href="admin_login.php">Login</a></li>
+                              <?php } ?>
                             </ul>
                         </div>
                     </div>
@@ -168,6 +171,12 @@
         </div>
     </div>
     <!-- Main Menu area End-->
+
+
+
+
+
+
 
 
 

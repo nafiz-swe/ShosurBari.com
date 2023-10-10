@@ -91,7 +91,7 @@ if (!isset($_SESSION['id'])) {
                                 <li><a data-toggle="collapse" data-target="#Charts" href="#">Home</a>
                                     <ul class="collapse dropdown-header-top">
                                         <li><a href="index.html">Dashboard</a></li>
-                                        <li><a href="analytics.html">Analytics</a></li>
+                                        <li><a href="analytics.php">Analytics</a></li>
                                     </ul>
                                 </li>
 
@@ -145,7 +145,7 @@ if (!isset($_SESSION['id'])) {
                             <ul class="notika-main-menu-dropdown">
                                 <li><a href="index.html">Dashboard</a>
                                 </li>
-                                <li><a href="analytics.html">Analytics</a>
+                                <li><a href="analytics.php">Analytics</a>
                                 </li>
                             </ul>
                         </div>
@@ -255,10 +255,9 @@ if (!is_dir("../profile")) {
 
     echo '<div id="search-form">
     <form method="GET" action="">
-        <label for="search">Search User ID:</label>
-        <input type="text" name="search" id="search" value="' . (isset($_GET['search']) ? htmlspecialchars($_GET['search'], ENT_QUOTES, 'UTF-8') : '') . '" />
-        <button type="submit">Search</button>
-        <button type="button" style="margin-left: 10px;" onclick="clearSearch()">Clear Search</button><br>
+        <input type="text" name="search" id="search" value="' . (isset($_GET['search']) ? htmlspecialchars($_GET['search'], ENT_QUOTES, 'UTF-8') : '') . '" placeholder="Search User ID"  />
+        <button class="search-admin" type="submit">Search</button>
+        <button class="search-clear-admin"  type="button" onclick="clearSearch()">Clear Search</button><br>
 
         <label for="per-page">Profiles Show</label>
         <select name="per_page" id="per_page">
@@ -498,6 +497,7 @@ if (!is_dir("../profile")) {
     label {
         font-size: 16px;
         color: #00c292;
+        margin-top: 20px;
     }
 
 .input-group input[type="text"], select {

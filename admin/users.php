@@ -96,7 +96,7 @@ if (!isset($_SESSION['id'])) {
                                 <li><a data-toggle="collapse" data-target="#Charts" href="#">Home</a>
                                     <ul class="collapse dropdown-header-top">
                                         <li><a href="index.html">Dashboard</a></li>
-                                        <li><a href="analytics.html">Analytics</a></li>
+                                        <li><a href="analytics.php">Analytics</a></li>
                                     </ul>
                                 </li>
 
@@ -149,7 +149,7 @@ if (!isset($_SESSION['id'])) {
                             <ul class="notika-main-menu-dropdown">
                                 <li><a href="index.html">Dashboard</a>
                                 </li>
-                                <li><a href="analytics.html">Analytics</a>
+                                <li><a href="analytics.php">Analytics</a>
                                 </li>
                             </ul>
                         </div>
@@ -232,6 +232,7 @@ h3{
     label {
         font-size: 16px;
         color: #00c292;
+        margin-top: 20px;
     }
 
     .input-group input[type="text"], select {
@@ -367,10 +368,9 @@ if (mysqli_num_rows($result) > 0) {
 
     echo '<div id="search-form">
         <form method="POST">
-            <label for="search-user-id">Search User ID:</label>
-            <input type="text" id="search-user-id" name="search-user-id" required>
-            <button type="submit" name="search">Search</button>
-            <button type="submit" name="clear" style="margin-left: 10px;">Clear Search</button></br>
+            <input type="text" id="search-user-id" name="search-user-id" placeholder="Search User ID" required>
+            <button class="search-admin" type="submit" name="search">Search</button>
+            <button class="search-clear-admin" type="submit" name="clear">Clear Search</button></br>
             
             <!-- Dropdown for profiles per page -->
             <label for="per-page">Profiles Show</label>
