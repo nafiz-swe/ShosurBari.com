@@ -34,57 +34,91 @@
     /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
     -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
     --                S  T  A  R  T                  --
-    --          New Admin Register Function          --
+    --           New Admin Register Function         --
     --                                               --
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-    function admin_register(){
-        global $conn;
+    
+// Admin registration
+function admin_register(){
+    global $conn;
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $fullname=$_POST['fullname'];
-            $user_admin=$_POST['username'];
-            $email = $_POST['email'];
-            $hashed_password = hash('sha256', $_POST['password_1']);
-            // $pass_1 = $_POST['pass_1'];
-            // $pass_2 = $_POST['pass_2'];
-            require_once("includes/dbconn.php");
-
-            $sql = "INSERT INTO admin 
-            ( fullname, username, email, password, active, active_status) 
-            VALUES ('$fullname', '$user_admin', '$email', '$hashed_password', 1, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
-
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $fullname = $_POST['fullname'];
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $password = $_POST['password_1'];  // Assuming you have an input field named 'password_1'
         
-// Hash the input password using password_hash
-$hashed_password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        // Hash the password before storing it in the database
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        
+        require_once("includes/dbconn.php");
 
-$sql = "INSERT INTO admin 
-        (fullname, username, email, password, active, active_status) 
-        VALUES ('$fullname', '$user_admin', '$email', '$hashed_password', 1, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+        $sql = "INSERT INTO admin 
+        (fullname, username, email, password, active) 
+        VALUES ('$fullname', '$username', '$email', '$hashed_password', 1)";
 
-
-
-            if (mysqli_query($conn,$sql)) {
-                // Get the ID of the newly registered user
-                $id = mysqli_insert_id($conn);
-                
-                // Set a session variable to store the user ID
-                $_SESSION['id'] = $id;
-                
-                // Create a record for the user in the deactivate table
-                $deactivate_sql = "INSERT INTO deactivated (user_id, status) VALUES ($id, 0)";
-                mysqli_query($conn, $deactivate_sql);
-
-                // Redirect the user to the userhome.php page with the user ID as a parameter in the URL
-                header("location: admin_login.php");
-
-            } else {
+        if (mysqli_query($conn, $sql)) {
+            // Get the ID of the newly registered user
+            $id = mysqli_insert_id($conn);
+            
+            // Set a session variable to store the user ID
+            $_SESSION['id'] = $id;
+            
+            // Redirect the user to the userhome.php page with the user ID as a parameter in the URL
+            header("location: ../admin/users.php?id=$id");
+        } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
-            }
-
         }
     }
+}
 
+// Admin login
+function admin_login(){
+    global $conn;
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        
+        // Retrieve the hashed password from the database
+        $sql = "SELECT id, password FROM admin WHERE (username = ? OR email = ?)";
+        
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ss", $username, $username);
+        $stmt->execute();
+        $stmt->store_result();
+        
+        if ($stmt->num_rows > 0) {
+            $stmt->bind_result($id, $stored_password);
+            $stmt->fetch();
+
+            // Verify the hashed input password with the stored hashed password
+            if (password_verify($password, $stored_password)) {
+                $_SESSION['id'] = $id;
+                
+                // Redirect the user to the userhome.php page with the user ID as a parameter in the URL
+                header("location: ../admin/users.php?id=$id");
+            } else {
+                echo "Invalid password";
+            }
+        } else {
+            echo "Invalid username or email";
+        }
+
+        $stmt->close();
+    }
+}
+
+
+    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+    -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+    --                   E   N   D                   --
+    --           New Admin Register Function         --
+    --                                               --
+    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+    
 
 
 
@@ -96,12 +130,4 @@ $sql = "INSERT INTO admin
             return true;
         }
     }
-
-    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-    -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
-    --                   E   N   D                   --
-    --          New Admin Register Function          --
-    --                                               --
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 ?>

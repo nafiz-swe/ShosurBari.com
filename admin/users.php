@@ -4,6 +4,17 @@ include_once("includes/basic_includes.php");
 include_once("functions.php");
 require_once("includes/dbconn.php");
 ?>
+
+<?php
+error_reporting(0);
+require_once("includes/dbconn.php");
+if (!isset($_SESSION['id'])) {
+  // Redirect the user to the login page or display an error message
+  header("location: ../admin/admin_login.php");
+  exit;
+}
+?>
+
 <!doctype html>
 <html class="no-js" lang="">
 
@@ -145,10 +156,14 @@ require_once("includes/dbconn.php");
 
                         <div id="Page" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
-                                <li><a href="admin_login.php">Login</a>
-                                </li>
-                                <li><a href="customer.php">Customer</a>
-                                </li>
+                              <?php if(isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in']) { ?>
+                              <!-- User is logged in, show logout option -->
+                              <li><a href="admin_logout.php">Logout</a></li>
+                              <?php } else { ?>
+                              <!-- User is not logged in, show login option -->
+                              <li><a href="admin_login.php">Login</a></li>
+                              <?php } ?>
+                              <li><a href="customer.php">Customer</a></li>
                                 <li><a href="contact_us.php">ContactUs</a>
                                 </li>
                                 <li><a href="photos.php">Photos</a>

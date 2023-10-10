@@ -1,8 +1,8 @@
-<?php
-// Include necessary files and initialize the session
-include_once("includes/basic_includes.php");
-include_once("functions.php");
-require_once("includes/dbconn.php");
+<?php include_once("includes/basic_includes.php");?>
+<?php require_once("includes/dbconn.php"); ?>
+<?php include_once("functions.php"); ?>
+<?php admin_login(); 
+    error_reporting(0);
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -242,12 +242,12 @@ require_once("includes/dbconn.php");
 
   
   <div class="shosurbari-animation-form">
-    <form action="auth/auth.php?admin=1" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
+  <form action="" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
 		  <div class="flex-container">
         <div class="sb-register-login">
 
           <div class="sb-biodata-field">
-            <h2>Login Your <span>Account</span></h2>
+            <h2>Login Admin <span>Account</span></h2>
           </div>
 
           <div class="form-group">
@@ -272,7 +272,7 @@ require_once("includes/dbconn.php");
           </div>
 
 		    <div class="form-actions">
-                <button  type="submit" id="edit-submit" name="op"  class="btn_1 submit"  > <span> </span> Login Your Account</button>
+                <button  type="submit" id="edit-submit" name="op"  class="btn_1 submit"  > <span> </span>Admin Login</button>
             </div>
 
             <div class="or">
@@ -281,7 +281,7 @@ require_once("includes/dbconn.php");
 
             <div class="form-actions" style="text-align: center;">
                 <p>Don't have an account?</p>
-                <a href="admin_register.php">Create New Account</a>
+                <a href="admin_register.php">Create Admin Account</a>
             </div>
 
         </div>
