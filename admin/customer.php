@@ -95,7 +95,7 @@ require_once("includes/dbconn.php");
                                       </li>
                                       <li><a href="users.php">Users</a>
                                       </li>
-                                      <li><a href="dataphysical_marital.php">PysicalMarital</a>
+                                      <li><a href="dataphysical_marital.php">PhysicalMarital</a>
                                       </li>
                                       <li><a href="datalifestyle.php">LifeStyle</a>
                                       </li>
@@ -155,7 +155,7 @@ require_once("includes/dbconn.php");
                                 </li>
                                 <li><a href="users.php">Users</a>
                                 </li>
-                                <li><a href="dataphysical_marital.php">PysicalMarital</a>
+                                <li><a href="dataphysical_marital.php">PhysicalMarital</a>
                                 </li>
                                 <li><a href="datalifestyle.php">LifeStyle</a>
                                 </li>
@@ -482,6 +482,8 @@ echo '</div>'; // Close the table-container div
 
 mysqli_close($conn);
 ?>
+
+
 
 
 

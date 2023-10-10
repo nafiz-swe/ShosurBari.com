@@ -95,7 +95,7 @@ require_once("includes/dbconn.php");
                                     </li>
                                     <li><a href="users.php">Users</a>
                                     </li>
-                                    <li><a href="dataphysical_marital.php">PysicalMarital</a>
+                                    <li><a href="dataphysical_marital.php">PhysicalMarital</a>
                                     </li>
                                     <li><a href="datalifestyle.php">LifeStyle</a>
                                     </li>
@@ -155,7 +155,7 @@ require_once("includes/dbconn.php");
                               </li>
                               <li><a href="users.php">Users</a>
                               </li>
-                              <li><a href="dataphysical_marital.php">PysicalMarital</a>
+                              <li><a href="dataphysical_marital.php">PhysicalMarital</a>
                               </li>
                               <li><a href="datalifestyle.php">LifeStyle</a>
                               </li>
@@ -345,7 +345,7 @@ $sql = "SELECT * FROM 5bd_family_information $limit OFFSET $start";
 $result = mysqli_query($conn, $sql);
 
 echo '<div class="table-container">';
-echo "<h1>বর্তমান এবং স্থায়ী ঠিকানা</h1>";
+echo "<h1>পারিবারিক ও সামাজিক তথ্য</h1>";
 
 echo '<div class="table-wrapper">';
 echo "<h3>Total number of user profiles: " . $userCount . "</h3>";
