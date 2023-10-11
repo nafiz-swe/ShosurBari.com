@@ -1,5 +1,7 @@
 <?php include_once("includes/basic_includes.php");?>
 <?php include_once("functions.php"); ?>
+
+
 <!DOCTYPE HTML>
 <html>
 
@@ -1651,7 +1653,50 @@ function createSlides(data) {
     // Calculate total biodata count
     $totalBiodataCount = $maleCount + $femaleCount;
     
-    mysqli_close($conn);
+
+
+
+
+  // Find Unique Visitors of my Website
+  // Get the visitor's IP address
+  $ip = $_SERVER['REMOTE_ADDR'];
+
+  // Check if the IP address is already in the unique_visitors table
+  $check_sql = "SELECT id FROM unique_visitors WHERE ip_address = ?";
+  $check_stmt = $conn->prepare($check_sql);
+  $check_stmt->bind_param("s", $ip);
+  $check_stmt->execute();
+  $check_stmt->store_result();
+
+  if ($check_stmt->num_rows === 0) {
+      // IP address is not in the database, meaning a unique visitor
+      $insert_sql = "INSERT INTO unique_visitors (ip_address, visit_time) VALUES (?, NOW())";
+      $insert_stmt = $conn->prepare($insert_sql);
+      $insert_stmt->bind_param("s", $ip);
+
+      if ($insert_stmt->execute()) {
+          // Successfully inserted a new unique visitor record
+      } else {
+          // Handle the insert error
+          echo "Error inserting new unique visitor: " . $conn->error;
+      }
+  }
+
+  // Retrieve counts for different time intervals
+  $last_year_sql = "SELECT COUNT(*) FROM unique_visitors WHERE visit_time >= DATE_SUB(NOW(), INTERVAL 1 YEAR)";
+  $last_month_sql = "SELECT COUNT(*) FROM unique_visitors WHERE visit_time >= DATE_SUB(NOW(), INTERVAL 1 MONTH)";
+  $last_week_sql = "SELECT COUNT(*) FROM unique_visitors WHERE visit_time >= DATE_SUB(NOW(), INTERVAL 1 WEEK)";
+  $last_24_hours_sql = "SELECT COUNT(*) FROM unique_visitors WHERE visit_time >= DATE_SUB(NOW(), INTERVAL 24 HOUR)";
+  $last_1_hour_sql = "SELECT COUNT(*) FROM unique_visitors WHERE visit_time >= DATE_SUB(NOW(), INTERVAL 1 HOUR)";
+
+  // Execute the queries to get counts
+  $last_year_count = $conn->query($last_year_sql)->fetch_row()[0];
+  $last_month_count = $conn->query($last_month_sql)->fetch_row()[0];
+  $last_week_count = $conn->query($last_week_sql)->fetch_row()[0];
+  $last_24_hours_count = $conn->query($last_24_hours_sql)->fetch_row()[0];
+  $last_1_hour_count = $conn->query($last_1_hour_sql)->fetch_row()[0];
+
+  mysqli_close($conn);
   ?>
     
 
@@ -1883,6 +1928,58 @@ function createSlides(data) {
 <!--=======  Footer End  =========-->
 
 
+
+<?php
+// Include the database connection file
+require_once("includes/dbconn.php");
+
+// Get the visitor's IP address
+$ip = $_SERVER['REMOTE_ADDR'];
+
+// Check if the IP address is already in the unique_visitors table
+$check_sql = "SELECT id FROM unique_visitors WHERE ip_address = ?";
+$check_stmt = $conn->prepare($check_sql);
+$check_stmt->bind_param("s", $ip);
+$check_stmt->execute();
+$check_stmt->store_result();
+
+if ($check_stmt->num_rows === 0) {
+    // IP address is not in the database, meaning a unique visitor
+    $insert_sql = "INSERT INTO unique_visitors (ip_address, visit_time) VALUES (?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+    $insert_stmt = $conn->prepare($insert_sql);
+    $insert_stmt->bind_param("s", $ip);
+
+    if ($insert_stmt->execute()) {
+        // Successfully inserted a new unique visitor record
+    } else {
+        // Handle the insert error
+        echo "Error inserting new unique visitor: " . $conn->error;
+    }
+} else {
+    // If you see this message, it means the IP is already in the database
+    echo "This IP address is already in the database.";
+}
+
+// Retrieve counts for different time intervals
+$last_year_sql = "SELECT COUNT(*) FROM unique_visitors WHERE DATE(visit_time) >= DATE_SUB(CURDATE(), INTERVAL 1 YEAR)";
+$last_month_sql = "SELECT COUNT(*) FROM unique_visitors WHERE DATE(visit_time) >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH)";
+$last_week_sql = "SELECT COUNT(*) FROM unique_visitors WHERE DATE(visit_time) >= DATE_SUB(CURDATE(), INTERVAL 1 WEEK)";
+$last_24_hours_sql = "SELECT COUNT(*) FROM unique_visitors WHERE DATE(visit_time) >= DATE_SUB(NOW(), INTERVAL 24 HOUR)";
+$last_1_hour_sql = "SELECT COUNT(*) FROM unique_visitors WHERE DATE(visit_time) >= DATE_SUB(NOW(), INTERVAL 1 HOUR)";
+
+// Execute the queries to get counts
+$last_year_count = $conn->query($last_year_sql)->fetch_row()[0];
+$last_month_count = $conn->query($last_month_sql)->fetch_row()[0];
+$last_week_count = $conn->query($last_week_sql)->fetch_row()[0];
+$last_24_hours_count = $conn->query($last_24_hours_sql)->fetch_row()[0];
+$last_1_hour_count = $conn->query($last_1_hour_sql)->fetch_row()[0];
+
+// Close the database connection
+$conn->close();
+?>
+
+
   
 </body>
 </html>	
+

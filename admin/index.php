@@ -106,118 +106,127 @@ if (!isset($_SESSION['id'])) {
                             </div>
                         </div>
                         <?php
-// Start or resume the session
-session_start();
+                           // Include your database connection
+                            require_once("includes/dbconn.php");
 
-// Include your database connection
-require_once("includes/dbconn.php");
+                            $totalViewCount = 0;
 
-// Function to capitalize the first letter of each word
-function capitalizeWords($str) {
-    return ucwords($str);
-}
+                            // Function to capitalize the first letter of each word
+                            function capitalizeWords($str) {
+                                return ucwords($str);
+                            }
 
-// Get the visitor's IP address
-$visitorIP = $_SERVER['REMOTE_ADDR'];
+                            // Get the visitor's IP address
+                            $visitorIP = $_SERVER['REMOTE_ADDR'];
 
-// Check if a unique visitor cookie is set
-if (!isset($_COOKIE['unique_visitor'])) {
-    // If the cookie is not set, consider the visitor as unique
-    $isUniqueVisitor = true;
+                            // Check if the visitor's IP is already recorded in the database
+                            $check_visitor_sql = "SELECT COUNT(*) AS visitor_count FROM page_views WHERE visitor_ip = '$visitorIP'";
+                            $check_result = $conn->query($check_visitor_sql);
 
-    // Set a cookie to mark the visitor as not unique for a specified time (e.g., 24 hours)
-    setcookie('unique_visitor', '1', time() + 86400, '/'); // 86400 seconds in a day
+                            if ($check_result) {
+                                $visitor_row = $check_result->fetch_assoc();
+                                $visitorCount = $visitor_row['visitor_count'];
 
-    // Record the visitor in the database with the formatted date and time
-    $visitDateTime = date("j F Y, g:i:s A"); // Get the current date and time in the desired format
-    $insert_visitor_sql = "INSERT INTO page_views (page_name, visitor_ip, visit_date) VALUES ('YourPageName', '$visitorIP', '$visitDateTime')";
-    $conn->query($insert_visitor_sql);
-} else {
-    $isUniqueVisitor = false;
-}
+                                // If the visitor is not recorded, add their IP to the database
+                                if ($visitorCount === 0) {
+                                    $add_visitor_sql = "INSERT INTO page_views (page_name, visitor_ip, view_count, last_update) VALUES ('Visitor Page', '$visitorIP', 1, NOW())";
+                                    $conn->query($add_visitor_sql);
+                                }
+                            }
 
-// Retrieve page view counts from the database
-$select_all_sql = "SELECT page_name, view_count, last_update FROM page_views WHERE page_name != 'YourPageName'";
-$result = $conn->query($select_all_sql);
+                            // Retrieve page view counts from the database
+                            $select_all_sql = "SELECT page_name, view_count, last_update FROM page_views WHERE page_name != 'Visitor Page'";
+                            $result = $conn->query($select_all_sql);
 
-// Calculate unique visitor counts for different time sectors
-$totalUniqueVisitors = 0;
-$lastYearUniqueVisitors = 0;
-$lastMonthUniqueVisitors = 0;
-$lastWeekUniqueVisitors = 0;
-$todayUniqueVisitors = 0;
+                            if ($result) {
+                                // Create an array to store the rows
+                                $rows = array();
 
-$currentDate = date("j F Y, g:i:s A"); // Get the current date and time in the desired format
-$lastYearDate = date("j F Y, g:i:s A", strtotime("-1 year"));
-$lastMonthDate = date("j F Y, g:i:s A", strtotime("-1 month"));
-$lastWeekDate = date("j F Y, g:i:s A", strtotime("-1 week"));
+                                while ($row = $result->fetch_assoc()) {
+                                    $pageName = $row['page_name'];
+                                    $viewCount = $row['view_count'];
+                                    $lastUpdate = $row['last_update'];
 
-$select_unique_sql = "SELECT DISTINCT visitor_ip, visit_date FROM page_views";
-$unique_result = $conn->query($select_unique_sql);
+                                    // Add the row to the array
+                                    $rows[] = array(
+                                        "pageName" => $pageName,
+                                        "viewCount" => $viewCount,
+                                        "lastUpdate" => $lastUpdate
+                                    );
 
-if ($unique_result) {
-    while ($row = $unique_result->fetch_assoc()) {
-        $visitDateTime = $row['visit_date'];
-        $visitorIP = $row['visitor_ip'];
+                                    // Add the view count to the total
+                                    $totalViewCount += $viewCount;
+                                }
 
-        $totalUniqueVisitors++;
+                                // Sort the array by the "View" column in descending order
+                                usort($rows, function($a, $b) {
+                                    return $b['viewCount'] - $a['viewCount'];
+                                });
 
-        if (strtotime($visitDateTime) >= strtotime($lastYearDate)) {
-            $lastYearUniqueVisitors++;
-        }
+                                echo "<table>";
+                                echo "<tr>
+                                    <th>Page Name</th>
+                                    <th>View</th>
+                                    <th>Last Visit</th>
+                                </tr>";
 
-        if (strtotime($visitDateTime) >= strtotime($lastMonthDate)) {
-            $lastMonthUniqueVisitors++;
-        }
+                                // Display the sorted rows
+                                foreach ($rows as $row) {
+                                    $pageName = $row['pageName'];
+                                    $viewCount = $row['viewCount'];
+                                    $lastUpdate = $row['lastUpdate'];
 
-        if (strtotime($visitDateTime) >= strtotime($lastWeekDate)) {
-            $lastWeekUniqueVisitors++;
-        }
+                                    // Extract just the page name without the URL parameter
+                                    $pageName = str_replace("get_view_count.php?page=", "", $pageName);
+                                    // Capitalize the first letter of each word in pageName
+                                    $pageName = capitalizeWords($pageName);
+                                    echo "<tr>
+                                        <td style=\"text-align:center;\">$pageName</td>
+                                        <td style=\"text-align:center;\">$viewCount</td>
+                                        <td>$lastUpdate</td>
+                                    </tr>";
+                                }
 
-        if ($visitDateTime >= $currentDate) {
-            $todayUniqueVisitors++;
-        }
-    }
-}
+                                echo "</table>";
 
-if ($result) {
-    echo "<table>";
-    echo "<tr>
-        <th>Page Name</th>
-        <th>View</th>
-        <th>Last Visit</th>
-    </tr>";
+                                // Add the view count to the total
+                                $totalViewCount += $viewCount;
 
-    while ($row = $result->fetch_assoc()) {
-        $pageName = $row['page_name'];
-        $viewCount = $row['view_count'];
-        $lastUpdate = $row['last_update'];
+                            } else {
+                                echo "Error retrieving page view counts: " . $conn->error;
+                            }
 
-        // Extract just the page name without the URL parameter
-        $pageName = str_replace("get_view_count.php?page=", "", $pageName);
-        // Capitalize the first letter of each word in pageName
-        $pageName = capitalizeWords($pageName);
-        echo "<tr>
-            <td style=\"text-align:center;\">$pageName</td>
-            <td style=\"text-align:center;\">$viewCount</td>
-            <td>$lastUpdate</td>
-        </tr>";
-    }
 
-    echo "</table>";
-}
 
-// Display the unique visitor counts in different sectors
-echo "<div id='total-unique-visitors'>Total Unique Visitors: $totalUniqueVisitors</div>";
-echo "<div id='last-year-unique-visitors'>Last Year Unique Visitors: $lastYearUniqueVisitors</div>";
-echo "<div id='last-month-unique-visitors'>Last Month Unique Visitors: $lastMonthUniqueVisitors</div>";
-echo "<div id='last-week-unique-visitors'>Last Week Unique Visitors: $lastWeekUniqueVisitors</div>";
-echo "<div id='today-unique-visitors'>Today's Unique Visitors: $todayUniqueVisitors</div>";
+                            
+                            // Retrieve total unique visitor count
+                            $total_visitor_sql = "SELECT COUNT(*) FROM unique_visitors";
+                            $total_visitor_count = $conn->query($total_visitor_sql)->fetch_row()[0];
 
-// Close the database connection
-$conn->close();
-?>
+                            // Retrieve last year unique visitor count
+                            $last_year_sql = "SELECT COUNT(*) FROM unique_visitors WHERE visit_time >= DATE_SUB(NOW(), INTERVAL 1 YEAR)";
+                            $last_year_count = $conn->query($last_year_sql)->fetch_row()[0];
 
+                            // Retrieve last month unique visitor count
+                            $last_month_sql = "SELECT COUNT(*) FROM unique_visitors WHERE visit_time >= DATE_SUB(NOW(), INTERVAL 1 MONTH)";
+                            $last_month_count = $conn->query($last_month_sql)->fetch_row()[0];
+
+                            // Retrieve last week unique visitor count
+                            $last_week_sql = "SELECT COUNT(*) FROM unique_visitors WHERE visit_time >= DATE_SUB(NOW(), INTERVAL 1 WEEK)";
+                            $last_week_count = $conn->query($last_week_sql)->fetch_row()[0];
+
+                            // Retrieve last 24 hours unique visitor count
+                            $last_24_hours_sql = "SELECT COUNT(*) FROM unique_visitors WHERE visit_time >= DATE_SUB(NOW(), INTERVAL 24 HOUR)";
+                            $last_24_hours_count = $conn->query($last_24_hours_sql)->fetch_row()[0];
+
+                            // Retrieve last 1 hour unique visitor count
+                            $last_1_hour_sql = "SELECT COUNT(*) FROM unique_visitors WHERE visit_time >= DATE_SUB(NOW(), INTERVAL 1 HOUR)";
+                            $last_1_hour_count = $conn->query($last_1_hour_sql)->fetch_row()[0];
+
+
+                            // Close the database connection
+                            $conn->close();
+                        ?>
 
 
                     </div>
@@ -341,54 +350,160 @@ $conn->close();
 
 
 
+
+
+
+    <!-- Start Status area -->
+    <div class="notika-status-area">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            <h2><span class="counter"><?php echo $total_visitor_count; ?></span></h2>
+                            <p>Total Website Traffics</p>
+                        </div>
+                        <div class="sparkline-bar-stats1">9,4,8,6,5,6,4,8,3,5,9,5</div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            <h2><span class="counter"> <?php echo $last_1_hour_count; ?></span></h2>
+                            <p>Last 1 Hour Visitors</p>
+                        </div>
+                        <div class="sparkline-bar-stats2">1,4,8,3,5,6,4,8,3,3,9,5</div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            <h2><span class="counter"><?php echo $last_24_hours_count; ?></span></h2>
+                            <p>Last 24 Hours Visitors</p>
+                        </div>
+                        <div class="sparkline-bar-stats3">4,2,8,2,5,6,3,8,3,5,9,5</div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            <h2><span class="counter"><?php echo $last_week_count; ?></span></h2>
+                            <p>Last Week Visitors</p>
+                        </div>
+                        <div class="sparkline-bar-stats4">2,4,8,4,5,7,4,7,3,5,7,5</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- End Status area-->
     
     <!-- Start Status area -->
     <div class="notika-status-area">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    
-                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
-                        <div class="website-traffic-ctn">
-                            <h2><span class="counter">50,000</span></h2>
-                            <p>Total Website Traffics</p>
-                        </div>
-                        <div class="sparkline-bar-stats1">9,4,8,6,5,6,4,8,3,5,9,5</div>
-                    </div>
-
-
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
-                        <div class="website-traffic-ctn">
-                            <h2><span class="counter">90,000</span>k</h2>
-                            <p>Website Impressions</p>
-                        </div>
-                        <div class="sparkline-bar-stats2">1,4,8,3,5,6,4,8,3,3,9,5</div>
-                    </div>
-                </div>
+                
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                     <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
                         <div class="website-traffic-ctn">
-                            <h2>$<span class="counter">40,000</span></h2>
-                            <p>Total Online Sales</p>
-                        </div>
-                        <div class="sparkline-bar-stats3">4,2,8,2,5,6,3,8,3,5,9,5</div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
-                        <div class="website-traffic-ctn">
-                            <h2><span class="counter">1,000</span></h2>
-                            <p>Total Support Tickets</p>
+                            <h2><span class="counter"><?php echo $last_month_count; ?></span></h2>
+                            <p>Last Month Visitors</p>
                         </div>
                         <div class="sparkline-bar-stats4">2,4,8,4,5,7,4,7,3,5,7,5</div>
                     </div>
                 </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            <h2><span class="counter"><?php echo $last_year_count; ?></span></h2>
+                            <p>Last Year Visitors</p>
+                        </div>
+                        <div class="sparkline-bar-stats1">9,4,8,6,5,6,4,8,3,5,9,5</div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            <h2><span class="counter">90,000</span>k</h2>
+                            <p>Total Customers</p>
+                        </div>
+                        <div class="sparkline-bar-stats2">1,4,8,3,5,6,4,8,3,3,9,5</div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            <h2><span class="counter">40,000</span></h2>
+                            <p>Total Biodata Sales</p>
+                        </div>
+                        <div class="sparkline-bar-stats3">3,5,8,4,7,9,4,8,9,5,9,5</div>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </div>
     <!-- End Status area-->
+
+
+        <!-- Start Status area -->
+        <div class="notika-status-area">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            <h2><span class="counter"><?php echo $total_visitor_count; ?></span></h2>
+                            <p>Total Bkash Payment</p>
+                        </div>
+                        <div class="sparkline-bar-stats1">9,4,8,6,5,6,4,8,3,5,9,5</div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            <h2><span class="counter"> <?php echo $last_year_count; ?></span></h2>
+                            <p>Total Rocket Payment</p>
+                        </div>
+                        <div class="sparkline-bar-stats2">1,4,8,3,5,6,4,8,3,3,9,5</div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            <h2><span class="counter"><?php echo $last_month_count; ?></span></h2>
+                            <p>Total Nagad Payment</p>
+                        </div>
+                        <div class="sparkline-bar-stats3">4,2,8,2,5,6,3,8,3,5,9,5</div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            <h2><span class="counter"><?php echo $last_week_count; ?></span></h2>
+                            <p>Total Amount</p>
+                        </div>
+                        <div class="sparkline-bar-stats4">2,4,8,4,5,7,4,7,3,5,7,5</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- End Status area-->
+
 
 
     <!-- Start Sale Statistic area-->
