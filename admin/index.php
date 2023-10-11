@@ -166,7 +166,7 @@ if (!isset($_SESSION['id'])) {
                                 echo "<table>";
                                 echo "<tr>
                                     <th>Page Name</th>
-                                    <th>View</th>
+                                    <th style=\"border: 1px solid #f0f0f0;\">View</th>
                                     <th>Last Visit</th>
                                 </tr>";
 
@@ -510,17 +510,8 @@ if (!isset($_SESSION['id'])) {
     <div class="sale-statistic-area">
         <div class="container">
             <div class="row">
-                <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12">
-                    <div class="sale-statistic-inner notika-shadow mg-tb-30">
-                        <div class="curved-inner-pro">
-                            <div class="curved-ctn">
-                                <h2>Sales Statistics</h2>
-                                <p>Vestibulum purus quam scelerisque, mollis nonummy metus</p>
-                            </div>
-                        </div>
-                        <div id="dynamic-chart" class="flot-chart dyn-ctn-fr bar-hm-three"></div>
-                    </div>
-                </div>
+
+
                 <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
                     <div class="statistic-right-area notika-shadow mg-tb-30 sm-res-mg-t-0">
                         <div class="past-day-statis">
@@ -557,6 +548,20 @@ if (!isset($_SESSION['id'])) {
                         </div>
                     </div>
                 </div>
+
+                            
+                <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12">
+                    <div class="sale-statistic-inner notika-shadow mg-tb-30">
+                        <div class="curved-inner-pro">
+                            <div class="curved-ctn">
+                                <h2>Sales Statistics</h2>
+                                <p>Vestibulum purus quam scelerisque, mollis nonummy metus</p>
+                            </div>
+                        </div>
+                        <div id="dynamic-chart" class="flot-chart dyn-ctn-fr bar-hm-three"></div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -565,7 +570,8 @@ if (!isset($_SESSION['id'])) {
  
     <style>
     th{
-        border: .7em solid #00c292;
+        background: #00c292;
+        color: #fff;
         padding: 4px;
         text-align: center;
     }
