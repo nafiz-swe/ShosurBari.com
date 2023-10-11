@@ -81,6 +81,8 @@ if (!isset($_SESSION['id'])) {
     <!-- modernizr JS
 		============================================ -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <!-- Page Views Count -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
 </head>
 
 <body>
@@ -166,8 +168,32 @@ if (!isset($_SESSION['id'])) {
 						<div class="dash-widget-visits"></div>
                         <div class="past-statistic-an">
                             <div class="past-statistic-ctn">
+                                
                                 <h3><span class="counter">3,20,000</span></h3>
                                 <p>Page Views</p>
+                                <div id="viewCountHome">Loading...</div>
+    <div id="viewCountSearch">Loading...</div>
+    <div id="viewCountAboutUs">Loading...</>
+    <div id="viewCountContactUs">Loading...</div>
+
+    <script>
+        $(document).ready(function() {
+            // Define an array of page names (without the .php extension)
+            var pages = ["home", "search", "about_us", "contact_us"];
+
+            // Fetch and display view counts for each page
+            for (var i = 0; i < pages.length; i++) {
+                var page = pages[i];
+                $.ajax({
+                    url: 'get_view_count.php?page=' + page, // Adjust the URL to your PHP script
+                    type: 'GET',
+                    success: function(data) {
+                        $('#viewCount' + page.replace("_", "")).html(data);
+                    }
+                });
+            }
+        });
+    </script>
                             </div>
                             <div class="past-statistic-graph">
                                 <div class="stats-bar"></div>

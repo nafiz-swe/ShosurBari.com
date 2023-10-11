@@ -362,9 +362,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ uploadphoto($id); }
 
 
 
+    <!--=======================================
+    How Many Visitors View This Page.
+    This Script Connected to get_view_count.php
+    and page_views Database Table
+    ========================================-->
+    <script>
+		$(document).ready(function() {
+		// Define an array of page names (without the .php extension)
+		var pages = ["photoupdate"];
+
+		// Fetch and display view counts for each page
+		for (var i = 0; i < pages.length; i++) {
+			var page = pages[i];
+			$.ajax({
+			url: 'get_view_count.php?page=' + page, // Adjust the URL to your PHP script
+			type: 'GET',
+			success: function(data) {
+			$('#viewCount' + page.replace("_", "")).html(data);
+			}
+			});
+		}
+		});
+  	</script>
 
 
-    <?php include_once("footer.php")?>
+	<!--=======  Footer Start ========-->
+	<?php include_once("footer.php");?>
+	<!--=======  Footer End  =========-->
+
+
+
     <!-- FlexSlider -->
     <script defer src="js/jquery.flexslider.js"></script>
         <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />

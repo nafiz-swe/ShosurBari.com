@@ -116,6 +116,29 @@ body {
 }
 </style>
 
-<h1> Git Push test</h1>
+<!--=======================================
+How Many Visitors View This Page.
+This Script Connected to get_view_count.php
+and page_views Database Table
+========================================-->
+<script>
+	$(document).ready(function() {
+	// Define an array of page names (without the .php extension)
+	var pages = ["404"];
+
+	// Fetch and display view counts for each page
+	for (var i = 0; i < pages.length; i++) {
+		var page = pages[i];
+		$.ajax({
+		url: 'get_view_count.php?page=' + page, // Adjust the URL to your PHP script
+		type: 'GET',
+		success: function(data) {
+		$('#viewCount' + page.replace("_", "")).html(data);
+		}
+		});
+	}
+	});
+</script>
+
 </body>
 </html>	

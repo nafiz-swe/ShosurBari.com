@@ -26,6 +26,7 @@
 <!--font-Awesome-->
 <!--Below Link Search Filter Settings Icon Spring -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 
 
@@ -1663,7 +1664,7 @@ function createSlides(data) {
   </div>
   <div class="card-content">
     <h1 class="card-title">সর্বমোট পাত্র</h1>
-      <h2><?php echo $maleCount; ?> </h2>
+      <h2 style="color: #2563eb;"><?php echo $maleCount; ?> </h2>
     <!-- <button class="card-btn one">code</button> -->
  </div>
 </div>
@@ -1674,7 +1675,7 @@ function createSlides(data) {
   </div>
   <div class="card-content">
     <h1 class="card-title">সর্বমোট পাত্রী</h1>
-    <h2><?php echo $femaleCount; ?></h2>
+    <h2  style="color: #db2777;"><?php echo $femaleCount; ?></h2>
     <!-- <button class="card-btn two">css3</button> -->
  </div>
 </div>
@@ -1685,7 +1686,7 @@ function createSlides(data) {
   </div>
   <div class="card-content">
     <h1 class="card-title">মোট পাত্রপাত্রী</h1>
-      <h2><?php echo $totalBiodataCount; ?></h2>
+      <h2 style="color: #f97316;"><?php echo $totalBiodataCount; ?></h2>
     <!-- <button class="card-btn three">html5</button> -->
  </div>
 </div>
@@ -1696,7 +1697,7 @@ function createSlides(data) {
   </div>
   <div class="card-content">
     <h1 class="card-title">সফল বিবাহ</h1>
-      <h2>100</h2>
+      <h2 style="color: #38ef7d;">100</h2>
     <!-- <button class="card-btn four">js</button> -->
  </div>
 </div>
@@ -1762,10 +1763,17 @@ function createSlides(data) {
   margin: 0 auto;
 }
 
+.card-content h2{
+  font-size: 30px;
+  margin-bottom: 20px;
+  margin-top: -10px;
+}
+
 .card-title{
   text-align: center;
   text-transform: uppercase;
-  font-size: 16px;
+  font-size: 17px;
+  color: black;
   margin-top: 10px;
   margin-bottom: 20px;
 }
@@ -1833,13 +1841,48 @@ function createSlides(data) {
 
 
 
-
   <!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
   -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
   --                   E   N   D                    --
   --      SHOSURBARI HOME PAGE / BODY CONTENT      --
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-  <?php include_once("footer.php");?>
+
+
+
+
+
+
+  <!--=======================================
+  How Many Visitors View This Page.
+  This Script Connected to get_view_count.php
+  and page_views Database Table
+  ========================================-->
+  <script>
+  $(document).ready(function() {
+  // Define an array of page names (without the .php extension)
+  var pages = ["index"];
+
+  // Fetch and display view counts for each page
+  for (var i = 0; i < pages.length; i++) {
+    var page = pages[i];
+    $.ajax({
+    url: 'get_view_count.php?page=' + page, // Adjust the URL to your PHP script
+    type: 'GET',
+    success: function(data) {
+    $('#viewCount' + page.replace("_", "")).html(data);
+    }
+    });
+  }
+  });
+  </script>
+
+
+<!--=======  Footer Start ========-->
+<?php include_once("footer.php");?>
+<!--=======  Footer End  =========-->
+
+
+  
 </body>
 </html>	
