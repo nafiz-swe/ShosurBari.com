@@ -1634,25 +1634,25 @@ function createSlides(data) {
 
   
   <?php
-          require_once("includes/dbconn.php");
+    require_once("includes/dbconn.php");
 
-        // Query to get male count
-        $maleQuery = "SELECT COUNT(*) as maleCount FROM 1bd_personal_physical WHERE biodatagender = 'পাত্রের বায়োডাটা'";
-        $maleResult = mysqli_query($conn, $maleQuery);
-        $maleData = mysqli_fetch_assoc($maleResult);
-        $maleCount = $maleData['maleCount'];
+    // Query to get male count
+    $maleQuery = "SELECT COUNT(*) as maleCount FROM 1bd_personal_physical WHERE biodatagender = 'পাত্রের বায়োডাটা'";
+    $maleResult = mysqli_query($conn, $maleQuery);
+    $maleData = mysqli_fetch_assoc($maleResult);
+    $maleCount = $maleData['maleCount'];
 
-        // Query to get female count
-        $femaleQuery = "SELECT COUNT(*) as femaleCount FROM 1bd_personal_physical WHERE biodatagender = 'পাত্রীর বায়োডাটা'";
-        $femaleResult = mysqli_query($conn, $femaleQuery);
-        $femaleData = mysqli_fetch_assoc($femaleResult);
-        $femaleCount = $femaleData['femaleCount'];
+    // Query to get female count
+    $femaleQuery = "SELECT COUNT(*) as femaleCount FROM 1bd_personal_physical WHERE biodatagender = 'পাত্রীর বায়োডাটা'";
+    $femaleResult = mysqli_query($conn, $femaleQuery);
+    $femaleData = mysqli_fetch_assoc($femaleResult);
+    $femaleCount = $femaleData['femaleCount'];
 
-        // Calculate total biodata count
-        $totalBiodataCount = $maleCount + $femaleCount;
-        
-        mysqli_close($conn);
-    ?>
+    // Calculate total biodata count
+    $totalBiodataCount = $maleCount + $femaleCount;
+    
+    mysqli_close($conn);
+  ?>
     
 
 
