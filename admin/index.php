@@ -198,7 +198,7 @@ if (!isset($_SESSION['id'])) {
 
 
 
-                            
+                            // Unique Visitor Activity List START
                             // Retrieve total unique visitor count
                             $total_visitor_sql = "SELECT COUNT(*) FROM unique_visitors";
                             $total_visitor_count = $conn->query($total_visitor_sql)->fetch_row()[0];
@@ -222,12 +222,54 @@ if (!isset($_SESSION['id'])) {
                             // Retrieve last 1 hour unique visitor count
                             $last_1_hour_sql = "SELECT COUNT(*) FROM unique_visitors WHERE visit_time >= DATE_SUB(NOW(), INTERVAL 1 HOUR)";
                             $last_1_hour_count = $conn->query($last_1_hour_sql)->fetch_row()[0];
+                            // Unique Visitor Activity List END
+
+
+
+                            // Customers Activity and Sale Biodata Result START
+                            // Query to get the total number of customers
+                            $sql = "SELECT COUNT(*) as totalCustomers FROM customer";
+                            $result = mysqli_query($conn, $sql);
+                            $row = mysqli_fetch_assoc($result);
+                            $totalCustomers = $row['totalCustomers'];
+
+                            // Calculate the totals for each payment method
+                            $bkashTotal = mysqli_query($conn, "SELECT COUNT(*) as count FROM customer WHERE payment_method = 'bkash'")->fetch_assoc()['count'];
+                            $nagadTotal = mysqli_query($conn, "SELECT COUNT(*) as count FROM customer WHERE payment_method = 'nagad'")->fetch_assoc()['count'];
+                            $roketTotal = mysqli_query($conn, "SELECT COUNT(*) as count FROM customer WHERE payment_method = 'roket'")->fetch_assoc()['count'];
+
+                            // Query to get the total number of distinct user_ids in the 'customer' table
+                            $sql = "SELECT COUNT(DISTINCT user_id) as totalUsers FROM customer";
+                            $result = mysqli_query($conn, $sql);
+                            $row = mysqli_fetch_assoc($result);
+                            $totalUsers = $row['totalUsers'];
+                            // Customers Activity and Sale Biodata Result END
+
+
+                            // Calculate the total separate data count in the 'request_biodata_number' column
+                            $totalSeparateDataCount = 0;
+
+                            $sql = "SELECT request_biodata_number FROM customer";
+                            $result = mysqli_query($conn, $sql);
+
+                            if ($result) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    $request_biodata_number = $row['request_biodata_number'];
+                                    // Use regular expression to split the data using any special characters or spaces
+                                    $dataPoints = preg_split('/[ ,\-\_&:\.]+/', $request_biodata_number);
+                                    // Count the number of separate data points and add it to the total count
+                                    $totalSeparateDataCount += count($dataPoints);
+                                }
+                                mysqli_free_result($result);
+                            } else {
+                                echo "Error in SQL query: " . mysqli_error($conn);
+                            }
 
 
                             // Close the database connection
                             $conn->close();
+                            
                         ?>
-
 
                     </div>
                 </div>
@@ -243,12 +285,12 @@ if (!isset($_SESSION['id'])) {
                         </div>
                         <div class="realtime-visitor-ctn">
                             <div class="realtime-vst-sg">
-                                <h4><span class="counter">4,35,456</span></h4>
-                                <p>Visitors last 24h</p>
+                                <h4><span class="counter"><?php echo $last_1_hour_count; ?></span></h4>
+                                <p>Visitors last 1h</p>
                             </div>
                             <div class="realtime-vst-sg">
-                                <h4><span class="counter">4,566</span></h4>
-                                <p>Visitors last 30m</p>
+                                <h4><span class="counter"><?php echo $last_24_hours_count; ?></span></h4>
+                                <p>Visitors last 24h</p>
                             </div>
                         </div>
                         <div class="realtime-map">
@@ -340,6 +382,26 @@ if (!isset($_SESSION['id'])) {
                                 </div>
                             </div>
                         </div>
+
+
+                            <div class="statistic-right-area notika-shadow mg-tb-30 sm-res-mg-t-0">
+                                <div class="past-day-statis">
+                                    <h2>For The Past 30 Days</h2>
+                                    <p>Fusce eget dolor id justo luctus the commodo vel pharetra nisi. Donec velit of libero.</p>
+                                </div>
+                                <div class="dash-widget-visits"></div>
+                                <div class="past-statistic-an">
+                                    <div class="past-statistic-ctn">
+                                    <h3><span class="counter"><?php echo $totalViewCount; ?></span></h3>
+                                    <p>Total Page Views</p>
+                                    </div>
+                                    <div class="past-statistic-graph">
+                                        <div class="stats-bar"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+
                     </div>
                 </div>
 
@@ -371,8 +433,8 @@ if (!isset($_SESSION['id'])) {
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                     <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
                         <div class="website-traffic-ctn">
-                            <h2><span class="counter"> <?php echo $last_1_hour_count; ?></span></h2>
-                            <p>Last 1 Hour Visitors</p>
+                            <h2><span class="counter"> <?php echo $last_week_count; ?></span></h2>
+                            <p>Last Week Visitors</p>
                         </div>
                         <div class="sparkline-bar-stats2">1,4,8,3,5,6,4,8,3,3,9,5</div>
                     </div>
@@ -381,8 +443,8 @@ if (!isset($_SESSION['id'])) {
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                     <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
                         <div class="website-traffic-ctn">
-                            <h2><span class="counter"><?php echo $last_24_hours_count; ?></span></h2>
-                            <p>Last 24 Hours Visitors</p>
+                            <h2><span class="counter"><?php echo $last_month_count; ?></span></h2>
+                            <p>Last Month Visitors</p>
                         </div>
                         <div class="sparkline-bar-stats3">4,2,8,2,5,6,3,8,3,5,9,5</div>
                     </div>
@@ -391,8 +453,8 @@ if (!isset($_SESSION['id'])) {
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                     <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
                         <div class="website-traffic-ctn">
-                            <h2><span class="counter"><?php echo $last_week_count; ?></span></h2>
-                            <p>Last Week Visitors</p>
+                            <h2><span class="counter"><?php echo $last_year_count; ?></span></h2>
+                            <p>Last Year Visitors</p>
                         </div>
                         <div class="sparkline-bar-stats4">2,4,8,4,5,7,4,7,3,5,7,5</div>
                     </div>
@@ -411,8 +473,8 @@ if (!isset($_SESSION['id'])) {
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                     <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
                         <div class="website-traffic-ctn">
-                            <h2><span class="counter"><?php echo $last_month_count; ?></span></h2>
-                            <p>Last Month Visitors</p>
+                            <h2><span class="counter"><?php echo $totalCustomers; ?></span></h2>
+                            <p>Total Customers</p>
                         </div>
                         <div class="sparkline-bar-stats4">2,4,8,4,5,7,4,7,3,5,7,5</div>
                     </div>
@@ -421,8 +483,8 @@ if (!isset($_SESSION['id'])) {
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                     <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
                         <div class="website-traffic-ctn">
-                            <h2><span class="counter"><?php echo $last_year_count; ?></span></h2>
-                            <p>Last Year Visitors</p>
+                            <h2><span class="counter"><?php echo $totalUsers; ?></span></h2>
+                            <p>Registered Customers</p>
                         </div>
                         <div class="sparkline-bar-stats1">9,4,8,6,5,6,4,8,3,5,9,5</div>
                     </div>
@@ -431,8 +493,8 @@ if (!isset($_SESSION['id'])) {
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                     <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
                         <div class="website-traffic-ctn">
-                            <h2><span class="counter">90,000</span>k</h2>
-                            <p>Total Customers</p>
+                            <h2><span class="counter"><?php echo $totalSeparateDataCount; ?></span></h2>
+                            <p>Total Biodata Sales</p>
                         </div>
                         <div class="sparkline-bar-stats2">1,4,8,3,5,6,4,8,3,3,9,5</div>
                     </div>
@@ -441,8 +503,8 @@ if (!isset($_SESSION['id'])) {
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                     <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
                         <div class="website-traffic-ctn">
-                            <h2><span class="counter">40,000</span></h2>
-                            <p>Total Biodata Sales</p>
+                            <h2><span class="counter"><?php echo $biodatasels; ?></span></h2>
+                            <p>Last Biodata Sales Time</p>
                         </div>
                         <div class="sparkline-bar-stats3">3,5,8,4,7,9,4,8,9,5,9,5</div>
                     </div>
@@ -462,7 +524,7 @@ if (!isset($_SESSION['id'])) {
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                     <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
                         <div class="website-traffic-ctn">
-                            <h2><span class="counter"><?php echo $total_visitor_count; ?></span></h2>
+                            <h2><span class="counter"><?php echo $bkashTotal; ?></span></h2>
                             <p>Total Bkash Payment</p>
                         </div>
                         <div class="sparkline-bar-stats1">9,4,8,6,5,6,4,8,3,5,9,5</div>
@@ -472,7 +534,7 @@ if (!isset($_SESSION['id'])) {
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                     <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
                         <div class="website-traffic-ctn">
-                            <h2><span class="counter"> <?php echo $last_year_count; ?></span></h2>
+                            <h2><span class="counter"> <?php echo $roketTotal; ?></span></h2>
                             <p>Total Rocket Payment</p>
                         </div>
                         <div class="sparkline-bar-stats2">1,4,8,3,5,6,4,8,3,3,9,5</div>
@@ -482,7 +544,7 @@ if (!isset($_SESSION['id'])) {
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                     <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
                         <div class="website-traffic-ctn">
-                            <h2><span class="counter"><?php echo $last_month_count; ?></span></h2>
+                            <h2><span class="counter"><?php echo $nagadTotal; ?></span></h2>
                             <p>Total Nagad Payment</p>
                         </div>
                         <div class="sparkline-bar-stats3">4,2,8,2,5,6,3,8,3,5,9,5</div>
