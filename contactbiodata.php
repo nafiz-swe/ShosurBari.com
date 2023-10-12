@@ -134,13 +134,14 @@ error_reporting(0);
             <label for="edit-name">How many Biodatas do you want to contact?</label> <br>
                 <select name="biodata_quantities" id="biodata_quantities" required>
                 <option value="" disabled selected>Biodata Quantities</option>
-                    <option value="1 Biodata 70tk">1 Biodata</option>
-                    <option value="2 Biodata 130tk">2 Biodata</option>
-                    <option value="3 Biodata 190tk">3 Biodata</option>
-                    <option value="4 Biodata 245tk">4 Biodata</option>
-                    <option value="5 Biodata 295tk">5 Biodata</option>
+                    <option value="1 Biodata 145 Tk">1 Biodata</option>
+                    <option value="2 Biodata 270 Tk">2 Biodata</option>
+                    <option value="3 Biodata 375 Tk">3 Biodata</option>
+                    <option value="4 Biodata 460 Tk">4 Biodata</option>
+                    <option value="5 Biodata 525 Tk">5 Biodata</option>
+                    <option value="10 Biodata 990 Tk">10 Biodata</option>
                 </select>
-                <div id="payment-message" class="form-group" style="display: none;">Please pay <span id="payment-amount">70</span> tk to continue.</div>
+                <div id="payment-message" class="form-group" style="display: none;">Please pay <span id="payment-amount">70</span> Tk to continue.</div>
             </div>
             
             <div class="shosurbari-biodata-field">
@@ -231,11 +232,12 @@ error_reporting(0);
 
     <script>
         let paymentOptions = {
-            '1 Biodata 70tk': 70,
-            '2 Biodata 130tk': 130,
-            '3 Biodata 190tk': 190,
-            '4 Biodata 245tk': 245,
-            '5 Biodata 295tk': 295
+            '1 Biodata 145 Tk': 145,
+            '2 Biodata 270 Tk': 270,
+            '3 Biodata 375 Tk': 375,
+            '4 Biodata 460 Tk': 460,
+            '5 Biodata 525 Tk': 525,
+            '10 Biodata 990 Tk': 990
         }
         let paymentMethodElements = document.querySelectorAll('.payment-method');
         let paymentMessageElement = document.querySelector('#payment-message');

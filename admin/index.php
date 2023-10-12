@@ -226,6 +226,9 @@ if (!isset($_SESSION['id'])) {
 
 
 
+
+
+
                             // Customers Activity and Sale Biodata Result START
                             // Query to get the total number of customers
                             $sql = "SELECT COUNT(*) as totalCustomers FROM customer";
@@ -246,6 +249,52 @@ if (!isset($_SESSION['id'])) {
                             // Customers Activity and Sale Biodata Result END
 
 
+
+
+                            // Which Package Howmany Sale START
+                            // Value 1: Biodata 145 Tk
+                            $sqlValue1 = "SELECT COUNT(*) as countValue1 FROM customer WHERE biodata_quantities = '1 Biodata 145 Tk'";
+                            $resultValue1 = mysqli_query($conn, $sqlValue1);
+                            $rowValue1 = mysqli_fetch_assoc($resultValue1);
+                            $countValue1 = $rowValue1['countValue1'];
+
+                            // Value 2: Biodata 270 Tk
+                            $sqlValue2 = "SELECT COUNT(*) as countValue2 FROM customer WHERE biodata_quantities = '2 Biodata 270 Tk'";
+                            $resultValue2 = mysqli_query($conn, $sqlValue2);
+                            $rowValue2 = mysqli_fetch_assoc($resultValue2);
+                            $countValue2 = $rowValue2['countValue2'];
+
+                            // Value 3: Biodata 375 Tk
+                            $sqlValue3 = "SELECT COUNT(*) as countValue3 FROM customer WHERE biodata_quantities = '3 Biodata 375 Tk'";
+                            $resultValue3 = mysqli_query($conn, $sqlValue3);
+                            $rowValue3 = mysqli_fetch_assoc($resultValue3);
+                            $countValue3 = $rowValue3['countValue3'];
+
+                            // Value 4: Biodata 460 Tk
+                            $sqlValue4 = "SELECT COUNT(*) as countValue4 FROM customer WHERE biodata_quantities = '4 Biodata 460 Tk'";
+                            $resultValue4 = mysqli_query($conn, $sqlValue4);
+                            $rowValue4 = mysqli_fetch_assoc($resultValue4);
+                            $countValue4 = $rowValue4['countValue4'];
+
+                            // Value 5: Biodata 525 Tk
+                            $sqlValue5 = "SELECT COUNT(*) as countValue5 FROM customer WHERE biodata_quantities = '5 Biodata 525 Tk'";
+                            $resultValue5 = mysqli_query($conn, $sqlValue5);
+                            $rowValue5 = mysqli_fetch_assoc($resultValue5);
+                            $countValue5 = $rowValue5['countValue5'];
+
+                            // Value 10: Biodata 990 Tk
+                            $sqlValue10 = "SELECT COUNT(*) as countValue10 FROM customer WHERE biodata_quantities = '10 Biodata 990 Tk'";
+                            $resultValue10 = mysqli_query($conn, $sqlValue10);
+                            $rowValue10 = mysqli_fetch_assoc($resultValue10);
+                            $countValue10 = $rowValue10['countValue10'];
+                            // Now you can use $countValue1, $countValue2, etc., to access the count for each value.
+                            // Which Package Howmany Sale END
+
+
+
+
+
+                            // Total Biodata Sale Count START
                             // Calculate the total separate data count in the 'request_biodata_number' column
                             $totalSeparateDataCount = 0;
 
@@ -264,11 +313,73 @@ if (!isset($_SESSION['id'])) {
                             } else {
                                 echo "Error in SQL query: " . mysqli_error($conn);
                             }
+                            // Total Biodata Sale Count End
+
+
+
+                            // Total Profit Amount START
+                            // Define the values to search for
+                            $valuesToFind = [145, 270, 375, 460, 525, 990];
+
+                            // Initialize a variable to store the sum
+                            $sum = 0;
+
+                            // Query the database to retrieve the relevant data
+                            $query = "SELECT biodata_quantities FROM customer";
+                            $result = mysqli_query($conn, $query);
+
+                            if ($result) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    // Extract numeric values from the column
+                                    $data = $row['biodata_quantities'];
+                                    
+                                    // Use a regular expression to extract numbers from the text
+                                    preg_match_all('/\d+/', $data, $matches);
+                                    $quantities = $matches[0];
+                                    
+                                    // Loop through the extracted numeric values and add them to the sum if they match the desired values
+                                    foreach ($quantities as $quantity) {
+                                        $quantity = (int) $quantity;
+                                        if (in_array($quantity, $valuesToFind)) {
+                                            $sum += $quantity;
+                                        }
+                                    }
+                                }
+                            } else {
+                                echo "Error in SQL query: " . mysqli_error($conn);
+                            }
+                            // Total Profit Amount End
+
+
+
+                            // Last Time Show, Sale Biodata START
+                            function getRequestDateForLastCustomerId($conn) {
+                                // Query to retrieve the last inserted record's request_date
+                                $sql = "SELECT request_date FROM customer WHERE id_customer = (SELECT MAX(id_customer) FROM customer)";
+                                $result = mysqli_query($conn, $sql);
+
+                                if ($result) {
+                                    if (mysqli_num_rows($result) > 0) {
+                                        $row = mysqli_fetch_assoc($result);
+                                        $lastRequestDate = $row['request_date'];
+
+                                        return $lastRequestDate;
+                                    } else {
+                                        return "No records found"; // Handle the case where no records exist in the table
+                                    }
+                                } else {
+                                    echo "Error in SQL query: " . mysqli_error($conn);
+                                    return "Error in SQL query";
+                                }
+                            }
+
+                            // Call the function to get the request_date for the last customer ID
+                            $lastRequestDate = getRequestDateForLastCustomerId($conn);
+                            // Last Time Show, Sale Biodata END
 
 
                             // Close the database connection
-                            $conn->close();
-                            
+                            $conn->close(); 
                         ?>
 
                     </div>
@@ -386,14 +497,12 @@ if (!isset($_SESSION['id'])) {
 
                             <div class="statistic-right-area notika-shadow mg-tb-30 sm-res-mg-t-0">
                                 <div class="past-day-statis">
-                                    <h2>For The Past 30 Days</h2>
-                                    <p>Fusce eget dolor id justo luctus the commodo vel pharetra nisi. Donec velit of libero.</p>
+                                    <h2>For The All Page Total Views</h2>
                                 </div>
-                                <div class="dash-widget-visits"></div>
                                 <div class="past-statistic-an">
                                     <div class="past-statistic-ctn">
-                                    <h3><span class="counter"><?php echo $totalViewCount; ?></span></h3>
-                                    <p>Total Page Views</p>
+                                        <h3><span class="counter"><?php echo $totalViewCount; ?></span></h3>
+                                        <p>Total Page Views</p>
                                     </div>
                                     <div class="past-statistic-graph">
                                         <div class="stats-bar"></div>
@@ -421,7 +530,7 @@ if (!isset($_SESSION['id'])) {
             <div class="row">
 
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                    <div style="background: #0dabe229;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
                         <div class="website-traffic-ctn">
                             <h2><span class="counter"><?php echo $total_visitor_count; ?></span></h2>
                             <p>Total Website Traffics</p>
@@ -431,7 +540,7 @@ if (!isset($_SESSION['id'])) {
                 </div>
 
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                    <div style="background: #0dabe229;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
                         <div class="website-traffic-ctn">
                             <h2><span class="counter"> <?php echo $last_week_count; ?></span></h2>
                             <p>Last Week Visitors</p>
@@ -441,7 +550,7 @@ if (!isset($_SESSION['id'])) {
                 </div>
 
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                    <div style="background: #0dabe229;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
                         <div class="website-traffic-ctn">
                             <h2><span class="counter"><?php echo $last_month_count; ?></span></h2>
                             <p>Last Month Visitors</p>
@@ -451,7 +560,7 @@ if (!isset($_SESSION['id'])) {
                 </div>
                 
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                    <div style="background: #0dabe229;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
                         <div class="website-traffic-ctn">
                             <h2><span class="counter"><?php echo $last_year_count; ?></span></h2>
                             <p>Last Year Visitors</p>
@@ -471,7 +580,7 @@ if (!isset($_SESSION['id'])) {
             <div class="row">
                 
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                    <div style="background: #0a11c526;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
                         <div class="website-traffic-ctn">
                             <h2><span class="counter"><?php echo $totalCustomers; ?></span></h2>
                             <p>Total Customers</p>
@@ -481,7 +590,7 @@ if (!isset($_SESSION['id'])) {
                 </div>
 
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                    <div style="background: #0a11c526;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
                         <div class="website-traffic-ctn">
                             <h2><span class="counter"><?php echo $totalUsers; ?></span></h2>
                             <p>Registered Customers</p>
@@ -491,7 +600,7 @@ if (!isset($_SESSION['id'])) {
                 </div>
 
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                    <div style="background: #0a11c526;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
                         <div class="website-traffic-ctn">
                             <h2><span class="counter"><?php echo $totalSeparateDataCount; ?></span></h2>
                             <p>Total Biodata Sales</p>
@@ -501,9 +610,9 @@ if (!isset($_SESSION['id'])) {
                 </div>
 
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                    <div style="background: #0a11c526;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
                         <div class="website-traffic-ctn">
-                            <h2><span class="counter"><?php echo $biodatasels; ?></span></h2>
+                        <h2 style="font-size: 15px; margin-top: 4px; margin-bottom: 0px; line-height: 24px;"><?php echo $lastRequestDate; ?></h2>
                             <p>Last Biodata Sales Time</p>
                         </div>
                         <div class="sparkline-bar-stats3">3,5,8,4,7,9,4,8,9,5,9,5</div>
@@ -516,13 +625,13 @@ if (!isset($_SESSION['id'])) {
     <!-- End Status area-->
 
 
-        <!-- Start Status area -->
-        <div class="notika-status-area">
+    <!-- Start Status area -->
+    <div class="notika-status-area">
         <div class="container">
             <div class="row">
 
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                    <div style="background: #e2470e1c;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
                         <div class="website-traffic-ctn">
                             <h2><span class="counter"><?php echo $bkashTotal; ?></span></h2>
                             <p>Total Bkash Payment</p>
@@ -532,7 +641,7 @@ if (!isset($_SESSION['id'])) {
                 </div>
 
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                    <div style="background: #e2470e1c;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
                         <div class="website-traffic-ctn">
                             <h2><span class="counter"> <?php echo $roketTotal; ?></span></h2>
                             <p>Total Rocket Payment</p>
@@ -542,7 +651,7 @@ if (!isset($_SESSION['id'])) {
                 </div>
 
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                    <div style="background: #e2470e1c;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
                         <div class="website-traffic-ctn">
                             <h2><span class="counter"><?php echo $nagadTotal; ?></span></h2>
                             <p>Total Nagad Payment</p>
@@ -552,10 +661,10 @@ if (!isset($_SESSION['id'])) {
                 </div>
                 
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                    <div style="background: #e2470e1c;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
                         <div class="website-traffic-ctn">
-                            <h2><span class="counter"><?php echo $last_week_count; ?></span></h2>
-                            <p>Total Amount</p>
+                        <h2><?php echo $sum; ?> ৳</h2>
+                            <p>Net Income</p>
                         </div>
                         <div class="sparkline-bar-stats4">2,4,8,4,5,7,4,7,3,5,7,5</div>
                     </div>
@@ -567,6 +676,105 @@ if (!isset($_SESSION['id'])) {
     <!-- End Status area-->
 
 
+    <!-- Start Pakeges area -->
+    <div class="notika-status-area">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div style="background: #e2470e1c;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            <h2><span class="counter"><?php echo $totalCustomers; ?> </span> ৳</h2>
+                            <p>Today Sale of Amount</p>
+                        </div>
+                        <div class="sparkline-bar-stats4">2,4,8,4,5,7,4,7,3,5,7,5</div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div style="background: #e2470e1c;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            <h2><?php echo $totalUsers; ?>  ৳</h2>
+                            <p>Last Week Sale of Amount</p>
+                        </div>
+                        <div class="sparkline-bar-stats1">9,4,8,6,5,6,4,8,3,5,9,5</div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div style="background: #07e27e2b;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            <h2><?php echo $countValue1; ?></h2>
+                            <p>Package [1 SbBd 145 Tk]</p>
+                        </div>
+                        <div class="sparkline-bar-stats2">1,4,8,3,5,6,4,8,3,3,9,5</div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div style="background: #07e27e2b;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                        <h2><?php echo $countValue2; ?></h2>
+                        <p>Package [2 SbBd 270 Tk]</p>
+                        </div>
+                        <div class="sparkline-bar-stats3">3,5,8,4,7,9,4,8,9,5,9,5</div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="notika-status-area">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div style="background: #07e27e2b;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            <h2><?php echo $countValue3; ?></h2>
+                            <p>Package [3 SbBd 375 Tk]</p>
+                        </div>
+                        <div class="sparkline-bar-stats1">9,4,8,6,5,6,4,8,3,5,9,5</div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div style="background: #07e27e2b;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            <h2><?php echo $countValue4; ?></h2>
+                            <p>Package [4 SbBd 460 Tk]</p>
+                        </div>
+                        <div class="sparkline-bar-stats2">1,4,8,3,5,6,4,8,3,3,9,5</div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div style="background: #07e27e2b;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            <h2><?php echo $countValue5; ?></h2>
+                            <p>Package [5 SbBd 525 Tk]</p>
+                        </div>
+                        <div class="sparkline-bar-stats3">4,2,8,2,5,6,3,8,3,5,9,5</div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div style="background: #07e27e2b;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                        <h2><?php echo $countValue10; ?></h2>
+                        <p>Package [10 SbBd 990 Tk]</p>
+                        </div>
+                        <div class="sparkline-bar-stats4">2,4,8,4,5,7,4,7,3,5,7,5</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- End Pakeges area-->
+
 
     <!-- Start Sale Statistic area-->
     <div class="sale-statistic-area">
@@ -577,8 +785,7 @@ if (!isset($_SESSION['id'])) {
                 <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
                     <div class="statistic-right-area notika-shadow mg-tb-30 sm-res-mg-t-0">
                         <div class="past-day-statis">
-                            <h2>For The Past 30 Days</h2>
-                            <p>Fusce eget dolor id justo luctus the commodo vel pharetra nisi. Donec velit of libero.</p>
+                            <h2>For All Page Total Views</h2>
                         </div>
 						<div class="dash-widget-visits"></div>
                         <div class="past-statistic-an">
