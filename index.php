@@ -1568,7 +1568,7 @@ function createSlides(data) {
         $("#flexiselDemo3").flexisel({
           visibleItems: 4,
           animationSpeed: 700,
-          autoPlay:false,
+          autoPlay:true,
           autoPlaySpeed: 5000,    		
           pauseOnHover: true,
           enableResponsiveBreakpoints: true,

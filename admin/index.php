@@ -317,38 +317,127 @@ if (!isset($_SESSION['id'])) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
                             // Total Profit Amount START
-                            // Define the values to search for
-                            $valuesToFind = [145, 270, 375, 460, 525, 990];
+// Define the values to search for
+$valuesToFind = [145, 270, 375, 460, 525, 990];
 
-                            // Initialize a variable to store the sum
-                            $sum = 0;
+// Initialize variables to store sums for different time periods
+$totalSum = 0; // Total sum
+$todaySum = 0; // Sum for today
+$thisWeekSum = 0; // Sum for this week
+$lastWeekSum = 0; // Sum for the last week
+$thisMonthSum = 0; // Sum for this month
+$lastMonthSum = 0; // Sum for last month
+$thisYearSum = 0; // Sum for this year
+$lastYearSum = 0; // Sum for last year
 
-                            // Query the database to retrieve the relevant data
-                            $query = "SELECT biodata_quantities FROM customer";
-                            $result = mysqli_query($conn, $query);
+// Get current date and time
+$currentDateTime = date("Y-m-d H:i:s");
 
-                            if ($result) {
-                                while ($row = mysqli_fetch_assoc($result)) {
-                                    // Extract numeric values from the column
-                                    $data = $row['biodata_quantities'];
-                                    
-                                    // Use a regular expression to extract numbers from the text
-                                    preg_match_all('/\d+/', $data, $matches);
-                                    $quantities = $matches[0];
-                                    
-                                    // Loop through the extracted numeric values and add them to the sum if they match the desired values
-                                    foreach ($quantities as $quantity) {
-                                        $quantity = (int) $quantity;
-                                        if (in_array($quantity, $valuesToFind)) {
-                                            $sum += $quantity;
-                                        }
-                                    }
-                                }
-                            } else {
-                                echo "Error in SQL query: " . mysqli_error($conn);
-                            }
-                            // Total Profit Amount End
+// Get the date for one week ago from the current date
+$oneWeekAgo = date("Y-m-d H:i:s", strtotime("-1 week"));
+
+// Get the first day of the current month
+$firstDayOfThisMonth = date("Y-m-01 00:00:00");
+
+// Get the first day of the previous month
+$firstDayOfLastMonth = date("Y-m-01 00:00:00", strtotime("-1 month"));
+
+// Get the first day of the current year
+$firstDayOfThisYear = date("Y-01-01 00:00:00");
+
+// Get the first day of the previous year
+$firstDayOfLastYear = date("Y-01-01 00:00:00", strtotime("-1 year"));
+
+// Query the database to retrieve relevant data
+$query = "SELECT biodata_quantities, request_date FROM customer";
+$result = mysqli_query($conn, $query);
+
+if ($result) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $data = $row['biodata_quantities'];
+        $requestDate = strtotime($row['request_date']);
+
+        // Use a regular expression to extract numbers from the text
+        preg_match_all('/\d+/', $data, $matches);
+        $quantities = $matches[0];
+
+        foreach ($quantities as $quantity) {
+            $quantity = (int) $quantity;
+            if (in_array($quantity, $valuesToFind)) {
+                $totalSum += $quantity;
+
+                // Check for different time periods
+                if ($requestDate >= strtotime($oneWeekAgo)) {
+                    $lastWeekSum += $quantity;
+                }
+
+                // Check for today
+                if (date("Y-m-d", $requestDate) == date("Y-m-d")) {
+                    $todaySum += $quantity;
+                }
+
+                // Check for this week (starting from Sunday)
+                if (date("W", $requestDate) == date("W")) {
+                    $thisWeekSum += $quantity;
+                }
+
+                // Check for this month
+                if ($requestDate >= strtotime($firstDayOfThisMonth)) {
+                    $thisMonthSum += $quantity;
+                }
+
+                // Check for last month
+                if ($requestDate >= strtotime($firstDayOfLastMonth) && $requestDate < strtotime($firstDayOfThisMonth)) {
+                    $lastMonthSum += $quantity;
+                }
+
+                // Check for this year
+                if ($requestDate >= strtotime($firstDayOfThisYear)) {
+                    $thisYearSum += $quantity;
+                }
+
+                // Check for last year
+                if ($requestDate >= strtotime($firstDayOfLastYear) && $requestDate < strtotime($firstDayOfThisYear)) {
+                    $lastYearSum += $quantity;
+                }
+            }
+        }
+    }
+} else {
+    echo "Error in SQL query: " . mysqli_error($conn);
+}
+                            // Total Profit of Last time END
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -663,7 +752,7 @@ if (!isset($_SESSION['id'])) {
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                     <div style="background: #e2470e1c;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
                         <div class="website-traffic-ctn">
-                        <h2><?php echo $sum; ?> ৳</h2>
+                        <h2><span class="counter"><?php echo $totalSum; ?></span> ৳</h2>
                             <p>Net Income</p>
                         </div>
                         <div class="sparkline-bar-stats4">2,4,8,4,5,7,4,7,3,5,7,5</div>
@@ -684,8 +773,8 @@ if (!isset($_SESSION['id'])) {
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                     <div style="background: #e2470e1c;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
                         <div class="website-traffic-ctn">
-                            <h2><span class="counter"><?php echo $totalCustomers; ?> </span> ৳</h2>
-                            <p>Today Sale of Amount</p>
+                            <h2><span class="counter"><?php echo $todaySum; ?> </span> ৳</h2>
+                            <p>Today's sale</p>
                         </div>
                         <div class="sparkline-bar-stats4">2,4,8,4,5,7,4,7,3,5,7,5</div>
                     </div>
@@ -694,28 +783,28 @@ if (!isset($_SESSION['id'])) {
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                     <div style="background: #e2470e1c;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
                         <div class="website-traffic-ctn">
-                            <h2><?php echo $totalUsers; ?>  ৳</h2>
-                            <p>Last Week Sale of Amount</p>
+                            <h2><span class="counter"> <?php echo $thisWeekSum; ?></span> ৳</h2>
+                            <p>This week's sale</p>
                         </div>
                         <div class="sparkline-bar-stats1">9,4,8,6,5,6,4,8,3,5,9,5</div>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div style="background: #07e27e2b;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                    <div style="background: #e2470e1c;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
                         <div class="website-traffic-ctn">
-                            <h2><?php echo $countValue1; ?></h2>
-                            <p>Package [1 SbBd 145 Tk]</p>
+                            <h2><span class="counter"><?php echo $lastWeekSum; ?></span> ৳</h2>
+                            <p>Last week's sale</p>
                         </div>
                         <div class="sparkline-bar-stats2">1,4,8,3,5,6,4,8,3,3,9,5</div>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div style="background: #07e27e2b;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                    <div style="background: #e2470e1c;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
                         <div class="website-traffic-ctn">
-                        <h2><?php echo $countValue2; ?></h2>
-                        <p>Package [2 SbBd 270 Tk]</p>
+                        <h2><span class="counter"><?php echo $thisMonthSum; ?></span> ৳</h2>
+                        <p>This month's sale</p>
                         </div>
                         <div class="sparkline-bar-stats3">3,5,8,4,7,9,4,8,9,5,9,5</div>
                     </div>
@@ -725,10 +814,67 @@ if (!isset($_SESSION['id'])) {
         </div>
     </div>
 
+    <div class="notika-status-area">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div style="background: #e2470e1c;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            <h2><span class="counter"><?php echo $lastMonthSum; ?> </span> ৳</h2>
+                            <p>Last month's sale</p>
+                        </div>
+                        <div class="sparkline-bar-stats4">2,4,8,4,5,7,4,7,3,5,7,5</div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div style="background: #e2470e1c;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            <h2><span class="counter"> <?php echo $thisYearSum; ?></span> ৳</h2>
+                            <p>This year's sale</p>
+                        </div>
+                        <div class="sparkline-bar-stats1">9,4,8,6,5,6,4,8,3,5,9,5</div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div style="background: #e2470e1c;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            <h2><span class="counter"><?php echo $lastYearSum; ?></span> ৳</h2>
+                            <p>Last year's sale</p>
+                        </div>
+                        <div class="sparkline-bar-stats2">1,4,8,3,5,6,4,8,3,3,9,5</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
     <div class="notika-status-area">
         <div class="container">
             <div class="row">
+
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div style="background: #07e27e2b;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                        <h2><span class="counter"><?php echo $countValue1; ?></span></h2>
+                        <p>Package [1 SbBd 145 Tk]</p>
+                        </div>
+                        <div class="sparkline-bar-stats3">3,5,8,4,7,9,4,8,9,5,9,5</div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div style="background: #07e27e2b;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                        <h2><span class="counter"><?php echo $countValue2; ?></span></h2>
+                        <p>Package [2 SbBd 270 Tk]</p>
+                        </div>
+                        <div class="sparkline-bar-stats3">3,5,8,4,7,9,4,8,9,5,9,5</div>
+                    </div>
+                </div>
 
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                     <div style="background: #07e27e2b;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
@@ -749,6 +895,15 @@ if (!isset($_SESSION['id'])) {
                         <div class="sparkline-bar-stats2">1,4,8,3,5,6,4,8,3,3,9,5</div>
                     </div>
                 </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="notika-status-area">
+        <div class="container">
+            <div class="row">
 
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                     <div style="background: #07e27e2b;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
