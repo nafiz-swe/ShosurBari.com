@@ -696,7 +696,8 @@ ul.nav_1{
 
 .navigationpro ul{
     background: #fff;
-    width: 663px;
+    width: 100%;
+    /* width: 663px; */
     padding: 5px;
     border-radius: 2px;
     border: 1px solid #ccc;
@@ -4658,7 +4659,8 @@ label{
     }
 
     .navigationpro ul {
-        width: 607px;
+        width: 100%;
+        /* width: 607px; */
         margin-left: 0;
     }
 
