@@ -3984,7 +3984,7 @@ input[type=submit]:hover {
 label span {
     color: red;
     font-size: 17px;
-    font-weight: 500;
+    font-weight: bold;
 }
 
 label{

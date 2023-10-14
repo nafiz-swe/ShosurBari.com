@@ -296,7 +296,7 @@ if(isloggedin()){
 						</script> -->
 					
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">ওজন <span class="form-required" title="This field is required.">*</span></label>
+							<label for="edit-name">ওজন<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text" id="edit-name" name="weight" value="" size="100" maxlength="100" class="form-text" required>
 						</div>
 
