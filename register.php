@@ -69,7 +69,6 @@ if (isset($_SESSION['id'])) {
   .sb-biodata-field{
     background: none;
   }
-
   
 .sb-register-login h2{
     color: #000;
@@ -180,7 +179,7 @@ if (isset($_SESSION['id'])) {
           </div>
 
           <div class="sb-biodata-field">
-            <h2>Create New Account</h2>
+            <h2>Create new cccount</h2>
           </div>
 
           <div class="form-group">

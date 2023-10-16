@@ -55,8 +55,19 @@ if (isset($_SESSION['id'])) {
   </div>
 
 <style>
+  .sb-biodata-field{
+    background: none;
+  }
+  
+.sb-register-login h2{
+    color: #000;
+    font-size: 23px;
+    font-weight: bold;
+    background: none;
+    text-align: left;
+}
+
 .shosurbari-biodata-form {
-  display: flex;
   align-items: center;
   flex-wrap: wrap;
   width: 1400px;
@@ -73,9 +84,19 @@ if (isset($_SESSION['id'])) {
   justify-content: center;
 }
 
-.soshurbari-animation-icon img{
+.soshurbari-animation-icon h3 {
+  font-size: 23px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.soshurbari-animation-icon img {
   justify-content: flex-end;
   margin: auto;
+
+  width: 37px;
+  height: 35px;
 }
 
 @media (max-width: 1400px){
@@ -85,9 +106,6 @@ if (isset($_SESSION['id'])) {
 }
 
 @media (max-width: 1024px) {
-  .soshurbari-animation-icon {
-    display: none;
-  }
 
   .shosurbari-animation-form {
     flex-basis: 100%;
@@ -101,21 +119,20 @@ if (isset($_SESSION['id'])) {
 </style>
 
 <div class="shosurbari-biodata-form">
-
-  <div class="soshurbari-animation-icon">
-    <div class="sb-icon-laptop">
-      <img src="images/shosurbari-login.png">
-    </div>
-  </div>
-
   
   <div class="shosurbari-animation-form">
     <form action="auth/auth.php?user=1" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
 		  <div class="flex-container">
         <div class="sb-register-login">
 
+          <div class="soshurbari-animation-icon">
+            <div class="sb-icon-laptop">
+              <h3> <img src="images/shosurbari-icon.png"> ShosurBari </h3>
+            </div>
+          </div>
+
           <div class="sb-biodata-field">
-            <h2>Login Your <span>Account</span></h2>
+            <h2>Login your cccount</h2>
           </div>
 
           <div class="form-group">
