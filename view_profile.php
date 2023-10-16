@@ -739,12 +739,6 @@ textarea:focus {
 
 <?php
 // Retrieve data from your database
-// $myProfileSkinTone = ""; // Retrieve skin tone value from your database
-// $myProfileReligion = ""; // Retrieve religion value from your database
-
-// Retrieve current page user's data
-// $userSkinTone = ""; // Retrieve user's skin tone value from your database
-// $userReligion = ""; // Retrieve user's religion value from your database
 
 // Calculate matching percentage for skin tone section
 if ($myProfileSkinTone === $userSkinTone) {
@@ -789,7 +783,6 @@ $totalMatch = $skinToneMatch + $religionMatch;
         </div>
     <?php } ?>
 </div>
-
 
 
 	<!-- ============================  Navigation Start ========================== -->
