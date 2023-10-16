@@ -1,4 +1,14 @@
 <?php include_once("functions.php");?>
+<?php
+session_start(); // Start the session if not already started
+
+if (isset($_SESSION['id'])) {
+  // User is logged in, so redirect to userhome.php
+  header("location: userhome.php");
+  exit;
+}
+?>
+
 <!DOCTYPE HTML>
 <html>
 <head>

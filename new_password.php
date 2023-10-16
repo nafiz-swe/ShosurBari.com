@@ -1,4 +1,14 @@
 <?php include_once("functions.php");?>
+<?php
+session_start(); // Start the session if not already started
+
+if (isset($_SESSION['id'])) {
+  // User is logged in, so redirect to userhome.php
+  header("location: userhome.php");
+  exit;
+}
+?>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -46,7 +56,7 @@
 
 
 <div class="shosurbari-biodata">
-    <form action="new_password.php" method="post">
+    <form action="new_password.php" method="post" name="setPassword" onsubmit="return setPasswordForm()">
 	<div class="flex-container">
         <div class="sb-register-login">
 
@@ -60,17 +70,22 @@
 
             <div class="form-group">
                 <label for="edit-name">Email <span class="form-required" title="This field is required.">*</span></label>
-	            <input type="text" id="email_or_username" placeholder="Your Email" name="email" value="" size="60" maxlength="60" class="form-text required" required>
+	            <input type="text" id="email" placeholder="Your Email" name="email" value="" size="60" maxlength="60" class="form-text required">
+                <span id="email_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
             </div>
 
             <div class="form-group">
                 <label for="new-password">New Password <span class="form-required" title="This field is required.">*</span></label>
-                <input type="password" id="new-password" placeholder="Enter New Password" name="new_password" size="60" maxlength="60" class="form-text required" required>
+                <input type="password" id="pass_1" placeholder="Enter New Password" name="new_password" size="60" maxlength="60" class="form-text required" required>
+                <span class="show-password" style="color:#0aa4ca;  font-size:15px; top:2px;"> <i style="color:black;  font-size:15px;" class="fa fa-eye" aria-hidden="true"></i></span> 
+                <span  id="pass_1_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
             </div>
 
             <div class="form-group">
                 <label for="new-password">Confirm Password <span class="form-required" title="This field is required.">*</span></label>
-	            <input type="password" id="confirm-password" placeholder="Enter Confirm Password" name="confirm_password" size="60" maxlength="60" class="form-text required" required>
+	            <input type="password" id="pass_2" placeholder="Enter Confirm Password" name="confirm_password" size="60" maxlength="60" class="form-text required" required>
+                <span class="show-password" style="color:#0aa4ca;  font-size:15px; top:2px;"> <i style="color:black;  font-size:15px;" class="fa fa-eye" aria-hidden="true"></i></span> 
+                <span  id="pass_2_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
             </div>
 
             <div class="form-actions">
@@ -129,6 +144,110 @@
         });
     }
 </script>
+
+
+<!-- Password Slash -->
+<script>
+  let showPass = document.querySelectorAll('.show-password');
+  showPass.forEach(function(el) {
+    el.addEventListener('click', function(){
+      let input = this.previousElementSibling;
+      if (input.type === "password") {
+      input.type = "text";
+      this.innerHTML = "<i class='fa fa-eye-slash'></i>";
+      } else {
+      input.type = "password";
+      this.innerHTML = "<i class='fa fa-eye'></i>";
+      }
+    });
+  });
+
+
+
+  function setPasswordForm() {
+  var email = document.forms["setPassword"]["email"].value;
+  var pass_1 = document.forms["setPassword"]["pass_1"].value;
+  var pass_2 = document.forms["setPassword"]["pass_2"].value;
+
+  // Reset error messages and borders
+  resetErrors();
+
+  // Email validation
+  if (email.trim() === "") {
+    displayError('email', 'Please Enter Your Email !', 'red');
+    return false;
+  } else if (!/^[a-zA-Z0-9._-]+@(gmail|outlook|hotmail|yahoo).com$/.test(email)) {
+    displayError('email', 'Please Enter a Valid Email. Only Used: (@gmail or @outlook or @hotmail or @yahoo).com', 'red');
+    return false;
+  }
+
+  // Password validation
+  if (pass_1.trim() === "") {
+    displayError('pass_1', 'Please Enter Your New Password !', 'red');
+    return false;
+  }
+
+  // Confirm Password validation
+  if (pass_2.trim() === "") {
+    displayError('pass_2', 'Please Enter Your Confirm Password !', 'red');
+    return false;
+  } else if (pass_2 !== pass_1) {
+    displayError('pass_2', 'Your Passwords Do Not Match !', 'red');
+    return false;
+  }
+
+  return true;
+}
+
+function displayError(elementId, errorMessage, color) {
+  var element = document.getElementById(elementId);
+  element.style.borderColor = color;
+
+  var errorDiv = document.getElementById(elementId + '_error');
+  errorDiv.innerHTML = errorMessage;
+  errorDiv.style.display = 'block';
+  errorDiv.scrollIntoView({
+    behavior: 'smooth',
+    block: 'center',
+  });
+
+  animateColor(errorDiv, color);
+}
+
+function resetErrors() {
+  var elements = ['email', 'pass_1', 'pass_2'];
+
+  elements.forEach(function (elementId) {
+    var element = document.getElementById(elementId);
+    element.style.borderColor = "initial";
+
+    var errorDiv = document.getElementById(elementId + '_error');
+    errorDiv.innerHTML = "";
+    errorDiv.style.display = 'none';
+  });
+}
+
+function animateColor(element, color) {
+  var colors = ['red', 'green', 'blue'];
+  var currentIndex = colors.indexOf(color);
+
+  if (currentIndex === -1) {
+    return; // Color not found in the array
+  }
+
+  var nextIndex = (currentIndex + 1) % colors.length;
+  var nextColor = colors[nextIndex];
+
+  setTimeout(function () {
+    element.style.color = nextColor;
+    animateColor(element, nextColor);
+  }, 500); // Change color every 500 milliseconds
+}
+
+</script>
+
+
+
 
 
 <style>
