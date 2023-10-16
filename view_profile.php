@@ -2,8 +2,6 @@
 <?php include_once("functions.php"); ?>
 <?php require_once("includes/dbconn.php");?>
 
-
-
 <!DOCTYPE HTML>
 <html>
 

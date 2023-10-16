@@ -3,6 +3,16 @@
 <?php register(); 
 error_reporting(0);
 ?>
+
+<?php
+session_start(); // Start the session if not already started
+
+if (isset($_SESSION['id'])) {
+  // User is logged in, so redirect to userhome.php
+  header("location: userhome.php");
+  exit;
+}
+?>
 <!DOCTYPE HTML>
 <html>
 
@@ -56,8 +66,20 @@ error_reporting(0);
 
 
 <style>
+  .sb-biodata-field{
+    background: none;
+  }
+
+  
+.sb-register-login h2{
+    color: #000;
+    font-size: 23px;
+    font-weight: bold;
+    background: none;
+    text-align: left;
+}
+
 .shosurbari-biodata-form {
-  display: flex;
   align-items: center;
   flex-wrap: wrap;
   width: 1400px;
@@ -74,9 +96,19 @@ error_reporting(0);
   justify-content: center;
 }
 
-.soshurbari-animation-icon img{
+.soshurbari-animation-icon h3 {
+  font-size: 23px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.soshurbari-animation-icon img {
   justify-content: flex-end;
   margin: auto;
+
+  width: 37px;
+  height: 35px;
 }
 
 @media (max-width: 1400px){
@@ -86,9 +118,6 @@ error_reporting(0);
 }
 
 @media (max-width: 1024px) {
-  .soshurbari-animation-icon {
-    display: none;
-  }
 
   .shosurbari-animation-form {
     flex-basis: 100%;
@@ -138,20 +167,20 @@ error_reporting(0);
 </style>
 
   <div class="shosurbari-biodata-form">
-
-  <div class="soshurbari-animation-icon">
-    <div class="sb-icon-laptop">
-      <img src="images/shosurbari-registration.png">
-    </div>
-  </div>
-
+    
   <div class="shosurbari-animation-form">
     <form action="" method="POST" name="myForm" onsubmit="return validateForm()">
       <div class="flex-container">
         <div class="sb-register-login">
 
+          <div class="soshurbari-animation-icon">
+            <div class="sb-icon-laptop">
+              <h3> <img src="images/shosurbari-icon.png"> ShosurBari </h3>
+            </div>
+          </div>
+
           <div class="sb-biodata-field">
-            <h2>Create New <span>Account</span></h2>
+            <h2>Create New Account</h2>
           </div>
 
           <div class="form-group">
