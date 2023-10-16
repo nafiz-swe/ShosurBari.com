@@ -50,7 +50,15 @@
 	<div class="flex-container">
     <div class="sb-register-login">
 
-		    <h2 style="text-align:center; margin-bottom:25px; padding: 10px 5px;">User Verify</h2>
+    
+        <div class="soshurbari-animation-icon">
+            <div class="sb-icon-laptop">
+              <h3> <img src="images/shosurbari-icon.png"> ShosurBari </h3>
+            </div>
+        </div>
+
+
+		<h2 style="text-align:left; margin-bottom:25px; padding: 10px 5px;">User Verify</h2>
 
 	    <div class="form-group">
             <label for="edit-name">Email <span class="form-required" title="This field is required.">*</span></label>
@@ -92,6 +100,43 @@
 </script>
 
 <style>
+.sb-biodata-field{
+    background: none;
+}
+
+.sb-biodata-field{
+    background: none;
+}
+  
+.sb-register-login h2{
+    color: #000;
+    font-size: 23px;
+    font-weight: bold;
+    background: none;
+    text-align: left;
+}
+
+.soshurbari-animation-icon {
+  flex-basis: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.soshurbari-animation-icon h3 {
+  font-size: 23px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.soshurbari-animation-icon img {
+  justify-content: flex-end;
+  margin: auto;
+  width: 37px;
+  height: 35px;
+}
+
 .popup {
     display: none;
     position: fixed;

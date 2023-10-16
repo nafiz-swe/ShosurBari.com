@@ -50,7 +50,13 @@
 	<div class="flex-container">
         <div class="sb-register-login">
 
-        <h2 style="text-align:center; margin-bottom:25px; padding: 10px 5px;">New Password</h2>
+        <div class="soshurbari-animation-icon">
+            <div class="sb-icon-laptop">
+              <h3> <img src="images/shosurbari-icon.png"> ShosurBari </h3>
+            </div>
+        </div>
+
+        <h2 style="text-align:left; margin-bottom:25px; padding: 10px 5px;">Set new password</h2>
 
             <div class="form-group">
                 <label for="edit-name">Email <span class="form-required" title="This field is required.">*</span></label>
@@ -126,6 +132,44 @@
 
 
 <style>
+.sb-biodata-field{
+    background: none;
+}
+
+.sb-biodata-field{
+    background: none;
+}
+  
+.sb-register-login h2{
+    color: #000;
+    font-size: 23px;
+    font-weight: bold;
+    background: none;
+    text-align: left;
+}
+
+.soshurbari-animation-icon {
+  flex-basis: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.soshurbari-animation-icon h3 {
+  font-size: 23px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.soshurbari-animation-icon img {
+  justify-content: flex-end;
+  margin: auto;
+  width: 37px;
+  height: 35px;
+}
+
+
 .popup {
     display: none;
     position: fixed;
@@ -223,99 +267,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     echo "<script>showPopup('$popupMessage');</script>";
 }
 ?>
-
-
-<?php
-// // Include database configuration file
-// include('includes/dbconn.php');
-
-// // Initialize variables
-// $email = "";
-
-// // Check if form is submitted
-// if ($_SERVER['REQUEST_METHOD'] == "POST") {
-//     // Get user's new password from form input
-//     $newPassword = $_POST['new_password'];
-//     $confirmPassword = $_POST['confirm_password'];
-//     $email = $_POST['email'];
-
-//     // Check if passwords match
-//     if ($newPassword === $confirmPassword) {
-//         // Hash the new password using SHA-256 (assuming this is the same method used in auth.php)
-//         $hashedPassword = hash('sha256', $newPassword);
-
-//         // Prepare SQL statement to update user's password
-//         $sql = "UPDATE users SET password = '$hashedPassword' WHERE email = '$email'";
-            
-//         // Execute SQL statement
-//         $result = mysqli_query($conn, $sql);
-
-//         if ($result) {
-//             // Password updated successfully
-            
-//             // Automatic login and redirect
-//             $sql_login = "SELECT * FROM users WHERE email = '$email'";
-//             $result_login = mysqli_query($conn, $sql_login);
-
-//             if ($result_login && mysqli_num_rows($result_login) == 1) {
-//                 $row_login = mysqli_fetch_assoc($result_login);
-
-//                 echo "Password updated successfully!<br>";
-//                 // Redirect to userhome.php
-//                 echo '<meta http-equiv="refresh" content="4; url=login.php">'; // Redirect after 3 seconds
-//                 exit();
-//             } else {
-//                 echo "Email is not registered. Please enter a valid email.";
-//             }
-//         } else {
-//             echo "Error updating password: " . mysqli_error($conn);
-//         }
-//     } else {
-//         echo "Passwords do not match.";
-//     }
-// }
-?>
-
-
-
-
-<?php
-// // Include database configuration file
-// include('includes/dbconn.php');
-
-// // Check if form is submitted
-// if ($_SERVER['REQUEST_METHOD'] == "POST") {
-//     // Get user's new password from form input
-//     $newPassword = $_POST['new_password'];
-//     $confirmPassword = $_POST['confirm_password'];
-//     $email = $_POST['email'];
-
-//     // Check if passwords match
-//     if ($newPassword === $confirmPassword) {
-//         // Hash the new password using SHA-256 (assuming this is the same method used in auth.php)
-//         $hashedPassword = hash('sha256', $newPassword);
-
-//         // Prepare SQL statement to update user's password
-//         $sql = "UPDATE users SET password = '$hashedPassword' WHERE email = '$email'";
-            
-//         // Execute SQL statement
-//         $result = mysqli_query($conn, $sql);
-
-//         if ($result) {
-//             // Password updated successfully
-//             echo "Password updated successfully!<br>";
-//             echo '<meta http-equiv="refresh" content="3; url=login.php">'; // Redirect after 3 seconds
-//         } else {
-//             echo "Error updating password: " . mysqli_error($conn);
-//         }
-//     } else {
-//         echo "Passwords do not match.";
-//     }
-// }
-?>
-
-
-
 
 
 
