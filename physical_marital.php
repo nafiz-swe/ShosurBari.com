@@ -367,9 +367,6 @@ if(isloggedin()){
 				if($result){
 					$row=mysqli_fetch_assoc($result);
 					if($row){
-						$guardians_agree=$row['guardians_agree'];
-					}
-					if($row){
 						$allowstudy_aftermarriage=$row['allowstudy_aftermarriage'];
 					}
 					if($row){
@@ -389,9 +386,6 @@ if(isloggedin()){
 				$result = mysqlexec($sql);
 				if($result){
 					$row=mysqli_fetch_assoc($result);
-					if($row){
-						$guardians_agree=$row['guardians_agree'];
-					}
 					if($row){
 						$studies_aftermarriage=$row['studies_aftermarriage'];
 					}
@@ -472,12 +466,12 @@ if(isloggedin()){
 						</div>
 
 						<!-- Gurdians Aggress Without Married Sections -->
-						<div class="shosurbari-biodata-field" id="gurdian-aggress-section" style="display: none;">
+						<!-- <div class="shosurbari-biodata-field" id="gurdian-aggress-section" style="display: none;">
 							<div class="shosurbari-biodata-field">
 								<label for="edit-name">পরিবারের অনুমতি নিয়ে বায়োডাটা পোস্ট করতেছেন?<span class="form-required" title="This field is required.">*</span></label>
-								<input type="text" id="edit-name" name="guardians_agree"  value="<?php echo $guardians_agree; ?>"  size="100" maxlength="100" class="form-text">
+								<input type="text" id="edit-name" name="guardians_agree"  value=""  size="100" maxlength="100" class="form-text">
 							</div>
-						</div>
+						</div> -->
 
 						<!-- Divorce Section Start -->
 						<div class="shosurbari-biodata-field" id="divorce-section" style="display: none;">

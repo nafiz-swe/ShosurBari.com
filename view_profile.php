@@ -2544,6 +2544,15 @@ textarea:focus {
 								if($row){
 								$partner_attributes=$row['partner_attributes'];
 								}
+								if($row){
+								$parents_permission=$row['parents_permission'];
+								}
+								if($row){
+								$real_info_commited=$row['real_info_commited'];
+								}
+								if($row){
+								$authorities_no_responsible=$row['authorities_no_responsible'];
+								}
 								}
 							?>	
 
@@ -2641,23 +2650,45 @@ textarea:focus {
 							<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 							-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
 							--                S  T  A  R  T                  --
-							--    	 Contact Biodata / Contact Biodata    	 --
+							--    	   Acceptance of commitment				 --
 							-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
 							-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 							<div class="biodatavalue_list">
-								<div class="contact-alert">
-									<h3>If you are agree for contact please red message in bellow</h3>
-									<p>You can contact Any Biodatas Profile but need some charge for contact You can contact Any Biodatas Profile but need some charge for contact </p>
+									<table class="biodata_value_data">
+										<h3>প্রতিশ্রুতি গ্রহণ</h3>
+										<tbody>
+											<tr class="opened">
+												<?php if (!empty ($parents_permission)) { ?>
+												<td class="day_label">পরিবারের অনুমতি নিয়ে বায়োডাটা জমা দিয়েছেন?</td>
+												<td class="day_value"><?php echo $parents_permission;?></td>
+												<?php } ?>
+											</tr>
+
+											<tr class="opened">
+												<?php if (!empty ($real_info_commited)) { ?>
+												<td class="day_label">সৃষ্টিকর্তার শপথ করে সাক্ষ্য দিন, যে তথ্যগুলো দিয়েছেন সব সত্য?</td>
+												<td class="day_value"><?php echo $real_info_commited;?></td>
+												<?php } ?>
+											</tr>
+
+											<tr class="opened">
+												<?php if (!empty ($authorities_no_responsible)) { ?>
+												<td class="day_label">কোনো মিথ্যা তথ্য প্রদান করলে দুনিয়াবী আইনগত এবং পরকালের দায়ভার ShosurBri.com কর্তৃপক্ষ নিবে না। আপনি কি সম্মত?</td>
+												<td class="day_value closed"><span><?php echo $authorities_no_responsible;?></span></td>
+												<?php } ?>
+											</tr>
+											
+										</tbody>
+									</table>
 								</div>
 
 								<div class="profile-btn2">
 									<a href="contactbiodata.php" target="_blank"> <button class="chatbtn" id="chatBtn"><i class="fa fa-phone"></i> Contact</button></a>
 								</div>
-							</div>
 							<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 							-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
 							--                 E    N    D   	             --
-							--    	 Contact Biodata / Contact Biodata    	 --
+							--    	   Acceptance of commitment				 --
 							-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
 							-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
           

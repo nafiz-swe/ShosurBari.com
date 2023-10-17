@@ -145,6 +145,15 @@ if(isloggedin()){
 				if($row){
 				$partner_attributes=$row['partner_attributes'];
 				}
+				if($row){
+				$parents_permission=$row['parents_permission'];
+				}
+				if($row){
+				$real_info_commited=$row['real_info_commited'];
+				}
+				if($row){
+				$authorities_no_responsible=$row['authorities_no_responsible'];
+				}
 				}
 			?>
 
@@ -202,8 +211,36 @@ if(isloggedin()){
 						</div>
 
 						<div class="shosurbari-biodata-field">
-						<label for="edit-name">জীবনসঙ্গীর যেসব <span style="color: black; font-size: 15px;">বৈশিষ্ঠ বা গুণাবলী </span>প্রত্যাশা করেন<span class="form-required" title="This field is required.">*</span></label>
+							<label for="edit-name">জীবনসঙ্গীর যেসব <span style="color: black; font-size: 15px;">বৈশিষ্ঠ বা গুণাবলী </span>প্রত্যাশা করেন<span class="form-required" title="This field is required.">*</span></label>
 							<textarea rows="8" id="edit-name" name="partner_attributes" placeholder="Describe Expected Qualities or Attributes of Your Life Partner" class="form-text-describe" required><?php echo $partner_attributes; ?></textarea>
+						</div>
+
+						<div class="sb-biodata-field" style="margin-top: 15px;">
+							<h2>প্রতিশ্রুতি গ্রহণ</h2>
+						</div>
+
+						<div class="shosurbari-biodata-field">
+							<label for="edit-name">পরিবারের অনুমতি নিয়ে বায়োডাটা জমা দিচ্ছেন?<span class="form-required" title="This field is required.">*</span></label>
+							<select name="parents_permission" required>
+								<option hidden selected><?php echo $parents_permission;?></option>
+								<option value="হ্যাঁ">হ্যাঁ</option>
+							</select>
+						</div>
+
+						<div class="shosurbari-biodata-field">
+							<label for="edit-name">সৃষ্টিকর্তার শপথ করে সাক্ষ্য দিন, শুরু থেকে শেষ পর্যন্ত যে তথ্যগুলো দিয়েছেন সব সত্য?<span class="form-required" title="This field is required.">*</span></label>
+							<select name="real_info_commited" required>
+								<option hidden selected><?php echo $real_info_commited;?></option>
+								<option value="আমি সাক্ষ্য দিচ্ছিযে সকল তথ্য সত্য।">আমি সাক্ষ্য দিচ্ছিযে সকল তথ্য সত্য।</option>
+							</select>
+						</div>
+
+						<div class="shosurbari-biodata-field">
+							<label>কোনো মিথ্যা তথ্য প্রদান করলে দুনিয়াবী আইনগত এবং পরকালের দায়ভার ShosurBri.com কর্তৃপক্ষ নিবে না। আপনি কি সম্মত?<span class="form-required" title="This field is required.">*</span></label>
+							<select name="authorities_no_responsible" required>
+								<option hidden selected><?php echo $authorities_no_responsible;?></option>
+								<option value="হ্যাঁ">হ্যাঁ</option>
+							</select>
 						</div>
 					</div>
 				</div>
