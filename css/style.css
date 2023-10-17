@@ -158,10 +158,6 @@ button:hover {
     margin-bottom: 10px;
 }
 
-.breadcrumb1 {
-    margin-bottom:2em;
-}
-
 .breadcrumb1 ul{
 	padding:0;
 	margin:0;
@@ -1813,6 +1809,8 @@ span.m_3{
 .left-side{
     width: 36%;
     border-radius: 4px;
+    border-top: 3px solid #06b6d4;
+    margin-top: 75px;
 }
   
 .right-side {
@@ -1877,7 +1875,7 @@ span.m_3{
 
 .profile-side {
   	width: 100%;
-  	padding: 90px 3px 10px 3px;
+  	padding: 3px 3px 10px 3px;
 	font-family: "Bree Serif", serif;
   	z-index: 99;
     background: linear-gradient(0deg, #00bbff61 0%,rgba(238,246,253,0) 100%);
@@ -2729,7 +2727,6 @@ ol li{
 .navigationpro {
     display: flex;
     margin: auto;
-    background: linear-gradient(180deg,#F3F9F9 0%,rgba(238,246,253,0) 100%);
 }
 
 .shosurbari-userhome-status{
@@ -5269,7 +5266,7 @@ label{
     }
 
     .shosurbari-userhome-status h3, .shosurbari-userhome-status h4 {
-        text-align: center;
+        text-align: left;
     }
 
     .shosurbari-faq {
@@ -5547,6 +5544,8 @@ label{
 
     .shosurbari-userhome-status {
         padding: 0px 0px 20px 0px;
+        margin-left: 10px;
+        margin-top: 20px;
     }
 
     .shosurbari-userhome-status form{

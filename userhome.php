@@ -141,6 +141,20 @@ $deactivated = $row['deactivated'];
   </div>
 
 
+  <style>
+@media (max-width: 768px){
+.shosurbari-userhome-status {
+    padding: 0px 0px 20px 0px;
+    margin: 20px auto auto auto;
+}
+
+.shosurbari-userhome-status h3, .shosurbari-userhome-status h4 {
+    text-align: center;
+}
+}
+  </style>
+
+
   
 	<!--=======================================
 	How Many Visitors View This Page.

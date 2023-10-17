@@ -730,83 +730,20 @@ textarea:focus {
 </style>
 
 
-<div class="main-bd"> <!-- Main BioData-->
-	<div class="left-side">
-<div class="profile-side">
+		<div class="main-bd"> <!-- Main BioData-->
+			<div class="left-side">
+				<div class="profile-side">
 
+					<div class="biodatavalue_list" style="background: none; border-radius: 4px 4px 0px 0px; border-bottom: none; border-top: 1px solid #ccc; margin-top: 0px;">
+						<h3 style="background: none; border-style: none;">সংক্ষেপে</h3>
+					</div>
 
-<?php
-// Retrieve data from your database
-
-// Calculate matching percentage for skin tone section
-if ($myProfileSkinTone === $userSkinTone) {
-    $skinToneMatch = 20;
-} elseif ($myProfileSkinTone === "উজ্জ্বল ফর্সা" && $userSkinTone === "উজ্জ্বল ফর্সা") {
-    $skinToneMatch = 20;
-} elseif ($myProfileSkinTone === "ফর্সা" && $userSkinTone === "ফর্সা") {
-    $skinToneMatch = 20;
-} elseif ($myProfileSkinTone === "উজ্জ্বল শ্যামবর্ণ" && $userSkinTone === "উজ্জ্বল শ্যামবর্ণ") {
-    $skinToneMatch = 20;
-} elseif ($myProfileSkinTone === "শ্যামবর্ণ" && $userSkinTone === "শ্যামবর্ণ") {
-    $skinToneMatch = 20;
-}
-
-// Calculate matching percentage for religion section
-if ($myProfileReligion === $userReligion) {
-    $religionMatch = 20;
-} elseif ($myProfileReligion === "ইসলাম ধর্ম" && $userReligion === "ইসলাম ধর্ম") {
-    $religionMatch = 20;
-} elseif ($myProfileReligion === "হিন্দু ধর্ম" && $userReligion === "হিন্দু ধর্ম") {
-    $religionMatch = 20;
-} elseif ($myProfileReligion === "খ্রিস্টান ধর্ম" && $userReligion === "খ্রিস্টান ধর্ম") {
-    $religionMatch = 20;
-} elseif ($myProfileReligion === "বৌদ্ধ ধর্ম" && $userReligion === "বৌদ্ধ ধর্ম") {
-    $religionMatch = 20;
-} elseif ($myProfileReligion === "অন্যান্য" && $userReligion === "অন্যান্য") {
-    $religionMatch = 20;
-}
-
-// Calculate total matching percentage
-$totalMatch = $skinToneMatch + $religionMatch;
-?>
-
-<div class="match-container">
-    <?php if ($totalMatch > 0) { ?>
-        <div class="total-match">
-            <h3>Total Matching</h3>
-            <div class="progress-bar">
-                <div class="progress" style="width: <?php echo $totalMatch; ?>%;"></div>
-            </div>
-            <p><?php echo $totalMatch; ?>% Match</p>
-        </div>
-    <?php } ?>
-</div>
-
-
-	<!-- ============================  Navigation Start ========================== -->
-	<?php 
-	// include_once("save_message.php");
-	?>
-	<!-- ============================  Navigation End ============================ -->
-
-	<script>
-    var conn = new WebSocket('ws://localhost:8080');
-conn.onopen = function(e) {
-    console.log("Connection established!");
-};
-
-conn.onmessage = function(e) {
-    console.log(e.data);
-};
-
-    </script>
-
-<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
--- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
---               S  T  A  R  T                   --
---   Heading Section  / SB Short Biodata    --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+					<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+					-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+					--               S  T  A  R  T                   --
+					--   Heading Section  / SB Short Biodata    --
+					-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+					-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 
 					<div class="user-bio">
 
@@ -1135,7 +1072,7 @@ conn.onmessage = function(e) {
 
 
 				<div class="sbbiodata_profile_recentview">
-					<h3>Profiles Recent View</h3>
+					<h3>সর্বশেষ বায়োডাটা দেখেছেন</h3>
 
 					<?php
 						$sql = "SELECT * FROM 1bd_personal_physical ORDER BY profilecreationdate DESC LIMIT 8";
@@ -1299,7 +1236,7 @@ conn.onmessage = function(e) {
 							<div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
 								<div class="biodatavalue_list">
 									<table class="biodata_value_data">
-										<h3>শারীরিক অবস্থা</h3>
+										<h3>শারীরিক বিষয়াবলি</h3>
 										<tbody>
 
 											<tr class="opened">
@@ -1440,7 +1377,7 @@ conn.onmessage = function(e) {
 
 				    			<div class="biodatavalue_list">
 									<table class="biodata_value_data">
-										<h3>ব্যক্তিগত তথ্য</h3>
+										<h3>ব্যক্তিগত ও কর্মজীবন</h3>
 										<tbody>
 
 											<tr class="opened">
@@ -1557,7 +1494,7 @@ conn.onmessage = function(e) {
 
 											<tr class="opened">
 												<?php if (!empty ($aboutme)) { ?>
-												<td class="day_label">নিজের সম্পর্ক</td>
+												<td class="day_label">নিজের শখ, পছন্দ-অপছন্দ, রুচিবোধ, স্বপ্ন ইত্যাদি বিষয়</td>
 												<td class="day_value closed"><span><?php echo $aboutme;?></span></td>
 												<?php } ?>
 											</tr>
@@ -2680,7 +2617,7 @@ conn.onmessage = function(e) {
 
 											<tr class="opened">
 												<?php if (!empty ($partner_attributes)) { ?>
-												<td class="day_label">জীবনসঙ্গীর যেই গুনাবলী আশা করেন</td>
+												<td class="day_label">জীবনসঙ্গীর যেসব গুণাবলী বা বৈশিষ্ট্য প্রত্যাশা করেন</td>
 												<td class="day_value closed"><span><?php echo $partner_attributes;?></span></td>
 												<?php } ?>
 											</tr>
@@ -2742,7 +2679,7 @@ conn.onmessage = function(e) {
 	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
 	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 	<div class="sbbiodata_profile_recentview-mobile">
-        <h3>Profiles Recent View</h3>
+        <h3>সর্বশেষ বায়োডাটা দেখেছেন</h3>
 
         <?php
         	$sql="SELECT * FROM 1bd_personal_physical  ORDER BY profilecreationdate DESC LIMIT 20";  //Last 20 Profile View maximum 20 Profile Show

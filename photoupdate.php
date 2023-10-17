@@ -227,6 +227,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ uploadphoto($id); }
         width: auto;
     }
 }
+
+
+element.style {
+}
+@media (max-width: 768px){
+.shosurbari-userhome-status h3,
+.shosurbari-userhome-status h4 {
+    text-align: left;
+}
+}
 </style>
 
 <div class="shosurbari-biodata-form">

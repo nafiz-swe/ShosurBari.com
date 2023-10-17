@@ -157,7 +157,7 @@ if(isloggedin()){
 
 					<div class="sb-biodata-option">
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">জীবনসঙ্গীর ধর্মীয় বিষয়াবলী যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
+						<label for="edit-name">জীবনসঙ্গীর <span style="color: black; font-size: 15px;">ধর্মীয় বিষয়াবলী</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text" id="edit-name" name="partner_religius"  value="<?php echo $partner_religius; ?>"  size="200" maxlength="200" class="form-text" required>
 						</div>
 
@@ -202,7 +202,7 @@ if(isloggedin()){
 						</div>
 
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">জীবনসঙ্গীর <span style="color: black; font-size: 15px;">বৈশিষ্ঠ ও গুণাবলী</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
+						<label for="edit-name">জীবনসঙ্গীর যেসব <span style="color: black; font-size: 15px;">বৈশিষ্ঠ বা গুণাবলী </span>প্রত্যাশা করেন<span class="form-required" title="This field is required.">*</span></label>
 							<textarea rows="8" id="edit-name" name="partner_attributes" placeholder="Describe Expected Qualities or Attributes of Your Life Partner" class="form-text-describe" required><?php echo $partner_attributes; ?></textarea>
 						</div>
 					</div>
