@@ -268,13 +268,11 @@ $sql = "SELECT
             mf.get_family_permission,
             mf.why_again_married,
 
-            m.guardians_agree,
             m.allowstudy_aftermarriage,
             m.allowjob_aftermarriage,
             m.livewife_aftermarriage,
             m.profileby,
 
-            f.guardians_agree,
             f.anyjob_aftermarriage,
             f.studies_aftermarriage,
             f.agree_marriage_student,
@@ -338,13 +336,11 @@ if (isset($_POST['search'])) {
     mf.get_family_permission,
     mf.why_again_married,
 
-    m.guardians_agree,
     m.allowstudy_aftermarriage,
     m.allowjob_aftermarriage,
     m.livewife_aftermarriage,
     m.profileby,
 
-    f.guardians_agree,
     f.anyjob_aftermarriage,
     f.studies_aftermarriage,
     f.agree_marriage_student,
@@ -378,13 +374,11 @@ mf.get_wife_permission,
 mf.get_family_permission,
 mf.why_again_married,
 
-m.guardians_agree,
 m.allowstudy_aftermarriage,
 m.allowjob_aftermarriage,
 m.livewife_aftermarriage,
 m.profileby,
 
-f.guardians_agree,
 f.anyjob_aftermarriage,
 f.studies_aftermarriage,
 f.agree_marriage_student,
@@ -421,13 +415,11 @@ if (mysqli_num_rows($result) > 0) {
     <th style="color: #ad0000;">কয়টি সন্তান আছে</th>
     <th style="color: #ad0000;">সন্তান সম্পর্কিত তথ্য</th>
     
-    <th style="color: blue;">পরিবারের অনুমতি নিয়ে বায়োডাটা পোস্ট</th>
     <th style="color: blue;">স্ত্রীকে চাকরি করতে দিতে ইচ্ছুক?</th>
     <th style="color: blue;">প্রাতিষ্ঠানিক পড়ালেখা করতে দিতে ইচ্ছুক?</th>
     <th style="color: blue;">বিয়ের পর স্ত্রীকে নিয়ে কোথায় থাকবেন?</th>
     <th style="color: blue;">বায়োডাটা টি যার, তার আপনি কে হন?<</th>
 
-    <th style="color: #b206a9;">পরিবারের অনুমতি নিয়ে বায়োডাটা পোস্ট</th>
     <th style="color: #b206a9;">বিয়ের পর চাকরি করতে চান?</th>
     <th style="color: #b206a9;">বিয়ের পর পড়াশোনা চালিয়ে যেতে চান?</th>
     <th style="color: #b206a9;">শিক্ষার্থী বিয়ে করতে রাজি আছেন?</th>
@@ -465,13 +457,11 @@ if (mysqli_num_rows($result) > 0) {
         echo '<td style="color: #ad0000;">' . $row['how_many_son'] . '</td>';
         echo '<td style="color: #ad0000;">' . $row['son_details'] . '</td>';
         
-        echo '<td style="color: blue;">' . $row['guardians_agree'] . '</td>';
         echo '<td style="color: blue;">' . $row['allowjob_aftermarriage'] . '</td>';
         echo '<td style="color: blue;">' . $row['allowstudy_aftermarriage'] . '</td>';
         echo '<td style="color: blue;">' . $row['livewife_aftermarriage'] . '</td>';
         echo '<td style="color: blue;">' . $row['profileby'] . '</td>';
         
-        echo '<td style="color: #b206a9;">' . $row['guardians_agree'] . '</td>';
         echo '<td style="color: #b206a9;">' . $row['anyjob_aftermarriage'] . '</td>';
         echo '<td style="color: #b206a9;">' . $row['studies_aftermarriage'] . '</td>';
         echo '<td style="color: #b206a9;">' . $row['agree_marriage_student'] . '</td>';
