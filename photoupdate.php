@@ -172,29 +172,48 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ uploadphoto($id); }
 
 
 <style>
-    .shosurbari-biodata-form {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 1130px;
-    margin: auto;
-    background: linear-gradient(180deg,#F3F9F9 0%,rgba(238,246,253,0) 100%);
-    padding-top: 50px;
-    padding-bottom: 50px
+  .sb-biodata-field{
+    background: none;
+  }
+  
+  .sb-biodata-field h2{
+    color: #000;
+    font-size: 23px;
+    font-weight: bold;
+    background: none;
+    text-align: left;
 }
 
-.soshurbari-animation-icon {
-    flex-basis: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.shosurbari-biodata-form {
+  align-items: center;
+  flex-wrap: wrap;
+  width: 1400px;
+  margin: auto;
+  padding-top: 30px;
+  padding-bottom: 30px
 }
 
-.soshurbari-animation-icon img{
-    justify-content: flex-end;
-    margin: auto;
-    height: 400px;
-    width: 400px;
+.soshurbari-animation-icon,
+.shosurbari-animation-form {
+  flex-basis: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.soshurbari-animation-icon h3 {
+  font-size: 23px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.soshurbari-animation-icon img {
+  justify-content: flex-end;
+  margin: auto;
+
+  width: 37px;
+  height: 35px;
 }
 
 @media (max-width: 1280px){
@@ -204,10 +223,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ uploadphoto($id); }
 }
 
 @media (max-width: 1024px) {
-    .soshurbari-animation-icon {
-        display: none;
-    }
-
     .shosurbari-biodata-form {
         width: auto;
     }
@@ -215,14 +230,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ uploadphoto($id); }
 </style>
 
 <div class="shosurbari-biodata-form">
-
-    <div class="soshurbari-animation-icon">
-        <div class="sb-icon-laptop">
-            <img src="images/shosurbari-profiles.png">
-        </div>
-    </div>
-
     <div class="shosurbari-user-account">
+
+        <div class="soshurbari-animation-icon">
+            <div class="sb-icon-laptop">
+              <h3> <img src="images/shosurbari-icon.png"> ShosurBari </h3>
+            </div>
+        </div>
 
         <div class="sb-biodata-field">
             <h2>Upadate Your Photo</h2>

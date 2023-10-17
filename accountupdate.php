@@ -161,8 +161,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ uploadphoto($id); }
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 
     <div class="shosurbari-biodata-form">
-
     <div class="shosurbari-user-account">
+
+        <div class="soshurbari-animation-icon">
+            <div class="sb-icon-laptop">
+              <h3> <img src="images/shosurbari-icon.png"> ShosurBari </h3>
+            </div>
+        </div>
 
         <div class="sb-biodata-field">
             <h2>Your Account</h2>
@@ -216,11 +221,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ uploadphoto($id); }
                 </select>
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="edit-name">Current Password <span style="color: #ccc; font-size:12px;">(Fixed)</span> </label>
                 <input type="text" id="edit-pass" name="current_password" style="background: #ecfeff" value="<?php echo $password; ?>" class="form-text" disabled/>
                 <span class="show-password" style="display: none; color: #0aa4ca; font-size: 15px; top: 26px;"><i style="color: black; font-size: 15px;" class="fa fa-eye-slash"></i></span> 
-            </div>
+            </div> -->
 
             <div class="form-group">
                 <label>Change Password <span style="color: #ccc; font-size:12px;">(Changeable)</span> </label>
@@ -275,54 +280,69 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ uploadphoto($id); }
         </form>
     </div>
 
-    <div class="soshurbari-animation-icon">
-        <div class="sb-icon-laptop">
-            <img src="images/shosurbari-user-account.png">
-        </div>
-    </div>
-
 </div>
 
 <style>
+  .sb-biodata-field{
+    background: none;
+  }
+  
+  .sb-biodata-field h2{
+    color: #000;
+    font-size: 23px;
+    font-weight: bold;
+    background: none;
+    text-align: left;
+}
+
 .shosurbari-biodata-form {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 1130px;
-    margin: auto;
-    background: linear-gradient(180deg,#F3F9F9 0%,rgba(238,246,253,0) 100%);
-    padding-top: 50px;
-    padding-bottom: 50px;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 1400px;
+  margin: auto;
+  padding-top: 30px;
+  padding-bottom: 30px
 }
 
-.soshurbari-animation-icon {
-    flex-basis: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.soshurbari-animation-icon,
+.shosurbari-animation-form {
+  flex-basis: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.soshurbari-animation-icon img{
-    justify-content: flex-end;
-    margin: auto;
-    height: 400px;
-    width: 400px;
+.soshurbari-animation-icon h3 {
+  font-size: 23px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  margin-top: 15px;
 }
 
-@media (max-width: 1280px){
-    .shosurbari-biodata-form{
-        width: auto;
-    }
+.soshurbari-animation-icon img {
+  justify-content: flex-end;
+  margin: auto;
+
+  width: 37px;
+  height: 35px;
+}
+
+@media (max-width: 1400px){
+  .shosurbari-biodata-form{
+    width: auto;
+  }
 }
 
 @media (max-width: 1024px) {
-    .soshurbari-animation-icon {
-        display: none;
-    }
 
-    .shosurbari-biodata-form {
-        width: auto;
-    }
+  .shosurbari-animation-form {
+    flex-basis: 100%;
+    justify-content: center;
+  }
+
+  .shosurbari-biodata-form {
+    width: auto;
+  }
 }
 </style>
 
