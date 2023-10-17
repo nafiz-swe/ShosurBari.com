@@ -296,6 +296,9 @@ if (mysqli_num_rows($result) > 0) {
       <th>জীবনসঙ্গীর পেশা</th>
       <th>জীবনসঙ্গীর অর্থনৈতিক অবস্থা</th>
       <th>জীবনসঙ্গীর বৈশিষ্ঠ ও গুণাবলী</th>
+      <th>পরিবারের অনুমতি নিয়ে বায়োডাটা জমা দিচ্ছেন?</th>
+      <th>সৃষ্টিকর্তার শপথ করে সাক্ষ্য দিন, তথ্যগুলো সব সত্য?</th>
+      <th>মিথ্যা তথ্য প্রদান করলে দায়ভার কর্তৃপক্ষ নিবে না। আপনি কি সম্মত?</th>
       <th>তারিখ সময়</th>
       <th>ডাটা ইডিট</th>
     </tr>';
@@ -319,6 +322,9 @@ if (mysqli_num_rows($result) > 0) {
         echo '<td>' . $row['partner_profession'] . '</td>';
         echo '<td>' . $row['partner_financial'] . '</td>';
         echo '<td>' . $row['partner_attributes'] . '</td>';
+        echo '<td>' . $row['parents_permission'] . '</td>';
+        echo '<td>' . $row['real_info_commited'] . '</td>';
+        echo '<td>' . $row['authorities_no_responsible'] . '</td>';
         echo '<td>' . $row['profilecreationdate'] . '</td>';
         echo '<td><a href="edit_partner.php?id=' . $row['id'] . '">Edit</a></td>';
         echo '</tr>';

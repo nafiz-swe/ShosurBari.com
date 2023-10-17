@@ -2766,7 +2766,7 @@ if(isloggedin()){
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">পরিবারের অনুমতি নিয়ে বায়োডাটা জমা দিচ্ছেন?<span class="form-required" title="This field is required.">*</span></label>
 							<select name="parents_permission" required>
-								<option hidden selected><?php echo $parents_permission;?></option>
+								<option hidden selected></option>
 								<option value="হ্যাঁ">হ্যাঁ</option>
 							</select>
 						</div>
@@ -2774,7 +2774,7 @@ if(isloggedin()){
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">সৃষ্টিকর্তার শপথ করে সাক্ষ্য দিন, শুরু থেকে শেষ পর্যন্ত যে তথ্যগুলো দিয়েছেন সব সত্য?<span class="form-required" title="This field is required.">*</span></label>
 							<select name="real_info_commited" required>
-								<option hidden selected><?php echo $real_info_commited;?></option>
+								<option hidden selected></option>
 								<option value="আমি সাক্ষ্য দিচ্ছিযে সকল তথ্য সত্য।">আমি সাক্ষ্য দিচ্ছিযে সকল তথ্য সত্য।</option>
 							</select>
 						</div>
@@ -2782,7 +2782,7 @@ if(isloggedin()){
 						<div class="shosurbari-biodata-field">
 							<label>কোনো মিথ্যা তথ্য প্রদান করলে দুনিয়াবী আইনগত এবং পরকালের দায়ভার ShosurBri.com কর্তৃপক্ষ নিবে না। আপনি কি সম্মত?<span class="form-required" title="This field is required.">*</span></label>
 							<select name="authorities_no_responsible" required>
-								<option hidden selected><?php echo $authorities_no_responsible;?></option>
+								<option hidden selected></option>
 								<option value="হ্যাঁ">হ্যাঁ</option>
 							</select>
 						</div>

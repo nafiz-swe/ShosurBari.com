@@ -132,7 +132,6 @@ if (isset($_GET['id'])) {
         $maleResult = $conn->query($maleSql);
         if ($maleResult->num_rows == 1) {
             $maleRow = $maleResult->fetch_assoc();
-            $guardians_agree = $maleRow['guardians_agree'];
             $allowstudy_aftermarriage = $maleRow['allowstudy_aftermarriage'];
             $allowjob_aftermarriage = $maleRow['allowjob_aftermarriage'];
             $livewife_aftermarriage = $maleRow['livewife_aftermarriage'];
@@ -144,7 +143,6 @@ if (isset($_GET['id'])) {
         $femaleResult = $conn->query($femaleSql);
         if ($femaleResult->num_rows == 1) {
             $femaleRow = $femaleResult->fetch_assoc();
-            $guardians_agree = $femaleRow['guardians_agree'];
             $anyjob_aftermarriage = $femaleRow['anyjob_aftermarriage'];
             $studies_aftermarriage = $femaleRow['studies_aftermarriage'];
             $agree_marriage_student = $femaleRow['agree_marriage_student'];
@@ -181,13 +179,11 @@ if (isset($_GET['id'])) {
         $get_family_permission = $conn->real_escape_string($_POST['get_family_permission']);
         $why_again_married = $conn->real_escape_string($_POST['why_again_married']);
 
-        $guardians_agree = $conn->real_escape_string($_POST['guardians_agree']);
         $allowstudy_aftermarriage = $conn->real_escape_string($_POST['allowstudy_aftermarriage']);
         $allowjob_aftermarriage = $conn->real_escape_string($_POST['allowjob_aftermarriage']);
         $livewife_aftermarriage = $conn->real_escape_string($_POST['livewife_aftermarriage']);
         $profileby = $conn->real_escape_string($_POST['profileby']);
 
-        $guardians_agree = $conn->real_escape_string($_POST['guardians_agree']);
         $anyjob_aftermarriage = $conn->real_escape_string($_POST['anyjob_aftermarriage']);
         $studies_aftermarriage = $conn->real_escape_string($_POST['studies_aftermarriage']);
         $agree_marriage_student = $conn->real_escape_string($_POST['agree_marriage_student']);
@@ -217,7 +213,6 @@ if (isset($_GET['id'])) {
             WHERE user_id = $userId";
 
         $updateMaleSql = "UPDATE 6bd_marriage_related_qs_male SET
-            guardians_agree = '$guardians_agree',
             allowstudy_aftermarriage = '$allowstudy_aftermarriage',
             allowjob_aftermarriage = '$allowjob_aftermarriage',
             livewife_aftermarriage = '$livewife_aftermarriage',
@@ -225,7 +220,6 @@ if (isset($_GET['id'])) {
             WHERE user_id = $userId";
 
         $updateFemaleSql = "UPDATE 7bd_marriage_related_qs_female SET
-            guardians_agree = '$guardians_agree',
             anyjob_aftermarriage = '$anyjob_aftermarriage',
             studies_aftermarriage = '$studies_aftermarriage',
             agree_marriage_student = '$agree_marriage_student',
@@ -496,12 +490,12 @@ if (isset($_GET['id'])) {
 						</div>
 
 						<!-- Gurdians Aggress Without Married Sections -->
-						<div class="shosurbari-biodata-field" id="gurdian-aggress-section" style="display: none;">
+						<!-- <div class="shosurbari-biodata-field" id="gurdian-aggress-section" style="display: none;">
 							<div class="shosurbari-biodata-field">
 								<label for="edit-name">পরিবারের অনুমতি নিয়ে বায়োডাটা পোস্ট করতেছেন?<span class="form-required" title="This field is required.">*</span></label>
-								<input type="text" id="edit-name" name="guardians_agree"  value="<?php echo $guardians_agree; ?>"  size="100" maxlength="100" class="form-text">
+								<input type="text" id="edit-name" name="guardians_agree"  value=""  size="100" maxlength="100" class="form-text">
 							</div>
-						</div>
+						</div> -->
 
 						<!-- Divorce Section Start -->
 						<div class="shosurbari-biodata-field" id="divorce-section" style="display: none;">
