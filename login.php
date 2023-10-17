@@ -132,7 +132,7 @@ if (isset($_SESSION['id'])) {
           </div>
 
           <div class="sb-biodata-field">
-            <h2>Login your cccount</h2>
+            <h2>Login your account</h2>
           </div>
 
           <div class="form-group">

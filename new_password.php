@@ -69,20 +69,20 @@ if (isset($_SESSION['id'])) {
         <h2 style="text-align:left; margin-bottom:25px; padding: 10px 5px;">Set new password</h2>
 
             <div class="form-group">
-                <label for="edit-name">Email <span class="form-required" title="This field is required.">*</span></label>
+                <!-- <label for="edit-name">Email <span class="form-required" title="This field is required.">*</span></label> -->
 	            <input type="text" id="email" placeholder="Your Email" name="email" value="" size="60" maxlength="60" class="form-text required">
                 <span id="email_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
             </div>
 
             <div class="form-group">
-                <label for="new-password">New Password <span class="form-required" title="This field is required.">*</span></label>
+                <!-- <label for="new-password">New Password <span class="form-required" title="This field is required.">*</span></label> -->
                 <input type="password" id="pass_1" placeholder="Enter New Password" name="new_password" size="60" maxlength="60" class="form-text required" required>
                 <span class="show-password" style="color:#0aa4ca;  font-size:15px; top:2px;"> <i style="color:black;  font-size:15px;" class="fa fa-eye" aria-hidden="true"></i></span> 
                 <span  id="pass_1_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
             </div>
 
             <div class="form-group">
-                <label for="new-password">Confirm Password <span class="form-required" title="This field is required.">*</span></label>
+                <!-- <label for="new-password">Confirm Password <span class="form-required" title="This field is required.">*</span></label> -->
 	            <input type="password" id="pass_2" placeholder="Enter Confirm Password" name="confirm_password" size="60" maxlength="60" class="form-text required" required>
                 <span class="show-password" style="color:#0aa4ca;  font-size:15px; top:2px;"> <i style="color:black;  font-size:15px;" class="fa fa-eye" aria-hidden="true"></i></span> 
                 <span  id="pass_2_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
