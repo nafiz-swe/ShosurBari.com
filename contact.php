@@ -55,31 +55,49 @@ error_reporting(0);
 
 
 <style>
-  .shosurbari-biodata-form {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 1130px;
-    margin: auto;
-    margin-top: 90px;
-    padding-top: 50px;
-    padding-bottom: 30px;
+  .sb-biodata-field{
+    background: none;
   }
+  
+.sb-register-login h2{
+    color: #000;
+    font-size: 23px;
+    font-weight: bold;
+    background: none;
+    text-align: left;
+}
 
-  .soshurbari-animation-icon,
-  .shosurbari-animation-form {
-    flex-basis: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.shosurbari-biodata-form {
+  align-items: center;
+  flex-wrap: wrap;
+  width: 1400px;
+  margin: auto;
+  padding-top: 30px;
+  padding-bottom: 30px
+}
 
-  .soshurbari-animation-icon img{
-    justify-content: flex-end;
-    margin: auto;
-    height: 430px;
-    width: 425px;
-  }
+.soshurbari-animation-icon,
+.shosurbari-animation-form {
+  flex-basis: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.soshurbari-animation-icon h3 {
+  font-size: 23px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.soshurbari-animation-icon img {
+  justify-content: flex-end;
+  margin: auto;
+
+  width: 37px;
+  height: 35px;
+}
 
 @media (max-width: 1400px){
   .shosurbari-biodata-form{
@@ -88,9 +106,6 @@ error_reporting(0);
 }
 
 @media (max-width: 1024px) {
-  .soshurbari-animation-icon {
-    display: none;
-  }
 
   .shosurbari-animation-form {
     flex-basis: 100%;
@@ -99,8 +114,6 @@ error_reporting(0);
 
   .shosurbari-biodata-form {
     width: auto;
-    margin: 30px;
-    margin-top: 90px;
   }
 }
 </style>
@@ -140,18 +153,18 @@ error_reporting(0);
 
 
 <div class="shosurbari-biodata-form">
-
-  <div class="soshurbari-animation-icon">
-    <div class="sb-icon-laptop">
-      <img src="images/shosurbari-contact.png">
-    </div>
-  </div>
-
   <div class="shosurbari-animation-form">
     <div class="shosurbari-animation-form">
       <form action="" method="POST" name="myForm" onsubmit="return validateForm()">
         <div class="flex-container">
           <div class="sb-register-login">
+
+              
+            <div class="soshurbari-animation-icon">
+              <div class="sb-icon-laptop">
+                <h3> <img src="images/shosurbari-icon.png"> ShosurBari </h3>
+              </div>
+            </div>
 
             <div class="sb-biodata-field">
               <h2>Contact Us</h2>

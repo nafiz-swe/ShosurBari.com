@@ -60,13 +60,11 @@ if (isset($_SESSION['id'])) {
 	<div class="flex-container">
     <div class="sb-register-login">
 
-    
         <div class="soshurbari-animation-icon">
             <div class="sb-icon-laptop">
               <h3> <img src="images/shosurbari-icon.png"> ShosurBari </h3>
             </div>
         </div>
-
 
 		<h2 style="text-align:left; margin-bottom:25px; padding: 10px 5px;">User Verify</h2>
 
