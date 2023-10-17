@@ -137,14 +137,14 @@ if (isset($_SESSION['id'])) {
 
           <div class="form-group">
             <!--  <label for="edit-name">Email or Username <span class="form-required" title="This field is required.">*</span></label> -->
-            <input type="text" id="username_email" placeholder="Your Email or Username" name="username" value="<?php if(isset($_COOKIE['username'])) { echo $_COOKIE['username']; } ?>" size="60" maxlength="60" class="form-text required">
+            <input type="text" id="username_email" placeholder="Your Email or Username" name="username" value="" size="60" maxlength="60" class="form-text required">
             <span id="uname_email_error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
           </div>
 
 
 			    <div class="form-group">
             <!-- <label for="edit-pass">Password <span class="form-required" title="This field is required.">*</span></label> -->
-            <!-- <input type="password" id="sb_log_pass" placeholder="Your Password" name="password" value="<?php if(isset($_COOKIE['password'])) { echo $_COOKIE['password']; } ?>" size="60" maxlength="128" class="form-text required"> -->
+            <!-- <input type="password" id="sb_log_pass" placeholder="Your Password" name="password" value="" size="60" maxlength="128" class="form-text required"> -->
             <input type="password" id="sb_log_pass" placeholder="Your Password" name="password" value="" size="60" maxlength="128" class="form-text required">
             <span class="show-password" style="color:#0aa4ca;  font-size:15px; top: 2px;"><i style="color:black;  font-size:15px;" class="fa fa-eye" aria-hidden="true"></i></span> 
             <span id="password_error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
@@ -152,7 +152,7 @@ if (isset($_SESSION['id'])) {
 
           <!-- If the user clicks the Remember Me box when they login, the user's login information will be saved in their cookie.-->
 			    <div class="remember-forgot">
-            <label><input type="checkbox" id="edit-remember" name="remember" value="1" <?php if(isset($_COOKIE['username'])) { echo "checked"; } ?>> Remember me</label>
+            <!-- <label><input type="checkbox" id="edit-remember" name="remember" value="1" > Remember me</label> -->
             <a href="forgot_password.php">Forgot password?</a>
           </div>
 
