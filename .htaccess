@@ -16,7 +16,7 @@ RewriteEngine On
 RewriteBase /
 
 # Redirect to 404 error page
-ErrorDocument 404 http://shoshurbari.rf.gd/404.php
+# ErrorDocument 404 http://shoshurbari.rf.gd/404.php
 
 # Remove .php extension
 RewriteCond %{REQUEST_FILENAME} !-d

@@ -3155,7 +3155,6 @@ $result=search();
 
 
       <div class="form_but1">
-        <div class="clearfix"> </div>
         <input type="submit" name="search" value="Search Biodatas" onclick="return validateForm();"/>
       </div>
 
@@ -3163,7 +3162,7 @@ $result=search();
   </div>
 
 
-  <script>
+<script>
 function handleAllReligions(checkbox) {
     const otherReligionCheckboxes = document.querySelectorAll('.SelectBox.val');
 
@@ -3266,21 +3265,21 @@ function handleAllFamilyClasses(checkbox) {
 }
 
 
-              function handleAllOccupations(checkbox) {
-                  const otherOccupationCheckboxes = document.querySelectorAll('.SelectBox.occupation');
+      function handleAllOccupations(checkbox) {
+          const otherOccupationCheckboxes = document.querySelectorAll('.SelectBox.occupation');
 
-                  if (checkbox.checked) {
-                      // If "সকল পেশা" checkbox is checked, show other occupation options
-                      otherOccupationCheckboxes.forEach(checkbox => {
-                          checkbox.style.display = 'inline';
-                      });
-                  } else {
-                      // If "সকল পেশা" checkbox is unchecked, hide other occupation options
-                      otherOccupationCheckboxes.forEach(checkbox => {
-                          checkbox.style.display = 'none';
-                      });
-                  }
-              }
+          if (checkbox.checked) {
+              // If "সকল পেশা" checkbox is checked, show other occupation options
+              otherOccupationCheckboxes.forEach(checkbox => {
+                  checkbox.style.display = 'inline';
+              });
+          } else {
+              // If "সকল পেশা" checkbox is unchecked, hide other occupation options
+              otherOccupationCheckboxes.forEach(checkbox => {
+                  checkbox.style.display = 'none';
+              });
+          }
+      }
 
 
 function handleAllEducationMethods(checkbox) {
@@ -3308,10 +3307,10 @@ function handleAllEducationMethods(checkbox) {
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->	
   <div class="sb_biodata_profile">
   <?php
-$c_count = 0; // initialize counter to 0
+    $c_count = 0; // initialize counter to 0
 
-if (isset($_POST['search'])) {
-    while ($row = mysqli_fetch_assoc($result)) {
+    if (isset($_POST['search'])) {
+      while ($row = mysqli_fetch_assoc($result)) {
         // 1bd_personal_physical
         $profid = $row['user_id'];
         $Skin_tones = $row['Skin_tones'];
@@ -3383,60 +3382,60 @@ if (isset($_POST['search'])) {
         $sql3 = "SELECT * FROM 2bd_personal_lifestyle WHERE user_id=$profid";
         $result3 = mysqlexec($sql3);
         if ($result3 && mysqli_num_rows($result3) > 0) {
-            $row3 = mysqli_fetch_assoc($result3);
-            $other_occupation_sector=$row3['other_occupation_sector'];
+          $row3 = mysqli_fetch_assoc($result3);
+          $other_occupation_sector=$row3['other_occupation_sector'];
 
-            $occupation_levels = array(
-                'business_occupation_level' => $row3['business_occupation_level'],
-                'student_occupation_level' => $row3['student_occupation_level'],
-                'health_occupation_level' => $row3['health_occupation_level'],
-                'engineer_occupation_level' => $row3['engineer_occupation_level'],
-                'teacher_occupation_level' => $row3['teacher_occupation_level'],
-                'defense_occupation_level' => $row3['defense_occupation_level'],
-                'foreigner_occupation_level' => $row3['foreigner_occupation_level'],
-                'garments_occupation_level' => $row3['garments_occupation_level'],
-                'driver_occupation_level' => $row3['driver_occupation_level'],
-                'service_andcommon_occupation_level' => $row3['service_andcommon_occupation_level'],
-                'mistri_occupation_level' => $row3['mistri_occupation_level'],
-            );
-            $occupation_levels = array_filter($occupation_levels); // Remove empty values
-            $occupation_count = count($occupation_levels);
+          $occupation_levels = array(
+          'business_occupation_level' => $row3['business_occupation_level'],
+          'student_occupation_level' => $row3['student_occupation_level'],
+          'health_occupation_level' => $row3['health_occupation_level'],
+          'engineer_occupation_level' => $row3['engineer_occupation_level'],
+          'teacher_occupation_level' => $row3['teacher_occupation_level'],
+          'defense_occupation_level' => $row3['defense_occupation_level'],
+          'foreigner_occupation_level' => $row3['foreigner_occupation_level'],
+          'garments_occupation_level' => $row3['garments_occupation_level'],
+          'driver_occupation_level' => $row3['driver_occupation_level'],
+          'service_andcommon_occupation_level' => $row3['service_andcommon_occupation_level'],
+          'mistri_occupation_level' => $row3['mistri_occupation_level'],
+          );
+          $occupation_levels = array_filter($occupation_levels); // Remove empty values
+          $occupation_count = count($occupation_levels);
 
-            if ($occupation_count > 0) {
-                $occupation_label = array_keys($occupation_levels)[0];
-                $occupation_value = $occupation_levels[$occupation_label];
+          if ($occupation_count > 0) {
+            $occupation_label = array_keys($occupation_levels)[0];
+            $occupation_value = $occupation_levels[$occupation_label];
 
-                echo "<div class=\"biodatalist\">";
-                echo "<div class=\"sb_bio_header\">";
+            echo "<div class=\"biodatalist\">";
+            echo "<div class=\"sb_bio_header\">";
 
-                // Start of Default Photo Show
-                echo "<a href=\"view_profile.php?id={$profid}\" target=\"_blank\">";
-                if (!empty($pic1)) {
-                    echo "<img class=\"img-responsive\" src=\"profile/{$profid}/{$pic1}\"/>";
-                } else {
-                    echo "<img class=\"img-responsive\" src=\"images/shosurbari-male-icon.jpg\"/>";
-                }
-                echo "</a>";
-                // End of Default photo Show
-
-                echo "<div class=\"sb_bio_number\"><span class=\"sb_biodatanumber\"> {$profid} <br> বায়োডাটা নং </span> </div>";
-                echo "</div>";
-                echo "<div class=\"sb_user\">";
-                echo "<span class=\"sb_single_data\"> <span class=\"sb_value\"> ধর্ম </span> <span class=\"sb_data\"> {$religion}</span></span>";
-                echo "<span class=\"sb_single_data\"> <span class=\"sb_value\"> শারীরিক বর্ণ </span> <span class=\"sb_data\">{$Skin_tones}</span></span>";
-                echo "<span class=\"sb_single_data\"> <span class=\"sb_value\"> উচ্চতা </span> <span class=\"sb_data\">{$height}</span></span>";
-                echo "<span class=\"sb_single_data\"> <span class=\"sb_value\"> পেশা </span> <span class=\"sb_data\"> {$occupation_value}</span></span>";
-                echo "<span class=\"sb_single_data\"> <span class=\"sb_value\"> জন্ম সন </span> <span class=\"sb_data\"> {$dateofbirth}</span></span>";
-                echo "<a href=\"view_profile.php?id={$profid}\" target=\"_blank\"> <button class=\"view_sb_profile\"> সম্পূর্ণ প্রোফাইল</button></a>";
-                echo "</div></div>";
-
-                $c_count++;
+            // Start of Default Photo Show
+            echo "<a href=\"view_profile.php?id={$profid}\" target=\"_blank\">";
+            if (!empty($pic1)) {
+                echo "<img class=\"img-responsive\" src=\"profile/{$profid}/{$pic1}\"/>";
+            } else {
+                echo "<img class=\"img-responsive\" src=\"images/shosurbari-male-icon.jpg\"/>";
             }
+            echo "</a>";
+            // End of Default photo Show
+
+            echo "<div class=\"sb_bio_number\"><span class=\"sb_biodatanumber\"> {$profid} <br> বায়োডাটা নং </span> </div>";
+            echo "</div>";
+            echo "<div class=\"sb_user\">";
+            echo "<span class=\"sb_single_data\"> <span class=\"sb_value\"> ধর্ম </span> <span class=\"sb_data\"> {$religion}</span></span>";
+            echo "<span class=\"sb_single_data\"> <span class=\"sb_value\"> শারীরিক বর্ণ </span> <span class=\"sb_data\">{$Skin_tones}</span></span>";
+            echo "<span class=\"sb_single_data\"> <span class=\"sb_value\"> উচ্চতা </span> <span class=\"sb_data\">{$height}</span></span>";
+            echo "<span class=\"sb_single_data\"> <span class=\"sb_value\"> পেশা </span> <span class=\"sb_data\"> {$occupation_value}</span></span>";
+            echo "<span class=\"sb_single_data\"> <span class=\"sb_value\"> জন্ম সন </span> <span class=\"sb_data\"> {$dateofbirth}</span></span>";
+            echo "<a href=\"view_profile.php?id={$profid}\" target=\"_blank\"> <button class=\"view_sb_profile\"> সম্পূর্ণ প্রোফাইল</button></a>";
+            echo "</div></div>";
+
+            $c_count++;
+          }
         }
+      }
     }
-}
-echo '<script> var count = ' . $c_count . '; </script>';
-?>
+    echo '<script> var count = ' . $c_count . '; </script>';
+  ?>
 
 
 
