@@ -1156,7 +1156,7 @@ toggleLabels.forEach(label => {
   justify-content: center; /* Center the content horizontally */
   padding: 10px 0px;
   height: 115px;
-  width: 1010px;
+  width: 1015px;
   margin: auto;
   border: 2px solid #f0f0f0;
   border-radius: 0px 0px 10px 10px;
@@ -1171,12 +1171,16 @@ toggleLabels.forEach(label => {
 .shosurbari-home-search {
   display:  inline-flex;
   flex-direction: column;
-  width: 151px;
-  margin: 20px 6px 20px 6px;
-  padding: 7px;
+  width: 160px;
+  margin: 20px 2px 20px 2px;
+  padding: 6px;
     background-color: #f1f1f1;
     box-shadow: 1px 1px 4px #888;
     border-radius: 4px;
+}
+
+.ellipsis {
+    font-size: 18px;
 }
 
 /* Style for the select elements */
@@ -1455,7 +1459,7 @@ function createSlides(data) {
   <div class="grid_1">
 
     <div class="sb-featured-profiles">
-      <h1>Featured Profiles</h1>
+      <h1>জনপ্রিয় বায়োডাটা</h1>
         
       <div class="sbhome-heart-divider">
         <span class="grey-line"></span>
