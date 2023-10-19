@@ -85,6 +85,7 @@
       <div class="shosurbari-home-search">
         <div class="gender-radio-select">
           <label class="ellipsis" for="Looking">খুঁজছি</label>
+
           <div class="gender-option">
             <input type="radio" name="biodatagender" id="male_mob" value="পাত্রের বায়োডাটা" required/>
             <label for="male_mob"><i class="fa fa-male"></i> পাত্র </label>
@@ -94,7 +95,9 @@
             <input type="radio" name="biodatagender" id="female_mob" value="পাত্রীর বায়োডাটা"/>
             <label for="female_mob"><i class="fa fa-female"></i> পাত্রী</label><br>
           </div>
+
         </div>
+        <div id="gender-error-laptop" class="error-message" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;">Please Select Biodata !</div>
       </div>
 
       <div class="shosurbari-home-search">
@@ -1180,7 +1183,7 @@ toggleLabels.forEach(label => {
 }
 
 .ellipsis {
-    font-size: 18px;
+    font-size: 17px;
 }
 
 /* Style for the select elements */

@@ -243,7 +243,7 @@ $result=search();
 
             <!--Biodata Rasidencial Country Option -->
             <div class="wrapper">
-              <label class="form-control toggle-next ellipsis">নাগরিকত্ব দেশ<span style=" color:#06b6d4;">   <i class="fa fa-chevron-down"></i></span></label>
+              <label class="form-control toggle-next ellipsis">নাগরিকত্ব/সিটিজেনশিপ<span style=" color:#06b6d4;">   <i class="fa fa-chevron-down"></i></span></label>
               <div class="checkboxes" id="Lorems">
               
                 <div class="inner-wrap">
@@ -1805,7 +1805,7 @@ $result=search();
 
             <!--Biodata Rasidencial Country Option -->
             <div class="wrapper">
-              <label class="form-control toggle-next ellipsis">নাগরিকত্ব দেশ<span style=" color:#06b6d4;">   <i class="fa fa-chevron-down"></i></span></label>
+              <label class="form-control toggle-next ellipsis">নাগরিকত্ব/সিটিজেনশিপ<span style=" color:#06b6d4;">   <i class="fa fa-chevron-down"></i></span></label>
               <div class="checkboxes" id="Lorems">
               
                 <div class="inner-wrap">
@@ -3437,21 +3437,23 @@ function handleAllEducationMethods(checkbox) {
     echo '<script> var count = ' . $c_count . '; </script>';
   ?>
 
+<style>
 
+  </style>
 
 <!--Next & Previous Button For More Profile Show -->
     <div class="pagination">
-      <span id="profiles-show-info" ></span>
-      <a href="#" id="prev-page-btn" style="display:none">&laquo; একধাপ পিছিয়ে যান</a>
+      <span id="profiles-show-info" ></span>  </br>
+      <a href="#" id="prev-page-btn" style="display:none">&laquo;</a>
       <span id="page-numbers"></span>
-      <a href="#" id="next-page-btn" style="display:none">একধাপ এগিয়ে যান &raquo;</a>
+      <a href="#" id="next-page-btn" style="display:none">&raquo;</a>
       <!-- <a href="#" id="next-page-btn">Next &raquo;</a> -->
-      <span id="profiles-info"></span>
+  </br><span id="profiles-info"></span>
     </div>
 
     <script>
       //After Search Number of ShosurBari Users Profiles Show Per Page.
-      const profilesPerPage = 1;
+      const profilesPerPage = 3;
       //Total number of profiles found
       const totalProfiles = <?php echo $c_count ?>;
       //Calculate the total number of pages
@@ -3556,13 +3558,13 @@ function showProfiles() {
   
     // Update the text in the profiles-info span
     const profilesLeft = totalProfiles - endIndex;
-    document.getElementById("profiles-info").innerHTML = `"বাকি রয়েছে <span style="color: #0aa4ca;">${convertToBanglaNumber(profilesLeft)}</span> টি বায়োডাটা"`;
+    document.getElementById("profiles-info").innerHTML = `“বাকি রয়েছে <span style="color: #0aa4ca;">${convertToBanglaNumber(profilesLeft)}</span> টি বায়োডাটা”`;
   
     let profilesshow;
     if (totalProfiles > 0) {
       const startIndexBangla = convertToBanglaNumber(startIndex + 1);
       const endIndexBangla = convertToBanglaNumber(Math.min(endIndex, totalProfiles));
-      profilesshow = `"এখন দেখছেন <span class="highlight-start">${startIndexBangla}</span> থেকে <span class="highlight-end">${endIndexBangla}</span> পর্যন্ত বায়োডাটা গুলো"`;
+      profilesshow = `“এখন দেখছেন <span class="highlight-start">${startIndexBangla}</span> থেকে <span class="highlight-end">${endIndexBangla}</span> পর্যন্ত বায়োডাটা গুলো”`;
     }
   
     document.getElementById("profiles-show-info").innerHTML = profilesshow;

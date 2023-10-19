@@ -3585,15 +3585,17 @@ i.icon_4{
 
 /* After Search - Profile Next & Previous Option Start*/
 .pagination {
-    width: 90%;
-    margin: 50px auto 0px auto;
-    padding: 0px;
-    text-align: center;
-    display: flex;
-    flex-wrap: wrap;
+    display: inline-block;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left:  auto;
+    margin-right: auto;
+    padding: 0;
+    list-style: none;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    justify-content:center;
+    width: 100%;
+    text-align: center;
 }
   
 .pagination a {
@@ -3609,12 +3611,8 @@ i.icon_4{
 }
 
 #prev-page-btn{
-    margin-bottom: 15px;
-    margin-top: 0px;
-}
-
-#profiles-show-info{
-    margin-bottom: 10px;
+    margin-bottom: 13px;
+    margin-top: 12px;
 }
 
 .highlight-end, .highlight-start {
@@ -3622,12 +3620,8 @@ i.icon_4{
 }
   
 #next-page-btn{
-    margin-bottom: 0px;
-    margin-top: 15px;
-}
-
-#profiles-info{
-    margin-top: 10px;
+    margin-bottom: 13px;
+    margin-top: 12px;
 }
   
 .pagination a:hover {
@@ -3933,7 +3927,7 @@ input[type=submit]:hover {
     overflow: hidden;
     color: #06b6d4;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 500;
 }
 
@@ -4175,10 +4169,6 @@ label{
         font-weight: 400;
         width: 65%;
     }
-
-    .ellipsis {
-        font-size: 14px;
-    }
 }
 
 
@@ -4342,10 +4332,6 @@ label{
         font-size: 14px;
         font-weight: 400;
         width: 58%;
-    }
-
-    .ellipsis {
-        font-size: 14px;
     }
 
     .profile-nav-info .address {
@@ -5072,10 +5058,6 @@ label{
         font-size: 22px;
     }
 
-    .ellipsis {
-        font-size: 14px;
-    }
-
     .fa-chevron-down:before {
         font-size: 10px;
     }
@@ -5532,9 +5514,6 @@ label{
         width: 142%;
     }
 
-    .ellipsis {
-        font-size: 14px;
-    }
     /* Mobile Search End / Multiple Search Option */ 
 
     .navigationpro ul {
@@ -7463,10 +7442,6 @@ label{
         font-size: 20px;
     }
 
-    .ellipsis {
-        font-size: 12.5px;
-    }
-
     .sb_mobilesearch  #search-button {
         width: 113px;
         font-size: 14px;
@@ -7854,10 +7829,6 @@ label{
 
     .biodatalist{
         width: 255px;
-    }
-
-    .ellipsis {
-        font-size: 12.5px;
     }
 
     .remember-forgot{

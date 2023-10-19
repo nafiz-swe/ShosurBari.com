@@ -188,14 +188,14 @@ tr.inactive {
         background-color: #ddd;
     }
 
-    .progress-bar {
-        height: 100%;
-        width: 100%;
-        background-color: #00c292;
-    }
+  .progress-bar {
+    height: 100%;
+    width: 100%;
+    background-color: #00c292;
+  }
 
 
-  .pagination{
+.pagination{
   display: inline-block;
   margin-top: 30px;
   margin-bottom: 30px;
