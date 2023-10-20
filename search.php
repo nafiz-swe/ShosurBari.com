@@ -3443,12 +3443,12 @@ function handleAllEducationMethods(checkbox) {
 
 <!--Next & Previous Button For More Profile Show -->
     <div class="pagination">
-      <span id="profiles-show-info" ></span>  </br>
+      <span id="profiles-show-info" ></span>  </br></br>
       <a href="#" id="prev-page-btn" style="display:none">&laquo;</a>
       <span id="page-numbers"></span>
       <a href="#" id="next-page-btn" style="display:none">&raquo;</a>
       <!-- <a href="#" id="next-page-btn">Next &raquo;</a> -->
-  </br><span id="profiles-info"></span>
+      </br></br><span id="profiles-info"></span>
     </div>
 
     <script>

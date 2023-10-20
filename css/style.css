@@ -3586,7 +3586,7 @@ i.icon_4{
 /* After Search - Profile Next & Previous Option Start*/
 .pagination {
     display: inline-block;
-    margin-top: 30px;
+    margin-top: 70px;
     margin-bottom: 30px;
     margin-left:  auto;
     margin-right: auto;
@@ -3617,11 +3617,6 @@ i.icon_4{
 
 .highlight-end, .highlight-start {
     color: #0aa4ca;
-}
-  
-#next-page-btn{
-    margin-bottom: 13px;
-    margin-top: 12px;
 }
   
 .pagination a:hover {
