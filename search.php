@@ -1593,7 +1593,7 @@ $result=search();
 
             <div class="form_but1">
             <div class="clearfix"> </div>
-              <input type="submit" name="search" value="Search Biodatas" onclick="return validateForm();"/>
+              <input type="submit" name="search" value="বায়োডাটা অনুসন্ধান করুন" onclick="return validateForm();"/>
             </div>
         </form>
       </div>
@@ -3155,7 +3155,7 @@ $result=search();
 
 
       <div class="form_but1">
-        <input type="submit" name="search" value="Search Biodatas" onclick="return validateForm();"/>
+        <input type="submit" name="search" value="বায়োডাটা অনুসন্ধান করুন" onclick="return validateForm();"/>
       </div>
 
     </form>
@@ -3453,7 +3453,7 @@ function handleAllEducationMethods(checkbox) {
 
     <script>
       //After Search Number of ShosurBari Users Profiles Show Per Page.
-      const profilesPerPage = 3;
+      const profilesPerPage = 5;
       //Total number of profiles found
       const totalProfiles = <?php echo $c_count ?>;
       //Calculate the total number of pages

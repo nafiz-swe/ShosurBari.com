@@ -885,7 +885,7 @@
       </div>
 
       <div class="shosurbari-home-search">
-        <input type="submit" name="search" value="Search Biodatas" onclick="return validateForm();"/>
+        <input type="submit" name="search" value="বায়োডাটা খুঁজুন" onclick="return validateForm();"/>
       </div>
 
     </form>				
