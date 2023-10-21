@@ -296,7 +296,7 @@ element.style {
 
                     <?php if (!empty($pic1)): ?>
                         <button type="submit" name="delete_photo" value="Delete" class="delete_photo-btn delete-button">Delete Photo</button>
-                        <p>আপনি যদি আপনার বর্তমান ছবি <br> পরিবর্তন করতে চান, প্রথমে আপনার <br> বর্তমান ছবি ডিলিট করুন। তারপর <br>নতুন ছবি আপলোড করুন।</p>
+                        <!-- <p>আপনি যদি আপনার বর্তমান ছবি <br> পরিবর্তন করতে চান, প্রথমে আপনার <br> বর্তমান ছবি ডিলিট করুন। তারপর <br>নতুন ছবি আপলোড করুন।</p> -->
                     <?php endif; ?>
 
                     <?php
