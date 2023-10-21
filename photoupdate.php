@@ -125,16 +125,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ uploadphoto($id); }
 
 
     <?php
-        $id=$_GET['id'];
-        $profileid=$id;
-        //getting profile Picture from db
-        $sql = "SELECT * FROM photos  WHERE user_id = $id";
-        $result = mysqlexec($sql);
-        $row=mysqli_fetch_assoc($result);
-        if($row){
-        $pic1=$row['pic1'];
-        }
-    ?>
+$id = $_GET['id'];
+$profileid = $id;
+
+// Check if পাত্রের বায়োডাটা exists in the database
+$sql = "SELECT biodatagender FROM 1bd_personal_physical WHERE user_id = $id";
+$result = mysqlexec($sql);
+$row = mysqli_fetch_assoc($result);
+
+// Define the default image
+$defaultImage = "shosurbari-default-icon.png";
+
+if ($row) {
+    // Check the value of biodatagender to determine the image
+    if ($row['biodatagender'] == 'পাত্রের বায়োডাটা') {
+        $defaultImage = "shosurbari-male-icon.jpg";
+    } elseif ($row['biodatagender'] == 'পাত্রীর বায়োডাটা') {
+        $defaultImage = "shosurbari-female-icon.png";
+    }
+}
+
+// Getting profile Picture from the database
+$sql = "SELECT pic1 FROM photos WHERE user_id = $id";
+$result = mysqlexec($sql);
+$row = mysqli_fetch_assoc($result);
+
+if ($row) {
+    $pic1 = $row['pic1'];
+}
+?>
 
 
     <!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
@@ -273,22 +292,18 @@ element.style {
         </div>
 
         <div class="update-image-button">
-            <div class="update-image">
-                <?php if (!empty($pic1)): ?>
-
-                    <div class="image-wrapper">
-                        <img src="profile/<?php echo $profileid; ?>/<?php echo $pic1; ?>" />
-                    </div>
-
-                <?php else: ?>
-
-                    <div class="camera-wrapper" onclick="showFileInput()">
-                        <i class="fa fa-camera"></i>
-                        <img src="images/shosurbari-male-icon.jpg" />
-                    </div>
-
-                <?php endif; ?>
-            </div>
+        <div class="update-image">
+    <?php if (!empty($pic1)): ?>
+        <div class="image-wrapper">
+            <img src="profile/<?php echo $profileid; ?>/<?php echo $pic1; ?>" />
+        </div>
+    <?php else: ?>
+        <div class="camera-wrapper" onclick="showFileInput()">
+            <i class="fa fa-camera"></i>
+            <img src="images/<?php echo $defaultImage; ?>" />
+        </div>
+    <?php endif; ?>
+</div>
 
 
             <div class="delete-image">
