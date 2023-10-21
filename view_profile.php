@@ -2738,73 +2738,115 @@ textarea:focus {
 	<div class="sbbiodata_profile_recentview-mobile">
         <h3>সর্বশেষ বায়োডাটা দেখেছেন</h3>
 
-        <?php
-        	$sql="SELECT * FROM 1bd_personal_physical  ORDER BY profilecreationdate DESC LIMIT 20";  //Last 20 Profile View maximum 20 Profile Show
-            $result=mysqlexec($sql);
-            $count=1;
-            while($row=mysqli_fetch_assoc($result)){
-            $profid=$row['user_id'];
-			$Skin_tones_recentview2=$row['Skin_tones'];
-			$height_recentview2=$row['height'];
-			$dateofbirth_recentview2=$row['dateofbirth'];
+		<?php
+    $sql = "SELECT * FROM 1bd_personal_physical ORDER BY profilecreationdate DESC LIMIT 20";
+    $result = mysqlexec($sql);
+    $count = 1;
 
-			$sql3="SELECT * FROM 2bd_personal_lifestyle WHERE user_id=$profid";		
-			$result3=mysqlexec($sql3);
-			if($result3)
-			while($row3=mysqli_fetch_assoc($result3))
-			$occupation_recentview2=$row3['occupation_level'];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $profid = $row['user_id'];
+        $Skin_tones_recentview2 = $row['Skin_tones'];
+        $height_recentview2 = $row['height'];
+        $dateofbirth_recentview2 = $row['dateofbirth'];
 
-			$sql4="SELECT * FROM 4bd_address_details WHERE user_id=$profid";		
-			$result4=mysqlexec($sql4);
-			if($result4)
-			while($row4=mysqli_fetch_assoc($result4))
-			$permanent_address_recentview2=$row4['permanent_address'];
-				
-            // Getting photo
-			$sql2 = "SELECT * FROM photos WHERE user_id = $profid";
-			$result2 = mysqlexec($sql2);
-			$row2 = mysqli_fetch_assoc($result2);
-			$pic1 = $row2['pic1'];
+        // Getting occupation level
+        $sql3 = "SELECT * FROM 2bd_personal_lifestyle WHERE user_id=$profid";
+        $result3 = mysqlexec($sql3);
+        if ($result3 && mysqli_num_rows($result3) > 0) {
+            $row3 = mysqli_fetch_assoc($result3);
+            $occupation_levels = array(
+                'business_occupation_level' => $row3['business_occupation_level'],
+                'student_occupation_level' => $row3['student_occupation_level'],
+                'health_occupation_level' => $row3['health_occupation_level'],
+                'engineer_occupation_level' => $row3['engineer_occupation_level'],
+                'teacher_occupation_level' => $row3['teacher_occupation_level'],
+                'defense_occupation_level' => $row3['defense_occupation_level'],
+                'foreigner_occupation_level' => $row3['foreigner_occupation_level'],
+                'garments_occupation_level' => $row3['garments_occupation_level'],
+                'driver_occupation_level' => $row3['driver_occupation_level'],
+                'service_andcommon_occupation_level' => $row3['service_andcommon_occupation_level'],
+                'mistri_occupation_level' => $row3['mistri_occupation_level'],
+            );
+            $occupation_levels = array_filter($occupation_levels); // Remove empty values
+            $occupation_recentview2 = reset($occupation_levels);
 
-			// Define the default image filenames
-			$defaultImages = [
-				'পাত্রের বায়োডাটা' => "shosurbari-male-icon.jpg",
-				'পাত্রীর বায়োডাটা' => "shosurbari-female-icon.png",
-			];
+        }
 
-			// Set the default image to the appropriate one based on biodatagender
-			$defaultImage = "shosurbari-default-icon.png"; // Default image if no match is found
+        // Getting home district
+        $sql4 = "SELECT * FROM 4bd_address_details WHERE user_id=$profid";
+        $result4 = mysqlexec($sql4);
+        if ($result4 && mysqli_num_rows($result4) > 0) {
+            $row4 = mysqli_fetch_assoc($result4);
+            $home_district2 = '';
 
-			if (isset($row['biodatagender']) && isset($defaultImages[$row['biodatagender']])) {
-				$defaultImage = $defaultImages[$row['biodatagender']];
-			}
+            // Check which permanent address field has a value and assign it to the variable
+            if (!empty($row4['home_district_under_barishal'])) {
+                $home_district2 = $row4['home_district_under_barishal'];
+            } elseif (!empty($row4['home_district_under_chattogram'])) {
+                $home_district2 = $row4['home_district_under_chattogram'];
+            } elseif (!empty($row4['home_district_under_dhaka'])) {
+                $home_district2 = $row4['home_district_under_dhaka'];
+            } elseif (!empty($row4['home_district_under_khulna'])) {
+                $home_district2 = $row4['home_district_under_khulna'];
+            } elseif (!empty($row4['home_district_under_mymensingh'])) {
+                $home_district2 = $row4['home_district_under_mymensingh'];
+            } elseif (!empty($row4['home_district_under_rajshahi'])) {
+                $home_district2 = $row4['home_district_under_rajshahi'];
+            } elseif (!empty($row4['home_district_under_rangpur'])) {
+                $home_district2 = $row4['home_district_under_rangpur'];
+            } elseif (!empty($row4['home_district_under_sylhet'])) {
+                $home_district2 = $row4['home_district_under_sylhet'];
+            }
+        }
 
-		   	echo "<div class=\"biodatarecent_viewlist\">";
-		   	echo "<div class=\"sbbio_header_recent_view\">";
- 
-			// Start of Default Photo Show
-			echo "<a href=\"view_profile.php?id={$profid}\" target=\"_blank\">";
-			if (!empty($pic1)) {
-				echo "<img class=\"img-responsive\" src=\"profile/{$profid}/{$pic1}\"/>";
-			} else {
-				echo "<img class=\"img-responsive\" src=\"images/{$defaultImage}\"/>";
-			}
-			echo "</a>";
-			// End of Default photo Show
+		// Getting photo
+		$sql2 = "SELECT * FROM photos WHERE user_id = $profid";
+		$result2 = mysqlexec($sql2);
+		$row2 = mysqli_fetch_assoc($result2);
+		$pic1 = $row2['pic1'];
 
-			echo "<div class=\"sbbio_number_recentview\"><span class=\"sb_biodatanumber_recentview\"> {$profid} <br> বায়োডাটা নং </span> </div>";
-			echo "</div>";
-			echo "<div class=\"sb_user_recentview\">
-			<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> Skin Tones </span>  	<span class=\"sb_data_recentview\">{$Skin_tones_recentview2}</span></span>
-			<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> Height </span>  <span 	class=\"sb_data_recentview\">{$height_recentview2}</span></span>
-			<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> Occupation </span>      <span class=\"sb_data_recentview\"> {$occupation_recentview2}</span></span>
-			<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> Address </span>      	<span class=\"sb_data_recentview\"> {$permanent_address_recentview2}</span></span>
-			<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> Birth Year</span>       <span class=\"sb_data_recentview\"> {$dateofbirth_recentview2}</span></span>
-			<a href=\"view_profile.php?id={$profid}\" target=\"_blank\"><button class=\"view_sb_profile_recentview\">সম্পূর্ণ প্রোফাইল</button> </a>
-			</div></div>";
-			$count++;
-        	}
-        ?>
+		// Define the default image filenames
+		$defaultImages = [
+			'পাত্রের বায়োডাটা' => "shosurbari-male-icon.jpg",
+			'পাত্রীর বায়োডাটা' => "shosurbari-female-icon.png",
+		];
+
+		// Set the default image to the appropriate one based on biodatagender
+		$defaultImage = "shosurbari-default-icon.png"; // Default image if no match is found
+
+		if (isset($row['biodatagender']) && isset($defaultImages[$row['biodatagender']])) {
+			$defaultImage = $defaultImages[$row['biodatagender']];
+		}
+
+
+
+        echo "<div class=\"biodatarecent_viewlist\">";
+        echo "<div class=\"sbbio_header_recent_view\">";
+
+		// Start of Default Photo Show
+		echo "<a href=\"view_profile.php?id={$profid}\" target=\"_blank\">";
+		if (!empty($pic1)) {
+			echo "<img class=\"img-responsive\" src=\"profile/{$profid}/{$pic1}\"/>";
+		} else {
+			echo "<img class=\"img-responsive\" src=\"images/{$defaultImage}\"/>";
+		}
+		echo "</a>";
+		// End of Default photo Show
+
+        echo "<div class=\"sbbio_number_recentview\"><span class=\"sb_biodatanumber_recentview\"> {$profid} <br> বায়োডাটা নং </span> </div>";
+        echo "</div>";
+        echo "<div class=\"sb_user_recentview\">";
+        echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> শারীরিক বর্ণ </span>  <span class=\"sb_data_recentview\">{$Skin_tones_recentview2}</span></span>";
+        echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> উচ্চতা </span>  <span class=\"sb_data_recentview\">{$height_recentview2}</span></span>";
+        echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> পেশা </span>      <span class=\"sb_data_recentview\"> {$occupation_recentview2}</span></span>";
+        echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> জেলা </span>      <span class=\"sb_data_recentview\"> {$home_district2}</span></span>";
+        echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> জন্ম সন </span>        <span class=\"sb_data_recentview\"> {$dateofbirth_recentview2}</span></span>";
+        echo "<a href=\"view_profile.php?id={$profid}\" target=\"_blank\"><button class=\"view_sb_profile_recentview\">সম্পূর্ণ প্রোফাইল</button> </a>";
+        echo "</div></div>";
+        $count++;
+    }
+?>
+
     </div>
 	<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 	-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
