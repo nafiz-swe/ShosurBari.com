@@ -1490,14 +1490,24 @@ function createSlides(data) {
 						$religion=$row5['religion'];
 								
 
-        		//Getting Profile Pic
-        		$pic1='';
-						$sql2="SELECT * FROM photos WHERE user_id=$profid";
-						$result2 = mysqlexec($sql2);
-						if($result2){
-						$row2=mysqli_fetch_array($result2);
-						$pic1=$row2['pic1'];
-						}
+            // Getting photo
+            $sql2 = "SELECT * FROM photos WHERE user_id = $profid";
+            $result2 = mysqlexec($sql2);
+            $row2 = mysqli_fetch_assoc($result2);
+            $pic1 = $row2['pic1'];
+
+            // Define the default image filenames
+            $defaultImages = [
+              'পাত্রের বায়োডাটা' => "shosurbari-male-icon.jpg",
+              'পাত্রীর বায়োডাটা' => "shosurbari-female-icon.png",
+            ];
+
+            // Set the default image to the appropriate one based on biodatagender
+            $defaultImage = "shosurbari-default-icon.png"; // Default image if no match is found
+
+            if (isset($row['biodatagender']) && isset($defaultImages[$row['biodatagender']])) {
+              $defaultImage = $defaultImages[$row['biodatagender']];
+            }
 
 
         // 2bd_personal_lifestyle
@@ -1532,15 +1542,15 @@ function createSlides(data) {
             echo "<div class=\"sb_featured_profile_head\">";
             echo "<div class=\"sbbio_header_recent_view\">";
 
-            // Start for Default Photo Show
+            // Start of Default Photo Show
             echo "<a href=\"view_profile.php?id={$profid}\" target=\"_blank\">";
             if (!empty($pic1)) {
-            echo "<img class=\"img-responsive\" src=\"profile/{$profid}/{$pic1}\"/>";
+              echo "<img class=\"img-responsive\" src=\"profile/{$profid}/{$pic1}\"/>";
             } else {
-            echo "<img class=\"img-responsive\" src=\"images/shosurbari-male-icon.jpg\"/>";
+              echo "<img class=\"img-responsive\" src=\"images/{$defaultImage}\"/>";
             }
             echo "</a>";
-            // End for Default photo Show
+            // End of Default photo Show
 
             echo "<div class=\"sbbio_number_recentview\"><span class=\"sb_biodatanumber_recentview\"> {$profid} <br> বায়োডাটা নং </span> </div>";
             echo "</div>";
