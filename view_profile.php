@@ -43,49 +43,62 @@
 	<div class="UserProfile">  <!-- UserProfile -->
 		<div class="profile-header">
 
-			<?php
-			error_reporting(0);
-			$profileid = $_GET['id'];
+		<?php
+error_reporting(0);
+$profileid = $_GET['id'];
 
-			//Safety measure: Ensure the $profileid is a valid integer value
-			if (!filter_var($profileid, FILTER_VALIDATE_INT)) {
-			echo "<script>alert(\"Invalid Profile ID\")</script>";
-			// Optionally, you can redirect the user to an error page or the homepage.
-			exit;
-			}
+// Safety measure: Ensure the $profileid is a valid integer value
+if (!filter_var($profileid, FILTER_VALIDATE_INT)) {
+    echo "<script>alert(\"Invalid Profile ID\")</script>";
+    // Optionally, you can redirect the user to an error page or the homepage.
+    exit;
+}
 
-			// Getting profile details from the database
-			$sql = "SELECT * FROM 1bd_personal_physical WHERE user_id = $profileid";
-			$result = mysqlexec($sql);
+// Getting profile details from the database
+$sql = "SELECT * FROM 1bd_personal_physical WHERE user_id = $profileid";
+$result = mysqlexec($sql);
 
-			if ($result) {
-			$row = mysqli_fetch_assoc($result);
-			// End of getting profile details
+if ($result) {
+    $row = mysqli_fetch_assoc($result);
 
-			$pic1 = "";
+    $pic1 = "";
 
-			// Getting image filenames from the database
-			$sql2 = "SELECT * FROM photos WHERE user_id = $profileid";
-			$result2 = mysqlexec($sql2);
+    // Getting image filenames from the database
+    $sql2 = "SELECT * FROM photos WHERE user_id = $profileid";
+    $result2 = mysqlexec($sql2);
 
-			if ($result2) {
-				$row2 = mysqli_fetch_array($result2);
-				if ($row2) {
-				$pic1 = $row2['pic1'];
-				}
-			}
-			} else {
-			echo "<script>alert(\"Invalid Profile ID\")</script>";
-			}
-			?>
+    if ($result2) {
+        $row2 = mysqli_fetch_array($result2);
+        if ($row2) {
+            $pic1 = $row2['pic1'];
+        }
+    }
 
-			<div class="profile-img">
-			<?php if (!empty($pic1)): ?>
-				<img src="profile/<?php echo $profileid; ?>/<?php echo $pic1; ?>" />
-			<?php else: ?>
-				<img src="images/shosurbari-male-icon.jpg" />
-			<?php endif; ?>
-			</div>
+    // Define the default image filenames
+    $defaultImages = [
+        'পাত্রের বায়োডাটা' => "shosurbari-male-icon.jpg",
+        'পাত্রীর বায়োডাটা' => "shosurbari-female-icon.png",
+    ];
+
+    // Set the default image to the appropriate one based on biodatagender
+    $defaultImage = "shosurbari-default-icon.png"; // Default image if no match is found
+
+    if (isset($row['biodatagender']) && isset($defaultImages[$row['biodatagender']])) {
+        $defaultImage = $defaultImages[$row['biodatagender']];
+    }
+} else {
+    echo "<script>alert(\"Invalid Profile ID\")</script>";
+}
+?>
+
+<div class="profile-img">
+    <?php if (!empty($pic1)): ?>
+        <img src="profile/<?php echo $profileid; ?>/<?php echo $pic1; ?>" />
+    <?php else: ?>
+        <img src="images/<?php echo $defaultImage; ?>" />
+    <?php endif; ?>
+</div>
+
 
 
 			<div class="profile-nav-info">
@@ -1086,10 +1099,23 @@ textarea:focus {
 							$dateofbirth_recentview1 = $row['dateofbirth'];
 
 							// Getting photo
-							$sql2 = "SELECT * FROM photos WHERE user_id=$profid";
+							$sql2 = "SELECT * FROM photos WHERE user_id = $profid";
 							$result2 = mysqlexec($sql2);
 							$row2 = mysqli_fetch_assoc($result2);
 							$pic1 = $row2['pic1'];
+
+							// Define the default image filenames
+							$defaultImages = [
+								'পাত্রের বায়োডাটা' => "shosurbari-male-icon.jpg",
+								'পাত্রীর বায়োডাটা' => "shosurbari-female-icon.png",
+							];
+
+							// Set the default image to the appropriate one based on biodatagender
+							$defaultImage = "shosurbari-default-icon.png"; // Default image if no match is found
+
+							if (isset($row['biodatagender']) && isset($defaultImages[$row['biodatagender']])) {
+								$defaultImage = $defaultImages[$row['biodatagender']];
+							}
 
 							// Getting home district
 							$sql5 = "SELECT * FROM 4bd_address_details WHERE user_id=$profid";
@@ -1150,7 +1176,7 @@ textarea:focus {
 										if (!empty($pic1)) {
 											echo "<img class=\"img-responsive\" src=\"profile/{$profid}/{$pic1}\"/>";
 										} else {
-											echo "<img class=\"img-responsive\" src=\"images/shosurbari-male-icon.jpg\"/>";
+											echo "<img class=\"img-responsive\" src=\"images/{$defaultImage}\"/>";
 										}
 										echo "</a>";
 										// End of Default photo Show
@@ -2734,11 +2760,24 @@ textarea:focus {
 			while($row4=mysqli_fetch_assoc($result4))
 			$permanent_address_recentview2=$row4['permanent_address'];
 				
-            //getting photo
-            $sql2="SELECT * FROM photos WHERE user_id=$profid";
-            $result2=mysqlexec($sql2);
-            $row2=mysqli_fetch_assoc($result2);
-			$pic1=$row2['pic1'];
+            // Getting photo
+			$sql2 = "SELECT * FROM photos WHERE user_id = $profid";
+			$result2 = mysqlexec($sql2);
+			$row2 = mysqli_fetch_assoc($result2);
+			$pic1 = $row2['pic1'];
+
+			// Define the default image filenames
+			$defaultImages = [
+				'পাত্রের বায়োডাটা' => "shosurbari-male-icon.jpg",
+				'পাত্রীর বায়োডাটা' => "shosurbari-female-icon.png",
+			];
+
+			// Set the default image to the appropriate one based on biodatagender
+			$defaultImage = "shosurbari-default-icon.png"; // Default image if no match is found
+
+			if (isset($row['biodatagender']) && isset($defaultImages[$row['biodatagender']])) {
+				$defaultImage = $defaultImages[$row['biodatagender']];
+			}
 
 		   	echo "<div class=\"biodatarecent_viewlist\">";
 		   	echo "<div class=\"sbbio_header_recent_view\">";
@@ -2748,7 +2787,7 @@ textarea:focus {
 			if (!empty($pic1)) {
 				echo "<img class=\"img-responsive\" src=\"profile/{$profid}/{$pic1}\"/>";
 			} else {
-				echo "<img class=\"img-responsive\" src=\"images/shosurbari-male-icon.jpg\"/>";
+				echo "<img class=\"img-responsive\" src=\"images/{$defaultImage}\"/>";
 			}
 			echo "</a>";
 			// End of Default photo Show

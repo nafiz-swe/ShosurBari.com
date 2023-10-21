@@ -268,7 +268,7 @@ element.style {
         </div>
 
         <div class="sb-biodata-field">
-            <h2>Upadate Your Photo</h2>
+            <h2>Upload Your Photo</h2>
         </div>
 
         <div class="shosurbari-user-img">
