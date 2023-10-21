@@ -123,35 +123,53 @@
 							<li><a href="about.php">About</a></li>
 							<li class="last"><a href="contact.php">Contacts</a></li>
 							<li>
-								<?php 
-								if (isloggedin()) {
-									$id = $_SESSION['id'];
-									$pic1 = ""; // Assuming you have fetched the user's image path from the database and stored it in $pic1
+							<?php
+if (isloggedin()) {
+    $id = $_SESSION['id'];
+    $pic1 = "";
 
-									// Getting image filenames from db
-									$sql2 = "SELECT * FROM photos WHERE user_id = $id";
-									$result2 = mysqlexec($sql2);
-									if ($result2) {
-									$row2 = mysqli_fetch_array($result2);
-									if ($row2) {
-										$pic1 = $row2['pic1'];
-									}
-									}
+    // Getting image filenames from db
+    $sql2 = "SELECT * FROM photos WHERE user_id = $id";
+    $result2 = mysqlexec($sql2);
+    if ($result2) {
+        $row2 = mysqli_fetch_array($result2);
+        if ($row2) {
+            $pic1 = $row2['pic1'];
+        }
+    }
 
-									echo "<li class=\"login-navbar-img\"><a href=\"userhome.php?id=$id\">";
-									if (!empty($pic1)) {
-									echo "<img class=\"img-responsive\" src=\"profile/{$id}/{$pic1}\"/>";
-									} else {
-									echo "<img class=\"img-responsive\" src=\"images/shosurbari-male-icon.jpg\" />";
-									}
-									echo "</a></li>";
-									
-									echo "<li class=\"login-navbar-icon\"><a href=\"logout.php\"><i class=\"fa fa-sign-out\" ></i></a></li>";
-								} else {
-									echo "<li><a href=\"login.php\">Login</a></li>";
-									echo "<li><a href=\"register.php\">Register</a></li>";
-								}
-								?> 
+    // Check if পাত্রের বায়োডাটা exists in the database
+    $sql = "SELECT biodatagender FROM 1bd_personal_physical WHERE user_id = $id";
+    $result = mysqlexec($sql);
+    $row = mysqli_fetch_assoc($result);
+
+    // Define the default image
+    $defaultImage = "shosurbari-default-icon.png";
+
+    if ($row) {
+        // Check the value of biodatagender to determine the image
+        if ($row['biodatagender'] == 'পাত্রের বায়োডাটা') {
+            $defaultImage = "shosurbari-male-icon.jpg";
+        } elseif ($row['biodatagender'] == 'পাত্রীর বায়োডাটা') {
+            $defaultImage = "shosurbari-female-icon.png";
+        }
+    }
+
+    echo "<li class=\"login-navbar-img\"><a href=\"userhome.php?id=$id\">";
+    if (!empty($pic1)) {
+        echo "<img class=\"img-responsive\" src=\"profile/{$id}/{$pic1}\"/>";
+    } else {
+        echo "<img class=\"img-responsive\" src=\"images/$defaultImage\" />";
+    }
+    echo "</a></li>";
+
+    echo "<li class=\"login-navbar-icon\"><a href=\"logout.php\"><i class=\"fa fa-sign-out\" ></i></a></li>";
+} else {
+    echo "<li><a href=\"login.php\">Login</a></li>";
+    echo "<li><a href=\"register.php\">Register</a></li>";
+}
+?>
+
 							</li>
 						</ul>
 					</div><!-- /.navbar-collapse -->
