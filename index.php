@@ -1463,7 +1463,6 @@ function createSlides(data) {
 
     <div class="sb-featured-profiles">
       <h1>জনপ্রিয় বায়োডাটা</h1>
-        
       <div class="sbhome-heart-divider">
         <span class="grey-line"></span>
           <i class="fa fa-heart pink-heart"></i>
