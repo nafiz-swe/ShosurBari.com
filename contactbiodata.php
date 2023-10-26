@@ -68,7 +68,14 @@ error_reporting(0);
   <form action="" method="POST" name="myForm" onsubmit="return validateForm()">
     <div class="flex-container">
       <div class="sb-register-login">
-        <div class="sb-biodata-field" style="background: #06b6d4 !important;">
+
+        <div class="soshurbari-animation-icon">
+            <div class="sb-icon-laptop">
+              <h3> <img src="images/shosurbari-icon.png"> ShosurBari </h3>
+            </div>
+        </div>
+
+        <div class="sb-biodata-field">
           <h2>Contact Biodata</h2>
         </div>
 
@@ -124,41 +131,121 @@ error_reporting(0);
         .custom-radio-option {
             display: inline-block;
             width: 20px;
-            height: 20px;
+            height: 28px;
             margin-right: 5px;
             margin-left: 10px;
             background-color: #fff;
-            border: 2px solid #0aa4ca;
+            border: 1px solid #06b6d4;
             cursor: pointer;
             position: relative;
         }
 
         /* Style the checked state of the custom radio options */
         input[type="radio"]:checked + label {
-            background-color: #0aa4ca;
+            background: #06b6d4;
             color: #fff;
-            border: 2px solid #0aa4ca;
+            border: 2px solid #06b6d4;
         }
 
         /* Hide the radio input itself and style the label */
         input[type="radio"] + label {
             display: inline-block;
-            line-height: 0px;
-            border: 2px solid;
-            padding: 10px 5px;
+            line-height: 6px;
+            border: 1px solid;
+            padding: 10px;
             border-radius: 2px;
             width: auto;
+        }
+
+        input[type="radio"] + label:hover {
+          background: #06b6d4;
+          color: #fff;
+          border: 2px solid #06b6d4;
+          transition: transform 0.3s;
+          transform: scale(1.1);
         }
 
         label {
           margin-bottom: 6px;
           color: #000;
+          font-weight: 500;
+          font-size: 16px;
       }
 
       .shosurbari-biodata-field {
           padding: 10px 0px;
           text-align: center;
       }
+
+
+
+
+
+
+
+
+  .sb-biodata-field{
+    background: none;
+  }
+  
+.sb-register-login h2,
+.sb-biodata-field h2{
+    color: #000;
+    font-size: 23px;
+    font-weight: bold;
+    background: none;
+    text-align: left;
+}
+
+.shosurbari-biodata-form {
+  align-items: center;
+  flex-wrap: wrap;
+  width: 1400px;
+  margin: auto;
+  padding-top: 30px;
+  padding-bottom: 30px
+}
+
+.soshurbari-animation-icon,
+.shosurbari-animation-form {
+  flex-basis: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.soshurbari-animation-icon h3 {
+  font-size: 23px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.soshurbari-animation-icon img {
+  justify-content: flex-end;
+  margin: auto;
+
+  width: 37px;
+  height: 35px;
+}
+
+@media (max-width: 1400px){
+  .shosurbari-biodata-form{
+    width: auto;
+  }
+}
+
+@media (max-width: 1024px) {
+
+  .shosurbari-animation-form {
+    flex-basis: 100%;
+    justify-content: center;
+  }
+
+  .shosurbari-biodata-form {
+    width: auto;
+  }
+}
     </style>
 
 <script>
@@ -172,87 +259,95 @@ error_reporting(0);
 
 
 <div class="payment-form" style="display: none;">
-<div class="sb-biodata-field" style="background: #06b6d4 !important;">
-          <h2>Payment Getway</h2>
+
+
+        <div class="soshurbari-animation-icon">
+            <div class="sb-icon-laptop">
+              <h3> <img src="images/shosurbari-icon.png"> ShosurBari </h3>
+            </div>
+        </div>
+
+        <div class="sb-biodata-field">
+          <h2>সেন্ড মানি করুন</h2>
         </div>
 
 
         
-        <div class="shosurbari-biodata-field">
-    <label for="edit-name">How many Biodatas do you want to contact?</label></br>
+        <div class="shosurbari-biodata-field" style="padding: 0px; margin-bottom: 20px;">
+    <label for="edit-name" style="font-weight: bold;">আপনি কয়টি বায়োডাটার সাথে যোগাযোগ করতে চান?</label></br>
     <input type="radio" name="biodata_quantities" value="1 Biodata 145 Tk" id="biodata_quantity_1" required>
-    <label for="biodata_quantity_1">1</label>
+    <label for="biodata_quantity_1">১</label>
 
     <input type="radio" name="biodata_quantities" value="2 Biodata 270 Tk" id="biodata_quantity_2">
-    <label for="biodata_quantity_2">2</label>
+    <label for="biodata_quantity_2">২</label>
 
     <input type="radio" name="biodata_quantities" value="3 Biodata 375 Tk" id="biodata_quantity_3">
-    <label for="biodata_quantity_3">3</label>
+    <label for="biodata_quantity_3">৩</label>
 
     <input type="radio" name="biodata_quantities" value="4 Biodata 460 Tk" id="biodata_quantity_4">
-    <label for="biodata_quantity_4">4</label>
+    <label for="biodata_quantity_4">৪</label>
 
     <input type="radio" name="biodata_quantities" value="5 Biodata 525 Tk" id="biodata_quantity_5">
-    <label for="biodata_quantity_5">5</label>
+    <label for="biodata_quantity_5">৫</label>
 
     <input type="radio" name="biodata_quantities" value="10 Biodata 990 Tk" id="biodata_quantity_10">
-    <label for="biodata_quantity_10">10</label>
+    <label for="biodata_quantity_10">১০</label>
 
-    <div id="payment-message" class="form-group" style="display: none;">Please pay <span id="payment-amount">70</span> Tk to continue.</div>
+    <div id="payment-message" class="form-group" style="display: none;">মোট <span id="payment-amount">70</span> টাকা</div>
 </div>
 
             
           <div class="shosurbari-biodata-field">
-            <label for="edit-name">Choose your preferred payment method.</label>  <br>
+            <label for="edit-name" style="font-weight: bold;">আপনার পছন্দের পেমেন্ট পদ্ধতি বেছে নিন।</label>  <br>
             <input type="radio" name="payment_method" id="bkash_radio" value="bkash">
-            <label class="custom-radio-option" for="bkash_radio">Bkash</label> 
+            <label class="custom-radio-option" for="bkash_radio">বিকাশ</label> 
             
             <input type="radio" name="payment_method" id="nagad_radio" value="nagad">
-            <label class="custom-radio-option" for="nagad_radio">Nagad</label> 
+            <label class="custom-radio-option" for="nagad_radio">নগদ</label> 
             
             <input type="radio" name="payment_method" id="roket_radio" value="roket">
-            <label class="custom-radio-option" for="roket_radio">Roket</label> 
+            <label class="custom-radio-option" for="roket_radio">রকেট</label> 
           </div>
 
 
-        <div class="payment-method bkash" style="background: #e2136e; padding: 20px; border-radius: 5px; margin-top: 30px;">
+        <div class="payment-method bkash" style="background: #e2136e; padding: 20px; border-radius: 5px; margin-top: 20px;">
         <div class="form-group">
-            <p style="color: #fff;">Please send money to personal Bkash number 01737-226404</p><br>
-            <label style="color: #fff;" >Your Bkash Number</label>
-            <input style="background: #fff;" type="text" id="bkash_number" name="bkash_number" placeholder="Enter Number" class="form-text required" />
+            <p style="color: #fff; font-weight: bold;">মোট টাকা সেন্ড মানি করুন পার্সোনাল বিকাশ নাম্বারে: 01737-226404</p>
+            <label style="color: #fff;" >আপনার বিকাশ নাম্বার</label>
+            <input style="background: #fff;" type="text" id="bkash_number" name="bkash_number" placeholder="01XX-XXX XXX" class="form-text required" />
             <span id="bkashnumber-error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
         </div>
         <div class="form-group">
-            <label style="color: #fff;" >Bkash Transaction ID</label>
-            <input style="background: #fff;" type="text" id="bkash_trxid" name="bkash_transaction_id" placeholder="Enter TrxID" class="form-text required" />
+            <label style="color: #fff;" >বিকাশ ট্রানজেকশন আইডি (TrxID)</label>
+            <input style="background: #fff;" type="text" id="bkash_trxid" name="bkash_transaction_id" placeholder="AHV6U3TJ5K" class="form-text required" />
             <span id="bkash-error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
         </div>
     </div>
 
-    <div class="payment-method nagad" style="background: #ec1c24; padding: 20px; border-radius: 5px; margin-top: 30px;">
+    <div class="payment-method nagad" style="background: #ec1c24; padding: 20px; border-radius: 5px; margin-top: 20px;">
         <div class="form-group">
-            <p style="color: #fff;">Please send money to personal Nagad number 01737-226404</p><br>
-            <label style="color: #fff;">Your Nagad Number</label>
-            <input style="background: #fff;" type="text" id="nagad_number" name="nagad_number" placeholder="Enter Number" class="form-text required" />
+        <p style="color: #fff; font-weight: bold;">মোট টাকা সেন্ড মানি করুন পার্সোনাল নগদ নাম্বারে: 01737-226404</p>
+            <label style="color: #fff;">আপনার নগদ নাম্বার</label>
+            <input style="background: #fff;" type="text" id="nagad_number" name="nagad_number" placeholder="01XX-XXX XXX" class="form-text required" />
             <span id="nagadnumber-error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
         </div>
         <div class="form-group">
-            <label style="color: #fff;">Nagad Transaction ID</label>
-            <input style="background: #fff;" type="text" id="nagad_trxid" name="nagad_transaction_id" placeholder="Enter TxnID" class="form-text required" />
+            <label style="color: #fff;">নগদ ট্রানজেকশন আইডি (TxnId)</label>
+            <input style="background: #fff;" type="text" id="nagad_trxid" name="nagad_transaction_id" placeholder="72449QUT" class="form-text required" />
             <span id="nagad-error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
         </div>
     </div>
 
-    <div class="payment-method roket" style="background: #8C3494; padding: 20px; border-radius: 5px; margin-top: 30px;">
+    <div class="payment-method roket" style="background: #8C3494; padding: 20px; border-radius: 5px; margin-top: 20px;">
         <div class="form-group">
-            <p style="color: #fff;">Please send money to personal Roket number 01737-2264044</p><br>
-            <label style="color: #fff;">Your Roket Number</label>
-            <input style="background: #fff;" type="text" id="roket_number" name="roket_number" placeholder="Enter Number" class="form-text required" />
+        <p style="color: #fff; font-weight: bold;">মোট টাকা সেন্ড মানি করুন পার্সোনাল রকেট নাম্বারে: 01737-226404-4</p>
+            <label style="color: #fff;">আপনার রকেট নাম্বার</label>
+            <input style="background: #fff;" type="text" id="roket_number" name="roket_number" placeholder="01XX-XXX XXX-X" class="form-text required" />
             <span id="roketnumber-error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
         </div>
         <div class="form-group">
-            <label style="color: #fff;">Roket Transaction ID</label>
-            <input style="background: #fff;" type="text" id="roket_trxid" name="roket_transaction_id" placeholder="Enter TxnID" class="form-text required" />
+            <label style="color: #fff;">রকেট ট্রানজেকশন আইডি (TxnId)</label>
+            <input style="background: #fff;" type="text" id="roket_trxid" name="roket_transaction_id" placeholder="3956466293" class="form-text required" />
             <span id="roket-error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
         </div>
     </div>
@@ -297,17 +392,19 @@ error_reporting(0);
 </div>
 
 
-<div class="soshurbari-animation-icon">
-<h2>বিকাশ সেন্ড মানি</h2>
-    <div class="sb-icon-laptop">
-      <img src="images/shosurbari-bkash-payment.png">
-    </div>
-</div>
 
 
 
 
-    <script>
+<script>
+// Function to convert Arabic numerals to Bengali numerals
+function convertToBengaliNumber(arabicNumber) {
+    const arabicNumbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    const bengaliNumbers = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+
+    return arabicNumber.replace(/[\d]/g, (match) => bengaliNumbers[arabicNumbers.indexOf(match)]);
+}
+
 let paymentOptions = {
     '1 Biodata 145 Tk': 145,
     '2 Biodata 270 Tk': 270,
@@ -325,12 +422,13 @@ const radioButtons = document.querySelectorAll('input[name="biodata_quantities"]
 radioButtons.forEach((radioButton) => {
     radioButton.addEventListener('change', function () {
         let paymentAmount = paymentOptions[this.value];
-        paymentAmountElement.innerText = paymentAmount;
+        let bengaliAmount = convertToBengaliNumber(paymentAmount.toString());
+        paymentAmountElement.innerText = bengaliAmount;
         paymentMessageElement.style.display = 'block';
     });
 });
 
-    </script>
+</script>
 
 
 
@@ -875,21 +973,6 @@ nextBtn.addEventListener('click', () => {
 
 
 <style>
-.sb-icon-laptop img{
-  height: 500px;
-  width: 750px;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.soshurbari-animation-icon h2 {
-line-height: 50px;
-margin: 150px auto 30px auto;
-padding: 5px 25px;
-text-align: center;
-}
 
 .shosurbari-biodata form{
   margin-left: auto;
@@ -927,38 +1010,6 @@ text-align: center;
 @media(max-width: 930px){
   .flex-container{
     display: block;
-  }
-}
-
-@media (max-width: 768px){
-  .sb-icon-laptop img{
-    height: 325px;
-    width: 460px;
-  }
-
-  .soshurbari-animation-icon h2 {
-    margin: 90px auto 10px auto;
-  }
-}
-
-@media (max-width: 480px){
-  .sb-icon-laptop img{
-    height: 280px;
-    width: 370px;
-  }
-}
-
-@media (max-width: 384px){
-  .sb-icon-laptop img{
-    height: 250px;
-    width: 314px;
-  }
-}
-
-@media (max-width: 320px){
-  .sb-icon-laptop img{
-    height: 210px;
-    width: 275px;
   }
 }
 </style>

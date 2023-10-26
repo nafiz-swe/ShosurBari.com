@@ -248,8 +248,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ uploadphoto($id); }
 }
 
 
-element.style {
-}
 @media (max-width: 768px){
 .shosurbari-userhome-status h3,
 .shosurbari-userhome-status h4 {

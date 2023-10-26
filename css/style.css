@@ -2574,10 +2574,20 @@ small.testi-meta1{
     color: #0aa4ca;
 }
 
+#payment-message{
+    color: #fff;
+    background: #06b6d4;
+    padding: 15px;
+    font-size: 17px;
+    font-weight: 500;
+    border-radius: 5px;
+}
+
 .payment-form .form-group label {
     display: block;
-    font-weight: bold;
+    font-weight: 500;
     margin-bottom: 5px;
+    margin-top: 25px;
 }
 
 .payment-form .form-group input {
@@ -3402,7 +3412,7 @@ i.icon_4{
 .shosurbari-biodata{
     display: flex;
     flex-wrap: wrap;
-    background: linear-gradient(180deg,#F3F9F9 0%,rgba(238,246,253,0) 100%);
+    /* background: linear-gradient(180deg,#F3F9F9 0%,rgba(238,246,253,0) 100%); */
     padding-top: 30px;
     padding-bottom: 30px;
 }

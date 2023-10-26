@@ -165,7 +165,7 @@ if (isset($_SESSION['id'])) {
 }
 </style>
 
-  <div class="shosurbari-biodata-form">
+<div class="shosurbari-biodata-form">
     
   <div class="shosurbari-animation-form">
     <form action="" method="POST" name="myForm" onsubmit="return validateForm()">
