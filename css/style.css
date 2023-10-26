@@ -2570,6 +2570,8 @@ small.testi-meta1{
 
 .payment-form .form-group {
     margin-bottom: 10px;
+    margin-top: 2px;
+    color: #0aa4ca;
 }
 
 .payment-form .form-group label {

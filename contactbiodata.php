@@ -114,7 +114,52 @@ error_reporting(0);
 
       </div>
 
+    <style>
+        /* Hide the default radio button */
+        input[type="radio"] {
+            display: none;
+        }
 
+        /* Create square-shaped custom radio options */
+        .custom-radio-option {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+            margin-left: 10px;
+            background-color: #fff;
+            border: 2px solid #0aa4ca;
+            cursor: pointer;
+            position: relative;
+        }
+
+        /* Style the checked state of the custom radio options */
+        input[type="radio"]:checked + label {
+            background-color: #0aa4ca;
+            color: #fff;
+            border: 2px solid #0aa4ca;
+        }
+
+        /* Hide the radio input itself and style the label */
+        input[type="radio"] + label {
+            display: inline-block;
+            line-height: 0px;
+            border: 2px solid;
+            padding: 10px 5px;
+            border-radius: 2px;
+            width: auto;
+        }
+
+        label {
+          margin-bottom: 6px;
+          color: #000;
+      }
+
+      .shosurbari-biodata-field {
+          padding: 10px 0px;
+          text-align: center;
+      }
+    </style>
 
 <script>
   $('.next-btn').click(function(){
@@ -130,78 +175,110 @@ error_reporting(0);
 <div class="sb-biodata-field" style="background: #06b6d4 !important;">
           <h2>Payment Getway</h2>
         </div>
-<div class="shosurbari-biodata-field">
-            <label for="edit-name">How many Biodatas do you want to contact?</label> <br>
-                <select name="biodata_quantities" id="biodata_quantities" required>
-                <option value="" disabled selected>Biodata Quantities</option>
-                    <option value="1 Biodata 145 Tk">1 Biodata</option>
-                    <option value="2 Biodata 270 Tk">2 Biodata</option>
-                    <option value="3 Biodata 375 Tk">3 Biodata</option>
-                    <option value="4 Biodata 460 Tk">4 Biodata</option>
-                    <option value="5 Biodata 525 Tk">5 Biodata</option>
-                    <option value="10 Biodata 990 Tk">10 Biodata</option>
-                </select>
-                <div id="payment-message" class="form-group" style="display: none;">Please pay <span id="payment-amount">70</span> Tk to continue.</div>
-            </div>
-            
-            <div class="shosurbari-biodata-field">
-                <label for="edit-name">Choose your preferred payment method.</label>  <br>
-                <select name="payment_method" id="payment_method" required>
-                <option value=""  disabled selected>Payment Method</option>
-                    <option value="bkash">Bkash</option>
-                    <option value="nagad">Nagad</option>
-                    <option  value="roket">Roket</option>
-                </select>
-            </div>
 
-            <div class="payment-method bkash">
-                <div class="form-group">
-                <p> Please send money to personal Bkash number 01737-226404</p> <br>
-                  <label> Your Bkash Number</label>
-                  <input type="text" id="bkash_number" name="bkash_number" placeholder="Enter Number" class="form-text required" />
-                  <span  id="bkashnumber-error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
-                </div>
-                <div class="form-group">
-                    <label>Bkash Transaction ID</label>
-                    <input type="text" id="bkash_trxid" name="bkash_transaction_id" placeholder="Enter TrxID" class="form-text required"/>
-                    <span  id="bkash-error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
-                </div>
-            </div>
+
+        
+        <div class="shosurbari-biodata-field">
+    <label for="edit-name">How many Biodatas do you want to contact?</label></br>
+    <input type="radio" name="biodata_quantities" value="1 Biodata 145 Tk" id="biodata_quantity_1" required>
+    <label for="biodata_quantity_1">1</label>
+
+    <input type="radio" name="biodata_quantities" value="2 Biodata 270 Tk" id="biodata_quantity_2">
+    <label for="biodata_quantity_2">2</label>
+
+    <input type="radio" name="biodata_quantities" value="3 Biodata 375 Tk" id="biodata_quantity_3">
+    <label for="biodata_quantity_3">3</label>
+
+    <input type="radio" name="biodata_quantities" value="4 Biodata 460 Tk" id="biodata_quantity_4">
+    <label for="biodata_quantity_4">4</label>
+
+    <input type="radio" name="biodata_quantities" value="5 Biodata 525 Tk" id="biodata_quantity_5">
+    <label for="biodata_quantity_5">5</label>
+
+    <input type="radio" name="biodata_quantities" value="10 Biodata 990 Tk" id="biodata_quantity_10">
+    <label for="biodata_quantity_10">10</label>
+
+    <div id="payment-message" class="form-group" style="display: none;">Please pay <span id="payment-amount">70</span> Tk to continue.</div>
+</div>
+
             
-          <div class="payment-method nagad">
-            <div class="form-group">
-            <p> Please send money to personal Nagad number 01737-226404</p> <br>
-                    <label> Your Nagad Number</label>
-                    <input type="text" id="nagad_number" name="nagad_number" placeholder="Enter Number" class="form-text required"/>
-                    <span  id="nagadnumber-error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
-                </div>
-                <div class="form-group">
-                    <label> Nagad Transaction ID</label>
-                    <input type="text" id="nagad_trxid" name="nagad_transaction_id" placeholder="Enter TxnID" class="form-text required"/>
-                    <span  id="nagad-error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
-                </div>
+          <div class="shosurbari-biodata-field">
+            <label for="edit-name">Choose your preferred payment method.</label>  <br>
+            <input type="radio" name="payment_method" id="bkash_radio" value="bkash">
+            <label class="custom-radio-option" for="bkash_radio">Bkash</label> 
+            
+            <input type="radio" name="payment_method" id="nagad_radio" value="nagad">
+            <label class="custom-radio-option" for="nagad_radio">Nagad</label> 
+            
+            <input type="radio" name="payment_method" id="roket_radio" value="roket">
+            <label class="custom-radio-option" for="roket_radio">Roket</label> 
           </div>
-          
-            
-            
-          <div class="payment-method roket">
-              <div class="form-group">
-              <p> Please send money to personal Roket number 01737-2264044</p> <br>
-                    <label> Your Roket Number</label>
-                    <input type="text" id="roket_number" name="roket_number" placeholder="Enter Number" class="form-text required"/>
-                    <span  id="roketnumber-error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
-              </div>
-              <div class="form-group">
-                    <label> Roket Transaction ID</label>
-                    <input type="text" id="roket_trxid" name="roket_transaction_id" placeholder="Enter TxnID" class="form-text required"/>
-                    <span  id="roket-error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
-                </div>
-          </div>
+
+
+        <div class="payment-method bkash" style="background: #e2136e; padding: 20px; border-radius: 5px; margin-top: 30px;">
+        <div class="form-group">
+            <p style="color: #fff;">Please send money to personal Bkash number 01737-226404</p><br>
+            <label style="color: #fff;" >Your Bkash Number</label>
+            <input style="background: #fff;" type="text" id="bkash_number" name="bkash_number" placeholder="Enter Number" class="form-text required" />
+            <span id="bkashnumber-error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+        </div>
+        <div class="form-group">
+            <label style="color: #fff;" >Bkash Transaction ID</label>
+            <input style="background: #fff;" type="text" id="bkash_trxid" name="bkash_transaction_id" placeholder="Enter TrxID" class="form-text required" />
+            <span id="bkash-error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+        </div>
+    </div>
+
+    <div class="payment-method nagad" style="background: #ec1c24; padding: 20px; border-radius: 5px; margin-top: 30px;">
+        <div class="form-group">
+            <p style="color: #fff;">Please send money to personal Nagad number 01737-226404</p><br>
+            <label style="color: #fff;">Your Nagad Number</label>
+            <input style="background: #fff;" type="text" id="nagad_number" name="nagad_number" placeholder="Enter Number" class="form-text required" />
+            <span id="nagadnumber-error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+        </div>
+        <div class="form-group">
+            <label style="color: #fff;">Nagad Transaction ID</label>
+            <input style="background: #fff;" type="text" id="nagad_trxid" name="nagad_transaction_id" placeholder="Enter TxnID" class="form-text required" />
+            <span id="nagad-error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+        </div>
+    </div>
+
+    <div class="payment-method roket" style="background: #8C3494; padding: 20px; border-radius: 5px; margin-top: 30px;">
+        <div class="form-group">
+            <p style="color: #fff;">Please send money to personal Roket number 01737-2264044</p><br>
+            <label style="color: #fff;">Your Roket Number</label>
+            <input style="background: #fff;" type="text" id="roket_number" name="roket_number" placeholder="Enter Number" class="form-text required" />
+            <span id="roketnumber-error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+        </div>
+        <div class="form-group">
+            <label style="color: #fff;">Roket Transaction ID</label>
+            <input style="background: #fff;" type="text" id="roket_trxid" name="roket_transaction_id" placeholder="Enter TxnID" class="form-text required" />
+            <span id="roket-error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('input[name="payment_method"]').forEach(function (radio) {
+            radio.addEventListener('change', function () {
+                document.querySelectorAll('.payment-method').forEach(function (method) {
+                    method.style.display = 'none';
+                });
+
+                if (radio.value === 'bkash') {
+                    document.querySelector('.payment-method.bkash').style.display = 'block';
+                } else if (radio.value === 'nagad') {
+                    document.querySelector('.payment-method.nagad').style.display = 'block';
+                } else if (radio.value === 'roket') {
+                    document.querySelector('.payment-method.roket').style.display = 'block';
+                }
+            });
+        });
+    </script>
 
 
 
 <div class="form-actions">
-  <button type="submit" id="edit-submit" name="op">Submit</button>
+  <button type="submit" id="edit-submit" name="op">Confirm</button>
 </div>
 
 
@@ -231,36 +308,28 @@ error_reporting(0);
 
 
     <script>
-        let paymentOptions = {
-            '1 Biodata 145 Tk': 145,
-            '2 Biodata 270 Tk': 270,
-            '3 Biodata 375 Tk': 375,
-            '4 Biodata 460 Tk': 460,
-            '5 Biodata 525 Tk': 525,
-            '10 Biodata 990 Tk': 990
-        }
-        let paymentMethodElements = document.querySelectorAll('.payment-method');
-        let paymentMessageElement = document.querySelector('#payment-message');
-        let paymentAmountElement = document.querySelector('#payment-amount');
-        let biodataQuantitiesElement = document.querySelector('#biodata_quantities');
-        let paymentMethodElement = document.querySelector('#payment_method');
+let paymentOptions = {
+    '1 Biodata 145 Tk': 145,
+    '2 Biodata 270 Tk': 270,
+    '3 Biodata 375 Tk': 375,
+    '4 Biodata 460 Tk': 460,
+    '5 Biodata 525 Tk': 525,
+    '10 Biodata 990 Tk': 990
+};
 
-        biodataQuantitiesElement.addEventListener('change', function() {
-            let paymentAmount = paymentOptions[this.value];
-            paymentAmountElement.innerText = paymentAmount;
-            paymentMessageElement.style.display = 'block';
-        });
+let paymentMessageElement = document.querySelector('#payment-message');
+let paymentAmountElement = document.querySelector('#payment-amount');
 
-        paymentMethodElement.addEventListener('change', function() {
-            let selectedMethod = this.value;
-            paymentMethodElements.forEach(function(methodElement) {
-                if (methodElement.classList.contains(selectedMethod)) {
-                    methodElement.style.display = 'block';
-                } else {
-                    methodElement.style.display = 'none';
-                }
-            });
-        });
+const radioButtons = document.querySelectorAll('input[name="biodata_quantities"]');
+
+radioButtons.forEach((radioButton) => {
+    radioButton.addEventListener('change', function () {
+        let paymentAmount = paymentOptions[this.value];
+        paymentAmountElement.innerText = paymentAmount;
+        paymentMessageElement.style.display = 'block';
+    });
+});
+
     </script>
 
 
