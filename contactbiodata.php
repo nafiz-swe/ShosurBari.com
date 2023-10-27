@@ -131,7 +131,7 @@ error_reporting(0);
         .custom-radio-option {
             display: inline-block;
             width: 20px;
-            height: 28px;
+            height: 26px;
             margin-right: 5px;
             margin-left: 10px;
             background-color: #fff;
@@ -273,9 +273,9 @@ error_reporting(0);
 
 
         
-        <div class="shosurbari-biodata-field" style="padding: 0px; margin-bottom: 20px;">
+    <div class="shosurbari-biodata-field" style="padding: 0px; margin-bottom: 20px;">
     <label for="edit-name" style="font-weight: bold;">আপনি কয়টি বায়োডাটার সাথে যোগাযোগ করতে চান?</label></br>
-    <input type="radio" name="biodata_quantities" value="1 Biodata 145 Tk" id="biodata_quantity_1" required>
+    <input type="radio" name="biodata_quantities" value="1 Biodata 145 Tk" id="biodata_quantity_1">
     <label for="biodata_quantity_1">১</label>
 
     <input type="radio" name="biodata_quantities" value="2 Biodata 270 Tk" id="biodata_quantity_2">
@@ -294,81 +294,70 @@ error_reporting(0);
     <label for="biodata_quantity_10">১০</label>
 
     <div id="payment-message" class="form-group" style="display: none;">মোট <span id="payment-amount">70</span> টাকা</div>
+    <div id="error-message" style="color: red; display: none;">অনুগ্রহ করে বায়োডাটা পরিমাণ নির্বাচন করুন।</div>
 </div>
 
             
-          <div class="shosurbari-biodata-field">
-            <label for="edit-name" style="font-weight: bold;">আপনার পছন্দের পেমেন্ট পদ্ধতি বেছে নিন।</label>  <br>
-            <input type="radio" name="payment_method" id="bkash_radio" value="bkash">
-            <label class="custom-radio-option" for="bkash_radio">বিকাশ</label> 
-            
-            <input type="radio" name="payment_method" id="nagad_radio" value="nagad">
-            <label class="custom-radio-option" for="nagad_radio">নগদ</label> 
-            
-            <input type="radio" name="payment_method" id="roket_radio" value="roket">
-            <label class="custom-radio-option" for="roket_radio">রকেট</label> 
-          </div>
+<div class="shosurbari-biodata-field">
+    <label for="edit-name" style="font-weight: bold;">পছন্দের পেমেন্ট পদ্ধতি বেছে নিন।</label> <br>
+    <input type="radio" name="payment_method" id="bkash_radio" value="bkash">
+    <label class="custom-radio-option" for="bkash_radio">বিকাশ</label>
+
+    <input type="radio" name="payment_method" id="nagad_radio" value="nagad">
+    <label class="custom-radio-option" for="nagad_radio">নগদ</label>
+
+    <input type="radio" name="payment_method" id="roket_radio" value="roket">
+    <label class="custom-radio-option" for="roket_radio">রকেট</label>
+
+    <div id="payment-method-error" style="color: red; display: none;">অনুগ্রহ করে পেমেন্ট পদ্ধতি নির্বাচন করুন।</div>
+</div>
 
 
-        <div class="payment-method bkash" style="background: #e2136e; padding: 20px; border-radius: 5px; margin-top: 20px;">
+<div class="payment-method bkash" style="background: #e2136e; padding: 20px; border-radius: 5px; margin-top: 20px;">
         <div class="form-group">
-            <p style="color: #fff; font-weight: bold;">মোট টাকা সেন্ড মানি করুন পার্সোনাল বিকাশ নাম্বারে: 01737-226404</p>
+            <p style="color: #fff; text-align: justify;">আপনার মোবাইলের বিকাশ এপ্স অথবা *247# ডায়েল করে মোট টাকা "Send Money" করুন পার্সোনাল বিকাশ নাম্বারে: 01737-226404</p>
             <label style="color: #fff;" >আপনার বিকাশ নাম্বার</label>
-            <input style="background: #fff;" type="text" id="bkash_number" name="bkash_number" placeholder="01XX-XXX XXX" class="form-text required" />
+            <input style="background: #fff;" type="text" id="bkash_number" name="bkash_number" placeholder="01XX-XXX XXX" class="form-text" />
             <span id="bkashnumber-error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
         </div>
         <div class="form-group">
-            <label style="color: #fff;" >বিকাশ ট্রানজেকশন আইডি (TrxID)</label>
-            <input style="background: #fff;" type="text" id="bkash_trxid" name="bkash_transaction_id" placeholder="AHV6U3TJ5K" class="form-text required" />
+            <label style="color: #fff;" >ট্রানজেকশন আইডি (TrxID)</label>
+            <input style="background: #fff;" type="text" id="bkash_trxid" name="bkash_transaction_id" placeholder="AHV6U3TJ5K" class="form-text" />
             <span id="bkash-error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
         </div>
     </div>
 
     <div class="payment-method nagad" style="background: #ec1c24; padding: 20px; border-radius: 5px; margin-top: 20px;">
         <div class="form-group">
-        <p style="color: #fff; font-weight: bold;">মোট টাকা সেন্ড মানি করুন পার্সোনাল নগদ নাম্বারে: 01737-226404</p>
+        <p style="color: #fff; text-align: justify;">আপনার মোবাইলের নগদ এপ্স অথবা *167# ডায়েল করে মোট টাকা "Send Money" করুন পার্সোনাল নগদ নাম্বারে: 01737-226404</p>
             <label style="color: #fff;">আপনার নগদ নাম্বার</label>
-            <input style="background: #fff;" type="text" id="nagad_number" name="nagad_number" placeholder="01XX-XXX XXX" class="form-text required" />
+            <input style="background: #fff;" type="text" id="nagad_number" name="nagad_number" placeholder="01XX-XXX XXX" class="form-text" />
             <span id="nagadnumber-error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
         </div>
         <div class="form-group">
-            <label style="color: #fff;">নগদ ট্রানজেকশন আইডি (TxnId)</label>
-            <input style="background: #fff;" type="text" id="nagad_trxid" name="nagad_transaction_id" placeholder="72449QUT" class="form-text required" />
+            <label style="color: #fff;">ট্রানজেকশন আইডি (TxnId)</label>
+            <input style="background: #fff;" type="text" id="nagad_trxid" name="nagad_transaction_id" placeholder="72449QUT" class="form-text" />
             <span id="nagad-error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
         </div>
     </div>
 
     <div class="payment-method roket" style="background: #8C3494; padding: 20px; border-radius: 5px; margin-top: 20px;">
         <div class="form-group">
-        <p style="color: #fff; font-weight: bold;">মোট টাকা সেন্ড মানি করুন পার্সোনাল রকেট নাম্বারে: 01737-226404-4</p>
+        <p style="color: #fff; text-align: justify;">আপনার মোবাইলের রকেট এপ্স অথবা *322# ডায়েল করে মোট টাকা "Send Money" করুন পার্সোনাল রকেট নাম্বারে: 01737-226404-4</p>
             <label style="color: #fff;">আপনার রকেট নাম্বার</label>
-            <input style="background: #fff;" type="text" id="roket_number" name="roket_number" placeholder="01XX-XXX XXX-X" class="form-text required" />
+            <input style="background: #fff;" type="text" id="roket_number" name="roket_number" placeholder="01XX-XXX XXX-X" class="form-text" />
             <span id="roketnumber-error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
         </div>
         <div class="form-group">
-            <label style="color: #fff;">রকেট ট্রানজেকশন আইডি (TxnId)</label>
-            <input style="background: #fff;" type="text" id="roket_trxid" name="roket_transaction_id" placeholder="3956466293" class="form-text required" />
+            <label style="color: #fff;">ট্রানজেকশন আইডি (TxnId)</label>
+            <input style="background: #fff;" type="text" id="roket_trxid" name="roket_transaction_id" placeholder="3956466293" class="form-text" />
             <span id="roket-error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
         </div>
     </div>
 
-    <script>
-        document.querySelectorAll('input[name="payment_method"]').forEach(function (radio) {
-            radio.addEventListener('change', function () {
-                document.querySelectorAll('.payment-method').forEach(function (method) {
-                    method.style.display = 'none';
-                });
 
-                if (radio.value === 'bkash') {
-                    document.querySelector('.payment-method.bkash').style.display = 'block';
-                } else if (radio.value === 'nagad') {
-                    document.querySelector('.payment-method.nagad').style.display = 'block';
-                } else if (radio.value === 'roket') {
-                    document.querySelector('.payment-method.roket').style.display = 'block';
-                }
-            });
-        });
-    </script>
+
+
 
 
 
@@ -394,6 +383,48 @@ error_reporting(0);
 
 
 
+    <script>
+    // JavaScript code to handle the payment form
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // Add change event listeners to the radio buttons to show/hide input fields
+        var radioButtons = document.querySelectorAll('input[name="payment_method"]');
+        radioButtons.forEach(function (radio) {
+            radio.addEventListener('change', function () {
+                // Hide all payment method input fields
+                var paymentMethodForms = document.querySelectorAll('.payment-method');
+                paymentMethodForms.forEach(function (method) {
+                    method.style.display = 'none';
+                });
+
+                // Show the input fields for the selected payment method
+                var selectedMethod = document.querySelector('.payment-method.' + radio.value);
+                if (selectedMethod) {
+                    selectedMethod.style.display = 'block';
+                }
+
+                // Hide the error message
+                var paymentMethodError = document.getElementById('payment-method-error');
+                paymentMethodError.style.display = 'none';
+            });
+        });
+
+        // Add a submit event listener to the form
+        var form = document.querySelector('form');
+        form.addEventListener('submit', function (e) {
+            // Check if a payment option is selected
+            var selectedOption = document.querySelector('input[name="payment_method"]:checked');
+            var paymentMethodError = document.getElementById('payment-method-error');
+
+            if (!selectedOption) {
+                // Display the error message and prevent form submission
+                paymentMethodError.style.display = 'block';
+                e.preventDefault(); // Prevent the form from being submitted
+            }
+        });
+    });
+</script>
+
 
 
 <script>
@@ -416,6 +447,7 @@ let paymentOptions = {
 
 let paymentMessageElement = document.querySelector('#payment-message');
 let paymentAmountElement = document.querySelector('#payment-amount');
+let errorMessageElement = document.querySelector('#error-message');
 
 const radioButtons = document.querySelectorAll('input[name="biodata_quantities"]');
 
@@ -425,9 +457,18 @@ radioButtons.forEach((radioButton) => {
         let bengaliAmount = convertToBengaliNumber(paymentAmount.toString());
         paymentAmountElement.innerText = bengaliAmount;
         paymentMessageElement.style.display = 'block';
+        errorMessageElement.style.display = 'none';
     });
 });
 
+// Add a submit event listener to check if an option is selected
+document.querySelector('form').addEventListener('submit', function (e) {
+    let selectedOption = document.querySelector('input[name="biodata_quantities"]:checked');
+    if (!selectedOption) {
+        errorMessageElement.style.display = 'block';
+        e.preventDefault();
+    }
+});
 </script>
 
 
@@ -443,13 +484,6 @@ radioButtons.forEach((radioButton) => {
   var biodata = document.getElementById("contact_biodatas_number").value.trim();
 
 
-  var bkashnumber = document.getElementById("bkash_number").value.trim();
-  var bkash = document.getElementById("bkash_trxid").value.trim();
-  var nagadnumber = document.getElementById("nagad_number").value.trim();
-  var nagad = document.getElementById("nagad_trxid").value.trim();
-  var roketnumber = document.getElementById("roket_number").value.trim();
-  var roket = document.getElementById("roket_trxid").value.trim();
-
 
   var nameError = document.getElementById("name-error");
   var emailError = document.getElementById("email-error");
@@ -457,17 +491,6 @@ radioButtons.forEach((radioButton) => {
   var addressError = document.getElementById("address-error");
   var biodataError = document.getElementById("biodata-error");
 
-
-  var bkashnumberError = document.getElementById("bkashnumber-error");
-  var bkashError = document.getElementById("bkash-error");
-  var nagadnumberError = document.getElementById("nagadnumber-error");
-  var nagadError = document.getElementById("nagad-error");
-  var roketnumberError = document.getElementById("roketnumber-error");
-  var roketError = document.getElementById("roket-error");
-
-
-  var selectedOption = document.getElementById("payment_method").value;
-  var valid = true;
 
   // Validate name
 
@@ -677,230 +700,172 @@ radioButtons.forEach((radioButton) => {
 
 
 
+    var selectedBiodataQuantities = document.querySelector('input[name="biodata_quantities"]:checked');
+    var selectedPaymentMethod = document.querySelector('input[name="payment_method"]:checked');
+
+    // Check if a biodata quantity is selected
+    if (!selectedBiodataQuantities) {
+        document.getElementById('error-message').style.display = 'block';
+        return false;
+    } else {
+        document.getElementById('error-message').style.display = 'none';
+    }
+
+    // Check if a payment method is selected
+    if (!selectedPaymentMethod) {
+        document.getElementById('payment-method-error').style.display = 'block';
+        return false;
+    } else {
+        document.getElementById('payment-method-error').style.display = 'none';
+    }
+
+    
+
+    
+
+// Function to continuously change the error message color
+function continuouslyChangeColor(element, message) {
+  var colors = ['green', 'blue', 'red']; // Define a list of colors to cycle through
+  var index = 0; // Initial color index
+
+  element.innerText = message;
+  element.style.display = 'block';
+
+  // Function to change the color and schedule the next change
+  function changeColor() {
+    element.style.color = colors[index];
+    index = (index + 1) % colors.length; // Cycle through colors
+
+    // Schedule the next color change after a delay
+    setTimeout(changeColor, 1000); // Adjust the duration for each color
+  }
+
+  // Start the color change loop
+  changeColor();
+}
 
 
 
 
-
-
-  // Validate Bkash
-  if (selectedOption === "bkash") {
-    nagadnumberError.style.display = "none";
-    nagadError.style.display = "none";
-    roketnumberError.style.display = "none";
-    roketError.style.display = "none";
-
-// Check if Bkash fields are filled in
-// Bkash Number
-  if (bkashnumber == "") {
-        document.getElementById('bkash_number').style.borderColor = "red";
+// Determine which payment method is selected and validate the corresponding input fields
+if (selectedPaymentMethod.value === 'bkash') {
+  document.getElementById('bkash_number').style.borderColor = "red";
         document.getElementById('bkash_number').scrollIntoView({
           behavior: 'smooth',
           block: 'center',
         });
 
-  var errorDiv = document.getElementById('bkashnumber-error');
-  errorDiv.innerHTML = "Please Enter Your Bkash Number !";
-  errorDiv.style.display = 'block';
-  errorDiv.classList.add('fade-in');
-
-  // Change color multiple times
-  var colors = ['green', 'blue', 'red'];
-  var colorIndex = 0;
-  setInterval(function() {
-    errorDiv.style.color = colors[colorIndex];
-    colorIndex = (colorIndex + 1) % colors.length;
-  }, 500);
-
-        return false;
-      }else{
-        document.getElementById('bkash_number').style.borderColor = "green";
-        document.getElementById('bkashnumber-error').innerHTML = "";
-      }
-
-
-
-// Bkash TrxID
-    if (bkash == "") {
         document.getElementById('bkash_trxid').style.borderColor = "red";
         document.getElementById('bkash_trxid').scrollIntoView({
           behavior: 'smooth',
           block: 'center',
         });
 
-  var errorDiv = document.getElementById('bkash-error');
-  errorDiv.innerHTML = "Please Enter Bkash TrxID From Your SMS Box !";
-  errorDiv.style.display = 'block';
-  errorDiv.classList.add('fade-in');
+  var bkashNumber = document.getElementById('bkash_number').value;
+  var bkashTrxId = document.getElementById('bkash_trxid').value;
 
-  // Change color multiple times
-  var colors = ['green', 'blue', 'red'];
-  var colorIndex = 0;
-  setInterval(function() {
-    errorDiv.style.color = colors[colorIndex];
-    colorIndex = (colorIndex + 1) % colors.length;
-  }, 500);
+  // Check if the input fields for the selected payment method are empty
+  if (bkashNumber.trim() === '') {
+    continuouslyChangeColor(document.getElementById('bkashnumber-error'), 'Please enter your mobile number');
+    return false;
+  } else {
+    // document.getElementById('bkashnumber-error').style.display = 'none';
+    document.getElementById('bkash_number').style.borderColor = "green";
+    document.getElementById('bkashnumber-error').innerHTML = "";
+  }
+  if (bkashTrxId.trim() === '') {
+    continuouslyChangeColor(document.getElementById('bkash-error'), 'Please enter your transaction ID');
+    return false;
+  } else {
+    // document.getElementById('bkash-error').style.display = 'none';
+    document.getElementById('bkash_trxid').style.borderColor = "green";
+    document.getElementById('bkash-error').innerHTML = "";
+  }
+}
 
-        return false;
-      }else{
-        document.getElementById('bkash_trxid').style.borderColor = "green";
-        document.getElementById('bkash-error').innerHTML = "";
-      }
-  } 
-
-
-  
-  
-// Validate Nagad
-  else if (selectedOption === "nagad") {
-    bkashnumberError.style.display = "none";
-    bkashError.style.display = "none";
-    roketnumberError.style.display = "none";
-    roketError.style.display = "none";
 
     
-// Check if Nagad fields are filled in
-// Nagad Number
-       if (nagadnumber == "") {
-        document.getElementById('nagad_number').style.borderColor = "red";
+    
+  else if (selectedPaymentMethod.value === 'nagad') {
+    document.getElementById('nagad_number').style.borderColor = "red";
         document.getElementById('nagad_number').scrollIntoView({
           behavior: 'smooth',
           block: 'center',
         });
 
-        var errorDiv = document.getElementById('nagadnumber-error');
-  errorDiv.innerHTML = "Please Enter Your Nagad Number !";
-  errorDiv.style.display = 'block';
-  errorDiv.classList.add('fade-in');
-
-  // Change color multiple times
-  var colors = ['green', 'blue', 'red'];
-  var colorIndex = 0;
-  setInterval(function() {
-    errorDiv.style.color = colors[colorIndex];
-    colorIndex = (colorIndex + 1) % colors.length;
-  }, 500);
-
-        return false;
-      }else{
-        document.getElementById('nagad_number').style.borderColor = "green";
-        document.getElementById('nagadnumber-error').innerHTML = "";
-      }
-
-
-
-// Nagad TxnID
-        if (nagad == "") {
         document.getElementById('nagad_trxid').style.borderColor = "red";
         document.getElementById('nagad_trxid').scrollIntoView({
           behavior: 'smooth',
           block: 'center',
         });
 
-  var errorDiv = document.getElementById('nagad-error');
-  errorDiv.innerHTML = "Please Enter Nagad TxnID From Your SMS Box !";
-  errorDiv.style.display = 'block';
-  errorDiv.classList.add('fade-in');
+  var nagadNumber = document.getElementById('nagad_number').value;
+  var nagadTrxId = document.getElementById('nagad_trxid').value;
 
-  // Change color multiple times
-  var colors = ['green', 'blue', 'red'];
-  var colorIndex = 0;
-  setInterval(function() {
-    errorDiv.style.color = colors[colorIndex];
-    colorIndex = (colorIndex + 1) % colors.length;
-  }, 500);
+  // Check if the input fields for the selected payment method are empty
+  if (nagadNumber.trim() === '') {
+    continuouslyChangeColor(document.getElementById('nagadnumber-error'), 'Please enter your mobile number');
+    return false;
+  } else {
+    // document.getElementById('nagadnumber-error').style.display = 'none';
+    document.getElementById('nagad_number').style.borderColor = "green";
+    document.getElementById('nagadnumber-error').innerHTML = "";
 
-        return false;
-      }else{
-        document.getElementById('nagad_trxid').style.borderColor = "green";
-        document.getElementById('nagad-error').innerHTML = "";
-      }
-  } 
-  
-  
+  }
+  if (nagadTrxId.trim() === '') {
+    continuouslyChangeColor(document.getElementById('nagad-error'), 'Please enter your transaction ID');
+    return false;
+  } else {
+    // document.getElementById('nagad-error').style.display = 'none';
+    document.getElementById('nagad_trxid').style.borderColor = "green";
+    document.getElementById('nagad-error').innerHTML = "";
 
-
-
-// Validate Roket
-  else if (selectedOption === "roket") {
-    bkashnumberError.style.display = "none";
-    bkashError.style.display = "none";
-    nagadnumberError.style.display = "none";
-    nagadError.style.display = "none";
-
- // Check if roket fields are filled in
-// Roket Number
-        if (roketnumber == "") {
-        document.getElementById('roket_number').style.borderColor = "red";
+  }
+} 
+    
+    
+    
+    
+    else if (selectedPaymentMethod.value === 'roket') {
+      document.getElementById('roket_number').style.borderColor = "red";
         document.getElementById('roket_number').scrollIntoView({
           behavior: 'smooth',
           block: 'center',
         });
 
-  var errorDiv = document.getElementById('roketnumber-error');
-  errorDiv.innerHTML = "Please Enter Your Roket Number !";
-  errorDiv.style.display = 'block';
-  errorDiv.classList.add('fade-in');
-
-  // Change color multiple times
-  var colors = ['green', 'blue', 'red'];
-  var colorIndex = 0;
-  setInterval(function() {
-    errorDiv.style.color = colors[colorIndex];
-    colorIndex = (colorIndex + 1) % colors.length;
-  }, 500);
-
-        return false;
-      }else{
-        document.getElementById('roket_number').style.borderColor = "green";
-        document.getElementById('roketnumber-error').innerHTML = "";
-      }
-
-// Roket TxnID
-        if (roket == "") {
         document.getElementById('roket_trxid').style.borderColor = "red";
         document.getElementById('roket_trxid').scrollIntoView({
           behavior: 'smooth',
           block: 'center',
         });
 
-  var errorDiv = document.getElementById('roket-error');
-  errorDiv.innerHTML = "Please Enter Roket TxnID From Your SMS Box !";
-  errorDiv.style.display = 'block';
-  errorDiv.classList.add('fade-in');
+  var roketNumber = document.getElementById('roket_number').value;
+  var roketTrxId = document.getElementById('roket_trxid').value;
 
-  // Change color multiple times
-  var colors = ['green', 'blue', 'red'];
-  var colorIndex = 0;
-  setInterval(function() {
-    errorDiv.style.color = colors[colorIndex];
-    colorIndex = (colorIndex + 1) % colors.length;
-  }, 500);
-        
-        return false;
-      }else{
-        document.getElementById('roket_trxid').style.borderColor = "green";
-        document.getElementById('roket-error').innerHTML = "";
-      }
-  } 
-  
-  
-  
-  else {
-// No Option Selected
-    bkashnumberError.style.display = "none";
-    bkashError.style.display = "none";
+  // Check if the input fields for the selected payment method are empty
+  if (roketNumber.trim() === '') {
+    continuouslyChangeColor(document.getElementById('roketnumber-error'), 'Please enter your mobile number');
+    return false;
+  } else {
+    // document.getElementById('roketnumber-error').style.display = 'none';
+    document.getElementById('roket_number').style.borderColor = "green";
+    document.getElementById('roketnumber-error').innerHTML = "";
 
-    nagadnumberError.style.display = "none";
-    nagadError.style.display = "none";
+  }
+  if (roketTrxId.trim() === '') {
+    continuouslyChangeColor(document.getElementById('roket-error'), 'Please enter your transaction ID');
+    return false;
+  } else {
+    // document.getElementById('roket-error').style.display = 'none';
+    document.getElementById('roket_trxid').style.borderColor = "green";
+    document.getElementById('roket-error').innerHTML = "";
 
-    roketnumberError.style.display = "none";
-    roketError.style.display = "none";
-    valid = false;
+  }
   }
 
+    // You can add additional validation logic here if needed.
 
-  return valid;
+    return true; // Form will be submitted if all conditions are met.
 }
   </script>
 
