@@ -10,6 +10,10 @@ if (isset($_GET['ids'])) {
 
     // Explode the IDs by comma and space to count them
     $idArray = explode(', ', $ids);
+
+    // Limit the array to contain a maximum of 10 IDs
+    $idArray = array_slice($idArray, 0, 10);
+
     $idCount = count($idArray);
 
     // Calculate the fee based on the number of IDs
@@ -18,13 +22,23 @@ if (isset($_GET['ids'])) {
     if ($idCount === 1) {
         $fee = 145;
     } elseif ($idCount === 2) {
-        $fee = 270;
+        $fee = 280;
     } elseif ($idCount === 3) {
-        $fee = 375;
+        $fee = 400;
     } elseif ($idCount === 4) {
-        $fee = 460;
-    } elseif ($idCount >= 5) {
-        $fee = 525;
+        $fee = 500;
+    } elseif ($idCount === 5) {
+        $fee = 600;
+    } elseif ($idCount === 6) {
+        $fee = 700;
+    } elseif ($idCount === 7) {
+        $fee = 800;
+    } elseif ($idCount === 8) {
+        $fee = 880;
+    } elseif ($idCount === 9) {
+        $fee = 945;
+    } elseif ($idCount >= 10) {
+        $fee = 990;
     }
 
 } else {
@@ -40,7 +54,6 @@ if (isset($_COOKIE[$cookieName])) {
     // Automatically fill the input field with the number of IDs from the cookie
 }
 ?>
-
 
 
 <!DOCTYPE HTML>
@@ -146,19 +159,19 @@ if(isset($_SESSION['id'])){
 
 <!-- HTML form with input fields -->
 <div class="form-group">
-    <label>Full Name</label>
+    <label>Full Name<span class="form-required" title="This field is required.">*</span></label>
     <input type="text" id="cust_name" placeholder="Your Full Name" name="cust_name" value="<?php echo $fullname; ?>" size="60" maxlength="60" class="form-text required">
     <span id="name-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
 </div>
 
 <div class="form-group">
-    <label>Email</label>
+    <label>Email<span class="form-required" title="This field is required.">*</span></label>
     <input type="email" id="cust_email" placeholder="Your Email" name="cust_email" value="<?php echo $email; ?>" size="60" maxlength="60" class="form-text">
     <span id="email-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
 </div>
 
 <div class="form-group">
-    <label>Number</label>
+    <label>Number<span class="form-required" title="This field is required.">*</span></label>
     <input type="tel" id="pnumber" placeholder="Your Phone Number" name="cust_number" value="<?php echo $pnumber; ?>" size="60" minlength="10" maxlength="15" class="form-text required">
     <span id="phone-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
 </div>
@@ -185,16 +198,27 @@ if(isset($_SESSION['id'])){
 
 
         <div class="form-group">
-        <label>Address</label>
+        <label>Address<span class="form-required" title="This field is required.">*</span></label>
           <input type="text" id="permanent_address" name="cust_permanent_address" placeholder="Your Permanent Address" value="" size="100" maxlength="100" class="form-text required">
           <span id="address-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
         </div>
 
         <div class="form-group">
     <label>Biodata Number <span style="color: #ccc; font-size: 12px;">(Fixed)</span></label>
-    <textarea rows="4" id="contact_biodatas_number" name="request_biodata_number" class="form-text required" style="background: #ecfeff" readonly><?php echo htmlspecialchars($ids); ?></textarea>
+    <textarea rows="4" id="contact_biodatas_number" name="request_biodata_number" class="form-text required" style="background: #ecfeff;" readonly><?php
+        if (isset($_GET['profileid'])) {
+            $profileid = $_GET['profileid'];
+            echo htmlspecialchars($profileid);
+        } else {
+            echo htmlspecialchars(implode(', ', $idArray));
+        }
+        ?>
+    </textarea>
     <span id="biodata-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
 </div>
+
+
+
 
 
 
@@ -390,22 +414,36 @@ function englishToBanglaNumber($number) {
     return $banglaNumber;
 }
 
-if ($idCount > 0) {
-    $idCountBangla = englishToBanglaNumber($idCount);
-    $feeBangla = englishToBanglaNumber($fee);
-    echo "<div id=\"payment-amount\" class=\"payment-amount\">$idCountBangla টি বায়োডাটা, মোট $feeBangla টাকা.</div>";
+if (isset($_GET['profileid'])) {
+  $profileid = $_GET['profileid'];
+
+  // Specific values for profileid
+  $idCountOne = '1'; // Set the desired value
+  $feeOne = '145';  // Set the desired value
+
+  $idCountOneBD = englishToBanglaNumber($idCountOne);
+  $feeOneBD = englishToBanglaNumber($feeOne);
+
+  // Set idCount and fee to the specific values
+  $idCount = $idCountOne;
+  $fee = $feeOne;
+
+  echo "<div id=\"payment-amount\" class=\"payment-amount\">$idCountOneBD টি বায়োডাটা, মোট $feeOneBD টাকা.</div>";
+} elseif ($idCount > 0) {
+  // Convert idCount and fee to Bangla numbers if needed
+  $idCountBangla = englishToBanglaNumber($idCount);
+  $feeBangla = englishToBanglaNumber($fee);
+
+  echo "<div id=\"payment-amount\" class=\"payment-amount\">$idCountBangla টি বায়োডাটা, মোট $feeBangla টাকা.</div>";
 }
 ?>
 
 
 
-<script>
-
-</script>
 
             
 <div class="shosurbari-biodata-field">
-    <label for="edit-name" style="font-weight: bold;">পছন্দের পেমেন্ট পদ্ধতি বেছে নিন।</label> <br>
+    <label for="edit-name" style="font-weight: bold;">পছন্দের পেমেন্ট পদ্ধতি বেছে নিন।<span class="form-required" title="This field is required.">*</span></label> <br>
     <input type="radio" name="payment_method" id="bkash_radio" value="bkash">
     <label class="custom-radio-option" for="bkash_radio">বিকাশ</label>
 

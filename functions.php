@@ -482,18 +482,24 @@
             $nagad_transaction_id = $_POST['nagad_transaction_id'];
             $roket_number = $_POST['roket_number'];
             $roket_transaction_id = $_POST['roket_transaction_id'];
-    
-            $idCount = $_POST['idCount']; // Retrieve the idCount from the hidden input field
-            $fee = $_POST['fee']; // Retrieve the fee from the hidden input field
-    
+        
+            // Check if idCountOne and feeOne are set, if not, fall back to idCount and fee
+            if (isset($_POST['idCountOne']) && isset($_POST['feeOne'])) {
+                $idCount = $_POST['idCountOne'];
+                $fee = $_POST['feeOne'];
+            } else {
+                $idCount = $_POST['idCount'];
+                $fee = $_POST['fee'];
+            }
+
             // Check if the user is logged in using your existing authentication logic
             if (isset($_SESSION['id'])) {
-                $user_id = $_SESSION['id'];
+            $user_id = $_SESSION['id'];
             } else {
                 $user_id = 0; // Default value for non-logged-in users
             }
     
-            // Insert customer data into the database, including idCount and fee
+            // Insert customer data into the database
             $sql = "INSERT INTO customer (user_id, cust_name, cust_email, cust_number, cust_permanent_address, request_biodata_number, biodata_quantities, total_fee, payment_method, bkash_number, bkash_transaction_id, nagad_number, nagad_transaction_id, roket_number, roket_transaction_id, request_date) 
                     VALUES ('$user_id', '$cust_name', '$cust_email', '$cust_number', '$cust_permanent_address', '$request_biodata_number', '$idCount', '$fee', '$payment_method', '$bkash_number', '$bkash_transaction_id', '$nagad_number', '$nagad_transaction_id', '$roket_number', '$roket_transaction_id', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
     
@@ -504,6 +510,7 @@
             }
         }
     }
+    
     
     /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
     -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --

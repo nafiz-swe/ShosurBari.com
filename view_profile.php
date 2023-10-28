@@ -1056,7 +1056,9 @@ textarea:focus {
 					<div class="profile-btn">
 
 						<div class="contact-bio">
-							<a href="contactbiodata.php" target="_blank"> <button class="chatbtn" id="chatBtn"><i class="fa fa-phone"></i> Contact</button></a>
+							<a href="contactbiodata.php?profileid=<?php echo $profileid; ?>" target="_blank">
+								<button class="chatbtn" id="chatBtn"><i class="fa fa-phone"></i> Contact</button>
+							</a>
 						</div>
 
 						<div class="copy-sbbio-link">
@@ -2723,7 +2725,9 @@ textarea:focus {
 								</div>
 
 								<div class="profile-btn2">
-									<a href="contactbiodata.php" target="_blank"> <button class="chatbtn" id="chatBtn"><i class="fa fa-phone"></i> Contact</button></a>
+									<a href="contactbiodata.php?profileid=<?php echo $profileid; ?>" target="_blank">
+										<button class="chatbtn" id="chatBtn"><i class="fa fa-phone"></i> Contact</button>
+									</a>
 								</div>
 							<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 							-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
