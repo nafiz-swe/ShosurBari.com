@@ -43,7 +43,8 @@
 	<div class="UserProfile">  <!-- UserProfile -->
 		<div class="profile-header">
 
-		<?php
+
+<?php
 error_reporting(0);
 $profileid = $_GET['id'];
 
@@ -105,7 +106,7 @@ if ($result) {
 				<?php if (!empty($profileid)) { ?>
 					<h3>বায়োডাটা নং : <span><?php echo $profileid;?></span></h3>
 				<?php } ?>
-
+				
 				<?php
 					$id=$_GET['id'];
 					$profileid=$id;
@@ -1060,10 +1061,23 @@ textarea:focus {
 
 						<div class="copy-sbbio-link">
 							<button class="copylink clipboard" id="Create-post"><i class="fa fa-copy"></i>Copy Link</button>
-						</div>
+						</div> </br>
 
 						<div id="copy-message">Link Successfully Copied!</div>
 					</div>
+
+
+					<div class="choice-list-options">
+						<?php
+						if (!empty($profileid)) {
+						echo '<form method="POST" action="choice_list.php">';
+						echo '<input type="hidden" name="add_to_choice_list" value="' . $profileid . '">';
+						echo '<button type="submit" class="choice-list-btn"><i class="fa fa-heart"> </i> Add to Choice List</button>';
+						echo '</form>';
+						}
+						?>
+					</div>
+					
 
 
 					<script>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 20, 2023 at 09:04 PM
+-- Generation Time: Oct 28, 2023 at 12:22 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -46,7 +46,7 @@ CREATE TABLE `1bd_personal_physical` (
 
 INSERT INTO `1bd_personal_physical` (`id`, `user_id`, `biodatagender`, `dateofbirth`, `height`, `weight`, `physicalstatus`, `Skin_tones`, `bloodgroup`, `profilecreationdate`) VALUES
 (98, 230, 'পাত্রের বায়োডাটা', '১৮-ফেব্রুয়ারি-১৯৯৬', '6\' 7', '55kg', 'সমস্যা নেই', 'শ্যামবর্ণ', 'O+', '31 May 2023, 12:49:59 AM'),
-(99, 81, 'পাত্রের বায়োডাটা', '১৪-ফেব্রুয়ারি-২০০১', '98', '63', 'সমস্যা নেই', 'শ্যামবর্ণ', 'A+', '2 June 2023, 01:24:44 AM'),
+(99, 81, 'পাত্রীর বায়োডাটা', '১৪-ফেব্রুয়ারি-২০০১', '98', '63', 'সমস্যা নেই', 'শ্যামবর্ণ', 'A+', '2 June 2023, 01:24:44 AM'),
 (100, 244, 'পাত্রের বায়োডাটা', '১০-অক্টোবর-২০০৩', '2', '51', 'সমস্যা নেই', 'শ্যামবর্ণ', 'AB+', '2 June 2023, 01:39:41 AM'),
 (101, 139, 'পাত্রের বায়োডাটা', '০৬-জুন-১৯৯৭', '8ft', '405kg', 'হাত কাটা', 'উজ্জ্বল ফর্সা', 'O+', '2 June 2023, 06:25:23 PM');
 
@@ -556,6 +556,7 @@ CREATE TABLE `customer` (
   `cust_permanent_address` varchar(100) NOT NULL,
   `request_biodata_number` varchar(100) NOT NULL,
   `biodata_quantities` varchar(100) NOT NULL,
+  `total_fee` varchar(100) NOT NULL,
   `payment_method` varchar(100) NOT NULL,
   `bkash_number` varchar(100) NOT NULL,
   `bkash_transaction_id` varchar(100) NOT NULL,
@@ -570,23 +571,39 @@ CREATE TABLE `customer` (
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`id_customer`, `user_id`, `cust_name`, `cust_email`, `cust_number`, `cust_permanent_address`, `request_biodata_number`, `biodata_quantities`, `payment_method`, `bkash_number`, `bkash_transaction_id`, `nagad_number`, `nagad_transaction_id`, `roket_number`, `roket_transaction_id`, `request_date`) VALUES
-(1, 0, 'nafizul', 'nafizul480@gmail.com', '01737226404', 'Natore', '657', '10 Biodata 990 Tk', 'bkash', '01737226404', 'SA67TDVZV7YV', '', '', '', '', '28 September 2021, 03:14:12 PM'),
-(2, 0, 'Nafis', 'nafis@gmail.com', '018453443545', 'RAJ', '5432', '3 Biodata 375 Tk', 'roket', '', '', '', '', '0178768423', 'AT34KDSMNWE', '2 September 2022, 03:14:12 PM'),
-(3, 0, 'NOYON', 'Noyon@gmail.com', '010456658767', 'Khulna', '7689', '4 Biodata 460 Tk', 'nagad', '', '', '015390539093', 'NE85HTLAMX3', '', '', '8 September 2022, 03:14:12 PM'),
-(4, 0, 'Nafiz', 'nafiz@gmail.com', '013843877635', 'Dhaka', '5445', '2 Biodata 270 Tk', 'bkash', '01737 226404', 'ZIUY876547BCQ', '', '', '', '', '28 September 2022, 03:14:12 PM'),
-(5, 0, 'Nafiz', 'noyon@gmail.com', '0145679876', 'Rajshahi', '8764', '1 Biodata 145 Tk', 'bkash', '018765434', 'DE56544VCTYKL344', '', '', '', '', '8 September 2023, 03:14:12 PM'),
-(6, 0, 'Nayem', 'nayem@gmail.com', '09876543245', 'Rajshahi', '987,  7653, 46783, 4555', '1 Biodata 145 Tk', 'roket', '', '', '', '', '013034730914', 'H4HSTYKL382X', '8 September 2023, 03:14:12 PM'),
-(7, 0, 'Abdur Rahman', 'abdurrahman@gmail.com', '01332927237', 'Natore, Bonpara', '3748, 4873, 372, 398, 2822', '5 Biodata 525 Tk', 'nagad', '', '', '01923729829', '5HTKJ5L9ANDH', '', '', '10 September 2023, 03:14:12 PM'),
-(8, 0, 'nafizul', 'nafizul480@gmail.com', '6546565445345', 'Natore', '767454', '1 Biodata 145 Tk', 'nagad', '', '', '0176564535476', '3HGYRZ4HGUTS', '', '', '15 September 2023, 09:14:12 PM'),
-(9, 0, 'diu', 'jhddh@gmail.com', '0939299845', 'diu', '71', '3 Biodata 375 Tk', 'roket', '', '', '', '', '090830984', 'DJIHF6IJF', '1 October 2023, 06:14:12 PM'),
-(10, 0, 'nafizul islam', 'nafizul480@gmail.com', '01892882873778', 'Natore', '230', '1 Biodata 145 Tk', 'bkash', '01700000000', 'MSKSJE7HDJS', '', '', '', '', '1 October 2023, 08:14:12 PM'),
-(11, 0, 'noyon', 'nafiz@gmail.com', '01737226404', 'Bahimali, Baraigram', '989, 9898', '1 Biodata 145 Tk', 'bkash', '899787765656565', 'gft766ftr66r6rf', '', '', '', '', '1 October 2023, 08:15:12 PM'),
-(12, 0, 'nahi', 'nahi@gmail.com', '01010101033', 'mirour-2', '81. 244', '2 Biodata 270 Tk', 'nagad', '', '', '1020932939', 'WD302WMN39DXJWK', '', '', '2 October 2023, 07:14:12 PM'),
-(13, 0, 'NOYON', 'nafiznoyon480@gmail.com', '01737226404', 'mirpur-2', '091, 81, 244', '1 Biodata 145 Tk', 'roket', '', '', '', '', '017829398320', 'SHXK83HDQ82W', '7 October 2023, 06:14:12 PM'),
-(14, 81, 'nafiz', 'nafiznoyon480@gmail.com', '0129309393029', 'Bahimali', '294, 2049, 293p, 23i2- 3493 - 3321-231', '3 Biodata 375 Tk', 'bkash', '01737227404', 'QJ2JWXJK3H4', '', '', '', '', '7 October 2023, 06:57:14 PM'),
-(18, 8, 'Nafizul Islam', 'nafizul35-480@gmail.com', '01737226404', 'Bahimali, Baraigram', '5434', '10 Biodata 990 Tk', 'bkash', '01700000000', 'SA67TDVZV7YV', '', '', '', '', '12 October 2023, 11:05:56 PM'),
-(19, 8, 'Nafizul Islam', 'nas@gmail.com', '01737226404', 'Bahimali, Baraigram', '9876', '2 Biodata 270 Tk', 'bkash', '01700000000', 'fgfsdwsdfr', '', '', '', '', '13 October 2023, 12:33:31 AM');
+INSERT INTO `customer` (`id_customer`, `user_id`, `cust_name`, `cust_email`, `cust_number`, `cust_permanent_address`, `request_biodata_number`, `biodata_quantities`, `total_fee`, `payment_method`, `bkash_number`, `bkash_transaction_id`, `nagad_number`, `nagad_transaction_id`, `roket_number`, `roket_transaction_id`, `request_date`) VALUES
+(1, 0, 'nafizul', 'nafizul480@gmail.com', '01737226404', 'Natore', '657', '10 Biodata 990 Tk', '', 'bkash', '01737226404', 'SA67TDVZV7YV', '', '', '', '', '28 September 2021, 03:14:12 PM'),
+(2, 0, 'Nafis', 'nafis@gmail.com', '018453443545', 'RAJ', '5432', '3 Biodata 375 Tk', '', 'roket', '', '', '', '', '0178768423', 'AT34KDSMNWE', '2 September 2022, 03:14:12 PM'),
+(3, 0, 'NOYON', 'Noyon@gmail.com', '010456658767', 'Khulna', '7689', '4 Biodata 460 Tk', '', 'nagad', '', '', '015390539093', 'NE85HTLAMX3', '', '', '8 September 2022, 03:14:12 PM'),
+(4, 0, 'Nafiz', 'nafiz@gmail.com', '013843877635', 'Dhaka', '5445', '2 Biodata 270 Tk', '', 'bkash', '01737 226404', 'ZIUY876547BCQ', '', '', '', '', '28 September 2022, 03:14:12 PM'),
+(5, 0, 'Nafiz', 'noyon@gmail.com', '0145679876', 'Rajshahi', '8764', '1 Biodata 145 Tk', '', 'bkash', '018765434', 'DE56544VCTYKL344', '', '', '', '', '8 September 2023, 03:14:12 PM'),
+(6, 0, 'Nayem', 'nayem@gmail.com', '09876543245', 'Rajshahi', '987,  7653, 46783, 4555', '1 Biodata 145 Tk', '', 'roket', '', '', '', '', '013034730914', 'H4HSTYKL382X', '8 September 2023, 03:14:12 PM'),
+(7, 0, 'Abdur Rahman', 'abdurrahman@gmail.com', '01332927237', 'Natore, Bonpara', '3748, 4873, 372, 398, 2822', '5 Biodata 525 Tk', '', 'nagad', '', '', '01923729829', '5HTKJ5L9ANDH', '', '', '10 September 2023, 03:14:12 PM'),
+(8, 0, 'nafizul', 'nafizul480@gmail.com', '6546565445345', 'Natore', '767454', '1 Biodata 145 Tk', '', 'nagad', '', '', '0176564535476', '3HGYRZ4HGUTS', '', '', '15 September 2023, 09:14:12 PM'),
+(9, 0, 'diu', 'jhddh@gmail.com', '0939299845', 'diu', '71', '3 Biodata 375 Tk', '', 'roket', '', '', '', '', '090830984', 'DJIHF6IJF', '1 October 2023, 06:14:12 PM'),
+(10, 0, 'nafizul islam', 'nafizul480@gmail.com', '01892882873778', 'Natore', '230', '1 Biodata 145 Tk', '', 'bkash', '01700000000', 'MSKSJE7HDJS', '', '', '', '', '1 October 2023, 08:14:12 PM'),
+(11, 0, 'noyon', 'nafiz@gmail.com', '01737226404', 'Bahimali, Baraigram', '989, 9898', '1 Biodata 145 Tk', '', 'bkash', '899787765656565', 'gft766ftr66r6rf', '', '', '', '', '1 October 2023, 08:15:12 PM'),
+(12, 0, 'nahi', 'nahi@gmail.com', '01010101033', 'mirour-2', '81. 244', '2 Biodata 270 Tk', '', 'nagad', '', '', '1020932939', 'WD302WMN39DXJWK', '', '', '2 October 2023, 07:14:12 PM'),
+(13, 0, 'NOYON', 'nafiznoyon480@gmail.com', '01737226404', 'mirpur-2', '091, 81, 244', '1 Biodata 145 Tk', '', 'roket', '', '', '', '', '017829398320', 'SHXK83HDQ82W', '7 October 2023, 06:14:12 PM'),
+(14, 81, 'nafiz', 'nafiznoyon480@gmail.com', '0129309393029', 'Bahimali', '294, 2049, 293p, 23i2- 3493 - 3321-231', '3 Biodata 375 Tk', '', 'bkash', '01737227404', 'QJ2JWXJK3H4', '', '', '', '', '7 October 2023, 06:57:14 PM'),
+(18, 8, 'Nafizul Islam', 'nafizul35-480@gmail.com', '01737226404', 'Bahimali, Baraigram', '5434', '10 Biodata 990 Tk', '', 'bkash', '01700000000', 'SA67TDVZV7YV', '', '', '', '', '12 October 2023, 11:05:56 PM'),
+(19, 8, 'Nafizul Islam', 'nas@gmail.com', '01737226404', 'Bahimali, Baraigram', '9876', '2 Biodata 270 Tk', '', 'bkash', '01700000000', 'fgfsdwsdfr', '', '', '', '', '13 October 2023, 12:33:31 AM'),
+(20, 0, 'Nafizul Islam', 'nafizul35-480@hotmail.com', '01737226404', 'Bahimali, Baraigram', '9876', '2 Biodata 270 Tk', '', 'nagad', '', '', '', '', '', '', '27 October 2023, 04:52:01 PM'),
+(21, 0, 'Nafizul Islam', 'nafizul35-480@yahoo.com', '01737226404', 'Bahimali, Baraigram', '9876', '5 Biodata 525 Tk', '', 'roket', '', '', '', '', '4788219283', 'DJIHF6IJF', '27 October 2023, 04:53:04 PM'),
+(22, 0, 'Nafizul Islam', 'nafizul35-480@gmail.com', '01737226404', 'Bahimali, Baraigram', '9876', '3 Biodata 375 Tk', '', 'nagad', '', '', '3232131121', 'WD302WMN39DXJWK', '', '', '27 October 2023, 05:04:43 PM'),
+(23, 0, 'Nafizul Islam', 'nafizul35-480@hotmail.com', '01737226404', 'Bahimali, Baraigram', '45678', '10 Biodata 990 Tk', '', 'bkash', '01700000000', 'MSKSJE7HDJS', '1020932939', 'WD302WMN39DXJWK', '4788219283', 'DJIHF6IJF', '27 October 2023, 05:06:11 PM'),
+(24, 0, 'Nafizul Islam', 'nafizul35-480@yahoo.com', '01568879478', 'natore', '9876234', '3 Biodata 375 Tk', '', 'roket', '', '', '3232131121', '3HGYRZ4HGUTS', '4788219283', 'DJIHF6IJF', '27 October 2023, 05:13:27 PM'),
+(25, 0, 'Nafizul Islam', 'nafizul35-480@gmail.com', '0176406545678', 'Bahimali,', '76543', '2 Biodata 270 Tk', '', 'nagad', '01700000000', 'DE56544VCTYKL344', '3232131121', '3HGYRZ4HGUTS', '', '', '27 October 2023, 05:19:47 PM'),
+(26, 0, 'jhv', 'nafizul35-480@hotmail.com', '01737226404', 'Bahimali, Baraigram', '987', '1 Biodata 145 Tk', '', 'bkash', '01700000000', 'QJ2JWXJK3H4', '', '', '', '', '27 October 2023, 06:14:29 PM'),
+(27, 0, 'Nafizul Islam', 'nafizul35-480@yahoo.com', '01737226404', 'Bahimali, Baraigram', '96', '2 Biodata 270 Tk', '', 'bkash', '01700000000', 'SA67TDVZV7YV', '', '', '', '', '27 October 2023, 07:09:40 PM'),
+(28, 0, 'Nafizul Islam', 'nafizul35-480@gmail.com', '01737226404', 'Bahimali, Baraigram', '9765456', '1 Biodata 145 Tk', '', 'roket', '', '555', '555', '', '5555', '098', '27 October 2023, 07:41:42 PM'),
+(29, 0, '', '', '', '', '', '3', '375', '', '', '', '', '', '', '', ''),
+(30, 0, 'test', 'nafizul35-480@gmail.com', '01737226404', 'Bahimali, Baraigram', '139, 230, 81, 244', '1 Biodata 145 Tk', '', 'bkash', '01737226404', 'MSKSJE7HDJS', '', '', '', '', '28 October 2023, 02:16:29 AM'),
+(31, 0, 'test biodata count and fees', 'nafizul35-480@yahoo.com', '0987654345', 'Bahimali, Baraigram', '139, 230, 81, 244', '2 Biodata 270 Tk', '', 'bkash', '01700000000', 'MSKSJE7HDJS', '', '', '', '', '28 October 2023, 02:33:32 AM'),
+(32, 0, '', '', '', '', '', '2', '270', '', '', '', '', '', '', '', ''),
+(33, 0, 'test biodata count and fees 33 id', 'nafizul35-480@yahoo.com', '01737226404', 'Bahimali, Baraigram', '139, 244, 81', '', '375', 'bkash', 'test biodata count and fees 33 id', 'test biodata count and fees 33 id', '', '', '', '', '28 October 2023, 03:14:42 AM'),
+(34, 0, 'test biodata count and fees Nafizul', 'nafizul35-480@hotmail.com', '01737226404', 'Bahimali, Baraigram', '139, 244, 81, 230', '4', '460', 'nagad', '', '', '3232131121', '3HGYRZ4HGUTS', '', '', '28 October 2023, 03:24:17 AM'),
+(35, 0, 'NOYON', 'noyon@gmail.com', '01737226404', 'dhaka', '244, 230', '2', '270', 'roket', '', '', '', '', '4788219283', 'DJIHF6IJF', '28 October 2023, 03:26:52 AM');
 
 -- --------------------------------------------------------
 
@@ -850,21 +867,21 @@ CREATE TABLE `page_views` (
 --
 
 INSERT INTO `page_views` (`id`, `page_name`, `view_count`, `last_update`) VALUES
-(1, 'get_view_count.php?page=index', 269, '21 October 2023, 12:41:54 AM'),
-(2, 'get_view_count.php?page=search', 138, '20 October 2023, 09:18:45 PM'),
+(1, 'get_view_count.php?page=index', 320, '28 October 2023, 02:28:46 AM'),
+(2, 'get_view_count.php?page=search', 143, '27 October 2023, 02:33:53 AM'),
 (3, 'get_view_count.php?page=about', 56, '20 October 2023, 09:22:19 PM'),
 (4, 'get_view_count.php?page=contact', 56, '19 October 2023, 02:41:58 AM'),
 (5, 'get_view_count.php?page=terms', 9, '11 October 2023, 05:04:08 PM'),
-(6, 'get_view_count.php?page=login', 120, '20 October 2023, 09:15:38 PM'),
-(7, 'get_view_count.php?page=faq', 2, '11 October 2023, 06:43:36 PM'),
-(8, 'get_view_count.php?page=userhome', 112, '20 October 2023, 11:46:17 PM'),
+(6, 'get_view_count.php?page=login', 125, '25 October 2023, 11:49:12 PM'),
+(7, 'get_view_count.php?page=faq', 3, '27 October 2023, 02:58:02 PM'),
+(8, 'get_view_count.php?page=userhome', 129, '21 October 2023, 11:31:00 PM'),
 (9, 'get_view_count.php?page=accountupdate', 16, '20 October 2023, 09:19:11 PM'),
-(11, 'get_view_count.php?page=view_profile', 119, '21 October 2023, 12:24:30 AM'),
-(22, 'get_view_count.php?page=forgot_password', 27, '18 October 2023, 02:52:07 AM'),
+(11, 'get_view_count.php?page=view_profile', 212, '28 October 2023, 04:19:56 AM'),
+(22, 'get_view_count.php?page=forgot_password', 28, '25 October 2023, 11:49:06 PM'),
 (23, 'get_view_count.php?page=physical_marital', 10, '18 October 2023, 02:27:40 AM'),
-(24, 'get_view_count.php?page=contactbiodata', 14, '17 October 2023, 06:31:09 PM'),
+(24, 'get_view_count.php?page=contactbiodata', 356, '28 October 2023, 04:21:04 AM'),
 (25, 'get_view_count.php?page=biodata_post', 20, '19 October 2023, 03:00:19 AM'),
-(26, 'get_view_count.php?page=photoupdate', 16, '20 October 2023, 09:17:13 PM'),
+(26, 'get_view_count.php?page=photoupdate', 53, '21 October 2023, 10:31:27 PM'),
 (27, 'get_view_count.php?page=new_password', 43, '17 October 2023, 11:59:51 AM'),
 (28, 'get_view_count.php?page=address', 3, '14 October 2023, 11:36:54 PM'),
 (29, 'get_view_count.php?page=personal_info', 8, '17 October 2023, 03:40:43 PM'),
@@ -872,7 +889,8 @@ INSERT INTO `page_views` (`id`, `page_name`, `view_count`, `last_update`) VALUES
 (31, 'get_view_count.php?page=family', 3, '17 October 2023, 05:04:07 PM'),
 (32, 'get_view_count.php?page=religion', 1, '14 October 2023, 11:37:31 PM'),
 (33, 'get_view_count.php?page=partner', 26, '19 October 2023, 03:00:35 AM'),
-(34, 'get_view_count.php?page=register', 82, '20 October 2023, 09:14:55 PM');
+(34, 'get_view_count.php?page=register', 86, '27 October 2023, 02:23:29 AM'),
+(35, 'get_view_count.php?page=services', 1, '27 October 2023, 02:57:50 PM');
 
 -- --------------------------------------------------------
 
@@ -895,7 +913,7 @@ INSERT INTO `photos` (`id`, `user_id`, `pic1`, `profilecreationdate`) VALUES
 (41, 71, '342670387_1578020439359079_3301382812120421222_n.jpg', ''),
 (46, 15, '', ''),
 (49, 16, 'shosurbari-male.jpg', ''),
-(50, 81, '', '20 October 2023, 5:17:05 PM'),
+(50, 81, '', '21 October 2023, 6:31:27 PM'),
 (62, 244, '', ''),
 (63, 139, '', ''),
 (64, 230, '', '');
@@ -961,7 +979,7 @@ INSERT INTO `users` (`id`, `fullname`, `username`, `gender`, `password`, `number
 (15, '', 'nafiz', 'male', 'nafiz', 0, 'nafiznn480@gmail.com', 0, 0, '', 0, '2023-07-13 12:52:54'),
 (16, '', 'noyon', 'male', 'noyon', 1789898927, 'noyon@gmail.com', 1, 0, '', 0, '2023-07-13 12:52:54'),
 (71, '', 'nahida', 'male', 'nahida', 0, 'nahida@gmail.com', 1, 0, '', 0, '2023-07-13 12:52:54'),
-(81, 'Nafizul', 'nafizul', 'male', '0d72c5d7fc39843229d8fbea3f0f6ea84c849507cdb802d8fbce65f6471345b0', 1737226404, 'nafiznoyon480@gmail.com', 1, 0, '', 0, 'Sat 06:33 PM - 15 Jul 2023'),
+(81, 'Nafizul', 'nafizul', 'male', '0d72c5d7fc39843229d8fbea3f0f6ea84c849507cdb802d8fbce65f6471345b0', 1737226404, 'nafiznoyon480@gmail.com', 0, 1, '', 0, 'Sat 06:33 PM - 15 Jul 2023'),
 (138, 'Nafiz Noyon', 'nafis', 'male', 'nafis', 1737226404, 'nafis@gmail.com', 1, 0, '', 0, '2023-07-13 12:52:54'),
 (139, 'marufa', 'marufa', 'male', 'marufa', 2147483647, 'Samia@gmail.com', 1, 0, '', 0, '2023-07-13 12:52:54'),
 (140, 'mizan', 'mizan', 'Male', 'mizan', 198987334, 'mizan@hotmail.com', 0, 0, '', 0, '2023-07-13 12:52:54'),
@@ -1235,7 +1253,7 @@ ALTER TABLE `contact_us`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `messages`
@@ -1247,7 +1265,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `page_views`
 --
 ALTER TABLE `page_views`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `photos`

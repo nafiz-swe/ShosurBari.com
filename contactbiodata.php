@@ -3,6 +3,46 @@
 <?php biodata_sale_customer(); 
 error_reporting(0);
 ?>
+
+<?php
+if (isset($_GET['ids'])) {
+    $ids = $_GET['ids'];
+
+    // Explode the IDs by comma and space to count them
+    $idArray = explode(', ', $ids);
+    $idCount = count($idArray);
+
+    // Calculate the fee based on the number of IDs
+    $fee = 0;
+
+    if ($idCount === 1) {
+        $fee = 145;
+    } elseif ($idCount === 2) {
+        $fee = 270;
+    } elseif ($idCount === 3) {
+        $fee = 375;
+    } elseif ($idCount === 4) {
+        $fee = 460;
+    } elseif ($idCount >= 5) {
+        $fee = 525;
+    }
+
+} else {
+    $ids = ''; // Set a default value if the parameter is not provided
+    $idCount = 0;
+    $fee = 0;
+}
+
+// Check if the browser cookie is set and use it to populate the input field
+$cookieName = "choice_list_ids";
+if (isset($_COOKIE[$cookieName])) {
+    $numIdsFromCookie = $_COOKIE[$cookieName];
+    // Automatically fill the input field with the number of IDs from the cookie
+}
+?>
+
+
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -79,20 +119,59 @@ error_reporting(0);
           <h2>Contact Biodata</h2>
         </div>
 
-        <div class="form-group">
-          <input type="text" id="cust_name" placeholder="Your Full Name" name="cust_name" value="" size="60" maxlength="60" class="form-text required">
-          <span id="name-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
-        </div>
+<?php
+// Check if the user is logged in
+session_start();
+include("includes/basic_includes.php");
 
-        <div class="form-group">
-          <input type="email" id="cust_email" placeholder="Your Email" name="cust_email" value="" size="60" maxlength="60" class="form-text">
-          <span id="email-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
-        </div>
+if(isset($_SESSION['id'])){
+    $id = $_SESSION['id'];
+    include("includes/dbconn.php");
+    
+    $sql = "SELECT * FROM users WHERE id = $id";
+    $result = mysqlexec($sql);
 
-        <div class="form-group">
-          <input type="tel" id="pnumber" placeholder="Your Phone Number" name="cust_number" value="" size="60" minlength="10" maxlength="15" class="form-text required">
-          <span id="phone-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
-        </div>
+    if ($result && mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        $fullname = $row['fullname'];
+        $email = $row['email'];
+        $pnumber = $row['number'];
+    }
+} else {
+    $fullname = ''; // Set default values if the user is not logged in
+    $email = '';
+    $pnumber = '';
+}
+?>
+
+<!-- HTML form with input fields -->
+<div class="form-group">
+    <label>Full Name</label>
+    <input type="text" id="cust_name" placeholder="Your Full Name" name="cust_name" value="<?php echo $fullname; ?>" size="60" maxlength="60" class="form-text required">
+    <span id="name-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+</div>
+
+<div class="form-group">
+    <label>Email</label>
+    <input type="email" id="cust_email" placeholder="Your Email" name="cust_email" value="<?php echo $email; ?>" size="60" maxlength="60" class="form-text">
+    <span id="email-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+</div>
+
+<div class="form-group">
+    <label>Number</label>
+    <input type="tel" id="pnumber" placeholder="Your Phone Number" name="cust_number" value="<?php echo $pnumber; ?>" size="60" minlength="10" maxlength="15" class="form-text required">
+    <span id="phone-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+</div>
+
+
+
+
+
+
+
+
+
+
 
   <script>
     $(document).ready(function() {
@@ -106,14 +185,19 @@ error_reporting(0);
 
 
         <div class="form-group">
+        <label>Address</label>
           <input type="text" id="permanent_address" name="cust_permanent_address" placeholder="Your Permanent Address" value="" size="100" maxlength="100" class="form-text required">
           <span id="address-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
         </div>
 
         <div class="form-group">
-          <textarea rows="4" id="contact_biodatas_number" name="request_biodata_number" placeholder="Biodatas Number. EX: 0000, 982..." class="form-text required"></textarea>
-          <span id="biodata-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
-        </div>
+    <label>Biodata Number <span style="color: #ccc; font-size: 12px;">(Fixed)</span></label>
+    <textarea rows="4" id="contact_biodatas_number" name="request_biodata_number" class="form-text required" style="background: #ecfeff" readonly><?php echo htmlspecialchars($ids); ?></textarea>
+    <span id="biodata-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+</div>
+
+
+
 
         <div class="form-actions">
         <button type="button" class="next-btn">Make Payment</button>
@@ -166,7 +250,7 @@ error_reporting(0);
         }
 
         label {
-          margin-bottom: 6px;
+          margin-bottom: 2px;
           color: #000;
           font-weight: 500;
           font-size: 16px;
@@ -272,7 +356,7 @@ error_reporting(0);
         </div>
 
 
-        
+<!--         
     <div class="shosurbari-biodata-field" style="padding: 0px; margin-bottom: 20px;">
     <label for="edit-name" style="font-weight: bold;">আপনি কয়টি বায়োডাটার সাথে যোগাযোগ করতে চান?</label></br>
     <input type="radio" name="biodata_quantities" value="1 Biodata 145 Tk" id="biodata_quantity_1">
@@ -295,7 +379,29 @@ error_reporting(0);
 
     <div id="payment-message" class="form-group" style="display: none;">মোট <span id="payment-amount">70</span> টাকা</div>
     <div id="error-message" style="color: red; display: none;">অনুগ্রহ করে বায়োডাটা পরিমাণ নির্বাচন করুন।</div>
-</div>
+</div> -->
+
+
+<?php
+function englishToBanglaNumber($number) {
+    $english = range(0, 9);
+    $bangla = array('০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯');
+    $banglaNumber = str_replace($english, $bangla, $number);
+    return $banglaNumber;
+}
+
+if ($idCount > 0) {
+    $idCountBangla = englishToBanglaNumber($idCount);
+    $feeBangla = englishToBanglaNumber($fee);
+    echo "<div id=\"payment-amount\" class=\"payment-amount\">$idCountBangla টি বায়োডাটা, মোট $feeBangla টাকা.</div>";
+}
+?>
+
+
+
+<script>
+
+</script>
 
             
 <div class="shosurbari-biodata-field">
@@ -360,10 +466,11 @@ error_reporting(0);
 
 
 
-
-<div class="form-actions">
-  <button type="submit" id="edit-submit" name="op">Confirm</button>
-</div>
+    <input type="hidden" name="idCount" value="<?php echo $idCount; ?>">
+    <input type="hidden" name="fee" value="<?php echo $fee; ?>">
+    <div class="form-actions">
+        <button type="submit" id="edit-submit" name="op">Confirm</button>
+    </div>
 
 
 <!-- Popup message -->
@@ -427,6 +534,11 @@ error_reporting(0);
 
 
 
+
+
+
+<!-- 
+
 <script>
 // Function to convert Arabic numerals to Bengali numerals
 function convertToBengaliNumber(arabicNumber) {
@@ -469,7 +581,7 @@ document.querySelector('form').addEventListener('submit', function (e) {
         e.preventDefault();
     }
 });
-</script>
+</script> -->
 
 
 
@@ -700,16 +812,16 @@ document.querySelector('form').addEventListener('submit', function (e) {
 
 
 
-    var selectedBiodataQuantities = document.querySelector('input[name="biodata_quantities"]:checked');
+    // var selectedBiodataQuantities = document.querySelector('input[name="biodata_quantities"]:checked');
     var selectedPaymentMethod = document.querySelector('input[name="payment_method"]:checked');
 
     // Check if a biodata quantity is selected
-    if (!selectedBiodataQuantities) {
-        document.getElementById('error-message').style.display = 'block';
-        return false;
-    } else {
-        document.getElementById('error-message').style.display = 'none';
-    }
+    // if (!selectedBiodataQuantities) {
+    //     document.getElementById('error-message').style.display = 'block';
+    //     return false;
+    // } else {
+    //     document.getElementById('error-message').style.display = 'none';
+    // }
 
     // Check if a payment method is selected
     if (!selectedPaymentMethod) {

@@ -464,48 +464,47 @@
     --                                               --
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-    function biodata_sale_customer(){
+    function biodata_sale_customer() {
+        require_once("includes/dbconn.php");
+    
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $cust_name=$_POST['cust_name'];
-            $cust_email=$_POST['cust_email'];
-            $cust_number=$_POST['cust_number'];
-            $cust_permanent_address=$_POST['cust_permanent_address'];
-            $request_biodata_number=$_POST['request_biodata_number'];
-            $biodata_quantities=$_POST['biodata_quantities'];
-
-            $payment_method=$_POST['payment_method'];
-            $bkash_number=$_POST['bkash_number'];
-            $bkash_transaction_id=$_POST['bkash_transaction_id'];
-            $nagad_number=$_POST['nagad_number'];
-            $nagad_transaction_id=$_POST['nagad_transaction_id'];
-            $roket_number=$_POST['roket_number'];
-            $roket_transaction_id=$_POST['roket_transaction_id'];
-
-
-            require_once("includes/dbconn.php");
-
+            $cust_name = $_POST['cust_name'];
+            $cust_email = $_POST['cust_email'];
+            $cust_number = $_POST['cust_number'];
+            $cust_permanent_address = $_POST['cust_permanent_address'];
+            $request_biodata_number = $_POST['request_biodata_number'];
+            // $biodata_quantities = $_POST['biodata_quantities'];
+    
+            $payment_method = $_POST['payment_method'];
+            $bkash_number = $_POST['bkash_number'];
+            $bkash_transaction_id = $_POST['bkash_transaction_id'];
+            $nagad_number = $_POST['nagad_number'];
+            $nagad_transaction_id = $_POST['nagad_transaction_id'];
+            $roket_number = $_POST['roket_number'];
+            $roket_transaction_id = $_POST['roket_transaction_id'];
+    
+            $idCount = $_POST['idCount']; // Retrieve the idCount from the hidden input field
+            $fee = $_POST['fee']; // Retrieve the fee from the hidden input field
+    
             // Check if the user is logged in using your existing authentication logic
             if (isset($_SESSION['id'])) {
                 $user_id = $_SESSION['id'];
             } else {
                 $user_id = 0; // Default value for non-logged-in users
             }
-
-            $sql = "INSERT 
-                INTO
-                customer(user_id, cust_name, cust_email, cust_number, cust_permanent_address, request_biodata_number, biodata_quantities, payment_method, bkash_number, bkash_transaction_id, nagad_number, nagad_transaction_id, roket_number, roket_transaction_id, request_date) 
-                VALUES
-                ('$user_id', '$cust_name', '$cust_email', '$cust_number', '$cust_permanent_address', '$request_biodata_number', '$biodata_quantities', '$payment_method', '$bkash_number', '$bkash_transaction_id', '$nagad_number', '$nagad_transaction_id', '$roket_number', '$roket_transaction_id', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
-
-            if (mysqli_query($conn,$sql)) {
-
-            header("location: index.php");
-
+    
+            // Insert customer data into the database, including idCount and fee
+            $sql = "INSERT INTO customer (user_id, cust_name, cust_email, cust_number, cust_permanent_address, request_biodata_number, biodata_quantities, total_fee, payment_method, bkash_number, bkash_transaction_id, nagad_number, nagad_transaction_id, roket_number, roket_transaction_id, request_date) 
+                    VALUES ('$user_id', '$cust_name', '$cust_email', '$cust_number', '$cust_permanent_address', '$request_biodata_number', '$idCount', '$fee', '$payment_method', '$bkash_number', '$bkash_transaction_id', '$nagad_number', '$nagad_transaction_id', '$roket_number', '$roket_transaction_id', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+    
+            if (mysqli_query($conn, $sql)) {
+                // header("location: index.php");
             } else {
-            echo "Error";
+                echo "Error";
             }
         }
     }
+    
     /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
     -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
     --                   E   N   D                   --
