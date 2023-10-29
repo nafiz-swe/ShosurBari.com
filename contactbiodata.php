@@ -206,15 +206,14 @@ if(isset($_SESSION['id'])){
   <div class="form-group">
     <label>Biodata Number <span style="color: #ccc; font-size: 12px;">(Fixed)</span></label>
     <textarea rows="4" id="contact_biodatas_number" name="request_biodata_number" class="form-text required" style="background: #ecfeff;" readonly><?php
-        if (isset($_GET['profileid'])) {
-            $profileid = $_GET['profileid'];
-            echo htmlspecialchars($profileid);
-        } else {
-          if (is_array($idArray)) {
-            echo htmlspecialchars(implode(', ', $idArray));
+      if (isset($_GET['profileid'])) {
+          $profileid = $_GET['profileid'];
+          echo htmlspecialchars($profileid);
+      } else {
+        if (is_array($idArray)) {
+          echo htmlspecialchars(implode(', ', $idArray));
         }
-      }
-        ?>
+      }?>
     </textarea>
     <span id="biodata-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
   </div>

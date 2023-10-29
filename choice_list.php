@@ -119,11 +119,6 @@ function englishToBanglaNumber($number) {
             font-family: Arial, sans-serif;
         }
 
-        h3 {
-            background-color: #f0f0f0;
-            padding: 10px;
-            border: 1px solid #ddd;
-        }
 /* 
         ul {
             list-style-type: none;
@@ -154,8 +149,8 @@ function englishToBanglaNumber($number) {
         }
         th, td {
             padding: 10px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
+            text-align: center;
+            border: 1px solid #ddd;
         }
         th {
             background-color: #f2f2f2;
@@ -234,6 +229,28 @@ function englishToBanglaNumber($number) {
   }
 }
 
+@media (max-width: 600px) {
+
+th, td {
+    font-size: 15px;
+    padding: 8px;
+}
+
+.remove-button {
+    padding: 4px 7px;
+}
+}
+
+@media (max-width: 384px) {
+    th, td {
+    font-size: 13px;
+    padding: 5px;
+}
+
+.remove-button {
+    padding: 3px 5px;
+}
+}
     </style>
 
   
@@ -262,17 +279,21 @@ function englishToBanglaNumber($number) {
 
 
 
-    <?php
+          <?php
 echo "<table>
     <tr>
-        <th> ID </th>
-        <th> Date </th>
-        <th> Remove </th>
+        <th> বায়োডাটা</th>
+        <th> তারিখ ও সময় </th>
+        <th> বাদ দিন </th>
     </tr>";
 
 foreach ($choiceList as $item) {
     // Split the item into profile ID and date
     list($profileid, $formattedDateTime) = explode(', ', $item);
+    list($day, $time,) = explode(' ', $formattedDateTime, 2); // Split date and time
+
+    // Format the date and time as "l h:i A d F Y"
+    $formattedDateTime = date('l h:i A d F Y', strtotime($formattedDateTime));
 
     echo "<tr>
         <td> $profileid </td>
@@ -285,7 +306,12 @@ foreach ($choiceList as $item) {
 }
 
 echo "</table>";
+
+if (empty($choiceList)) {
+    echo "Please add at least one ID before making a payment.";
+} 
 ?>
+
 </br>
 
     <?php if ($count > 0): ?>
@@ -341,20 +367,24 @@ if (isset($_POST['make_payment'])) {
 ?>
 
 
-
-
 <div class="profile-btn">
     <div class="contact-bio">
         <a href="search.php">
-            <button class="chatbtn"><i class="fa fa-search"></i>Back Search Page</button>
+            <button class="chatbtn">Back Search Page</button>
         </a>
     </div>
 
-    <form method="GET" action="contactbiodata.php" class="copy-sbbio-link">
-        <input type="hidden" name="ids" value="<?php echo $idList; ?>">
-        <button type="submit" class="copylink"><i class="fa fa-money"></i>Make Payment</button>
-    </form>
+    <?php
+    if (!empty($choiceList)) {
+        // Display the "Make Payment" button if $choiceList is not empty
+        echo "<form method='GET' action='contactbiodata.php' class='copy-sbbio-link'>
+            <input type='hidden' name='ids' value=\"$idList\">
+            <button type='submit' class='copylink'>Make Payment</button>
+        </form>";
+    }
+    ?>
 </div>
+
         
 </div>
 </div>
@@ -447,7 +477,7 @@ if (isset($_POST['make_payment'])) {
           </div>
 
           <div class="sb-biodata-field">
-            <h2>৬থেকে ১০টি বায়োডাটার মূল্য তালিকা</h2>
+            <h2>৬ থেকে ১০টি বায়োডাটার মূল্য তালিকা</h2>
           </div>
 
 
