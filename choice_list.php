@@ -250,6 +250,13 @@ th, td {
 .remove-button {
     padding: 3px 5px;
 }
+
+.contact-bio,
+.copy-sbbio-link {
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 13px;
+}
 }
     </style>
 

@@ -1933,7 +1933,7 @@ span.m_3{
     color: #fff;
     font-family: "Bree Serif";
     font-size: 1rem;
-    margin: 2px 5px;
+    margin: 2px 15px;
     cursor: pointer;
     outline: none;
     margin-top: 20px;
@@ -6564,7 +6564,9 @@ label{
 
     .contact-bio,
     .copy-sbbio-link {
-        font-size: 13px;
+        font-size: 14px;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 
     .left-side {
@@ -7433,6 +7435,14 @@ label{
 --      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width: 350px) {
+
+    .contact-bio,
+    .copy-sbbio-link {
+        font-size: 13px;
+        margin-left: 7px;
+        margin-right: 7px;
+    }
+
     .slide h1, .slide h5 {
         width: 330px;
     }

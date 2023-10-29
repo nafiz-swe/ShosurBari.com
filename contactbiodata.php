@@ -204,7 +204,7 @@ if(isset($_SESSION['id'])){
   </div>
 
   <div class="form-group">
-    <label>Biodata Number <span style="color: #ccc; font-size: 12px;">(Fixed)</span></label>
+    <label>Request Biodata <span style="color: #ccc; font-size: 12px;">(Fixed)</span></label>
     <textarea rows="4" id="contact_biodatas_number" name="request_biodata_number" class="form-text required" style="background: #ecfeff;" readonly><?php
       if (isset($_GET['profileid'])) {
           $profileid = $_GET['profileid'];
@@ -241,8 +241,7 @@ if(isset($_SESSION['id'])){
             display: inline-block;
             width: 20px;
             height: 26px;
-            margin-right: 5px;
-            margin-left: 10px;
+            margin: 5px 5px 7px 10px;
             background-color: #fff;
             border: 1px solid #06b6d4;
             cursor: pointer;
@@ -443,7 +442,7 @@ if (isset($_GET['profileid'])) {
 
 
             
-<div class="shosurbari-biodata-field">
+<div class="shosurbari-biodata-field" id="payment-border-error" style="border: 1px solid gray; border-radius: 5px;">
     <label for="edit-name" style="font-weight: bold;">পছন্দের পেমেন্ট পদ্ধতি বেছে নিন।<span class="form-required" title="This field is required.">*</span></label> <br>
     <input type="radio" name="payment_method" id="bkash_radio" value="bkash">
     <label class="custom-radio-option" for="bkash_radio">বিকাশ</label>
@@ -454,7 +453,7 @@ if (isset($_GET['profileid'])) {
     <input type="radio" name="payment_method" id="roket_radio" value="roket">
     <label class="custom-radio-option" for="roket_radio">রকেট</label>
 
-    <div id="payment-method-error" style="color: red; display: none;">অনুগ্রহ করে পেমেন্ট পদ্ধতি নির্বাচন করুন।</div>
+    <div id="payment-method-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></div>
 </div>
 
 
@@ -883,9 +882,30 @@ document.querySelector('form').addEventListener('submit', function (e) {
     // Check if a payment method is selected
     if (!selectedPaymentMethod) {
         document.getElementById('payment-method-error').style.display = 'block';
+        document.getElementById('payment-border-error').style.borderColor = "red";
+        document.getElementById('payment-method-error').scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+        });
+
+        var errorDiv = document.getElementById('payment-method-error');
+        errorDiv.innerHTML = "Please Enter Biodata Number !";
+        errorDiv.style.display = 'block';
+        errorDiv.classList.add('fade-in');
+
+        // Change color multiple times
+        var colors = ['green', 'blue', 'red'];
+        var colorIndex = 0;
+        setInterval(function() {
+          errorDiv.style.color = colors[colorIndex];
+          colorIndex = (colorIndex + 1) % colors.length;
+        }, 500);
+
+        
         return false;
     } else {
         document.getElementById('payment-method-error').style.display = 'none';
+        document.getElementById('payment-border-error').style.borderColor = "green";
     }
 
     
