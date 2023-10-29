@@ -1260,7 +1260,7 @@ const json = `
 	"srcset": [
 		"images/sb-banner2.png"
 	],
-	"text": "আপনার স্বপ্নময় জীবনসঙ্গী খুঁজুন দ্রুততম সময়ে ",
+	"text": "স্বপ্নময় জীবনসঙ্গী খুঁজুন দ্রুততম সময়ে ",
 	"shhosurbari": "We are dedicated to helping you find your perfect life partner through our advanced matchmaking platform."
 },
 {
@@ -1639,6 +1639,238 @@ function createSlides(data) {
       </div>
     </div>
   </div>
+
+
+
+
+
+
+
+  <div class="shosurbari-biodata-form">
+    <div class="shosurbari-animation-form">
+        <form action="" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
+            <div class="sb-biodata-amount-list">
+                <h2>বায়োডাটার মূল্য তালিকা</h2>
+                <p>শশুরবাড়ি ডট কমের পাত্রপাত্রীদের সাথে যোগাযোগ করতে চাইলে সামান্য সার্ভিস চার্জ প্রদান করতে হবে। আপনি চাইলে এক বা একাধিক পাত্র/পাত্রীর সাথে যোগাযোগ করতে পারবেন। আপনার পেমেন্ট সম্পন্ন হয়ে গেলে, পেমেন্ট তথ্যগুলো যাচাইবাচায়ের পর ৪৮ ঘন্টার মধ্যেই আপনার নাম্বারে পাত্র/পাত্রীর পরিবারের নাম্বর পাঠিয়ে দেয়া হবে। দেখেনিন ১ থেকে ১০টি বায়োডাটার মোট মূল্য সহ একাধিক বায়োডাটার এভারেজ মূল্য।</p>
+                </br> <p> <span style="color:#ff0000; font-weight: 600;">বি: দ্র:</span> পাত্রপাত্রীদের পরিবারের সদস্যর মোবাইল নাম্বার এবং পাত্রপাত্রীদের ইমেইল প্রদান করা হবে। পাত্রপাত্রীদের মোবাইল নাম্বার প্রদান করা হয় না।</p>
+            </div>
+
+		    <div class="flex-container">
+                <div class="sb-register-login">
+
+                    <div class="soshurbari-animation-icon">
+                        <div class="sb-icon-laptop">
+                        <h3> <img src="images/shosurbari-icon.png"> ShosurBari </h3>
+                        </div>
+                    </div>
+
+                    <div class="sb-biodata-field">
+                        <h2>১ থেকে ৫টি বায়োডাটার মূল্য</h2>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>বায়োডাটার পরিমান</th>
+                                <th>প্যাকেজ মূল্য</th>
+                                <th>এভারেজ মূল্য</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>১</td>
+                                <td>১৪৫ ৳</td>
+                                <td>১৪৫ ৳</td>
+                            </tr>
+                            <tr>
+                                <td>২</td>
+                                <td>২৮০ ৳</td>
+                                <td>১৪০ ৳</td>
+                            </tr>
+                            <tr>
+                                <td>৩</td>
+                                <td>৩৯০ ৳</td>
+                                <td>১৩০ ৳</td>
+                            </tr>
+                            <tr>
+                                <td>৪</td>
+                                <td>৫০০ ৳</td>
+                                <td>১২৫ ৳</td>
+                            </tr>
+                            <tr>
+                                <td>৫</td>
+                                <td>৬০০ ৳</td>
+                                <td>১২০ ৳</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <div class="sb-register-login">
+
+                    <div class="soshurbari-animation-icon">
+                        <div class="sb-icon-laptop">
+                        <h3> <img src="images/shosurbari-icon.png"> ShosurBari </h3>
+                        </div>
+                    </div>
+
+                    <div class="sb-biodata-field">
+                        <h2>৬ থেকে ১০টি বায়োডাটার মূল্য</h2>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>বায়োডাটার পরিমান</th>
+                                <th>প্যাকেজ মূল্য</th>
+                                <th>এভারেজ মূল্য</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>৬</td>
+                                <td>৬৯০ ৳</td>
+                                <td>১১৫ ৳</td>
+                            </tr>
+                            <tr>
+                                <td>৭</td>
+                                <td>৭৭০ ৳</td>
+                                <td>১১০ ৳</td>
+                            </tr>
+                            <tr>
+                                <td>৮</td>
+                                <td>৮৪০ ৳</td>
+                                <td>১০৫ ৳</td>
+                            </tr>
+                            <tr>
+                                <td>৯</td>
+                                <td>৯০০ ৳</td>
+                                <td>১০০ ৳</td>
+                            </tr>
+                            <tr>
+                                <td>১০</td>
+                                <td>৯৮০ ৳</td>
+                                <td>৯৮ ৳</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+	    </form>
+    </div> 
+</div>
+
+
+<style>
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+
+.sb-biodata-field{
+  background: none;
+}
+  
+.sb-register-login h2{
+    color: #000;
+    font-size: 23px;
+    font-weight: bold;
+    background: none;
+    text-align: left;
+    line-height: 35px;
+}
+
+.shosurbari-biodata-form {
+  align-items: center;
+  flex-wrap: wrap;
+  width: 1400px;
+  margin: auto;
+  margin-top: 90px;
+  padding-top: 30px;
+  padding-bottom: 30px
+}
+
+.soshurbari-animation-icon,
+.shosurbari-animation-form {
+  flex-basis: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.soshurbari-animation-icon h3 {
+  font-size: 23px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.soshurbari-animation-icon img {
+  justify-content: flex-end;
+  margin: auto;
+
+  width: 37px;
+  height: 35px;
+}
+
+@media (max-width: 1400px){
+  .shosurbari-biodata-form{
+    width: auto;
+  }
+}
+
+@media (max-width: 1024px) {
+
+  .shosurbari-animation-form {
+    flex-basis: 100%;
+    justify-content: center;
+  }
+
+  .shosurbari-biodata-form {
+    width: auto;
+  }
+}
+
+@media (max-width: 600px) {
+
+th, td {
+    font-size: 15px;
+    padding: 8px;
+}
+}
+
+@media (max-width:480px){
+    .soshurbari-animation-icon h3,
+    .sb-register-login h2{
+        font-size: 20px;
+    }
+
+.shosurbari-biodata-form {
+  margin-top: 70px;
+}
+}
+
+@media (max-width: 384px) {
+    th, td {
+    font-size: 13px;
+    padding: 5px;
+}
+}
+    </style>
+
 
 
 

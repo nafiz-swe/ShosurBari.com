@@ -1928,23 +1928,21 @@ span.m_3{
 .contact-bio,
 .copy-sbbio-link {
     padding: 0px;
-    width: 50%;
+    width: 120px;
     border-radius: 4px;
     color: #fff;
     font-family: "Bree Serif";
     font-size: 1rem;
-    margin: 2px 15px;
+    margin: 20px auto 10px auto;
     cursor: pointer;
     outline: none;
-    margin-top: 20px;
-    margin-bottom: 10px;
     transition:  0.3s ease-in-out;
     box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.3);
 }
 
 .choice-list-options {
     padding: 0px;
-    width: 50%;
+    width: 160px;
     border-radius: 4px;
     color: #fff;
     font-family: "Bree Serif";
@@ -1970,30 +1968,18 @@ span.m_3{
   margin: auto;
 }
 
-button.chatbtn{
+button.chatbtn,
+button.copylink {
 	width: 100%;
 	color: #fff;
     border: 1px solid #ccc;
-    padding: 6px;
+    padding: 5px;
     border-radius: 4px;
     background: linear-gradient(#06b6d4, #0ea5e9);
     cursor: pointer;
     position: relative;
     transition: all .2s ease;
 	white-space: nowrap;
-}
-
-button.copylink {
-	width: 100%;
-	color: #fff;
-    border: 1px solid #ccc;
-    padding: 6px;
-    border-radius: 4px;
-    background: linear-gradient(#06b6d4, #0ea5e9);
-    cursor: pointer;
-    position: relative;
-    transition: all .2s ease;
-    white-space: nowrap;
 }
 
 button.copylink:hover {
@@ -2005,7 +1991,7 @@ button.choice-list-btn {
 	width: 100%;
 	color: #fff;
     border: 1px solid #ccc;
-    padding: 6px;
+    padding: 5px;
     border-radius: 4px;
     background: linear-gradient(#06b6d4, #0ea5e9);
     cursor: pointer;
@@ -4140,6 +4126,51 @@ label{
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
 --               S  T  A  R  T                   --
+--          SHOSUR BARI CHOICE LIST PAGE         --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+.sb-biodata-amount-list {
+    padding: 10px;
+    margin:  0 auto 15px auto;
+    width: 90%;
+    text-align: center;
+}
+
+.sb-biodata-amount-list h2{
+    color: #000;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.sb-biodata-amount-list p{
+    font-weight: 500;
+    text-align: justify;
+}
+
+.remove-button {
+    background-color: #ff0000;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                 E    N    D                   --
+--          SHOSUR BARI CHOICE LIST PAGE         --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+
+
+
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--               S  T  A  R  T                   --
 --      Media Responsive / Phone Responsive      --
 --                                               --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
@@ -4148,17 +4179,14 @@ label{
 @media (min-width:1600px){
     .contact-bio,
     .copy-sbbio-link {
-        width: 50%;
-        margin-top: 20px;
-        margin-bottom: 0px;
-        margin-left: 5px;
-        margin-right: 5px;
+        width: 160px;
+        margin: 20px auto 10px auto;
     }
 
     button.chatbtn,
     button.copylink {
         width: 100%;
-        padding: 3px;
+        padding: 5px;
     }
 
     .sb_user_recentview .sb_value_recentview {
@@ -5140,6 +5168,7 @@ label{
 --      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width: 768px){
+
     .slide h1 {
         font-size: clamp(2.3em, 5vmax, 3em);
         top: 20px;
@@ -6100,6 +6129,7 @@ label{
 --      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width: 600px){
+
     .sb-search-page-notice h2{
         line-height: 40px;
         margin: 150px auto 40px auto;
@@ -6433,6 +6463,17 @@ label{
 --      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width:480px){
+
+    .soshurbari-animation-icon h3,
+    .sb-register-login h2{
+        font-size: 20px;
+    }
+
+    .choice-list-options {
+        width: 150px;
+        font-size: 14px;
+    }
+
     .shosurbari-about {
         line-height: 40px;
     }
@@ -6565,8 +6606,8 @@ label{
     .contact-bio,
     .copy-sbbio-link {
         font-size: 14px;
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-left: 20px;
+        margin-right: 20px;
     }
 
     .left-side {
@@ -6855,6 +6896,7 @@ label{
 --      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width:414px){
+
     .sb-search-btn-banner {
         left: 185px;
     }
@@ -7113,6 +7155,7 @@ label{
 --      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width:384px){
+
     .sb-home-reg2{
         top: 165px;
     }
@@ -7441,6 +7484,11 @@ label{
         font-size: 13px;
         margin-left: 7px;
         margin-right: 7px;
+    }
+
+    .choice-list-options {
+        width: 135px;
+        font-size: 13px;
     }
 
     .slide h1, .slide h5 {

@@ -24,21 +24,21 @@ if (isset($_GET['ids'])) {
     } elseif ($idCount === 2) {
         $fee = 280;
     } elseif ($idCount === 3) {
-        $fee = 400;
+        $fee = 390;
     } elseif ($idCount === 4) {
         $fee = 500;
     } elseif ($idCount === 5) {
         $fee = 600;
     } elseif ($idCount === 6) {
-        $fee = 700;
+        $fee = 690;
     } elseif ($idCount === 7) {
-        $fee = 800;
+        $fee = 770;
     } elseif ($idCount === 8) {
-        $fee = 880;
+        $fee = 840;
     } elseif ($idCount === 9) {
-        $fee = 945;
+        $fee = 900;
     } elseif ($idCount >= 10) {
-        $fee = 990;
+        $fee = 980;
     }
 
 } else {
@@ -59,7 +59,7 @@ if (isset($_COOKIE[$cookieName])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Contact Biodata | ShosurBari</title>
+<title>Payment | ShosurBari</title>
 <link rel="icon" href="images/shosurbari-icon.png" type="image/png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -103,7 +103,7 @@ if (isset($_COOKIE[$cookieName])) {
      <ul>
         <a href="index.php"><i class="fa fa-home home_1"></i></a>
         <span class="divider">&nbsp;<|>&nbsp;</span>
-        <li class="current-page"><h4>Contact Biodata</h4></li>
+        <li class="current-page"><h4>Payment</h4></li>
      </ul>
    </div>
 </div>
@@ -225,7 +225,7 @@ if(isset($_SESSION['id'])){
 
 
         <div class="form-actions">
-        <button type="button" class="next-btn">Make Payment</button>
+        <button type="button" class="next-btn">পেমেন্ট সম্পন্ন করুন</button>
         </div>
 
       </div>
@@ -442,7 +442,7 @@ if (isset($_GET['profileid'])) {
 
 
             
-<div class="shosurbari-biodata-field" id="payment-border-error" style="border: 1px solid gray; border-radius: 5px;">
+<div class="shosurbari-biodata-field" id="payment-border-error" style="border: 1px solid #ccc; border-radius: 5px;">
     <label for="edit-name" style="font-weight: bold;">পছন্দের পেমেন্ট পদ্ধতি বেছে নিন।<span class="form-required" title="This field is required.">*</span></label> <br>
     <input type="radio" name="payment_method" id="bkash_radio" value="bkash">
     <label class="custom-radio-option" for="bkash_radio">বিকাশ</label>
@@ -509,7 +509,7 @@ if (isset($_GET['profileid'])) {
     <div class="profile-btn">
       <div class="contact-bio">
         <a href="choice_list.php">
-          <button class="chatbtn" id="back-btn">Back Choice Page</button>
+          <button class="chatbtn" id="back-btn">চয়েস লিস্ট</button>
         </a>
       </div>
 
@@ -517,7 +517,7 @@ if (isset($_GET['profileid'])) {
       <input type="hidden" name="idCount" value="<?php echo $idCount; ?>">
       <input type="hidden" name="fee" value="<?php echo $fee; ?>">
       <div class="copy-sbbio-link">
-        <button class="copylink" type="submit" id="edit-submit" name="op">Confirm</button>
+        <button class="copylink" type="submit" id="edit-submit" name="op">কনফার্ম</button>
       </div>
     </div>
 

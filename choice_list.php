@@ -56,14 +56,14 @@ function calculateFeeForProfileID($profileid) {
     $fees = [
         '1' => 145,
         '2' => 280,
-        '3' => 400,
+        '3' => 390,
         '4' => 500,
         '5' => 600,
-        '6' => 700,
-        '7' => 800,
-        '8' => 880,
-        '9' => 945,
-        '10' => 990,
+        '6' => 690,
+        '7' => 770,
+        '8' => 840,
+        '9' => 900,
+        '10' => 980,
     ];
 
     return isset($fees[$profileid]) ? $fees[$profileid] : 0;
@@ -84,7 +84,7 @@ function englishToBanglaNumber($number) {
 
 
 <head>
-<title>Search | ShosurBari</title>
+<title>Choice List | ShosurBari</title>
 <link rel="icon" href="images/shosurbari-icon.png" type="image/png">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -112,37 +112,19 @@ function englishToBanglaNumber($number) {
   <?php include_once("includes/navigation.php");?>
   <!-- ============================  Navigation End ============================ -->
 
-  
+  <div class="grid_3">
+    <div class="container">
+      <div class="breadcrumb1">
+        <ul>
+          <a href="index.php"><i class="fa fa-home home_1"></i></a>
+          <span class="divider">&nbsp;<|>&nbsp;</span>
+          <li class="current-page"><h4>Choice List</h4></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
 <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-/* 
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        li {
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin: 5px 0;
-            background-color: #f9f9f9;
-        } */
-
-        p {
-            font-weight: bold;
-        }
-
-        .remove-button {
-            background-color: #ff0000;
-            color: #ffffff;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-        }
         table {
             width: 100%;
             border-collapse: collapse;
@@ -159,15 +141,7 @@ function englishToBanglaNumber($number) {
 
 
 
-
-
-
-
-
-
-
-
-        .sb-biodata-field{
+.sb-biodata-field{
     background: none;
   }
   
@@ -177,6 +151,7 @@ function englishToBanglaNumber($number) {
     font-weight: bold;
     background: none;
     text-align: left;
+    line-height: 35px;
 }
 
 .shosurbari-biodata-form {
@@ -184,6 +159,7 @@ function englishToBanglaNumber($number) {
   flex-wrap: wrap;
   width: 1400px;
   margin: auto;
+  margin-top: 90px;
   padding-top: 30px;
   padding-bottom: 30px
 }
@@ -241,6 +217,17 @@ th, td {
 }
 }
 
+@media (max-width:480px){
+    .soshurbari-animation-icon h3,
+    .sb-register-login h2{
+        font-size: 20px;
+    }
+
+.shosurbari-biodata-form {
+  margin-top: 70px;
+}
+}
+
 @media (max-width: 384px) {
     th, td {
     font-size: 13px;
@@ -258,10 +245,7 @@ th, td {
     font-size: 13px;
 }
 }
-    </style>
-
-  
-    <h3>Choice List</h3>
+</style>
 
 
 
@@ -330,14 +314,14 @@ function calculateTotalAmount($count) {
     $fees = [
         '1' => 145,
         '2' => 280,
-        '3' => 400,
+        '3' => 390,
         '4' => 500,
         '5' => 600,
-        '6' => 700,
-        '7' => 800,
-        '8' => 880,
-        '9' => 945,
-        '10' => 990,
+        '6' => 690,
+        '7' => 770,
+        '8' => 840,
+        '9' => 900,
+        '10' => 980,
     ];
 
     if ($count >= 1 && $count <= 10) {
@@ -377,7 +361,7 @@ if (isset($_POST['make_payment'])) {
 <div class="profile-btn">
     <div class="contact-bio">
         <a href="search.php">
-            <button class="chatbtn">Back Search Page</button>
+            <button class="chatbtn">সার্চ পেজ</button>
         </a>
     </div>
 
@@ -386,7 +370,7 @@ if (isset($_POST['make_payment'])) {
         // Display the "Make Payment" button if $choiceList is not empty
         echo "<form method='GET' action='contactbiodata.php' class='copy-sbbio-link'>
             <input type='hidden' name='ids' value=\"$idList\">
-            <button type='submit' class='copylink'>Make Payment</button>
+            <button type='submit' class='copylink'>পেমেন্ট করুন</button>
         </form>";
     }
     ?>
@@ -400,140 +384,123 @@ if (isset($_POST['make_payment'])) {
 
 
 
-
-
-
 <div class="shosurbari-biodata-form">
-  
-  <div class="shosurbari-animation-form">
-    <form action="auth/auth.php?user=1" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
-		  <div class="flex-container">
-        <div class="sb-register-login">
-
-          <div class="soshurbari-animation-icon">
-            <div class="sb-icon-laptop">
-              <h3> <img src="images/shosurbari-icon.png"> ShosurBari </h3>
+    <div class="shosurbari-animation-form">
+        <form action="" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
+            <div class="sb-biodata-amount-list">
+                <h2>বায়োডাটার মূল্য তালিকা</h2>
+                <p>শশুরবাড়ি ডট কমের পাত্রপাত্রীদের সাথে যোগাযোগ করতে চাইলে সামান্য সার্ভিস চার্জ প্রদান করতে হবে। আপনি চাইলে এক বা একাধিক পাত্র/পাত্রীর সাথে যোগাযোগ করতে পারবেন। আপনার পেমেন্ট সম্পন্ন হয়ে গেলে, পেমেন্ট তথ্যগুলো যাচাইবাচায়ের পর ৪৮ ঘন্টার মধ্যেই আপনার নাম্বারে পাত্র/পাত্রীর পরিবারের নাম্বর পাঠিয়ে দেয়া হবে। দেখেনিন ১ থেকে ১০টি বায়োডাটার মোট মূল্য সহ একাধিক বায়োডাটার এভারেজ মূল্য।</p>
+                </br> <p> <span style="color:#ff0000; font-weight: 600;">বি: দ্র:</span> পাত্রপাত্রীদের পরিবারের সদস্যর মোবাইল নাম্বার এবং পাত্রপাত্রীদের ইমেইল প্রদান করা হবে। পাত্রপাত্রীদের মোবাইল নাম্বার প্রদান করা হয় না।</p>
             </div>
-          </div>
 
-          <div class="sb-biodata-field">
-            <h2>১ থেকে ৫টি বায়োডাটার মূল্য তালিকা</h2>
-          </div>
+		    <div class="flex-container">
+                <div class="sb-register-login">
 
+                    <div class="soshurbari-animation-icon">
+                        <div class="sb-icon-laptop">
+                        <h3> <img src="images/shosurbari-icon.png"> ShosurBari </h3>
+                        </div>
+                    </div>
 
+                    <div class="sb-biodata-field">
+                        <h2>১ থেকে ৫টি বায়োডাটার মূল্য</h2>
+                    </div>
 
-
-        <table>
-            <thead>
-                <tr>
-                    <th>বায়োডাটার পরিমান</th>
-                    <th>প্যাকেজ মূল্য</th>
-                    <th>এভারেজ মূল্য</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>১</td>
-                    <td>১৪৫ ৳</td>
-                    <td>১৪৫ ৳</td>
-                </tr>
-                <tr>
-                    <td>২</td>
-                    <td>২৮০ ৳</td>
-                    <td>১৪০ ৳</td>
-                </tr>
-                <tr>
-                    <td>৩</td>
-                    <td>৩৯০ ৳</td>
-                    <td>১৩০ ৳</td>
-                </tr>
-                <tr>
-                    <td>৪</td>
-                    <td>৫০০ ৳</td>
-                    <td>১২৫ ৳</td>
-                </tr>
-                <tr>
-                    <td>৫</td>
-                    <td>৬০০ ৳</td>
-                    <td>১২০ ৳</td>
-                </tr>
-            </tbody>
-        </table>
-        
-    </div>
-      </div>
-	  </form>
-</div>
-  
-</div>
-
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>বায়োডাটার পরিমান</th>
+                                <th>প্যাকেজ মূল্য</th>
+                                <th>এভারেজ মূল্য</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>১</td>
+                                <td>১৪৫ ৳</td>
+                                <td>১৪৫ ৳</td>
+                            </tr>
+                            <tr>
+                                <td>২</td>
+                                <td>২৮০ ৳</td>
+                                <td>১৪০ ৳</td>
+                            </tr>
+                            <tr>
+                                <td>৩</td>
+                                <td>৩৯০ ৳</td>
+                                <td>১৩০ ৳</td>
+                            </tr>
+                            <tr>
+                                <td>৪</td>
+                                <td>৫০০ ৳</td>
+                                <td>১২৫ ৳</td>
+                            </tr>
+                            <tr>
+                                <td>৫</td>
+                                <td>৬০০ ৳</td>
+                                <td>১২০ ৳</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
 
+                <div class="sb-register-login">
 
-<div class="shosurbari-biodata-form">
-  
-  <div class="shosurbari-animation-form">
-    <form action="auth/auth.php?user=1" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
-		  <div class="flex-container">
-        <div class="sb-register-login">
+                    <div class="soshurbari-animation-icon">
+                        <div class="sb-icon-laptop">
+                        <h3> <img src="images/shosurbari-icon.png"> ShosurBari </h3>
+                        </div>
+                    </div>
 
-          <div class="soshurbari-animation-icon">
-            <div class="sb-icon-laptop">
-              <h3> <img src="images/shosurbari-icon.png"> ShosurBari </h3>
+                    <div class="sb-biodata-field">
+                        <h2>৬ থেকে ১০টি বায়োডাটার মূল্য</h2>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>বায়োডাটার পরিমান</th>
+                                <th>প্যাকেজ মূল্য</th>
+                                <th>এভারেজ মূল্য</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>৬</td>
+                                <td>৬৯০ ৳</td>
+                                <td>১১৫ ৳</td>
+                            </tr>
+                            <tr>
+                                <td>৭</td>
+                                <td>৭৭০ ৳</td>
+                                <td>১১০ ৳</td>
+                            </tr>
+                            <tr>
+                                <td>৮</td>
+                                <td>৮৪০ ৳</td>
+                                <td>১০৫ ৳</td>
+                            </tr>
+                            <tr>
+                                <td>৯</td>
+                                <td>৯০০ ৳</td>
+                                <td>১০০ ৳</td>
+                            </tr>
+                            <tr>
+                                <td>১০</td>
+                                <td>৯৮০ ৳</td>
+                                <td>৯৮ ৳</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
-          </div>
-
-          <div class="sb-biodata-field">
-            <h2>৬ থেকে ১০টি বায়োডাটার মূল্য তালিকা</h2>
-          </div>
-
-
-
-
-        <table>
-            <thead>
-                <tr>
-                    <th>বায়োডাটার পরিমান</th>
-                    <th>প্যাকেজ মূল্য</th>
-                    <th>এভারেজ মূল্য</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>৬</td>
-                    <td>৬৯০ ৳</td>
-                    <td>১১৫ ৳</td>
-                </tr>
-                <tr>
-                    <td>৭</td>
-                    <td>৭৭০ ৳</td>
-                    <td>১১০ ৳</td>
-                </tr>
-                <tr>
-                    <td>৮</td>
-                    <td>৮৪০ ৳</td>
-                    <td>১০৫ ৳</td>
-                </tr>
-                <tr>
-                    <td>৯</td>
-                    <td>৯০০ ৳</td>
-                    <td>১০০ ৳</td>
-                </tr>
-                <tr>
-                    <td>১০</td>
-                    <td>৯৮০ ৳</td>
-                    <td>৯৮ ৳</td>
-                </tr>
-            </tbody>
-        </table>
-
-    
-    </div>
-      </div>
-	  </form>
+	    </form>
+    </div> 
 </div>
-  
-</div>
+
+
 
 
 	<!--=======  Footer Start ========-->

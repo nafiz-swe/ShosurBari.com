@@ -24,10 +24,11 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `1bd_personal_physical`
+-- Table structure for table `change_biodata_list`
 --
 
-CREATE TABLE `1bd_personal_physical` (
+
+CREATE TABLE `change_biodata_list` (
   `id` int(100) NOT NULL,
   `user_id` int(100) NOT NULL,
   `biodatagender` varchar(100) NOT NULL,
@@ -41,10 +42,10 @@ CREATE TABLE `1bd_personal_physical` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `1bd_personal_physical`
+-- Dumping data for table `change_biodata_list`
 --
 
-INSERT INTO `1bd_personal_physical` (`id`, `user_id`, `biodatagender`, `dateofbirth`, `height`, `weight`, `physicalstatus`, `Skin_tones`, `bloodgroup`, `profilecreationdate`) VALUES
+INSERT INTO `change_biodata_list` (`id`, `user_id`, `biodatagender`, `dateofbirth`, `height`, `weight`, `physicalstatus`, `Skin_tones`, `bloodgroup`, `profilecreationdate`) VALUES
 (98, 230, 'পাত্রের বায়োডাটা', '১৮-ফেব্রুয়ারি-১৯৯৬', '6\' 7', '55kg', 'সমস্যা নেই', 'শ্যামবর্ণ', 'O+', '31 May 2023, 12:49:59 AM'),
 (99, 81, 'পাত্রীর বায়োডাটা', '১৪-ফেব্রুয়ারি-২০০১', '98', '63', 'সমস্যা নেই', 'শ্যামবর্ণ', 'A+', '2 June 2023, 01:24:44 AM'),
 (100, 244, 'পাত্রের বায়োডাটা', '১০-অক্টোবর-২০০৩', '2', '51', 'সমস্যা নেই', 'শ্যামবর্ণ', 'AB+', '2 June 2023, 01:39:41 AM'),
@@ -1006,9 +1007,9 @@ INSERT INTO `users` (`id`, `fullname`, `username`, `gender`, `password`, `number
 --
 
 --
--- Indexes for table `1bd_personal_physical`
+-- Indexes for table `change_biodata_list`
 --
-ALTER TABLE `1bd_personal_physical`
+ALTER TABLE `change_biodata_list`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id_fk` (`user_id`);
 
@@ -1160,9 +1161,9 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `1bd_personal_physical`
+-- AUTO_INCREMENT for table `change_biodata_list`
 --
-ALTER TABLE `1bd_personal_physical`
+ALTER TABLE `change_biodata_list`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
@@ -1296,11 +1297,12 @@ ALTER TABLE `users`
 --
 
 --
--- Constraints for table `1bd_personal_physical`
+-- Constraints for table `change_biodata_list`
 --
-ALTER TABLE `1bd_personal_physical`
-  ADD CONSTRAINT `1bd_personal_physical_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
-
+ALTER TABLE `change_biodata_list`
+  ADD CONSTRAINT `change_biodata_list_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+-- 1bd_personal_physical
+-- replace to change_biodata_list
 --
 -- Constraints for table `2bd_personal_lifestyle`
 --

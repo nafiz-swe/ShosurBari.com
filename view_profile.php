@@ -2722,12 +2722,23 @@ textarea:focus {
 											
 										</tbody>
 									</table>
-								</div>
 
-								<div class="profile-btn2">
-									<a href="contactbiodata.php?profileid=<?php echo $profileid; ?>" target="_blank">
-										<button class="chatbtn" id="chatBtn"><i class="fa fa-phone"></i> Contact</button>
-									</a>
+
+									<div class="profile-btn">
+										<div class="copy-sbbio-link">
+											<a href="search.php">
+												<button class="copylink clipboard" id="Create-post"><i class="fa fa-search"></i>Search Page</button>
+											</a>
+										</div>
+									
+										<div class="contact-bio">
+											<a href="contactbiodata.php?profileid=<?php echo $profileid; ?>" target="_blank">
+												<button class="chatbtn" id="chatBtn"><i class="fa fa-phone"></i>Contact</button>
+											</a>
+										</div></br>
+
+										<div id="copy-message">Link Successfully Copied!</div>
+									</div>
 								</div>
 							<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 							-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
