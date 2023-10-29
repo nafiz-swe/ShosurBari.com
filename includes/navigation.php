@@ -123,8 +123,8 @@
 							<li><a href="about.php">About</a></li>
 							<li class="last"><a href="contact.php">Contacts</a></li>
 							<li>
-							<?php
-if (isloggedin()) {
+<?php
+if (function_exists('isloggedin') && isloggedin()) {
     $id = $_SESSION['id'];
     $pic1 = "";
 

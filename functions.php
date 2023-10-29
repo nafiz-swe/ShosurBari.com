@@ -59,8 +59,8 @@
     --            Multiple Option Search             --
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-    function search()
-    {
+    function search(){
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $biodatagender = isset($_POST['biodatagender']) ? $_POST['biodatagender'] : '';
             $Skin_tones = isset($_POST['Skin_tones']) ? $_POST['Skin_tones'] : [];

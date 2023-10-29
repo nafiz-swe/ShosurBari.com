@@ -197,25 +197,27 @@ if(isset($_SESSION['id'])){
   </script>
 
 
-        <div class="form-group">
-        <label>Address<span class="form-required" title="This field is required.">*</span></label>
-          <input type="text" id="permanent_address" name="cust_permanent_address" placeholder="Your Permanent Address" value="" size="100" maxlength="100" class="form-text required">
-          <span id="address-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
-        </div>
+  <div class="form-group">
+    <label>Address<span class="form-required" title="This field is required.">*</span></label>
+    <input type="text" id="permanent_address" name="cust_permanent_address" placeholder="Your Permanent Address" value="" size="100" maxlength="100" class="form-text required">
+    <span id="address-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+  </div>
 
-        <div class="form-group">
+  <div class="form-group">
     <label>Biodata Number <span style="color: #ccc; font-size: 12px;">(Fixed)</span></label>
     <textarea rows="4" id="contact_biodatas_number" name="request_biodata_number" class="form-text required" style="background: #ecfeff;" readonly><?php
         if (isset($_GET['profileid'])) {
             $profileid = $_GET['profileid'];
             echo htmlspecialchars($profileid);
         } else {
+          if (is_array($idArray)) {
             echo htmlspecialchars(implode(', ', $idArray));
         }
+      }
         ?>
     </textarea>
     <span id="biodata-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
-</div>
+  </div>
 
 
 
@@ -504,10 +506,21 @@ if (isset($_GET['profileid'])) {
 
 
 
-    <input type="hidden" name="idCount" value="<?php echo $idCount; ?>">
-    <input type="hidden" name="fee" value="<?php echo $fee; ?>">
-    <div class="form-actions">
-        <button type="submit" id="edit-submit" name="op">Confirm</button>
+
+
+    <div class="profile-btn">
+      <div class="contact-bio">
+        <a href="choice_list.php">
+          <button class="chatbtn" id="back-btn">Back Choice Page</button>
+        </a>
+      </div>
+
+
+      <input type="hidden" name="idCount" value="<?php echo $idCount; ?>">
+      <input type="hidden" name="fee" value="<?php echo $fee; ?>">
+      <div class="copy-sbbio-link">
+        <button class="copylink" type="submit" id="edit-submit" name="op">Confirm</button>
+      </div>
     </div>
 
 
@@ -626,6 +639,13 @@ document.querySelector('form').addEventListener('submit', function (e) {
 
 
 <script>
+  document.getElementById("back-btn").addEventListener("click", function() {
+    // This code ensures that the "Back Choice Page" button works
+    // and navigates to the choice page without form validation.
+    // You can add any additional logic as needed.
+    window.location.href = "choice_list.php";
+});
+
   function validateForm() {
   var name = document.getElementById("cust_name").value.trim();
   var email = document.getElementById("cust_email").value.trim();
