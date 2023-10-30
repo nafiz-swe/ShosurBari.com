@@ -81,7 +81,7 @@
 
 
   <div class="sb-home-search">
-    <h1>পছন্দের জীবনসঙ্গী খুঁজুন</h1>
+    <h1><span class="shosurbari-heading-span">জীবনসঙ্গী </span>খুঁজুন</h1>
     <div class="sbhome-heart-divider">
       <span class="grey-line"></span>
         <i class="fa fa-heart pink-heart"></i>
@@ -1467,7 +1467,7 @@ function createSlides(data) {
   <div class="grid_1">
 
     <div class="sb-featured-profiles">
-      <h1>জনপ্রিয় বায়োডাটা</h1>
+      <h1><span class="shosurbari-heading-span"> জনপ্রিয়</span> বায়োডাটা</h1>
       <div class="sbhome-heart-divider">
         <span class="grey-line"></span>
           <i class="fa fa-heart pink-heart"></i>
@@ -1629,7 +1629,7 @@ function createSlides(data) {
 
 
   <div class="sb-home-search">
-    <h1>বায়োডাটার মূল্য তালিকা</h1>
+    <h1><span class="shosurbari-heading-span"> বায়োডাটার </span>মূল্য তালিকা</h1>
     <div class="sbhome-heart-divider">
       <span class="grey-line"></span>
         <i class="fa fa-heart pink-heart"></i>
@@ -1938,7 +1938,7 @@ th, td {
 
 
 <div class="sb-home-search">
-  <h1>শ্বশুরবাড়ি সেবা গ্রহীতাদের পরিসংখ্যান</h1>
+  <h1><span class="shosurbari-heading-span"> শ্বশুরবাড়ি </span>সেবা গ্রহীতাদের পরিসংখ্যান</h1>
   <div class="sbhome-heart-divider">
     <span class="grey-line"></span>
     <i class="fa fa-heart pink-heart"></i>
@@ -1953,7 +1953,7 @@ th, td {
       <img src="images/shosurbari-male-icon.jpg" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
     </div>
     <div class="card-content">
-      <h1 class="card-title">সর্বমোট পাত্র</h1>
+      <h3>সর্বমোট পাত্র</h3>
       <h2><?php echo $maleCount; ?> </h2>
     </div>
   </div>
@@ -1963,7 +1963,7 @@ th, td {
       <img src="images/shosurbari-female-icon.png" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
     </div>
     <div class="card-content">
-      <h1 class="card-title">সর্বমোট পাত্রী</h1>
+      <h3>সর্বমোট পাত্রী</h3>
       <h2><?php echo $femaleCount; ?></h2>
     </div>
   </div>
@@ -1973,7 +1973,7 @@ th, td {
       <img src="images/shosurbari-groom-bride.png" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
     </div>
     <div class="card-content">
-      <h1 class="card-title">মোট পাত্রপাত্রী</h1>
+      <h3>মোট পাত্রপাত্রী</h3>
       <h2><?php echo $totalBiodataCount; ?></h2>
     </div>
   </div>
@@ -1983,7 +1983,7 @@ th, td {
       <img src="images/shosurbari-success-marriage.jpg" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
     </div>
     <div class="card-content">
-      <h1 class="card-title">সফল বিবাহ</h1>
+      <h3>সফল বিবাহ</h3>
       <h2>100</h2>
     </div>
   </div>
@@ -1997,7 +1997,7 @@ th, td {
 
 
 <div class="sb-home-search">
-  <h1>শ্বশুরবাড়ির সেবা যেভাবে গ্রহণ করবেন</h1>
+  <h1><span class="shosurbari-heading-span"> শ্বশুরবাড়ির </span>সেবা যেভাবে গ্রহণ করবেন</h1>
   <div class="sbhome-heart-divider">
     <span class="grey-line"></span>
     <i class="fa fa-heart pink-heart"></i>
@@ -2099,6 +2099,16 @@ th, td {
   text-align: center;
 }
 
+.card-content h3{
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 15px;
+  color: black;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 200px;
+}
+
 .card-content p{
   font-size: 14px;
   margin-bottom: 25px;
@@ -2130,6 +2140,10 @@ th, td {
   color: #fff;
   margin-bottom: 15px;
   text-transform: uppercase;
+}
+
+.shosurbari-heading-span{
+  color: #06b6d4;
 }
 </style>
 
