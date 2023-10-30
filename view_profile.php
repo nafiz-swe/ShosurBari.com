@@ -1057,12 +1057,12 @@ textarea:focus {
 
 						<div class="contact-bio">
 							<a href="contactbiodata.php?profileid=<?php echo $profileid; ?>" target="_blank">
-								<button class="chatbtn" id="chatBtn"><i class="fa fa-phone"></i> Contact</button>
+								<button class="chatbtn" id="chatBtn"><i class="fa fa-phone"></i> যোগাযোগ</button>
 							</a>
 						</div>
 
 						<div class="copy-sbbio-link">
-							<button class="copylink clipboard" id="Create-post"><i class="fa fa-copy"></i>Copy Link</button>
+							<button class="copylink clipboard" id="Create-post"><i class="fa fa-copy"></i>লিংক কপি</button>
 						</div> </br>
 
 						<div id="copy-message">Link Successfully Copied!</div>
@@ -1074,7 +1074,7 @@ textarea:focus {
 						if (!empty($profileid)) {
 						echo '<form method="POST" action="choice_list.php">';
 						echo '<input type="hidden" name="add_to_choice_list" value="' . $profileid . '">';
-						echo '<button type="submit" class="choice-list-btn"><i class="fa fa-heart"> </i> Add to Choice List</button>';
+						echo '<button type="submit" class="choice-list-btn"><i class="fa fa-heart"> </i> পছন্দের তালিকায়</button>';
 						echo '</form>';
 						}
 						?>
@@ -2727,13 +2727,13 @@ textarea:focus {
 									<div class="profile-btn">
 										<div class="copy-sbbio-link">
 											<a href="search.php">
-												<button class="copylink clipboard" id="Create-post"><i class="fa fa-search"></i>Search Page</button>
+												<button class="copylink clipboard" id="Create-post"><i class="fa fa-search"></i>সার্চ পেজ</button>
 											</a>
 										</div>
 									
 										<div class="contact-bio">
 											<a href="contactbiodata.php?profileid=<?php echo $profileid; ?>" target="_blank">
-												<button class="chatbtn" id="chatBtn"><i class="fa fa-phone"></i>Contact</button>
+												<button class="chatbtn" id="chatBtn"><i class="fa fa-phone"></i>যোগাযোগ</button>
 											</a>
 										</div></br>
 

@@ -1170,14 +1170,14 @@ toggleLabels.forEach(label => {
   flex-wrap: wrap;
   justify-content: center; /* Center the content horizontally */
   padding: 10px 0px;
-  height: 115px;
+  height: 150px;
   width: 1090px;
   margin: auto;
   margin-top: 25px;
-  border: 1px solid #f0f0f0;
   border-radius: 10px;
   background: linear-gradient(180deg, #00bbff61 0%,rgba(238,246,253,0) 100%);
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+  /* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; */
 }
 
 .inner-wrap {
@@ -1642,7 +1642,7 @@ function createSlides(data) {
     <div class="shosurbari-animation-form">
         <form action="" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
             <div class="sb-biodata-amount-list">
-                <p>শশুরবাড়ি ডট কমের পাত্রপাত্রীদের সাথে যোগাযোগ করতে চাইলে সামান্য সার্ভিস চার্জ প্রদান করতে হবে। আপনি চাইলে এক বা একাধিক পাত্র/পাত্রীর সাথে যোগাযোগ করতে পারবেন। আপনার পেমেন্ট সম্পন্ন হয়ে গেলে, পেমেন্ট তথ্যগুলো যাচাইবাচায়ের পর ৪৮ ঘন্টার মধ্যেই আপনার নাম্বারে পাত্র/পাত্রীর অভিভাবকের নাম্বর পাঠিয়ে দেয়া হবে। দেখেনিন ১ থেকে ১০টি বায়োডাটার মোট মূল্য সহ একাধিক বায়োডাটার এভারেজ মূল্য।</p>
+                <p>শশুরবাড়ি ডট কমের পাত্রপাত্রীদের সাথে যোগাযোগ করতে চাইলে সামান্য সার্ভিস চার্জ প্রদান করতে হবে। আপনি চাইলে এক বা একাধিক পাত্র/পাত্রীর সাথে যোগাযোগ করতে পারবেন। আপনার পেমেন্ট সম্পন্ন হয়ে গেলে, পেমেন্ট তথ্যগুলো যাচাইবাচায়ের পর ৪৮ ঘন্টার মধ্যেই আপনার নাম্বারে পাত্র/পাত্রীর অভিভাবকের নাম্বর পাঠিয়ে দেয়া হবে। <span style="color:#06b6d4;"> নিচের টাকা ব্যাতিত বিয়ের পর অথবা বিয়ের আগে আর কোনো টাকা নেয়া হয় না।</span> দেখেনিন ১ থেকে ১০টি বায়োডাটার মোট মূল্য সহ একাধিক বায়োডাটার এভারেজ মূল্য।</p>
                 </br> <p> <span style="color:#ff0000; font-weight: 600;">বি: দ্র:</span> পাত্রপাত্রীর অভিভাবকের মোবাইল নাম্বার এবং পাত্রপাত্রীর ইমেইল প্রদান করা হবে। পাত্রপাত্রীদের মোবাইল নাম্বার প্রদান করা হয় না।</p>
             </div>
 
@@ -1651,7 +1651,7 @@ function createSlides(data) {
 
                     <div class="soshurbari-animation-icon">
                         <div class="sb-icon-laptop">
-                        <h3> <img src="images/shosurbari-icon.png"> ShosurBari </h3>
+                        <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
                         </div>
                     </div>
 
@@ -1702,7 +1702,7 @@ function createSlides(data) {
 
                     <div class="soshurbari-animation-icon">
                         <div class="sb-icon-laptop">
-                        <h3> <img src="images/shosurbari-icon.png"> ShosurBari </h3>
+                        <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
                         </div>
                     </div>
 
@@ -1860,7 +1860,7 @@ th, td {
     padding: 5px;
 }
 }
-    </style>
+</style>
 
 
 
@@ -1928,97 +1928,135 @@ th, td {
   $last_1_hour_count = $conn->query($last_1_hour_sql)->fetch_row()[0];
 
   mysqli_close($conn);
-  ?>
+?>
     
 
 
-  <div class="sb-home-search">
-    <h1>শ্বশুরবাড়ি সেবা গ্রহীতাদের পরিসংখ্যান</h1>
-    <div class="sbhome-heart-divider">
-      <span class="grey-line"></span>
-        <i class="fa fa-heart pink-heart"></i>
-        <i class="fa fa-heart grey-heart"></i>
-      <span class="grey-line"></span>
+
+
+    
+
+
+<div class="sb-home-search">
+  <h1>শ্বশুরবাড়ি সেবা গ্রহীতাদের পরিসংখ্যান</h1>
+  <div class="sbhome-heart-divider">
+    <span class="grey-line"></span>
+    <i class="fa fa-heart pink-heart"></i>
+    <i class="fa fa-heart grey-heart"></i>
+    <span class="grey-line"></span>
+  </div>
+</div>
+
+<div class="shosurbari-user-info">
+  <div class="card-wrap">
+    <div class="card-header one">
+      <img src="images/shosurbari-male-icon.jpg" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
+    </div>
+    <div class="card-content">
+      <h1 class="card-title">সর্বমোট পাত্র</h1>
+      <h2><?php echo $maleCount; ?> </h2>
     </div>
   </div>
 
+  <div class="card-wrap">
+    <div class="card-header two">
+      <img src="images/shosurbari-female-icon.png" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
+    </div>
+    <div class="card-content">
+      <h1 class="card-title">সর্বমোট পাত্রী</h1>
+      <h2><?php echo $femaleCount; ?></h2>
+    </div>
+  </div>
 
+  <div class="card-wrap">
+    <div class="card-header three">
+      <img src="images/shosurbari-groom-bride.png" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
+    </div>
+    <div class="card-content">
+      <h1 class="card-title">মোট পাত্রপাত্রী</h1>
+      <h2><?php echo $totalBiodataCount; ?></h2>
+    </div>
+  </div>
+
+  <div class="card-wrap">
+    <div class="card-header four">
+      <img src="images/shosurbari-success-marriage.jpg" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
+    </div>
+    <div class="card-content">
+      <h1 class="card-title">সফল বিবাহ</h1>
+      <h2>100</h2>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="sb-home-search">
+  <h1>শ্বশুরবাড়ির সেবা যেভাবে গ্রহণ করবেন</h1>
+  <div class="sbhome-heart-divider">
+    <span class="grey-line"></span>
+    <i class="fa fa-heart pink-heart"></i>
+    <i class="fa fa-heart grey-heart"></i>
+    <span class="grey-line"></span>
+  </div>
+</div>
 
 <div class="shosurbari-user-info">
-<div class="card-wrap">
-  <div class="card-header one">
-    <img src="images/shosurbari-male-icon.jpg" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
+  <div class="card-wrap">
+    <div class="card-header one">
+      <img src="images/shosurbari-male-icon.jpg" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
+    </div>
+    <div class="card-content">
+      <h1 class="card-title">বায়োডাটা তৈরি করুন</h1>
+      <p>শশুরবাড়ি ডট কমে একাউন্ট খোলা এবং বায়োডাটা পোস্ট করতে কোনো সার্ভিস চার্জ নেওয়া হয় না। পাত্রপাত্রী নিজেই অথবা তাদের অভিভাবক বায়োডাটা পোস্ট করতে পারবে খুব সহজেই।</p>
+    </div>
   </div>
-  <div class="card-content">
-    <h1 class="card-title">সর্বমোট পাত্র</h1>
-      <h2 style="color: #2563eb;"><?php echo $maleCount; ?> </h2>
-    <!-- <button class="card-btn one">code</button> -->
- </div>
+
+  <div class="card-wrap">
+    <div class="card-header two">
+      <img src="images/shosurbari-female-icon.png" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
+    </div>
+    <div class="card-content">
+      <h1 class="card-title">বায়োডাটা খুঁজুন</h1>
+      <p>সকল ধর্ম, বর্ণ, জেলা, পেশা, দেশি ও প্রবাসী বাঙালি পাত্র পাত্রী খুঁজে পাওয়ার সহজ মাধ্যম শশুরবাড়ি ডট কম। সার্চ ফিল্টার ব্যবহার করে খুঁজেনিন পরছন্দের জীবনসঙ্গী।</p>
+    </div>
+  </div>
+
+  <div class="card-wrap">
+    <div class="card-header three">
+      <img src="images/shosurbari-groom-bride.png" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
+    </div>
+    <div class="card-content">
+      <h1 class="card-title">যোগাযোগ করুন</h1>
+      <p>শশুরবাড়ি ডট কমে বায়োডাটা পছন্দ হবার পর অভিভাবকের সাথে যোগাযোগ করতে চাইলে সামান্য কিছু সার্ভিস চার্জ প্রদান করতে হবে। বায়োডাটা কতৃপক্ষের থেকে সার্ভিস চার্জ নেয়া হয় না।</p>
+    </div>
+  </div>
+
+  <div class="card-wrap">
+    <div class="card-header four">
+      <img src="images/shosurbari-success-marriage.jpg" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
+    </div>
+    <div class="card-content">
+      <h1 class="card-title">বিবাহ সম্পন্ন করুন</h1>
+      <p>পরিবার ও পাত্রপাত্রীর সম্পর্কে নিজ দায়িত্বে ভালভাবে খোঁজ নিয়ে তবেই বিয়ের কথা পাকা করুন। বিয়ের পূর্বেই পাত্র বা পাত্রীর পরিবারের সাথে টাকা লেনদেন করে প্রতারিত হবেন না।</p>
+    </div>
+  </div>
 </div>
 
-<div class="card-wrap">
-  <div class="card-header two">
-    <img src="images/shosurbari-female-icon.png" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
-  </div>
-  <div class="card-content">
-    <h1 class="card-title">সর্বমোট পাত্রী</h1>
-    <h2  style="color: #db2777;"><?php echo $femaleCount; ?></h2>
-    <!-- <button class="card-btn two">css3</button> -->
- </div>
-</div>
-
-<div class="card-wrap">
-  <div class="card-header three">
-    <img src="images/shosurbari-groom-bride.png" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
-  </div>
-  <div class="card-content">
-    <h1 class="card-title">মোট পাত্রপাত্রী</h1>
-      <h2 style="color: #f97316;"><?php echo $totalBiodataCount; ?></h2>
-    <!-- <button class="card-btn three">html5</button> -->
- </div>
-</div>
-
-<div class="card-wrap">
-  <div class="card-header four">
-    <img src="images/shosurbari-success-marriage.jpg" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
-  </div>
-  <div class="card-content">
-    <h1 class="card-title">সফল বিবাহ</h1>
-      <h2 style="color: #38ef7d;">100</h2>
-    <!-- <button class="card-btn four">js</button> -->
- </div>
-</div>
-</div>
-
-
-<div class="shosurbari-body-notice">
-  <div class="sb-body-message">
-    <!-- <h1>বাংলাদেশী  ম্যাট্রিমনি<br>শশুরবাড়ি ডট কম</h1> -->
-  </div>
-  <div class="shosurbari-title">
-    <h4>সকল ধর্ম, বর্ণ, জেলা, পেশার দেশি ও প্রবাসী বাঙালি পাত্র পাত্রী  খুঁজে পাওয়ার সহজ মাধ্যম। “শশুরবাড়ি ডট কম”</h4>
-  </div>
-</div>
 
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 
-:root{
-  --color-text: #616161;
-  --color-text-btn: #ffffff;
-  --card1-gradient-color1: #06b6d4;
-  --card1-gradient-color2: #2563eb;
-  --card2-gradient-color1: #06b6d4;
-  --card2-gradient-color2: #db2777;
-  --card3-gradient-color1: #06b6d4;
-  --card3-gradient-color2: #f97316;
-  --card4-gradient-color1: #06b6d4;
-  --card4-gradient-color2: #38ef7d;
-}
+
 
 .card-wrap{
-  width: 220px;
+  width: 230px;
   background: #fff;
   border-radius: 20px;
   border: 5px solid #fff;
@@ -2027,19 +2065,22 @@ th, td {
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   cursor: pointer;
   transition: all .2s ease-in-out;
+  box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+  border: 1px solid rgba(0,0,0,.05);
 }
+
 .card-wrap:hover{
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .card-header{
-  height: 150px;
+  height: 120px;
   width: 100%;
-  background: red;
   border-radius:100% 0% 100% 0% / 0% 50% 50% 100%;
   display: grid;
   place-items: center;
-
+  background: linear-gradient(180deg, #00bbff61 0%,rgba(238,246,253,0) 100%);
+  box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
 }
 
 .card-content{
@@ -2051,18 +2092,29 @@ th, td {
 }
 
 .card-content h2{
-  font-size: 30px;
-  margin-bottom: 20px;
-  margin-top: -10px;
+  font-size: 35px;
+  margin-bottom: 25px;
+  margin-top: -5px;
+  width: 200px;
+  text-align: center;
+}
+
+.card-content p{
+  font-size: 14px;
+  margin-bottom: 25px;
+  margin-top: 0px;
+  width: 200px;
+  text-align: justify;
 }
 
 .card-title{
   text-align: center;
   text-transform: uppercase;
-  font-size: 17px;
+  font-size: 19px;
   color: black;
   margin-top: 10px;
   margin-bottom: 20px;
+  width: 200px;
 }
 
 .card-text{
@@ -2078,32 +2130,6 @@ th, td {
   color: #fff;
   margin-bottom: 15px;
   text-transform: uppercase;
-}
-
-.card-header.one{
-  background: linear-gradient(to bottom left, var(--card1-gradient-color1), var(--card1-gradient-color2));
-}
-.card-header.two{
-  background: linear-gradient(to bottom left, var(--card2-gradient-color1), var(--card2-gradient-color2));
-}
-.card-header.three{
-  background: linear-gradient(to bottom left, var(--card3-gradient-color1), var(--card3-gradient-color2));
-}
-.card-header.four{
-  background: linear-gradient(to bottom left, var(--card4-gradient-color1), var(--card4-gradient-color2));
-}
-
-.card-btn.one{
-  background: linear-gradient(to left, var(--card1-gradient-color1), var(--card1-gradient-color2));
-}
-.card-btn.two{
-  background: linear-gradient(to left, var(--card2-gradient-color1), var(--card2-gradient-color2));
-}
-.card-btn.three{
-  background: linear-gradient(to left, var(--card3-gradient-color1), var(--card3-gradient-color2));
-}
-.card-btn.four{
-  background: linear-gradient(to left, var(--card4-gradient-color1), var(--card4-gradient-color2));
 }
 </style>
 
@@ -2224,4 +2250,3 @@ $conn->close();
   
 </body>
 </html>	
-
