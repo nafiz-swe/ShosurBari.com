@@ -159,8 +159,8 @@ function englishToBanglaNumber($number) {
   flex-wrap: wrap;
   width: 1400px;
   margin: auto;
-  margin-top: 90px;
-  padding-top: 30px;
+  margin-top: 25px;
+  padding-top: 0px;
   padding-bottom: 30px
 }
 
@@ -383,11 +383,20 @@ if (isset($_POST['make_payment'])) {
 
 
 
-<div class="shosurbari-biodata-form">
+<div class="sb-home-search">
+    <h1>বায়োডাটার মূল্য তালিকা</h1>
+    <div class="sbhome-heart-divider">
+      <span class="grey-line"></span>
+        <i class="fa fa-heart pink-heart"></i>
+        <i class="fa fa-heart grey-heart"></i>
+      <span class="grey-line"></span>
+    </div>
+  </div>
+
+  <div class="shosurbari-biodata-form">
     <div class="shosurbari-animation-form">
         <form action="" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
             <div class="sb-biodata-amount-list">
-                <h2>বায়োডাটার মূল্য তালিকা</h2>
                 <p>শশুরবাড়ি ডট কমের পাত্রপাত্রীদের সাথে যোগাযোগ করতে চাইলে সামান্য সার্ভিস চার্জ প্রদান করতে হবে। আপনি চাইলে এক বা একাধিক পাত্র/পাত্রীর সাথে যোগাযোগ করতে পারবেন। আপনার পেমেন্ট সম্পন্ন হয়ে গেলে, পেমেন্ট তথ্যগুলো যাচাইবাচায়ের পর ৪৮ ঘন্টার মধ্যেই আপনার নাম্বারে পাত্র/পাত্রীর অভিভাবকের নাম্বর পাঠিয়ে দেয়া হবে। দেখেনিন ১ থেকে ১০টি বায়োডাটার মোট মূল্য সহ একাধিক বায়োডাটার এভারেজ মূল্য।</p>
                 </br> <p> <span style="color:#ff0000; font-weight: 600;">বি: দ্র:</span> পাত্রপাত্রীর অভিভাবকের মোবাইল নাম্বার এবং পাত্রপাত্রীর ইমেইল প্রদান করা হবে। পাত্রপাত্রীদের মোবাইল নাম্বার প্রদান করা হয় না।</p>
             </div>

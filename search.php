@@ -65,7 +65,7 @@ $result=search();
         <div class="sb_singlebio_mobilesearch">
 
           <div class="search-title">
-            <h4>নিদৃষ্ট একটি পাত্রপাত্রীর বায়োডাটা খুঁজুন</h4>
+            <h4>একটি পাত্রপাত্রীর বায়োডাটা খুঁজুন</h4>
           </div>
 
           <input type="text"  id="profid" name="profid" placeholder="Enter Biodata Number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required>
