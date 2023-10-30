@@ -296,17 +296,16 @@ foreach ($choiceList as $item) {
     </tr>";
 }
 
-echo "</table>";
+echo "</table> </br>";
 
 if (empty($choiceList)) {
-    echo "Please add at least one ID before making a payment.";
-} 
+    echo '<p style="color: #ff0000;">আপনি এখনো কোনো বায়োডাটা পছন্দের তালিকায় যোগ করেন নাই।</p>';
+}
 ?>
 
-</br>
 
     <?php if ($count > 0): ?>
-        <p style="text-align: center;"><?php echo englishToBanglaNumber($count); ?> টি বায়োডাটা, মোট <?php echo englishToBanglaNumber(calculateTotalAmount($count)); ?> টাকা</p>
+        <p style="text-align: center;">পছন্দ করেছেন <?php echo englishToBanglaNumber($count); ?> টি বায়োডাটা, মোট <?php echo englishToBanglaNumber(calculateTotalAmount($count)); ?> টাকা</p>
     <?php endif; ?>
 
 <?php
@@ -389,8 +388,8 @@ if (isset($_POST['make_payment'])) {
         <form action="" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
             <div class="sb-biodata-amount-list">
                 <h2>বায়োডাটার মূল্য তালিকা</h2>
-                <p>শশুরবাড়ি ডট কমের পাত্রপাত্রীদের সাথে যোগাযোগ করতে চাইলে সামান্য সার্ভিস চার্জ প্রদান করতে হবে। আপনি চাইলে এক বা একাধিক পাত্র/পাত্রীর সাথে যোগাযোগ করতে পারবেন। আপনার পেমেন্ট সম্পন্ন হয়ে গেলে, পেমেন্ট তথ্যগুলো যাচাইবাচায়ের পর ৪৮ ঘন্টার মধ্যেই আপনার নাম্বারে পাত্র/পাত্রীর পরিবারের নাম্বর পাঠিয়ে দেয়া হবে। দেখেনিন ১ থেকে ১০টি বায়োডাটার মোট মূল্য সহ একাধিক বায়োডাটার এভারেজ মূল্য।</p>
-                </br> <p> <span style="color:#ff0000; font-weight: 600;">বি: দ্র:</span> পাত্রপাত্রীদের পরিবারের সদস্যর মোবাইল নাম্বার এবং পাত্রপাত্রীদের ইমেইল প্রদান করা হবে। পাত্রপাত্রীদের মোবাইল নাম্বার প্রদান করা হয় না।</p>
+                <p>শশুরবাড়ি ডট কমের পাত্রপাত্রীদের সাথে যোগাযোগ করতে চাইলে সামান্য সার্ভিস চার্জ প্রদান করতে হবে। আপনি চাইলে এক বা একাধিক পাত্র/পাত্রীর সাথে যোগাযোগ করতে পারবেন। আপনার পেমেন্ট সম্পন্ন হয়ে গেলে, পেমেন্ট তথ্যগুলো যাচাইবাচায়ের পর ৪৮ ঘন্টার মধ্যেই আপনার নাম্বারে পাত্র/পাত্রীর অভিভাবকের নাম্বর পাঠিয়ে দেয়া হবে। দেখেনিন ১ থেকে ১০টি বায়োডাটার মোট মূল্য সহ একাধিক বায়োডাটার এভারেজ মূল্য।</p>
+                </br> <p> <span style="color:#ff0000; font-weight: 600;">বি: দ্র:</span> পাত্রপাত্রীর অভিভাবকের মোবাইল নাম্বার এবং পাত্রপাত্রীর ইমেইল প্রদান করা হবে। পাত্রপাত্রীদের মোবাইল নাম্বার প্রদান করা হয় না।</p>
             </div>
 
 		    <div class="flex-container">

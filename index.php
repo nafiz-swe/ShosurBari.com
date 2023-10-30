@@ -79,12 +79,24 @@
 
   <!-- <h3 id="banner_text"></h3> -->
 
+
+  <div class="sb-home-search">
+    <h1>পছন্দের জীবনসঙ্গী খুঁজুন</h1>
+    <div class="sbhome-heart-divider">
+      <span class="grey-line"></span>
+        <i class="fa fa-heart pink-heart"></i>
+        <i class="fa fa-heart grey-heart"></i>
+      <span class="grey-line"></span>
+    </div>
+  </div>
+
+
 	<div class="droop-down">
     <form action="search.php" method="post">
 
       <div class="shosurbari-home-search">
         <div class="gender-radio-select">
-          <label class="ellipsis" for="Looking">খুঁজছি</label>
+          <label class="ellipsis" for="Looking">খুঁজছি:</label>
 
           <div class="gender-option">
             <input type="radio" name="biodatagender" id="male_mob" value="পাত্রের বায়োডাটা" required/>
@@ -1159,12 +1171,13 @@ toggleLabels.forEach(label => {
   justify-content: center; /* Center the content horizontally */
   padding: 10px 0px;
   height: 115px;
-  width: 1015px;
+  width: 1090px;
   margin: auto;
-  border: 2px solid #f0f0f0;
-  border-radius: 0px 0px 10px 10px;
+  margin-top: 25px;
+  border: 1px solid #f0f0f0;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #00bbff61 0%,rgba(238,246,253,0) 100%);
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-  margin-top: 90px;
 }
 
 .inner-wrap {
@@ -1212,6 +1225,7 @@ margin-right:10px;
 
 form {
   background: none;
+  max-width: 1011px;
 }
 
 @keyframes slide {
@@ -1233,8 +1247,8 @@ form {
 }
 
 .gender-radio-select .gender-option {
-    margin-left: 32px;
-    margin-right: -16px;
+    margin-left: 31px;
+    margin-right: -20px;
 }
 
 section::before {
@@ -1403,17 +1417,7 @@ function createSlides(data) {
 
   <style>
 
-@media screen and (max-width: 930px) {
-  .sb-search-options {
-    display: none;
-  }
-
-  .sb-search-logo-btn {
-    justify-content: center;
-  }
-}
-
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1200px) {
   .droop-down {
     display: block;
     flex-wrap: wrap;
@@ -1621,26 +1625,6 @@ function createSlides(data) {
   --      SHOSURBARI HOME PAGE / BODY CONTENT      --
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-  <div class="sb-search-page-notice">
-      <h2>যাচাইকৃত পাত্রপাত্রীর প্রোফাইল</h2>
-  </div>
-
-  <div class="sb-search-page">
-    <div class="sb-search-logo-btn">
-      <div class="sb-search-options">
-        <img src="images/shosurbari-search.png">
-      </div>
-
-      <div class="sb-search-logo">
-        <div class="sb-search-btn2">
-          <p> <i class="fa fa-search" style="font-size:24px"> </i>  খুঁজেনিন পছন্দের জীবনসঙ্গী </p>
-          <a href="search.php"><button > জীবনসঙ্গী খুজুন </button></a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
 
 
 
@@ -1651,8 +1635,8 @@ function createSlides(data) {
         <form action="" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
             <div class="sb-biodata-amount-list">
                 <h2>বায়োডাটার মূল্য তালিকা</h2>
-                <p>শশুরবাড়ি ডট কমের পাত্রপাত্রীদের সাথে যোগাযোগ করতে চাইলে সামান্য সার্ভিস চার্জ প্রদান করতে হবে। আপনি চাইলে এক বা একাধিক পাত্র/পাত্রীর সাথে যোগাযোগ করতে পারবেন। আপনার পেমেন্ট সম্পন্ন হয়ে গেলে, পেমেন্ট তথ্যগুলো যাচাইবাচায়ের পর ৪৮ ঘন্টার মধ্যেই আপনার নাম্বারে পাত্র/পাত্রীর পরিবারের নাম্বর পাঠিয়ে দেয়া হবে। দেখেনিন ১ থেকে ১০টি বায়োডাটার মোট মূল্য সহ একাধিক বায়োডাটার এভারেজ মূল্য।</p>
-                </br> <p> <span style="color:#ff0000; font-weight: 600;">বি: দ্র:</span> পাত্রপাত্রীদের পরিবারের সদস্যর মোবাইল নাম্বার এবং পাত্রপাত্রীদের ইমেইল প্রদান করা হবে। পাত্রপাত্রীদের মোবাইল নাম্বার প্রদান করা হয় না।</p>
+                <p>শশুরবাড়ি ডট কমের পাত্রপাত্রীদের সাথে যোগাযোগ করতে চাইলে সামান্য সার্ভিস চার্জ প্রদান করতে হবে। আপনি চাইলে এক বা একাধিক পাত্র/পাত্রীর সাথে যোগাযোগ করতে পারবেন। আপনার পেমেন্ট সম্পন্ন হয়ে গেলে, পেমেন্ট তথ্যগুলো যাচাইবাচায়ের পর ৪৮ ঘন্টার মধ্যেই আপনার নাম্বারে পাত্র/পাত্রীর অভিভাবকের নাম্বর পাঠিয়ে দেয়া হবে। দেখেনিন ১ থেকে ১০টি বায়োডাটার মোট মূল্য সহ একাধিক বায়োডাটার এভারেজ মূল্য।</p>
+                </br> <p> <span style="color:#ff0000; font-weight: 600;">বি: দ্র:</span> পাত্রপাত্রীর অভিভাবকের মোবাইল নাম্বার এবং পাত্রপাত্রীর ইমেইল প্রদান করা হবে। পাত্রপাত্রীদের মোবাইল নাম্বার প্রদান করা হয় না।</p>
             </div>
 
 		    <div class="flex-container">
@@ -1776,7 +1760,7 @@ th, td {
 }
 
 th {
-  background-color: #f2f2f2;
+  background: linear-gradient(180deg, #00bbff61 0%,rgba(238,246,253,0) 100%);
 }
 
 
