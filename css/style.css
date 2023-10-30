@@ -1646,15 +1646,15 @@ span.m_3{
     height: 168px;
     width: 168px;
     object-fit: cover;
-    border: 4px solid #fff;
     position: relative;
     top: 35px;
     z-index: 5;
-    background: rgb(245, 242, 242);
+    background: #fff;
     border-radius: 50%;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     margin: 0 auto;
     display: block;
+    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+    border: 1px solid rgba(0,0,0,.05);
 }
 
 .profile-nav-info {
@@ -3079,14 +3079,14 @@ ol li{
 }
 
 .shosurbari-user-account{  /* Both Page*/
-    border: 1px solid #ccc;
     border-radius: 6px;
     width: 400px;
     gap: 1.5rem;
     padding: 20px;
     margin:20px auto;
     background: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+    border: 1px solid rgba(0,0,0,.05);
 }
 
 .shosurbari-user-account form{   /* Both Page*/
@@ -3122,14 +3122,15 @@ input[type=submit] {
     height: 155px;
     width: 175px;
     padding: 2px;
-    background: #f5f2f2;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    background: #fff;
     margin-top: 0px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
     border-radius: 50%;
     object-fit: cover;
+    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+    border: 1px solid rgba(0,0,0,.05);
 }
 
 .update-image-input form{
@@ -3338,7 +3339,6 @@ i.icon_4{
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 .sb-biodata{
-    border: 1px solid #ccc;
     border-radius: 6px;
     width: 95%;
     gap: 1.5rem;
@@ -3346,15 +3346,16 @@ i.icon_4{
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 40px;
-    margin-top: 20px;
     background: white;
-   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+    border: 1px solid rgba(0,0,0,.05);
+   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
 .sb-biodata-field{
     padding: 10px 5px;
     width: 100%;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
     margin-top: 0px;
     background: linear-gradient(#06b6d4, #0ea5e9);
     border-radius: 4px;
@@ -3371,7 +3372,6 @@ i.icon_4{
     display: flex;
     flex-wrap: wrap;
     /* background: linear-gradient(180deg,#F3F9F9 0%,rgba(238,246,253,0) 100%); */
-    padding-top: 30px;
     padding-bottom: 30px;
 }
 
@@ -3472,9 +3472,8 @@ i.icon_4{
 
 #biodataForm {
     width: 100%;
-    margin: 0px auto;
+    margin: 25px auto 0px auto;
     text-align: center;
-    padding-top: 50px;
     padding-bottom: 50px;
 }
 

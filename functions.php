@@ -1132,7 +1132,12 @@ if (mysqli_query($conn,$sql))
         $mistri_occupation_level=$_POST['mistri_occupation_level'];
         $occupation_describe=$_POST['occupation_describe'];
         $dress_code=$_POST['dress_code'];
-        $aboutme=$_POST['aboutme'];		
+        $aboutme=$_POST['aboutme'];
+        $groom_bride_email=$_POST['groom_bride_email'];		
+        $groom_bride_number=$_POST['groom_bride_number'];		
+        $groom_bride_family_number=$_POST['groom_bride_family_number'];		
+        $family_number_relation=$_POST['family_number_relation'];		
+		
     
         require_once("includes/dbconn.php");
         $sql="SELECT user_id FROM 2bd_personal_lifestyle WHERE user_id=$id";
@@ -1158,6 +1163,10 @@ if (mysqli_query($conn,$sql))
                     occupation_describe = '$occupation_describe',
                     dress_code = '$dress_code',
                     aboutme = '$aboutme',
+                    groom_bride_email = '$groom_bride_email',
+                    groom_bride_number = '$groom_bride_number',
+                    groom_bride_family_number = '$groom_bride_family_number',
+                    family_number_relation = '$family_number_relation',
                     profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
                 WHERE user_id = '$id'";
 

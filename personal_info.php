@@ -59,40 +59,83 @@ if(isloggedin()){
 					<span class="divider">&nbsp;<|>&nbsp;</span>
 					<li class="current-page"><h4>Edit Biodata</h4></li>
 				</ul>
-
-				<?php
-					include("includes/dbconn.php");
-					//getting profile details from db
-					$sql="SELECT * FROM users WHERE id = $id";
-					$result = mysqlexec($sql);
-
-					if($result){
-					$row=mysqli_fetch_assoc($result);
-					if($row){
-					$username=$row['username'];
-					}
-					}
-				?>
-
-
-				<div class="shosurbari-userhome-status">
-					<h3><?php echo "Welcome: $username"; ?></h3>
-					<!-- Display the account status -->
-					<h4 >Account Status:
-					<?php if ($deactivated == 0) {
-						echo '<span style="color: green;">Active</span>';
-						} else {
-							echo '<span style="color: red;">Deactivated</span> <br>';
-							echo '<span style="color: #0aa4ca; font-size: 14px;">Please Active your account, Go back UserHome page !</span>';
-						} ?>
-					</h4>
-				</div>
-
 			</div>
 		</div>
 	</div>
 
+	<div class="sb-home-search">
+		<h1>তথ্য পরিবর্তন করুন</h1>
+		<div class="sbhome-heart-divider">
+		<span class="grey-line"></span>
+			<i class="fa fa-heart pink-heart"></i>
+			<i class="fa fa-heart grey-heart"></i>
+		<span class="grey-line"></span>
+		</div>
+	</div>
 
+	<style>
+.sb-biodata-field{
+	background: none;
+}
+  
+.sb-biodata-field h2{
+    color: #000;
+    font-size: 23px;
+    font-weight: bold;
+    background: none;
+    text-align: left;
+}
+
+.shosurbari-biodata-form {
+  align-items: center;
+  flex-wrap: wrap;
+  width: 1400px;
+  margin: auto;
+  padding-top: 30px;
+  padding-bottom: 30px
+}
+
+.soshurbari-animation-icon,
+.shosurbari-animation-form {
+  flex-basis: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.soshurbari-animation-icon h3 {
+  font-size: 23px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.soshurbari-animation-icon img {
+  justify-content: flex-end;
+  margin: auto;
+
+  width: 37px;
+  height: 35px;
+}
+
+@media (max-width: 1400px){
+  .shosurbari-biodata-form{
+    width: auto;
+  }
+}
+
+@media (max-width: 1024px) {
+
+  .shosurbari-animation-form {
+    flex-basis: 100%;
+    justify-content: center;
+  }
+
+  .shosurbari-biodata-form {
+    width: auto;
+  }
+}
+</style>
 
 
 
@@ -186,6 +229,11 @@ if(isloggedin()){
 			<!-- Fieldsets start-->
 			<fieldset>
 				<div class="sb-biodata" id="personalLife">
+					<div class="soshurbari-animation-icon">
+                        <div class="sb-icon-laptop">
+                        <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
+                        </div>
+                    </div>
 					<div class="sb-biodata-field">
 						<h2>ব্যক্তিগত তথ্য</h2>
 					</div>
@@ -452,22 +500,22 @@ if(isloggedin()){
 						
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">পাত্র/পাত্রীর ইমেইল<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required.">(এই অপশন লুকায়িত থাকবে)</span></label>
-							<input type="text" id="edit-name" name="groom_bride_email" value="" size="100" maxlength="100" class="form-text" required>
+							<input type="text" id="edit-name" name="groom_bride_email" value="<?php echo $groom_bride_email; ?>" size="100" maxlength="100" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">পাত্র/পাত্রীর মোবাইল নাম্বার<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required.">(এই অপশন লুকায়িত থাকবে)</span></label>
-							<input type="text" id="edit-name" name="groom_bride_number" value="" size="100" maxlength="100" class="form-text" required>
+							<input type="text" id="edit-name" name="groom_bride_number" value="<?php echo $groom_bride_number; ?>" size="100" maxlength="100" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">পিতামাতা/আত্মীয়র মোবাইল নাম্বার<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required.">(এই অপশন লুকায়িত থাকবে)</span></label>
-							<input type="text" id="edit-name" name="groom_bride_family_number" value="" size="100" maxlength="100" class="form-text" required>
+							<input type="text" id="edit-name" name="groom_bride_family_number" value="<?php echo $groom_bride_family_number; ?>" size="100" maxlength="100" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">পিতামাতা/আত্মীয়র অপশনে মোবাইল নাম্বার টি যার, তার সাথে পাত্রপাত্রীর কি সম্পর্ক<span class="form-required" title="This field is required.">*</span> <span style="color: gray; font-size: 14px;" class="form-required" title="This field is required.">(এই অপশন লুকায়িত থাকবে)</span></label>
-							<input type="text" id="edit-name" name="family_number_relation" value="" size="100" maxlength="100" class="form-text" required>
+							<input type="text" id="edit-name" name="family_number_relation" value="<?php echo $family_number_relation; ?>" size="100" maxlength="100" class="form-text" required>
 						</div>
 
 					</div>

@@ -59,38 +59,21 @@ if(isloggedin()){
 					<span class="divider">&nbsp;<|>&nbsp;</span>
 					<li class="current-page"><h4>Biodata Post</h4></li>
 				</ul>
-
-				<?php
-					include("includes/dbconn.php");
-					//getting profile details from db
-					$sql="SELECT * FROM users WHERE id = $id";
-					$result = mysqlexec($sql);
-
-					if($result){
-					$row=mysqli_fetch_assoc($result);
-					if($row){
-					$username=$row['username'];
-					}
-					}
-				?>
-
-				<div class="shosurbari-userhome-status">
-					<h3><?php echo "Welcome: $username"; ?></h3>
-					<!-- Display the account status -->
-					<h4 >Account Status:
-					<?php if ($deactivated == 0) {
-						echo '<span style="color: green;">Active</span>';
-						} else {
-							echo '<span style="color: red;">Deactivated</span> <br>';
-							echo '<span style="color: #0aa4ca; font-size: 14px;">Please Active your account, Go back UserHome page !</span>';
-						} ?>
-					</h4>
-				</div>
 			</div>
 		</div>
 	</div>
 
 
+	
+	<div class="sb-home-search">
+		<h1>পাত্রপাত্রীর সঠিক তথ্য দিন</h1>
+		<div class="sbhome-heart-divider">
+		<span class="grey-line"></span>
+			<i class="fa fa-heart pink-heart"></i>
+			<i class="fa fa-heart grey-heart"></i>
+		<span class="grey-line"></span>
+		</div>
+	</div>
 
 	<div class="shosurbari-biodata">
 		<!-- multistep form -->
@@ -152,10 +135,78 @@ if(isloggedin()){
 				}
 				}
 			?>
+<style>
+.sb-biodata-field{
+	background: none;
+}
+  
+.sb-biodata-field h2{
+    color: #000;
+    font-size: 23px;
+    font-weight: bold;
+    background: none;
+    text-align: left;
+}
 
+.shosurbari-biodata-form {
+  align-items: center;
+  flex-wrap: wrap;
+  width: 1400px;
+  margin: auto;
+  padding-top: 30px;
+  padding-bottom: 30px
+}
+
+.soshurbari-animation-icon,
+.shosurbari-animation-form {
+  flex-basis: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.soshurbari-animation-icon h3 {
+  font-size: 23px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.soshurbari-animation-icon img {
+  justify-content: flex-end;
+  margin: auto;
+
+  width: 37px;
+  height: 35px;
+}
+
+@media (max-width: 1400px){
+  .shosurbari-biodata-form{
+    width: auto;
+  }
+}
+
+@media (max-width: 1024px) {
+
+  .shosurbari-animation-form {
+    flex-basis: 100%;
+    justify-content: center;
+  }
+
+  .shosurbari-biodata-form {
+    width: auto;
+  }
+}
+</style>
 			<!-- Start Fieldset -->
 			<fieldset>
 				<div class="sb-biodata" id="personalPhysical">
+					<div class="soshurbari-animation-icon">
+                        <div class="sb-icon-laptop">
+                        <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
+                        </div>
+                    </div>
+
 					<div class="sb-biodata-field">
 						<h2>শারীরিক অবস্থা</h2>
 					</div>
@@ -449,6 +500,12 @@ if(isloggedin()){
 			<!-- Fieldsets start-->
 			<fieldset>
 				<div class="sb-biodata" id="personalLife">
+					<div class="soshurbari-animation-icon">
+                        <div class="sb-icon-laptop">
+                        <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
+                        </div>
+                    </div>
+
 					<div class="sb-biodata-field">
 						<h2>ব্যক্তিগত তথ্য</h2>
 					</div>
@@ -890,6 +947,12 @@ if(isloggedin()){
 			<!-- Fieldsets start-->
 			<fieldset>
 				<div class="sb-biodata" id="educationalQualifications">
+					<div class="soshurbari-animation-icon">
+                        <div class="sb-icon-laptop">
+                        <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
+                        </div>
+                    </div>
+
 					<div class="sb-biodata-field">
 						<h2>শিক্ষাগত যোগ্যতা</h2>
 					</div>
@@ -909,7 +972,7 @@ if(isloggedin()){
 						</div>
 
 						<div class="shosurbari-biodata-field"  id="maxedu_qualification">
-							<label for="highest_qualification">আপনার সর্বোচ্চ শিক্ষাগত যোগ্যতা?<span class="form-required" title="This field is required.">*</span></label>
+							<label for="highest_qualification">আপনার সর্বোচ্চ শিক্ষাগত যোগ্যতা?<span style="color: gray; font-size:14px;" class="form-required" title="This field is required.">(বাধ্যতামূলক নয়)</span></label>
 							<input type="text" id="maxedu_qualification" name="maxedu_qulfctn" size="250" maxlength="250" class="form-text required">
 						</div>
 
@@ -1801,7 +1864,13 @@ if(isloggedin()){
 
 			<!--Fieldsets start-->
 			<fieldset>
-				<div class="sb-biodata" id="addressDetails">			
+				<div class="sb-biodata" id="addressDetails">
+					<div class="soshurbari-animation-icon">
+                        <div class="sb-icon-laptop">
+                        <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
+                        </div>
+                    </div>
+
 					<div class="sb-biodata-field">
 						<h2>বর্তমান এবং স্থায়ী ঠিকানা</h2>
 					</div>
@@ -2120,6 +2189,12 @@ if(isloggedin()){
 			<!--Fieldsets start-->
 			<fieldset>
 				<div class="sb-biodata" id="familyInfo">
+					<div class="soshurbari-animation-icon">
+                        <div class="sb-icon-laptop">
+                        <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
+                        </div>
+                    </div>
+
 					<div class="sb-biodata-field">
 						<h2>পারিবারিক ও সামাজিক তথ্য</h2>
 					</div>
@@ -2300,6 +2375,12 @@ if(isloggedin()){
 			<!--Fieldsets start-->
 			<fieldset>
 				<div class="sb-biodata" id="maleMarriageInfo">
+					<div class="soshurbari-animation-icon">
+                        <div class="sb-icon-laptop">
+                        <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
+                        </div>
+                    </div>
+
 					<div class="sb-biodata-field">
 						<h2>বিবাহ সম্পর্কিত তথ্য</h2>
 					</div>
@@ -2604,6 +2685,12 @@ if(isloggedin()){
 			<!--7 fieldsets start-->
 			<fieldset>
 				<div class="sb-biodata" id="religionDetails">
+					<div class="soshurbari-animation-icon">
+                        <div class="sb-icon-laptop">
+                        <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
+                        </div>
+                    </div>
+
 					<div class="sb-biodata-field">
 						<h2>ধর্মীয় বিষয়</h2>
 					</div>
@@ -2704,6 +2791,12 @@ if(isloggedin()){
 			<!--Fieldsets start-->
 			<fieldset>
 				<div class="sb-biodata" id="expectedPartner">
+					<div class="soshurbari-animation-icon">
+                        <div class="sb-icon-laptop">
+                        <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
+                        </div>
+                    </div>
+
 					<div class="sb-biodata-field">
 						<h2>প্রত্যাশিত জীবনসঙ্গীর বিবরণ</h2>
 					</div>
@@ -2711,17 +2804,17 @@ if(isloggedin()){
 					<div class="sb-biodata-option">
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">জীবনসঙ্গীর <span style="color: black; font-size: 15px;">ধর্মীয় বিষয়াবলী</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="partner_religius"  value=""  size="200" maxlength="200" class="form-text" required>
+							<input type="text" id="edit-name" name="partner_religius"  value=""  size="1000" maxlength="1000" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">জীবনসঙ্গী যেই <span style="color: black; font-size: 15px;">জেলার</span> আশা করেন<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="partner_district" value=""  size="100" maxlength="100" class="form-text" required>
+							<input type="text" id="edit-name" name="partner_district" value=""  size="1000" maxlength="100" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">জীবনসঙ্গীর <span style="color: black; font-size: 15px;">বৈবাহিক অবস্থা</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="partner_maritialstatus"  value=""  size="100" maxlength="100" class="form-text" required>
+							<input type="text" id="edit-name" name="partner_maritialstatus"  value=""  size="1000" maxlength="1000" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
@@ -2741,17 +2834,17 @@ if(isloggedin()){
 
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">জীবনসঙ্গীর <span style="color: black; font-size: 15px;">শিক্ষাগত যোগ্যতা</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="partner_education"  value=""  size="100" maxlength="100" class="form-text" required>
+							<input type="text" id="edit-name" name="partner_education"  value=""  size="1000" maxlength="1000" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">জীবনসঙ্গীর <span style="color: black; font-size: 15px;">পেশা</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="partner_profession"  value=""  size="200" maxlength="200" class="form-text" required>
+							<input type="text" id="edit-name" name="partner_profession"  value=""  size="1000" maxlength="1000" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">জীবনসঙ্গীর <span style="color: black; font-size: 15px;">অর্থনৈতিক অবস্থা</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="partner_financial"  value=""  size="100" maxlength="100" class="form-text" required>
+							<input type="text" id="edit-name" name="partner_financial"  value=""  size="1000" maxlength="1000" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">

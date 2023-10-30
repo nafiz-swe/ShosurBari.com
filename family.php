@@ -59,42 +59,85 @@ if(isloggedin()){
 					<span class="divider">&nbsp;<|>&nbsp;</span>
 					<li class="current-page"><h4>Edit Biodata</h4></li>
 				</ul>
-
-				<?php
-					include("includes/dbconn.php");
-					//getting profile details from db
-					$sql="SELECT * FROM users WHERE id = $id";
-					$result = mysqlexec($sql);
-
-					if($result){
-					$row=mysqli_fetch_assoc($result);
-					if($row){
-					$username=$row['username'];
-					}
-					}
-				?>
-
-
-				<div class="shosurbari-userhome-status">
-					<h3><?php echo "Welcome: $username"; ?></h3>
-					<!-- Display the account status -->
-					<h4 >Account Status:
-					<?php if ($deactivated == 0) {
-						echo '<span style="color: green;">Active</span>';
-						} else {
-							echo '<span style="color: red;">Deactivated</span> <br>';
-							echo '<span style="color: #0aa4ca; font-size: 14px;">Please Active your account, Go back UserHome page !</span>';
-						} ?>
-					</h4>
-				</div>
-
 			</div>
 		</div>
 	</div>
 
 
+	<div class="sb-home-search">
+		<h1>তথ্য পরিবর্তন করুন</h1>
+		<div class="sbhome-heart-divider">
+		<span class="grey-line"></span>
+			<i class="fa fa-heart pink-heart"></i>
+			<i class="fa fa-heart grey-heart"></i>
+		<span class="grey-line"></span>
+		</div>
+	</div>
 
 
+	<style>
+.sb-biodata-field{
+	background: none;
+}
+  
+.sb-biodata-field h2{
+    color: #000;
+    font-size: 23px;
+    font-weight: bold;
+    background: none;
+    text-align: left;
+}
+
+.shosurbari-biodata-form {
+  align-items: center;
+  flex-wrap: wrap;
+  width: 1400px;
+  margin: auto;
+  padding-top: 30px;
+  padding-bottom: 30px
+}
+
+.soshurbari-animation-icon,
+.shosurbari-animation-form {
+  flex-basis: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.soshurbari-animation-icon h3 {
+  font-size: 23px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.soshurbari-animation-icon img {
+  justify-content: flex-end;
+  margin: auto;
+
+  width: 37px;
+  height: 35px;
+}
+
+@media (max-width: 1400px){
+  .shosurbari-biodata-form{
+    width: auto;
+  }
+}
+
+@media (max-width: 1024px) {
+
+  .shosurbari-animation-form {
+    flex-basis: 100%;
+    justify-content: center;
+  }
+
+  .shosurbari-biodata-form {
+    width: auto;
+  }
+}
+</style>
 
 	<div class="shosurbari-biodata">
 		<!-- multistep form -->
@@ -151,6 +194,11 @@ if(isloggedin()){
 			<!--Fieldsets start-->
 			<fieldset>
 				<div class="sb-biodata" id="familyInfo">
+					<div class="soshurbari-animation-icon">
+                        <div class="sb-icon-laptop">
+                        <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
+                        </div>
+                    </div>
 					<div class="sb-biodata-field">
 						<h2>পারিবারিক ও সামাজিক তথ্য</h2>
 					</div>
