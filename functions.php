@@ -706,14 +706,12 @@
 	$son_details=$_POST['son_details'];
 
 	//Biodata 6
-	$guardians_agree=$_POST['guardians_agree'];
 	$allowstudy_aftermarriage=$_POST['allowstudy_aftermarriage'];
 	$allowjob_aftermarriage=$_POST['allowjob_aftermarriage'];
 	$livewife_aftermarriage=$_POST['livewife_aftermarriage'];
 	$profileby=$_POST['profileby'];
  
 	//Biodata 7
-	$guardians_agree=$_POST['guardians_agree'];
 	$anyjob_aftermarriage=$_POST['anyjob_aftermarriage'];
 	$studies_aftermarriage=$_POST['studies_aftermarriage'];
 	$agree_marriage_student=$_POST['agree_marriage_student'];
@@ -878,9 +876,9 @@ if (mysqli_query($conn,$sql))
 --   Male Marriage related Info / sb-biodata-6   --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 $sql = "INSERT INTO 6bd_marriage_related_qs_male
-(user_id, guardians_agree, allowstudy_aftermarriage, allowjob_aftermarriage, livewife_aftermarriage, profileby, profilecreationdate  ) 
+(user_id, allowstudy_aftermarriage, allowjob_aftermarriage, livewife_aftermarriage, profileby, profilecreationdate  ) 
 VALUES
-('$id', '$guardians_agree', '$allowstudy_aftermarriage', '$allowjob_aftermarriage', '$livewife_aftermarriage', '$profileby',  DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+('$id', '$allowstudy_aftermarriage', '$allowjob_aftermarriage', '$livewife_aftermarriage', '$profileby',  DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
 if (mysqli_query($conn,$sql))
 { echo " ";}
 
@@ -892,9 +890,9 @@ if (mysqli_query($conn,$sql))
 --  Female Marriage related Info / sb-biodata-7  --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 $sql = "INSERT INTO 7bd_marriage_related_qs_female
-(user_id, guardians_agree, anyjob_aftermarriage, studies_aftermarriage, agree_marriage_student, profileby, profilecreationdate  ) 
+(user_id, anyjob_aftermarriage, studies_aftermarriage, agree_marriage_student, profileby, profilecreationdate  ) 
 VALUES
-('$id', '$guardians_agree', '$anyjob_aftermarriage', '$studies_aftermarriage', '$agree_marriage_student', '$profileby', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+('$id', '$anyjob_aftermarriage', '$studies_aftermarriage', '$agree_marriage_student', '$profileby', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
 if (mysqli_query($conn,$sql))
 {echo " ";}
 
@@ -992,14 +990,12 @@ if (mysqli_query($conn,$sql))
         $son_details=$_POST['son_details'];
 
         //Biodata 6
-        $guardians_agree=$_POST['guardians_agree'];
         $allowstudy_aftermarriage=$_POST['allowstudy_aftermarriage'];
         $allowjob_aftermarriage=$_POST['allowjob_aftermarriage'];
         $livewife_aftermarriage=$_POST['livewife_aftermarriage'];
         $profileby=$_POST['profileby'];
     
         //Biodata 7
-        $guardians_agree=$_POST['guardians_agree'];
         $anyjob_aftermarriage=$_POST['anyjob_aftermarriage'];
         $studies_aftermarriage=$_POST['studies_aftermarriage'];
         $agree_marriage_student=$_POST['agree_marriage_student'];
@@ -1057,7 +1053,6 @@ if (mysqli_query($conn,$sql))
         // Update query
         if(mysqli_num_rows($result)>=1){
         $sql = "UPDATE 6bd_marriage_related_qs_male SET 
-            guardians_agree = '$guardians_agree',
             allowstudy_aftermarriage = '$allowstudy_aftermarriage',
             allowjob_aftermarriage = '$allowjob_aftermarriage',
             livewife_aftermarriage = '$livewife_aftermarriage',
@@ -1076,7 +1071,6 @@ if (mysqli_query($conn,$sql))
         // Update query
         if(mysqli_num_rows($result)>=1){
         $sql = "UPDATE 7bd_marriage_related_qs_female SET 
-            guardians_agree = '$guardians_agree',
             studies_aftermarriage = '$studies_aftermarriage',
             anyjob_aftermarriage = '$anyjob_aftermarriage',
             agree_marriage_student = '$agree_marriage_student',

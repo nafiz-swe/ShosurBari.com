@@ -576,6 +576,7 @@ if(isloggedin()){
 						<!-- Married Section End-->
 
 
+						<!-- This Sections For Divorce + Widow + Widower + Married Start-->
 						<div class="shosurbari-biodata-field" id="son-section" style="display: none;">
 							<div class="shosurbari-biodata-field">
 								<label for="edit-name">কয়টি সন্তান আছে<span class="form-required" title="This field is required.">*</span></label>
@@ -601,11 +602,13 @@ if(isloggedin()){
 								<textarea rows="5" name="son_details"  value="<?php echo $son_details; ?>" placeholder="Describe Your Son Details" class="form-text-describe"></textarea>
 							</div>
 						</div>
+						<!-- This Sections For Divorce + Widow + Widower + Married End-->
+
 
 
 						<!-- Bellow Two Sections For Male or Female -->
 						<div class="shosurbari-biodata-field" id="male-allow-wife-job">
-							<label for="edit-name">স্ত্রীকে চাকরি করতে দিতে ইচ্ছুক?<span class="form-required" title="This field is required.">*</span></label>
+							<label for="edit-name">বিয়ের পর স্ত্রীকে চাকরি করতে দিতে ইচ্ছুক?<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text" id="edit-name" name="allowjob_aftermarriage"  value="<?php echo $allowjob_aftermarriage; ?>"  size="100" maxlength="100" class="form-text">
 						</div>
 						<!--Top Male | OR | Bellow Female-->
@@ -615,7 +618,7 @@ if(isloggedin()){
 						</div>
 
 						<div class="shosurbari-biodata-field" id="male-allow-wife-study">
-							<label for="edit-name">স্ত্রীকে প্রাতিষ্ঠানিক পড়ালেখা করতে দিতে ইচ্ছুক?<span class="form-required" title="This field is required.">*</span></label>
+							<label for="edit-name">বিয়ের পর স্ত্রীকে প্রাতিষ্ঠানিক পড়ালেখা করতে দিতে ইচ্ছুক?<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text" id="edit-name" name="allowstudy_aftermarriage" value="<?php echo $allowstudy_aftermarriage; ?>" size="100" maxlength="100" class="form-text">
 						</div>
 						<!--Top Male | OR | Bellow Female-->
@@ -655,7 +658,6 @@ if(isloggedin()){
 
 				<input type="button" name="previous" class="previous action-button" value="Previous" />
 				<button type="submit" id="edit-submit" name="op" class="biodata-submit"><span></span> Submit</button>			
-			
 
 				<script>
 					function toggleGenderSections(selectedGender) {
@@ -666,6 +668,14 @@ if(isloggedin()){
 						var maleliveWithwife = document.getElementById('male-live-with-wife');
 						var femaleagreeMarriagestudent = document.getElementById('female-agree-marriage-student');
 
+						var maritalStatusSelect = document.getElementsByName('maritalstatus')[0];
+						var optionWidow = maritalStatusSelect.querySelector('option[value="বিধবা"]');
+						var optionWidower = maritalStatusSelect.querySelector('option[value="বিপত্নীক"]');
+						
+						// Reset the display property for all options before toggling
+						optionWidow.style.display = 'block';
+						optionWidower.style.display = 'block';
+						
 						if (selectedGender === 'পাত্রের বায়োডাটা') {
 							maleallowJobwife.style.display = 'block';
 							femaleJobSection.style.display = 'none';
@@ -677,8 +687,6 @@ if(isloggedin()){
 							femaleagreeMarriagestudent.style.display = 'none';
 
 							// Hide বিধবা option
-							var maritalStatusSelect = document.getElementsByName('maritalstatus')[0];
-							var optionWidow = maritalStatusSelect.querySelector('option[value="বিধবা"]');
 							optionWidow.style.display = 'none';
 						} else if (selectedGender === 'পাত্রীর বায়োডাটা') {
 							maleallowJobwife.style.display = 'none';
@@ -691,8 +699,6 @@ if(isloggedin()){
 							femaleagreeMarriagestudent.style.display = 'block';
 
 							// Hide বিপত্নীক option
-							var maritalStatusSelect = document.getElementsByName('maritalstatus')[0];
-							var optionWidower = maritalStatusSelect.querySelector('option[value="বিপত্নীক"]');
 							optionWidower.style.display = 'none';
 						} else {
 							maleallowJobwife.style.display = 'none';
@@ -714,7 +720,6 @@ if(isloggedin()){
 					}
 
 					function toggleMaritalStatus(selectedStatus) {
-						var gurdianAggressSection = document.getElementById('gurdian-aggress-section');
 						var sonDetailsSection = document.getElementById('son-section');
 						var divorceSection = document.getElementById('divorce-section');
 						var widowSection = document.getElementById('widow-section');
@@ -722,7 +727,6 @@ if(isloggedin()){
 						var marriedSection = document.getElementById('married-section');
 
 						// Hide all sections initially
-						gurdianAggressSection.style.display = 'none';
 						sonDetailsSection.style.display = 'none';
 						divorceSection.style.display = 'none';
 						widowSection.style.display = 'none';
@@ -730,19 +734,15 @@ if(isloggedin()){
 						marriedSection.style.display = 'none';
 
 						if (selectedStatus === 'অবিবাহিত') {
-							gurdianAggressSection.style.display = 'block';
 							sonDetailsSection.style.display = 'none';
 						} else if (selectedStatus === 'ডিভোর্স') {
 							divorceSection.style.display = 'block';
-							gurdianAggressSection.style.display = 'block';
 							sonDetailsSection.style.display = 'block';
 						} else if (selectedStatus === 'বিধবা') {
 							widowSection.style.display = 'block';
 							sonDetailsSection.style.display = 'block';
-							gurdianAggressSection.style.display = 'block';
 						} else if (selectedStatus === 'বিপত্নীক') {
 							widowerSection.style.display = 'block';
-							gurdianAggressSection.style.display = 'block';
 							sonDetailsSection.style.display = 'block';
 						} else if (selectedStatus === 'বিবাহিত') {
 							marriedSection.style.display = 'block';
