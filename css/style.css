@@ -1769,15 +1769,17 @@ span.m_3{
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 10px;
-    background: #c5ffc5;
-    border: 1px solid green;
-    border-radius: 4px;
-    color: green;
-    font-size: 1rem;
+    background: #22c55e;
+    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+    border: 1px solid rgba(0,0,0,.05);
+    border-radius: 2px;
+    color: white;
+    font-size: 14px;
     opacity: 0;
     display: none;
     transition: opacity 0.3s ease-in-out;
     pointer-events: none;
+    z-index: 1;
 }
 
 #copy-message.show {
@@ -1840,6 +1842,8 @@ button.copylink {
     position: relative;
     transition: all .2s ease;
 	white-space: nowrap;
+    height: 40px;
+    line-height: 32px;
 }
 
 button.copylink:hover {
@@ -1858,6 +1862,8 @@ button.choice-list-btn {
     position: relative;
     transition: all .2s ease;
     white-space: nowrap;
+    height: 40px;
+    line-height: 32px;
 }
 
 button.choice-list-btn:hover {
@@ -2357,49 +2363,65 @@ small.testi-meta1{
 
 
 /*PopUp Message For All PopUp Start*/
-.popup-message {
+.popup-message,
+.popup {
     display: none;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #c5ffc5;
-    border: 1px solid green;
-    border-radius: 4px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: #22c55e;
+    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+    border: 1px solid rgba(0,0,0,.05);
+    border-radius: 2px;
+    padding: 15px;
+    width: 400px;
     z-index: 9999;
 }
   
-.popup-message h3 {
+.popup-message h3,
+#popup-message {
     margin-top: 0;
     margin-bottom: 10px;
     text-align: center;
-    color: #04aa6d;
+    color: #fff;
     font-size: 24px;
+}
+
+#popup-message  span {
+    font-weight: bold;
+}
+
+#popup-message p{
+    font-size: 16px;
+    text-align: justify;
+    color: #fff;
+    margin-top: 10px;
 }
   
 .popup-message p {
     margin: 0;
-    font-size: 18px;
-    text-align: center;
-    color: #000;
+    font-size: 16px;
+    text-align: justify;
+    color: #fff;
 }
   
-.popup-message button.close-button {
+.popup-message button, .close-button, #close-button {
     display: block;
-    margin-top: 10px;
+    margin-top: 15px;
     margin-left: auto;
     margin-right: auto;
-    padding: 5px 10px;
+    padding: 0px 10px;
     background-color: #06b6d4;
     color: #fff;
     border: none;
     border-radius: 2px;
     cursor: pointer;
+    height: 30px;
+    line-height: 33px;
 }
   
-.popup-message button.close-button:hover {
+.popup-message button.close-button:hover, #close-button:hover {
     background: linear-gradient(#0aa4ca, #0acef1);
     color: #fff;
 }
@@ -2462,6 +2484,8 @@ small.testi-meta1{
     font-size: 16px;
     border-radius: 5px;
     font-weight: bold;
+    line-height: 28px;
+    height: 50px;
 }
 
 #payment-message{
@@ -5349,28 +5373,12 @@ label{
         background: linear-gradient(#0aa4ca, #0acef1);
     }
 
-    #close-button{
-        display: block;
-        width: 50px;
-        background: #06b6d4;
-        color: white;
-        padding: 3px;
-        margin-left: auto;
-        margin-right: 0px;
-        text-align: center;
-        border-radius: 3px;
-    }
-
     #search-bar #search-button:hover{
         background: linear-gradient(#0aa4ca, #0acef1);
     }
 
     #search-bar #filters{
         display: none;
-    }
-
-    #close-button:hover {
-        background: linear-gradient(#0aa4ca, #0acef1);
     }
 
     .sbbiodata-search-mobile form{
@@ -6681,6 +6689,11 @@ label{
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width:414px){
 
+    .popup-message,
+    .popup {
+        width: 340px;
+    }
+
     .sb-search-btn-banner {
         left: 185px;
     }
@@ -7251,6 +7264,11 @@ label{
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width: 350px) {
 
+    .popup-message,
+    .popup {
+        width: 310px;
+    }
+
     .contact-bio,
     .copy-sbbio-link {
         font-size: 13px;
@@ -7363,6 +7381,11 @@ label{
 --      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width:320px){
+
+    .popup-message,
+    .popup {
+        width: 263px;
+    }
 
     .sb-search-btn button, .sb-home-reg button {
         padding: 3px 1px;

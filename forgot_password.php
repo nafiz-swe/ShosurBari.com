@@ -84,7 +84,7 @@ if (isset($_SESSION['id'])) {
 
 <div id="popup" class="popup">
     <div class="popup-content">
-        <span id="popup-message"></span>
+        <p id="popup-message"></p>
         <div class="popup-buttons">
             <button id="close-button">ঠিকাছে</button>
         </div>
@@ -143,43 +143,6 @@ if (isset($_SESSION['id'])) {
   margin: auto;
   width: 37px;
   height: 35px;
-}
-
-.popup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: linear-gradient(180deg,#00bbff 0%,rgb(246 246 246) 100%);
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1;
-    width: 380px;
-}
-
-.popup-content {
-    text-align: center;
-    color: #000;
-}
-
-.popup-buttons {
-    margin-top: 10px;
-}
-
-#close-button{
-    background: linear-gradient(#06b6d4, #0ea5e9);
-    color: white;
-    border: none;
-    border-radius: 3px;
-    padding: 5px 10px;
-}
-
-#close-button:hover {
-    background: linear-gradient(#0ea5e9, #06b6d4);
-    color: white;
 }
 </style>
 
@@ -265,16 +228,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         
         if ($mail->send()) {
             // Password sent successfully
-
-            echo '<script>showPopup("<span style=\"font-size: 22px; color: white; margin-bottom: 15px\">ই-মেইল চেক করুন</span><br><br> আপনার ই-মেইলে একটি ভেরিফিকেশন ম্যাসেজ পাঠানো হয়েছে। আপনার ই-মেইল থেকে পাসওয়ার্ড পরিবর্তন করুন।");</script>';
+            echo '<script>showPopup("<span> ই-মেইল চেক করুন!</span><br><p>আপনার ই-মেইলে একটি ভেরিফিকেশন ম্যাসেজ পাঠানো হয়েছে। আপনার ই-মেইল থেকে পাসওয়ার্ড পরিবর্তন করুন।<p>");</script>';
             // echo '<meta http-equiv="refresh" content="3; url=new_password.php">'; // Redirect after 3 seconds
         } else {
             // Error sending email
-            echo '<script>showPopup("<span style=\"font-size: 22px; color: white; margin-bottom: 15px\"> Error Oops!</span><br>There was an error verifying user Email. Please try again later.");</script>';
+            echo '<script>showPopup("<span> উফ দুঃখিত!</span><br><p>ই-মেইলটি যাচাই করার সময় একটি ত্রুটি ছিল৷ অনুগ্রহ করে কিছুক্ষন পর আবার চেষ্টা করুন।<p>");</script>';
         }
         } else {
             // User not found in the database
-            echo '<script>showPopup("<span style=\"font-size: 22px; color: white; margin-bottom: 15px\"> User Not Found</span><br>We could not find a user with that email address.");</script>';
+            echo '<script>showPopup("<span> দুঃখিত!</span><br><p>ই-মেইলটি দিয়ে শশুরবাড়িতে কখনো একাউন্ট খোলা হয়নি। অনুগ্রহ করে রেজিস্টারকৃত ই-মেইল দিয়ে আবার চেষ্টা করুন।<p>");</script>';
         }
     }
 ?>

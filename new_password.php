@@ -101,8 +101,8 @@ if (isset($_SESSION['id'])) {
 
 <div id="popup" class="popup">
     <div class="popup-content">
-        <span id="popup-message"></span>
-        <div id="countdown">Wait <span id="countdown-value">10</span> seconds...</div>
+        <p id="popup-message"></p>
+        <div id="countdown">Please Wait <span id="countdown-value">15</span> seconds...</div>
     </div>
     <!-- <div class="popup-buttons">
         <button id="close-button">Close</button>
@@ -288,40 +288,11 @@ function animateColor(element, color) {
   height: 35px;
 }
 
-
-.popup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: linear-gradient(180deg,#00bbff 0%,rgb(246 246 246) 100%);
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1;
-}
-
-.popup-content {
-    text-align: center;
-    color: #000;
-}
-
-.popup-buttons {
+#popup-message{
+    font-size: 16px;
+    text-align: justify;
+    color: #fff;
     margin-top: 10px;
-}
-
-#close-button{
-    background: linear-gradient(#06b6d4, #0ea5e9);
-    color: white;
-    border: none;
-    border-radius: 3px;
-}
-
-#close-button:hover {
-    background: linear-gradient(#0ea5e9, #06b6d4);
-    color: white;
 }
 </style>
 
@@ -362,24 +333,24 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if ($result_login && mysqli_num_rows($result_login) == 1) {
                 $row_login = mysqli_fetch_assoc($result_login);
 
-                $popupMessage = "Password updated successfully! Auto redirect to Login Page";
+                $popupMessage = "ওয়াও! পাসওয়ার্ড সফলভাবে আপডেট হয়েছে৷ লগইন পেজ থেকে আপনার একাউন্ট লগইন করুন৷";
 
                 // Output the popup message with success
                 echo "<script>showPopup('$popupMessage', 15);</script>"; // Countdown duration is 5 seconds
                 // Redirect to login.php
-                echo '<meta http-equiv="refresh" content="10; url=login.php">'; // Redirect after 5 seconds
+                echo '<meta http-equiv="refresh" content="15; url=login.php">'; // Redirect after 5 seconds
                 exit();
             } else {
-                $popupMessage = "Email is not registered. Please enter a valid email.";
-                echo "<script>showPopup('$popupMessage', 10);</script>"; // Countdown duration is 5 seconds
+                $popupMessage = " দুঃখিত! ই-মেইলটি রেজিস্টারকৃত ই-মেইল না, অনুগ্রহ করে রেজিস্টারকৃত ই-মেইল প্রবেশ করুন।";
+                echo "<script>showPopup('$popupMessage', 15);</script>"; // Countdown duration is 5 seconds
             }
         } else {
-            $popupMessage = "Error updating password: " . mysqli_error($conn);
-            echo "<script>showPopup('$popupMessage', 10);</script>"; // Countdown duration is 5 seconds
+            $popupMessage = "উফ দুঃখিত! পাসওয়ার্ড আপডেট করার সময় একটি ত্রুটি ছিল৷ অনুগ্রহ করে আবার চেষ্টা করুন।" . mysqli_error($conn);
+            echo "<script>showPopup('$popupMessage', 15);</script>"; // Countdown duration is 5 seconds
         }
     } else {
-        $popupMessage = "Passwords do not match.";
-        echo "<script>showPopup('$popupMessage', 10);</script>"; // Countdown duration is 5 seconds
+        $popupMessage = "উফ দুঃখিত! নিউ পাসওয়ার্ড এবং কনফার্ম পাসওয়ার্ড মিলছে না।";
+        echo "<script>showPopup('$popupMessage', 15);</script>"; // Countdown duration is 5 seconds
     }
 
     // Output the popup message with error

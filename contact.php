@@ -194,12 +194,6 @@ error_reporting(0);
               <button type="submit" id="edit-submit" name="op" class="btn_1 submit">Submit</button>
             </div>
 
-            <!-- Popup message -->
-            <div class="popup-message">
-              <h3></h3>
-              <p></p>
-            </div>
-
             <div class="overlay"></div>
           </div>
         </div>
@@ -209,6 +203,11 @@ error_reporting(0);
   <!-- here about -->
 </div>
 
+<!-- Popup message -->
+<div class="popup-message">
+  <h3></h3>
+  <p></p>
+</div>
 
   <!--=======================================
   How Many Visitors View This Page.
@@ -471,12 +470,12 @@ error_reporting(0);
     popup.style.display = 'block';
 
     // Set the message text
-    popup.querySelector('h3').innerHTML = 'Thank you!';
-    popup.querySelector('p').innerHTML = 'Your data has been saved to the database.';
+    popup.querySelector('h3').innerHTML = 'ধন্যবাদ!';
+    popup.querySelector('p').innerHTML = 'সফল ভাবেই আপনার তথ্য জমা হয়েছে। শীঘ্রই আপনার সাথে যোগাযোগ করা হবে ইনশাআল্লাহ।';
 
     // Add a close button to the popup message
     var closeButton = document.createElement('button');
-    closeButton.innerHTML = 'Close';
+    closeButton.innerHTML = 'ঠিক আছে';
     closeButton.classList.add('close-button');
     popup.appendChild(closeButton);
 

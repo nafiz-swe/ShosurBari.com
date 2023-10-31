@@ -1065,7 +1065,7 @@ textarea:focus {
 							<button class="copylink clipboard" id="Create-post"><i class="fa fa-copy"></i>লিংক কপি</button>
 						</div> </br>
 
-						<div id="copy-message">Link Successfully Copied!</div>
+						<div id="copy-message">বায়োডাটার প্রোফাইল লিংক কপি হয়েছে।</div>
 					</div>
 
 
@@ -1093,7 +1093,7 @@ textarea:focus {
 						$("#copy-message").addClass("show");
 						setTimeout(function() {
 							$("#copy-message").removeClass("show");
-						}, 2000);
+						}, 5000);
 						})
 					</script>
 				</div>

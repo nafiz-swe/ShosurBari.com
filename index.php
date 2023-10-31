@@ -2102,7 +2102,7 @@ th, td {
 .card-content h3{
   text-align: center;
   text-transform: uppercase;
-  font-size: 15px;
+  font-size: 14px;
   color: black;
   margin-top: 10px;
   margin-bottom: 20px;

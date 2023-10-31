@@ -258,7 +258,7 @@ if(isset($_SESSION['id'])){
         /* Hide the radio input itself and style the label */
         input[type="radio"] + label {
             display: inline-block;
-            line-height: 6px;
+            line-height: 8px;
             border: 1px solid;
             padding: 10px;
             border-radius: 2px;
@@ -1073,13 +1073,13 @@ function showSuccessMessage() {
   popup.style.display = 'block';
 
   // Set the message text
-  popup.querySelector('h3').innerHTML = 'Thank you!';
-  popup.querySelector('p').innerHTML = 'আপনার তথ্য সফলভাবে জমা হয়েছে। আপনার তথ্য যাচাই করার পর- ৪৮ ঘন্টার মধ্যে যোগাযোগের কাঙ্ক্ষিত তথ্য পাঠানো হবে। অনুগ্রহ করে আপনার ফোনের SMS বক্স বা Email বক্স ফলো করুন।';
+  popup.querySelector('h3').innerHTML = 'ধন্যবাদ!';
+  popup.querySelector('p').innerHTML = 'আপনার তথ্য সফলভাবে জমা হয়েছে। পেমেন্ট তথ্য যাচাই বাছাইয়ের পর ২৪ ঘন্টার মধ্যে যোগাযোগের কাঙ্ক্ষিত তথ্য আপনার নাম্বারে অথবা ইমেইল পাঠিয়ে দেয়া হবে।';
 
 
   // Add a close button to the popup message
   var closeButton = document.createElement('button');
-  closeButton.innerHTML = 'Close';
+  closeButton.innerHTML = 'ঠিক আছে';
   closeButton.classList.add('close-button');
   popup.appendChild(closeButton);
 
@@ -1149,6 +1149,8 @@ nextBtn.addEventListener('click', () => {
   transition: all .2s ease;
   white-space: nowrap;
   font-size: 0.60em;
+  height: 40px;
+  line-height: 27px;
 }
 
 .form-actions button:hover{
