@@ -242,7 +242,7 @@ if (isset($_SESSION['id'])) {
     });
 
     var errorDiv = document.getElementById('uname_email_error');
-    errorDiv.innerHTML = "Please Enter Your Username or Email !";
+    errorDiv.innerHTML = "Please Enter Your Username or Email!";
     errorDiv.style.display = 'block';
     errorDiv.classList.add('fade-in');
 
@@ -273,7 +273,7 @@ if (isset($_SESSION['id'])) {
     });
 
     var errorDiv = document.getElementById('password_error');
-    errorDiv.innerHTML = "Please Enter Your Password !";
+    errorDiv.innerHTML = "Please Enter Your Password!";
     errorDiv.style.display = 'block';
     errorDiv.classList.add('fade-in');
 

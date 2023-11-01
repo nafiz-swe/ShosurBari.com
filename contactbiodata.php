@@ -124,12 +124,12 @@ if (isset($_COOKIE[$cookieName])) {
 
         <div class="soshurbari-animation-icon">
             <div class="sb-icon-laptop">
-              <h3> <img src="images/shosurbari-icon.png"> ShosurBari </h3>
+              <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
             </div>
         </div>
 
         <div class="sb-biodata-field">
-          <h2>Contact Biodata</h2>
+          <h2>কাস্টমার তথ্য</h2>
         </div>
 
 <?php
@@ -159,20 +159,20 @@ if(isset($_SESSION['id'])){
 
 <!-- HTML form with input fields -->
 <div class="form-group">
-    <label>Full Name<span class="form-required" title="This field is required.">*</span></label>
-    <input type="text" id="cust_name" placeholder="Your Full Name" name="cust_name" value="<?php echo $fullname; ?>" size="60" maxlength="60" class="form-text required">
+    <label>নাম<span class="form-required" title="This field is required.">*</span></label>
+    <input type="text" id="cust_name" placeholder="আপনার পুরো নাম" name="cust_name" value="<?php echo $fullname; ?>" size="60" maxlength="60" class="form-text required">
     <span id="name-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
 </div>
 
 <div class="form-group">
-    <label>Email<span class="form-required" title="This field is required.">*</span></label>
-    <input type="email" id="cust_email" placeholder="Your Email" name="cust_email" value="<?php echo $email; ?>" size="60" maxlength="60" class="form-text">
+    <label>ই-মেইল<span class="form-required" title="This field is required.">*</span></label>
+    <input type="email" id="cust_email" placeholder="আপনার ই-মেইল" name="cust_email" value="<?php echo $email; ?>" size="60" maxlength="60" class="form-text">
     <span id="email-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
 </div>
 
 <div class="form-group">
-    <label>Number<span class="form-required" title="This field is required.">*</span></label>
-    <input type="tel" id="pnumber" placeholder="Your Phone Number" name="cust_number" value="<?php echo $pnumber; ?>" size="60" minlength="10" maxlength="15" class="form-text required">
+    <label>নাম্বার<span class="form-required" title="This field is required.">*</span></label>
+    <input type="tel" id="pnumber" placeholder="আপনার ফোন নাম্বার" name="cust_number" value="<?php echo $pnumber; ?>" size="60" minlength="10" maxlength="15" class="form-text required">
     <span id="phone-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
 </div>
 
@@ -198,13 +198,13 @@ if(isset($_SESSION['id'])){
 
 
   <div class="form-group">
-    <label>Address<span class="form-required" title="This field is required.">*</span></label>
-    <input type="text" id="permanent_address" name="cust_permanent_address" placeholder="Your Permanent Address" value="" size="100" maxlength="100" class="form-text required">
+    <label>ঠিকানা<span class="form-required" title="This field is required.">*</span></label>
+    <input type="text" id="permanent_address" name="cust_permanent_address" placeholder="আপনার স্থায়ী ঠিকানা" value="" size="100" maxlength="100" class="form-text required">
     <span id="address-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
   </div>
 
   <div class="form-group">
-    <label>Request Biodata <span style="color: #ccc; font-size: 12px;">(Fixed)</span></label>
+    <label>পছন্দের বায়োডাটা <span style="color: #ccc; font-size: 12px;">(অপরিবর্তনশীল)</span></label>
     <textarea rows="4" id="contact_biodatas_number" name="request_biodata_number" class="form-text required" style="background: #ecfeff;" readonly><?php
       if (isset($_GET['profileid'])) {
           $profileid = $_GET['profileid'];
@@ -371,7 +371,7 @@ if(isset($_SESSION['id'])){
 
         <div class="soshurbari-animation-icon">
             <div class="sb-icon-laptop">
-              <h3> <img src="images/shosurbari-icon.png"> ShosurBari </h3>
+              <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
             </div>
         </div>
 
@@ -673,7 +673,7 @@ document.querySelector('form').addEventListener('submit', function (e) {
         });
 
         var errorDiv = document.getElementById('name-error');
-        errorDiv.innerHTML = "Please Enter Your Full Name !";
+        errorDiv.innerHTML = "উফফ! আপনার পুরো নাম লিখুন।";
         errorDiv.style.display = 'block';
         errorDiv.classList.add('fade-in');
 
@@ -706,7 +706,7 @@ document.querySelector('form').addEventListener('submit', function (e) {
         });
 
         var errorDiv = document.getElementById('email-error');
-        errorDiv.innerHTML = "Please Enter Your Email !";
+        errorDiv.innerHTML = "উফফ! আপনার ই-মেইল লিখুন।";
         errorDiv.style.display = 'block';
         errorDiv.classList.add('fade-in');
 
@@ -727,7 +727,7 @@ document.querySelector('form').addEventListener('submit', function (e) {
         });
 
         var errorDiv = document.getElementById('email-error');
-        errorDiv.innerHTML = "Please Enter a Valid Email. Only Used: (@gmail or @outlook or @hotmail or @yahoo).com";
+        errorDiv.innerHTML = "উফফ! একটি বৈধ ই-মেইল প্রবেশ করুন। শুধুমাত্র ব্যবহার করতে পারবেন: @gmail, @outlook, @hotmail, @yahoo (.com)";
         errorDiv.style.display = 'block';
         errorDiv.classList.add('fade-in');
 
@@ -757,48 +757,43 @@ document.querySelector('form').addEventListener('submit', function (e) {
           block: 'center',
         });
 
-  var errorDiv = document.getElementById('phone-error');
-  errorDiv.innerHTML = "Please Enter Your Phone Number !";
-  errorDiv.style.display = 'block';
-  errorDiv.classList.add('fade-in');
+        var errorDiv = document.getElementById('phone-error');
+        errorDiv.innerHTML = "উফফ! আপনার মোবাইল নাম্বার লিখুন।";
+        errorDiv.style.display = 'block';
+        errorDiv.classList.add('fade-in');
 
-  // Change color multiple times
-  var colors = ['green', 'blue', 'red'];
-  var colorIndex = 0;
-  setInterval(function() {
-    errorDiv.style.color = colors[colorIndex];
-    colorIndex = (colorIndex + 1) % colors.length;
-  }, 500);
+        // Change color multiple times
+        var colors = ['green', 'blue', 'red'];
+        var colorIndex = 0;
+        setInterval(function() {
+          errorDiv.style.color = colors[colorIndex];
+          colorIndex = (colorIndex + 1) % colors.length;
+        }, 500);
 
   
         return false;
-     // } else if (!/^[0-9]{10,13}$/.test(pnumber)) {
-      }else if(pnumber.length < 10 || pnumber.length > 14){
-        document.getElementById('pnumber').style.borderColor = "red";
-        document.getElementById('phone-error').innerHTML = "Phone Number Must Be Between 10 To 14 Digits. Don't Used Space & Plus Symbol !";
-        document.getElementById('pnumber').scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
+        // } else if (!/^[0-9]{10,13}$/.test(pnumber)) {
+        }else if(pnumber.length < 10 || pnumber.length > 14){
+          document.getElementById('pnumber').style.borderColor = "red";
+          document.getElementById('phone-error').innerHTML = "মোবাইল নাম্বার ১০ থেকে ১৪ ডিজিটের মধ্যে হতে হবে। স্পেস এবং প্লাস চিহ্ন ব্যবহার করবেন না।";
+          document.getElementById('pnumber').scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
         });
 
-  var errorDiv = document.getElementById('phone-error');
-  errorDiv.innerHTML = "Please Enter Your Phone Number !";
-  errorDiv.style.display = 'block';
-  errorDiv.classList.add('fade-in');
-
-  // Change color multiple times
-  var colors = ['green', 'blue', 'red'];
-  var colorIndex = 0;
-  setInterval(function() {
-    errorDiv.style.color = colors[colorIndex];
-    colorIndex = (colorIndex + 1) % colors.length;
-  }, 500);
+        // Change color multiple times
+        var colors = ['green', 'blue', 'red'];
+        var colorIndex = 0;
+        setInterval(function() {
+          errorDiv.style.color = colors[colorIndex];
+          colorIndex = (colorIndex + 1) % colors.length;
+        }, 500);
 
         return false;
-      }else{
-        document.getElementById('pnumber').style.borderColor = "green";
-        document.getElementById('phone-error').innerHTML = "";
-      }
+        }else{
+          document.getElementById('pnumber').style.borderColor = "green";
+          document.getElementById('phone-error').innerHTML = "";
+        }
 
 
 
@@ -817,7 +812,7 @@ document.querySelector('form').addEventListener('submit', function (e) {
         });
 
   var errorDiv = document.getElementById('address-error');
-  errorDiv.innerHTML = "Please Enter Your Address !";
+  errorDiv.innerHTML = "উফফ! আপনার জেলা সহ স্থায়ী ঠিকানা লিখুন।";
   errorDiv.style.display = 'block';
   errorDiv.classList.add('fade-in');
 
@@ -836,6 +831,7 @@ document.querySelector('form').addEventListener('submit', function (e) {
       }
 
 
+
   // Validate biodata
   if (biodata == "") {
         document.getElementById('contact_biodatas_number').style.borderColor = "red";
@@ -845,7 +841,7 @@ document.querySelector('form').addEventListener('submit', function (e) {
         });
 
   var errorDiv = document.getElementById('biodata-error');
-  errorDiv.innerHTML = "Please Enter Biodata Number !";
+  errorDiv.innerHTML = "উফফ! আপনার পছন্দের বায়োডাটার সাথে যোগাযোগ করতে বায়োডাটার প্রোফাইলে প্রবেশ করুন।";
   errorDiv.style.display = 'block';
   errorDiv.classList.add('fade-in');
 
@@ -889,7 +885,7 @@ document.querySelector('form').addEventListener('submit', function (e) {
         });
 
         var errorDiv = document.getElementById('payment-method-error');
-        errorDiv.innerHTML = "Please Enter Biodata Number !";
+        errorDiv.innerHTML = "উফফ! আপনার পেমেন্ট অপশন সিলেক্ট করুন।";
         errorDiv.style.display = 'block';
         errorDiv.classList.add('fade-in');
 
@@ -955,7 +951,7 @@ if (selectedPaymentMethod.value === 'bkash') {
 
   // Check if the input fields for the selected payment method are empty
   if (bkashNumber.trim() === '') {
-    continuouslyChangeColor(document.getElementById('bkashnumber-error'), 'Please enter your mobile number');
+    continuouslyChangeColor(document.getElementById('bkashnumber-error'), 'উফফ! আপনার বিকাশ নাম্বার লিখুন।');
     return false;
   } else {
     // document.getElementById('bkashnumber-error').style.display = 'none';
@@ -963,7 +959,7 @@ if (selectedPaymentMethod.value === 'bkash') {
     document.getElementById('bkashnumber-error').innerHTML = "";
   }
   if (bkashTrxId.trim() === '') {
-    continuouslyChangeColor(document.getElementById('bkash-error'), 'Please enter your transaction ID');
+    continuouslyChangeColor(document.getElementById('bkash-error'), 'উফফ! আপনার বিকাশ TrxId লিখুন।');
     return false;
   } else {
     // document.getElementById('bkash-error').style.display = 'none';
@@ -993,7 +989,7 @@ if (selectedPaymentMethod.value === 'bkash') {
 
   // Check if the input fields for the selected payment method are empty
   if (nagadNumber.trim() === '') {
-    continuouslyChangeColor(document.getElementById('nagadnumber-error'), 'Please enter your mobile number');
+    continuouslyChangeColor(document.getElementById('nagadnumber-error'), 'উফফ! আপনার নগদ নাম্বার লিখুন।');
     return false;
   } else {
     // document.getElementById('nagadnumber-error').style.display = 'none';
@@ -1002,7 +998,7 @@ if (selectedPaymentMethod.value === 'bkash') {
 
   }
   if (nagadTrxId.trim() === '') {
-    continuouslyChangeColor(document.getElementById('nagad-error'), 'Please enter your transaction ID');
+    continuouslyChangeColor(document.getElementById('nagad-error'), 'উফফ! আপনার নগদ TxnId লিখুন।');
     return false;
   } else {
     // document.getElementById('nagad-error').style.display = 'none';
@@ -1033,7 +1029,7 @@ if (selectedPaymentMethod.value === 'bkash') {
 
   // Check if the input fields for the selected payment method are empty
   if (roketNumber.trim() === '') {
-    continuouslyChangeColor(document.getElementById('roketnumber-error'), 'Please enter your mobile number');
+    continuouslyChangeColor(document.getElementById('roketnumber-error'), 'উফফ! আপনার রকেট নাম্বার লিখুন।');
     return false;
   } else {
     // document.getElementById('roketnumber-error').style.display = 'none';
@@ -1042,7 +1038,7 @@ if (selectedPaymentMethod.value === 'bkash') {
 
   }
   if (roketTrxId.trim() === '') {
-    continuouslyChangeColor(document.getElementById('roket-error'), 'Please enter your transaction ID');
+    continuouslyChangeColor(document.getElementById('roket-error'), 'উফফ! আপনার রকেট TxnId লিখুন।');
     return false;
   } else {
     // document.getElementById('roket-error').style.display = 'none';

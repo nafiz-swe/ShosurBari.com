@@ -69,7 +69,7 @@ $result=search();
           </div>
 
           <input type="text"  id="profid" name="profid" placeholder="Enter Biodata Number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required>
-          <button type="submit" onclick="viewprofile();"  value="search">Search Biodata</button>
+          <button type="submit" onclick="viewprofile();"  value="search">বায়োডাটা খুঁজুন</button>
           
           <script type="text/javascript">
             function viewprofile(){
@@ -1593,7 +1593,7 @@ $result=search();
 
             <div class="form_but1">
             <div class="clearfix"> </div>
-              <input type="submit" name="search" value="বায়োডাটা অনুসন্ধান করুন" onclick="return validateForm();"/>
+              <input type="submit" name="search" value="বায়োডাটা খুঁজুন" onclick="return validateForm();"/>
             </div>
         </form>
       </div>
@@ -1644,11 +1644,11 @@ $result=search();
     <div class="sb_singlebio_search">
 
       <div class="search-title">
-        <h4>নিদৃষ্ট একটি পাত্রপাত্রীর বায়োডাটা খুঁজুন</h4>
+        <h4>একটি পাত্রপাত্রীর বায়োডাটা খুঁজুন</h4>
       </div>
 
       <input type="text"  id="sbprofid" name="sbprofid" placeholder="Enter Biodata Number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required>
-      <button type="submit" onclick="viewprofile2();"  value="search">Search Biodata</button>
+      <button type="submit" onclick="viewprofile2();"  value="search">বায়োডাটা খুঁজুন</button>
       
       <script type="text/javascript">
         function viewprofile2(){
@@ -1680,7 +1680,7 @@ $result=search();
 		      </div>
 
         </div>
-        <div id="gender-error-laptop" class="error-message" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;">Please Select Biodata !</div>
+        <div id="gender-error-laptop" class="error-message" style="padding-top: 4px; font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;">বায়োডাটা নির্বাচন করুন!</div>
       </div>
 
 
@@ -3155,7 +3155,7 @@ $result=search();
 
 
       <div class="form_but1">
-        <input type="submit" name="search" value="বায়োডাটা অনুসন্ধান করুন" onclick="return validateForm();"/>
+        <input type="submit" name="search" value="বায়োডাটা খুঁজুন" onclick="return validateForm();"/>
       </div>
 
     </form>

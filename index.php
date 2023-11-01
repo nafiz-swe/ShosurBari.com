@@ -49,14 +49,11 @@
         <div class="sb-home-reg2">
           <?php
             if (!isloggedin()) {
-              echo '<a href="register.php" class="sb-create-account"><button> নতুন একাউন্ট খুলুন</button></a>';
+              echo '<a href="register.php" class="sb-create-account"><button> বায়োডাটা পোস্ট করুন</button></a>';
             } else {
-              echo '<a href="biodata_post.php" class="sb-create-account"><button>  বায়োডাটা পোস্ট</button></a>';
+              echo '<a href="biodata_post.php" class="sb-create-account"><button>  বায়োডাটা পোস্ট করুন</button></a>';
             }
           ?>
-        </div>
-        <div class="sb-search-btn-banner">
-          <a href="search.php"><button > বায়োডাটা খুজুন </button></a>
         </div>
       </div>
 
@@ -109,7 +106,7 @@
           </div>
 
         </div>
-        <div id="gender-error-laptop" class="error-message" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;">Please Select Biodata !</div>
+        <div id="gender-error-laptop" class="error-message" style=" padding-top: 4px; font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;">বায়োডাটা নির্বাচন করুন!</div>
       </div>
 
       <div class="shosurbari-home-search">
@@ -1422,15 +1419,15 @@ function createSlides(data) {
     display: block;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 10px;
+    padding: 40px 50px;
     height: auto;
-    width: 250px;
+    width: 340px;
 
 }
 
 .shosurbari-home-search{
   margin: 10px auto;
-  width: 226px;
+  width: 240px;
 }
 
 .form-control{
@@ -1456,6 +1453,16 @@ function createSlides(data) {
 }
 }
 
+
+@media screen and (max-width: 384px) {
+  .shosurbari-home-search {
+    width: 210px;
+}
+.droop-down {
+    padding: 20px 25px;
+    width: 260px;
+}
+}
 </style>
 
 <!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
@@ -1642,7 +1649,7 @@ function createSlides(data) {
     <div class="shosurbari-animation-form">
         <form action="" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
             <div class="sb-biodata-amount-list">
-                <p>শশুরবাড়ি ডট কমের পাত্রপাত্রীদের সাথে যোগাযোগ করতে চাইলে সামান্য সার্ভিস চার্জ প্রদান করতে হবে। আপনি চাইলে এক বা একাধিক পাত্র/পাত্রীর সাথে যোগাযোগ করতে পারবেন। আপনার পেমেন্ট সম্পন্ন হয়ে গেলে, পেমেন্ট তথ্যগুলো যাচাইবাচায়ের পর ৪৮ ঘন্টার মধ্যেই আপনার নাম্বারে পাত্র/পাত্রীর অভিভাবকের নাম্বর পাঠিয়ে দেয়া হবে। <span style="color:#06b6d4;"> নিচের টাকা ব্যাতিত বিয়ের পর অথবা বিয়ের আগে আর কোনো টাকা নেয়া হয় না।</span> দেখেনিন ১ থেকে ১০টি বায়োডাটার মোট মূল্য সহ একাধিক বায়োডাটার এভারেজ মূল্য।</p>
+                <p>শশুরবাড়ি ডট কমের পাত্রপাত্রীদের সাথে যোগাযোগ করতে চাইলে সামান্য সার্ভিস চার্জ প্রদান করতে হবে। আপনি চাইলে এক বা একাধিক পাত্র/পাত্রীর সাথে যোগাযোগ করতে পারবেন। আপনার পেমেন্ট সম্পন্ন হয়ে গেলে, পেমেন্ট তথ্যগুলো যাচাইবাচায়ের পর ২৪ ঘন্টার মধ্যেই আপনার নাম্বারে পাত্র/পাত্রীর অভিভাবকের নাম্বর পাঠিয়ে দেয়া হবে। <span style="color:#06b6d4;"> নিচের টাকা ব্যাতিত বিয়ের পর অথবা বিয়ের আগে আর কোনো টাকা নেয়া হয় না।</span> দেখেনিন ১ থেকে ১০টি বায়োডাটার মোট মূল্য সহ একাধিক বায়োডাটার এভারেজ মূল্য।</p>
                 </br> <p> <span style="color:#ff0000; font-weight: 600;">বি: দ্র:</span> পাত্রপাত্রীর অভিভাবকের মোবাইল নাম্বার এবং পাত্রপাত্রীর ইমেইল প্রদান করা হবে। পাত্রপাত্রীদের মোবাইল নাম্বার প্রদান করা হয় না।</p>
             </div>
 
@@ -2009,7 +2016,7 @@ th, td {
 <div class="shosurbari-user-info">
   <div class="card-wrap">
     <div class="card-header one">
-      <img src="images/shosurbari-male-icon.jpg" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
+      <img src="images/sb-home-createaccount.png" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
     </div>
     <div class="card-content">
       <h1 class="card-title">বায়োডাটা তৈরি করুন</h1>
@@ -2019,7 +2026,7 @@ th, td {
 
   <div class="card-wrap">
     <div class="card-header two">
-      <img src="images/shosurbari-female-icon.png" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
+      <img src="images/sb-home-search.jpg" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
     </div>
     <div class="card-content">
       <h1 class="card-title">বায়োডাটা খুঁজুন</h1>
@@ -2029,7 +2036,7 @@ th, td {
 
   <div class="card-wrap">
     <div class="card-header three">
-      <img src="images/shosurbari-groom-bride.png" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
+      <img src="images/sb-home-contact.png" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
     </div>
     <div class="card-content">
       <h1 class="card-title">যোগাযোগ করুন</h1>
@@ -2039,7 +2046,7 @@ th, td {
 
   <div class="card-wrap">
     <div class="card-header four">
-      <img src="images/shosurbari-success-marriage.jpg" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
+      <img src="images/sb-home-married.png" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
     </div>
     <div class="card-content">
       <h1 class="card-title">বিবাহ সম্পন্ন করুন</h1>

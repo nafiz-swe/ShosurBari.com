@@ -806,7 +806,6 @@ ul.nav_1{
     justify-content: space-between;
     background: linear-gradient(#06b6d4, #0ea5e9);
     padding: 1em 0;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-top: 100px;
 }
   
@@ -1086,18 +1085,10 @@ section::before {
 
 /*Body Section Start*/
 /*Home Search Option Start*/
-.sb-search-btn-banner{
-    position: absolute;
-    top: 450px;
-    left: 350px;
-    z-index: 1;
-    padding: 20px;
-}
-
 .sb-home-reg2 button {
     background: linear-gradient(#06b6d4, #0ea5e9);
     padding: 10px;
-    border: 2px solid #f0f0f0;
+    border: 1px solid #f0f0f0;
     border-radius: 4px;
     color: #fff;
     font-size: 20px;
@@ -1106,21 +1097,10 @@ section::before {
 }
 
 
-.sb-home-reg2 button:hover, .sb-search-btn-banner button:hover{
+.sb-home-reg2 button:hover {
     background: linear-gradient(#0aa4ca, #0acef1);
     color: #fff;
     transform: scale(1.1);
-}
-
-.sb-search-btn-banner button {
-    background: linear-gradient(#06b6d4, #0ea5e9);
-    padding: 10px;
-    border: 2px solid #f0f0f0;
-    border-radius: 4px;
-    color: #fff;
-    font-size: 20px;
-    width: 222px;
-    transition: transform 0.3s;
 }
 
 .sb-home-reg2 {
@@ -2458,13 +2438,13 @@ small.testi-meta1{
 /*Payment Form Start*/
 .payment-form {
     margin: 20px auto;
-    border: 1px solid #ccc;
     border-radius: 6px;
     width: 400px;
     gap: 1.5rem;
     padding: 20px;
     background: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+    border: 1px solid rgba(0,0,0,.05);
     height: 2;
 }
 
@@ -4169,21 +4149,13 @@ label{
         line-height: 25px;
         margin-top: auto;
         text-align: left;
+        font-weight: 500;
     }
     
     .sb-home-reg2 {
         position: absolute;
         top: 350px;
         left: 0px;
-        z-index: 1;
-        padding: 20px;
-    }
-    
-    
-    .sb-search-btn-banner {
-        position: absolute;
-        top: 350px;
-        left: 350px;
         z-index: 1;
         padding: 20px;
     }
@@ -4680,7 +4652,7 @@ label{
         top: 200px;
     }
 
-    .sb-home-reg2, .sb-search-btn-banner {
+    .sb-home-reg2 {
         top: 260px;
     }
 
@@ -5057,15 +5029,7 @@ label{
         padding: 10px;
     }
 
-  .sb-search-btn-banner {
-        position: absolute;
-        top: 250px;
-        left: 250px;
-        z-index: 1;
-        padding: 10px;
-    }
-
-    .sb-home-reg2 button, .sb-search-btn-banner button {
+    .sb-home-reg2 button {
         background: linear-gradient(#06b6d4, #0ea5e9);
         padding: 10px;
         font-size: 18px;
@@ -5965,7 +5929,7 @@ label{
         width: 450px;
     }
 
-    .sb-home-reg2, .sb-search-btn-banner {
+    .sb-home-reg2 {
         top: 250px;
     }
 
@@ -6183,7 +6147,7 @@ label{
         top: 110px;
     }
 
-    .sb-home-reg2, .sb-search-btn-banner {
+    .sb-home-reg2 {
         top: 200px;
     }
 
@@ -6302,14 +6266,10 @@ label{
         padding: 10px;
     }
 
-    .sb-home-reg2 button, .sb-search-btn-banner button {
+    .sb-home-reg2 button {
         padding: 7px;
         font-size: 17px;
         width: 180px;
-    }
-
-    .sb-search-btn-banner {
-        left: 190px;
     }
 
     .slide p {
@@ -6694,11 +6654,7 @@ label{
         width: 340px;
     }
 
-    .sb-search-btn-banner {
-        left: 185px;
-    }
-
-    .sb-home-reg2 button, .sb-search-btn-banner button {
+    .sb-home-reg2 button {
         width: 160px;
     }
 
@@ -6951,11 +6907,6 @@ label{
 
     .sb-home-reg2{
         top: 165px;
-    }
-
-    .sb-search-btn-banner {
-        top: 212px;
-        left: 0px;
     }
 
     .slide h1 {

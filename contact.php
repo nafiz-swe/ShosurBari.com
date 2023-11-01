@@ -289,7 +289,7 @@ error_reporting(0);
       });
 
       var errorDiv = document.getElementById('name-error');
-      errorDiv.innerHTML = "Please enter your Full Name !";
+      errorDiv.innerHTML = "Please enter your Full Name!";
       errorDiv.style.display = 'block';
       errorDiv.classList.add('fade-in');
 
@@ -320,7 +320,7 @@ error_reporting(0);
       });
 
       var errorDiv = document.getElementById('email-error');
-      errorDiv.innerHTML = "Please enter your Email !";
+      errorDiv.innerHTML = "Please enter your Email!";
       errorDiv.style.display = 'block';
       errorDiv.classList.add('fade-in');
 

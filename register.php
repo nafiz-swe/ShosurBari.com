@@ -464,9 +464,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $mail->Subject = $subject;
     $mail->Body = $email_body;
     $mail->AltBody = $plain_text_message; // Plain text version of the email
-
-    
-
 }
 ?>
 
@@ -628,7 +625,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
       });
 
       var errorDiv = document.getElementById('fname_error');
-      errorDiv.innerHTML = "Please Enter Your Full Name !";
+      errorDiv.innerHTML = "Please Enter Your Full Name!";
       errorDiv.style.display = 'block';
       errorDiv.classList.add('fade-in');
         
@@ -659,7 +656,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
       });
 
       var errorDiv = document.getElementById('uname_error');
-      errorDiv.innerHTML = "Please Enter Your Username !";
+      errorDiv.innerHTML = "Please Enter Your Username!";
       errorDiv.style.display = 'block';
       errorDiv.classList.add('fade-in');
 
@@ -681,7 +678,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
       });
 
       var errorDiv = document.getElementById('uname_error');
-      errorDiv.innerHTML = "Please Enter Only Letters And Numbers. Can Not Used Any Symbol & Space !";
+      errorDiv.innerHTML = "Please use only letters and numbers. No symbols and spaces can be used!";
       errorDiv.style.display = 'block';
       errorDiv.classList.add('fade-in');
 
@@ -711,7 +708,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
       });
 
       var errorDiv = document.getElementById('email_error');
-      errorDiv.innerHTML = "Please Enter Your Email !";
+      errorDiv.innerHTML = "Please Enter Your Email!";
       errorDiv.style.display = 'block';
       errorDiv.classList.add('fade-in');
 
@@ -764,7 +761,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
       });
 
       var errorDiv = document.getElementById('pnumber_error');
-      errorDiv.innerHTML = "Please Enter Your Phone Number !";
+      errorDiv.innerHTML = "Please Enter Your Phone Number!";
       errorDiv.style.display = 'block';
       errorDiv.classList.add('fade-in');
 
@@ -787,7 +784,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
       });
 
       var errorDiv = document.getElementById('pnumber_error');
-      errorDiv.innerHTML = "Phone Number Must Be Between 10 To 14 Digits. Don't Used Space & Plus Symbol !";
+      errorDiv.innerHTML = "Phone Number Must Be Between 10 To 14 Digits. Don't Used Space & Plus Symbol!";
       errorDiv.style.display = 'block';
       errorDiv.classList.add('fade-in');
 
@@ -818,7 +815,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
       });
 
       var errorDiv = document.getElementById('pass_1_error');
-      errorDiv.innerHTML = "Please Enter Your New Password !";
+      errorDiv.innerHTML = "Please Enter Your New Password!";
       errorDiv.style.display = 'block';
       errorDiv.classList.add('fade-in');
 
@@ -849,7 +846,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
       });
 
       var errorDiv = document.getElementById('pass_2_error');
-      errorDiv.innerHTML = "Please Enter Your Confirm Password !";
+      errorDiv.innerHTML = "Please Enter Your Confirm Password!";
       errorDiv.style.display = 'block';
       errorDiv.classList.add('fade-in');
 
@@ -871,7 +868,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
       });
 
       var errorDiv = document.getElementById('pass_2_error');
-      errorDiv.innerHTML = "Your Password Do Not Match !";
+      errorDiv.innerHTML = "Your Password Do Not Match!";
       errorDiv.style.display = 'block';
       errorDiv.classList.add('fade-in');
 
@@ -891,6 +888,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
 
 
+
+    //Username & Email if Registred the show Error START
+    
   }
   //Form Input field when error then show border red and scroll - JS End
 </script>

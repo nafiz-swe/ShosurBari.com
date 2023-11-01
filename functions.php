@@ -324,53 +324,67 @@
     --                                               --
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-    function register(){
+    function register() {
         global $conn;
-
+    
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $fname=$_POST['fname'];
-            $uname=$_POST['uname'];
-            $gender=$_POST['gender'];
+            $fname = $_POST['fname'];
+            $uname = $_POST['uname'];
+            $gender = $_POST['gender'];
             $pnumber = $_POST['pnumber'];
             $email = $_POST['email'];
             $hashed_password = hash('sha256', $_POST['pass_1']);
             // $pass_1 = $_POST['pass_1'];
             // $pass_2 = $_POST['pass_2'];
             require_once("includes/dbconn.php");
-
-            $sql = "INSERT INTO users 
-            ( fullname, username, gender, number, email, password, active, register_date) 
-            VALUES ('$fname', '$uname', '$gender', '$pnumber', '$email', '$hashed_password', 1, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
-
-        
-
-
-            if (mysqli_query($conn,$sql)) {
-                // Get the ID of the newly registered user
-                $id = mysqli_insert_id($conn);
-                
-                // Set a session variable to store the user ID
-                $_SESSION['id'] = $id;
-                
-                // Create a record for the user in the deactivate table
-                $deactivate_sql = "INSERT INTO deactivate (user_id, status) VALUES ($id, 0)";
-                mysqli_query($conn, $deactivate_sql);
-
-                // Save login information in cookie
-                setcookie('username', $uname, time() + (86400 * 365), "/");
-                setcookie('email', $email, time() + (86400 * 365), "/");
-                setcookie('password', $pass_1, time() + (86400 * 365), "/");
-                
-                // Redirect the user to the userhome.php page with the user ID as a parameter in the URL
-                header("location: userhome.php?id=$id");
-
+    
+            // Check if email or username already exist
+            $email_check_sql = "SELECT COUNT(*) FROM users WHERE email = '$email'";
+            $username_check_sql = "SELECT COUNT(*) FROM users WHERE username = '$uname'";
+    
+            $email_result = mysqli_query($conn, $email_check_sql);
+            $username_result = mysqli_query($conn, $username_check_sql);
+    
+            $email_exists = mysqli_fetch_array($email_result)[0];
+            $username_exists = mysqli_fetch_array($username_result)[0];
+    
+            if ($email_exists > 0) {
+                // Redirect to email_check.php with an error message
+                header("location: email_check.php?error=email_exists");
+            } elseif ($username_exists > 0) {
+                // Redirect to username_check.php with an error message
+                header("location: username_check.php?error=username_exists");
             } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+                // Proceed with registration
+                $sql = "INSERT INTO users 
+                (fullname, username, gender, number, email, password, active, register_date) 
+                VALUES ('$fname', '$uname', '$gender', '$pnumber', '$email', '$hashed_password', 1, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+    
+                if (mysqli_query($conn, $sql)) {
+                    // Get the ID of the newly registered user
+                    $id = mysqli_insert_id($conn);
+    
+                    // Set a session variable to store the user ID
+                    $_SESSION['id'] = $id;
+    
+                    // Create a record for the user in the deactivate table
+                    $deactivate_sql = "INSERT INTO deactivate (user_id, status) VALUES ($id, 0)";
+                    mysqli_query($conn, $deactivate_sql);
+    
+                    // Save login information in cookie
+                    setcookie('username', $uname, time() + (86400 * 365), "/");
+                    setcookie('email', $email, time() + (86400 * 365), "/");
+                    setcookie('password', $pass_1, time() + (86400 * 365), "/");
+    
+                    // Redirect the user to the userhome.php page with the user ID as a parameter in the URL
+                    header("location: userhome.php?id=$id");
+                } else {
+                    echo "Error: " . $sql . "<br>" . $conn->error;
+                }
             }
-
         }
     }
-
+    
 
 
 

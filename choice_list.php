@@ -135,7 +135,7 @@ function englishToBanglaNumber($number) {
             border: 1px solid #ddd;
         }
         th {
-            background-color: #f2f2f2;
+            background: linear-gradient(180deg, #00bbff61 0%,rgba(238,246,253,0) 100%);
         }
 
 
@@ -260,7 +260,7 @@ th, td {
 
           <div class="soshurbari-animation-icon">
             <div class="sb-icon-laptop">
-              <h3> <img src="images/shosurbari-icon.png"> ShosurBari </h3>
+              <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
             </div>
           </div>
 
@@ -397,7 +397,7 @@ if (isset($_POST['make_payment'])) {
     <div class="shosurbari-animation-form">
         <form action="" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
             <div class="sb-biodata-amount-list">
-                <p>শশুরবাড়ি ডট কমের পাত্রপাত্রীদের সাথে যোগাযোগ করতে চাইলে সামান্য সার্ভিস চার্জ প্রদান করতে হবে। আপনি চাইলে এক বা একাধিক পাত্র/পাত্রীর সাথে যোগাযোগ করতে পারবেন। আপনার পেমেন্ট সম্পন্ন হয়ে গেলে, পেমেন্ট তথ্যগুলো যাচাইবাচায়ের পর ৪৮ ঘন্টার মধ্যেই আপনার নাম্বারে পাত্র/পাত্রীর অভিভাবকের নাম্বর পাঠিয়ে দেয়া হবে। দেখেনিন ১ থেকে ১০টি বায়োডাটার মোট মূল্য সহ একাধিক বায়োডাটার এভারেজ মূল্য।</p>
+                <p>শশুরবাড়ি ডট কমের পাত্রপাত্রীদের সাথে যোগাযোগ করতে চাইলে সামান্য সার্ভিস চার্জ প্রদান করতে হবে। আপনি চাইলে এক বা একাধিক পাত্র/পাত্রীর সাথে যোগাযোগ করতে পারবেন। আপনার পেমেন্ট সম্পন্ন হয়ে গেলে, পেমেন্ট তথ্যগুলো যাচাইবাচায়ের পর ২৪ ঘন্টার মধ্যেই আপনার নাম্বারে পাত্র/পাত্রীর অভিভাবকের নাম্বর পাঠিয়ে দেয়া হবে। দেখেনিন ১ থেকে ১০টি বায়োডাটার মোট মূল্য সহ একাধিক বায়োডাটার এভারেজ মূল্য।</p>
                 </br> <p> <span style="color:#ff0000; font-weight: 600;">বি: দ্র:</span> পাত্রপাত্রীর অভিভাবকের মোবাইল নাম্বার এবং পাত্রপাত্রীর ইমেইল প্রদান করা হবে। পাত্রপাত্রীদের মোবাইল নাম্বার প্রদান করা হয় না।</p>
             </div>
 
@@ -406,7 +406,7 @@ if (isset($_POST['make_payment'])) {
 
                     <div class="soshurbari-animation-icon">
                         <div class="sb-icon-laptop">
-                        <h3> <img src="images/shosurbari-icon.png"> ShosurBari </h3>
+                        <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
                         </div>
                     </div>
 
@@ -457,7 +457,7 @@ if (isset($_POST['make_payment'])) {
 
                     <div class="soshurbari-animation-icon">
                         <div class="sb-icon-laptop">
-                        <h3> <img src="images/shosurbari-icon.png"> ShosurBari </h3>
+                        <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
                         </div>
                     </div>
 
