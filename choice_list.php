@@ -224,7 +224,7 @@ th, td {
     }
 
 .shosurbari-biodata-form {
-  margin-top: 70px;
+  margin-top: 30px;
 }
 }
 
@@ -247,138 +247,133 @@ th, td {
 }
 </style>
 
-
-
-
-
+<div class="sb-choice-list-notice">
+    <p>চয়েস লিস্টের বায়োডাটা নাম্বার গুলো পার্মানেন্ট ভাবে সেভ থাকবে না। ইন্টারনেট কানেকশন বন্ধ করে রাখলে / ব্রাউজার হিস্টোরী ডিলেট / ওয়েবসাইট থেকে বের হয়ে গেলে চয়েস লিস্টের বায়োডাটা নাম্বার গুলো পরবর্তীতে অটো রিমুভ হয়ে যাবে।</p>
+</div>
 
 <div class="shosurbari-biodata-form">
-  
-  <div class="shosurbari-animation-form">
-		  <div class="flex-container">
-        <div class="sb-register-login">
+    <div class="shosurbari-animation-form">
+		<div class="flex-container">
+            <div class="sb-register-login">
+                <div class="soshurbari-animation-icon">
+                    <div class="sb-icon-laptop">
+                    <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
+                    </div>
+                </div>
 
-          <div class="soshurbari-animation-icon">
-            <div class="sb-icon-laptop">
-              <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
+                <div class="sb-biodata-field">
+                    <h2>পছন্দের বায়োডাটা গুলো</h2>
+                </div>
+
+
+
+                <?php
+                    echo "<table>
+                        <tr>
+                            <th> বায়োডাটা</th>
+                            <th> তারিখ ও সময় </th>
+                            <th> বাদ দিন </th>
+                        </tr>";
+
+                    foreach ($choiceList as $item) {
+                        // Split the item into profile ID and date
+                        list($profileid, $formattedDateTime) = explode(', ', $item);
+                        list($day, $time,) = explode(' ', $formattedDateTime, 2); // Split date and time
+
+                        // Format the date and time as "l h:i A d F Y"
+                        $formattedDateTime = date('l h:i A d F Y', strtotime($formattedDateTime));
+
+                        echo "<tr>
+                            <td> $profileid </td>
+                            <td> $formattedDateTime </td>
+                            <form method='POST' action='choice_list.php'>
+                                <input type='hidden' name='remove_from_choice_list' value='$item'>
+                                <td>  <button class='remove-button' type='submit'>Remove</button> </td>
+                            </form>
+                        </tr>";
+                    }
+
+                    echo "</table> </br>";
+
+                    if (empty($choiceList)) {
+                        echo '<p style="color: #ff0000;">আপনি এখনো কোনো বায়োডাটা পছন্দের তালিকায় যোগ করেন নাই।</p>';
+                    }
+                ?>
+
+
+                <?php if ($count > 0): ?>
+                    <p style="text-align: center;">পছন্দ করেছেন <?php echo englishToBanglaNumber($count); ?> টি বায়োডাটা, মোট <?php echo englishToBanglaNumber(calculateTotalAmount($count)); ?> টাকা</p>
+                <?php endif; ?>
+
+                <?php
+                    function calculateTotalAmount($count) {
+                        $fees = [
+                            '1' => 145,
+                            '2' => 280,
+                            '3' => 390,
+                            '4' => 500,
+                            '5' => 600,
+                            '6' => 690,
+                            '7' => 770,
+                            '8' => 840,
+                            '9' => 900,
+                            '10' => 980,
+                        ];
+
+                        if ($count >= 1 && $count <= 10) {
+                            return $fees[$count];
+                        } else {
+                            return 0;
+                        }
+                    }
+                ?>
+
+
+                <script>
+                    // Function to set a cookie
+                    function setCookie(cookieName, cookieValue, daysToExpire) {
+                        var date = new Date();
+                        date.setTime(date.getTime() + (daysToExpire * 24 * 60 * 60 * 1000));
+                        var expires = "expires=" + date.toUTCString();
+                        document.cookie = cookieName + "=" + cookieValue + "; " + expires;
+                    }
+
+                    // Get the number of IDs and set a browser cookie
+                    var numIds = <?php echo $count; ?>;
+                    setCookie("choice_list_ids", numIds, 30); // Change 30 to the number of days you want the cookie to persist
+                </script>
+
+
+
+                <?php
+                if (isset($_POST['make_payment'])) {
+                    // Redirect to contactbiodata.php and pass the IDs as a query parameter
+                    header("Location: contactbiodata.php?ids=" . urlencode($idList));
+                    exit; // Ensure that no further PHP code is executed after the redirection
+                }
+                ?>
+
+
+                <div class="profile-btn">
+                    <div class="contact-bio">
+                        <a href="search.php">
+                            <button class="chatbtn">সার্চ পেজ</button>
+                        </a>
+                    </div>
+
+                    <?php
+                    if (!empty($choiceList)) {
+                        // Display the "Make Payment" button if $choiceList is not empty
+                        echo "<form method='GET' action='contactbiodata.php' class='copy-sbbio-link'>
+                            <input type='hidden' name='ids' value=\"$idList\">
+                            <button type='submit' class='copylink'>পেমেন্ট করুন</button>
+                        </form>";
+                    }
+                    ?>
+                </div>
             </div>
-          </div>
-
-          <div class="sb-biodata-field">
-            <h2>পছন্দের বায়োডাটা গুলো</h2>
-          </div>
-
-
-
-          <?php
-echo "<table>
-    <tr>
-        <th> বায়োডাটা</th>
-        <th> তারিখ ও সময় </th>
-        <th> বাদ দিন </th>
-    </tr>";
-
-foreach ($choiceList as $item) {
-    // Split the item into profile ID and date
-    list($profileid, $formattedDateTime) = explode(', ', $item);
-    list($day, $time,) = explode(' ', $formattedDateTime, 2); // Split date and time
-
-    // Format the date and time as "l h:i A d F Y"
-    $formattedDateTime = date('l h:i A d F Y', strtotime($formattedDateTime));
-
-    echo "<tr>
-        <td> $profileid </td>
-        <td> $formattedDateTime </td>
-        <form method='POST' action='choice_list.php'>
-            <input type='hidden' name='remove_from_choice_list' value='$item'>
-            <td>  <button class='remove-button' type='submit'>Remove</button> </td>
-        </form>
-    </tr>";
-}
-
-echo "</table> </br>";
-
-if (empty($choiceList)) {
-    echo '<p style="color: #ff0000;">আপনি এখনো কোনো বায়োডাটা পছন্দের তালিকায় যোগ করেন নাই।</p>';
-}
-?>
-
-
-    <?php if ($count > 0): ?>
-        <p style="text-align: center;">পছন্দ করেছেন <?php echo englishToBanglaNumber($count); ?> টি বায়োডাটা, মোট <?php echo englishToBanglaNumber(calculateTotalAmount($count)); ?> টাকা</p>
-    <?php endif; ?>
-
-<?php
-function calculateTotalAmount($count) {
-    $fees = [
-        '1' => 145,
-        '2' => 280,
-        '3' => 390,
-        '4' => 500,
-        '5' => 600,
-        '6' => 690,
-        '7' => 770,
-        '8' => 840,
-        '9' => 900,
-        '10' => 980,
-    ];
-
-    if ($count >= 1 && $count <= 10) {
-        return $fees[$count];
-    } else {
-        return 0;
-    }
-}
-?>
-
-
-    <script>
-    // Function to set a cookie
-    function setCookie(cookieName, cookieValue, daysToExpire) {
-        var date = new Date();
-        date.setTime(date.getTime() + (daysToExpire * 24 * 60 * 60 * 1000));
-        var expires = "expires=" + date.toUTCString();
-        document.cookie = cookieName + "=" + cookieValue + "; " + expires;
-    }
-
-    // Get the number of IDs and set a browser cookie
-    var numIds = <?php echo $count; ?>;
-    setCookie("choice_list_ids", numIds, 30); // Change 30 to the number of days you want the cookie to persist
-</script>
-
-
-
-<?php
-if (isset($_POST['make_payment'])) {
-    // Redirect to contactbiodata.php and pass the IDs as a query parameter
-    header("Location: contactbiodata.php?ids=" . urlencode($idList));
-    exit; // Ensure that no further PHP code is executed after the redirection
-}
-?>
-
-
-<div class="profile-btn">
-    <div class="contact-bio">
-        <a href="search.php">
-            <button class="chatbtn">সার্চ পেজ</button>
-        </a>
-    </div>
-
-    <?php
-    if (!empty($choiceList)) {
-        // Display the "Make Payment" button if $choiceList is not empty
-        echo "<form method='GET' action='contactbiodata.php' class='copy-sbbio-link'>
-            <input type='hidden' name='ids' value=\"$idList\">
-            <button type='submit' class='copylink'>পেমেন্ট করুন</button>
-        </form>";
-    }
-    ?>
-</div>
-
-        
-</div>
-</div>
-</div> 
+        </div>
+    </div> 
 </div>
 
 
