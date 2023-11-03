@@ -153,6 +153,60 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ uploadphoto($id); }
     </div>
 
 
+
+
+
+
+
+<div class="sb-home-search">
+    <h1>ব্যবহারকারীর একাউন্ট তথ্য</h1>
+    <div class="sbhome-heart-divider">
+      <span class="grey-line"></span>
+        <i class="fa fa-heart pink-heart"></i>
+        <i class="fa fa-heart grey-heart"></i>
+      <span class="grey-line"></span>
+    </div>
+</div>
+
+<div class="shosurbari-biodata-form">
+    <div class="shosurbari-animation-form">
+        <form action="" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
+            <div class="sb-biodata-amount-list">
+                <h3>আপনার বায়োডাটার প্রফাইলটি যতজন দেখেছেন।</h3>
+                <h2>সর্বমোট ভিজিট করেছে</h2>
+                <h1>১৪৫ জন</h1>
+            </div>
+
+		    <div class="flex-container">
+                <div class="sb-register-login">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>আজকে</th>
+                                <th>শেষ ৭ দিন</th>
+                                <th>শেষ ৩০ দিন</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>১ জন</td>
+                                <td>১৪৫ জন</td>
+                                <td>১৪৫ জন</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+	    </form>
+    </div> 
+</div>
+
+
+
+
+
+
+
     <!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
     -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
     --                S  T  A  R  T                  --
@@ -273,7 +327,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ uploadphoto($id); }
                 <?php } ?>
 
                 <button type="submit" name="update_account" value="Update Account" class="btn_1 submit">
-                    <span>Update Password</span>
+                    <span>Update Account</span>
                 </button>
             </div>
 
@@ -283,11 +337,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ uploadphoto($id); }
 </div>
 
 <style>
-  .sb-biodata-field{
+.sb-biodata-amount-list h1{
+    font-size: 28px;
+}
+
+.sb-biodata-amount-list h2{
+    font-size: 16px;
+    margin: 15px auto;
+}
+
+.sb-biodata-amount-list h3{
+    font-size: 16px;
+}
+
+.sb-register-login{
+    margin-top: 10px;
+}
+
+.sb-home-search{
+    margin-top: 0px;
+}
+
+.sb-biodata-field{
     background: none;
-  }
-  
-  .sb-biodata-field h2{
+}
+
+.sb-biodata-field h2{
     color: #000;
     font-size: 23px;
     font-weight: bold;
@@ -296,35 +371,94 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ uploadphoto($id); }
 }
 
 .shosurbari-biodata-form {
-  align-items: center;
-  flex-wrap: wrap;
-  width: 1400px;
-  margin: auto;
-  padding-top: 30px;
-  padding-bottom: 30px
+    align-items: center;
+    flex-wrap: wrap;
+    width: 1400px;
+    margin: auto;
+    padding-top: 30px;
+    padding-bottom: 30px
 }
 
 .soshurbari-animation-icon,
 .shosurbari-animation-form {
-  flex-basis: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    flex-basis: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .soshurbari-animation-icon h3 {
-  font-size: 23px;
-  font-weight: bold;
-  margin-bottom: 15px;
-  margin-top: 15px;
+    font-size: 23px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 .soshurbari-animation-icon img {
-  justify-content: flex-end;
-  margin: auto;
+    justify-content: flex-end;
+    margin: auto;
+    width: 37px;
+    height: 35px;
+}
 
-  width: 37px;
-  height: 35px;
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+th {
+    background: linear-gradient(180deg, #00bbff61 0%,rgba(238,246,253,0) 100%);
+}
+
+.sb-biodata-field{
+    background: none;
+}
+  
+.sb-register-login h2{
+    color: #000;
+    font-size: 23px;
+    font-weight: bold;
+    background: none;
+    text-align: left;
+    line-height: 35px;
+}
+
+.shosurbari-biodata-form {
+    align-items: center;
+    flex-wrap: wrap;
+    width: 1400px;
+    margin: auto;
+    margin-top: 25px;
+    padding-top: 0px;
+    padding-bottom: 30px
+}
+
+.soshurbari-animation-icon,
+.shosurbari-animation-form {
+    flex-basis: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.soshurbari-animation-icon h3 {
+    font-size: 23px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.soshurbari-animation-icon img {
+    justify-content: flex-end;
+    margin: auto;
+    width: 37px;
+    height: 35px;
 }
 
 @media (max-width: 1400px){
@@ -334,15 +468,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ uploadphoto($id); }
 }
 
 @media (max-width: 1024px) {
-
-  .shosurbari-animation-form {
+.shosurbari-animation-form {
     flex-basis: 100%;
     justify-content: center;
-  }
+}
 
-  .shosurbari-biodata-form {
+.shosurbari-biodata-form {
     width: auto;
-  }
+}
+}
+
+@media (max-width: 600px) {
+th, td {
+    font-size: 15px;
+    padding: 8px;
+}
+}
+
+
+@media (max-width: 384px) {
+    th, td {
+    font-size: 13px;
+    padding: 5px;
+}
 }
 </style>
 
