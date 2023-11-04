@@ -2891,23 +2891,46 @@ textarea:focus {
 	and page_views Database Table
 	========================================-->
 	<script>
-		$(document).ready(function() {
-		// Define an array of page names (without the .php extension)
-		var pages = ["view_profile"];
+$(document).ready(function() {
+    // Extract the user ID from the URL
+    var userId = getUrlParameter('id'); // Assuming 'id' is the parameter name in your URL
 
-		// Fetch and display view counts for each page
-		for (var i = 0; i < pages.length; i++) {
-			var page = pages[i];
-			$.ajax({
-				url: 'get_view_count.php?page=' + page, // Adjust the URL to your PHP script
-				type: 'GET',
-				success: function(data) {
-				$('#viewCount' + page.replace("_", "")).html(data);
-				}
-			});
-		}
-		});
-  	</script>
+    if (userId) {
+        $.ajax({
+            url: 'get_view_count.php?user_id=' + userId,
+            type: 'GET',
+            success: function(data) {
+                $('#viewCount').html(data);
+            }
+        });
+
+        // Record the user profile visit in the database
+        recordUserProfileVisit(userId);
+    }
+});
+
+// Function to extract URL parameters
+function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+}
+
+function recordUserProfileVisit(userId) {
+    $.ajax({
+        url: 'record_user_profile_visit.php', // Create a new PHP file for this purpose
+        type: 'POST', // You can use POST to record visits
+        data: { user_id: userId },
+        success: function(response) {
+            // Handle the success response if needed
+        },
+        error: function() {
+            // Handle errors if the visit recording fails
+        }
+    });
+}
+</script>
 
 	<!--=======  Footer Start ========-->
 	<?php include_once("footer.php");?>
