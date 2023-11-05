@@ -1,36 +1,65 @@
-
-
-<?php include_once("includes/basic_includes.php");?>
-<?php include_once("functions.php"); ?>
 <?php
+include_once("includes/basic_includes.php");
+include_once("functions.php");
+
 error_reporting(0);
-$id=$_GET['id'];
-if(isloggedin()){
- //do nothing stay here
-} else{
-   header("location:login.php");
+
+function englishToBanglaNumber($number) {
+    $englishDigits = range(0, 9);
+    $banglaDigits = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
+    return str_replace($englishDigits, $banglaDigits, $number);
 }
-//calling photo uploader function
-if ($_SERVER['REQUEST_METHOD'] == 'POST'){ uploadphoto($id); }
+
+if (isloggedin()) {
+    // Get the user ID from the session
+    $userId = $_SESSION['id'];
+
+    // Retrieve the user's account status from the database
+    require_once("includes/dbconn.php");
+    $statusSql = "SELECT deactivated FROM users WHERE id = $userId";
+    $result = mysqli_query($conn, $statusSql);
+    $row = mysqli_fetch_assoc($result);
+    $deactivated = $row['deactivated'];
+
+    // Query to get the total view_count for the logged-in user
+    $totalViewCountSql = "SELECT view_count FROM `1bd_personal_physical` WHERE user_id = $userId";
+    $result = mysqli_query($conn, $totalViewCountSql);
+    $row = mysqli_fetch_assoc($result);
+    $totalViewCount = $row['view_count'];
+
+    // Query to get the view_count for the last month
+    $lastMonthStart = date('Y-m-d', strtotime('-1 month'));
+    $lastMonthViewCountSql = "SELECT SUM(view_count) as last_month_count FROM `page_views` WHERE page_name = '$userId' AND last_update >= '$lastMonthStart'";
+    $result = mysqli_query($conn, $lastMonthViewCountSql);
+    $row = mysqli_fetch_assoc($result);
+    $lastMonthCount = $row['last_month_count'];
+
+    // Query to get the view_count for the last week
+    $lastWeekStart = date('Y-m-d', strtotime('-1 week'));
+    $lastWeekViewCountSql = "SELECT SUM(view_count) as last_week_count FROM `page_views` WHERE page_name = '$userId' AND last_update >= '$lastWeekStart'";
+    $result = mysqli_query($conn, $lastWeekViewCountSql);
+    $row = mysqli_fetch_assoc($result);
+    $lastWeekCount = $row['last_week_count'];
+
+    // Query to get the view_count for today
+    $todayStart = date('Y-m-d') . ' 00:00:00';
+    $todayViewCountSql = "SELECT SUM(view_count) as today_count FROM `page_views` WHERE page_name = '$userId' AND last_update >= '$todayStart'";
+    $result = mysqli_query($conn, $todayViewCountSql);
+    $row = mysqli_fetch_assoc($result);
+    $todayCount = $row['today_count'];
+
+    // Convert the counts to Bangla numerals
+    $totalViewCountInBangla = englishToBanglaNumber($totalViewCount);
+    $lastMonthCountInBangla = englishToBanglaNumber($lastMonthCount);
+    $lastWeekCountInBangla = englishToBanglaNumber($lastWeekCount);
+    $todayCountInBangla = englishToBanglaNumber($todayCount);
+} else {
+    header("location:login.php");
+}
+
+// Close the database connection
+$conn->close();
 ?>
-
-<?php
-require_once("includes/dbconn.php");
-
-// Get the user ID from the session
-$userId = $_SESSION['id'];
-
-// Retrieve the user's account status from the database
-$statusSql = "SELECT deactivated FROM users WHERE id = $userId";
-$result = mysqli_query($conn, $statusSql);
-$row = mysqli_fetch_assoc($result);
-$deactivated = $row['deactivated'];
-
-
-//calling photo uploader function
-if ($_SERVER['REQUEST_METHOD'] == 'POST'){ uploadphoto($id); }
-?>
-
 
 
 <!DOCTYPE HTML>
@@ -172,9 +201,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ uploadphoto($id); }
     <div class="shosurbari-animation-form">
         <form action="" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
             <div class="sb-biodata-amount-list">
-                <h3>আপনার বায়োডাটার প্রফাইলটি যতজন দেখেছেন।</h3>
-                <h2>সর্বমোট ভিজিট করেছে</h2>
-                <h1>১৪৫ জন</h1>
+                <h3>আপনার বায়োডাটার প্রফাইলটি যতবার দেখা হয়েছে।</h3>
+                <h2>সর্বমোট ভিজিট করা হয়েছে</h2>
+                <h1><?php
+                        // Display the view count for the logged-in user's profile
+                        if (isset($totalViewCountInBangla)) {
+                            echo "" . $totalViewCountInBangla;
+                        }
+                    ?> বার
+                </h1>
             </div>
 
 		    <div class="flex-container">
@@ -189,9 +224,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ uploadphoto($id); }
                         </thead>
                         <tbody>
                             <tr>
-                                <td>১ জন</td>
-                                <td>১৪৫ জন</td>
-                                <td>১৪৫ জন</td>
+                                <td>
+                                    <?php
+                                        // Display the view count for the logged-in user's profile
+                                        if (isset($totalViewCountInBangla)) {
+                                            echo "" . $todayCountInBangla;
+                                        }
+                                    ?> বার
+                                </td>
+                                <td>
+                                    <?php
+                                        // Display the view count for the logged-in user's profile
+                                        if (isset($totalViewCountInBangla)) {
+                                            echo "" . $lastWeekCountInBangla;
+                                        }
+                                    ?> বার
+                                </td>
+                                <td>
+                                    <?php
+                                        // Display the view count for the logged-in user's profile
+                                        if (isset($totalViewCountInBangla)) {
+                                            echo "" . $lastMonthCountInBangla;
+                                        }
+                                    ?> বার
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -200,8 +256,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ uploadphoto($id); }
 	    </form>
     </div> 
 </div>
-
-
 
 
 
