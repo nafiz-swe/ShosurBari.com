@@ -3306,16 +3306,25 @@ function handleAllEducationMethods(checkbox) {
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->	
 <div class="sb_biodata_profile">
-  <?php
-    $c_count = 0; // initialize counter to 0
+  
 
-    if (isset($_POST['search'])) {
-      while ($row = mysqli_fetch_assoc($result)) {
-        // 1bd_personal_physical
-        $profid = $row['user_id'];
-        $Skin_tones = $row['Skin_tones'];
-        $height = $row['height'];
-        $dateofbirth = $row['dateofbirth'];
+  <?php
+$c_count = 0; // initialize counter to 0
+
+if (isset($_POST['search'])) {
+  while ($row = mysqli_fetch_assoc($result)) {
+    $profid = $row['user_id'];
+
+    // Check if the user's account is active
+    $active_query = "SELECT active FROM users WHERE id = $profid";
+    $active_result = mysqlexec($active_query);
+    $active_row = mysqli_fetch_assoc($active_result);
+
+    // Check if the user's account is active
+    if ($active_row['active'] == 1) {
+      $Skin_tones = $row['Skin_tones'];
+      $height = $row['height'];
+      $dateofbirth = $row['dateofbirth'];
 
 
         // 3bd_educational_qualifications
@@ -3443,6 +3452,7 @@ function handleAllEducationMethods(checkbox) {
         }
       }
     }
+  }
     echo '<script> var count = ' . $c_count . '; </script>';
   ?>
 
@@ -3610,16 +3620,16 @@ showProfiles();
     </script>
   </div>
 
-</div> <!--extra dive / Here maybe error for footer-->
+  </div> <!--extra dive / Here maybe error for footer-->
 
 
 
-<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
--- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
---                 S  T  A  R  T                 --
---    MULTIPLE SELECT OPTION SHOW & CHECK BOX    --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->	
+  <!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+  -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+  --                 S  T  A  R  T                 --
+  --    MULTIPLE SELECT OPTION SHOW & CHECK BOX    --
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->	
   <script>
     $(function() {
     
