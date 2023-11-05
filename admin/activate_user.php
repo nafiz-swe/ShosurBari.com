@@ -10,20 +10,26 @@
     <div class="active-inactive-page-wrap">
       <i class="notika-icon notika-checked"></i>
       <h2>User Activated!</h2>
+      
+      
       <?php
         $id = $_GET['id'];
-        $conn = mysqli_connect("localhost", "root", "", "matrimony");
-        if (!$conn) {
-          die("Connection failed: " . mysqli_connect_error());
-        }
-        $sql = "UPDATE users SET active=1 WHERE id=$id";
+        include('includes/dbconn.php'); // Include the database connection file
+
+
+        // Set active to 1 and deactivated to 0
+        $sql = "UPDATE users SET active = 1, deactivated = 0 WHERE id = $id";
+
         if (mysqli_query($conn, $sql)) {
-          echo "<p>User Activated Successfully</p>";
+            echo "<p>User Activated Successfully</p>";
         } else {
-          echo "<p>Error: " . mysqli_error($conn) . "</p>";
+            echo "<p>Error: " . mysqli_error($conn) . "</p>";
         }
+
         mysqli_close($conn);
       ?>
+
+
       <a href="users.php" class="btn">Go to Back User Page</a>
       <a href="index.html" class="btn error-btn-mg">Go to Back Dashboard</a>
     </div>
