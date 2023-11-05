@@ -1485,7 +1485,8 @@ function createSlides(data) {
 
       <ul id="flexiselDemo3">
         <?php
-        	$sql="SELECT * FROM 1bd_personal_physical ORDER BY profilecreationdate DESC LIMIT 20"; //Last 20 New Profile View maximum 20 Profile Show
+          // $sql="SELECT * FROM 1bd_personal_physical ORDER BY profilecreationdate DESC LIMIT 20"; //Last 20 New Profile View maximum 20 Profile Show
+          $sql = "SELECT * FROM 1bd_personal_physical ORDER BY view_count DESC LIMIT 15"; // Top 10 profiles by view_count
         	$result=mysqlexec($sql);
         	if($result){
         	while($row=mysqli_fetch_assoc($result)){
