@@ -1482,54 +1482,64 @@ function createSlides(data) {
         <span class="grey-line"></span>
       </div>
 
+      <div class="sb-biodata-amount-list" style="margin: 0 auto;">
+      </br><p style="text-align: center;">এখন পর্যন্ত যেই ২০ টি বায়োডাটা সব থেকে বেশি  দেখা হয়েছে </p>
+      </div>
+
+
+
+
+
 
       <ul id="flexiselDemo3">
-        <?php
-          // $sql="SELECT * FROM 1bd_personal_physical ORDER BY profilecreationdate DESC LIMIT 20"; //Last 20 New Profile View maximum 20 Profile Show
-          $sql = "SELECT * FROM 1bd_personal_physical ORDER BY view_count DESC LIMIT 15"; // Top 10 profiles by view_count
-        	$result=mysqlexec($sql);
-        	if($result){
-        	while($row=mysqli_fetch_assoc($result)){
-        		$profid=$row['user_id'];
-        		$biodatagender=$row['biodatagender'];
-            $dateofbirth=$row['dateofbirth'];
-							    
+  <?php
+    // Modify the SQL query to join users and 1bd_personal_physical tables and check for activation status
+    $sql = "SELECT p.*, u.active
+            FROM 1bd_personal_physical p
+            INNER JOIN users u ON p.user_id = u.id
+            WHERE u.active = 1
+            ORDER BY p.view_count DESC LIMIT 20"; // Top 10 profiles by view_count of active users
+    $result = mysqlexec($sql);
 
-						$sql5="SELECT * FROM 8bd_religion_details WHERE user_id=$profid";
-						$result5=mysqlexec($sql5);
-						if($result5)
-						while($row5=mysqli_fetch_assoc($result5))
-						$religion=$row5['religion'];
-								
+    if ($result) {
+      while ($row = mysqli_fetch_assoc($result)) {
+        // Check if the user is active
+        if ($row['active'] == 1) {
+          $profid = $row['user_id'];
+          $biodatagender = $row['biodatagender'];
+          $dateofbirth = $row['dateofbirth'];
 
-            // Getting photo
-            $sql2 = "SELECT * FROM photos WHERE user_id = $profid";
-            $result2 = mysqlexec($sql2);
-            $row2 = mysqli_fetch_assoc($result2);
-            $pic1 = $row2['pic1'];
-
-            // Define the default image filenames
-            $defaultImages = [
-              'পাত্রের বায়োডাটা' => "shosurbari-male-icon.jpg",
-              'পাত্রীর বায়োডাটা' => "shosurbari-female-icon.png",
-            ];
-
-            // Set the default image to the appropriate one based on biodatagender
-            $defaultImage = "shosurbari-default-icon.png"; // Default image if no match is found
-
-            if (isset($row['biodatagender']) && isset($defaultImages[$row['biodatagender']])) {
-              $defaultImage = $defaultImages[$row['biodatagender']];
+          $sql5 = "SELECT * FROM 8bd_religion_details WHERE user_id=$profid";
+          $result5 = mysqlexec($sql5);
+          if ($result5) {
+            while ($row5 = mysqli_fetch_assoc($result5)) {
+              $religion = $row5['religion'];
             }
+          }
 
+          $sql2 = "SELECT * FROM photos WHERE user_id = $profid";
+          $result2 = mysqlexec($sql2);
+          $row2 = mysqli_fetch_assoc($result2);
+          $pic1 = $row2['pic1'];
 
-        // 2bd_personal_lifestyle
-        $sql3 = "SELECT * FROM 2bd_personal_lifestyle WHERE user_id=$profid";
-        $result3 = mysqlexec($sql3);
-        if ($result3 && mysqli_num_rows($result3) > 0) {
+          $defaultImages = [
+            'পাত্রের বায়োডাটা' => "shosurbari-male-icon.jpg",
+            'পাত্রীর বায়োডাটা' => "shosurbari-female-icon.png",
+          ];
+
+          $defaultImage = "shosurbari-default-icon.png";
+
+          if (isset($row['biodatagender']) && isset($defaultImages[$row['biodatagender']])) {
+            $defaultImage = $defaultImages[$row['biodatagender']];
+          }
+          
+          $sql3 = "SELECT * FROM 2bd_personal_lifestyle WHERE user_id=$profid";
+          $result3 = mysqlexec($sql3);
+
+          if ($result3 && mysqli_num_rows($result3) > 0) {
             $row3 = mysqli_fetch_assoc($result3);
-            $other_occupation_sector=$row3['other_occupation_sector'];
-
-            $occupation_levels = array(
+            $other_occupation_sector = $row3['other_occupation_sector'];
+                        $occupation_levels = array(
                 'business_occupation_level' => $row3['business_occupation_level'],
                 'student_occupation_level' => $row3['student_occupation_level'],
                 'health_occupation_level' => $row3['health_occupation_level'],
@@ -1545,7 +1555,7 @@ function createSlides(data) {
             $occupation_levels = array_filter($occupation_levels); // Remove empty values
             $occupation_count = count($occupation_levels);
 
-            if ($occupation_count > 0) {
+            if ($occupation_count > 0) 
                 $occupation_label = array_keys($occupation_levels)[0];
                 $occupation_value = $occupation_levels[$occupation_label];
 
@@ -1574,12 +1584,14 @@ function createSlides(data) {
             echo "<a href=\"view_profile.php?id={$profid}\" target=\"_blank\"><button class=\"view_sb_profile_recentview\">সম্পূর্ণ প্রোফাইল</button> </a>";
             echo "</div></div>";
             echo "</li>";
-        	}
-		      }
+          }
         }
       }
-        ?>
-      </ul>
+    }
+  ?>
+</ul>
+
+      
 
 
       <!-- START FOR PROFILES ANIMATION SLIDE SHOW -->
@@ -1589,7 +1601,7 @@ function createSlides(data) {
           visibleItems: 4,
           animationSpeed: 700,
           autoPlay:true,
-          autoPlaySpeed: 5000,    		
+          autoPlaySpeed: 8000,    		
           pauseOnHover: true,
           enableResponsiveBreakpoints: true,
           responsiveBreakpoints: { 
@@ -1650,8 +1662,8 @@ function createSlides(data) {
     <div class="shosurbari-animation-form">
         <form action="" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
             <div class="sb-biodata-amount-list">
-                <p>শশুরবাড়ি ডট কমের পাত্রপাত্রীদের সাথে যোগাযোগ করতে চাইলে সামান্য সার্ভিস চার্জ প্রদান করতে হবে। আপনি চাইলে এক বা একাধিক পাত্র/পাত্রীর সাথে যোগাযোগ করতে পারবেন। আপনার পেমেন্ট সম্পন্ন হয়ে গেলে, পেমেন্ট তথ্যগুলো যাচাইবাচায়ের পর ২৪ ঘন্টার মধ্যেই আপনার নাম্বারে পাত্র/পাত্রীর অভিভাবকের নাম্বর পাঠিয়ে দেয়া হবে। <span style="color:#06b6d4;"> নিচের টাকা ব্যাতিত বিয়ের পর অথবা বিয়ের আগে আর কোনো টাকা নেয়া হয় না।</span> দেখেনিন ১ থেকে ১০টি বায়োডাটার মোট মূল্য সহ একাধিক বায়োডাটার এভারেজ মূল্য।</p>
-                </br> <p> <span style="color:#ff0000; font-weight: 600;">বি: দ্র:</span> পাত্রপাত্রীর অভিভাবকের মোবাইল নাম্বার এবং পাত্রপাত্রীর ইমেইল প্রদান করা হবে। পাত্রপাত্রীদের মোবাইল নাম্বার প্রদান করা হয় না।</p>
+                <p>শশুরবাড়ি ডট কমের পাত্রপাত্রীদের সাথে যোগাযোগ করতে চাইলে সামান্য সার্ভিস চার্জ প্রদান করতে হবে, যার বায়োডাটা তাদের থেকে কোনো টাকা নেয়া হয় না। আপনি চাইলে এক বা একাধিক পাত্র/পাত্রীর সাথে যোগাযোগ করতে পারবেন। আপনার পেমেন্ট সম্পন্ন হয়ে গেলে, পেমেন্ট তথ্যগুলো যাচাইবাচায়ের পর ২৪ ঘন্টার মধ্যেই আপনার নাম্বারে পাত্র/পাত্রীর অভিভাবকের নাম্বর পাঠিয়ে দেয়া হবে। <span style="color:#06b6d4;"> নিচের টাকা ব্যাতিত বিয়ের পর অথবা বিয়ের আগে আর কোনো টাকা নেয়া হয় না।</span> দেখেনিন ১ থেকে ১০টি বায়োডাটার মোট মূল্য সহ একাধিক বায়োডাটার এভারেজ মূল্য।</p>
+                </br> <p> <span style="color:#ff0000; font-weight: 600;">বি: দ্র:</span> যোগাযোগের জন্য পাত্রপাত্রীর অভিভাবকের মোবাইল নাম্বার এবং পাত্রপাত্রীর ইমেইল প্রদান করা হবে। পাত্রপাত্রীর মোবাইল নাম্বার প্রদান করা হয় না।</p>
             </div>
 
 		    <div class="flex-container">
