@@ -1483,7 +1483,7 @@ function createSlides(data) {
       </div>
 
       <div class="sb-biodata-amount-list" style="margin: 0 auto;">
-      </br><p style="text-align: center;">এখন পর্যন্ত যেই ২০ টি বায়োডাটা সব থেকে বেশি  দেখা হয়েছে </p>
+      </br><p style="text-align: center;">এখন পর্যন্ত যেই ২০ টি পাত্রপাত্রীর বায়োডাটা সব থেকে বেশি  দেখা হয়েছে </p>
       </div>
 
 
@@ -1491,7 +1491,7 @@ function createSlides(data) {
 
 
 
-      <ul id="flexiselDemo3">
+<ul id="flexiselDemo3">
   <?php
     // Modify the SQL query to join users and 1bd_personal_physical tables and check for activation status
     $sql = "SELECT p.*, u.active

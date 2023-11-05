@@ -3299,13 +3299,13 @@ function handleAllEducationMethods(checkbox) {
 }
 </script>
 
-  <!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-  -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
-  --                 S  T  A  R  T                 --
-  --   SHOSURBARI PROFILE DETAILS AFTER SEARCH     --
-  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
-  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->	
-  <div class="sb_biodata_profile">
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                 S  T  A  R  T                 --
+--   SHOSURBARI PROFILE DETAILS AFTER SEARCH     --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->	
+<div class="sb_biodata_profile">
   <?php
     $c_count = 0; // initialize counter to 0
 
@@ -3316,13 +3316,6 @@ function handleAllEducationMethods(checkbox) {
         $Skin_tones = $row['Skin_tones'];
         $height = $row['height'];
         $dateofbirth = $row['dateofbirth'];
-
-        // Picture
-        $sql2 = "SELECT * FROM photos WHERE user_id=$profid";
-        $result2 = mysqlexec($sql2);
-        if ($result2)
-        $row2 = mysqli_fetch_array($result2);
-        $pic1 = $row2['pic1'];
 
 
         // 3bd_educational_qualifications
@@ -3356,7 +3349,6 @@ function handleAllEducationMethods(checkbox) {
         $home_district_under_rangpur=$row5['home_district_under_rangpur'];
         $home_district_under_sylhet=$row5['home_district_under_sylhet'];
         $country_present_address=$row5['country_present_address'];
-
 
 
 
@@ -3398,25 +3390,43 @@ function handleAllEducationMethods(checkbox) {
           'service_andcommon_occupation_level' => $row3['service_andcommon_occupation_level'],
           'mistri_occupation_level' => $row3['mistri_occupation_level'],
           );
+
           $occupation_levels = array_filter($occupation_levels); // Remove empty values
           $occupation_count = count($occupation_levels);
 
-          if ($occupation_count > 0) {
+          if ($occupation_count > 0) 
             $occupation_label = array_keys($occupation_levels)[0];
             $occupation_value = $occupation_levels[$occupation_label];
 
+            // Picture
+            $sql2 = "SELECT * FROM photos WHERE user_id = $profid";
+            $result2 = mysqlexec($sql2);
+            if ($result2) {
+              $row2 = mysqli_fetch_array($result2);
+              $pic1 = $row2['pic1'];
+            }
+
+            $defaultImages = [
+              'পাত্রের বায়োডাটা' => "shosurbari-male-icon.jpg",
+              'পাত্রীর বায়োডাটা' => "shosurbari-female-icon.png",
+            ];
+
+            $defaultImage = "shosurbari-default-icon.png";
+
+            if (isset($row['biodatagender']) && isset($defaultImages[$row['biodatagender']])) {
+              $defaultImage = $defaultImages[$row['biodatagender']];
+            }
+
             echo "<div class=\"biodatalist\">";
             echo "<div class=\"sb_bio_header\">";
-
-            // Start of Default Photo Show
             echo "<a href=\"view_profile.php?id={$profid}\" target=\"_blank\">";
             if (!empty($pic1)) {
-                echo "<img class=\"img-responsive\" src=\"profile/{$profid}/{$pic1}\"/>";
+              echo "<img class=\"img-responsive\" src=\"profile/{$profid}/{$pic1}\"/>";
             } else {
-                echo "<img class=\"img-responsive\" src=\"images/shosurbari-male-icon.jpg\"/>";
+              echo "<img class=\"img-responsive\" src=\"images/{$defaultImage}\"/>";
             }
             echo "</a>";
-            // End of Default photo Show
+            // End of photo Show
 
             echo "<div class=\"sb_bio_number\"><span class=\"sb_biodatanumber\"> {$profid} <br> বায়োডাটা নং </span> </div>";
             echo "</div>";
@@ -3429,17 +3439,14 @@ function handleAllEducationMethods(checkbox) {
             echo "<a href=\"view_profile.php?id={$profid}\" target=\"_blank\"> <button class=\"view_sb_profile\"> সম্পূর্ণ প্রোফাইল</button></a>";
             echo "</div></div>";
 
-            $c_count++;
-          }
+          $c_count++;
         }
       }
     }
     echo '<script> var count = ' . $c_count . '; </script>';
   ?>
 
-<style>
 
-  </style>
 
 <!--Next & Previous Button For More Profile Show -->
     <div class="pagination">
@@ -3603,16 +3610,16 @@ showProfiles();
     </script>
   </div>
 
-  </div> <!--extra dive / Here maybe error for footer-->
+</div> <!--extra dive / Here maybe error for footer-->
 
 
 
-  <!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-  -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
-  --                 S  T  A  R  T                 --
-  --    MULTIPLE SELECT OPTION SHOW & CHECK BOX    --
-  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
-  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->	
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                 S  T  A  R  T                 --
+--    MULTIPLE SELECT OPTION SHOW & CHECK BOX    --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->	
   <script>
     $(function() {
     
