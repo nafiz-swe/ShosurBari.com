@@ -111,8 +111,9 @@
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+
 						<ul class="nav navbar-nav nav_1">
-							<li><a href="index.php">Home</a></li>		    		
+							<li><a href="index.php">Home</a></li>
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Biodata<span class="caret"></span></a>
 								<ul class="dropdown-menu" role="menu">
@@ -124,55 +125,58 @@
 							<li><a href="about.php">About</a></li>
 							<li class="last"><a href="contact.php">Contacts</a></li>
 							<li>
-<?php
-if (function_exists('isloggedin') && isloggedin()) {
-    $id = $_SESSION['id'];
-    $pic1 = "";
+								<?php
+								// Check if the user is logged in based on your authentication method.
+								// Replace the following condition with your authentication logic.
+								if (isset($_SESSION['id'])) {
+									$id = $_SESSION['id'];
+									$pic1 = "";
 
-    // Getting image filenames from db
-    $sql2 = "SELECT * FROM photos WHERE user_id = $id";
-    $result2 = mysqlexec($sql2);
-    if ($result2) {
-        $row2 = mysqli_fetch_array($result2);
-        if ($row2) {
-            $pic1 = $row2['pic1'];
-        }
-    }
+									// Getting image filenames from the database
+									$sql2 = "SELECT * FROM photos WHERE user_id = $id";
+									$result2 = mysqlexec($sql2);
+									if ($result2) {
+										$row2 = mysqli_fetch_array($result2);
+										if ($row2) {
+											$pic1 = $row2['pic1'];
+										}
+									}
 
-    // Check if পাত্রের বায়োডাটা exists in the database
-    $sql = "SELECT biodatagender FROM 1bd_personal_physical WHERE user_id = $id";
-    $result = mysqlexec($sql);
-    $row = mysqli_fetch_assoc($result);
+									// Define the default image
+									$defaultImage = "shosurbari-default-icon.png";
 
-    // Define the default image
-    $defaultImage = "shosurbari-default-icon.png";
+									// Check if biodatagender exists in the database
+									$sql1 = "SELECT biodatagender FROM 1bd_personal_physical WHERE user_id = $id";
+									$result1 = mysqlexec($sql1);
+									$row1 = mysqli_fetch_assoc($result1);
 
-    if ($row) {
-        // Check the value of biodatagender to determine the image
-        if ($row['biodatagender'] == 'পাত্রের বায়োডাটা') {
-            $defaultImage = "shosurbari-male-icon.jpg";
-        } elseif ($row['biodatagender'] == 'পাত্রীর বায়োডাটা') {
-            $defaultImage = "shosurbari-female-icon.png";
-        }
-    }
+									if ($row1) {
+										// Check the value of biodatagender to determine the image
+										if ($row1['biodatagender'] == 'পাত্রের বায়োডাটা') {
+											$defaultImage = "shosurbari-male-icon.jpg";
+										} elseif ($row1['biodatagender'] == 'পাত্রীর বায়োডাটা') {
+											$defaultImage = "shosurbari-female-icon.png";
+										}
+									}
 
-    echo "<li class=\"login-navbar-img\"><a href=\"userhome.php?id=$id\">";
-    if (!empty($pic1)) {
-        echo "<img class=\"img-responsive\" src=\"profile/{$id}/{$pic1}\"/>";
-    } else {
-        echo "<img class=\"img-responsive\" src=\"images/$defaultImage\" />";
-    }
-    echo "</a></li>";
+									echo "<li class=\"login-navbar-img\"><a href=\"userhome.php?id=$id\">";
+									if (!empty($pic1)) {
+										echo "<img class=\"img-responsive\" src=\"profile/{$id}/{$pic1}\"/>";
+									} else {
+										echo "<img class=\"img-responsive\" src=\"images/$defaultImage\" />";
+									}
+									echo "</a></li>";
 
-    echo "<li class=\"login-navbar-icon\"><a href=\"logout.php\"><i class=\"fa fa-sign-out\" ></i></a></li>";
-} else {
-    echo "<li><a href=\"login.php\">Login</a></li>";
-    echo "<li><a href=\"register.php\">Register</a></li>";
-}
-?>
-
+									echo "<li class=\"login-navbar-icon\"><a href=\"logout.php\"><i class=\"fa fa-sign-out\"></i></a></li>";
+								} else {
+									echo "<li><a href=\"search.php\">Search</a></li>"; // Allow visitors to search profiles
+									echo "<li><a href=\"login.php\">Login</a></li>";
+									echo "<li><a href=\"register.php\">Register</a></li>";
+								}
+								?>
 							</li>
 						</ul>
+
 					</div><!-- /.navbar-collapse -->
 				</nav>
 				<div id="progress-bar"></div>
