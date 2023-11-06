@@ -1539,18 +1539,18 @@ function createSlides(data) {
           if ($result3 && mysqli_num_rows($result3) > 0) {
             $row3 = mysqli_fetch_assoc($result3);
             $other_occupation_sector = $row3['other_occupation_sector'];
-                        $occupation_levels = array(
-                'business_occupation_level' => $row3['business_occupation_level'],
-                'student_occupation_level' => $row3['student_occupation_level'],
-                'health_occupation_level' => $row3['health_occupation_level'],
-                'engineer_occupation_level' => $row3['engineer_occupation_level'],
-                'teacher_occupation_level' => $row3['teacher_occupation_level'],
-                'defense_occupation_level' => $row3['defense_occupation_level'],
-                'foreigner_occupation_level' => $row3['foreigner_occupation_level'],
-                'garments_occupation_level' => $row3['garments_occupation_level'],
-                'driver_occupation_level' => $row3['driver_occupation_level'],
-                'service_andcommon_occupation_level' => $row3['service_andcommon_occupation_level'],
-                'mistri_occupation_level' => $row3['mistri_occupation_level'],
+            $occupation_levels = array(
+              'business_occupation_level' => $row3['business_occupation_level'],
+              'student_occupation_level' => $row3['student_occupation_level'],
+              'health_occupation_level' => $row3['health_occupation_level'],
+              'engineer_occupation_level' => $row3['engineer_occupation_level'],
+              'teacher_occupation_level' => $row3['teacher_occupation_level'],
+              'defense_occupation_level' => $row3['defense_occupation_level'],
+              'foreigner_occupation_level' => $row3['foreigner_occupation_level'],
+              'garments_occupation_level' => $row3['garments_occupation_level'],
+              'driver_occupation_level' => $row3['driver_occupation_level'],
+              'service_andcommon_occupation_level' => $row3['service_andcommon_occupation_level'],
+              'mistri_occupation_level' => $row3['mistri_occupation_level'],
             );
             $occupation_levels = array_filter($occupation_levels); // Remove empty values
             $occupation_count = count($occupation_levels);

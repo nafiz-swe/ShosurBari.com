@@ -44,61 +44,78 @@
 		<div class="profile-header">
 
 
-<?php
-error_reporting(0);
-$profileid = $_GET['id'];
+			<?php
+				error_reporting(0);
+				$profileid = $_GET['id'];
 
-// Safety measure: Ensure the $profileid is a valid integer value
-if (!filter_var($profileid, FILTER_VALIDATE_INT)) {
-    echo "<script>alert(\"Invalid Profile ID\")</script>";
-    // Optionally, you can redirect the user to an error page or the homepage.
-    exit;
-}
+				// Safety measure: Ensure the $profileid is a valid integer value
+				if (!filter_var($profileid, FILTER_VALIDATE_INT)) {
+					echo '<script>window.location.href = "user_404.php";</script>'; // Redirect to user_404.php for invalid profile ID
+					exit;
+				}
+				
+				// Check if the user's account is deactivated (active = 0)
+				$accountStatusSql = "SELECT active FROM users WHERE id = $profileid";
+				$accountStatusResult = mysqlexec($accountStatusSql);
+				
+				if ($accountStatusResult) {
+					$accountStatusRow = mysqli_fetch_assoc($accountStatusResult);
+				
+					if ($accountStatusRow['active'] == 0) {
+						echo '<script>window.location.href = "user_404.php";</script>'; // Redirect to user_404.php if the account is deactivated
+						exit;
+					}
+				}
+				
 
-// Getting profile details from the database
-$sql = "SELECT * FROM 1bd_personal_physical WHERE user_id = $profileid";
-$result = mysqlexec($sql);
 
-if ($result) {
-    $row = mysqli_fetch_assoc($result);
+				// Getting profile details from the database
+				$sql = "SELECT * FROM 1bd_personal_physical WHERE user_id = $profileid";
 
-    $pic1 = "";
+				$result = mysqlexec($sql);
 
-    // Getting image filenames from the database
-    $sql2 = "SELECT * FROM photos WHERE user_id = $profileid";
-    $result2 = mysqlexec($sql2);
+				if ($result) {
+					$row = mysqli_fetch_assoc($result);
 
-    if ($result2) {
-        $row2 = mysqli_fetch_array($result2);
-        if ($row2) {
-            $pic1 = $row2['pic1'];
-        }
-    }
+					$pic1 = "";
 
-    // Define the default image filenames
-    $defaultImages = [
-        'পাত্রের বায়োডাটা' => "shosurbari-male-icon.jpg",
-        'পাত্রীর বায়োডাটা' => "shosurbari-female-icon.png",
-    ];
+					// Getting image filenames from the database
+					$sql2 = "SELECT * FROM photos WHERE user_id = $profileid";
+					$result2 = mysqlexec($sql2);
 
-    // Set the default image to the appropriate one based on biodatagender
-    $defaultImage = "shosurbari-default-icon.png"; // Default image if no match is found
+					if ($result2) {
+						$row2 = mysqli_fetch_array($result2);
+						if ($row2) {
+							$pic1 = $row2['pic1'];
+						}
+					}
 
-    if (isset($row['biodatagender']) && isset($defaultImages[$row['biodatagender']])) {
-        $defaultImage = $defaultImages[$row['biodatagender']];
-    }
-} else {
-    echo "<script>alert(\"Invalid Profile ID\")</script>";
-}
-?>
+					// Define the default image filenames
+					$defaultImages = [
+						'পাত্রের বায়োডাটা' => "shosurbari-male-icon.jpg",
+						'পাত্রীর বায়োডাটা' => "shosurbari-female-icon.png",
+					];
 
-<div class="profile-img">
-    <?php if (!empty($pic1)): ?>
-        <img src="profile/<?php echo $profileid; ?>/<?php echo $pic1; ?>" />
-    <?php else: ?>
-        <img src="images/<?php echo $defaultImage; ?>" />
-    <?php endif; ?>
-</div>
+					// Set the default image to the appropriate one based on biodatagender
+					$defaultImage = "shosurbari-default-icon.png"; // Default image if no match is found
+
+					if (isset($row['biodatagender']) && isset($defaultImages[$row['biodatagender']])) {
+						$defaultImage = $defaultImages[$row['biodatagender']];
+					}
+				} else {
+					echo "<script>alert(\"Invalid Profile ID\")</script>";
+				}
+			?>
+
+
+
+			<div class="profile-img">
+				<?php if (!empty($pic1)): ?>
+					<img src="profile/<?php echo $profileid; ?>/<?php echo $pic1; ?>" />
+				<?php else: ?>
+					<img src="images/<?php echo $defaultImage; ?>" />
+				<?php endif; ?>
+			</div>
 
 
 
@@ -1104,11 +1121,18 @@ textarea:focus {
 					<h3>সর্বশেষ বায়োডাটা দেখেছেন</h3>
 
 					<?php
-						$sql = "SELECT * FROM 1bd_personal_physical ORDER BY profilecreationdate DESC LIMIT 8";
+						$sql = "SELECT p.*, u.active
+						FROM 1bd_personal_physical p
+						INNER JOIN users u ON p.user_id = u.id
+						WHERE u.active = 1
+						ORDER BY p.view_count DESC LIMIT 10"; // Top 10 profiles by view_count of active users
 						$result = mysqlexec($sql);
+
 						$count = 1;
 
 						while ($row = mysqli_fetch_assoc($result)) {
+							// Check if the user is active
+							if ($row['active'] == 1) {
 							$profid = $row['user_id'];
 							$Skin_tones_recentview1 = $row['Skin_tones'];
 							$height_recentview1 = $row['height'];
@@ -1212,7 +1236,8 @@ textarea:focus {
 								}
 							}
 						}
-						?>
+						}
+					?>
 
 
     			</div>
@@ -2765,14 +2790,21 @@ textarea:focus {
 	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
 	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 	<div class="sbbiodata_profile_recentview-mobile">
-        <h3>সর্বশেষ বায়োডাটা দেখেছেন</h3>
+    <h3>সর্বশেষ বায়োডাটা দেখেছেন</h3>
 
-		<?php
-    $sql = "SELECT * FROM 1bd_personal_physical ORDER BY profilecreationdate DESC LIMIT 20";
-    $result = mysqlexec($sql);
+	<?php
+	$sql = "SELECT p.*, u.active
+	FROM 1bd_personal_physical p
+	INNER JOIN users u ON p.user_id = u.id
+	WHERE u.active = 1
+	ORDER BY p.view_count DESC LIMIT 10"; // Top 10 profiles by view_count of active users
+	$result = mysqlexec($sql);
+
     $count = 1;
 
     while ($row = mysqli_fetch_assoc($result)) {
+		// Check if the user is active
+		if ($row['active'] == 1) {
         $profid = $row['user_id'];
         $Skin_tones_recentview2 = $row['Skin_tones'];
         $height_recentview2 = $row['height'];
@@ -2874,6 +2906,7 @@ textarea:focus {
         echo "</div></div>";
         $count++;
     }
+}
 ?>
 
     </div>
