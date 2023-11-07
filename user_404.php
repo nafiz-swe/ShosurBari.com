@@ -7,7 +7,7 @@ $result=search();
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Error 404 | ShosurBari</title>
+<title>User 404 | ShosurBari</title>
 <link rel="icon" href="images/shosurbari-icon.png" type="image/png">
 </head>
 <body>
@@ -22,11 +22,12 @@ $result=search();
 
     <!-- 404 Page area Start-->
     <div class="error-page-area">
-        <h2>Biodata Not Found. This Account has been Deactivated. Please explore other Biodata on our site.</h2>
+        <h2>দুঃখিত! বায়োডাটার প্রোফাইলটি খুঁজে পাওয়া যায়নি।</h2>
+        <p> আপনি যেই বায়োডাটাটি খুঁজচ্ছেন বর্তমানে সেই একাউন্টটি ডিএক্টিভেট রয়েছে। অথবা সঠিক বায়োডাটা নাম্বার দিয়ে পুনরায় চেষ্টা করুন।</p>
 
         <div class="button-container">
-            <a href="index.php" class="btn">Go to Back Home Page</a>
-            <a href="contact.php" class="btn error-btn-mg">Report Problem</a>
+            <a href="index.php" class="btn">হোম পেজ</a>
+            <a href="contact.php" class="btn error-btn-mg">রিপোর্ট করুন</a>
         </div>
 
     </div>
@@ -43,15 +44,11 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: repeating-linear-gradient(45deg, #f3f3f3 , transparent 30px);
 }
 
 .shosurbari-error-form {
   text-align: center;
-  background: repeating-linear-gradient(-45deg, #00bbff22 , transparent 30px);
   width: 100%;
-  height: 100%;
-
 }
 
 .soshurbari-animation-icon {
@@ -63,8 +60,8 @@ body {
 }
 
 .sb-icon-laptop img {
-  height: 400px;
-  width: 400px;
+  height: 300px;
+  width: 300px;
   padding-top: 20px;
 }
 
@@ -73,17 +70,24 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 500px;
+  margin: auto;
 }
 
 .error-page-area h2 {
   width: 710px;
-  font-size: 35px;
-  line-height: 40px;
+  font-size: 28px;
+  line-height: 50px;
   margin-top: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 0;
   margin-left: 50px;
   margin-right: 50px;
   font-weight: 500;
+}
+
+.error-page-area p {
+  font-size: 15px;
+  line-height: 30px;
 }
 
 .button-container {
@@ -101,7 +105,7 @@ body {
   border-radius: 2px;
   margin: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, .16), 0 2px 10px rgba(0, 0, 0, .12);
-  font-size: 20px;
+  font-size: 1rem;
   width: auto;
   text-align: center;
 }

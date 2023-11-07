@@ -113,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ uploadphoto($id); }
                                 echo '<span style="color: green;">Active</span>';
                             } else {
                                 echo '<span style="color: red;">Deactivated</span> <br>';
-                                echo '<span style="color: #0aa4ca; font-size: 14px;">Please Active your account, Go back UserHome page !</span>';
+                                echo '<span style="color: #0aa4ca; font-size: 14px;">Please Active your account! Go back UserHome page.</span>';
                             }
                         ?>
                     </h4>

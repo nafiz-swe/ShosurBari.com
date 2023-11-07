@@ -171,7 +171,7 @@ $conn->close();
                                 echo '<span style="color: green;">Active</span>';
                             } else {
                                 echo '<span style="color: red;">Deactivated</span> <br>';
-                                echo '<span style="color: #0aa4ca; font-size: 14px;">Please Active your account, Go back UserHome page !</span>';
+                                echo '<span style="color: #0aa4ca; font-size: 14px;">Please Active your account! Go back UserHome page.</span>';
                             }
                         ?>
                     </h4>
@@ -201,7 +201,7 @@ $conn->close();
     <div class="shosurbari-animation-form">
         <form action="" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
             <div class="sb-biodata-amount-list">
-                <h3>আপনার বায়োডাটার প্রফাইলটি যতবার দেখা হয়েছে।</h3>
+                <h3>আপনার বায়োডাটার প্রফাইলটি যতজন দেখেছে।</h3>
                 <h2>সর্বমোট ভিজিট করা হয়েছে</h2>
                 <h1><?php
                         // Display the view count for the logged-in user's profile

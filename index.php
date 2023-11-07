@@ -1017,41 +1017,44 @@
   ?>
 
 
+
+
 <script>
-  //if gender no select then show error
-    function validateForm() {
-      var biodataGender = document.querySelector('input[name="biodatagender"]:checked');
-      if (!biodataGender) {
-        var errorDiv;
-        if (window.innerWidth <= 768) {
-          errorDiv = document.getElementById('gender-error-mob');
-        }
-        
-        else {
-        errorDiv = document.getElementById('gender-error-laptop');
-        }
-        errorDiv.style.display = 'block';
-        errorDiv.classList.add('fade-in');
+  //if gender not selected then show error
+  function validateForm() {
+    var biodataGender = document.querySelector('input[name="biodatagender"]:checked');
+    if (!biodataGender) {
+      var errorDiv = document.getElementById('gender-error-laptop');
+      errorDiv.style.display = 'block';
+      errorDiv.classList.add('fade-in');
 
-        // Change color multiple times
-        var colors = ['green', 'blue', 'red'];
-        var colorIndex = 0;
-        setInterval(function() {
-          errorDiv.style.color = colors[colorIndex];
-          colorIndex = (colorIndex + 1) % colors.length;
-        }, 500);
+      // Change color multiple times
+      var colors = ['green', 'blue', 'red'];
+      var colorIndex = 0;
+      setInterval(function () {
+        errorDiv.style.color = colors[colorIndex];
+        colorIndex = (colorIndex + 1) % colors.length;
+      }, 500);
 
-        // Scroll the error message to the center of the window
-        var windowHeight = window.innerHeight;
-        var errorDivHeight = errorDiv.offsetHeight;
-        var scrollPosition = errorDiv.offsetTop - (windowHeight - errorDivHeight) / 2;
-        window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
+      // Scroll the error message to the center of the window
+      var windowHeight = window.innerHeight;
+      var errorDivHeight = errorDiv.offsetHeight;
 
-        return false;
-      }
-      return true;
+      // Calculate the scroll position to center the error message vertically
+      var scrollPosition = errorDiv.offsetTop - (windowHeight - errorDivHeight) / 2;
+
+      // Ensure the scroll position doesn't go to the top of the display
+      scrollPosition = Math.max(scrollPosition, 100); // Adjust this value if needed
+
+      // Scroll to the calculated position
+      window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
+
+      return false;
     }
-  </script>
+    return true;
+  }
+</script>
+
 
 
 <script>
