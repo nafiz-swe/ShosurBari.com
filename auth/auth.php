@@ -69,29 +69,29 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
                 return $decrypted;
             }
 
-            // Encrypt and set user data in cookies
-            $sb_error = [
-                'id' => $id,
-                'groom_bride_email' => $groom_bride_email,
-				'groom_bride_number' => $groom_bride_number,
-				'groom_bride_family_number' => $groom_bride_family_number,
-                // Add more user data as needed
-            ];
+            // // Encrypt and set user data in cookies
+            // $SBGBEN = [
+            //     'id' => $id,
+            //     'groom_bride_email' => $groom_bride_email,
+			// 	'groom_bride_number' => $groom_bride_number,
+			// 	'groom_bride_family_number' => $groom_bride_family_number,
+            //     // Add more user data as needed
+            // ];
 
-			$acc_error = [
-                'id' => $id,
-                'username' => $username,
-				'email' => $email,
-				'password' => $password,
-				'number' => $number,
-                // Add more user data as needed
-            ];
+			// $SBUAEN = [
+            //     'id' => $id,
+            //     'username' => $username,
+			// 	'email' => $email,
+			// 	'password' => $password,
+			// 	'number' => $number,
+            //     // Add more user data as needed
+            // ];
 
-			$encrypted_biodata = encryptCookie(json_encode($sb_error));
-            $encrypted_data = encryptCookie(json_encode($acc_error));
+			// $encrypted_biodata = encryptCookie(json_encode($SBGBEN));
+            // $encrypted_data = encryptCookie(json_encode($SBUAEN));
 
-            setcookie('sb_error', $encrypted_biodata, time() + 3600, '/', '', false, true);
-            setcookie('acc_error', $encrypted_data, time() + 3600, '/', '', false, true);
+            // setcookie('SBGBEN', $encrypted_biodata, time() + 3600, '/', '', false, true);
+            // setcookie('SBUAEN', $encrypted_data, time() + 3600, '/', '', false, true);
 
             header("location:../userhome.php?id={$row['id']}");
         } else {

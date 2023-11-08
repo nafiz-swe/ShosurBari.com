@@ -1,14 +1,47 @@
 <?php
 session_start();
 
+// Database connection parameters
+$host = "localhost"; // Host name
+$username = "root"; // MySQL username
+$password = ""; // MySQL password
+$dbname = "matrimony"; // Database name
+
+// Create a PDO database connection
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    // Set PDO to throw exceptions on errors
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Database connection failed: " . $e->getMessage());
+}
+
 $choiceList = [];
 
 if (isset($_SESSION['choice_list'])) {
     $choiceList = $_SESSION['choice_list'];
 }
 
+// Check if the user is logged in using your existing authentication logic
+if (isset($_SESSION['id'])) {
+    $user_id = $_SESSION['id'];
+} else {
+    $user_id = 0; // Default value for non-logged-in users
+}
+
 if (isset($_POST['add_to_choice_list'])) {
     $profileid = $_POST['add_to_choice_list'];
+
+    // Create the formatted timestamp using DATE_FORMAT function
+    $sql = "INSERT INTO choice_list (user_id, profile_id, added_timestamp) VALUES (:user_id, :profile_id, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+    $stmt = $pdo->prepare($sql);
+    
+    // Bind values to placeholders and execute the statement
+    $stmt->execute([
+        ':user_id' => $user_id,
+        ':profile_id' => $profileid,
+    ]);
+
 
     $found = false;
     foreach ($choiceList as $key => $item) {
