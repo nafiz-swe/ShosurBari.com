@@ -69,7 +69,20 @@ if (isset($_POST['remove_from_choice_list'])) {
     $profileidToRemove = $_POST['remove_from_choice_list'];
     $choiceList = array_diff($choiceList, [$profileidToRemove]);
     $_SESSION['choice_list'] = $choiceList;
+
+    // Delete the record from the database
+    if ($user_id !== 0) { // Check if the user is logged in
+        $sql = "DELETE FROM choice_list WHERE user_id = :user_id AND profile_id = :profile_id";
+        $stmt = $pdo->prepare($sql);
+
+        // Bind values to placeholders and execute the statement
+        $stmt->execute([
+            ':user_id' => $user_id,
+            ':profile_id' => $profileidToRemove,
+        ]);
+    }
 }
+
 
 $count = count($choiceList);
 
