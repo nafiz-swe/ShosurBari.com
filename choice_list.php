@@ -47,15 +47,17 @@ if (isset($_SESSION['id'])) {
 if (isset($_POST['add_to_choice_list'])) {
     $profileid = $_POST['add_to_choice_list'];
 
-    // Create the formatted timestamp using DATE_FORMAT function
-    $sql = "INSERT INTO choice_list (user_id, profile_id, added_timestamp) VALUES (:user_id, :profile_id, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
-    $stmt = $pdo->prepare($sql);
-    
-    // Bind values to placeholders and execute the statement
-    $stmt->execute([
-        ':user_id' => $user_id,
-        ':profile_id' => $profileid,
-    ]);
+        // Use an INSERT ... ON DUPLICATE KEY UPDATE statement to insert or update the row
+        $sql = "INSERT INTO choice_list (user_id, profile_id, added_timestamp) 
+        VALUES (:user_id, :profile_id, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))
+        ON DUPLICATE KEY UPDATE added_timestamp = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')";
+$stmt = $pdo->prepare($sql);
+
+// Bind values to placeholders and execute the statement
+$stmt->execute([
+    ':user_id' => $user_id,
+    ':profile_id' => $profileid,
+]);
 
 
     $found = false;
@@ -191,7 +193,7 @@ function englishToBanglaNumber($number) {
             border-collapse: collapse;
         }
         th, td {
-            padding: 10px;
+            padding: 10px 5px;
             text-align: center;
             border: 1px solid #ddd;
         }
@@ -329,37 +331,43 @@ th, td {
 
 
                 <?php
-                    echo "<table>
-                        <tr>
-                            <th> বায়োডাটা</th>
-                            <th> তারিখ ও সময় </th>
-                            <th> বাদ দিন </th>
-                        </tr>";
+echo "<table>
+    <tr>
+        <th> বায়োডাটা</th>
+        <th> তারিখ ও সময় </th>
+        <th> বাদ দিন </th>
+    </tr>";
 
-                    foreach ($choiceList as $item) {
-                        // Split the item into profile ID and date
-                        list($profileid, $formattedDateTime) = explode(', ', $item);
-                        list($day, $time,) = explode(' ', $formattedDateTime, 2); // Split date and time
+foreach ($choiceList as $item) {
+    // Split the item into profile ID and date
+    list($profileid, $formattedDateTime) = explode(', ', $item);
+    list($day, $time,) = explode(' ', $formattedDateTime, 2); // Split date and time
 
-                        // Format the date and time as "l h:i A d F Y"
-                        $formattedDateTime = date('l h:i A d F Y', strtotime($formattedDateTime));
+    // Format the date and time as "l h:i A" and "d F Y"
+    $formattedTime = date('l h:i A', strtotime($formattedDateTime));
+    $formattedDate = date('d F Y', strtotime($formattedDateTime));
 
-                        echo "<tr>
-                            <td> $profileid </td>
-                            <td> $formattedDateTime </td>
-                            <form method='POST' action='choice_list.php'>
-                                <input type='hidden' name='remove_from_choice_list' value='$item'>
-                                <td>  <button class='remove-button' type='submit'>Remove</button> </td>
-                            </form>
-                        </tr>";
-                    }
+    // Create a profile link using the user ID
+    $profileLink = "<a href='view_profile.php?id=$profileid'>$profileid View</a>";
 
-                    echo "</table> </br>";
+    echo "<tr>
+        <td> $profileLink</td>
+        <td> $formattedTime <br> $formattedDate </td>
+        <form method='POST' action='choice_list.php'>
+            <input type='hidden' name='remove_from_choice_list' value='$item'>
+            <td>  <button class='remove-button' type='submit'>Remove</button> </td>
+        </form>
+    </tr>";
+}
 
-                    if (empty($choiceList)) {
-                        echo '<p style="color: #ff0000;">আপনি এখনো কোনো বায়োডাটা পছন্দের তালিকায় যোগ করেন নাই।</p>';
-                    }
-                ?>
+echo "</table> </br>";
+
+if (empty($choiceList)) {
+    echo '<p style="color: #ff0000;">আপনি এখনো কোনো বায়োডাটা পছন্দের তালিকায় যোগ করেন নাই।</p>';
+}
+?>
+
+
 
 
                 <?php if ($count > 0): ?>
