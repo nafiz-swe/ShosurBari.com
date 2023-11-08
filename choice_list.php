@@ -18,8 +18,23 @@ try {
 
 $choiceList = [];
 
-if (isset($_SESSION['choice_list'])) {
-    $choiceList = $_SESSION['choice_list'];
+if (isset($_SESSION['id'])) {
+    // User is logged in, retrieve data from the database
+    $user_id = $_SESSION['id'];
+    $sql = "SELECT profile_id, added_timestamp FROM choice_list WHERE user_id = :user_id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([':user_id' => $user_id]);
+    
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $profileid = $row['profile_id'];
+        $formattedDateTime = date('l h:i A d F Y', strtotime($row['added_timestamp']));
+        $choiceList[] = "$profileid, $formattedDateTime";
+    }
+} else {
+    // User is not logged in, retrieve data from cookies
+    if (isset($_SESSION['choice_list'])) {
+        $choiceList = $_SESSION['choice_list'];
+    }
 }
 
 // Check if the user is logged in using your existing authentication logic
