@@ -4071,12 +4071,24 @@ label{
     text-align: justify;
 }
 
+.choice-list-id,
+.choice-list-id a{
+    font-size: 17px;
+    color: #06b6d4;
+}
+
+.choice-list-date,
+.choice-list-id a span{
+font-size: 14px;
+}
+
 .remove-button {
     background-color: #ff0000;
     color: #ffffff;
     border: none;
-    padding: 5px 10px;
+    padding: 3px 6px;
     cursor: pointer;
+    font-size: 14px;
 }
 
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
@@ -6294,6 +6306,16 @@ label{
 --      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width:480px){
+
+    .choice-list-id, .choice-list-id a{
+        font-size: 16px;
+    }
+
+    .choice-list-date,
+    .remove-button,
+    .choice-list-id a span{
+        font-size: 13px;
+    }
 
     .soshurbari-animation-icon h3,
     .sb-register-login h2{

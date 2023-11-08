@@ -178,14 +178,6 @@ if(isset($_SESSION['id'])){
 
 
 
-
-
-
-
-
-
-
-
   <script>
     $(document).ready(function() {
       var input = document.querySelector("#pnumber");
@@ -204,7 +196,7 @@ if(isset($_SESSION['id'])){
   </div>
 
   <div class="form-group">
-    <label>পছন্দের বায়োডাটা <span style="color: #ccc; font-size: 12px;">(অপরিবর্তনশীল)</span></label>
+    <label>পছন্দের বায়োডাটা <span style="color: #ccc; font-size: 12px; font-weight: 500;">(অপরিবর্তনশীল)</span></label>
     <textarea rows="4" id="contact_biodatas_number" name="request_biodata_number" class="form-text required" style="background: #ecfeff;" readonly><?php
       if (isset($_GET['profileid'])) {
           $profileid = $_GET['profileid'];

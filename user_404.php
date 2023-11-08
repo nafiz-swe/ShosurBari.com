@@ -62,7 +62,6 @@ body {
 .sb-icon-laptop img {
   height: 300px;
   width: 300px;
-  padding-top: 20px;
 }
 
 .error-page-area {

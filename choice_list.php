@@ -188,21 +188,20 @@ function englishToBanglaNumber($number) {
   </div>
 
 <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 10px 5px;
-            text-align: center;
-            border: 1px solid #ddd;
-        }
-        th {
-            background: linear-gradient(180deg, #00bbff61 0%,rgba(238,246,253,0) 100%);
-        }
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
 
+th, td {
+    padding: 10px 5px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
 
-
+th {
+    background: linear-gradient(180deg, #00bbff61 0%,rgba(238,246,253,0) 100%);
+}
 
 .sb-biodata-field{
     background: none;
@@ -268,18 +267,6 @@ function englishToBanglaNumber($number) {
   }
 }
 
-@media (max-width: 600px) {
-
-th, td {
-    font-size: 15px;
-    padding: 8px;
-}
-
-.remove-button {
-    padding: 4px 7px;
-}
-}
-
 @media (max-width:480px){
     .soshurbari-animation-icon h3,
     .sb-register-login h2{
@@ -289,16 +276,19 @@ th, td {
 .shosurbari-biodata-form {
   margin-top: 30px;
 }
+
+th, td {
+    padding: 8px 4px;
+}
+
+.sb-register-login, .payment-form{
+    width: 350px;
+}
 }
 
 @media (max-width: 384px) {
     th, td {
-    font-size: 13px;
     padding: 5px;
-}
-
-.remove-button {
-    padding: 3px 5px;
 }
 
 .contact-bio,
@@ -348,11 +338,11 @@ foreach ($choiceList as $item) {
     $formattedDate = date('d F Y', strtotime($formattedDateTime));
 
     // Create a profile link using the user ID
-    $profileLink = "<a href='view_profile.php?id=$profileid'>$profileid View</a>";
+    $profileLink = "<a href='view_profile.php?id=$profileid'>$profileid <span>View</span></a>";
 
     echo "<tr>
-        <td> $profileLink</td>
-        <td> $formattedTime <br> $formattedDate </td>
+        <td class=\"choice-list-id\"> $profileLink</td>
+        <td class=\"choice-list-date\"> $formattedTime <br> $formattedDate </td>
         <form method='POST' action='choice_list.php'>
             <input type='hidden' name='remove_from_choice_list' value='$item'>
             <td>  <button class='remove-button' type='submit'>Remove</button> </td>
