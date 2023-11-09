@@ -120,7 +120,7 @@ if (isset($_COOKIE[$cookieName])) {
 <div class="shosurbari-biodata">
   <form action="" method="POST" name="myForm" onsubmit="return validateForm()">
     <div class="flex-container">
-      <div class="sb-register-login">
+      <div class="payment-form">
 
         <div class="soshurbari-animation-icon">
             <div class="sb-icon-laptop">
@@ -288,7 +288,7 @@ if(isset($_SESSION['id'])){
     background: none;
   }
   
-.sb-register-login h2,
+.payment-form h2,
 .sb-biodata-field h2{
     color: #000;
     font-size: 23px;
@@ -346,6 +346,12 @@ if(isset($_SESSION['id'])){
     width: auto;
   }
 }
+@media (max-width:480px){
+    .soshurbari-animation-icon h3,
+    .payment-form h2{
+        font-size: 20px;
+    }
+  }
     </style>
 
 <script>
@@ -359,8 +365,6 @@ if(isset($_SESSION['id'])){
 
 
 <div class="payment-form" style="display: none;">
-
-
         <div class="soshurbari-animation-icon">
             <div class="sb-icon-laptop">
               <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>

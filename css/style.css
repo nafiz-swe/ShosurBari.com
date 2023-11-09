@@ -6186,7 +6186,7 @@ font-size: 14px;
     }
 
     .payment-form {
-        width: 350px;
+        width: 380px;
     }
 
     #biodataForm fieldset {
@@ -6442,8 +6442,8 @@ font-size: 14px;
     .contact-bio,
     .copy-sbbio-link {
         font-size: 14px;
-        margin-left: 20px;
-        margin-right: 20px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .left-side {
@@ -6665,8 +6665,13 @@ font-size: 14px;
         margin-right: 25px;
     }
 
-    .sb-register-login, .payment-form{
+    .sb-register-login{
         width: 300px;
+    }
+
+    .payment-form{
+        width: 360px;
+        padding: 15px;
     }
 
     .navigationpro ul {
@@ -7059,7 +7064,7 @@ font-size: 14px;
     }
 
     .payment-form {
-        width: 270px;
+        width: 310px;
     }
     
     .wrap_1 {
@@ -7268,7 +7273,7 @@ font-size: 14px;
         margin-right: 10px;
     }
 
-    .sb-register-login, .payment-form {
+    .sb-register-login {
         width: 270px;
     }
 
@@ -7307,8 +7312,8 @@ font-size: 14px;
     .contact-bio,
     .copy-sbbio-link {
         font-size: 13px;
-        margin-left: 7px;
-        margin-right: 7px;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 
     .choice-list-options {
@@ -7416,6 +7421,10 @@ font-size: 14px;
 --      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width:320px){
+
+    .payment-amount{
+        height: 75px;
+    }
 
     .popup-message,
     .popup {

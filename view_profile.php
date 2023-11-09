@@ -1073,7 +1073,7 @@ textarea:focus {
 					<div class="profile-btn">
 
 						<div class="contact-bio">
-							<a href="contactbiodata.php?profileid=<?php echo $profileid; ?>" target="_blank">
+							<a href="contactbiodata.php?profileid=<?php echo $profileid; ?>">
 								<button class="chatbtn" id="chatBtn"><i class="fa fa-phone"></i> যোগাযোগ</button>
 							</a>
 						</div>
@@ -2757,12 +2757,10 @@ textarea:focus {
 										</div>
 									
 										<div class="contact-bio">
-											<a href="contactbiodata.php?profileid=<?php echo $profileid; ?>" target="_blank">
+											<a href="contactbiodata.php?profileid=<?php echo $profileid; ?>">
 												<button class="chatbtn" id="chatBtn"><i class="fa fa-phone"></i>যোগাযোগ</button>
 											</a>
 										</div></br>
-
-										<div id="copy-message">Link Successfully Copied!</div>
 									</div>
 								</div>
 							<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --

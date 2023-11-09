@@ -44,41 +44,53 @@ if (isset($_SESSION['id'])) {
     $user_id = 0; // Default value for non-logged-in users
 }
 
+
+
+
 if (isset($_POST['add_to_choice_list'])) {
     $profileid = $_POST['add_to_choice_list'];
 
+    // Check if the user has reached the limit of 10 rows
+    $check_sql = "SELECT COUNT(*) AS count FROM choice_list WHERE user_id = :user_id";
+    $check_stmt = $pdo->prepare($check_sql);
+    $check_stmt->execute([':user_id' => $user_id]);
+    $row = $check_stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($row['count'] < 10) {
         // Use an INSERT ... ON DUPLICATE KEY UPDATE statement to insert or update the row
         $sql = "INSERT INTO choice_list (user_id, profile_id, added_timestamp) 
         VALUES (:user_id, :profile_id, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))
         ON DUPLICATE KEY UPDATE added_timestamp = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')";
-$stmt = $pdo->prepare($sql);
+        $stmt = $pdo->prepare($sql);
 
-// Bind values to placeholders and execute the statement
-$stmt->execute([
-    ':user_id' => $user_id,
-    ':profile_id' => $profileid,
-]);
+        // Bind values to placeholders and execute the statement
+        $stmt->execute([
+            ':user_id' => $user_id,
+            ':profile_id' => $profileid,
+        ]);
 
+        $found = false;
+        foreach ($choiceList as $key => $item) {
+            if (strpos($item, $profileid) === 0) {
+                $found = true;
+                $dateTime = new DateTime('now', new DateTimeZone('Asia/Dhaka'));
+                $formattedDateTime = $dateTime->format('l h:i A, d F Y');
+                $choiceList[$key] = "$profileid, $formattedDateTime";
+                break;
+            }
+        }
 
-    $found = false;
-    foreach ($choiceList as $key => $item) {
-        if (strpos($item, $profileid) === 0) {
-            $found = true;
+        if (!$found) {
             $dateTime = new DateTime('now', new DateTimeZone('Asia/Dhaka'));
             $formattedDateTime = $dateTime->format('l h:i A, d F Y');
-            $choiceList[$key] = "$profileid, $formattedDateTime";
-            break;
+            $choiceList[] = "$profileid, $formattedDateTime";
         }
-    }
 
-    if (!$found) {
-        $dateTime = new DateTime('now', new DateTimeZone('Asia/Dhaka'));
-        $formattedDateTime = $dateTime->format('l h:i A, d F Y');
-        $choiceList[] = "$profileid, $formattedDateTime";
+        $_SESSION['choice_list'] = $choiceList;
     }
-
-    $_SESSION['choice_list'] = $choiceList;
 }
+
+
 
 
 
@@ -101,7 +113,7 @@ if (isset($_POST['remove_from_choice_list'])) {
 }
 
 
-$count = count($choiceList);
+$rowCount = count($choiceList);
 
 $idList = implode(', ', array_map(function($item) {
     return explode(', ', $item)[0];
@@ -207,7 +219,7 @@ th {
     background: none;
   }
   
-.sb-register-login h2{
+.payment-form h2{
     color: #000;
     font-size: 23px;
     font-weight: bold;
@@ -269,7 +281,7 @@ th {
 
 @media (max-width:480px){
     .soshurbari-animation-icon h3,
-    .sb-register-login h2{
+    .payment-form h2{
         font-size: 20px;
     }
 
@@ -280,10 +292,6 @@ th {
 th, td {
     padding: 8px 4px;
 }
-
-.sb-register-login, .payment-form{
-    width: 350px;
-}
 }
 
 @media (max-width: 384px) {
@@ -291,10 +299,20 @@ th, td {
     padding: 5px;
 }
 
+th {
+    font-size: 14px;
+}
+
+.choice-list-date,
+.remove-button,
+.choice-list-id a span {
+    font-size: 12px;
+}
+
 .contact-bio,
 .copy-sbbio-link {
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
     font-size: 13px;
 }
 }
@@ -307,7 +325,7 @@ th, td {
 <div class="shosurbari-biodata-form">
     <div class="shosurbari-animation-form">
 		<div class="flex-container">
-            <div class="sb-register-login">
+            <div class="payment-form">
                 <div class="soshurbari-animation-icon">
                     <div class="sb-icon-laptop">
                     <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
@@ -320,7 +338,7 @@ th, td {
 
 
 
-                <?php
+<?php
 echo "<table>
     <tr>
         <th> বায়োডাটা</th>
@@ -328,19 +346,21 @@ echo "<table>
         <th> বাদ দিন </th>
     </tr>";
 
-foreach ($choiceList as $item) {
-    // Split the item into profile ID and date
-    list($profileid, $formattedDateTime) = explode(', ', $item);
-    list($day, $time,) = explode(' ', $formattedDateTime, 2); // Split date and time
+    $rowCount = 0; // Initialize row count variable
 
-    // Format the date and time as "l h:i A" and "d F Y"
-    $formattedTime = date('l h:i A', strtotime($formattedDateTime));
-    $formattedDate = date('d F Y', strtotime($formattedDateTime));
-
-    // Create a profile link using the user ID
-    $profileLink = "<a href='view_profile.php?id=$profileid'>$profileid <span>View</span></a>";
-
-    echo "<tr>
+    foreach ($choiceList as $item) {
+        // Split the item into profile ID and date
+        list($profileid, $formattedDateTime) = explode(', ', $item);
+        list($day, $time,) = explode(' ', $formattedDateTime, 2); // Split date and time
+    
+        // Format the date and time as "l h:i A" and "d F Y"
+        $formattedTime = date('l h:i A', strtotime($formattedDateTime));
+        $formattedDate = date('d F Y', strtotime($formattedDateTime));
+    
+        // Create a profile link using the user ID
+        $profileLink = "<a href='view_profile.php?id=$profileid' target='_blank'>$profileid <span>View</span></a>";
+    
+        echo "<tr>
         <td class=\"choice-list-id\"> $profileLink</td>
         <td class=\"choice-list-date\"> $formattedTime <br> $formattedDate </td>
         <form method='POST' action='choice_list.php'>
@@ -348,24 +368,34 @@ foreach ($choiceList as $item) {
             <td>  <button class='remove-button' type='submit'>Remove</button> </td>
         </form>
     </tr>";
-}
-
-echo "</table> </br>";
-
-if (empty($choiceList)) {
-    echo '<p style="color: #ff0000;">আপনি এখনো কোনো বায়োডাটা পছন্দের তালিকায় যোগ করেন নাই।</p>';
-}
+    
+        $rowCount++; // Increment row count variable
+    
+        if ($rowCount >= 10) {
+            // If 10 IDs are added, display a message and break the loop
+            echo '<p style="color: #ff0000; margin-bottom: 20px;">পছন্দের তালিকায় ১০টির বেশি বায়োডাটা রাখতে পারবেন না।</p>';
+            break;
+        }
+    }
+    
+    echo "</table> </br>";
+    
+    if (empty($choiceList)) {
+        echo '<p style="color: #ff0000;">আপনি এখনো কোনো বায়োডাটা পছন্দের তালিকায় যোগ করেন নাই।</p>';
+    }
+    
 ?>
 
 
+<!-- User 10ta id besi id add korte parbe na, seat korte hobe limit. -->
 
 
-                <?php if ($count > 0): ?>
-                    <p style="text-align: center;">পছন্দ করেছেন <?php echo englishToBanglaNumber($count); ?> টি বায়োডাটা, মোট <?php echo englishToBanglaNumber(calculateTotalAmount($count)); ?> টাকা</p>
+                <?php if ($rowCount > 0): ?>
+                    <p style="text-align: left;">পছন্দ করেছেন <?php echo englishToBanglaNumber($rowCount); ?> টি বায়োডাটা, মোট <?php echo englishToBanglaNumber(calculateTotalAmount($rowCount)); ?> টাকা</p>
                 <?php endif; ?>
 
                 <?php
-                    function calculateTotalAmount($count) {
+                    function calculateTotalAmount($rowCount) {
                         $fees = [
                             '1' => 145,
                             '2' => 280,
@@ -379,8 +409,8 @@ if (empty($choiceList)) {
                             '10' => 980,
                         ];
 
-                        if ($count >= 1 && $count <= 10) {
-                            return $fees[$count];
+                        if ($rowCount >= 1 && $rowCount <= 10) {
+                            return $fees[$rowCount];
                         } else {
                             return 0;
                         }
@@ -398,7 +428,7 @@ if (empty($choiceList)) {
                     }
 
                     // Get the number of IDs and set a browser cookie
-                    var numIds = <?php echo $count; ?>;
+                    var numIds = <?php echo $rowCount; ?>;
                     setCookie("choice_list_ids", numIds, 30); // Change 30 to the number of days you want the cookie to persist
                 </script>
 
@@ -456,7 +486,7 @@ if (empty($choiceList)) {
             </div>
 
 		    <div class="flex-container">
-                <div class="sb-register-login">
+                <div class="payment-form">
 
                     <div class="soshurbari-animation-icon">
                         <div class="sb-icon-laptop">
@@ -507,7 +537,7 @@ if (empty($choiceList)) {
                 </div>
 
 
-                <div class="sb-register-login">
+                <div class="payment-form">
 
                     <div class="soshurbari-animation-icon">
                         <div class="sb-icon-laptop">
