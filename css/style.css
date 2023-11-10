@@ -444,7 +444,8 @@ input#submit-btn {
 
 .navbar-inner_1 {
     padding: 0px 0px;
-    background: linear-gradient(#06b6d4, #0ea5e9);
+    background: #0aa4ca;
+    /* background: linear-gradient(#06b6d4, #0ea5e9); */
     border: none;
     font-size: 0.85em;
     box-shadow: none; /* Initially set box shadow to none */
@@ -804,7 +805,7 @@ ul.nav_1{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    background: linear-gradient(#06b6d4, #0ea5e9);
+    background: #06b6d4;
     padding: 1em 0;
     margin-top: 100px;
 }
@@ -964,7 +965,7 @@ i.fa1:hover {
     right: 20px;
     cursor: pointer;
     padding: 7px 14px;
-    background:  linear-gradient(#06b6d4, #0ea5e9);
+    background: linear-gradient(#0aa4ca, #0acef1);
     color: #fff;
     border-radius: 2px;
     transition: transform 0.3s;
@@ -973,7 +974,7 @@ i.fa1:hover {
 #scroll-up-btn:hover {
     padding: 7px 14px;
     border-radius: 3px;
-    background: linear-gradient(#0aa4ca, #0acef1);
+    background: #22d3ee;
     color: #fff;
     transform: scale(1.1);
 }
@@ -1015,7 +1016,7 @@ section {
     margin-left: auto;
     margin-right: auto;
     width: auto;
-    margin-top: 10px;
+    margin-top: -60px;
     height: 95vh;
     position: relative; /* Add relative positioning */
     background-image: url(../images/shosurbari-home.png); /* Background image */
@@ -1031,8 +1032,8 @@ section::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #00bbff61; 
-    z-index: 1; 
+    z-index: 1;
+    background: linear-gradient(180deg, #00bbff61 0%,rgba(238,246,253,0) 100%); 
 }
 /*Banner Message/Info End*/
 
@@ -1086,14 +1087,17 @@ section::before {
 /*Body Section Start*/
 /*Home Search Option Start*/
 .sb-home-reg2 button {
-    background: linear-gradient(#06b6d4, #0ea5e9);
+    /* background: linear-gradient(#06b6d4, #0ea5e9); */
+    background: none;
     padding: 10px;
-    border: 1px solid #f0f0f0;
+    border: 1px solid  #fff;
     border-radius: 4px;
     color: #fff;
-    font-size: 20px;
-    width: 222px;
+    font-size: 18px;
+    width: 185px;
     transition: transform 0.3s;
+    margin-left: 10px;
+    margin-bottom: 10px;
 }
 
 
@@ -1103,13 +1107,54 @@ section::before {
     transform: scale(1.1);
 }
 
-.sb-home-reg2 {
-    position: absolute;
-    top: 450px;
-    left: 0px;
+.shosurbari-home-banner{
+    height: 225px;
+    width: 670px;
+    left: -15px;
+    top: 230px;
     z-index: 1;
     padding: 20px;
-    /* background-color: rgba(255, 255, 255, 0.8); Add a background color for better visibility */
+    /* border: 1px solid #fff; */
+    background: #00bbff61;
+    margin: auto;
+    position: relative;
+    /* background: #0aa4ca66; */
+}
+
+.sb-home-reg2 {
+    position: absolute;
+    top: 35px;
+    left: 30px;
+    z-index: 1;
+    padding: 20px;
+    background: linear-gradient(180deg, #00bbff61 0%,rgba(238,246,253,0) 100%);
+    backdrop-filter: blur(4px);
+    width: auto;
+    margin: auto;
+    border: 1px solid #fff;
+}
+
+.sb-home-reg2 h1{
+    /* color: #e5007df0; */
+    color: white;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: justify;
+    line-height: 50px;
+    font-size: 35px;
+    font-weight: 500;
+    margin: auto;
+    width: auto;
+}
+
+.sb-home-reg2 p{
+    margin-bottom: 20px;
+    color: white;
+    margin: auto;
+    width: auto;
+    backdrop-filter: blur(3px);
+    padding: 10px;
+    text-align: justify;
 }
 
 @keyframes textAnimation {
@@ -1199,8 +1244,8 @@ section::before {
 /*Home Featured Profiles Start*/
 .sb-featured-profiles {
     width: 100%;
-    margin: 150px auto 0px auto;
-    padding-bottom: 35px;
+    margin: 110px auto 0px auto;
+    padding-bottom: 30px;
     padding-top: 50px;
 }
 
@@ -1933,7 +1978,7 @@ button.copylink i {
 }
 
 .sbbio_header_recent_view{
-    background: linear-gradient(#06b6d4, #0ea5e9);
+    background: #0aa4ca;
     margin: 0px;
     padding-top: 5px;
     border-bottom: 1px solid #ccc;
@@ -2095,7 +2140,7 @@ td.day_value {
 }
 
 .shosurbari-details h1 {
-    margin-top: 0px;
+    margin-top: 50px;
     margin-bottom: 0px;
     margin-left: auto;
     margin-right: auto;
@@ -2109,7 +2154,7 @@ td.day_value {
     margin-left: auto;
     margin-right: auto;
     text-align: left;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .shosurbari-details p {
@@ -2228,7 +2273,6 @@ td.day_value {
     left: auto;
     right: 0;
     background: #ecfeff;
-    border: 1px solid #cffafe;
     z-index: 10;
     transition: all 0.3s ease 0s;
 }
@@ -2533,7 +2577,7 @@ small.testi-meta1{
 }
 
 .shosurbari-security h1 {
-    margin-top: 0px;
+    margin-top: 50px;
     margin-bottom: 0px;
     margin-left: auto;
     margin-right: auto;
@@ -2698,7 +2742,6 @@ ol li{
     background: white;
     box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
     border: 1px solid rgba(0,0,0,.05);
-    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
 /* Password Show Eye Icon Start */
@@ -3232,14 +3275,14 @@ input[type=submit] {
 }
 
 .page_header{
-	text-align:center;
+	text-align:left;
 	margin-bottom: 2em;
 }
+
 .page_header h1{
 	font-family: 'Oswald', sans-serif;
     color: #000;
-    margin-bottom:1em;
-    font-weight: 500;
+    font-weight: bold;
 }
 
 .page_header p{
@@ -3309,7 +3352,6 @@ i.icon_4{
 .shosurbari-biodata{
     display: flex;
     flex-wrap: wrap;
-    /* background: linear-gradient(180deg,#F3F9F9 0%,rgba(238,246,253,0) 100%); */
     padding-bottom: 30px;
 }
 
@@ -3938,8 +3980,9 @@ label{
 }
 
 .search-title h4{
-    font-size: 17px;
-    font-weight: 600;
+    font-size: 20px;
+    color: #06b6d4;
+    font-weight: bold;
     text-align: center;
     line-height: 27px;
     margin: auto;
@@ -4223,14 +4266,6 @@ font-size: 14px;
         text-align: left;
         font-weight: 500;
     }
-    
-    .sb-home-reg2 {
-        position: absolute;
-        top: 350px;
-        left: 0px;
-        z-index: 1;
-        padding: 20px;
-    }
 
     h1, h2, h3, h4, h5, h6 {
         font-size: 45px;
@@ -4356,7 +4391,7 @@ font-size: 14px;
     }
 
     .banner {
-        width: 1170px;
+        width: 700px;
     }
 }
 
@@ -4368,7 +4403,7 @@ font-size: 14px;
     }
 
     .banner {
-        width: 970px;
+        width: 700px;
     }
 }
 
@@ -4441,11 +4476,6 @@ font-size: 14px;
 --      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width:1024px){
-
-    
-    .banner{
-        width: 970px;
-    }
     
     .nbs-flexisel-item {
         float: left;
@@ -4667,10 +4697,6 @@ font-size: 14px;
 
 
 @media (max-width: 992px){
-    
-    .banner {
-        width: 750px;
-    }
 
     .navigationpro {
         display: block;
@@ -4733,10 +4759,6 @@ font-size: 14px;
 
     .slide h5 {
         top: 200px;
-    }
-
-    .sb-home-reg2 {
-        top: 260px;
     }
 
     .nbs-flexisel-item {
@@ -5099,15 +5121,29 @@ font-size: 14px;
     }
 
     .sb-home-reg2{
-        top: 250px;
+        top: 0px;
+        left: 65px;
+        right: 36px;
         padding: 10px;
     }
 
+    .shosurbari-home-banner {
+        height: 190px;
+        width: 490px;
+        left: -12px;
+        top: 166px;
+    }
+
+    .sb-home-reg2 h1 {
+        line-height: 45px;
+        font-size: 28px;
+    }
+
     .sb-home-reg2 button {
-        background: linear-gradient(#06b6d4, #0ea5e9);
-        padding: 10px;
-        font-size: 18px;
-        width: 200px;
+        padding: 8px 5px;
+        font-size: 16px;
+        width: 165px;
+        margin-bottom: 15px;
     }
 
     .slide p {
@@ -5142,7 +5178,7 @@ font-size: 14px;
     }
 
     section{
-        margin-top: 22px;
+        margin-top: -20px;
     }
 
     #banner_text{
@@ -5190,7 +5226,8 @@ font-size: 14px;
         margin: -50px auto;
     }
 
-    .sb-featured-profiles {
+    .sb-featured-profiles,
+    .sb-home-search {
         margin: 90px auto 0px auto;
     }
 
@@ -5615,7 +5652,7 @@ font-size: 14px;
     }
 
     section{
-        margin-top: 68px;
+        margin-top: 10px;
     }
 
     .nbs-flexisel-item {
@@ -5992,6 +6029,55 @@ font-size: 14px;
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width: 600px){
 
+.shosurbari-details h2,
+.shosurbari-details h3,
+.shosurbari-details h4,
+
+.shosurbari-security h2,
+.shosurbari-security h3,
+.shosurbari-security h4,
+.shosurbari-security h5{
+    font-size: 22px;
+    line-height: 30px;
+}
+
+.sb-home-reg2 button {
+    padding: 8px 5px;
+    font-size: 16px;
+    width: 155px;
+    margin-bottom: 10px;
+    margin-top: 7px;
+    line-height: 27px;
+    height: 40px;
+}
+
+.sb-home-reg2 h1 {
+    line-height: 33px;
+    font-size: 22px;
+    padding: 5px
+}
+
+.sb-home-reg2{
+    top: 0px;
+    left: 84px;
+    right: 63px;
+    padding: 10px;
+    width: 380px;
+}
+
+.shosurbari-home-banner {
+    height: 157px;
+    width: 381px;
+    left: -7px;
+    top: 140px;
+}
+
+.sb-home-search,
+.sb-featured-profiles{
+    margin: 50px auto 0px auto;
+}
+
+
     .banner{
         width: auto;
     }
@@ -6001,10 +6087,6 @@ font-size: 14px;
         top: 30px;
         line-height: 50px;
         width: 450px;
-    }
-
-    .sb-home-reg2 {
-        top: 250px;
     }
 
     .slide h5 {
@@ -6221,10 +6303,6 @@ font-size: 14px;
         top: 110px;
     }
 
-    .sb-home-reg2 {
-        top: 200px;
-    }
-
     .slide{
         height: 260px;
     }
@@ -6279,7 +6357,13 @@ font-size: 14px;
         margin-left: auto;
         margin-right: auto;
     }
-
+    
+    .sb-home-reg2{
+        top: -45px;
+        left: 32px;
+        right: 13px;
+    }
+    
     .sb-home-reg{
         left: 20px;
         bottom: 10px;
@@ -6306,6 +6390,42 @@ font-size: 14px;
 --      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width:480px){
+
+    .shosurbari-details h2,
+    .shosurbari-details h3,
+    .shosurbari-details h4,
+
+    .shosurbari-security h2,
+    .shosurbari-security h3,
+    .shosurbari-security h4,
+    .shosurbari-security h5{
+        font-size: 20px;
+    }
+
+    .sb-home-reg2 h1 {
+        padding: 5px;
+    }
+
+    .sb-home-reg2 button {
+        padding: 7px;
+        font-size: 17px;
+        width: 180px;
+    }
+
+    .sb-home-reg2{
+        top: -10px;
+        left: 22px;
+        right: 5px;
+        padding: 8px;
+        width: 376px;
+    }
+
+    .shosurbari-home-banner {
+        height: 153px;
+        width: 378px;
+        left: -8px;
+        top: 137px;
+    }
 
     .choice-list-id, .choice-list-id a{
         font-size: 16px;
@@ -6350,12 +6470,6 @@ font-size: 14px;
         padding: 10px;
     }
 
-    .sb-home-reg2 button {
-        padding: 7px;
-        font-size: 17px;
-        width: 180px;
-    }
-
     .slide p {
         font-size: 23px;
         width: 346px;
@@ -6363,7 +6477,7 @@ font-size: 14px;
     }
 
     h1, h2, h3, h4, h5, h6 {
-        font-size: 25px;
+        font-size: 28px;
     }
 
     .update-image .camera-wrapper i {
@@ -6377,7 +6491,8 @@ font-size: 14px;
         font-size: 13px;
     }
 
-    .shosurbari-details p {
+    .shosurbari-details p,
+    .shosurbari-security p {
         font-size: 15px;
     }
 
@@ -6994,10 +7109,6 @@ font-size: 14px;
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width:384px){
 
-    .sb-home-reg2{
-        top: 165px;
-    }
-
     .slide h1 {
         font-size: clamp(1.66em, 5vmax, 3px);
         top: 6px;
@@ -7021,10 +7132,6 @@ font-size: 14px;
         padding: 6px;
         margin-top: 115px;
         margin-left: 100px;
-    }
-
-    .shosurbari-details p {
-        font-size: 14px;
     }
 
     .btn_1 {
@@ -7122,7 +7229,7 @@ font-size: 14px;
     }
 
     .bg_left p, .col_2 p, .about_right p, .desc p,  .headings p, .column_grid p, .members_box2 p, .page_header p, .item_content p, .suceess_story-content-info p{
-        font-size:12px;
+        font-size:14px;
     }
 
     .profile_left2 {
@@ -7332,7 +7439,7 @@ font-size: 14px;
     }
 
     h1, h2, h3, h4, h5, h6 {
-        font-size: 23px;
+        font-size: 25px;
     }
 
     .message-footer p {
@@ -7447,9 +7554,6 @@ font-size: 14px;
         padding: 2px;
     }
 
-    h1, h2, h3, h4, h5, h6 {
-        font-size: 22px;
-    }
 
     .message-footer p {
         font-size: 14px;

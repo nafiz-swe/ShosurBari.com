@@ -364,6 +364,16 @@ if(isset($_SESSION['id'])){
   </script>
 
 
+<script>
+const nextBtn = document.querySelector('.next-btn');
+const paymentForm = document.querySelector('.payment-form');
+
+nextBtn.addEventListener('click', () => {
+  paymentForm.style.display = 'block';
+});
+</script>
+
+
 <div class="payment-form" style="display: none;">
         <div class="soshurbari-animation-icon">
             <div class="sb-icon-laptop">
@@ -1108,14 +1118,6 @@ $('form[name="myForm"]').submit(function(e) {
 </script>
 
 
-<script>
-const nextBtn = document.querySelector('.next-btn');
-const paymentForm = document.querySelector('.payment-form');
-
-nextBtn.addEventListener('click', () => {
-  paymentForm.style.display = 'block';
-});
-</script>
 
 
 <style>

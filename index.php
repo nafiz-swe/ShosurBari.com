@@ -42,11 +42,14 @@
  
 
   <section>
+  <div class="shosurbari-home-banner">      </div>
 
     <div class="banner" style="--duration: 12s" id="slider-banner">
-    
       <div class="banner-content" id="banner-content" target="_blank">
         <div class="sb-home-reg2">
+        <h1>স্বপ্নময় জীবনসঙ্গী খুঁজে পেতে, আমরা আপনাকে সাহায্য করার জন্য নিবেদিত।</h1>
+        <!-- <p>We are dedicated to helping you find your perfect life partner through our advanced matchmaking platform. Trusted online matrimonial service provider for Bengali community of all professions worldwide.</p> -->
+
           <?php
             if (!isloggedin()) {
               echo '<a href="register.php" class="sb-create-account"><button> বায়োডাটা পোস্ট করুন</button></a>';
@@ -56,7 +59,7 @@
           ?>
         </div>
       </div>
-
+      
       <div class="slide-indicators" id="slide-indicators" target="_blank"></div>
       
     </div>
@@ -77,7 +80,7 @@
   <!-- <h3 id="banner_text"></h3> -->
 
 
-  <div class="sb-home-search">
+  <!-- <div class="sb-home-search">
     <h1><span class="shosurbari-heading-span">জীবনসঙ্গী </span>খুঁজুন</h1>
     <div class="sbhome-heart-divider">
       <span class="grey-line"></span>
@@ -85,10 +88,11 @@
         <i class="fa fa-heart grey-heart"></i>
       <span class="grey-line"></span>
     </div>
-  </div>
+  </div> -->
 
 
 	<div class="droop-down">
+    <h2> স্বপ্নময় জীবনসঙ্গী খুঁজুন দ্রুততম সময়ে</h2>
     <form action="search.php" method="post">
 
       <div class="shosurbari-home-search">
@@ -569,7 +573,7 @@
 
       <div class="shosurbari-home-search">
         <!--Biodata District Option -->
-        <label class="form-control toggle-next ellipsis">স্থায়ী জেলা<span style=" color:#06b6d4;">   <i class="fa fa-chevron-down"></i></span></label>
+        <label class="form-control toggle-next ellipsis">স্থায়ী ঠিকানা<span style=" color:#06b6d4;">   <i class="fa fa-chevron-down"></i></span></label>
         <div class="checkboxes" id="Lorems">
           <div class="inner-wrap">             
 
@@ -1168,20 +1172,29 @@ toggleLabels.forEach(label => {
 .droop-down {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Center the content horizontally */
+  justify-content: center;
   padding: 10px 0px;
   height: 150px;
   width: 1090px;
   margin: auto;
-  margin-top: 25px;
-  border-radius: 10px;
-  background: linear-gradient(180deg, #00bbff61 0%,rgba(238,246,253,0) 100%);
-  box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
-  /* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; */
+  margin-top: -54px;
+  border-radius: 0px;
+  background: #fff;
+  /* box-shadow: 0 0 8px rgba(0,0,0,.1); */
+  box-shadow: 0 10px 15px 0 rgb(0 0 0 / 16%);
+  position: relative;
+}
+
+.droop-down h2{
+  font-size: 20px;
+  text-align: center;
+  color: #06b6d4;
+  font-weight: bold;
+  margin: 10px auto 0 auto;
 }
 
 .inner-wrap {
-    max-height: 177px;
+  height: 177px;
 }
 
 /* Style for each search option section */
@@ -1202,13 +1215,13 @@ toggleLabels.forEach(label => {
 
 /* Style for the select elements */
 .shosurbari-home-search select {
-  width: 200px; /* Set the desired width of the select elements */
-  margin-top: 5px; /* Add some space between the label and the select element */
+  width: 200px;
+  margin-top: 5px;
 }
 
 /* Style for the submit button */
 .shosurbari-home-search input[type="submit"] {
-  margin: 2px auto; /* Add some space between the last search option and the submit button */
+  margin: 2px auto;
 }
 
 .sort-by select {
@@ -1250,19 +1263,8 @@ form {
     margin-left: 31px;
     margin-right: -20px;
 }
-
-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #00bbff61; 
-    z-index: 1; 
-}
 </style>
-<script>
+<!-- <script>
 const intervalText = document.getElementById("interval-text");
 const intervalRange = document.getElementById("interval");
 const bannerContent = document.getElementById("banner-content");
@@ -1340,7 +1342,7 @@ function createSlides(data) {
 
   startSlideshow();
 }
-</script>
+</script> -->
 
   <!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
   -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
@@ -1373,7 +1375,7 @@ function createSlides(data) {
   </div> 
 
 
-  <script>
+  <!-- <script>
     // START CLOCK SCRIPT
     Number.prototype.pad = function(n) {
       for (var r = this.toString(); r.length < n; r = '0' + r);
@@ -1407,7 +1409,7 @@ function createSlides(data) {
       setInterval(updateClock, 1000);
     }
     // END CLOCK SCRIPT
-  </script>
+  </script> -->
   <!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
   -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
   --                     E   N   D                 --
@@ -1422,15 +1424,25 @@ function createSlides(data) {
     display: block;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 40px 50px;
     height: auto;
-    width: 340px;
+    padding: 40px 42px;
+    width: 550px;
+    margin-top: -100px;
+
 
 }
 
-.shosurbari-home-search{
-  margin: 10px auto;
-  width: 240px;
+.droop-down h2 {
+    font-size: 20px;
+    color: #06b6d4;
+    font-weight: bold;
+    margin: 0px auto 20px auto;
+    line-height: 27px;
+}
+
+.shosurbari-home-search {
+  margin: 5px 10px;
+  width: 210px;
 }
 
 .form-control{
@@ -1456,6 +1468,18 @@ function createSlides(data) {
 }
 }
 
+@media screen and (max-width: 600px) {
+.shosurbari-home-search{
+  margin: 5px auto;
+  width: 240px;
+}
+
+.droop-down {
+  padding: 40px 50px;
+  width: 340px;
+  margin-top: -100px;
+}
+}
 
 @media screen and (max-width: 384px) {
   .shosurbari-home-search {
@@ -1867,13 +1891,13 @@ th, td {
 }
 
 @media (max-width:480px){
-    .soshurbari-animation-icon h3,
-    .sb-register-login h2{
-        font-size: 20px;
-    }
+  .soshurbari-animation-icon h3,
+  .sb-register-login h2{
+    font-size: 20px;
+  }
 
-.shosurbari-biodata-form {
-  margin-top: 70px;
+  .droop-down{
+    margin-top: -50px;
 }
 }
 

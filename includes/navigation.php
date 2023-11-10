@@ -70,7 +70,7 @@
 	<div class="navbar-inner navbar-inner_1">
 		<div class="container">
 
-			<a class="brand" href="index.php"><img style="width: 175px" src="images/shosurbari-logo.png" alt="logo"></a>
+			<a class="brand" href="index.php"><img style="width: 175px; margin-top: 6px;" src="images/shosurbari-logo.png" alt="logo"></a>
 			<div class="pull-right">
 				<nav class="navbar nav_bottom" role="navigation">
 
