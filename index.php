@@ -1174,7 +1174,7 @@ toggleLabels.forEach(label => {
   flex-wrap: wrap;
   justify-content: center;
   padding: 10px 0px;
-  height: 150px;
+  height: 160px;
   width: 1090px;
   margin: auto;
   margin-top: -54px;
@@ -1186,10 +1186,10 @@ toggleLabels.forEach(label => {
 }
 
 .droop-down h2{
-  font-size: 20px;
+  font-size: 25px;
   text-align: center;
   color: #06b6d4;
-  font-weight: bold;
+  font-weight: 500;
   margin: 10px auto 0 auto;
 }
 
@@ -1202,7 +1202,7 @@ toggleLabels.forEach(label => {
   display:  inline-flex;
   flex-direction: column;
   width: 160px;
-  margin: 20px 2px 20px 2px;
+  margin: 10px 2px 20px 2px;
   padding: 6px;
     background-color: #f1f1f1;
     box-shadow: 1px 1px 4px #888;
@@ -1433,11 +1433,10 @@ function createSlides(data) {
 }
 
 .droop-down h2 {
-    font-size: 20px;
-    color: #06b6d4;
-    font-weight: bold;
-    margin: 0px auto 20px auto;
-    line-height: 27px;
+  font-size: 25px;
+  font-weight: 500;
+  margin: 0px auto 20px auto;
+  line-height: 32px;
 }
 
 .shosurbari-home-search {
@@ -1454,21 +1453,33 @@ function createSlides(data) {
 }
 
 .gender-radio-select .gender-option {
-    margin-left: 30px;
-    margin-right: -60px;
-    width: 142%;
+  margin-left: 25px;
+  margin-right: 5px;
+  width: 40%;
 }
 
 .gender-radio-select {
-    padding: 0;
+  padding: 0;
 }
 
 .gender-radio-select .gender-option label {
-    padding: 2px 4px;
+  padding: 2px 4px;
 }
 }
 
+@media screen and (max-width: 768px) {
+  .droop-down h2 {
+    font-size: 23px;
+    line-height: 32px;
+  }
+}
+
 @media screen and (max-width: 600px) {
+  .droop-down h2 {
+    font-size: 22px;
+    line-height: 30px;
+}
+
 .shosurbari-home-search{
   margin: 5px auto;
   width: 240px;
@@ -1486,8 +1497,15 @@ function createSlides(data) {
     width: 210px;
 }
 .droop-down {
-    padding: 20px 25px;
-    width: 260px;
+  padding: 20px 25px;
+  width: 260px;
+}
+.droop-down h2 {
+    font-size: 20px;
+    line-height: 27px;
+}
+.ellipsis {
+  font-size: 16px;
 }
 }
 </style>
@@ -1627,7 +1645,7 @@ function createSlides(data) {
         $("#flexiselDemo3").flexisel({
           visibleItems: 4,
           animationSpeed: 700,
-          autoPlay:true,
+          autoPlay: false,
           autoPlaySpeed: 8000,    		
           pauseOnHover: true,
           enableResponsiveBreakpoints: true,
