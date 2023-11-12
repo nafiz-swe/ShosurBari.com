@@ -38,6 +38,17 @@ $result=search();
   <!-- ============================  Navigation End ============================ -->
 
 
+  <style>
+   #close-button {
+    margin-top: 2px;
+    margin-bottom: 10px;
+    color: red;
+    width: 40px;
+    border: 1px solid #ccc;
+    font-size: 22px;
+    background: none;
+}
+  </style>
 
   <!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
   -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
@@ -92,7 +103,7 @@ $result=search();
           <form action="" method="post">
 
             <div id="close-button">
-              Close
+              <i class="fa fa-close"></i>
             </div>
 
             <div class="search-title">
@@ -118,7 +129,7 @@ $result=search();
                 </div>
 
               </div>
-              <div id="gender-error-mob" class="error-message" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;">Please Select Biodata !</div>
+              <div id="gender-error-mob" class="error-message" style="padding-top: 4px; font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;">বায়োডাটা নির্বাচন করুন!</div>
             </div>
 
 

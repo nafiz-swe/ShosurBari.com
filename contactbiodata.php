@@ -242,8 +242,7 @@ if(isset($_SESSION['id'])){
 
         /* Style the checked state of the custom radio options */
         input[type="radio"]:checked + label {
-            background: #06b6d4;
-            color: #fff;
+          background: linear-gradient(#06b6d4, #0aa4ca);            color: #fff;
             border: 2px solid #06b6d4;
         }
 
@@ -255,12 +254,12 @@ if(isset($_SESSION['id'])){
             padding: 10px;
             border-radius: 2px;
             width: auto;
+            transition: transform 0.3s;
         }
 
         input[type="radio"] + label:hover {
-          background: #06b6d4;
-          color: #fff;
-          border: 2px solid #06b6d4;
+          background: linear-gradient(#0aa4ca, #06b6d4);          color: #fff;
+          border: 1px solid #ccc;
           transition: transform 0.3s;
           transform: scale(1.1);
         }
@@ -276,12 +275,6 @@ if(isset($_SESSION['id'])){
           padding: 10px 0px;
           text-align: center;
       }
-
-
-
-
-
-
 
 
   .sb-biodata-field{
@@ -1137,7 +1130,7 @@ $('form[name="myForm"]').submit(function(e) {
   border: 1px solid #ccc;
   padding: 6px;
   border-radius: 4px;
-  background: #06b6d4;
+  background: linear-gradient(#06b6d4, #0aa4ca);
   cursor: pointer;
   position: relative;
   transition: all .2s ease;
@@ -1149,7 +1142,7 @@ $('form[name="myForm"]').submit(function(e) {
 
 .form-actions button:hover{
   color: #fff;
-  background: #0aa4ca;
+  background: linear-gradient(#0aa4ca, #06b6d4);
 }
 
 .flex-container{

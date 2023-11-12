@@ -282,7 +282,7 @@
 @media(max-width:2150px){
 	.fixed {
 		position: fixed;
-		top: 64px;
+		top: 70px;
 		right: 5%;
 		width: 55.8%;
 		z-index: 100;
@@ -291,7 +291,7 @@
 		border-radius: 0px 0px 4px 4px;
 		display: flex;
 		justify-content: center;
-		background:linear-gradient(#06b6d4, #0ea5e9);
+		background:#0aa4ca;
 	}
 
 	a#profile-tab, a#home-tab, a#profile-tab1 {
@@ -305,11 +305,11 @@
 	.nav-tabs1>li{
 		margin-left: 7px;
 		margin-right: 7px;
-		border-top: 0px solid #06b6d4;
+		/* border-top: 0px solid #06b6d4;
 		border-right: 1px solid #06b6d4;
 		border-bottom: 0px solid #06b6d4;
 		border-left: 1px solid #06b6d4;
-		border-radius: 4px;
+		border-radius: 4px; */
 	}
 }
 
@@ -341,8 +341,10 @@
 	}
 
 	a#profile-tab, a#home-tab, a#profile-tab1 {
-		padding: 10px 10px;
+		padding: 10px;
 		font-size: 15px;
+		height: 35px;
+    	line-height: 20px;
 	}
 }
 
@@ -354,7 +356,6 @@
 
 	a#profile-tab, a#home-tab, a#profile-tab1 {
 		padding: 10px 5px;
-		font-size: 15px;
 	}
 }
 
@@ -367,21 +368,21 @@
 
 	a#profile-tab, a#home-tab, a#profile-tab1 {
 		width: 100%;
-		padding: 10px 10px;
-		margin: 5px auto;
+		padding: 10px;
 		font-size: 14px;
 	}
 }  
 
 @media (max-width: 736px){
 	.fixed {
-		top: 110px;
+		top: 116px;
 	}
 }
 
 @media (max-width: 600px){
 	a#profile-tab, a#home-tab, a#profile-tab1 {
 		padding: 8px 10px;
+		line-height: 21px;
 	}
 
 	.nav-tabs1>li{
@@ -393,7 +394,8 @@
 @media (max-width: 480px){
 	a#profile-tab, a#home-tab, a#profile-tab1 {
 		padding: 8px 5px;
-		font-size: 14px;
+		font-size: 13px;
+		height: 33px;
 	}
 
 	.nav-tabs1>li{
@@ -405,7 +407,9 @@
 @media (max-width: 384px){
 	a#profile-tab, a#home-tab, a#profile-tab1 {
 		padding: 7px 4px;
-		font-size: 13px;
+		font-size: 12px;
+		height: 30px;
+		line-height: 19px;
 	}
 
 	.nav-tabs1>li{
@@ -416,16 +420,18 @@
 
 @media (max-width: 350px){
 	a#profile-tab, a#home-tab, a#profile-tab1 {
-		padding: 7px 3px;
+		padding: 5px 1px;
 		font-size: 12px;
+		height: 27px;
+		line-height: 21px;
 	}
 }
 
 @media (max-width: 320px){
 	a#profile-tab, a#home-tab, a#profile-tab1 {
 		padding: 6px 2px;
-		font-size: 12px;
 	}
+
 	.nav-tabs1>li{
 		margin-left: 0px;
 		margin-right: 0px;

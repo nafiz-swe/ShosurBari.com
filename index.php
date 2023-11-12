@@ -1433,8 +1433,6 @@ function createSlides(data) {
 }
 
 .droop-down h2 {
-  font-size: 25px;
-  font-weight: 500;
   margin: 0px auto 20px auto;
   line-height: 32px;
 }
@@ -1500,10 +1498,12 @@ function createSlides(data) {
   padding: 20px 25px;
   width: 260px;
 }
+
 .droop-down h2 {
-    font-size: 20px;
-    line-height: 27px;
+  font-size: 20px;
+  line-height: 27px;
 }
+
 .ellipsis {
   font-size: 16px;
 }

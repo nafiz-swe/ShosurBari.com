@@ -118,11 +118,10 @@
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Biodata<span class="caret"></span></a>
 								<ul class="dropdown-menu" role="menu">
 									<li><a href="search.php">Search & Find Biodata</a></li>
-									<li><a href="choice_list.php">Choice List</a></li>
 									<li><a href="faq.php">FAQ's</a></li>
 								</ul>
 							</li>
-							<li><a href="about.php">About</a></li>
+							<li><a href="choice_list.php">Choice List</a></li>
 							<li class="last"><a href="contact.php">Contacts</a></li>
 							<li>
 								<?php
