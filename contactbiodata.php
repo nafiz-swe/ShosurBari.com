@@ -161,20 +161,33 @@ if(isset($_SESSION['id'])){
 <div class="form-group">
     <label>নাম<span class="form-required" title="This field is required.">*</span></label>
     <input type="text" id="cust_name" placeholder="আপনার পুরো নাম" name="cust_name" value="<?php echo $fullname; ?>" size="60" maxlength="60" class="form-text required">
-    <span id="name-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+    <span id="name-error" class="shosurbari-form-error"></span>
 </div>
+
+<style>
+.shosurbari-form-error{
+    font-size: 16px;
+    line-height: 30px;
+    margin-top: 0px;
+    background: rgb(255, 221, 238);
+    border-radius: 2px 2px 4px 4px;
+    text-align: center;
+    display: none;
+}
+</style>
 
 <div class="form-group">
     <label>ই-মেইল<span class="form-required" title="This field is required.">*</span></label>
     <input type="email" id="cust_email" placeholder="আপনার ই-মেইল" name="cust_email" value="<?php echo $email; ?>" size="60" maxlength="60" class="form-text">
-    <span id="email-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
-</div>
+    <span id="email-error" class="shosurbari-form-error"></span>
+
+  </div>
 
 <div class="form-group">
     <label>নাম্বার<span class="form-required" title="This field is required.">*</span></label>
     <input type="tel" id="pnumber" placeholder="আপনার ফোন নাম্বার" name="cust_number" value="<?php echo $pnumber; ?>" size="60" minlength="10" maxlength="15" class="form-text required">
-    <span id="phone-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
-</div>
+    <span id="phone-error" class="shosurbari-form-error"></span>
+  </div>
 
 
 
@@ -192,7 +205,7 @@ if(isset($_SESSION['id'])){
   <div class="form-group">
     <label>ঠিকানা<span class="form-required" title="This field is required.">*</span></label>
     <input type="text" id="permanent_address" name="cust_permanent_address" placeholder="আপনার স্থায়ী ঠিকানা" value="" size="100" maxlength="100" class="form-text required">
-    <span id="address-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+    <span id="address-error" class="shosurbari-form-error"></span>
   </div>
 
   <div class="form-group">
@@ -207,7 +220,7 @@ if(isset($_SESSION['id'])){
         }
       }?>
     </textarea>
-    <span id="biodata-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+    <span id="biodata-error" class="shosurbari-form-error"></span>
   </div>
 
 
@@ -242,8 +255,9 @@ if(isset($_SESSION['id'])){
 
         /* Style the checked state of the custom radio options */
         input[type="radio"]:checked + label {
-          background: linear-gradient(#06b6d4, #0aa4ca);            color: #fff;
-            border: 2px solid #06b6d4;
+          background: linear-gradient(#06b6d4, #0aa4ca);
+          color: #fff;
+          border: 2px solid #06b6d4;
         }
 
         /* Hide the radio input itself and style the label */
@@ -258,7 +272,8 @@ if(isset($_SESSION['id'])){
         }
 
         input[type="radio"] + label:hover {
-          background: linear-gradient(#0aa4ca, #06b6d4);          color: #fff;
+          background: linear-gradient(#0aa4ca, #06b6d4);
+          color: #fff;
           border: 1px solid #ccc;
           transition: transform 0.3s;
           transform: scale(1.1);
@@ -452,7 +467,7 @@ if (isset($_GET['profileid'])) {
     <input type="radio" name="payment_method" id="roket_radio" value="roket">
     <label class="custom-radio-option" for="roket_radio">রকেট</label>
 
-    <div id="payment-method-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></div>
+    <div id="payment-method-error" class="shosurbari-form-error"></div>
 </div>
 
 
@@ -461,12 +476,12 @@ if (isset($_GET['profileid'])) {
             <p style="color: #fff; text-align: justify;">আপনার মোবাইলের বিকাশ এপ্স অথবা *247# ডায়েল করে মোট টাকা "Send Money" করুন পার্সোনাল বিকাশ নাম্বারে: 01737-226404</p>
             <label style="color: #fff;" >আপনার বিকাশ নাম্বার</label>
             <input style="background: #fff;" type="text" id="bkash_number" name="bkash_number" placeholder="01XX-XXX XXX" class="form-text" />
-            <span id="bkashnumber-error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+            <span id="bkashnumber-error" class="shosurbari-form-error"></span>
         </div>
         <div class="form-group">
             <label style="color: #fff;" >ট্রানজেকশন আইডি (TrxID)</label>
             <input style="background: #fff;" type="text" id="bkash_trxid" name="bkash_transaction_id" placeholder="AHV6U3TJ5K" class="form-text" />
-            <span id="bkash-error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+            <span id="bkash-error" class="shosurbari-form-error"></span>
         </div>
     </div>
 
@@ -475,12 +490,12 @@ if (isset($_GET['profileid'])) {
         <p style="color: #fff; text-align: justify;">আপনার মোবাইলের নগদ এপ্স অথবা *167# ডায়েল করে মোট টাকা "Send Money" করুন পার্সোনাল নগদ নাম্বারে: 01737-226404</p>
             <label style="color: #fff;">আপনার নগদ নাম্বার</label>
             <input style="background: #fff;" type="text" id="nagad_number" name="nagad_number" placeholder="01XX-XXX XXX" class="form-text" />
-            <span id="nagadnumber-error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+            <span id="nagadnumber-error" class="shosurbari-form-error"></span>
         </div>
         <div class="form-group">
             <label style="color: #fff;">ট্রানজেকশন আইডি (TxnId)</label>
             <input style="background: #fff;" type="text" id="nagad_trxid" name="nagad_transaction_id" placeholder="72449QUT" class="form-text" />
-            <span id="nagad-error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+            <span id="nagad-error" class="shosurbari-form-error"></span>
         </div>
     </div>
 
@@ -489,12 +504,12 @@ if (isset($_GET['profileid'])) {
         <p style="color: #fff; text-align: justify;">আপনার মোবাইলের রকেট এপ্স অথবা *322# ডায়েল করে মোট টাকা "Send Money" করুন পার্সোনাল রকেট নাম্বারে: 01737-226404-4</p>
             <label style="color: #fff;">আপনার রকেট নাম্বার</label>
             <input style="background: #fff;" type="text" id="roket_number" name="roket_number" placeholder="01XX-XXX XXX-X" class="form-text" />
-            <span id="roketnumber-error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+            <span id="roketnumber-error" class="shosurbari-form-error"></span>
         </div>
         <div class="form-group">
             <label style="color: #fff;">ট্রানজেকশন আইডি (TxnId)</label>
             <input style="background: #fff;" type="text" id="roket_trxid" name="roket_transaction_id" placeholder="3956466293" class="form-text" />
-            <span id="roket-error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+            <span id="roket-error" class="shosurbari-form-error"></span>
         </div>
     </div>
 

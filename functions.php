@@ -349,11 +349,15 @@
             $username_exists = mysqli_fetch_array($username_result)[0];
     
             if ($email_exists > 0) {
-                // Redirect to email_check.php with an error message
-                header("location: email_check.php?error=email_exists");
+                // Set an error message in a session variable
+                $_SESSION['error_message'] = "উফফ! এই Email দিয়ে ইতিমধ্যে একটি একাউন্ট রয়েছে। অনুগ্রহ করে Email পরিবর্তন করে আবার চেষ্টা করুন।";
+                header("location: register.php"); // Redirect back to the registration page
+            exit();
             } elseif ($username_exists > 0) {
-                // Redirect to username_check.php with an error message
-                header("location: username_check.php?error=username_exists");
+                // Set an error message in a session variable
+                $_SESSION['error_message'] = "উফফ! এই Username দিয়ে ইতিমধ্যে একটি একাউন্ট রয়েছে। অনুগ্রহ করে Username পরিবর্তন করে আবার চেষ্টা করুন।";
+                header("location: register.php"); // Redirect back to the registration page
+            exit();
             } else {
                 // Proceed with registration
                 $sql = "INSERT INTO users 
@@ -379,7 +383,10 @@
                     // Redirect the user to the userhome.php page with the user ID as a parameter in the URL
                     header("location: userhome.php?id=$id");
                 } else {
-                    echo "Error: " . $sql . "<br>" . $conn->error;
+                    // Set an error message in a session variable
+                    $_SESSION['error_message'] = "Error in registration: " . $conn->error;
+                    header("location: register.php"); // Redirect back to the registration page
+                    exit();                
                 }
             }
         }

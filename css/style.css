@@ -2741,6 +2741,19 @@ ol li{
     border: 1px solid rgba(0,0,0,.05);
 }
 
+.shosurbari-register-error {
+    text-align: justify;
+    padding: 20px;
+    width: 400px;
+    gap: 1.5rem;
+    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+    border: 1px solid rgba(0,0,0,.05);
+    border-radius: 4px;
+    background: rgb(255, 221, 238);
+    color: #ff0000;
+    margin: 50px auto 0 auto;
+  }
+
 /* Password Show Eye Icon Start */
 .form-group{
     position: relative;
@@ -6248,7 +6261,9 @@ font-size: 14px;
         margin-bottom: auto;
     }
 
-    .sb-register-login, .payment-form{
+    .sb-register-login,
+    .shosurbari-register-error,
+    .payment-form{
         width: 350px;
     }
 
@@ -6774,8 +6789,13 @@ font-size: 14px;
         margin-right: 25px;
     }
 
-    .sb-register-login{
+    .sb-register-login {
         width: 300px;
+    }
+
+    .shosurbari-register-error {
+        width: 300px;
+        padding: 10px;
     }
 
     .payment-form{
@@ -7396,7 +7416,8 @@ font-size: 14px;
         margin-right: 10px;
     }
 
-    .sb-register-login {
+    .sb-register-login,
+    .shosurbari-register-error {
         width: 270px;
     }
 
@@ -7958,7 +7979,8 @@ font-size: 14px;
         width: 263px;
     }
 
-    .sb-register-login{
+    .sb-register-login,
+    .shosurbari-register-error {
         width: 263px;
     }
 

@@ -163,7 +163,26 @@ if (isset($_SESSION['id'])) {
   background: linear-gradient(#0ea5e9, #06b6d4);
   color: white;
 }
+
+.error-message {
+  text-align: justify;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background: #ffcccc;
+  width: 300px;
+  color: #ff0000;
+  font-weight: bold;
+  margin: 50px auto 0 auto;
+}
 </style>
+
+<?php
+// Check for error message and display it
+if (isset($_SESSION['error_message'])) {
+  echo '<div class="shosurbari-register-error">' . $_SESSION['error_message'] . '</div>';
+  unset($_SESSION['error_message']); // Clear the error message
+}
+?>
 
 <div class="shosurbari-biodata-form">
     
