@@ -2746,7 +2746,7 @@ textarea:focus {
 
 											<tr class="opened">
 												<?php if (!empty ($authorities_no_responsible)) { ?>
-												<td class="day_label">কোনো মিথ্যা তথ্য প্রদান করলে দুনিয়াবী আইনগত এবং পরকালের দায়ভার ShosurBri.com কর্তৃপক্ষ নিবে না। আপনি কি সম্মত?</td>
+												<td class="day_label">কোনো মিথ্যা তথ্য প্রদান করলে দুনিয়াবী আইনগত এবং পরকালের দায়ভার ShosurBari.com কর্তৃপক্ষ নিবে না। আপনি কি সম্মত?</td>
 												<td class="day_value closed"><span><?php echo $authorities_no_responsible;?></span></td>
 												<?php } ?>
 											</tr>

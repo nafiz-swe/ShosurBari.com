@@ -512,11 +512,12 @@ input#submit-btn {
 }
 
 .navbar-nav > li > a {
-    padding: 10px 15px;
+    padding: 5px 15px;
     text-align: center;
     color: #fff;
     font-weight: 450;
     font-size:17px;
+    line-height: 38px;
 }
 
 .dropdown-menu.columns-2 {
@@ -637,21 +638,19 @@ ul.nav_1 li.last{
     height: 38px;
     border-radius: 50%;
     border: 2px solid #fff;
-    margin: -8px;
     object-fit: cover;
 }
 
-.login-navbar-icon a{
+/* .login-navbar-icon a{
     margin: 2px;
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    border: 2px solid #fff;
-}
+} */
 
 .login-navbar-icon a i{
     font-size: 18px;
     margin-left: -5px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    padding: 8px;
 }
 
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
@@ -1014,7 +1013,7 @@ section {
     margin-left: auto;
     margin-right: auto;
     width: auto;
-    margin-top: -60px;
+    margin-top: -10px;
     height: 95vh;
     position: relative; /* Add relative positioning */
     background-image: url(../images/shosurbari-home.png); /* Background image */
@@ -2698,20 +2697,18 @@ ol li{
 .shosurbari-userhome-status form button{
     margin-top: 10px;
     margin-left: 0px;
-    width: 185px;
-    padding: 7px;
+    width: 165px;
+    padding: 6px;
     background: transparent;
     color: #000;
     border: 1px solid #06b6d452;
     border-radius: 2px;
     font-size: 17px;
-    transition: 0.4s;
 }
 
 .shosurbari-userhome-status form button:hover{
     background: linear-gradient(#0aa4ca, #06b6d4);
     color: #fff;
-    transform: scale(1.1);
 }
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
@@ -4250,7 +4247,6 @@ font-size: 14px;
 @media (max-width:1280px){
     section{
         padding: 0px;
-        height: auto;
     }
 
     .slide{
@@ -4664,7 +4660,7 @@ font-size: 14px;
     }
 
     .navbar-nav > li > a {
-        padding: 10px 6px;
+        padding: 3px 8px;
     }
 
     .navigationpro ul {
@@ -5325,7 +5321,7 @@ font-size: 14px;
     }
 
     .navbar-nav > li > a {
-        padding: 8px 8px;
+        padding: 0px 8px;
         font-size: 14px;
     }
 

@@ -21,38 +21,39 @@ if (isloggedin()) {
     $row = mysqli_fetch_assoc($result);
     $deactivated = $row['deactivated'];
 
-    // Query to get the total view_count for the logged-in user
-    $totalViewCountSql = "SELECT view_count FROM `1bd_personal_physical` WHERE user_id = $userId";
-    $result = mysqli_query($conn, $totalViewCountSql);
-    $row = mysqli_fetch_assoc($result);
-    $totalViewCount = $row['view_count'];
+// Query to get the total view_count for the logged-in user
+$totalViewCountSql = "SELECT view_count FROM `1bd_personal_physical` WHERE user_id = $userId";
+$result = mysqli_query($conn, $totalViewCountSql);
+$row = mysqli_fetch_assoc($result);
+$totalViewCount = $row['view_count'];
 
-    // Query to get the view_count for the last month
-    $lastMonthStart = date('Y-m-d', strtotime('-1 month'));
-    $lastMonthViewCountSql = "SELECT SUM(view_count) as last_month_count FROM `page_views` WHERE page_name = '$userId' AND last_update >= '$lastMonthStart'";
-    $result = mysqli_query($conn, $lastMonthViewCountSql);
-    $row = mysqli_fetch_assoc($result);
-    $lastMonthCount = $row['last_month_count'];
+// Query to get the view_count for the last month
+$lastMonthStart = date('Y-m-d', strtotime('-1 month'));
+$lastMonthViewCountSql = "SELECT SUM(view_count) as last_month_count FROM `page_views` WHERE page_name = '$userId' AND STR_TO_DATE(last_update, '%e %M %Y, %h:%i:%s %p') >= '$lastMonthStart'";
+$result = mysqli_query($conn, $lastMonthViewCountSql);
+$row = mysqli_fetch_assoc($result);
+$lastMonthCount = $row['last_month_count'];
 
-    // Query to get the view_count for the last week
-    $lastWeekStart = date('Y-m-d', strtotime('-1 week'));
-    $lastWeekViewCountSql = "SELECT SUM(view_count) as last_week_count FROM `page_views` WHERE page_name = '$userId' AND last_update >= '$lastWeekStart'";
-    $result = mysqli_query($conn, $lastWeekViewCountSql);
-    $row = mysqli_fetch_assoc($result);
-    $lastWeekCount = $row['last_week_count'];
+// Query to get the view_count for the last week
+$lastWeekStart = date('Y-m-d', strtotime('-1 week'));
+$lastWeekViewCountSql = "SELECT SUM(view_count) as last_week_count FROM `page_views` WHERE page_name = '$userId' AND STR_TO_DATE(last_update, '%e %M %Y, %h:%i:%s %p') >= '$lastWeekStart'";
+$result = mysqli_query($conn, $lastWeekViewCountSql);
+$row = mysqli_fetch_assoc($result);
+$lastWeekCount = $row['last_week_count'];
 
-    // Query to get the view_count for today
-    $todayStart = date('Y-m-d') . ' 00:00:00';
-    $todayViewCountSql = "SELECT SUM(view_count) as today_count FROM `page_views` WHERE page_name = '$userId' AND last_update >= '$todayStart'";
-    $result = mysqli_query($conn, $todayViewCountSql);
-    $row = mysqli_fetch_assoc($result);
-    $todayCount = $row['today_count'];
+// Query to get the view_count for today
+$todayStart = date('Y-m-d') . ' 00:00:00';
+$todayViewCountSql = "SELECT SUM(view_count) as today_count FROM `page_views` WHERE page_name = '$userId' AND STR_TO_DATE(last_update, '%e %M %Y, %h:%i:%s %p') >= '$todayStart'";
+$result = mysqli_query($conn, $todayViewCountSql);
+$row = mysqli_fetch_assoc($result);
+$todayCount = $row['today_count'];
 
-    // Convert the counts to Bangla numerals
-    $totalViewCountInBangla = englishToBanglaNumber($totalViewCount);
-    $lastMonthCountInBangla = englishToBanglaNumber($lastMonthCount);
-    $lastWeekCountInBangla = englishToBanglaNumber($lastWeekCount);
-    $todayCountInBangla = englishToBanglaNumber($todayCount);
+// Convert the counts to Bangla numerals
+$totalViewCountInBangla = englishToBanglaNumber($totalViewCount);
+$lastMonthCountInBangla = englishToBanglaNumber($lastMonthCount);
+$lastWeekCountInBangla = englishToBanglaNumber($lastWeekCount);
+$todayCountInBangla = englishToBanglaNumber($todayCount);
+
 } else {
     header("location:login.php");
 }

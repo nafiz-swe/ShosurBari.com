@@ -407,65 +407,61 @@
 
 
 
-    // Password updated From User Account
-    function updatePassword($userId, $newPassword) {
-        require_once("includes/dbconn.php");
-        
-        // Update the password in the database
-        $update_query = "UPDATE users SET password = '$newPassword' WHERE id = $userId";
-        $update_result = mysqli_query($conn, $update_query);
+// Password updated From User Account
+function updatePassword($userId, $newPassword) {
+    require_once("includes/dbconn.php");
 
-        if ($update_result) {
-            return true; // Password updated successfully
+    // Hash the new password
+    $hashedPassword = hash('sha256', $newPassword);
+
+    // Update the password in the database
+    $update_query = "UPDATE users SET password = '$hashedPassword' WHERE id = $userId";
+    $update_result = mysqli_query($conn, $update_query);
+
+    if ($update_result) {
+        return true; // Password updated successfully
+    } else {
+        return false; // Error updating password
+    }
+}
+
+// Check if the update account form is submitted
+if (isset($_POST['update_account'])) {
+    // Update user account
+    $userId = $_SESSION['id'];
+    $newPassword = $_POST['pass_1'];
+    $confirmPassword = $_POST['pass_2'];
+
+    // Check if new passwords match
+    if ($newPassword != $confirmPassword) {
+        echo 'New passwords do not match';
+    } else {
+        // Update the password
+        $passwordUpdated = updatePassword($userId, $newPassword);
+
+        if ($passwordUpdated) {
+            echo 'Password updated successfully';
         } else {
-            return false; // Error updating password
+            echo 'Error updating password';
         }
     }
+}
 
+// Update Password save info to cookie.
+if (isset($_POST['update_account'])) {
+    // Retrieve the change and confirm password values
+    $newPassword = $_POST['pass_1'];
+    $confirmPassword = $_POST['pass_2'];
 
-    if (isset($_POST['update_account'])) {
-        // Update user account
-        $userId = $_SESSION['id'];
-        $newPassword = $_POST['pass_1'];
-        $confirmPassword = $_POST['pass_2'];
-
-        // Check if new passwords match
-        if ($newPassword != $confirmPassword) {
-            echo 'New passwords do not match';
-        } else {
-            // Check if current password matches the one in the database
-            $query = "SELECT password FROM users WHERE id = $userId";
-
-            
-                // Update the password
-                $passwordUpdated = updatePassword($userId, $newPassword);
-
-                if ($passwordUpdated) {
-                    echo 'Password updated successfully';
-                } else {
-                    echo 'Error updating password';
-                }
-        }
+    // Check two passwords match
+    if ($newPassword === $confirmPassword) {
+        // Save the changed password value in the cookie
+        setcookie('password', $newPassword, time() + (86400 * 365), "/");
+    } else {
+        // Display an error message if the passwords don't match
+        echo "Change and confirm passwords do not match.";
     }
-
-
-
-    //Update Password save info to cookie.
-    if (isset($_POST['update_account'])) {
-        // Retrieve the change and confirm password values
-        $newPassword = $_POST['pass_1'];
-        $confirmPassword = $_POST['pass_2'];
-
-        // Check two password match
-        if ($newPassword === $confirmPassword) {
-            // Save the change password value in the cookie
-            setcookie('password', $newPassword, time() + (86400 * 365), "/");
-        } else {
-            // Display an error message if the passwords don't match
-            echo "Change and confirm passwords do not match.";
-        }
-    }
-
+}
 
 
     /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
