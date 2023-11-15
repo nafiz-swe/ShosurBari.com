@@ -406,7 +406,6 @@
 
 
 
-
 // Password updated From User Account
 function updatePassword($userId, $newPassword) {
     require_once("includes/dbconn.php");
@@ -439,29 +438,19 @@ if (isset($_POST['update_account'])) {
         // Update the password
         $passwordUpdated = updatePassword($userId, $newPassword);
 
+        // Redirect back to accountupdate.php with a message
         if ($passwordUpdated) {
-            echo 'Password updated successfully';
+            header("Location: accountupdate.php?message=success");
+            exit();
         } else {
-            echo 'Error updating password';
+            header("Location: accountupdate.php?message=error");
+            exit();
         }
     }
 }
 
-// Update Password save info to cookie.
-if (isset($_POST['update_account'])) {
-    // Retrieve the change and confirm password values
-    $newPassword = $_POST['pass_1'];
-    $confirmPassword = $_POST['pass_2'];
 
-    // Check two passwords match
-    if ($newPassword === $confirmPassword) {
-        // Save the changed password value in the cookie
-        setcookie('password', $newPassword, time() + (86400 * 365), "/");
-    } else {
-        // Display an error message if the passwords don't match
-        echo "Change and confirm passwords do not match.";
-    }
-}
+
 
 
     /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --

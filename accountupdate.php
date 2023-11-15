@@ -269,6 +269,43 @@ $conn->close();
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 
+    <?php
+// Check if there is a message in the URL
+if (isset($_GET['message'])) {
+    $message = ($_GET['message'] == 'success') ? 'Password updated successfully' : 'Error updating password';
+
+    // Display the message with a green background color and a close button
+    echo "<div style='
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #22c55e;
+    color: #fff;
+    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+    border: 1px solid rgba(0,0,0,.05);
+    border-radius: 2px;
+    padding: 15px;
+    width: 280px;
+    text-align: center;
+    z-index: 9999;
+    '>$message
+    <button style='
+    position: absolute;
+    top: -5px;
+    right: 3px;
+    background: none;
+    border: none;
+    color: #ff0000;
+    cursor: pointer;
+    font-size: 24px;
+    ' onclick='this.parentNode.style.display = \"none\";'>×</button>
+    </div>";
+}
+?>
+
+
+
     <div class="shosurbari-biodata-form">
     <div class="shosurbari-user-account">
 
