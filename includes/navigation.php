@@ -166,7 +166,7 @@
 									}
 									echo "</a></li>";
 
-									echo "<li class=\"login-navbar-icon\"><a href=\"logout.php\"><i class=\"fa fa-sign-out\"></i></a></li>";
+									echo "<li class=\"login-navbar-icon\"><a href=\"#\" onclick=\"confirmLogout();\"><i class=\"fa fa-sign-out\"></i></a></li>";
 								} else {
 									echo "<li><a href=\"login.php\">Login</a></li>";
 									echo "<li><a href=\"register.php\">Register</a></li>";
@@ -185,6 +185,14 @@
 </div> <!-- end navbar-inverse-blue -->
 <!-- ============================  Navigation End ============================ -->
 
+<script>
+function confirmLogout() {
+    var confirmLogout = confirm("Are you sure you want to log out?");
+    if (confirmLogout) {
+        window.location.href = "logout.php";
+    }
+}
+</script>
 
 <script>
 	function updateProgressBar(){
