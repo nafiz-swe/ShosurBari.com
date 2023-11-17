@@ -1,27 +1,69 @@
 
-<?php include_once("includes/basic_includes.php");?>
-<?php include_once("functions.php"); ?>
+
+
 <?php
+include_once("includes/basic_includes.php");
+include_once("functions.php");
+
 error_reporting(0);
-require_once("includes/dbconn.php");
-if (!isset($_SESSION['id'])) {
-  // Redirect the user to the login page or display an error message
-  header("location: login.php");
-  exit;
+
+function englishToBanglaNumber($number) {
+    $englishDigits = range(0, 9);
+    $banglaDigits = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
+    return str_replace($englishDigits, $banglaDigits, $number);
 }
 
-// Get the user ID from the session
-$userId = $_SESSION['id'];
+if (isloggedin()) {
+    // Get the user ID from the session
+    $userId = $_SESSION['id'];
 
-// Retrieve the user's account status from the database
-$statusSql = "SELECT deactivated FROM users WHERE id = $userId";
-$result = mysqli_query($conn, $statusSql);
+    // Retrieve the user's account status from the database
+    require_once("includes/dbconn.php");
+    $statusSql = "SELECT deactivated FROM users WHERE id = $userId";
+    $result = mysqli_query($conn, $statusSql);
+    $row = mysqli_fetch_assoc($result);
+    $deactivated = $row['deactivated'];
+
+// Query to get the total view_count for the logged-in user
+$totalViewCountSql = "SELECT view_count FROM `1bd_personal_physical` WHERE user_id = $userId";
+$result = mysqli_query($conn, $totalViewCountSql);
 $row = mysqli_fetch_assoc($result);
-$deactivated = $row['deactivated'];
+$totalViewCount = $row['view_count'];
+
+// Query to get the view_count for the last month
+$lastMonthStart = date('Y-m-d', strtotime('-1 month'));
+$lastMonthViewCountSql = "SELECT SUM(view_count) as last_month_count FROM `page_views` WHERE page_name = '$userId' AND STR_TO_DATE(last_update, '%e %M %Y, %h:%i:%s %p') >= '$lastMonthStart'";
+$result = mysqli_query($conn, $lastMonthViewCountSql);
+$row = mysqli_fetch_assoc($result);
+$lastMonthCount = $row['last_month_count'];
+
+// Query to get the view_count for the last week
+$lastWeekStart = date('Y-m-d', strtotime('-1 week'));
+$lastWeekViewCountSql = "SELECT SUM(view_count) as last_week_count FROM `page_views` WHERE page_name = '$userId' AND STR_TO_DATE(last_update, '%e %M %Y, %h:%i:%s %p') >= '$lastWeekStart'";
+$result = mysqli_query($conn, $lastWeekViewCountSql);
+$row = mysqli_fetch_assoc($result);
+$lastWeekCount = $row['last_week_count'];
+
+// Query to get the view_count for today
+$todayStart = date('Y-m-d') . ' 00:00:00';
+$todayViewCountSql = "SELECT SUM(view_count) as today_count FROM `page_views` WHERE page_name = '$userId' AND STR_TO_DATE(last_update, '%e %M %Y, %h:%i:%s %p') >= '$todayStart'";
+$result = mysqli_query($conn, $todayViewCountSql);
+$row = mysqli_fetch_assoc($result);
+$todayCount = $row['today_count'];
+
+// Convert the counts to Bangla numerals
+$totalViewCountInBangla = englishToBanglaNumber($totalViewCount);
+$lastMonthCountInBangla = englishToBanglaNumber($lastMonthCount);
+$lastWeekCountInBangla = englishToBanglaNumber($lastWeekCount);
+$todayCountInBangla = englishToBanglaNumber($todayCount);
+
+} else {
+    header("location:login.php");
+}
+
+// Close the database connection
+$conn->close();
 ?>
-
-
-
 
 
 
@@ -105,6 +147,26 @@ $deactivated = $row['deactivated'];
           <button type="submit" name="action" value="deactivate">Deactivate Account</button>
         <?php } ?>
       </form>
+
+
+
+      <div class="shosurbari-biodata-form">
+        <div class="shosurbari-animation-form">
+          <form action="" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
+            <div class="sb-biodata-amount-list">
+              <h3>আপনার বায়োডাটাটি দেখা হয়েছে</h3>
+              <h1><?php
+                      // Display the view count for the logged-in user's profile
+                      if (isset($totalViewCountInBangla)) {
+                        echo "" . $totalViewCountInBangla;
+                      }
+                  ?> বার
+              </h1>
+            </div>
+          </form>
+        </div> 
+      </div>   
+            
     </div>
 
 
@@ -141,15 +203,75 @@ $deactivated = $row['deactivated'];
   </div>
 
 
+
+
+<style>
+.sb-biodata-amount-list{
+  margin: 15px auto;
+  width: 100%;
+  text-align: left;
+  padding: 6px;
+}
+
+.sb-biodata-amount-list h1{
+  font-size: 28px;
+}
+
+.sb-biodata-amount-list h3{
+  font-size: 16px;
+  line-height: 22px;
+  margin-bottom: 5px;
+}
+
+.shosurbari-biodata-form {
+  align-items: center;
+  flex-wrap: wrap;
+  width: 1400px;
+  margin: auto;
+  padding-top: 30px;
+  padding-bottom: 30px
+}
+
+
+.shosurbari-biodata-form {
+  align-items: center;
+  flex-wrap: wrap;
+  width: 1400px;
+  margin: auto;
+  margin-top: 25px;
+  padding-top: 0px;
+  padding-bottom: 30px
+}
+
+@media (max-width: 1400px){
+  .shosurbari-biodata-form{
+    width: auto;
+  }
+}
+
+@media (max-width: 1024px) {
+.shosurbari-animation-form {
+  flex-basis: 100%;
+  justify-content: center;
+}
+
+.shosurbari-biodata-form {
+  width: auto;
+}
+}
+</style>
+
   <style>
 @media (max-width: 768px){
 .shosurbari-userhome-status {
-    padding: 0px 0px 20px 0px;
-    margin: 20px auto auto auto;
+  padding: 0px;
+  margin: 20px auto auto auto;
 }
 
-.shosurbari-userhome-status h3, .shosurbari-userhome-status h4 {
-    text-align: center;
+.shosurbari-userhome-status h4,
+.shosurbari-userhome-status h3,
+.sb-biodata-amount-list h1 {
+  text-align: center;
 }
 }
   </style>

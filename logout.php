@@ -11,11 +11,7 @@ session_destroy();
         // Redirect to index.php after a delay
         setTimeout(function () {
             window.location.href = "index.php";
-        }, 3000); // 3000 milliseconds (3 seconds)
+        }, 0); // 3000 milliseconds (3 seconds)
     </script>
 </head>
-<body>
-    <p>Successfully logged out. Redirecting to home page...</p>
-    <a href="index.php">Back to home</a>
-</body>
 </html>

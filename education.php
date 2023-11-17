@@ -1144,7 +1144,7 @@ if(isloggedin()){
 					toggleVarsityFields();
 					toggleVarsityPassFields();
 				</script>
-				<button type="submit" id="edit-submit" name="op" class="biodata-submit"><span></span> Submit</button>			
+				<button type="submit" id="edit-submit" name="op" class="biodata-submit"><span></span> আপডেট করুন</button>			
 			</fieldset>
 			<!--3 fieldsets end-->
 			<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --

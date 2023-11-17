@@ -187,7 +187,7 @@
 
 <script>
 function confirmLogout() {
-    var confirmLogout = confirm("Are you sure you want to log out?");
+    var confirmLogout = confirm("Are you sure you want to Logout?");
     if (confirmLogout) {
         window.location.href = "logout.php";
     }

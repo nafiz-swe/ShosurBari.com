@@ -702,7 +702,7 @@ ul.nav_1{
 }
 
 .navigationpro ul li{
-    background: #06b6d4;
+    background: #0aa4ca;
     border: 1px solid #ccc;
     margin: 5px;
     text-align: center;
@@ -710,7 +710,7 @@ ul.nav_1{
 }
 
 .navigationpro .dropdown{
-    background: #06b6d4;
+    background: #0aa4ca;
     border: 1px solid #ccc;
     margin: 5px;
     text-align: center;
@@ -2691,11 +2691,9 @@ ol li{
 .shosurbari-userhome-status form{
     margin-left: 0px;
     width: 185px;
-    margin-top: -10px;
 }
 
 .shosurbari-userhome-status form button{
-    margin-top: 10px;
     margin-left: 0px;
     width: 165px;
     padding: 6px;
@@ -3480,18 +3478,20 @@ i.icon_4{
 /*buttons*/
 #biodataForm .action-button,
 #biodataForm .biodata-submit {
-    width: 120px;
+    width: 140px;
     color: white;
     background: #06b6d4;
-    border-radius: 2px;
+    border-radius: 5px;
     border: 1px solid #f0f0f0;
     cursor: pointer;
     padding: 7px;
     margin: 10px 5px;
     text-transform: uppercase;
-    font-size: 20px;
+    font-size: 18px;
     transition: transform 0.3s;
     box-shadow: 1px 1px 4px #888;
+    line-height: 25px;
+    height: 40px;
 }
 
 #biodataForm .action-button:hover,

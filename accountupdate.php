@@ -189,7 +189,7 @@ $conn->close();
 
 
 <div class="sb-home-search">
-    <h1>ব্যবহারকারীর একাউন্ট তথ্য</h1>
+    <h1>ব্যবহারকারীর একাউন্ট</h1>
     <div class="sbhome-heart-divider">
       <span class="grey-line"></span>
         <i class="fa fa-heart pink-heart"></i>
@@ -197,7 +197,7 @@ $conn->close();
       <span class="grey-line"></span>
     </div>
 </div>
-
+<!-- 
 <div class="shosurbari-biodata-form">
     <div class="shosurbari-animation-form">
         <form action="" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
@@ -256,7 +256,7 @@ $conn->close();
             </div>
 	    </form>
     </div> 
-</div>
+</div> -->
 
 
 

@@ -378,7 +378,7 @@ if(isloggedin()){
 					</div>
 				</div>
 
-				<input type="button" name="next" class="next action-button" value="Next" />
+				<input type="button" name="next" class="next action-button" value="পরবর্তী ধাপ" />
 			</fieldset>
 			<!--Fieldsets end -->
 			<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
@@ -657,7 +657,7 @@ if(isloggedin()){
 				</div>
 
 				<input type="button" name="previous" class="previous action-button" value="Previous" />
-				<button type="submit" id="edit-submit" name="op" class="biodata-submit"><span></span> Submit</button>			
+				<button type="submit" id="edit-submit" name="op" class="biodata-submit"><span></span> আপডেট করুন</button>			
 
 				<script>
 					function toggleGenderSections(selectedGender) {
