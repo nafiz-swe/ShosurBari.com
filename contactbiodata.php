@@ -257,7 +257,7 @@ if(isset($_SESSION['id'])){
         input[type="radio"]:checked + label {
           background: linear-gradient(#06b6d4, #0aa4ca);
           color: #fff;
-          border: 2px solid #06b6d4;
+          border: 1px solid #06b6d4;
         }
 
         /* Hide the radio input itself and style the label */

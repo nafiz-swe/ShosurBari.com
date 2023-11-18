@@ -1178,7 +1178,7 @@ toggleLabels.forEach(label => {
   width: 1090px;
   margin: auto;
   margin-top: -54px;
-  border-radius: 0px;
+  border-radius: 15px;
   background: #fff;
   /* box-shadow: 0 0 8px rgba(0,0,0,.1); */
   box-shadow: 0 10px 15px 0 rgb(0 0 0 / 16%);
