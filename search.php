@@ -3635,23 +3635,21 @@ function showProfiles() {
 showProfiles();
 
 
+  // add click event listeners to the previous page and next page buttons
+  document.getElementById("prev-page-btn").addEventListener("click", () => {
+    if (currentPage > 1) {
+      currentPage--;
+      showProfiles();
+    }
+  });
 
-
-      // add click event listeners to the previous page and next page buttons
-      document.getElementById("prev-page-btn").addEventListener("click", () => {
-        if (currentPage > 1) {
-          currentPage--;
-          showProfiles();
-        }
-      });
-
-      document.getElementById("next-page-btn").addEventListener("click", () => {
-        if (currentPage < totalPages) {
-          currentPage++;
-          showProfiles();
-        }
-      });
-    </script>
+  document.getElementById("next-page-btn").addEventListener("click", () => {
+    if (currentPage < totalPages) {
+      currentPage++;
+      showProfiles();
+    }
+  });
+  </script>
   </div>
 
   </div> <!--extra dive / Here maybe error for footer-->
@@ -3665,62 +3663,72 @@ showProfiles();
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->	
   <script>
-    $(function() {
-    
-      setCheckboxSelectLabels();
-      
-      $('.toggle-next').click(function() {
-        $(this).next('.checkboxes').slideToggle(400);
-      });
-      
-      $('.SelectBox').change(function() {
-        toggleCheckedAll(this);
-        setCheckboxSelectLabels(); 
-      });
-      
+  $(function () {
+  setCheckboxSelectLabels();
+
+  $('.toggle-next').click(function () {
+    var checkboxes = $(this).next('.checkboxes');
+    checkboxes.slideToggle(400);
+    toggleChevronIcon(checkboxes);
+  });
+
+  $('.SelectBox').change(function () {
+    toggleCheckedAll(this);
+    setCheckboxSelectLabels();
+  });
+});
+
+function toggleChevronIcon(checkboxes) {
+  var chevronIcon = checkboxes.closest('.wrapper').find('.fa-chevron-down');
+  chevronIcon.toggleClass('rotate');
+}
+
+function setCheckboxSelectLabels(elem) {
+  var wrappers = $('.wrapper');
+  $.each(wrappers, function (key, wrapper) {
+    var checkboxes = $(wrapper).find('.SelectBox');
+    var label = $(wrapper).find('.checkboxes').attr('id');
+    var prevText = '';
+    $.each(checkboxes, function (i, checkbox) {
+      var button = $(wrapper).find('button');
+      if ($(checkbox).prop('checked') == true) {
+        var text = $(checkbox).next().html();
+        var btnText = prevText + text;
+        var numberOfChecked = $(wrapper).find('input.val:checkbox:checked').length;
+        if (numberOfChecked >= 4) {
+          btnText = numberOfChecked + ' ' + label + ' selected';
+        }
+        $(button).text(btnText);
+        prevText = btnText + ', ';
+      }
     });
-    
-    function setCheckboxSelectLabels(elem) {
-      var wrappers = $('.wrapper'); 
-      $.each( wrappers, function( key, wrapper ) {
-        var checkboxes = $(wrapper).find('.SelectBox');
-        var label = $(wrapper).find('.checkboxes').attr('id');
-        var prevText = '';
-        $.each( checkboxes, function( i, checkbox ) {
-          var button = $(wrapper).find('button');
-          if( $(checkbox).prop('checked') == true) {
-            var text = $(checkbox).next().html();
-            var btnText = prevText + text;
-            var numberOfChecked = $(wrapper).find('input.val:checkbox:checked').length;
-            if(numberOfChecked >= 4) {
-              btnText = numberOfChecked +' '+ label + ' selected';
-            }
-            $(button).text(btnText); 
-            prevText = btnText + ', ';
-          }
-        });
-      });
-    }
+  });
+}
 
-    function toggleCheckedAll(checkbox) {
-      var apply = $(checkbox).closest('.wrapper').find('.apply-selection');
-      apply.fadeIn('slow'); 
-      
-      var val = $(checkbox).closest('.checkboxes').find('.val');
-      var all = $(checkbox).closest('.checkboxes').find('.all');
-      var SelectBox = $(checkbox).closest('.checkboxes').find('.SelectBox');
+function toggleCheckedAll(checkbox) {
+  var apply = $(checkbox).closest('.wrapper').find('.apply-selection');
+  apply.fadeIn('slow');
 
-      if(!$(SelectBox).is(':checked')) {
-        $(all).prop('checked', true);
-        return;
-      }
+  var val = $(checkbox).closest('.checkboxes').find('.val');
+  var all = $(checkbox).closest('.checkboxes').find('.all');
+  var SelectBox = $(checkbox).closest('.checkboxes').find('.SelectBox');
 
-      if( $(checkbox).hasClass('all') ) {
-        $(val).prop('checked', false);
-      } else {
-        $(all).prop('checked', false);
-      }
-    }
+  if (!$(SelectBox).is(':checked')) {
+    $(all).prop('checked', true);
+    return;
+  }
+
+  if ($(checkbox).hasClass('all')) {
+    $(val).prop('checked', false);
+  } else {
+    $(all).prop('checked', false);
+  }
+}
+
+// Initialize the chevron icons in the "up" position
+$('.fa-chevron-down').addClass('rotate');
+
+
   </script>
   <!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
   -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --

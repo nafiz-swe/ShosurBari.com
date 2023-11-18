@@ -4061,9 +4061,13 @@ label{
 
 .wrapper .toggle-next .fa {
     position: absolute; 
-    right: 10px;
+    right: 15px;
     top: 19px;
     font-size: 12px;
+}
+
+.fa-chevron-down.rotate {
+    transform: rotate(180deg);
 }
 
 .toggle-next span i {
