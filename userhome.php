@@ -154,7 +154,7 @@ $conn->close();
         <div class="shosurbari-animation-form">
           <form action="" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
             <div class="sb-biodata-amount-list">
-              <h3>আপনার বায়োডাটাটি দেখা হয়েছে</h3>
+              <h3>আপনার বায়োডাটাটি দেখা হয়েছে-</h3>
               <h1><?php
                       // Display the view count for the logged-in user's profile
                       if (isset($totalViewCountInBangla)) {

@@ -2677,7 +2677,6 @@ ol li{
 }
 
 .shosurbari-userhome-status{
-    padding: 20px 0px;
     margin-top: -2px;
     width:  213px;
 }
@@ -3955,7 +3954,8 @@ input[type=submit]:hover {
     overflow: auto;
 }
 
-.wrapper{
+.wrapper,
+.shosurbari-home-search{
     position: relative;
     display: flex;
     flex-direction: column;
@@ -4059,7 +4059,8 @@ label{
 	border-radius: 3px
 }
 
-.wrapper .toggle-next .fa {
+.wrapper .toggle-next .fa,
+.shosurbari-home-search .toggle-next .fa {
     position: absolute; 
     right: 15px;
     top: 19px;

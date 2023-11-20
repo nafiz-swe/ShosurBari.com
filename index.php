@@ -1062,74 +1062,73 @@
 
 
 <script>
-let toggleLabels = document.querySelectorAll('.toggle-next');
+$(function () {
+  setCheckboxSelectLabels();
 
-toggleLabels.forEach(label => {
-  label.addEventListener('click', () => {
-    let targetId = label.getAttribute('data-target');
-    let targetCheckbox = document.querySelector(`#${targetId}`);
-    targetCheckbox.style.display = targetCheckbox.style.display === 'none' ? 'block' : 'none';
+  $('.toggle-next').click(function () {
+    var checkboxes = $(this).next('.checkboxes');
+    checkboxes.slideToggle(400);
+    toggleChevronIcon(checkboxes);
+  });
+
+  $('.SelectBox').change(function () {
+    toggleCheckedAll(this);
+    setCheckboxSelectLabels();
   });
 });
 
+function toggleChevronIcon(checkboxes) {
+  var chevronIcon = checkboxes.closest('.shosurbari-home-search').find('.fa-chevron-down');
+  chevronIcon.toggleClass('rotate');
+}
 
-  $(function() {
-    
-      setCheckboxSelectLabels();
-      
-      $('.toggle-next').click(function() {
-        $(this).next('.checkboxes').slideToggle(400);
-      });
-      
-      $('.SelectBox').change(function() {
-        toggleCheckedAll(this);
-        setCheckboxSelectLabels(); 
-      });
-      
+function setCheckboxSelectLabels(elem) {
+  var wrappers = $('.shosurbari-home-search');
+  $.each(wrappers, function (key, wrapper) {
+    var checkboxes = $(wrapper).find('.SelectBox');
+    var label = $(wrapper).find('.checkboxes').attr('id');
+    var prevText = '';
+    $.each(checkboxes, function (i, checkbox) {
+      var button = $(wrapper).find('button');
+      if ($(checkbox).prop('checked') == true) {
+        var text = $(checkbox).next().html();
+        var btnText = prevText + text;
+        var numberOfChecked = $(wrapper).find('input.val:checkbox:checked').length;
+        if (numberOfChecked >= 4) {
+          btnText = numberOfChecked + ' ' + label + ' selected';
+        }
+        $(button).text(btnText);
+        prevText = btnText + ', ';
+      }
     });
-    
-    function setCheckboxSelectLabels(elem) {
-      var wrappers = $('.wrapper'); 
-      $.each( wrappers, function( key, wrapper ) {
-        var checkboxes = $(wrapper).find('.SelectBox');
-        var label = $(wrapper).find('.checkboxes').attr('id');
-        var prevText = '';
-        $.each( checkboxes, function( i, checkbox ) {
-          var button = $(wrapper).find('button');
-          if( $(checkbox).prop('checked') == true) {
-            var text = $(checkbox).next().html();
-            var btnText = prevText + text;
-            var numberOfChecked = $(wrapper).find('input.val:checkbox:checked').length;
-            if(numberOfChecked >= 4) {
-              btnText = numberOfChecked +' '+ label + ' selected';
-            }
-            $(button).text(btnText); 
-            prevText = btnText + ', ';
-          }
-        });
-      });
-    }
+  });
+}
 
-    function toggleCheckedAll(checkbox) {
-      var apply = $(checkbox).closest('.wrapper').find('.apply-selection');
-      apply.fadeIn('slow'); 
-      
-      var val = $(checkbox).closest('.checkboxes').find('.val');
-      var all = $(checkbox).closest('.checkboxes').find('.all');
-      var SelectBox = $(checkbox).closest('.checkboxes').find('.SelectBox');
+function toggleCheckedAll(checkbox) {
+  var apply = $(checkbox).closest('.shosurbari-home-search').find('.apply-selection');
+  apply.fadeIn('slow');
 
-      if(!$(SelectBox).is(':checked')) {
-        $(all).prop('checked', true);
-        return;
-      }
+  var val = $(checkbox).closest('.checkboxes').find('.val');
+  var all = $(checkbox).closest('.checkboxes').find('.all');
+  var SelectBox = $(checkbox).closest('.checkboxes').find('.SelectBox');
 
-      if( $(checkbox).hasClass('all') ) {
-        $(val).prop('checked', false);
-      } else {
-        $(all).prop('checked', false);
-      }
-    }
-  </script>
+  if (!$(SelectBox).is(':checked')) {
+    $(all).prop('checked', true);
+    return;
+  }
+
+  if ($(checkbox).hasClass('all')) {
+    $(val).prop('checked', false);
+  } else {
+    $(all).prop('checked', false);
+  }
+}
+
+// Initialize the chevron icons in the "up" position
+$('.fa-chevron-down').removeClass('rotate');
+
+</script>
+
 
 
 <script>
