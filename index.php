@@ -1,12 +1,8 @@
 <?php include_once("includes/basic_includes.php");?>
 <?php include_once("functions.php"); ?>
 
-
 <!DOCTYPE HTML>
 <html>
-
-
-
 
 <head>
 <title>Home | ShosurBari</title>
@@ -31,25 +27,19 @@
 
 </head>
 
-
-
-
-
 <body>
   <!-- ============================  Navigation Start =========================== -->
   <?php include_once("includes/navigation.php");?>
   <!-- ============================  Navigation End ============================ -->
  
-
   <section>
   <div class="shosurbari-home-banner">      </div>
 
     <div class="banner" style="--duration: 12s" id="slider-banner">
       <div class="banner-content" id="banner-content" target="_blank">
         <div class="sb-home-reg2">
-        <h1>স্বপ্নময় জীবনসঙ্গী খুঁজে পেতে, আমরা আপনাকে সাহায্য করার জন্য নিবেদিত।</h1>
-        <!-- <p>We are dedicated to helping you find your perfect life partner through our advanced matchmaking platform. Trusted online matrimonial service provider for Bengali community of all professions worldwide.</p> -->
-
+          <h1>স্বপ্নময় জীবনসঙ্গী খুঁজে পেতে, আমরা আপনাকে সাহায্য করার জন্য নিবেদিত।</h1>
+          <!-- <p>We are dedicated to helping you find your perfect life partner through our advanced matchmaking platform. Trusted online matrimonial service provider for Bengali community of all professions worldwide.</p> -->
           <?php
             if (!isloggedin()) {
               echo '<a href="register.php" class="sb-create-account"><button> বায়োডাটা পোস্ট করুন</button></a>';
@@ -59,26 +49,13 @@
           ?>
         </div>
       </div>
-      
       <div class="slide-indicators" id="slide-indicators" target="_blank"></div>
-      
     </div>
   </section>
 
 
 
-
-
-
-
-
-
-
-
-
-
   <!-- <h3 id="banner_text"></h3> -->
-
 
   <!-- <div class="sb-home-search">
     <h1><span class="shosurbari-heading-span">জীবনসঙ্গী </span>খুঁজুন</h1>
@@ -296,15 +273,15 @@
             <input type="checkbox" name="engineer_occupation_level[]" value="সিভিল ইঞ্জিনিয়ার" class="SelectBox val" />
             <span class="search-options">সিভিল ইঞ্জিনিয়ার</span>
             <br>
-            
+  
             <input type="checkbox" name="engineer_occupation_level[]" value="ইলেকট্রিক্যাল ইঞ্জিনিয়ার" class="SelectBox val" />
             <span class="search-options">ইলেকট্রিক্যাল ইঞ্জিনিয়ার</span>
             <br>
-            
+  
             <input type="checkbox" name="engineer_occupation_level[]" value="মেরিন ইঞ্জিনিয়ার" class="SelectBox val" />
             <span class="search-options">মেরিন ইঞ্জিনিয়ার</span>
             <br>
-            
+  
             <input type="checkbox" name="engineer_occupation_level[]" value="নেটওয়ার্ক ইঞ্জিনিয়ার" class="SelectBox val" />
             <span class="search-options">নেটওয়ার্ক ইঞ্জিনিয়ার</span>
             <br>
@@ -401,11 +378,11 @@
             <input type="checkbox" name="foreigner_occupation_level[]" value="বিদেশে চাকরি করি" class="SelectBox val" />
             <span class="search-options">বিদেশে চাকরি</span>
             <br>
-            
+
             <input type="checkbox" name="foreigner_occupation_level[]" value="বিদেশে কাজ করি" class="SelectBox val" />
             <span class="search-options">বিদেশে কাজ</span>
             <br>
-            
+
             <input type="checkbox" name="foreigner_occupation_level[]" value="বিদেশে ব্যবসা করি" class="SelectBox val" />
             <span class="search-options">বিদেশে ব্যবসা</span>
             <br>
@@ -424,7 +401,7 @@
             <input type="checkbox" name="garments_occupation_level[]" value="গার্মেন্টস বায়িং হাউস" class="SelectBox val" />
             <span class="search-options">গার্মেন্টস বায়িং হাউস</span>
             <br>
-            
+
             <input type="checkbox" name="garments_occupation_level[]" value="গার্মেন্টস শ্রমিক" class="SelectBox val" />
             <span class="search-options">গার্মেন্টস শ্রমিক</span>
             <br>

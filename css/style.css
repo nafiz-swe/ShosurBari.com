@@ -4045,7 +4045,6 @@ label{
     padding-right: 4px;
     padding-top: 2px;
     padding-bottom: 1px;
-
 }
 
 .gender-radio-select .gender-option label i{
@@ -4311,6 +4310,7 @@ font-size: 14px;
     .sb_user_recentview .sb_value_recentview {
         font-size: 13px;
     }
+
     .sb_user_recentview .sb_data_recentview {
         font-size: 13px;
     }
@@ -5292,7 +5292,7 @@ font-size: 14px;
     .profile_search {
         margin: 5em 0 0 0;
     }
-
+ 
     .age_box1 {
         width: 50% !important;
     }
@@ -5310,7 +5310,7 @@ font-size: 14px;
     }
 
     .profile_search {
-    padding: 2em 1em;
+        padding: 2em 1em;
     }
 
     .inline-block {
@@ -5568,23 +5568,24 @@ font-size: 14px;
     .sb_featured_profile_head {
         width: 225px;
     }
-
+ 
     .nbs-flexisel-item:first-child{
         margin-left: 0px;
     }
 }
+
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 --           max-width:768px / E  N  D           --
 --      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 
 
-  /* Mobile Search Start*/  
+/* Mobile Search Start*/  
 @media only screen and (min-width: 768px) {
     .sbbiodata-search-mobile form{
         display: none;
     }
-
+    
     .sb_singlebio_mobilesearch {
         display: none;
     }
@@ -5612,7 +5613,7 @@ font-size: 14px;
         color: #fff;
         padding:0px;
     }
-    
+     
     .sb_biodata_profile {
         display: flex;
         flex-wrap: wrap;
@@ -5622,7 +5623,7 @@ font-size: 14px;
         margin-left: auto;
         padding: 0px;
     }
-
+  
     .sb_user .sb_value{
         font-size: 14px;
         width: 38%;
