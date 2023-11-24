@@ -95,14 +95,21 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
             header("location:../userhome.php?id={$row['id']}");
         } else {
-            echo "Invalid username or password";
+            $_SESSION['error_message'] = "উফফ! আপনার Password এ সমস্যা দেখা দিয়েছে। আপনার Password টি সঠিক নয়।";
+                // Redirect to login page with error message
+                header("location: ../login.php");
+                exit(); // Ensure script stops execution
         }
     } else {
-        echo "Invalid username or password";
+        $_SESSION['error_message'] = "উফফ! আপনার Email/Username এ সমস্যা দেখা দিয়েছে। আপনার Email/Username টি সঠিক নয়।";
+            // Redirect to login page with error message
+            header("location: ../login.php");
+            exit(); // Ensure script stops execution
     }
     $conn->close();
 }
 ?>
+
 
 
 <?php

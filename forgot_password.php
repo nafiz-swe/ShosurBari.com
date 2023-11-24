@@ -86,7 +86,7 @@ if (isset($_SESSION['id'])) {
     <div class="popup-content">
         <p id="popup-message"></p>
         <div class="popup-buttons">
-            <button id="close-button">ঠিকাছে</button>
+            <button id="close-button">ঠিক আছে</button>
         </div>
     </div>
 </div>
@@ -236,7 +236,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         }
         } else {
             // User not found in the database
-            echo '<script>showPopup("<span> দুঃখিত!</span><br><p>ই-মেইলটি দিয়ে শশুরবাড়িতে কখনো একাউন্ট খোলা হয়নি। অনুগ্রহ করে রেজিস্টারকৃত ই-মেইল দিয়ে আবার চেষ্টা করুন।<p>");</script>';
+            echo '<script>showPopup("<span> দুঃখিত!</span><br><p>ই-মেইলটি দিয়ে শ্বশুরবাড়ি ডট কমে কখনো একাউন্ট খোলা হয়নি। অনুগ্রহ করে রেজিস্টারকৃত ই-মেইল দিয়ে আবার চেষ্টা করুন।<p>");</script>';
         }
     }
 ?>

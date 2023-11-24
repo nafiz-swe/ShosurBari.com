@@ -198,7 +198,7 @@ if (isset($_SESSION['error_message'])) {
           </div>
 
           <div class="sb-biodata-field">
-            <h2>Create new cccount</h2>
+            <h2>Create new account</h2>
           </div>
 
           <div class="form-group">
