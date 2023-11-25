@@ -696,7 +696,7 @@ if(isloggedin()){
 								<option value="সেলস & মার্কেটিং(SR)">সেলস & মার্কেটিং(SR)</option>
 								<option value="আর্ট/দেয়াল লিখন">আর্ট/দেয়াল লিখন</option>
 								<option value="নিরাপত্তারক্ষী">নিরাপত্তারক্ষী</option>
-								<option value="রোজ কামলা/শ্রমিক">রোজ কামলা / শ্রমিক</option>  
+								<option value="দিনমজুর/শ্রমিক">দিনমজুর/শ্রমিক</option>  
 							</select>
 						</div>
 

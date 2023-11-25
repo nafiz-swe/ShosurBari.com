@@ -69,7 +69,7 @@
 
 
 	<div class="droop-down">
-    <h2> স্বপ্নময় জীবনসঙ্গী খুঁজুন দ্রুততম সময়ে</h2>
+    <h2> <span class="shosurbari-heading-span">স্বপ্নময় জীবনসঙ্গী</span> খুঁজুন দ্রুততম সময়ে</h2>
     <form action="search.php" method="post">
 
       <div class="shosurbari-home-search">
@@ -1164,7 +1164,7 @@ $('.fa-chevron-down').removeClass('rotate');
 .droop-down h2{
   font-size: 25px;
   text-align: center;
-  color: #06b6d4;
+  color: #000;
   font-weight: 500;
   margin: 10px auto 0 auto;
 }
@@ -1446,6 +1446,10 @@ function createSlides(data) {
     font-size: 23px;
     line-height: 32px;
   }
+  
+  .droop-down{
+    margin-top: 30px;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -1462,7 +1466,6 @@ function createSlides(data) {
 .droop-down {
   padding: 40px 50px;
   width: 340px;
-  margin-top: -100px;
 }
 }
 
@@ -1473,6 +1476,7 @@ function createSlides(data) {
 .droop-down {
   padding: 20px 25px;
   width: 260px;
+  margin-top: 60px;
 }
 
 .droop-down h2 {
@@ -1889,10 +1893,6 @@ th, td {
   .sb-register-login h2{
     font-size: 20px;
   }
-
-  .droop-down{
-    margin-top: -50px;
-}
 }
 
 @media (max-width: 384px) {

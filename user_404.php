@@ -39,11 +39,11 @@ $result=search();
 <style>
 body {
   margin: 0;
+  margin-top: 40px;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
 .shosurbari-error-form {

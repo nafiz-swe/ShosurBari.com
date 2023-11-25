@@ -1037,15 +1037,96 @@ $result=search();
       </div>
 
 
-            <!--Biodata Occupation Option -->
-            <div class="wrapper">
-              <label class="form-control toggle-next ellipsis">পেশা <span style=" color:#06b6d4;">   <i class="fa fa-chevron-down"></i></span></label>
+
+
+                  <!--Biodata Occupation Option -->
+                  <div class="wrapper">
+              <label class="form-control toggle-next ellipsis">পেশা<span style=" color:#06b6d4;">   <i class="fa fa-chevron-down"></i></span></label>
               <div class="checkboxes" id="Lorems">
                 <div class="inner-wrap">
                 
                   
                 <input type="checkbox" name="occupation_sector[]" value="Any Occupation" class="SelectBox all" onchange="handleAllOccupations(this)" checked />
                 <span>সকল পেশা</span>
+                <br>
+
+                  <!-- Students Sector-->
+                    <input type="checkbox" name="Student[]" value="Student" class="SelectBox val" />
+                    <span class="search-options">শিক্ষার্থী</span>
+                  <br>
+
+                    <!-- Business Sector-->
+                    <input type="checkbox" name="Business[]" value="Business" class="SelectBox val" />
+                    <span class="search-options">ব্যবসা</span>
+                  <br>
+
+                  <!-- Medical & Health Sector -->                  
+                    <input type="checkbox" name="Health[]" value="Health" class="SelectBox val" />
+                    <span class="search-options">ডাক্তার/চিকিৎসা/স্বাস্থ্য</span>
+                  <br>
+
+                  <!--  Engineers Sector-->                  
+                    <input type="checkbox" name="Engineer[]" value="Engineer" class="SelectBox val" />
+                    <span class="search-options">বি.এসসি. ইঞ্জিনিয়ার</span>
+                  <br>
+
+                  <!-- Teacher Profession -->                  
+                    <input type="checkbox" name="Teacher[]" value="Teacher" class="SelectBox val" />
+                    <span class="search-options">শিক্ষক/প্রফেসর</span>
+                  <br>
+
+                  <!-- Defense Profession-->                  
+                    <input type="checkbox" name="Defense[]" value="Defense" class="SelectBox val" />
+                    <span class="search-options">প্রতিরক্ষা বাহিনী</span>
+                  <br>
+
+                  <!-- Common Profession-->
+                    <input type="checkbox" name="Common[]" value="Common" class="SelectBox val" />
+                    <span class="search-options">সার্ভিস/ইন্টারনেট/ফাইন্যান্স</span>
+                  <br>
+
+                  <!-- Working Forign Sector-->                  
+                    <input type="checkbox" name="Foreigner[]" value="Foreigner" class="SelectBox val" />
+                    <span class="search-options">প্রবাসী/বিদেশে</span>
+                  <br>
+
+                  <!-- Garments Sector-->                  
+                    <input type="checkbox" name="Garments[]" value="Garments" class="SelectBox val" />
+                    <span class="search-options">গার্মেন্টস সেক্টর</span>
+                  <br>
+
+                  <!--  Driver Profession -->                  
+                    <input type="checkbox" name="Driver[]" value="Driver" class="SelectBox val" />
+                    <span class="search-options">ড্রাইভার/চালক</span>
+                  <br>
+
+                  <!-- Mistri Sector-->                  
+                    <input type="checkbox" name="Mistri[]" value="Mistri" class="SelectBox val" />
+                    <span class="search-options">মিস্ত্রি</span>
+                  <br>
+
+                  <!-- Other Sector-->                  
+                    <input type="checkbox" name="Other[]" value="Other" class="SelectBox val" />
+                    <span class="search-options">অন্যান্য</span>
+                  <br>
+
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+            <!--Biodata Occupation Option -->
+            <div class="wrapper">
+              <label class="form-control toggle-next ellipsis">পেশার ক্যাটাগরি <span style=" color:#06b6d4;">   <i class="fa fa-chevron-down"></i></span></label>
+              <div class="checkboxes" id="Lorems">
+                <div class="inner-wrap">
+                
+                  
+                <input type="checkbox" name="occupation_sector[]" value="Any Occupation" class="SelectBox all" onchange="handleAllOccupations(this)" checked />
+                <span>সকল পেশার ক্যাটাগরি</span>
                 <br>
 
 
@@ -1100,7 +1181,7 @@ $result=search();
                     <span class="search-options">মিডউইফারী শিক্ষার্থী</span>
                   <br>
 
-                  <!-- Honours -->
+                  <!-- Undergraduate -->
                   <label class="label-search-options">স্নাতক/সমমান শিক্ষার্থী</label><br>
                   
                     <input type="checkbox" name="student_occupation_level[]" value="মেডিকেল শিক্ষার্থী" class="SelectBox val" />
@@ -1143,6 +1224,9 @@ $result=search();
                   <br>
 
                   
+                  <!-- Postgraduate -->
+                  <label class="label-search-options">স্নাতকোত্তর/সমমান শিক্ষার্থী</label><br>
+
                     <input type="checkbox" name="student_occupation_level[]" value="এম.এসসি. শিক্ষার্থী" class="SelectBox val" />
                     <span class="search-options">এম.এসসি. শিক্ষার্থী</span>
                   <br>
@@ -1344,6 +1428,62 @@ $result=search();
                     <span class="search-options">আনসার</span>
                   <br>
 
+                  
+                  <!-- Common Profession-->
+                  <label class="label-search-options"> সার্ভিস/ইন্টারনেট/ফাইন্যান্স </label><br>
+
+                  <input type="checkbox" name="service_andcommon_occupation_level[]" value="HR" class="SelectBox val" />
+                    <span class="search-options">HR</span>
+                  <br>
+
+
+                    <input type="checkbox" name="service_andcommon_occupation_level[]" value="ব্যাংকার" class="SelectBox val" />
+                    <span class="search-options">ব্যাংকার</span>
+                  <br>
+
+                    <input type="checkbox" name="service_andcommon_occupation_level[]" value="আইনজীবী" class="SelectBox val" />
+                    <span class="search-options">আইনজীবী</span>
+                  <br>
+
+
+                    <input type="checkbox" name="service_andcommon_occupation_level[]" value="উদ্যোক্তা" class="SelectBox val" />
+                    <span class="search-options">উদ্যোক্তা</span>
+                  <br>
+
+                    <input type="checkbox" name="service_andcommon_occupation_level[]" value="ফ্রীলান্সার" class="SelectBox val" />
+                    <span class="search-options">ফ্রীলান্সার</span>
+                  <br>
+
+                  
+                    <input type="checkbox" name="service_andcommon_occupation_level[]" value="ইউটিউবার" class="SelectBox val" />
+                    <span class="search-options">ইউটিউবার</span>
+                  <br>
+
+                  
+                    <input type="checkbox" name="service_andcommon_occupation_level[]" value="গ্রাফিক্স ডিজাইনার" class="SelectBox val" />
+                    <span class="search-options">গ্রাফিক্স ডিজাইনার</span>
+                  <br>
+
+                  
+                    <input type="checkbox" name="service_andcommon_occupation_level[]" value="সেলস & মার্কেটিং(SR)" class="SelectBox val" />
+                    <span class="search-options">সেলস & মার্কেটিং(SR)</span>
+                  <br>
+
+                  
+                    <input type="checkbox" name="service_andcommon_occupation_level[]" value="আর্ট/দেয়াল লিখন" class="SelectBox val" />
+                    <span class="search-options">আর্ট/দেয়াল লিখন</span>
+                   <br>
+
+                  
+                    <input type="checkbox" name="service_andcommon_occupation_level[]" value="নিরাপত্তারক্ষী" class="SelectBox val" />
+                    <span class="search-options">নিরাপত্তারক্ষী</span>
+                   <br>
+
+                  
+                    <input type="checkbox" name="service_andcommon_occupation_level[]" value="দিনমজুর/শ্রমিক" class="SelectBox val" />
+                    <span class="search-options">দিনমজুর/শ্রমিক</span>
+                   <br>
+
 
                   <!-- Working Forign Sector-->
                   <label class="label-search-options">বিদেশে </label><br>
@@ -1427,63 +1567,6 @@ $result=search();
                     <input type="checkbox" name="driver_occupation_level[]" value="রিক্সা চালক" class="SelectBox val" />
                     <span class="search-options">রিক্সা চালক</span>
                   <br>
-
-
-
-                  <!-- Common Profession-->
-                  <label class="label-search-options"> সার্ভিস/ইন্টারনেট/ফাইন্যান্স/অন্যান্য </label><br>
-
-                  <input type="checkbox" name="service_andcommon_occupation_level[]" value="HR" class="SelectBox val" />
-                    <span class="search-options">HR</span>
-                  <br>
-
-
-                    <input type="checkbox" name="service_andcommon_occupation_level[]" value="ব্যাংকার" class="SelectBox val" />
-                    <span class="search-options">ব্যাংকার</span>
-                  <br>
-
-                    <input type="checkbox" name="service_andcommon_occupation_level[]" value="আইনজীবী" class="SelectBox val" />
-                    <span class="search-options">আইনজীবী</span>
-                  <br>
-
-
-                    <input type="checkbox" name="service_andcommon_occupation_level[]" value="উদ্যোক্তা" class="SelectBox val" />
-                    <span class="search-options">উদ্যোক্তা</span>
-                  <br>
-
-                    <input type="checkbox" name="service_andcommon_occupation_level[]" value="ফ্রীলান্সার" class="SelectBox val" />
-                    <span class="search-options">ফ্রীলান্সার</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="service_andcommon_occupation_level[]" value="ইউটিউবার" class="SelectBox val" />
-                    <span class="search-options">ইউটিউবার</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="service_andcommon_occupation_level[]" value="গ্রাফিক্স ডিজাইনার" class="SelectBox val" />
-                    <span class="search-options">গ্রাফিক্স ডিজাইনার</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="service_andcommon_occupation_level[]" value="সেলস & মার্কেটিং(SR)" class="SelectBox val" />
-                    <span class="search-options">সেলস & মার্কেটিং(SR)</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="service_andcommon_occupation_level[]" value="আর্ট/দেয়াল লিখন" class="SelectBox val" />
-                    <span class="search-options">আর্ট/দেয়াল লিখন</span>
-                   <br>
-
-                  
-                    <input type="checkbox" name="service_andcommon_occupation_level[]" value="নিরাপত্তারক্ষী" class="SelectBox val" />
-                    <span class="search-options">নিরাপত্তারক্ষী</span>
-                   <br>
-
-                  
-                    <input type="checkbox" name="service_andcommon_occupation_level[]" value="রোজ কামলা/শ্রমিক" class="SelectBox val" />
-                    <span class="search-options">রোজ কামলা/শ্রমিক</span>
-                   <br>
 
 
                   <!-- Garments Sector-->
@@ -2599,15 +2682,98 @@ $result=search();
       </div>
 
 
-            <!--Biodata Occupation Option -->
+
+
+
+
+              <!--Biodata Occupation Option -->
+              <div class="wrapper">
+              <label class="form-control toggle-next ellipsis">পেশা<span style=" color:#06b6d4;">   <i class="fa fa-chevron-down"></i></span></label>
+              <div class="checkboxes" id="Lorems">
+                <div class="inner-wrap">
+       
+                  
+                <input type="checkbox" name="occupation_sector[]" value="Any Occupation" class="SelectBox all" onchange="handleAllOccupations(this)" checked />
+                <span>সকল পেশা</span>
+                <br>
+
+                  <!-- Students Sector-->
+                    <input type="checkbox" name="Student[]" value="Student" class="SelectBox val" />
+                    <span class="search-options">শিক্ষার্থী</span>
+                  <br>
+
+                    <!-- Business Sector-->
+                    <input type="checkbox" name="Business[]" value="Business" class="SelectBox val" />
+                    <span class="search-options">ব্যবসা</span>
+                  <br>
+
+                  <!-- Medical & Health Sector -->                  
+                    <input type="checkbox" name="Health[]" value="Health" class="SelectBox val" />
+                    <span class="search-options">ডাক্তার/চিকিৎসা/স্বাস্থ্য</span>
+                  <br>
+
+                  <!--  Engineers Sector-->                  
+                    <input type="checkbox" name="Engineer[]" value="Engineer" class="SelectBox val" />
+                    <span class="search-options">বি.এসসি. ইঞ্জিনিয়ার</span>
+                  <br>
+
+                  <!-- Teacher Profession -->                  
+                    <input type="checkbox" name="Teacher[]" value="Teacher" class="SelectBox val" />
+                    <span class="search-options">শিক্ষক/প্রফেসর</span>
+                  <br>
+
+                  <!-- Defense Profession-->                  
+                    <input type="checkbox" name="Defense[]" value="Defense" class="SelectBox val" />
+                    <span class="search-options">প্রতিরক্ষা বাহিনী</span>
+                  <br>
+
+                  <!-- Common Profession-->
+                    <input type="checkbox" name="Common[]" value="Common" class="SelectBox val" />
+                    <span class="search-options">সার্ভিস/ইন্টারনেট/ফাইন্যান্স</span>
+                  <br>
+
+                  <!-- Working Forign Sector-->                  
+                    <input type="checkbox" name="Foreigner[]" value="Foreigner" class="SelectBox val" />
+                    <span class="search-options">প্রবাসী/বিদেশে</span>
+                  <br>
+
+                  <!-- Garments Sector-->                  
+                    <input type="checkbox" name="Garments[]" value="Garments" class="SelectBox val" />
+                    <span class="search-options">গার্মেন্টস সেক্টর</span>
+                  <br>
+
+                  <!--  Driver Profession -->                  
+                    <input type="checkbox" name="Driver[]" value="Driver" class="SelectBox val" />
+                    <span class="search-options">ড্রাইভার/চালক</span>
+                  <br>
+
+                  <!-- Mistri Sector-->                  
+                    <input type="checkbox" name="Mistri[]" value="Mistri" class="SelectBox val" />
+                    <span class="search-options">মিস্ত্রি</span>
+                  <br>
+
+                  <!-- Other Sector-->                  
+                    <input type="checkbox" name="Other[]" value="Other" class="SelectBox val" />
+                    <span class="search-options">অন্যান্য</span>
+                  <br>
+
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+            <!--Biodata Occupation Sector Option -->
             <div class="wrapper">
-              <label class="form-control toggle-next ellipsis">পেশা <span style=" color:#06b6d4;">   <i class="fa fa-chevron-down"></i></span></label>
+              <label class="form-control toggle-next ellipsis">পেশার ক্যাটাগরি <span style=" color:#06b6d4;">   <i class="fa fa-chevron-down"></i></span></label>
               <div class="checkboxes" id="Lorems">
                 <div class="inner-wrap">
                 
                   
                 <input type="checkbox" name="occupation_sector[]" value="Any Occupation" class="SelectBox all" onchange="handleAllOccupations(this)" checked />
-                <span>সকল পেশা</span>
+                <span>সকল পেশার ক্যাটাগরি</span>
                 <br>
 
 
@@ -2662,7 +2828,7 @@ $result=search();
                     <span class="search-options">মিডউইফারী শিক্ষার্থী</span>
                   <br>
 
-                  <!-- Honours -->
+                  <!-- Undergraduate -->
                   <label class="label-search-options">স্নাতক/সমমান শিক্ষার্থী</label><br>
                   
                     <input type="checkbox" name="student_occupation_level[]" value="মেডিকেল শিক্ষার্থী" class="SelectBox val" />
@@ -2704,7 +2870,10 @@ $result=search();
                     <span class="search-options">ফাজিল শিক্ষার্থী</span>
                   <br>
 
-                  
+
+                  <!-- Postgraduate -->
+                  <label class="label-search-options">স্নাতকোত্তর/সমমান শিক্ষার্থী</label><br>
+
                     <input type="checkbox" name="student_occupation_level[]" value="এম.এসসি. শিক্ষার্থী" class="SelectBox val" />
                     <span class="search-options">এম.এসসি. শিক্ষার্থী</span>
                   <br>
@@ -2907,6 +3076,63 @@ $result=search();
                   <br>
 
 
+                  <!-- Common Profession-->
+                  <label class="label-search-options"> সার্ভিস/ইন্টারনেট/ফাইন্যান্স </label><br>
+
+                  <input type="checkbox" name="service_andcommon_occupation_level[]" value="HR" class="SelectBox val" />
+                    <span class="search-options">HR</span>
+                  <br>
+
+
+                  <input type="checkbox" name="service_andcommon_occupation_level[]" value="ব্যাংকার" class="SelectBox val" />
+                    <span class="search-options">ব্যাংকার</span>
+                  <br>
+
+                  <input type="checkbox" name="service_andcommon_occupation_level[]" value="আইনজীবী" class="SelectBox val" />
+                    <span class="search-options">আইনজীবী</span>
+                  <br>
+
+
+                  <input type="checkbox" name="service_andcommon_occupation_level[]" value="উদ্যোক্তা" class="SelectBox val" />
+                    <span class="search-options">উদ্যোক্তা</span>
+                  <br>
+
+                  <input type="checkbox" name="service_andcommon_occupation_level[]" value="ফ্রীলান্সার" class="SelectBox val" />
+                    <span class="search-options">ফ্রীলান্সার</span>
+                  <br>
+
+
+                  <input type="checkbox" name="service_andcommon_occupation_level[]" value="ইউটিউবার" class="SelectBox val" />
+                    <span class="search-options">ইউটিউবার</span>
+                  <br>
+
+
+                  <input type="checkbox" name="service_andcommon_occupation_level[]" value="গ্রাফিক্স ডিজাইনার" class="SelectBox val" />
+                    <span class="search-options">গ্রাফিক্স ডিজাইনার</span>
+                  <br>
+
+
+                  <input type="checkbox" name="service_andcommon_occupation_level[]" value="সেলস & মার্কেটিং(SR)" class="SelectBox val" />
+                    <span class="search-options">সেলস & মার্কেটিং(SR)</span>
+                  <br>
+
+
+                  <input type="checkbox" name="service_andcommon_occupation_level[]" value="আর্ট/দেয়াল লিখন" class="SelectBox val" />
+                    <span class="search-options">আর্ট/দেয়াল লিখন</span>
+                  <br>
+
+
+                  <input type="checkbox" name="service_andcommon_occupation_level[]" value="নিরাপত্তারক্ষী" class="SelectBox val" />
+                    <span class="search-options">নিরাপত্তারক্ষী</span>
+                  <br>
+
+
+                  <input type="checkbox" name="service_andcommon_occupation_level[]" value="দিনমজুর/শ্রমিক" class="SelectBox val" />
+                    <span class="search-options">দিনমজুর/শ্রমিক</span>
+                  <br>
+
+
+
                   <!-- Working Forign Sector-->
                   <label class="label-search-options">বিদেশে </label><br>
                   
@@ -2991,63 +3217,6 @@ $result=search();
                   <br>
 
 
-
-                  <!-- Common Profession-->
-                  <label class="label-search-options"> সার্ভিস/ইন্টারনেট/ফাইন্যান্স/অন্যান্য </label><br>
-
-                  <input type="checkbox" name="service_andcommon_occupation_level[]" value="HR" class="SelectBox val" />
-                    <span class="search-options">HR</span>
-                  <br>
-
-
-                    <input type="checkbox" name="service_andcommon_occupation_level[]" value="ব্যাংকার" class="SelectBox val" />
-                    <span class="search-options">ব্যাংকার</span>
-                  <br>
-
-                    <input type="checkbox" name="service_andcommon_occupation_level[]" value="আইনজীবী" class="SelectBox val" />
-                    <span class="search-options">আইনজীবী</span>
-                  <br>
-
-
-                    <input type="checkbox" name="service_andcommon_occupation_level[]" value="উদ্যোক্তা" class="SelectBox val" />
-                    <span class="search-options">উদ্যোক্তা</span>
-                  <br>
-
-                    <input type="checkbox" name="service_andcommon_occupation_level[]" value="ফ্রীলান্সার" class="SelectBox val" />
-                    <span class="search-options">ফ্রীলান্সার</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="service_andcommon_occupation_level[]" value="ইউটিউবার" class="SelectBox val" />
-                    <span class="search-options">ইউটিউবার</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="service_andcommon_occupation_level[]" value="গ্রাফিক্স ডিজাইনার" class="SelectBox val" />
-                    <span class="search-options">গ্রাফিক্স ডিজাইনার</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="service_andcommon_occupation_level[]" value="সেলস & মার্কেটিং(SR)" class="SelectBox val" />
-                    <span class="search-options">সেলস & মার্কেটিং(SR)</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="service_andcommon_occupation_level[]" value="আর্ট/দেয়াল লিখন" class="SelectBox val" />
-                    <span class="search-options">আর্ট/দেয়াল লিখন</span>
-                   <br>
-
-                  
-                    <input type="checkbox" name="service_andcommon_occupation_level[]" value="নিরাপত্তারক্ষী" class="SelectBox val" />
-                    <span class="search-options">নিরাপত্তারক্ষী</span>
-                   <br>
-
-                  
-                    <input type="checkbox" name="service_andcommon_occupation_level[]" value="রোজ কামলা/শ্রমিক" class="SelectBox val" />
-                    <span class="search-options">রোজ কামলা/শ্রমিক</span>
-                   <br>
-
-
                   <!-- Mistri Sector-->
                   <label class="label-search-options">মিস্ত্রি </label><br>
                   
@@ -3118,6 +3287,9 @@ $result=search();
                 </div>
               </div>
             </div>
+
+
+
 
 
       <!--Biodata Education Method Option -->

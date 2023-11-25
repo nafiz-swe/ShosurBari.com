@@ -39,11 +39,11 @@ $result=search();
 <style>
 body {
   margin: 0;
+  margin-top: 40px;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
 .shosurbari-error-form {
@@ -87,6 +87,8 @@ body {
 .error-page-area p {
   font-size: 15px;
   line-height: 30px;
+  margin-bottom: 5px;
+  margin-top: -5px;
 }
 
 .button-container {

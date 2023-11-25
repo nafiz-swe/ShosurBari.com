@@ -124,7 +124,7 @@ if (isset($_COOKIE[$cookieName])) {
 
         <div class="soshurbari-animation-icon">
             <div class="sb-icon-laptop">
-              <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
+              <h3> <img src="images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
             </div>
         </div>
 
@@ -315,6 +315,7 @@ if(isset($_SESSION['id'])){
 }
 
 .soshurbari-animation-icon,
+.soshurbari-payment-icon,
 .shosurbari-animation-form {
   flex-basis: 50%;
   display: flex;
@@ -329,12 +330,27 @@ if(isset($_SESSION['id'])){
   margin-top: 15px;
 }
 
+.soshurbari-payment-icon h4 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
 .soshurbari-animation-icon img {
   justify-content: flex-end;
   margin: auto;
-
   width: 37px;
   height: 35px;
+}
+
+.soshurbari-payment-icon img {
+  justify-content: flex-end;
+  margin: auto;
+  width: 80px;
+  height: 35px;
+  border-radius: 3px;
 }
 
 @media (max-width: 1400px){
@@ -385,7 +401,7 @@ nextBtn.addEventListener('click', () => {
 <div class="payment-form" style="display: none;">
         <div class="soshurbari-animation-icon">
             <div class="sb-icon-laptop">
-              <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
+              <h3> <img src="images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
             </div>
         </div>
 
@@ -471,47 +487,73 @@ if (isset($_GET['profileid'])) {
 </div>
 
 
+
+
 <div class="payment-method bkash" style="background: #e2136e; padding: 20px; border-radius: 5px; margin-top: 20px;">
-        <div class="form-group">
-            <p style="color: #fff; text-align: justify;">আপনার মোবাইলের বিকাশ এপ্স অথবা *247# ডায়েল করে মোট টাকা "Send Money" করুন পার্সোনাল বিকাশ নাম্বারে: 01737-226404</p>
-            <label style="color: #fff;" >আপনার বিকাশ নাম্বার</label>
-            <input style="background: #fff;" type="text" id="bkash_number" name="bkash_number" placeholder="01XX-XXX XXX" class="form-text" />
-            <span id="bkashnumber-error" class="shosurbari-form-error"></span>
-        </div>
-        <div class="form-group">
-            <label style="color: #fff;" >ট্রানজেকশন আইডি (TrxID)</label>
-            <input style="background: #fff;" type="text" id="bkash_trxid" name="bkash_transaction_id" placeholder="AHV6U3TJ5K" class="form-text" />
-            <span id="bkash-error" class="shosurbari-form-error"></span>
-        </div>
+  <div class="soshurbari-payment-icon">
+    <div class="sb-icon-laptop">
+      <h4> <img src="images/payment-bkash.png"> Send Money </h4>
     </div>
+  </div>
 
-    <div class="payment-method nagad" style="background: #ec1c24; padding: 20px; border-radius: 5px; margin-top: 20px;">
-        <div class="form-group">
-        <p style="color: #fff; text-align: justify;">আপনার মোবাইলের নগদ এপ্স অথবা *167# ডায়েল করে মোট টাকা "Send Money" করুন পার্সোনাল নগদ নাম্বারে: 01737-226404</p>
-            <label style="color: #fff;">আপনার নগদ নাম্বার</label>
-            <input style="background: #fff;" type="text" id="nagad_number" name="nagad_number" placeholder="01XX-XXX XXX" class="form-text" />
-            <span id="nagadnumber-error" class="shosurbari-form-error"></span>
-        </div>
-        <div class="form-group">
-            <label style="color: #fff;">ট্রানজেকশন আইডি (TxnId)</label>
-            <input style="background: #fff;" type="text" id="nagad_trxid" name="nagad_transaction_id" placeholder="72449QUT" class="form-text" />
-            <span id="nagad-error" class="shosurbari-form-error"></span>
-        </div>
+  <div class="form-group">
+    <p style="color: #fff; text-align: justify;">আপনার মোবাইলের বিকাশ এপ্স অথবা *247# ডায়েল করে মোট টাকা "Send Money" করুন পার্সোনাল বিকাশ নাম্বারে: 01737-226404</p>
+    <label style="color: #fff;" >আপনার বিকাশ নাম্বার</label>
+    <input style="background: #fff;" type="text" id="bkash_number" name="bkash_number" placeholder="01XX-XXX XXX" class="form-text" />
+    <span id="bkashnumber-error" class="shosurbari-form-error"></span>
+  </div>
+
+  <div class="form-group">
+    <label style="color: #fff;" >ট্রানজেকশন আইডি (TrxID)</label>
+    <input style="background: #fff;" type="text" id="bkash_trxid" name="bkash_transaction_id" placeholder="AHV6U3TJ5K" class="form-text" />
+    <span id="bkash-error" class="shosurbari-form-error"></span>
+  </div>
+</div>
+
+
+
+<div class="payment-method nagad" style="background: #ec1c24; padding: 20px; border-radius: 5px; margin-top: 20px;">
+  <div class="soshurbari-payment-icon">
+    <div class="sb-icon-laptop">
+      <h4> <img src="images/payment-nagad.png"> Send Money </h4>
     </div>
+  </div>
 
-    <div class="payment-method roket" style="background: #8C3494; padding: 20px; border-radius: 5px; margin-top: 20px;">
-        <div class="form-group">
-        <p style="color: #fff; text-align: justify;">আপনার মোবাইলের রকেট এপ্স অথবা *322# ডায়েল করে মোট টাকা "Send Money" করুন পার্সোনাল রকেট নাম্বারে: 01737-226404-4</p>
-            <label style="color: #fff;">আপনার রকেট নাম্বার</label>
-            <input style="background: #fff;" type="text" id="roket_number" name="roket_number" placeholder="01XX-XXX XXX-X" class="form-text" />
-            <span id="roketnumber-error" class="shosurbari-form-error"></span>
-        </div>
-        <div class="form-group">
-            <label style="color: #fff;">ট্রানজেকশন আইডি (TxnId)</label>
-            <input style="background: #fff;" type="text" id="roket_trxid" name="roket_transaction_id" placeholder="3956466293" class="form-text" />
-            <span id="roket-error" class="shosurbari-form-error"></span>
-        </div>
+  <div class="form-group">
+    <p style="color: #fff; text-align: justify;">আপনার মোবাইলের নগদ এপ্স অথবা *167# ডায়েল করে মোট টাকা "Send Money" করুন পার্সোনাল নগদ নাম্বারে: 01737-226404</p>
+    <label style="color: #fff;">আপনার নগদ নাম্বার</label>
+    <input style="background: #fff;" type="text" id="nagad_number" name="nagad_number" placeholder="01XX-XXX XXX" class="form-text" />
+    <span id="nagadnumber-error" class="shosurbari-form-error"></span>
+  </div>
+
+  <div class="form-group">
+    <label style="color: #fff;">ট্রানজেকশন আইডি (TxnId)</label>
+    <input style="background: #fff;" type="text" id="nagad_trxid" name="nagad_transaction_id" placeholder="72449QUT" class="form-text" />
+    <span id="nagad-error" class="shosurbari-form-error"></span>
+  </div>
+</div>
+
+
+<div class="payment-method roket" style="background: #8C3494; padding: 20px; border-radius: 5px; margin-top: 20px;">
+  <div class="soshurbari-payment-icon">
+    <div class="sb-icon-laptop">
+      <h4> <img src="images/payment-rocket.png"> Send Money </h4>
     </div>
+  </div>
+
+  <div class="form-group">
+    <p style="color: #fff; text-align: justify;">আপনার মোবাইলের রকেট এপ্স অথবা *322# ডায়েল করে মোট টাকা "Send Money" করুন পার্সোনাল রকেট নাম্বারে: 01737-226404-4</p>
+    <label style="color: #fff;">আপনার রকেট নাম্বার</label>
+    <input style="background: #fff;" type="text" id="roket_number" name="roket_number" placeholder="01XX-XXX XXX-X" class="form-text" />
+    <span id="roketnumber-error" class="shosurbari-form-error"></span>
+  </div>
+
+  <div class="form-group">
+    <label style="color: #fff;">ট্রানজেকশন আইডি (TxnId)</label>
+    <input style="background: #fff;" type="text" id="roket_trxid" name="roket_transaction_id" placeholder="3956466293" class="form-text" />
+    <span id="roket-error" class="shosurbari-form-error"></span>
+  </div>
+</div>
 
 
 
@@ -520,12 +562,12 @@ if (isset($_GET['profileid'])) {
 
 
 
-    <div class="profile-btn">
-      <div class="contact-bio">
-        <a href="choice_list.php">
-          <button class="chatbtn" id="back-btn">চয়েস লিস্ট</button>
-        </a>
-      </div>
+<div class="profile-btn">
+  <div class="contact-bio">
+    <a href="choice_list.php">
+      <button class="chatbtn" id="back-btn">চয়েস লিস্ট</button>
+    </a>
+  </div>
 
 
       <input type="hidden" name="idCount" value="<?php echo $idCount; ?>">
