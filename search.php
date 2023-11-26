@@ -1039,8 +1039,8 @@ $result=search();
 
 
 
-                  <!--Biodata Occupation Option -->
-                  <div class="wrapper">
+            <!--Biodata Occupation Option -->
+            <div class="wrapper">
               <label class="form-control toggle-next ellipsis">পেশা<span style=" color:#06b6d4;">   <i class="fa fa-chevron-down"></i></span></label>
               <div class="checkboxes" id="Lorems">
                 <div class="inner-wrap">
@@ -1050,15 +1050,33 @@ $result=search();
                 <span>সকল পেশা</span>
                 <br>
 
-                  <!-- Students Sector-->
-                    <input type="checkbox" name="Student[]" value="Student" class="SelectBox val" />
-                    <span class="search-options">শিক্ষার্থী</span>
+                
+                  <!-- Business Sector-->
+                  <input type="checkbox" name="Business[]" value="Business" class="SelectBox val" />
+                    <span class="search-options">ব্যবসায়ী</span>
                   <br>
 
-                    <!-- Business Sector-->
-                    <input type="checkbox" name="Business[]" value="Business" class="SelectBox val" />
-                    <span class="search-options">ব্যবসা</span>
+
+                  <!-- Students Sector-->
+                  <input type="checkbox" name="Student[]" value="Student" class="SelectBox val" />
+                    <span class="search-options">সকল শিক্ষার্থী</span>
                   <br>
+
+                  <!-- Students Sector-->
+                  <input type="checkbox" name="student_occupation_level[]" value="কওমি মাদ্রাসার শিক্ষার্থী" class="SelectBox val" />
+                    <span class="search-options">শিক্ষার্থী-কওমি মাদ্রাসা</span>
+                  <br>
+
+                  <!-- Students Sector-->
+                  <input type="checkbox" name="student_occupation_level[]" value="বি.এসসি. ইঞ্জিনিয়ারিং শিক্ষার্থী" class="SelectBox val" />
+                    <span class="search-options">শিক্ষার্থী-বি.এসসি. ইঞ্জিনিয়ারিং</span>
+                  <br>
+
+                  <!-- Students Sector-->
+                  <input type="checkbox" name="student_occupation_level[]" value="মেডিকেল শিক্ষার্থী" class="SelectBox val" />
+                    <span class="search-options">শিক্ষার্থী-মেডিকেল</span>
+                  <br>
+
 
                   <!-- Medical & Health Sector -->                  
                     <input type="checkbox" name="Health[]" value="Health" class="SelectBox val" />
@@ -1102,7 +1120,7 @@ $result=search();
 
                   <!-- Mistri Sector-->                  
                     <input type="checkbox" name="Mistri[]" value="Mistri" class="SelectBox val" />
-                    <span class="search-options">মিস্ত্রি</span>
+                    <span class="search-options">কারিগর/মিস্ত্রি</span>
                   <br>
 
                   <!-- Other Sector-->                  
@@ -1198,14 +1216,14 @@ $result=search();
                     <span class="search-options">বি.এসসি. ইঞ্জিনিয়ারিং শিক্ষার্থী</span>
                   <br>
 
-                  
-                    <input type="checkbox" name="student_occupation_level[]" value="বি.বি.এ. শিক্ষার্থী" class="SelectBox val" />
-                    <span class="search-options">বি.বি.এ. শিক্ষার্থী</span>
+
+                  <input type="checkbox" name="student_occupation_level[]" value="বি.এসসি. শিক্ষার্থী" class="SelectBox val" />
+                    <span class="search-options">বি.এসসি. শিক্ষার্থী</span>
                   <br>
 
                   
-                    <input type="checkbox" name="student_occupation_level[]" value="বি.এসসি. শিক্ষার্থী" class="SelectBox val" />
-                    <span class="search-options">বি.এসসি. শিক্ষার্থী</span>
+                    <input type="checkbox" name="student_occupation_level[]" value="বি.বি.এ. শিক্ষার্থী" class="SelectBox val" />
+                    <span class="search-options">বি.বি.এ. শিক্ষার্থী</span>
                   <br>
 
                   
@@ -1529,12 +1547,16 @@ $result=search();
                   <!--  Driver Profession -->
                   <label class="label-search-options">ড্রাইভার/চালক</label>  <br>
                   
-                    <input type="checkbox" name="driver_occupation_level[]" value="বাস ড্রাইভার" class="SelectBox val" />
+                  <input type="checkbox" name="driver_occupation_level[]" value="পাঠাও/উবার রাইডার" class="SelectBox val" />
+                    <span class="search-options">পাঠাও/উবার রাইডার</span>
+                  <br>
+
+                  <input type="checkbox" name="driver_occupation_level[]" value="বাস ড্রাইভার" class="SelectBox val" />
                     <span class="search-options">বাস ড্রাইভার</span>
                   <br>
 
                   
-                    <input type="checkbox" name="driver_occupation_level[]" value="মাইক্রো বাস ড্রাইভার" class="SelectBox val" />
+                  <input type="checkbox" name="driver_occupation_level[]" value="মাইক্রো বাস ড্রাইভার" class="SelectBox val" />
                     <span class="search-options">মাইক্রো বাস ড্রাইভার</span>
                   <br>
 
@@ -1546,11 +1568,6 @@ $result=search();
                   
                     <input type="checkbox" name="driver_occupation_level[]" value="ট্রাক ড্রাইভার" class="SelectBox val" />
                     <span class="search-options">ট্রাক ড্রাইভার</span>
-                  <br>
-
-                  
-                    <input type="checkbox" name="driver_occupation_level[]" value="পাঠাও/উবার রাইডার" class="SelectBox val" />
-                    <span class="search-options">পাঠাও/উবার রাইডার</span>
                   <br>
 
                   
@@ -1569,8 +1586,8 @@ $result=search();
                   <br>
 
 
-                  <!-- Garments Sector-->
-                  <label class="label-search-options">মিস্ত্রি </label><br>
+                  <!-- Mistri Sector-->
+                  <label class="label-search-options">কারিগর/মিস্ত্রি</label><br>
                   
                     <input type="checkbox" name="mistri_occupation_level[]" value="রাজ মিস্ত্রি" class="SelectBox val" />
                     <span class="search-options">রাজ মিস্ত্রি</span>
@@ -2692,20 +2709,36 @@ $result=search();
               <div class="checkboxes" id="Lorems">
                 <div class="inner-wrap">
        
-                  
                 <input type="checkbox" name="occupation_sector[]" value="Any Occupation" class="SelectBox all" onchange="handleAllOccupations(this)" checked />
                 <span>সকল পেশা</span>
                 <br>
+                                
+                  <!-- Business Sector-->
+                  <input type="checkbox" name="Business[]" value="Business" class="SelectBox val" />
+                    <span class="search-options">ব্যবসায়ী</span>
+                  <br>
+
 
                   <!-- Students Sector-->
                     <input type="checkbox" name="Student[]" value="Student" class="SelectBox val" />
-                    <span class="search-options">শিক্ষার্থী</span>
+                    <span class="search-options">সকল শিক্ষার্থী</span>
                   <br>
 
-                    <!-- Business Sector-->
-                    <input type="checkbox" name="Business[]" value="Business" class="SelectBox val" />
-                    <span class="search-options">ব্যবসা</span>
+                  <!-- Students Sector-->
+                  <input type="checkbox" name="student_occupation_level[]" value="কওমি মাদ্রাসার শিক্ষার্থী" class="SelectBox val" />
+                    <span class="search-options">শিক্ষার্থী-কওমি মাদ্রাসা</span>
                   <br>
+
+                  <!-- Students Sector-->
+                  <input type="checkbox" name="student_occupation_level[]" value="বি.এসসি. ইঞ্জিনিয়ারিং শিক্ষার্থী" class="SelectBox val" />
+                    <span class="search-options">শিক্ষার্থী-বি.এসসি. ইঞ্জিনিয়ারিং</span>
+                  <br>
+
+                  <!-- Students Sector-->
+                  <input type="checkbox" name="student_occupation_level[]" value="মেডিকেল শিক্ষার্থী" class="SelectBox val" />
+                    <span class="search-options">শিক্ষার্থী-মেডিকেল</span>
+                  <br>
+
 
                   <!-- Medical & Health Sector -->                  
                     <input type="checkbox" name="Health[]" value="Health" class="SelectBox val" />
@@ -2749,7 +2782,7 @@ $result=search();
 
                   <!-- Mistri Sector-->                  
                     <input type="checkbox" name="Mistri[]" value="Mistri" class="SelectBox val" />
-                    <span class="search-options">মিস্ত্রি</span>
+                    <span class="search-options">কারিগর/মিস্ত্রি</span>
                   <br>
 
                   <!-- Other Sector-->                  
@@ -2845,14 +2878,14 @@ $result=search();
                     <span class="search-options">বি.এসসি. ইঞ্জিনিয়ারিং শিক্ষার্থী</span>
                   <br>
 
-                  
-                    <input type="checkbox" name="student_occupation_level[]" value="বি.বি.এ. শিক্ষার্থী" class="SelectBox val" />
-                    <span class="search-options">বি.বি.এ. শিক্ষার্থী</span>
+
+                  <input type="checkbox" name="student_occupation_level[]" value="বি.এসসি. শিক্ষার্থী" class="SelectBox val" />
+                    <span class="search-options">বি.এসসি. শিক্ষার্থী</span>
                   <br>
 
                   
-                    <input type="checkbox" name="student_occupation_level[]" value="বি.এসসি. শিক্ষার্থী" class="SelectBox val" />
-                    <span class="search-options">বি.এসসি. শিক্ষার্থী</span>
+                    <input type="checkbox" name="student_occupation_level[]" value="বি.বি.এ. শিক্ষার্থী" class="SelectBox val" />
+                    <span class="search-options">বি.বি.এ. শিক্ষার্থী</span>
                   <br>
 
                   
@@ -3177,6 +3210,11 @@ $result=search();
                   <!--  Driver Profession -->
                   <label class="label-search-options">ড্রাইভার/চালক</label>  <br>
                   
+                  <input type="checkbox" name="driver_occupation_level[]" value="পাঠাও/উবার রাইডার" class="SelectBox val" />
+                    <span class="search-options">পাঠাও/উবার রাইডার</span>
+                  <br>
+
+
                     <input type="checkbox" name="driver_occupation_level[]" value="বাস ড্রাইভার" class="SelectBox val" />
                     <span class="search-options">বাস ড্রাইভার</span>
                   <br>
@@ -3197,11 +3235,6 @@ $result=search();
                   <br>
 
                   
-                    <input type="checkbox" name="driver_occupation_level[]" value="পাঠাও/উবার রাইডার" class="SelectBox val" />
-                    <span class="search-options">পাঠাও/উবার রাইডার</span>
-                  <br>
-
-                  
                   <input type="checkbox" name="driver_occupation_level[]" value="CNG চালকr" class="SelectBox val" />
                     <span class="search-options">CNG চালক</span>
                   <br>
@@ -3218,7 +3251,7 @@ $result=search();
 
 
                   <!-- Mistri Sector-->
-                  <label class="label-search-options">মিস্ত্রি </label><br>
+                  <label class="label-search-options">কারিগর/মিস্ত্রি</label><br>
                   
                     <input type="checkbox" name="mistri_occupation_level[]" value="রাজ মিস্ত্রি" class="SelectBox val" />
                     <span class="search-options">রাজ মিস্ত্রি</span>

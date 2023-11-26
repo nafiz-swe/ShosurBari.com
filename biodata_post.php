@@ -527,11 +527,11 @@ if(isloggedin()){
 								<option hidden selected></option>
 								<option value="Business">ব্যবসা</option>
 								<option value="Student">শিক্ষার্থী</option>
-								<option value="Common">সার্ভিস/ইন্টারনেট/ফাইন্যান্স</option>
 								<option value="Health">চিকিৎসা/স্বাস্থ্য</option>
 								<option value="Engineer">ইঞ্জিনিয়ার</option>
 								<option value="Teacher">শিক্ষক/প্রফেসর</option>
 								<option value="Defense">প্রতিরক্ষা বাহিনী</option>
+								<option value="Common">সার্ভিস/ইন্টারনেট/ফাইন্যান্স</option>
 								<option value="Foreigner">বিদেশে</option>
 								<option value="Garments">গার্মেন্টস</option>
 								<option value="Mistri">কারিগর/মিস্ত্রি</option>
