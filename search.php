@@ -1095,12 +1095,12 @@ $result=search();
 
                   <!-- Defense Profession-->                  
                     <input type="checkbox" name="occupation_sector[]" value="Defense" class="SelectBox val" />
-                    <span class="search-options">প্রতিরক্ষা বাহিনী</span>
+                    <span class="search-options">গোয়েন্দা/প্রতিরক্ষা/সশস্ত্রবাহিনী</span>
                   <br>
 
                   <!-- Common Profession-->
                     <input type="checkbox" name="occupation_sector[]" value="Common" class="SelectBox val" />
-                    <span class="search-options">সার্ভিস/ইন্টারনেট/ফাইন্যান্স</span>
+                    <span class="search-options">সার্ভিস/ফাইন্যান্স/ফ্রিল্যান্সার/অনলাইন</span>
                   <br>
 
                   <!-- Working Forign Sector-->                  
@@ -1126,6 +1126,11 @@ $result=search();
                   <!-- Other Sector-->                  
                     <input type="checkbox" name="occupation_sector[]" value="Other" class="SelectBox val" />
                     <span class="search-options">অন্যান্য</span>
+                  <br>
+
+                  <!-- No Profession Sector-->                  
+                    <input type="checkbox" name="occupation_sector[]" value="No Profession" class="SelectBox val" />
+                    <span class="search-options">কিছু করিনা</span>
                   <br>
 
                 </div>
@@ -2190,8 +2195,13 @@ $result=search();
 <span>সকল পেশা</span>
 <br>
 
+<!-- Teacher Profession -->                  
+<input type="checkbox" name="occupation_sector[]" value="ব্যবসায়ী" class="SelectBox val" />
+<span class="search-options">ব্যবসায়ী</span>
+<br>
+
 <!-- Students Sector-->
-<input type="checkbox" name="occupation_sector[]" value="Student" class="SelectBox val" onchange="handleStudentOccupation(this)" />
+<input type="checkbox" name="occupation_sector[]" value="শিক্ষার্থী" class="SelectBox val" onchange="handleStudentOccupation(this)" />
 <span class="search-options">সকল শিক্ষার্থী</span>
 <br>
 
@@ -2252,53 +2262,58 @@ function handleStudentOptions(checkbox) {
 
 
                   <!-- Medical & Health Sector -->                  
-                    <input type="checkbox" name="occupation_sector[]" value="Health" class="SelectBox val" />
+                    <input type="checkbox" name="occupation_sector[]" value="ডাক্তার/চিকিৎসা/স্বাস্থ্য" class="SelectBox val" />
                     <span class="search-options">ডাক্তার/চিকিৎসা/স্বাস্থ্য</span>
                   <br>
 
                   <!--  Engineers Sector-->                  
-                    <input type="checkbox" name="occupation_sector[]" value="Engineer" class="SelectBox val" />
+                    <input type="checkbox" name="occupation_sector[]" value="বি.এসসি. ইঞ্জিনিয়ার" class="SelectBox val" />
                     <span class="search-options">বি.এসসি. ইঞ্জিনিয়ার</span>
                   <br>
 
                   <!-- Teacher Profession -->                  
-                    <input type="checkbox" name="occupation_sector[]" value="Teacher" class="SelectBox val" />
+                    <input type="checkbox" name="occupation_sector[]" value="শিক্ষক/প্রফেসর" class="SelectBox val" />
                     <span class="search-options">শিক্ষক/প্রফেসর</span>
                   <br>
 
                   <!-- Defense Profession-->                  
-                    <input type="checkbox" name="occupation_sector[]" value="Defense" class="SelectBox val" />
-                    <span class="search-options">প্রতিরক্ষা বাহিনী</span>
+                    <input type="checkbox" name="occupation_sector[]" value="গোয়েন্দা/প্রতিরক্ষা/সশস্ত্রবাহিনী" class="SelectBox val" />
+                    <span class="search-options">গোয়েন্দা/প্রতিরক্ষা/সশস্ত্রবাহিনী</span>
                   <br>
 
                   <!-- Common Profession-->
-                    <input type="checkbox" name="occupation_sector[]" value="Common" class="SelectBox val" />
-                    <span class="search-options">সার্ভিস/ইন্টারনেট/ফাইন্যান্স</span>
+                    <input type="checkbox" name="occupation_sector[]" value="সার্ভিস/ফাইন্যান্স/ফ্রিল্যান্সার/অনলাইন" class="SelectBox val" />
+                    <span class="search-options">সার্ভিস/ফাইন্যান্স/ফ্রিল্যান্সার/অনলাইন</span>
                   <br>
 
                   <!-- Working Forign Sector-->                  
-                    <input type="checkbox" name="occupation_sector[]" value="Foreigner" class="SelectBox val" />
+                    <input type="checkbox" name="occupation_sector[]" value="প্রবাসী/বিদেশে" class="SelectBox val" />
                     <span class="search-options">প্রবাসী/বিদেশে</span>
                   <br>
 
                   <!-- Garments Sector-->                  
-                    <input type="checkbox" name="occupation_sector[]" value="Garments" class="SelectBox val" />
+                    <input type="checkbox" name="occupation_sector[]" value="গার্মেন্টস সেক্টর" class="SelectBox val" />
                     <span class="search-options">গার্মেন্টস সেক্টর</span>
                   <br>
 
                   <!--  Driver Profession -->                  
-                    <input type="checkbox" name="occupation_sector[]" value="Driver" class="SelectBox val" />
+                    <input type="checkbox" name="occupation_sector[]" value="ড্রাইভার/চালক" class="SelectBox val" />
                     <span class="search-options">ড্রাইভার/চালক</span>
                   <br>
 
                   <!-- Mistri Sector-->                  
-                    <input type="checkbox" name="occupation_sector[]" value="Mistri" class="SelectBox val" />
+                    <input type="checkbox" name="occupation_sector[]" value="কারিগর/মিস্ত্রি" class="SelectBox val" />
                     <span class="search-options">কারিগর/মিস্ত্রি</span>
                   <br>
 
                   <!-- Other Sector-->                  
-                    <input type="checkbox" name="occupation_sector[]" value="Other" class="SelectBox val" />
+                    <input type="checkbox" name="occupation_sector[]" value="অন্যান্য" class="SelectBox val" />
                     <span class="search-options">অন্যান্য</span>
+                  <br>
+
+                  <!-- No Profession Sector-->                  
+                    <input type="checkbox" name="occupation_sector[]" value="কিছু করিনা" class="SelectBox val" />
+                    <span class="search-options">কিছু করিনা</span>
                   <br>
 
                 </div>

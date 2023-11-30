@@ -335,7 +335,7 @@ if(isset($_SESSION['id'])){
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 15px;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 .soshurbari-animation-icon img {
@@ -472,7 +472,7 @@ if (isset($_GET['profileid'])) {
 
 
             
-<div class="shosurbari-biodata-field" id="payment-border-error" style="border: 1px solid #ccc; border-radius: 5px;">
+<div class="shosurbari-biodata-field" id="payment-border-error" style="border: 1px solid #ccc; border-radius: 5px; margin-bottom: 20px;">
     <label for="edit-name" style="font-weight: bold;">পছন্দের পেমেন্ট পদ্ধতি বেছে নিন।<span class="form-required" title="This field is required.">*</span></label> <br>
     <input type="radio" name="payment_method" id="bkash_radio" value="bkash">
     <label class="custom-radio-option" for="bkash_radio">বিকাশ</label>
@@ -489,7 +489,7 @@ if (isset($_GET['profileid'])) {
 
 
 
-<div class="payment-method bkash" style="background: #e2136e; padding: 20px; border-radius: 5px; margin-top: 20px;">
+<div class="payment-method bkash" style="background: #e2136e; padding: 20px;">
   <div class="soshurbari-payment-icon">
     <div class="sb-icon-laptop">
       <h4> <img src="images/payment-bkash.png"> Send Money </h4>
@@ -499,20 +499,20 @@ if (isset($_GET['profileid'])) {
   <div class="form-group">
     <p style="color: #fff; text-align: justify;">আপনার মোবাইলের বিকাশ এপ্স অথবা *247# ডায়েল করে মোট টাকা "Send Money" করুন পার্সোনাল বিকাশ নাম্বারে: 01737-226404</p>
     <label style="color: #fff;" >আপনার বিকাশ নাম্বার</label>
-    <input style="background: #fff;" type="text" id="bkash_number" name="bkash_number" placeholder="01XX-XXX XXX" class="form-text" />
+    <input style="background: #fff; border-radius: 0px;" type="text" id="bkash_number" name="bkash_number" placeholder="01XX-XXX XXX" class="form-text" />
     <span id="bkashnumber-error" class="shosurbari-form-error"></span>
   </div>
 
   <div class="form-group">
     <label style="color: #fff;" >ট্রানজেকশন আইডি (TrxID)</label>
-    <input style="background: #fff;" type="text" id="bkash_trxid" name="bkash_transaction_id" placeholder="AHV6U3TJ5K" class="form-text" />
+    <input style="background: #fff; border-radius: 0px;" type="text" id="bkash_trxid" name="bkash_transaction_id" placeholder="AHV6U3TJ5K" class="form-text" />
     <span id="bkash-error" class="shosurbari-form-error"></span>
   </div>
 </div>
 
 
 
-<div class="payment-method nagad" style="background: #ec1c24; padding: 20px; border-radius: 5px; margin-top: 20px;">
+<div class="payment-method nagad" style="background: #ec1c24; padding: 20px;">
   <div class="soshurbari-payment-icon">
     <div class="sb-icon-laptop">
       <h4> <img src="images/payment-nagad.png"> Send Money </h4>
@@ -522,19 +522,19 @@ if (isset($_GET['profileid'])) {
   <div class="form-group">
     <p style="color: #fff; text-align: justify;">আপনার মোবাইলের নগদ এপ্স অথবা *167# ডায়েল করে মোট টাকা "Send Money" করুন পার্সোনাল নগদ নাম্বারে: 01737-226404</p>
     <label style="color: #fff;">আপনার নগদ নাম্বার</label>
-    <input style="background: #fff;" type="text" id="nagad_number" name="nagad_number" placeholder="01XX-XXX XXX" class="form-text" />
+    <input style="background: #fff; border-radius: 0px;" type="text" id="nagad_number" name="nagad_number" placeholder="01XX-XXX XXX" class="form-text" />
     <span id="nagadnumber-error" class="shosurbari-form-error"></span>
   </div>
 
   <div class="form-group">
     <label style="color: #fff;">ট্রানজেকশন আইডি (TxnId)</label>
-    <input style="background: #fff;" type="text" id="nagad_trxid" name="nagad_transaction_id" placeholder="72449QUT" class="form-text" />
+    <input style="background: #fff; border-radius: 0px;" type="text" id="nagad_trxid" name="nagad_transaction_id" placeholder="72449QUT" class="form-text" />
     <span id="nagad-error" class="shosurbari-form-error"></span>
   </div>
 </div>
 
 
-<div class="payment-method roket" style="background: #8C3494; padding: 20px; border-radius: 5px; margin-top: 20px;">
+<div class="payment-method roket" style="background: #8C3494; padding: 20px;">
   <div class="soshurbari-payment-icon">
     <div class="sb-icon-laptop">
       <h4> <img src="images/payment-rocket.png"> Send Money </h4>
@@ -544,13 +544,13 @@ if (isset($_GET['profileid'])) {
   <div class="form-group">
     <p style="color: #fff; text-align: justify;">আপনার মোবাইলের রকেট এপ্স অথবা *322# ডায়েল করে মোট টাকা "Send Money" করুন পার্সোনাল রকেট নাম্বারে: 01737-226404-4</p>
     <label style="color: #fff;">আপনার রকেট নাম্বার</label>
-    <input style="background: #fff;" type="text" id="roket_number" name="roket_number" placeholder="01XX-XXX XXX-X" class="form-text" />
+    <input style="background: #fff; border-radius: 0px;" type="text" id="roket_number" name="roket_number" placeholder="01XX-XXX XXX-X" class="form-text" />
     <span id="roketnumber-error" class="shosurbari-form-error"></span>
   </div>
 
   <div class="form-group">
     <label style="color: #fff;">ট্রানজেকশন আইডি (TxnId)</label>
-    <input style="background: #fff;" type="text" id="roket_trxid" name="roket_transaction_id" placeholder="3956466293" class="form-text" />
+    <input style="background: #fff; border-radius: 0px;" type="text" id="roket_trxid" name="roket_transaction_id" placeholder="3956466293" class="form-text" />
     <span id="roket-error" class="shosurbari-form-error"></span>
   </div>
 </div>
@@ -562,20 +562,19 @@ if (isset($_GET['profileid'])) {
 
 
 
-<div class="profile-btn">
-  <div class="contact-bio">
+<div class="payment-option">
+  <div class="payment-choich-list">
     <a href="choice_list.php">
-      <button class="chatbtn" id="back-btn">চয়েস লিস্ট</button>
+      <button class="choichbtn" id="back-btn">চয়েস লিস্ট</button>
     </a>
   </div>
 
-
-      <input type="hidden" name="idCount" value="<?php echo $idCount; ?>">
-      <input type="hidden" name="fee" value="<?php echo $fee; ?>">
-      <div class="copy-sbbio-link">
-        <button class="copylink" type="submit" id="edit-submit" name="op">কনফার্ম</button>
-      </div>
-    </div>
+  <input type="hidden" name="idCount" value="<?php echo $idCount; ?>">
+  <input type="hidden" name="fee" value="<?php echo $fee; ?>">
+  <div class="payment-confirm">
+    <button class="sb-pay-confirm" type="submit" id="edit-submit" name="op">কনফার্ম</button>
+  </div>
+</div>
 
 
 <!-- Popup message -->

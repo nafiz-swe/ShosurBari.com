@@ -220,7 +220,7 @@ form {
     -o-transition: 0.3s;
     -webkit-transition: 0.3s;
     transition: 0.3s;
-    font-size: 16px;
+    font-size: 15px;
     padding:5px;
     display: block;
     width: 50%;
@@ -1824,11 +1824,22 @@ span.m_3{
     box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.3);
 }
 
+.payment-confirm,
+.payment-choich-list {
+    padding: 0px;
+    width: 100%;
+    font-family: "Bree Serif";
+    font-size: 1rem;
+    margin: 0px auto;
+    cursor: pointer;
+    outline: none;
+    transition: 0.3s ease-in-out;
+}
+
 .choice-list-options {
     padding: 0px;
     width: 160px;
     border-radius: 4px;
-    color: #fff;
     font-family: "Bree Serif";
     font-size: 1rem;
     margin: 10px auto 20px auto;
@@ -1852,6 +1863,14 @@ span.m_3{
   margin: auto;
 }
 
+.payment-option {
+    display: flex;
+    white-space: nowrap;
+    width: 100%;
+    margin: auto;
+}
+
+
 button.chatbtn,
 button.copylink {
 	width: 100%;
@@ -1868,7 +1887,41 @@ button.copylink {
     line-height: 32px;
 }
 
+button.sb-pay-confirm {
+	color: #000;
+    border-left: 1px solid #fff;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+}
+
+button.choichbtn {
+	color: #fff;
+    border-left: none;
+    border-right: 1px solid #fff;
+    border-top: none;
+    border-bottom: none;
+}
+
+button.choichbtn,
+button.sb-pay-confirm  {
+    width: 100%;
+    background: #ccc;
+    padding: 5px;
+    cursor: pointer;
+    position: relative;
+    transition: all .2s ease;
+    white-space: nowrap;
+    height: 40px;
+    line-height: 32px;
+}
+
 button.copylink:hover {
+    background: linear-gradient(#0aa4ca, #06b6d4);
+	color: #fff;
+}
+
+button.sb-pay-confirm:hover {
     background: linear-gradient(#0aa4ca, #06b6d4);
 	color: #fff;
 }
@@ -1894,6 +1947,11 @@ button.choice-list-btn:hover {
 }
 
 button.chatbtn:hover {
+    background: linear-gradient(#0aa4ca, #06b6d4);
+	color: #fff;
+}
+
+button.choichbtn:hover{
     background: linear-gradient(#0aa4ca, #06b6d4);
 	color: #fff;
 }
@@ -4175,9 +4233,29 @@ font-size: 14px;
         width: 160px;
         margin: 20px auto 10px auto;
     }
+    
+    .payment-confirm{
+        width: 160px;
+        margin: 20px auto 10px auto;
+    }
+
+    .payment-choich-list{
+        width: 160px;
+        margin: 20px auto 10px auto;
+    }
 
     button.chatbtn,
     button.copylink {
+        width: 100%;
+        padding: 5px;
+    }
+
+    button .sb-pay-confirm{
+        width: 100%;
+        padding: 5px;
+    }
+
+    .choichbtn {
         width: 100%;
         padding: 5px;
     }
@@ -5891,8 +5969,12 @@ font-size: 14px;
     }
 
     label {
-        font-size: 13px;
+        font-size: 14px;
     } 
+
+    .input-group input[type="text"], select, input.transparent{
+        font-size: 14px;
+    }   
 
     .sharing li {
         margin-bottom: 10px;
@@ -6582,6 +6664,18 @@ font-size: 14px;
         margin-right: auto;
     }
 
+    .payment-confirm {
+        font-size: 14px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .payment-choich-list{
+        font-size: 14px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .left-side {
         width: 90%;
     }
@@ -6609,10 +6703,6 @@ font-size: 14px;
 
     label.gender_1 {
         font-size: 12px;
-    }   
-
-    .input-group input[type="text"], select, input.transparent{
-        font-size: 10px;
     }   
 
     input#submit-btn {
@@ -7498,6 +7588,18 @@ font-size: 14px;
 
     .contact-bio,
     .copy-sbbio-link {
+        font-size: 13px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .payment-confirm {
+        font-size: 13px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .payment-choich-list {
         font-size: 13px;
         margin-left: 10px;
         margin-right: 10px;
