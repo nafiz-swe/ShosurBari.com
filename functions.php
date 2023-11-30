@@ -94,7 +94,6 @@
             $country_present_address = array_diff($country_present_address, ["Any Country"]);
             $scndry_edu_method = array_diff($scndry_edu_method, ["Any Education Method"]);
             $occupations = array_diff($occupations, ["Any Occupation"]);
-            $student_occupation_level = array_diff($student_occupation_level, ["Any Student Occupation Level"]);
 
             // Remove the "Any District" value from the array if present
             if (($key = array_search("Any District", $allDistrict)) !== false) {
@@ -171,15 +170,20 @@
                 $sql .= " AND scndry_edu_method IN ('$edumethodCondition')";
             }
 
-            if (!empty($occupations)) {
-                $occupationsCondition = implode("','", $occupations);
-                $sql .= " AND occupation_sector IN ('$occupationsCondition')";
-            }
 
-            if (!empty($student_occupation_level)) {
-                $studentsOccupationsCondition = implode("','", $student_occupation_level);
-                $sql .= " AND student_occupation_level IN ('$studentsOccupationsCondition')";
-            }
+            
+                // Include conditions for occupation_sector and student_occupation_level
+    if (!empty($occupations) && !empty($student_occupation_level)) {
+        $occupationsCondition = implode("','", $occupations);
+        $studentsOccupationsCondition = implode("','", $student_occupation_level);
+        $sql .= " AND (occupation_sector IN ('$occupationsCondition') OR student_occupation_level IN ('$studentsOccupationsCondition'))";
+    } elseif (!empty($occupations)) {
+        $occupationsCondition = implode("','", $occupations);
+        $sql .= " AND occupation_sector IN ('$occupationsCondition')";
+    } elseif (!empty($student_occupation_level)) {
+        $studentsOccupationsCondition = implode("','", $student_occupation_level);
+        $sql .= " AND student_occupation_level IN ('$studentsOccupationsCondition')";
+    }
             
 
                 // Check if "Any District" is selected
