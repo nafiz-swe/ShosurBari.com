@@ -458,13 +458,13 @@ if (isset($_GET['profileid'])) {
   $idCount = $idCountOne;
   $fee = $feeOne;
 
-  echo "<div id=\"payment-amount\" class=\"payment-amount\">$idCountOneBD টি বায়োডাটা, মোট $feeOneBD টাকা.</div>";
+  echo "<div id=\"payment-amount\" class=\"payment-amount\">$idCountOneBD টি বায়োডাটা, মোট $feeOneBD টাকা।</div>";
 } elseif ($idCount > 0) {
   // Convert idCount and fee to Bangla numbers if needed
   $idCountBangla = englishToBanglaNumber($idCount);
   $feeBangla = englishToBanglaNumber($fee);
 
-  echo "<div id=\"payment-amount\" class=\"payment-amount\">$idCountBangla টি বায়োডাটা, মোট $feeBangla টাকা.</div>";
+  echo "<div id=\"payment-amount\" class=\"payment-amount\">$idCountBangla টি বায়োডাটা, মোট $feeBangla টাকা।</div>";
 }
 ?>
 
@@ -1243,5 +1243,14 @@ $('form[name="myForm"]').submit(function(e) {
 <?php include_once("footer.php");?>
 <!--=======  Footer End  =========-->
 
+<?php
+$phpmailer = new PHPMailer();
+$phpmailer->isSMTP();
+$phpmailer->Host = 'sandbox.smtp.mailtrap.io';
+$phpmailer->SMTPAuth = true;
+$phpmailer->Port = 2525;
+$phpmailer->Username = '2e5ef25c9bcb19';
+$phpmailer->Password = 'af2c192f0c6a19';
+?>
 </body>
 </html>	
