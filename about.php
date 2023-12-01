@@ -47,9 +47,8 @@
 	<div class="shosurbari-about-contact">
 		<div class="shosurbari-details">
 			<h1>What is ShosurBari? </h1>
-			<p> Welcome to ShosurBari.com, your trusted online matrimony service provider catering to individuals
-				from all religions, professions, and Bengali communities worldwide. We are dedicated to helping
-				you find your perfect life partner through our advanced matchmaking platform.
+			<p> Easy way to find Bangladeshi Bengali matchmakers of all professions, religions, castes, 
+				districts, natives and expatriates.
 			</p>
 
 			<h2>Our Mission </h2>

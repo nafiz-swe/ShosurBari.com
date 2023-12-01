@@ -49,10 +49,10 @@
    	  	<div class="accordation">
 
 			<div class="jb-accordion-wrapper">
-				<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion1"><span class="shosurbari-faq-point">১</span> শ্বশুরবাড়ি ডটকম কী? এটি কিভাবে কাজ করে? <i class="fa fa-minus-circle"> </i></button>
+				<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion1"><span class="shosurbari-faq-point">১</span> শ্বশুরবাড়ি ডটকম কী? এটি কাদের জন্য? <i class="fa fa-minus-circle"> </i></button>
 				<div id="accordion1" class="jb-accordion-content collapse in">
-					<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt </p>
-				</div>  
+				<p>শ্বশুরবাড়ি ডটকম একটি বাংলাদেশী ম্যাট্রিমনি ওয়েবসাইট। প্রাথমিক পর্যায়ে এটির যাত্রা শুরু হয় ২০২২ সাল থেকে। সকল পেশা, ধর্ম, বর্ণ, জেলা, দেশি ও প্রবাসী বাংলাদেশী বাঙ্গালী পাত্রপাত্রী খুঁজে পাওয়ার সহজ মাধ্যম। পছন্দের বায়োডাটার পাত্র-পাত্রীর অভিভাবকের সাথে সরাসরি যোগাযোগ করা যায়। একই সাথে পাত্র-পাত্রী অথবা অভিভাবক চাইলে ওয়েবসাইটে বায়োডাটা জমা দিতে পারে। </p>
+			</div>  
 			</div>
 
 			<div class="jb-accordion-wrapper">
@@ -63,79 +63,85 @@
 			</div>
 
 			<div class="jb-accordion-wrapper">
-				<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion6"><span class="shosurbari-faq-point">৩</span> অভিভাবকের অনুমতি ছাড়া বায়োডাটা জমা দিতে পারবো? <i class="fa fa-plus-circle"> </i></button>
-				<div id="accordion6" class="jb-accordion-content collapse">
+				<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion3"><span class="shosurbari-faq-point">৩</span> অভিভাবকের অনুমতি ছাড়া বায়োডাটা জমা দিতে পারবো? <i class="fa fa-plus-circle"> </i></button>
+				<div id="accordion3" class="jb-accordion-content collapse">
 					<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt </p>
 				</div>
 			</div>
 
 		   <div class="jb-accordion-wrapper">
-		   		<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion2"><span class="shosurbari-faq-point">৪</span> কিভাবে বায়োডাটা জমা দিবো? <i class="fa fa-plus-circle"> </i></button>
-				<div id="accordion2" class="jb-accordion-content collapse">
+		   		<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion4"><span class="shosurbari-faq-point">৪</span> কিভাবে বায়োডাটা জমা দিবো? <i class="fa fa-plus-circle"> </i></button>
+				<div id="accordion4" class="jb-accordion-content collapse">
 				    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae...</p>
 				</div>
 			</div>
 
 			<div class="jb-accordion-wrapper">
-		   		<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion2"><span class="shosurbari-faq-point">৫</span> শ্বশুরবাড়ি ডটকমে বায়োডাটা জমা দিলে আমার তথ্য কতটুকু গোপন থাকবে? কতটুকু প্রকাশিত হবে? <i class="fa fa-plus-circle"> </i></button>
-				<div id="accordion2" class="jb-accordion-content collapse">
+		   		<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion5"><span class="shosurbari-faq-point">৫</span> শ্বশুরবাড়ি ডটকমে বায়োডাটা জমা দিলে আমার তথ্য কতটুকু গোপন থাকবে? কতটুকু প্রকাশিত হবে? <i class="fa fa-plus-circle"> </i></button>
+				<div id="accordion5" class="jb-accordion-content collapse">
 				    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae...</p>
 				</div>
 			</div>
 
 			<div class="jb-accordion-wrapper">
-		   		<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion2"><span class="shosurbari-faq-point">৬</span> পাত্রপাত্রীর বায়োডাটা অভিভাবক/যেকেউ জমা দিতে পারবে?  <i class="fa fa-plus-circle"> </i></button>
-				<div id="accordion2" class="jb-accordion-content collapse">
+		   		<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion6"><span class="shosurbari-faq-point">৬</span> অভিভাবক/যেকেউ পাত্র-পাত্রীর বায়োডাটা জমা দিতে পারবে?  <i class="fa fa-plus-circle"> </i></button>
+				<div id="accordion6" class="jb-accordion-content collapse">
 				    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae...</p>
 				</div>
 			</div>
 
 			<div class="jb-accordion-wrapper">
-		   		<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion2"><span class="shosurbari-faq-point">৭</span> শ্বশুরবাড়ি ডটকমে একাউন্ট খোলার পর প্রোফাইলে ছবি আপলোড করা কি বাধ্যতামূলক? <i class="fa fa-plus-circle"> </i></button>
-				<div id="accordion2" class="jb-accordion-content collapse">
+		   		<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion7"><span class="shosurbari-faq-point">৭</span> শ্বশুরবাড়ি ডটকমে একাউন্ট খোলার পর প্রোফাইলে ছবি আপলোড করা কি বাধ্যতামূলক? <i class="fa fa-plus-circle"> </i></button>
+				<div id="accordion7" class="jb-accordion-content collapse">
 				    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae...</p>
 				</div>
 			</div>
 
 			<div class="jb-accordion-wrapper">
-				<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion3"><span class="shosurbari-faq-point">৮</span> আমার বায়োডাটা এডিট করবো কিভাবে? <i class="fa fa-plus-circle"> </i></button>
-				<div id="accordion3" class="jb-accordion-content collapse">
+				<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion8"><span class="shosurbari-faq-point">৮</span> আমার বায়োডাটা এডিট করবো কিভাবে? <i class="fa fa-plus-circle"> </i></button>
+				<div id="accordion8" class="jb-accordion-content collapse">
 				    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt </p>
 				</div>  
 			</div>
 
 			<div class="jb-accordion-wrapper">
-				<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion4"><span class="shosurbari-faq-point">৯</span> আমার বায়োডাটা যেকোনো সময় ডিলিট/গোপন করতে পারবো? <i class="fa fa-plus-circle"> </i></button>
-				<div id="accordion4" class="jb-accordion-content collapse">
+				<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion9"><span class="shosurbari-faq-point">৯</span> আমার বায়োডাটা যেকোনো সময় ডিলিট/গোপন করতে পারবো? <i class="fa fa-plus-circle"> </i></button>
+				<div id="accordion9" class="jb-accordion-content collapse">
 					<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt </p>
 				</div>  
 			</div>
 
-			
 			<div class="jb-accordion-wrapper">
-				<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion5"><span class="shosurbari-faq-point">১০</span> পাত্রপাত্রীর সাথে যোগাযোগের জন্য প্রদান কৃত সার্ভিস চার্জ কি ফেরত যোগ্য? <i class="fa fa-plus-circle"> </i></button>
-				<div id="accordion5" class="jb-accordion-content collapse">
+				<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion10"><span class="shosurbari-faq-point">১০</span> যেকোনো বায়োডাটা পছন্দ হবার পর পাত্র-পাত্রীর সাথে কিভাবে যোগাযোগ করবো? <i class="fa fa-plus-circle"> </i></button>
+				<div id="accordion10" class="jb-accordion-content collapse">
 					<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt </p>
 				</div>
 			</div>
 
 			<div class="jb-accordion-wrapper">
-				<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion5"><span class="shosurbari-faq-point">১১</span> যেকোনো বায়োডাটা পছন্দ হবার পর পাত্রপাত্রীর সাথে কিভাবে যোগাযোগ করবো? <i class="fa fa-plus-circle"> </i></button>
-				<div id="accordion5" class="jb-accordion-content collapse">
+				<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion11"><span class="shosurbari-faq-point">১১</span> পাত্র-পাত্রীর সাথে যোগাযোগের জন্য পাত্র-পাত্রীর মোবাইল নাম্বার দেয়া হয় কি? <i class="fa fa-plus-circle"> </i></button>
+				<div id="accordion11" class="jb-accordion-content collapse">
 					<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt </p>
 				</div>
 			</div>
 
 			<div class="jb-accordion-wrapper">
-				<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion5"><span class="shosurbari-faq-point">১২</span> যেকোনো বায়োডাটা পছন্দ হবার পর পাত্রপাত্রীর সাথে কিভাবে যোগাযোগ করবো? <i class="fa fa-plus-circle"> </i></button>
-				<div id="accordion5" class="jb-accordion-content collapse">
+				<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion12"><span class="shosurbari-faq-point">১২</span> পাত্র-পাত্রীর সাথে যোগাযোগের জন্য প্রদান কৃত সার্ভিস চার্জ কি ফেরত যোগ্য? <i class="fa fa-plus-circle"> </i></button>
+				<div id="accordion12" class="jb-accordion-content collapse">
 					<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt </p>
 				</div>
 			</div>
 
 			<div class="jb-accordion-wrapper">
-				<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion5"><span class="shosurbari-faq-point">১৩</span> শ্বশুরবাড়ি ডটকমের মাধ্যমে বিয়ে করলে বিবাহ পরবর্তীতে কোনো সার্ভিস চার্জ পরিশোধ করতে হয়? <i class="fa fa-plus-circle"> </i></button>
-				<div id="accordion5" class="jb-accordion-content collapse">
+				<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion13"><span class="shosurbari-faq-point">১৩</span> শ্বশুরবাড়ি ডটকমের মাধ্যমে বিয়ে করলে বিবাহ পরবর্তীতে কোনো সার্ভিস চার্জ পরিশোধ করতে হয়? <i class="fa fa-plus-circle"> </i></button>
+				<div id="accordion13" class="jb-accordion-content collapse">
+					<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt </p>
+				</div>
+			</div>
+
+			<div class="jb-accordion-wrapper">
+				<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion14"><span class="shosurbari-faq-point">১৪</span> যেকোনো প্রয়োজনে শ্বশুরবাড়ি ডটকমের এডমিনের সাথে কিভাবে যোগাযোগ করবো? <i class="fa fa-plus-circle"> </i></button>
+				<div id="accordion14" class="jb-accordion-content collapse">
 					<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt </p>
 				</div>
 			</div>
