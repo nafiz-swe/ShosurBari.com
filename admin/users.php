@@ -170,13 +170,10 @@ h3{
 
 /* Apply linear gradient background to deactivated user rows */
 tr.inactive {
-    background: linear-gradient(#06b6d4, #0ea5e9);
-    color: white; 
+    background: rgb(255, 221, 238);
+    color: #000; 
 }
 
-    tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
 
     tr:hover {
         background-color: #ddd;
@@ -326,7 +323,7 @@ if (mysqli_num_rows($result) > 0) {
         if ($row['active'] == 1) {
             echo '<a href="#"  onclick="confirmDeactivate(' . $id . ')">Deactivate</a>';
         } else {
-            echo '<a href="#" style="color: #fff;" onclick="confirmActivate(' . $id . ')">Activate</a>';
+            echo '<a href="#" onclick="confirmActivate(' . $id . ')">Activate</a>';
         }
         echo '</td></tr>';
     }

@@ -499,7 +499,12 @@ if(isloggedin()){
 						</div><br>
 
 						<div class="shosurbari-biodata-field">
-							<p><span style="color: red;">Notice That:</span> this is today mark</p>
+							<p style="text-align: justify;"> <span style="color: red;">বিঃ দ্রঃ</span> নিচে অবশ্যই একটিভ মোবাইল নাম্বার এবং 
+                            ইমেইল লিখবেন। আগ্রহী ইউজার আপনার এই বায়োডাটাটি পছন্দ করার পর, তার পেমেন্ট তথ্য যাচাই বাছাই করে শ্বশুরবাড়ি ডটকমের 
+                            এডমিন আপনার এই বায়োডাটার অভিভাবক কে কল করে বিষয়টা জানাবে। অভিভাবক অনুমতি দিলে 
+                            আগ্রহী ইউজারকে SMS বা ইমেইলের মাধ্যমে ২৪ ঘন্টার মধ্যে পাত্র-পাত্রীর ইমেইল এবং 
+                            অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে। ব্যক্তিগত কোনো কারণে আপনার এই বায়োডাটার অভিভাবক 
+                            অনুমতি না দিলে আগ্রহী ইউজারকে টাকা ফেরত দেয়া হবে।</p>
 						</div>
 
 						<div class="shosurbari-biodata-field">
@@ -513,12 +518,12 @@ if(isloggedin()){
 						</div>
 
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">পিতামাতা/আত্মীয়র মোবাইল নাম্বার<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
+							<label for="edit-name">অভিভাবকের মোবাইল নাম্বার<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
 							<input type="text" id="edit-name" name="groom_bride_family_number" value="<?php echo $groom_bride_family_number; ?>" size="100" maxlength="100" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">পিতামাতা/আত্মীয়র অপশনে মোবাইল নাম্বার টি যার, তার সাথে পাত্রপাত্রীর কি সম্পর্ক<span class="form-required" title="This field is required.">*</span> <span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
+							<label for="edit-name">অভিভাবকের নাম এবং পাত্র-পাত্রীর সাথে অভিভাবকের কিসের সম্পর্ক<span class="form-required" title="This field is required.">*</span> <span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
 							<input type="text" id="edit-name" name="family_number_relation" value="<?php echo $family_number_relation; ?>" size="100" maxlength="100" class="form-text" required>
 						</div>
 

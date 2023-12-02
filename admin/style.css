@@ -7903,7 +7903,8 @@ i.icon_4{
     margin-bottom: 40px;
     margin-top: 20px;
     background: white;
-   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+    border: 1px solid rgba(0,0,0,.05);
 }
 
 .sb-biodata-field{
