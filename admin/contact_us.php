@@ -311,6 +311,7 @@ if (mysqli_num_rows($result) > 0) {
         <th>নাম</th>
         <th>মোবাইল নম্বর</th>
         <th>ইমেইল</th>
+        <th>সাবজেক্ট</th>
         <th>মেসেজ</th>
         <th>তারিখ সময়</th>
       </tr>';
@@ -321,6 +322,7 @@ if (mysqli_num_rows($result) > 0) {
       echo '<td>' . $row['name_contactus'] . '</td>';
       echo '<td>' . $row['number_contactus'] . '</td>';
       echo '<td>' . $row['email_contactus'] . '</td>';
+      echo '<td>' . $row['subject'] . '</td>';
       echo '<td>' . $row['message_contactus'] . '</td>';
       echo '<td>' . $row['message_sendingdate'] . '</td>';
       echo '</tr>';
