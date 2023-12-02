@@ -47,19 +47,16 @@
 	<div class="shosurbari-about-contact">
 		<div class="shosurbari-details">
 			<h1>What is ShosurBari? </h1>
-			<p> Easy way to find Bangladeshi Bengali matchmakers of all professions, religions, castes, 
-				districts, natives and expatriates.
+			<p> Easy way to find Bangladeshi Bengali matchmakers of all professions, religions, 
+				districts, natives and expatriates. Find your perfect life partner today.
 			</p>
 
 			<h2>Our Mission </h2>
-			<p> Vestibulum ante ipsum primis in faucibus orci luctus et trices posuere cubilia 
-				Suspendisse sollicitudin velit sed leo. Ut pharetra augue nec augue. Nam elit magnandrerit 
-				sit amet tincidunt ac viverra sed nulla. Donec porta diam eu massa. Quisque diam lorem interdum
-				vapibus ac scelerisque vitae pede. Donec eget tellus non erat lacinia fermentum. Donec in velit
-				vel ipsum auctorulvinar. Proin ullamcorper urna et tibulum iaculis lacinia est. Proin dictum
-				elementum velit. Fusce euismod consequat ante. Lorem ipsum dolor sit amet consectetuer 
-				adipiscing elit. Pellentese sed dolor. Aliquam congue fermentum nisl. Mauris accumsan 
-				nullael diam. Sed in lacus ut enim adipiscing aliquet.
+			<p> ShosurBari.com is on a mission to unite hearts across diverse backgrounds, fostering love 
+				without boundaries. We're dedicated to creating a trusted platform, leveraging technology 
+				to simplify the quest for a life partner. Our commitment lies in promoting inclusivity, 
+				transparency, and unparalleled customer satisfaction, ensuring a seamless journey 
+				towards lasting relationships.
 			</p>
 
 			<h3>Our Commitment</h3>

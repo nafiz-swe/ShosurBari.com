@@ -167,7 +167,6 @@ if(isset($_SESSION['id'])){
 <style>
 .shosurbari-form-error{
     font-size: 16px;
-    line-height: 30px;
     margin-top: 0px;
     background: rgb(255, 221, 238);
     border-radius: 2px 2px 4px 4px;
@@ -185,7 +184,7 @@ if(isset($_SESSION['id'])){
 
 <div class="form-group">
     <label>নাম্বার<span class="form-required" title="This field is required.">*</span></label>
-    <input type="tel" id="pnumber" placeholder="আপনার ফোন নাম্বার" name="cust_number" value="<?php echo $pnumber; ?>" size="60" minlength="10" maxlength="15" class="form-text required">
+    <input type="tel" id="pnumber" placeholder="আপনার ফোন নাম্বার" name="cust_number" value="<?php echo $pnumber; ?>" size="60" minlength="10" maxlength="14" class="form-text required">
     <span id="phone-error" class="shosurbari-form-error"></span>
   </div>
 
@@ -715,140 +714,146 @@ document.querySelector('form').addEventListener('submit', function (e) {
   var biodataError = document.getElementById("biodata-error");
 
 
-  // Validate name
+// Full Name validation
+if (name == "") {
+    var custName = document.getElementById('cust_name');
+
+    custName.style.borderColor = "red";
+    custName.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+    });
+
+    nameError.innerHTML = "উফফ! আপনার পুরো নাম লিখুন।";
+    nameError.style.display = 'block';
+    nameError.classList.add('fade-in');
+    nameError.style.padding = '5px'; // Set the padding here for error messages
+
+    // Change color multiple times
+    var colors = ['green', 'blue', 'red'];
+    var colorIndex = 0;
+    setInterval(function () {
+        nameError.style.color = colors[colorIndex];
+        colorIndex = (colorIndex + 1) % colors.length;
+    }, 500);
+
+    return false;
+} else {
+    var custName = document.getElementById('cust_name');
+
+    custName.style.borderColor = "green";
+    nameError.innerHTML = "";
+    nameError.style.display = 'none'; // Hide the errorDiv when there is no error
+}
 
 
+      
 
-//Full Name validation
-        if (name == "") {
-        document.getElementById('cust_name').style.borderColor = "red";
-        document.getElementById('cust_name').scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
-        });
-
-        var errorDiv = document.getElementById('name-error');
-        errorDiv.innerHTML = "উফফ! আপনার পুরো নাম লিখুন।";
-        errorDiv.style.display = 'block';
-        errorDiv.classList.add('fade-in');
-
-        // Change color multiple times
-        var colors = ['green', 'blue', 'red'];
-        var colorIndex = 0;
-        setInterval(function() {
-          errorDiv.style.color = colors[colorIndex];
-          colorIndex = (colorIndex + 1) % colors.length;
-        }, 500);
-
-        return false;
-      }else{
-        document.getElementById('cust_name').style.borderColor = "green";
-        document.getElementById('name-error').innerHTML = "";
-      }
-
-
-
-
-
-
-          
-      //Email validation
+        
+      // Email validation
       if (email == "") {
-        document.getElementById('cust_email').style.borderColor = "red";
-        document.getElementById('cust_email').scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
-        });
+          document.getElementById('cust_email').style.borderColor = "red";
+          document.getElementById('cust_email').scrollIntoView({
+              behavior: 'smooth',
+              block: 'center',
+          });
 
-        var errorDiv = document.getElementById('email-error');
-        errorDiv.innerHTML = "উফফ! আপনার ই-মেইল লিখুন।";
-        errorDiv.style.display = 'block';
-        errorDiv.classList.add('fade-in');
+          emailError.innerHTML = "উফফ! আপনার ই-মেইল লিখুন।";
+          emailError.style.display = 'block';
+          emailError.classList.add('fade-in');
+          emailError.style.padding = '5px'; // Set the padding here for error messages
 
-        // Change color multiple times
-        var colors = ['green', 'blue', 'red'];
-        var colorIndex = 0;
-        setInterval(function() {
-          errorDiv.style.color = colors[colorIndex];
-          colorIndex = (colorIndex + 1) % colors.length;
-        }, 500);
+          // Change color multiple times
+          var colors = ['green', 'blue', 'red'];
+          var colorIndex = 0;
+          setInterval(function () {
+              emailError.style.color = colors[colorIndex];
+              colorIndex = (colorIndex + 1) % colors.length;
+          }, 500);
 
-        return false;
-      }else if(! /^[a-zA-Z0-9._-]+@(gmail|outlook|hotmail|yahoo).com$/.test(email)){
-        document.getElementById('cust_email').style.borderColor = "red";
-        document.getElementById('cust_email').scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
-        });
+          return false;
+      } else if (!/^[a-zA-Z0-9._-]+@(gmail|outlook|hotmail|yahoo).com$/.test(email)) {
+          document.getElementById('cust_email').style.borderColor = "red";
+          document.getElementById('cust_email').scrollIntoView({
+              behavior: 'smooth',
+              block: 'center',
+          });
 
-        var errorDiv = document.getElementById('email-error');
-        errorDiv.innerHTML = "উফফ! একটি বৈধ ই-মেইল প্রবেশ করুন। শুধুমাত্র ব্যবহার করতে পারবেন: @gmail, @outlook, @hotmail, @yahoo (.com)";
-        errorDiv.style.display = 'block';
-        errorDiv.classList.add('fade-in');
+          emailError.innerHTML = "উফফ! একটি সঠিক ই-মেইল প্রবেশ করুন। শুধুমাত্র ব্যবহার করতে পারবেন: @gmail, @outlook, @hotmail, @yahoo (.com)";
+          emailError.style.display = 'block';
+          emailError.classList.add('fade-in');
+          emailError.style.padding = '5px'; // Set the padding here for error messages
 
-        // Change color multiple times
-        var colors = ['green', 'blue', 'red'];
-        var colorIndex = 0;
-        setInterval(function() {
-          errorDiv.style.color = colors[colorIndex];
-          colorIndex = (colorIndex + 1) % colors.length;
-        }, 500);
+          // Change color multiple times
+          var colors = ['green', 'blue', 'red'];
+          var colorIndex = 0;
+          setInterval(function () {
+              emailError.style.color = colors[colorIndex];
+              colorIndex = (colorIndex + 1) % colors.length;
+          }, 500);
 
-        return false;
-      }else{
-        document.getElementById('cust_email').style.borderColor = "green";
-        document.getElementById('email-error').innerHTML = "";
+          return false;
+      } else {
+          document.getElementById('cust_email').style.borderColor = "green";
+          emailError.innerHTML = "";
+          emailError.style.display = 'none'; // Hide the errorDiv when there is no error
       }
 
 
 
 
 
-        //Phone number validation
-        if (phone == "") {
-        document.getElementById('pnumber').style.borderColor = "red";
-        document.getElementById('pnumber').scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
-        });
 
-        var errorDiv = document.getElementById('phone-error');
-        errorDiv.innerHTML = "উফফ! আপনার মোবাইল নাম্বার লিখুন।";
-        errorDiv.style.display = 'block';
-        errorDiv.classList.add('fade-in');
+    // Phone number validation
+if (phone == "") {
+    var pnumber = document.getElementById('pnumber');
 
-        // Change color multiple times
-        var colors = ['green', 'blue', 'red'];
-        var colorIndex = 0;
-        setInterval(function() {
-          errorDiv.style.color = colors[colorIndex];
-          colorIndex = (colorIndex + 1) % colors.length;
-        }, 500);
+    pnumber.style.borderColor = "red";
+    pnumber.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+    });
 
-  
-        return false;
-        // } else if (!/^[0-9]{10,13}$/.test(pnumber)) {
-        }else if(pnumber.length < 10 || pnumber.length > 14){
-          document.getElementById('pnumber').style.borderColor = "red";
-          document.getElementById('phone-error').innerHTML = "মোবাইল নাম্বার ১০ থেকে ১৪ ডিজিটের মধ্যে হতে হবে। স্পেস এবং প্লাস চিহ্ন ব্যবহার করবেন না।";
-          document.getElementById('pnumber').scrollIntoView({
-            behavior: 'smooth',
-            block: 'center',
-        });
+    phoneError.innerHTML = "উফফ! আপনার মোবাইল নাম্বার লিখুন।";
+    phoneError.style.display = 'block';
+    phoneError.classList.add('fade-in');
+    phoneError.style.padding = '5px'; // Set the padding here for error messages
 
-        // Change color multiple times
-        var colors = ['green', 'blue', 'red'];
-        var colorIndex = 0;
-        setInterval(function() {
-          errorDiv.style.color = colors[colorIndex];
-          colorIndex = (colorIndex + 1) % colors.length;
-        }, 500);
+    // Change color multiple times
+    var colors = ['green', 'blue', 'red'];
+    var colorIndex = 0;
+    setInterval(function () {
+        phoneError.style.color = colors[colorIndex];
+        colorIndex = (colorIndex + 1) % colors.length;
+    }, 500);
 
-        return false;
-        }else{
-          document.getElementById('pnumber').style.borderColor = "green";
-          document.getElementById('phone-error').innerHTML = "";
-        }
+    return false;
+} else if (phone.length < 10 || phone.length > 14) {
+    var pnumber = document.getElementById('pnumber');
+
+    pnumber.style.borderColor = "red";
+    document.getElementById('phone-error').innerHTML = "মোবাইল নাম্বার ১০ থেকে ১৪ ডিজিটের মধ্যে হতে হবে। যেকোনো চিহ্ন ব্যবহার করা থেকে বিরত থাকুন।";
+    pnumber.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+    });
+
+    // Change color multiple times
+    var colors = ['green', 'blue', 'red'];
+    var colorIndex = 0;
+    setInterval(function () {
+        phoneError.style.color = colors[colorIndex];
+        colorIndex = (colorIndex + 1) % colors.length;
+    }, 500);
+
+    return false;
+} else {
+    var pnumber = document.getElementById('pnumber');
+
+    pnumber.style.borderColor = "green";
+    phoneError.innerHTML = "";
+    phoneError.style.display = 'none'; // Set the padding here for error messages
+}
 
 
 

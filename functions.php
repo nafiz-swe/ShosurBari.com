@@ -500,6 +500,7 @@ if (isset($_POST['update_account'])) {
             $name_contactus = $_POST['name_contactus'];
             $number_contactus = $_POST['number_contactus'];
             $email_contactus = $_POST['email_contactus'];
+            $subject = $_POST['subject'];
             $message_contactus = $_POST['message_contactus'];
             require_once("includes/dbconn.php");
     
@@ -511,8 +512,8 @@ if (isset($_POST['update_account'])) {
             }
     
             // Insert the contact form data into the contact_us table
-            $sql = "INSERT INTO contact_us (user_id, name_contactus, number_contactus, email_contactus, message_contactus, message_sendingdate) 
-                    VALUES ('$user_id', '$name_contactus', '$number_contactus', '$email_contactus', '$message_contactus', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            $sql = "INSERT INTO contact_us (user_id, name_contactus, number_contactus, email_contactus, subject, message_contactus, message_sendingdate) 
+                VALUES ('$user_id', '$name_contactus', '$number_contactus', '$email_contactus', '$subject', '$message_contactus', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
     
             if (mysqli_query($conn, $sql)) {
                 header("location: index.php");

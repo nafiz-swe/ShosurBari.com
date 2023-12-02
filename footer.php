@@ -3,7 +3,8 @@
     <div class="container">
     	<div class="col-md-4 col_2">
     		<h4>About Us</h4>
-    		<p>"Your trusted online matrimony service provider catering to individuals from all religions, professions, and Bengali communities worldwide. We are dedicated to helping you find your perfect life partner through our advanced matchmaking platform."</p>
+    		<p>"Easy way to find Bangladeshi Bengali matchmakers of all professions, religions,
+			districts, natives and expatriates. Find your perfect life partner today."</p>
     	</div>
 
     	<div class="col-md-2 col_2">

@@ -41,7 +41,7 @@ if (isset($_SESSION['id'])) {
 if (isset($_SESSION['id'])) {
     $user_id = $_SESSION['id'];
 } else {
-    $user_id = 0; // Default value for non-logged-in users
+    $user_id = 1; // Default value for non-logged-in users
 }
 
 

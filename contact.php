@@ -171,22 +171,27 @@ error_reporting(0);
             </div>
 
             <div class="form-group">
-              <input type="text" id="name_contactus" placeholder="Your Full Name" name="name_contactus" value="" size="60" maxlength="60" class="form-text required">
+              <input type="text" id="name_contactus" placeholder="Full Name" name="name_contactus" value="" size="60" maxlength="60" class="form-text required">
               <span id="name-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
             </div>
 
             <div class="form-group">
-              <input type="email" id="email_contactus" placeholder="Your Email" name="email_contactus" value="" size="60" maxlength="60" class="form-text">
+              <input type="email" id="email_contactus" placeholder="Email" name="email_contactus" value="" size="60" maxlength="60" class="form-text">
               <span id="email-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
             </div>
 
             <div class="form-group">
-              <input type="tel" id="number_contactus" placeholder="Your Phone Number" name="number_contactus" value="" size="60" minlength="10" maxlength="15" class="form-text required">
+              <input type="tel" id="number_contactus" placeholder="Phone Number" name="number_contactus" value="" size="60" minlength="10" maxlength="15" class="form-text required">
               <span id="phone-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
             </div>
 
             <div class="form-group">
-              <textarea rows="4" id="message_contactus" name="message_contactus" placeholder="Type Your Message..." class="form-text-describe required" maxlength="1000"></textarea>
+              <input type="text" id="subject" placeholder="Subject :" name="subject" value=""   class="form-text required">
+              <span id="subject-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+            </div>
+
+            <div class="form-group">
+              <textarea rows="6" id="message_contactus" name="message_contactus" placeholder="Type Your Message..." class="form-text-describe required" maxlength="2000"></textarea>
               <span id="message-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
             </div>
 
@@ -267,14 +272,16 @@ error_reporting(0);
     var name = document.getElementById("name_contactus").value.trim();
     var email = document.getElementById("email_contactus").value.trim();
     var phone = document.getElementById("number_contactus").value.trim();
-
+    var subject = document.getElementById("subject").value.trim();
     var messageInput = document.getElementById("message_contactus");
     var message = messageInput.value.trim();
 
     var nameError = document.getElementById("name-error");
     var emailError = document.getElementById("email-error");
     var phoneError = document.getElementById("phone-error");
+    var messageError = document.getElementById("subject-error");
     var messageError = document.getElementById("message-error");
+
     var valid = true;
 
 
@@ -420,6 +427,36 @@ error_reporting(0);
 
 
 
+      // Subject Message
+    if (subject == "") {
+      document.getElementById('subject').style.borderColor = "red";
+      document.getElementById('subject').scrollIntoView({
+      behavior: 'smooth',
+      block: 'center',
+      });
+
+      var errorDiv = document.getElementById('subject-error');
+      errorDiv.innerHTML = "Please enter your subject!";
+      errorDiv.style.display = 'block';
+      errorDiv.classList.add('fade-in');
+
+      // Change color multiple times
+      var colors = ['green', 'blue', 'red'];
+      var colorIndex = 0;
+      setInterval(function() {
+      errorDiv.style.color = colors[colorIndex];
+      colorIndex = (colorIndex + 1) % colors.length;
+      }, 500);
+
+    return false;
+    }else{
+    document.getElementById('subject').style.borderColor = "green";
+    document.getElementById('subject-error').innerHTML = "";
+    }
+
+
+
+
     // Validate Message
     if (message === "") {
       messageInput.style.borderColor = "red";
@@ -427,7 +464,6 @@ error_reporting(0);
       behavior: 'smooth',
       block: 'center',
       });
-
 
 
       var errorDiv = document.getElementById('message-error');
