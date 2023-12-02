@@ -313,7 +313,8 @@ if (mysqli_num_rows($result) > 0) {
     <th>কাস্টমার ইমেইল</th>
     <th>কাস্টমার স্থায়ী ঠিকানা</th>
     <th>রিকোয়েস্ট বায়োডাটা</th>
-    <th>কয়টি বায়োডাটা &</br> মোট টাকা</th>
+    <th>কয়টি বায়োডাটা</th>
+    <th>মোট টাকা</th>
     <th>পেমেন্ট মেথড</th>
     <th>বিকাশ নাম্বার</th>
     <th>বিকাশ ট্রানজেকশন আইডি</th>
@@ -333,6 +334,7 @@ if (mysqli_num_rows($result) > 0) {
       echo '<td>' . $row['cust_permanent_address'] . '</td>';
       echo '<td>' . $row['request_biodata_number'] . '</td>';
       echo '<td>' . $row['biodata_quantities'] . '</td>';
+      echo '<td>' . $row['total_fee'] . '</td>';
       echo '<td>' . $row['payment_method'] . '</td>';
       echo '<td>' . $row['bkash_number'] . '</td>';
       echo '<td>' . $row['bkash_transaction_id'] . '</td>';
