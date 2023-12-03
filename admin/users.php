@@ -255,7 +255,7 @@ if (isset($_POST['search'])) {
     $sql = "SELECT * FROM users WHERE id = $searchUserId $limit";
     $result = mysqli_query($conn, $sql);
 } else {
-    $sql = "SELECT * FROM users $limit OFFSET $start";
+    $sql = "SELECT * FROM users ORDER BY id DESC $limit OFFSET $start";
     $result = mysqli_query($conn, $sql);
 }
 
