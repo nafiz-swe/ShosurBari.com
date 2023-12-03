@@ -298,7 +298,7 @@ if (!empty($searchKeyword)) {
     $searchUserId = mysqli_real_escape_string($conn, $searchUserId);
     $sql = "SELECT * FROM customer WHERE user_id = $searchUserId $limit";
 } else {
-    $sql = "SELECT * FROM customer $limit OFFSET $start";
+  $sql = "SELECT * FROM customer ORDER BY id_customer DESC $limit OFFSET $start";
 }
 
 $result = mysqli_query($conn, $sql);
