@@ -693,6 +693,9 @@ if (isset($_POST['update_account'])) {
 	$partner_profession=$_POST['partner_profession'];
 	$partner_financial=$_POST['partner_financial'];
 	$partner_attributes=$_POST['partner_attributes'];
+    $parents_permission=$_POST['parents_permission'];
+    $real_info_commited=$_POST['real_info_commited'];
+    $authorities_no_responsible=$_POST['authorities_no_responsible'];
 
     require_once("includes/dbconn.php");
 
@@ -883,9 +886,9 @@ if (mysqli_query($conn,$sql))
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 
 $sql = "INSERT INTO 9bd_expected_life_partner
-(user_id, partner_religius, partner_district, partner_maritialstatus, partner_age, partner_skintones, partner_height, partner_education, partner_profession, partner_financial, partner_attributes, profilecreationdate  ) 
+(user_id, partner_religius, partner_district, partner_maritialstatus, partner_age, partner_skintones, partner_height, partner_education, partner_profession, partner_financial, partner_attributes, parents_permission, real_info_commited, authorities_no_responsible, profilecreationdate  ) 
 VALUES
-('$id', '$partner_religius', '$partner_district', '$partner_maritialstatus', '$partner_age', '$partner_skintones', '$partner_height', '$partner_education', '$partner_profession', '$partner_financial', '$partner_attributes', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+('$id', '$partner_religius', '$partner_district', '$partner_maritialstatus', '$partner_age', '$partner_skintones', '$partner_height', '$partner_education', '$partner_profession', '$partner_financial', '$partner_attributes', '$parents_permission', '$real_info_commited', '$authorities_no_responsible', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
 if (mysqli_query($conn,$sql))
 {
     echo "Thanks! Successfully Uploaded New Biodata!";
@@ -1486,6 +1489,9 @@ if (mysqli_query($conn,$sql))
         $partner_profession=$_POST['partner_profession'];
         $partner_financial=$_POST['partner_financial'];
         $partner_attributes=$_POST['partner_attributes'];
+        $parents_permission=$_POST['parents_permission'];
+        $real_info_commited=$_POST['real_info_commited'];
+        $authorities_no_responsible=$_POST['authorities_no_responsible'];
 
         require_once("includes/dbconn.php");
 
@@ -1505,6 +1511,10 @@ if (mysqli_query($conn,$sql))
                     partner_profession = '$partner_profession',
                     partner_financial = '$partner_financial',
                     partner_attributes = '$partner_attributes',
+
+                    parents_permission = '$parents_permission',
+                    real_info_commited = '$real_info_commited',
+                    authorities_no_responsible = '$authorities_no_responsible',
                     profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
                 WHERE user_id = '$id'";
 

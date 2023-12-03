@@ -80,14 +80,14 @@ if(isloggedin()){
 		<form action="" method="POST" id="biodataForm">
 			<!-- progressbar -->
 			<ul id="progressbar">
-				<li class="active" id="personalPhysical">শারীরিক</li>
-				<li id="personalLife">ব্যক্তিগত</li>
-				<li id="educationalQualifications">শিক্ষাগত</li>
-				<li id="addressDetails">ঠিকানা</li>
-				<li id="familyInfo">পারিবার</li>
-				<li id="MarriageInfo">বিবাহ-সম্পর্কিত</li>
-				<li id="religionDetails">ধর্মীয়</li>
-				<li id="expectedPartner">জীবনসঙ্গীর-বিবরণ</li>
+				<li class="active" id="personalPhysical" data-bengali-number="1">শারীরিক</li>
+				<li id="personalLife" data-bengali-number="2">ব্যক্তিগত</li>
+				<li id="educationalQualifications" data-bengali-number="3">শিক্ষাগত</li>
+				<li id="addressDetails" data-bengali-number="4">ঠিকানা</li>
+				<li id="familyInfo" data-bengali-number="5">পারিবার</li>
+				<li id="MarriageInfo" data-bengali-number="6">বিবাহ-সম্পর্কিত</li>
+				<li id="religionDetails" data-bengali-number="7">ধর্মীয়</li>
+				<li id="expectedPartner" data-bengali-number="8">জীবনসঙ্গীর-বিবরণ</li>
 			</ul>
 
 			<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
@@ -763,7 +763,12 @@ if(isloggedin()){
 						</div><br>
 
 						<div class="shosurbari-biodata-field">
-							<p><span style="color: red;">Notice That:</span> this is today mark</p>
+							<p style="text-align: justify;"> <span style="color: red;">বিঃ দ্রঃ</span> নিচে অবশ্যই একটিভ মোবাইল নাম্বার এবং 
+                            ইমেইল লিখবেন। আগ্রহী ইউজার আপনার এই বায়োডাটাটি পছন্দ করার পর, তার পেমেন্ট তথ্য যাচাই বাছাই করে শ্বশুরবাড়ি ডটকমের 
+                            এডমিন আপনার এই বায়োডাটার অভিভাবক কে কল করে বিষয়টা জানাবে। অভিভাবক অনুমতি দিলে 
+                            আগ্রহী ইউজারকে SMS বা ইমেইলের মাধ্যমে ২৪ ঘন্টার মধ্যে পাত্র-পাত্রীর ইমেইল এবং 
+                            অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে। ব্যক্তিগত কোনো কারণে আপনার এই বায়োডাটার অভিভাবক 
+                            অনুমতি না দিলে আগ্রহী ইউজারকে যোগাযোগের তথ্য প্রদান না করে টাকা ফেরত দেয়া হবে।</p>
 						</div>
 
 						<div class="shosurbari-biodata-field">
@@ -777,12 +782,12 @@ if(isloggedin()){
 						</div>
 
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">পিতামাতা/আত্মীয়র মোবাইল নাম্বার<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
+							<label for="edit-name">অভিভাবকের মোবাইল নাম্বার<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
 							<input type="text" id="edit-name" name="groom_bride_family_number" value="" size="100" maxlength="100" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">পিতামাতা/আত্মীয়র অপশনে মোবাইল নাম্বার টি যার, তার সাথে পাত্রপাত্রীর কি সম্পর্ক<span class="form-required" title="This field is required.">*</span> <span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
+							<label for="edit-name">অভিভাবকের নাম এবং পাত্র-পাত্রীর সাথে অভিভাবকের কিসের সম্পর্ক<span class="form-required" title="This field is required.">*</span> <span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
 							<input type="text" id="edit-name" name="family_number_relation" value="" size="100" maxlength="100" class="form-text" required>
 						</div>
 

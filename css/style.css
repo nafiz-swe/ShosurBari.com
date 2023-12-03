@@ -1248,7 +1248,7 @@ section::before {
 
 .sb-home-search {
     width: 100%;
-    margin: 100px auto 0px auto;
+    margin: 0px auto;
     padding-top: 50px;
 }
 
@@ -3473,7 +3473,8 @@ i.icon_4{
     content: counter(step);
     counter-increment: step;
     width: 34px;
-    line-height: 31px;
+    height: 34px;
+    line-height: 34px;
     display: block;
     font-size: 10px;
     color: #fff;
@@ -3501,10 +3502,45 @@ i.icon_4{
 /*The number of the step and the connector before it = green*/
 #progressbar li.active:before,
 #progressbar li.active:after {
+    content: attr(data-bengali-number);
     background: #27ae60;
     color: white;
     z-index: 3;
 }
+
+#progressbar li[data-bengali-number="1"]:before {
+    content: '১';
+}
+
+#progressbar li[data-bengali-number="2"]:before{
+    content: '২';
+}
+
+#progressbar li[data-bengali-number="3"]:before {
+    content: '৩';
+}
+
+#progressbar li[data-bengali-number="4"]:before {
+    content: '৪';
+}
+
+#progressbar li[data-bengali-number="5"]:before {
+    content: '৫';
+}
+
+#progressbar li[data-bengali-number="6"]:before {
+    content: '৬';
+}
+
+#progressbar li[data-bengali-number="7"]:before {
+    content: '৭';
+}
+
+#progressbar li[data-bengali-number="8"]:before {
+    content: '৮';
+}
+
+
 
 /* Progressbar color */
 #progressbar li:not(.active):after {
@@ -5329,13 +5365,12 @@ font-size: 14px;
         margin: -50px auto;
     }
 
-    .sb-featured-profiles,
-    .sb-home-search {
+    .sb-featured-profiles {
         margin: 90px auto 0px auto;
     }
 
     #biodataForm{
-        margin: -30px auto;
+        margin: 0px auto;
     }
 
     .navigationpro .dropdown{
@@ -5782,7 +5817,8 @@ font-size: 14px;
 
     #progressbar li:before{
         width: 30px;
-        line-height: 28px;
+        height: 30px;
+        line-height: 30px;
     }
 
     #progressbar li {
@@ -6180,7 +6216,7 @@ font-size: 14px;
     top: 100px;
 }
 
-.sb-home-search,
+
 .sb-featured-profiles{
     margin: 50px auto 0px auto;
 }
@@ -6266,7 +6302,8 @@ font-size: 14px;
 
     #progressbar li:before{
         width: 25px;
-        line-height: 24px;
+        height: 25px;
+        line-height: 25px;
         font-size: 13px;
     }
 
