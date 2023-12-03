@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ uploadphoto($id); }
 
 
 <head>
-<title>Update Account | ShosurBari</title>
+<title>Profile Photo | ShosurBari</title>
 <link rel="icon" href="images/shosurbari-icon.png" type="image/png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ uploadphoto($id); }
                 <ul>
                     <a href="index.php"><i class="fa fa-home home_1"></i></a>
                     <span class="divider">&nbsp;<|>&nbsp;</span>
-                    <li class="current-page"><h4>Update Account</h4></li>
+                    <li class="current-page"><h4>Profile Photo</h4></li>
                 </ul>
 
                 <?php
@@ -261,12 +261,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ uploadphoto($id); }
 
         <div class="soshurbari-animation-icon">
             <div class="sb-icon-laptop">
-              <h3> <img src="images/shosurbari-icon.png"> ShosurBari </h3>
+              <h3> <img src="images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
             </div>
         </div>
 
         <div class="sb-biodata-field">
-            <h2>Upload Your Photo</h2>
+            <h2>পাত্র-পাত্রীর প্রোফাইল ছবি</h2>
+            <br><p style="margin-bottom: 5px;">Image Size H:168px & W:168px </p>
+            <p>প্রোফাইলে ছবি আপলোড করা বাধ্যতা মূলক নয়।</p>
         </div>
 
         <div class="shosurbari-user-img">

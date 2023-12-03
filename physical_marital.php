@@ -254,7 +254,7 @@ if(isloggedin()){
 						</div>
 
 						<div class="shosurbari-biodata-field">
-							<label for="edit-pass">জন্ম তারিখ<span class="form-required" title="This field is required.">*</span></label>
+							<label for="edit-pass">জন্ম মাস<span class="form-required" title="This field is required.">*</span></label>
 							<select name="month" required>
 								<option hidden selected></option>
 								<option value="জানুয়ারি">জানুয়ারি</option>
@@ -273,7 +273,7 @@ if(isloggedin()){
 						</div>
 
 						<div class="shosurbari-biodata-field">
-							<label for="edit-pass">জন্ম তারিখ<span class="form-required" title="This field is required.">*</span></label>
+							<label for="edit-pass">জন্ম সাল<span class="form-required" title="This field is required.">*</span></label>
 							<select name="year" required>
 								<option hidden selected></option>
 								<option value="২০১৫">২০১৫</option>

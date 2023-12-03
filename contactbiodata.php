@@ -471,7 +471,7 @@ if (isset($_GET['profileid'])) {
 
 
             
-<div class="shosurbari-biodata-field" id="payment-border-error" style="border: 1px solid #ccc; border-radius: 5px; margin-bottom: 20px;">
+<div class="shosurbari-biodata-field" id="payment-border-error" style="border: 1px solid #ccc; margin-bottom: 20px;">
     <label for="edit-name" style="font-weight: bold;">পছন্দের পেমেন্ট পদ্ধতি বেছে নিন।<span class="form-required" title="This field is required.">*</span></label> <br>
     <input type="radio" name="payment_method" id="bkash_radio" value="bkash">
     <label class="custom-radio-option" for="bkash_radio">বিকাশ</label>
@@ -858,111 +858,111 @@ if (phone == "") {
 
 
 
+// Validate address
+if (address == "") {
+    var permanentAddress = document.getElementById('permanent_address');
 
-
-
-
-
-  // Validate address
-  if (address == "") {
-        document.getElementById('permanent_address').style.borderColor = "red";
-        document.getElementById('permanent_address').scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
-        });
-
-  var errorDiv = document.getElementById('address-error');
-  errorDiv.innerHTML = "উফফ! আপনার জেলা সহ স্থায়ী ঠিকানা লিখুন।";
-  errorDiv.style.display = 'block';
-  errorDiv.classList.add('fade-in');
-
-  // Change color multiple times
-  var colors = ['green', 'blue', 'red'];
-  var colorIndex = 0;
-  setInterval(function() {
-    errorDiv.style.color = colors[colorIndex];
-    colorIndex = (colorIndex + 1) % colors.length;
-  }, 500);
-
-        return false;
-      }else{
-        document.getElementById('permanent_address').style.borderColor = "green";
-        document.getElementById('address-error').innerHTML = "";
-      }
-
-
-
-  // Validate biodata
-  if (biodata == "") {
-        document.getElementById('contact_biodatas_number').style.borderColor = "red";
-        document.getElementById('contact_biodatas_number').scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
-        });
-
-  var errorDiv = document.getElementById('biodata-error');
-  errorDiv.innerHTML = "উফফ! আপনার পছন্দের বায়োডাটার সাথে যোগাযোগ করতে বায়োডাটার প্রোফাইলে প্রবেশ করুন।";
-  errorDiv.style.display = 'block';
-  errorDiv.classList.add('fade-in');
-
-  // Change color multiple times
-  var colors = ['green', 'blue', 'red'];
-  var colorIndex = 0;
-  setInterval(function() {
-    errorDiv.style.color = colors[colorIndex];
-    colorIndex = (colorIndex + 1) % colors.length;
-  }, 500);
-
-        return false;
-      }else{
-        document.getElementById('contact_biodatas_number').style.borderColor = "green";
-        document.getElementById('biodata-error').innerHTML = "";
-      }
-
-
-
-
-
-
-    // var selectedBiodataQuantities = document.querySelector('input[name="biodata_quantities"]:checked');
-    var selectedPaymentMethod = document.querySelector('input[name="payment_method"]:checked');
-
-    // Check if a biodata quantity is selected
-    // if (!selectedBiodataQuantities) {
-    //     document.getElementById('error-message').style.display = 'block';
-    //     return false;
-    // } else {
-    //     document.getElementById('error-message').style.display = 'none';
-    // }
-
-    // Check if a payment method is selected
-    if (!selectedPaymentMethod) {
-        document.getElementById('payment-method-error').style.display = 'block';
-        document.getElementById('payment-border-error').style.borderColor = "red";
-        document.getElementById('payment-method-error').scrollIntoView({
+    permanentAddress.style.borderColor = "red";
+    permanentAddress.scrollIntoView({
         behavior: 'smooth',
         block: 'center',
-        });
+    });
 
-        var errorDiv = document.getElementById('payment-method-error');
-        errorDiv.innerHTML = "উফফ! আপনার পেমেন্ট অপশন সিলেক্ট করুন।";
-        errorDiv.style.display = 'block';
-        errorDiv.classList.add('fade-in');
+    addressError.innerHTML = "উফফ! আপনার জেলা সহ স্থায়ী ঠিকানা লিখুন।";
+    addressError.style.display = 'block';
+    addressError.classList.add('fade-in');
+    addressError.style.padding = '5px';
 
-        // Change color multiple times
-        var colors = ['green', 'blue', 'red'];
-        var colorIndex = 0;
-        setInterval(function() {
-          errorDiv.style.color = colors[colorIndex];
-          colorIndex = (colorIndex + 1) % colors.length;
-        }, 500);
+    // Change color multiple times
+    var colors = ['green', 'blue', 'red'];
+    var colorIndex = 0;
+    setInterval(function () {
+        addressError.style.color = colors[colorIndex];
+        colorIndex = (colorIndex + 1) % colors.length;
+    }, 500);
 
-        
-        return false;
-    } else {
-        document.getElementById('payment-method-error').style.display = 'none';
-        document.getElementById('payment-border-error').style.borderColor = "green";
-    }
+    return false;
+} else {
+    var permanentAddress = document.getElementById('permanent_address');
+
+    permanentAddress.style.borderColor = "green";
+    addressError.innerHTML = "";
+    addressError.style.display = 'none';
+}
+
+
+
+
+// Validate biodata
+if (biodata == "") {
+    var contactBiodatasNumber = document.getElementById('contact_biodatas_number');
+
+    contactBiodatasNumber.style.borderColor = "red";
+    contactBiodatasNumber.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+    });
+
+    biodataError.innerHTML = "উফফ! আপনার পছন্দের বায়োডাটার সাথে যোগাযোগ করতে বায়োডাটার প্রোফাইলে প্রবেশ করুন।";
+    biodataError.style.display = 'block';
+    biodataError.classList.add('fade-in');
+    biodataError.style.padding = '5px';
+
+    // Change color multiple times
+    var colors = ['green', 'blue', 'red'];
+    var colorIndex = 0;
+    setInterval(function () {
+        biodataError.style.color = colors[colorIndex];
+        colorIndex = (colorIndex + 1) % colors.length;
+    }, 500);
+
+    return false;
+} else {
+    var contactBiodatasNumber = document.getElementById('contact_biodatas_number');
+
+    contactBiodatasNumber.style.borderColor = "green";
+    biodataError.innerHTML = "";
+    biodataError.style.display = 'none';
+}
+
+
+
+
+
+var selectedPaymentMethod = document.querySelector('input[name="payment_method"]:checked');
+// Check if a payment method is selected
+if (!selectedPaymentMethod) {
+    var paymentMethodError = document.getElementById('payment-method-error');
+    var paymentBorderError = document.getElementById('payment-border-error');
+
+    paymentMethodError.style.display = 'block';
+    paymentBorderError.style.borderColor = "red";
+    paymentBorderError.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+    });
+
+    paymentMethodError.innerHTML = "উফফ! আপনার পেমেন্ট অপশন সিলেক্ট করুন।";
+    paymentMethodError.style.display = 'block';
+    paymentMethodError.classList.add('fade-in');
+    paymentMethodError.style.padding = '5px'; // Set the padding here for error messages
+
+    // Change color multiple times
+    var colors = ['green', 'blue', 'red'];
+    var colorIndex = 0;
+    setInterval(function () {
+        paymentMethodError.style.color = colors[colorIndex];
+        colorIndex = (colorIndex + 1) % colors.length;
+    }, 500);
+
+    return false;
+} else {
+    var paymentBorderError = document.getElementById('payment-border-error');
+
+    document.getElementById('payment-method-error').style.display = 'none';
+    paymentBorderError.style.borderColor = "green";
+}
+
 
     
 
@@ -991,126 +991,197 @@ function continuouslyChangeColor(element, message) {
 
 
 
-
+// BKASH START
 // Determine which payment method is selected and validate the corresponding input fields
 if (selectedPaymentMethod.value === 'bkash') {
-  document.getElementById('bkash_number').style.borderColor = "red";
-        document.getElementById('bkash_number').scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
-        });
+    var bkashNumberInput = document.getElementById('bkash_number');
+    var bkashTrxIdInput = document.getElementById('bkash_trxid');
+    var bkashNumberError = document.getElementById('bkashnumber-error');
+    var bkashError = document.getElementById('bkash-error');
 
-        document.getElementById('bkash_trxid').style.borderColor = "red";
-        document.getElementById('bkash_trxid').scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
-        });
+    bkashNumberInput.style.borderColor = "red";
+    bkashNumberInput.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+    });
 
-  var bkashNumber = document.getElementById('bkash_number').value;
-  var bkashTrxId = document.getElementById('bkash_trxid').value;
+    bkashTrxIdInput.style.borderColor = "red";
+    bkashTrxIdInput.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+    });
 
-  // Check if the input fields for the selected payment method are empty
-  if (bkashNumber.trim() === '') {
-    continuouslyChangeColor(document.getElementById('bkashnumber-error'), 'উফফ! আপনার বিকাশ নাম্বার লিখুন।');
-    return false;
-  } else {
-    // document.getElementById('bkashnumber-error').style.display = 'none';
-    document.getElementById('bkash_number').style.borderColor = "green";
-    document.getElementById('bkashnumber-error').innerHTML = "";
-  }
-  if (bkashTrxId.trim() === '') {
-    continuouslyChangeColor(document.getElementById('bkash-error'), 'উফফ! আপনার বিকাশ TrxId লিখুন।');
-    return false;
-  } else {
-    // document.getElementById('bkash-error').style.display = 'none';
-    document.getElementById('bkash_trxid').style.borderColor = "green";
-    document.getElementById('bkash-error').innerHTML = "";
-  }
+    var bkashNumber = bkashNumberInput.value.trim();
+    var bkashTrxId = bkashTrxIdInput.value.trim();
+
+    // Check if the input fields for the selected payment method are empty
+    if (bkashNumber === '') {
+        showErrorMessage(bkashNumberError, 'উফফ! আপনার বিকাশ নাম্বার লিখুন।');
+        return false;
+    } else {
+        hideErrorMessage(bkashNumberError);
+        bkashNumberInput.style.borderColor = "green";
+    }
+
+    if (bkashTrxId === '') {
+        showErrorMessage(bkashError, 'উফফ! আপনার বিকাশ TrxId লিখুন।');
+        return false;
+    } else {
+        hideErrorMessage(bkashError);
+        bkashTrxIdInput.style.borderColor = "green";
+    }
+
+    function showErrorMessage(element, errorMessage) {
+        element.style.display = 'block';
+        element.innerHTML = errorMessage;
+        element.style.padding = '5px'; // Set the padding here for error messages
+
+        // Change color multiple times
+        var colors = ['green', 'blue', 'red'];
+        var colorIndex = 0;
+        setInterval(function () {
+            element.style.color = colors[colorIndex];
+            colorIndex = (colorIndex + 1) % colors.length;
+        }, 500);
+    }
+
+    function hideErrorMessage(element) {
+        element.style.display = 'none';
+        element.style.padding = '0'; // Set padding to 0 when not displaying the error message
+    }
+}
+// BKASH END
+
+
+
+
+    
+// NAGAD START
+else if (selectedPaymentMethod.value === 'nagad') {
+    var nagadNumberInput = document.getElementById('nagad_number');
+    var nagadTrxIdInput = document.getElementById('nagad_trxid');
+    var nagadNumberError = document.getElementById('nagadnumber-error');
+    var nagadError = document.getElementById('nagad-error');
+
+    nagadNumberInput.style.borderColor = "red";
+    nagadNumberInput.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+    });
+
+    nagadTrxIdInput.style.borderColor = "red";
+    nagadTrxIdInput.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+    });
+
+    var nagadNumber = nagadNumberInput.value.trim();
+    var nagadTrxId = nagadTrxIdInput.value.trim();
+
+    // Check if the input fields for the selected payment method are empty
+    if (nagadNumber === '') {
+        showErrorMessage(nagadNumberError, 'উফফ! আপনার নগদ নাম্বার লিখুন।');
+        return false;
+    } else {
+        hideErrorMessage(nagadNumberError);
+        nagadNumberInput.style.borderColor = "green";
+    }
+
+    if (nagadTrxId === '') {
+        showErrorMessage(nagadError, 'উফফ! আপনার নগদ TxnId লিখুন।');
+        return false;
+    } else {
+        hideErrorMessage(nagadError);
+        nagadTrxIdInput.style.borderColor = "green";
+    }
+
+    function showErrorMessage(element, errorMessage) {
+        element.style.display = 'block';
+        element.innerHTML = errorMessage;
+        element.style.padding = '5px'; // Set the padding here for error messages
+
+        // Change color multiple times
+        var colors = ['green', 'blue', 'red'];
+        var colorIndex = 0;
+        setInterval(function () {
+            element.style.color = colors[colorIndex];
+            colorIndex = (colorIndex + 1) % colors.length;
+        }, 500);
+    }
+
+    function hideErrorMessage(element) {
+        element.style.display = 'none';
+        element.style.padding = '0'; // Set padding to 0 when not displaying the error message
+    }
+}
+// NAGAD END
+
+    
+    
+    
+    // ROCKET START
+    else if (selectedPaymentMethod.value === 'roket') {
+    var roketNumberInput = document.getElementById('roket_number');
+    var roketTrxIdInput = document.getElementById('roket_trxid');
+    var roketNumberError = document.getElementById('roketnumber-error');
+    var roketError = document.getElementById('roket-error');
+
+    roketNumberInput.style.borderColor = "red";
+    roketNumberInput.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+    });
+
+    roketTrxIdInput.style.borderColor = "red";
+    roketTrxIdInput.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+    });
+
+    var roketNumber = roketNumberInput.value.trim();
+    var roketTrxId = roketTrxIdInput.value.trim();
+
+    // Check if the input fields for the selected payment method are empty
+    if (roketNumber === '') {
+        showErrorMessage(roketNumberError, 'উফফ! আপনার রকেট নাম্বার লিখুন।');
+        return false;
+    } else {
+        hideErrorMessage(roketNumberError);
+        roketNumberInput.style.borderColor = "green";
+    }
+
+    if (roketTrxId === '') {
+        showErrorMessage(roketError, 'উফফ! আপনার রকেট TxnId লিখুন।');
+        return false;
+    } else {
+        hideErrorMessage(roketError);
+        roketTrxIdInput.style.borderColor = "green";
+    }
+
+    function showErrorMessage(element, errorMessage) {
+        element.style.display = 'block';
+        element.innerHTML = errorMessage;
+        element.style.padding = '5px'; // Set the padding here for error messages
+
+        // Change color multiple times
+        var colors = ['green', 'blue', 'red'];
+        var colorIndex = 0;
+        setInterval(function () {
+            element.style.color = colors[colorIndex];
+            colorIndex = (colorIndex + 1) % colors.length;
+        }, 500);
+    }
+
+    function hideErrorMessage(element) {
+        element.style.display = 'none';
+        element.style.padding = '0'; // Set padding to 0 when not displaying the error message
+    }
 }
 
+  // ROCKET END
 
-    
-    
-  else if (selectedPaymentMethod.value === 'nagad') {
-    document.getElementById('nagad_number').style.borderColor = "red";
-        document.getElementById('nagad_number').scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
-        });
 
-        document.getElementById('nagad_trxid').style.borderColor = "red";
-        document.getElementById('nagad_trxid').scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
-        });
-
-  var nagadNumber = document.getElementById('nagad_number').value;
-  var nagadTrxId = document.getElementById('nagad_trxid').value;
-
-  // Check if the input fields for the selected payment method are empty
-  if (nagadNumber.trim() === '') {
-    continuouslyChangeColor(document.getElementById('nagadnumber-error'), 'উফফ! আপনার নগদ নাম্বার লিখুন।');
-    return false;
-  } else {
-    // document.getElementById('nagadnumber-error').style.display = 'none';
-    document.getElementById('nagad_number').style.borderColor = "green";
-    document.getElementById('nagadnumber-error').innerHTML = "";
-
-  }
-  if (nagadTrxId.trim() === '') {
-    continuouslyChangeColor(document.getElementById('nagad-error'), 'উফফ! আপনার নগদ TxnId লিখুন।');
-    return false;
-  } else {
-    // document.getElementById('nagad-error').style.display = 'none';
-    document.getElementById('nagad_trxid').style.borderColor = "green";
-    document.getElementById('nagad-error').innerHTML = "";
-
-  }
-} 
-    
-    
-    
-    
-    else if (selectedPaymentMethod.value === 'roket') {
-      document.getElementById('roket_number').style.borderColor = "red";
-        document.getElementById('roket_number').scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
-        });
-
-        document.getElementById('roket_trxid').style.borderColor = "red";
-        document.getElementById('roket_trxid').scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
-        });
-
-  var roketNumber = document.getElementById('roket_number').value;
-  var roketTrxId = document.getElementById('roket_trxid').value;
-
-  // Check if the input fields for the selected payment method are empty
-  if (roketNumber.trim() === '') {
-    continuouslyChangeColor(document.getElementById('roketnumber-error'), 'উফফ! আপনার রকেট নাম্বার লিখুন।');
-    return false;
-  } else {
-    // document.getElementById('roketnumber-error').style.display = 'none';
-    document.getElementById('roket_number').style.borderColor = "green";
-    document.getElementById('roketnumber-error').innerHTML = "";
-
-  }
-  if (roketTrxId.trim() === '') {
-    continuouslyChangeColor(document.getElementById('roket-error'), 'উফফ! আপনার রকেট TxnId লিখুন।');
-    return false;
-  } else {
-    // document.getElementById('roket-error').style.display = 'none';
-    document.getElementById('roket_trxid').style.borderColor = "green";
-    document.getElementById('roket-error').innerHTML = "";
-
-  }
-  }
-
-    // You can add additional validation logic here if needed.
-
-    return true; // Form will be submitted if all conditions are met.
+  return true; // Form will be submitted if all conditions are met.
 }
   </script>
 

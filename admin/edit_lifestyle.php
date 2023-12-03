@@ -512,18 +512,6 @@ if (isset($_POST['update'])) {
 
 
 <style>
-.sb-biodata { /*Table body design & width*/
-    border-radius: 6px;
-    width: 400px;
-    gap: 1.5rem;
-    padding: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 40px;
-    margin-top: 100px;
-    background: white;
-}
-
 input[type=submit] {
     cursor: pointer;
     height: 35px;

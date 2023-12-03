@@ -316,7 +316,7 @@ if (isset($_GET['id'])) {
 						</div>
 
 						<div class="shosurbari-biodata-field">
-							<label for="edit-pass">জন্ম তারিখ<span class="form-required" title="This field is required.">*</span></label>
+							<label for="edit-pass">জন্ম মাস<span class="form-required" title="This field is required.">*</span></label>
 							<select name="month" required>
 								<option hidden selected></option>
 								<option value="জানুয়ারি">জানুয়ারি</option>
@@ -335,7 +335,7 @@ if (isset($_GET['id'])) {
 						</div>
 
 						<div class="shosurbari-biodata-field">
-							<label for="edit-pass">জন্ম তারিখ<span class="form-required" title="This field is required.">*</span></label>
+							<label for="edit-pass">জন্ম সাল<span class="form-required" title="This field is required.">*</span></label>
 							<select name="year" required>
 								<option hidden selected></option>
 								<option value="২০১৫">২০১৫</option>
@@ -838,20 +838,6 @@ if (isset($_GET['id'])) {
 </script>
 
 <style>
-.sb-biodata { /*Table body design & width*/
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    width: 400px;
-    gap: 1.5rem;
-    padding: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 40px;
-    margin-top: 100px;
-    background: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
 input[type=submit] {
     cursor: pointer;
     height: 35px;

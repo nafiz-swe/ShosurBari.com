@@ -1287,7 +1287,8 @@ section::before {
 
 .sb_featured_profile_head img{
     width: 75px;
-    height: 70px;
+    height: 75px;
+    object-fit: cover;
     border-radius: 50%;
     padding: 0px;
     margin-left: auto;
@@ -2022,7 +2023,8 @@ button.copylink i {
 
 .biodatarecent_viewlist img{
     width: 75px;
-    height: 70px;
+    height: 75px;
+    object-fit: cover;
     border-radius: 50%;
     padding: 0px;
     margin-left: auto;
@@ -2563,7 +2565,6 @@ small.testi-meta1{
     text-align: center;
     padding: 12px;
     font-size: 16px;
-    border-radius: 5px;
     font-weight: bold;
     line-height: 28px;
     height: 50px;
@@ -3165,8 +3166,8 @@ input[type=submit] {
 }
 
 .update-image img {
-    height: 155px;
-    width: 175px;
+    height: 168px;
+    width: 168px;
     padding: 2px;
     background: #fff;
     margin-top: 0px;
@@ -3238,15 +3239,14 @@ input[type=submit] {
 }
 
 .image-wrapper{
-    width: 150px;
+    width: 168px;
     margin: 20px auto;
-    height: 150px;
 }
 
-.update-image .image-wrapper img {
+/* .update-image .image-wrapper img {
     max-width: 100%;
     max-height: 100%;
-}
+} */
 
 .update-image .camera-wrapper {
     position: relative;
@@ -3288,6 +3288,7 @@ input[type=submit] {
 .delete-image form {
     width: 100%;
     padding-top: 5px;
+    margin-bottom: 30px;
 }
 
 .delete-image form button {
