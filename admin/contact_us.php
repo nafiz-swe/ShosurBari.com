@@ -298,7 +298,7 @@ if (!empty($searchKeyword)) {
     $searchUserId = mysqli_real_escape_string($conn, $searchUserId);
     $sql = "SELECT * FROM contact_us WHERE user_id = $searchUserId $limit";
 } else {
-    $sql = "SELECT * FROM contact_us $limit OFFSET $start";
+  $sql = "SELECT * FROM contact_us ORDER BY contact_id DESC $limit OFFSET $start";
 }
 
 $result = mysqli_query($conn, $sql);
