@@ -671,7 +671,7 @@ if (isset($_GET['id'])) {
 
                     <div class="shosurbari-biodata-field">
                         <label for="edu-method">অন্যান্য শিক্ষাগত যোগ্যতা<span style="color: gray; font-size:14px;" class="form-required" title="This field is required."> (বাধ্যতামূলক নয়)</span></label>
-                        <textarea rows="4"  name="others_edu_qualification" value="<?php echo $others_edu_qualification;?>"  id="others_edu_qualification" placeholder="Describe your others education qualifications" class="form-text-describe"></textarea>
+                        <textarea rows="4"  name="others_edu_qualification" value="<?php echo $others_edu_qualification;?>"  id="others_edu_qualification" placeholder="" class="form-text-describe"></textarea>
                     </div>
                 </div>
             </div>

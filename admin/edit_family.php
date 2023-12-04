@@ -204,7 +204,7 @@ if (isset($_POST['update'])) {
 
                     <div class="shosurbari-biodata-field">
                         <label>মামা/চাচাদের পেশা<span class="form-required" title="This field is required.">*</span></label>
-                        <textarea rows="8" name="uncle_profession"  placeholder="Describe Profession of Your Uncles" class="form-text-describe" required><?php echo $uncle_profession; ?></textarea>
+                        <textarea rows="8" name="uncle_profession"  placeholder="" class="form-text-describe" required><?php echo $uncle_profession; ?></textarea>
                     </div>
 
                     <div class="shosurbari-biodata-field">
@@ -221,12 +221,12 @@ if (isset($_POST['update'])) {
 
                     <div class="shosurbari-biodata-field">
                         <label>পরিবারের অর্থনৈতিক অবস্থা কেমন?<span class="form-required" title="This field is required.">*</span></label>
-                        <textarea rows="5" name="financial_condition" placeholder="Describe Your Financial Condition" class="form-text-describe" required><?php echo $financial_condition; ?></textarea>
+                        <textarea rows="5" name="financial_condition" placeholder="" class="form-text-describe" required><?php echo $financial_condition; ?></textarea>
                     </div>
 
                     <div class="shosurbari-biodata-field">
                         <label>পারিবারিক ধর্মীয় ও সামাজিক অবস্থা কেমন?<span class="form-required" title="This field is required.">*</span></label>
-                        <textarea rows="5" name="family_religious_condition"  placeholder="Describe Your Family's Religious Condition" class="form-text-describe" required><?php echo $family_religious_condition; ?></textarea>
+                        <textarea rows="5" name="family_religious_condition"  placeholder="" class="form-text-describe" required><?php echo $family_religious_condition; ?></textarea>
                     </div>
                 </div>
             </div>

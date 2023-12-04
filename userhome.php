@@ -131,20 +131,20 @@ $conn->close();
       <h3><?php echo "Welcome: $username"; ?></h3>
 
       <!-- Display the account status -->
-      <h4 >Account Status:
+      <h4 >একাউন্ট অবস্থা:
         <?php if ($deactivated == 0) {
-          echo '<span style="color: green;">Active</span>';
+          echo '<span style="color: green;">একটিভ</span>';
           } else {
-          echo '<span style="color: red;">Deactivated</span>';
+          echo '<span style="color: red;">ডিএক্টিভেট</span>';
           }
         ?>
       </h4>
 
       <form action="deactivate_account.php" method="post">
         <?php if ($deactivated == 1) { ?>
-          <button type="submit" name="action" value="activate">Activate Account</button>
+          <button type="submit" name="action" value="activate">একটিভ করুন</button>
           <?php } else { ?>
-          <button type="submit" name="action" value="deactivate">Deactivate Account</button>
+          <button type="submit" name="action" value="deactivate">ডিএক্টিভেট করুন</button>
         <?php } ?>
       </form>
 

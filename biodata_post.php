@@ -279,7 +279,7 @@ if(isloggedin()){
 						</div>
 
 						<div class="shosurbari-biodata-field">
-							<label for="edit-pass">জন্ম সন<span class="form-required" title="This field is required.">*</span></label>
+							<label for="edit-pass">জন্ম সাল<span class="form-required" title="This field is required.">*</span></label>
 							<select name="year" required>
 								<option hidden selected></option>
 								<option value="২০১৫">২০১৫</option>
@@ -531,7 +531,7 @@ if(isloggedin()){
 								<option value="ডাক্তার/চিকিৎসা/স্বাস্থ্য">ডাক্তার/চিকিৎসা/স্বাস্থ্য</option>
 								<option value="শিক্ষক/প্রফেসর">শিক্ষক/প্রফেসর</option>
 								<option value="গোয়েন্দা/প্রতিরক্ষা/সশস্ত্রবাহিনী">গোয়েন্দা/প্রতিরক্ষা/সশস্ত্রবাহিনী</option>
-								<option value="সার্ভিস/ফাইন্যান্স/ফ্রিল্যান্সার/অনলাইন">সার্ভিস/ফাইন্যান্স/ফ্রিল্যান্সার/অনলাইন</option>
+								<option value="সার্ভিস/ব্যাংকার/ফ্রিল্যান্সার/উদ্যোক্তা">সার্ভিস/ব্যাংকার/ফ্রিল্যান্সার/উদ্যোক্তা</option>
 								<option value="প্রবাসী/বিদেশে">প্রবাসী/বিদেশে</option>
 								<option value="গার্মেন্টস সেক্টর">গার্মেন্টস সেক্টর</option>
 								<option value="কারিগর/মিস্ত্রি">কারিগর/মিস্ত্রি</option>
@@ -543,12 +543,12 @@ if(isloggedin()){
 									
 						<div class="shosurbari-biodata-field section"  id="অন্যান্য" style="display: none;">
 							<label>পেশার নাম <span class="form-required" title="This field is required.">*</span></label>
-							<input type="text"  name="other_occupation_sector" placeholder="Enter your Occupation Sector" value="" size="100" maxlength="100" class="form-text">
+							<input type="text"  name="other_occupation_sector" placeholder="" value="" size="100" maxlength="100" class="form-text">
 						</div>
 
 						<div class="shosurbari-biodata-field section"  id="ব্যবসায়ী" style="display: none;">
 							<label>পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text"  name="business_occupation_level" placeholder="Enter your Business name" value="" size="100" maxlength="100" class="form-text">
+							<input type="text"  name="business_occupation_level" placeholder="" value="" size="100" maxlength="100" class="form-text">
 						</div>
 
 						<div class="shosurbari-biodata-field section" id="শিক্ষার্থী" style="display: none;">
@@ -687,7 +687,7 @@ if(isloggedin()){
 							</select>
 						</div>
 
-						<div class="shosurbari-biodata-field section" id="সার্ভিস/ফাইন্যান্স/ফ্রিল্যান্সার/অনলাইন" style="display: none;">
+						<div class="shosurbari-biodata-field section" id="সার্ভিস/ব্যাংকার/ফ্রিল্যান্সার/উদ্যোক্তা" style="display: none;">
 							<label>পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
 							<select name="service_andcommon_occupation_level">
 								<option hidden selected></option>
@@ -749,12 +749,12 @@ if(isloggedin()){
 
 						<div class="shosurbari-biodata-field" id="occupation_describe_field" style="display: none;">
 							<label>পেশার বিস্তারিত তথ্য<span class="form-required" title="This field is required.">*</span></label>
-							<textarea rows="5" name="occupation_describe" id="edit-name" placeholder="Describe your Occupation" class="form-text-describe" ></textarea>
+							<textarea rows="5" name="occupation_describe" id="edit-name" placeholder="" class="form-text-describe" ></textarea>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label>ঘর ও ঘরের বাহিরে কেমন ধরণের পোশাক পরেন?<span class="form-required" title="This field is required.">*</span></label>
-							<textarea rows="5" name="dress_code" placeholder="Describe your Dress Code" class="form-text-describe" required></textarea>
+							<textarea rows="5" name="dress_code" placeholder="" class="form-text-describe" required></textarea>
 						</div>
 
 						<div class="shosurbari-biodata-field">
@@ -1356,7 +1356,7 @@ if(isloggedin()){
 
 						<div class="shosurbari-biodata-field">
 							<label for="edu-method">অন্যান্য শিক্ষাগত যোগ্যতা<span style="color: gray; font-size:14px;" class="form-required" title="This field is required."> (বাধ্যতামূলক নয়)</span></label>
-							<textarea rows="4"  name="others_edu_qualification"  id="others_edu_qualification" placeholder="Describe your others education qualifications" class="form-text-describe"></textarea>
+							<textarea rows="4"  name="others_edu_qualification"  id="others_edu_qualification" placeholder="" class="form-text-describe"></textarea>
 						</div>
 					</div>
 				</div>
@@ -2243,7 +2243,7 @@ if(isloggedin()){
 
 						<div class="shosurbari-biodata-field">
 							<label>মামা/চাচাদের পেশা<span class="form-required" title="This field is required.">*</span></label>
-							<textarea rows="8" name="uncle_profession"  placeholder="Describe Profession of Your Uncles" class="form-text-describe" required></textarea>
+							<textarea rows="8" name="uncle_profession"  placeholder="" class="form-text-describe" required></textarea>
 						</div>
 
 						<div class="shosurbari-biodata-field">
@@ -2260,12 +2260,12 @@ if(isloggedin()){
 
 						<div class="shosurbari-biodata-field">
 							<label>পরিবারের অর্থনৈতিক অবস্থা কেমন?<span class="form-required" title="This field is required.">*</span></label>
-							<textarea rows="5" name="financial_condition" placeholder="Describe Your Financial Condition" class="form-text-describe" required></textarea>
+							<textarea rows="5" name="financial_condition" placeholder="" class="form-text-describe" required></textarea>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label>পারিবারিক ধর্মীয় ও সামাজিক অবস্থা কেমন?<span class="form-required" title="This field is required.">*</span></label>
-							<textarea rows="5" name="family_religious_condition"  placeholder="Describe Your Family's Religious Condition" class="form-text-describe" required></textarea>
+							<textarea rows="5" name="family_religious_condition"  placeholder="" class="form-text-describe" required></textarea>
 						</div>
 					</div>
 				</div>
@@ -2421,7 +2421,7 @@ if(isloggedin()){
 						<div class="shosurbari-biodata-field" id="divorce-section" style="display: none;">
 							<div class="shosurbari-biodata-field">
 								<label for="edit-name">ডিভোর্সের কারণ বর্ণনা করুন এবং কতদিন সংসার করেছেন?<span class="form-required" title="This field is required.">*</span></label>
-								<textarea rows="5" name="divorce_reason" value="" placeholder="Describe Your Divorce Reason" class="form-text-describe"></textarea>
+								<textarea rows="5" name="divorce_reason" value="" placeholder="" class="form-text-describe"></textarea>
 							</div>
 						</div>
 						<!-- Divorce Section End -->
@@ -2431,7 +2431,7 @@ if(isloggedin()){
 						<div class="shosurbari-biodata-field" id="widow-section" style="display: none;">
 							<div class="shosurbari-biodata-field">
 								<label for="edit-name">স্বামী যেভাবে মারা গেছেন এবং কতদিন সংসার করেছেন?<span class="form-required" title="This field is required.">*</span></label>
-								<textarea rows="5" name="how_widow" value="" placeholder="Describe How You Became a Widow" class="form-text-describe"></textarea>
+								<textarea rows="5" name="how_widow" value="" placeholder="" class="form-text-describe"></textarea>
 							</div>
 						</div>
 						<!-- Widow Section End-->
@@ -2441,7 +2441,7 @@ if(isloggedin()){
 						<div class="shosurbari-biodata-field" id="widower-section" style="display: none;">
 							<div class="shosurbari-biodata-field">
 								<label for="edit-name">স্ত্রী যেভাবে মারা গেছেন এবং কতদিন সংসার করেছেন?<span class="form-required" title="This field is required.">*</span></label>
-								<textarea rows="5" name="how_widower" value="" placeholder="Describe How You Became a Widower" class="form-text-describe"></textarea>
+								<textarea rows="5" name="how_widower" value="" placeholder="" class="form-text-describe"></textarea>
 							</div>
 						</div>
 						<!-- Widower Section End-->
@@ -2461,7 +2461,7 @@ if(isloggedin()){
 
 							<div class="shosurbari-biodata-field">
 								<label for="edit-name">আবার বিয়ে করার কারণ<span class="form-required" title="This field is required.">*</span></label>
-								<textarea rows="5" name="why_again_married" value="" placeholder="Describe How You Became a Widower" class="form-text-describe"></textarea>
+								<textarea rows="5" name="why_again_married" value="" placeholder="" class="form-text-describe"></textarea>
 							</div>
 						</div>
 						<!-- Married Section End-->
@@ -2490,7 +2490,7 @@ if(isloggedin()){
 
 							<div class="shosurbari-biodata-field" id="son-details" style="display: none;">
 								<label for="edit-name">সন্তান সম্পর্কিত তথ্য<span class="form-required" title="This field is required.">*</span></label>
-								<textarea rows="5" name="son_details"  value="" placeholder="Describe Your Son Details" class="form-text-describe"></textarea>
+								<textarea rows="5" name="son_details"  value="" placeholder="" class="form-text-describe"></textarea>
 							</div>
 						</div>
 						<!-- This Sections For Divorce + Widow + Widower + Married End-->
@@ -2723,7 +2723,7 @@ if(isloggedin()){
 
 						<div class="shosurbari-biodata-field">
 							<label for="about me">ধর্মীয় বিধিনিষেধ কতটুকু অনুসরণ করেন?<span class="form-required" title="This field is required.">*</span></label>
-							<textarea rows="5" name="yourreligion_condition" placeholder="Describe Your Religious Condition" class="form-text-describe" required></textarea>
+							<textarea rows="5" name="yourreligion_condition" placeholder="" class="form-text-describe" required></textarea>
 						</div>
 					</div>
 				</div>
@@ -2862,7 +2862,7 @@ if(isloggedin()){
 
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">জীবনসঙ্গীর যেসব <span style="color: black; font-size: 15px;">বৈশিষ্ঠ বা গুণাবলী </span>প্রত্যাশা করেন<span class="form-required" title="This field is required.">*</span></label>
-							<textarea rows="8" id="edit-name" name="partner_attributes" placeholder="Describe Expected Qualities or Attributes of Your Life Partner" class="form-text-describe" required></textarea>
+							<textarea rows="8" id="edit-name" name="partner_attributes" placeholder="" class="form-text-describe" required></textarea>
 						</div>
 
 						<div class="sb-biodata-field" style="margin-top: 15px;">

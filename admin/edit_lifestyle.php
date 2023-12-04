@@ -212,7 +212,7 @@ if (isset($_POST['update'])) {
                     <h2>ব্যক্তিগত তথ্য</h2>
                 </div>
 
-					<div class="sb-biodata-option">
+				<div class="sb-biodata-option">
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">ধূমপান করা হয়?<span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বাধ্যতামূলক নয়)</span></label>
 							<select name="smoke">
@@ -233,7 +233,7 @@ if (isset($_POST['update'])) {
 								<option value="ডাক্তার/চিকিৎসা/স্বাস্থ্য">ডাক্তার/চিকিৎসা/স্বাস্থ্য</option>
 								<option value="শিক্ষক/প্রফেসর">শিক্ষক/প্রফেসর</option>
 								<option value="গোয়েন্দা/প্রতিরক্ষা/সশস্ত্রবাহিনী">গোয়েন্দা/প্রতিরক্ষা/সশস্ত্রবাহিনী</option>
-								<option value="সার্ভিস/ফাইন্যান্স/ফ্রিল্যান্সার/অনলাইন">সার্ভিস/ফাইন্যান্স/ফ্রিল্যান্সার/অনলাইন</option>
+								<option value="সার্ভিস/ব্যাংকার/ফ্রিল্যান্সার/উদ্যোক্তা">সার্ভিস/ব্যাংকার/ফ্রিল্যান্সার/উদ্যোক্তা</option>
 								<option value="প্রবাসী/বিদেশে">প্রবাসী/বিদেশে</option>
 								<option value="গার্মেন্টস সেক্টর">গার্মেন্টস সেক্টর</option>
 								<option value="কারিগর/মিস্ত্রি">কারিগর/মিস্ত্রি</option>
@@ -245,12 +245,12 @@ if (isset($_POST['update'])) {
 									
 						<div class="shosurbari-biodata-field section"  id="অন্যান্য" style="display: none;">
 							<label>পেশার নাম<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text"  name="other_occupation_sector" value="<?php echo $other_occupation_sector;?>" placeholder="Enter your Occupation Sector" value="<?php echo $weight; ?>" size="100" maxlength="100" class="form-text">
+							<input type="text"  name="other_occupation_sector" value="<?php echo $other_occupation_sector;?>" placeholder="" value="<?php echo $weight; ?>" size="100" maxlength="100" class="form-text">
 						</div>
 
 						<div class="shosurbari-biodata-field section"  id="ব্যবসায়ী" style="display: none;">
 							<label>পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text"  name="business_occupation_level" placeholder="Enter your Business name" value="<?php echo $business_occupation_level; ?>" size="100" maxlength="100" class="form-text">
+							<input type="text"  name="business_occupation_level" placeholder="" value="<?php echo $business_occupation_level; ?>" size="100" maxlength="100" class="form-text">
 						</div>
 
 						<div class="shosurbari-biodata-field section" id="শিক্ষার্থী" style="display: none;">
@@ -396,7 +396,7 @@ if (isset($_POST['update'])) {
 							</select>
 						</div>
 
-						<div class="shosurbari-biodata-field section" id="সার্ভিস/ফাইন্যান্স/ফ্রিল্যান্সার/অনলাইন" style="display: none;">
+						<div class="shosurbari-biodata-field section" id="সার্ভিস/ব্যাংকার/ফ্রিল্যান্সার/উদ্যোক্তা" style="display: none;">
 							<label>পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
 							<select name="service_andcommon_occupation_level">
 								<option hidden selected><?php echo $service_andcommon_occupation_level;?></option>
@@ -405,7 +405,7 @@ if (isset($_POST['update'])) {
 								<option value="ব্যাংকার">ব্যাংকার</option>
 								<option value="আইনজীবী">আইনজীবী</option> 
 								<option value="উদ্যোক্তা">উদ্যোক্তা</option> 
-								<option value="ফ্রীলান্সার">ফ্রীলান্সার</option>
+								<option value="ফ্রিল্যান্সার">ফ্রিল্যান্সার</option>
 								<option value="ইউটিউবার">ইউটিউবার</option>
 								<option value="গ্রাফিক্স ডিজাইনার">গ্রাফিক্স ডিজাইনার</option>
 								<option value="সেলস & মার্কেটিং(SR)">সেলস & মার্কেটিং(SR)</option>
@@ -459,12 +459,12 @@ if (isset($_POST['update'])) {
 
 						<div class="shosurbari-biodata-field" id="occupation_describe_field" style="display: none;">
 							<label>পেশার বিস্তারিত তথ্য<span class="form-required" title="This field is required.">*</span></label>
-							<textarea rows="5" name="occupation_describe" id="edit-name" placeholder="Describe your Occupation" class="form-text-describe" ><?php echo $occupation_describe; ?></textarea>
+							<textarea rows="5" name="occupation_describe" id="edit-name" placeholder="" class="form-text-describe" ><?php echo $occupation_describe; ?></textarea>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label>ঘর ও ঘরের বাহিরে কেমন ধরণের পোশাক পরেন?<span class="form-required" title="This field is required.">*</span></label>
-							<textarea rows="5" name="dress_code" placeholder="Describe your Dress Code" class="form-text-describe" required><?php echo $dress_code; ?></textarea>
+							<textarea rows="5" name="dress_code" placeholder="" class="form-text-describe" required><?php echo $dress_code; ?></textarea>
 						</div>
 
 						<div class="shosurbari-biodata-field">

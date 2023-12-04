@@ -231,7 +231,7 @@ if (isset($_POST['update'])) {
 
           <div class="shosurbari-biodata-field">
             <label for="edit-name">জীবনসঙ্গীর যেসব <span style="color: black; font-size: 15px;">বৈশিষ্ঠ বা গুণাবলী </span>প্রত্যাশা করেন<span class="form-required" title="This field is required.">*</span></label>
-            <textarea rows="8" id="edit-name" name="partner_attributes" placeholder="Describe Expected Qualities or Attributes of Your Life Partner" class="form-text-describe" required><?php echo $partner_attributes; ?></textarea>
+            <textarea rows="8" id="edit-name" name="partner_attributes" placeholder="" class="form-text-describe" required><?php echo $partner_attributes; ?></textarea>
           </div>
           
           <div class="sb-biodata-field" style="margin-top: 15px;">

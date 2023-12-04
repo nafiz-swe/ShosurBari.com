@@ -518,19 +518,12 @@ if(isloggedin()){
 							</select>
 						</div>
 
-						<!-- Gurdians Aggress Without Married Sections -->
-						<!-- <div class="shosurbari-biodata-field" id="gurdian-aggress-section" style="display: none;">
-							<div class="shosurbari-biodata-field">
-								<label for="edit-name">পরিবারের অনুমতি নিয়ে বায়োডাটা পোস্ট করতেছেন?<span class="form-required" title="This field is required.">*</span></label>
-								<input type="text" id="edit-name" name="guardians_agree"  value=""  size="100" maxlength="100" class="form-text">
-							</div>
-						</div> -->
 
 						<!-- Divorce Section Start -->
 						<div class="shosurbari-biodata-field" id="divorce-section" style="display: none;">
 							<div class="shosurbari-biodata-field">
 								<label for="edit-name">ডিভোর্সের কারণ বর্ণনা করুন এবং কতদিন সংসার করেছেন?<span class="form-required" title="This field is required.">*</span></label>
-								<textarea rows="5" name="divorce_reason" value="<?php echo $divorce_reason; ?>" placeholder="Describe Your Divorce Reason" class="form-text-describe"></textarea>
+								<textarea rows="5" name="divorce_reason" value="<?php echo $divorce_reason; ?>" placeholder="" class="form-text-describe"></textarea>
 							</div>
 						</div>
 						<!-- Divorce Section End -->
@@ -540,7 +533,7 @@ if(isloggedin()){
 						<div class="shosurbari-biodata-field" id="widow-section" style="display: none;">
 							<div class="shosurbari-biodata-field">
 								<label for="edit-name">স্বামী যেভাবে মারা গেছেন এবং কতদিন সংসার করেছেন?<span class="form-required" title="This field is required.">*</span></label>
-								<textarea rows="5" name="how_widow" value="<?php echo $how_widow; ?>" placeholder="Describe How You Became a Widow" class="form-text-describe"></textarea>
+								<textarea rows="5" name="how_widow" value="<?php echo $how_widow; ?>" placeholder="" class="form-text-describe"></textarea>
 							</div>
 						</div>
 						<!-- Widow Section End-->
@@ -550,7 +543,7 @@ if(isloggedin()){
 						<div class="shosurbari-biodata-field" id="widower-section" style="display: none;">
 							<div class="shosurbari-biodata-field">
 								<label for="edit-name">স্ত্রী যেভাবে মারা গেছেন এবং কতদিন সংসার করেছেন?<span class="form-required" title="This field is required.">*</span></label>
-								<textarea rows="5" name="how_widower" value="<?php echo $how_widower; ?>" placeholder="Describe How You Became a Widower" class="form-text-describe"></textarea>
+								<textarea rows="5" name="how_widower" value="<?php echo $how_widower; ?>" placeholder="" class="form-text-describe"></textarea>
 							</div>
 						</div>
 						<!-- Widower Section End-->
@@ -570,7 +563,7 @@ if(isloggedin()){
 
 							<div class="shosurbari-biodata-field">
 								<label for="edit-name">আবার বিয়ে করার কারণ<span class="form-required" title="This field is required.">*</span></label>
-								<textarea rows="5" name="why_again_married" value="<?php echo $why_again_married; ?>" placeholder="Describe How You Became a Widower" class="form-text-describe"></textarea>
+								<textarea rows="5" name="why_again_married" value="<?php echo $why_again_married; ?>" placeholder="" class="form-text-describe"></textarea>
 							</div>
 						</div>
 						<!-- Married Section End-->
@@ -599,7 +592,7 @@ if(isloggedin()){
 
 							<div class="shosurbari-biodata-field" id="son-details" style="display: none;">
 								<label for="edit-name">সন্তান সম্পর্কিত তথ্য<span class="form-required" title="This field is required.">*</span></label>
-								<textarea rows="5" name="son_details"  value="<?php echo $son_details; ?>" placeholder="Describe Your Son Details" class="form-text-describe"></textarea>
+								<textarea rows="5" name="son_details"  value="<?php echo $son_details; ?>" placeholder="" class="form-text-describe"></textarea>
 							</div>
 						</div>
 						<!-- This Sections For Divorce + Widow + Widower + Married End-->

@@ -165,7 +165,7 @@ if (isset($_POST['update'])) {
 
                     <div class="shosurbari-biodata-field">
                         <label for="about me">ধর্মীয় বিধিনিষেধ কতটুকু অনুসরণ করেন?<span class="form-required" title="This field is required.">*</span></label>
-                        <textarea rows="5" name="yourreligion_condition" placeholder="Describe Your Religious Condition" class="form-text-describe" required><?php echo $yourreligion_condition; ?></textarea>
+                        <textarea rows="5" name="yourreligion_condition" placeholder="" class="form-text-describe" required><?php echo $yourreligion_condition; ?></textarea>
                     </div>
                 </div>
             </div>

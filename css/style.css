@@ -2755,13 +2755,15 @@ ol li{
 
 .shosurbari-userhome-status form button{
     margin-left: 0px;
-    width: 165px;
+    width: 145px;
     padding: 6px;
-    background: transparent;
-    color: #000;
+    background: linear-gradient(#06b6d4, #0aa4ca);
+    color: #fff;
     border: 1px solid #06b6d452;
     border-radius: 2px;
     font-size: 17px;
+    height: 35px;
+    line-height: 23px;
 }
 
 .shosurbari-userhome-status form button:hover{

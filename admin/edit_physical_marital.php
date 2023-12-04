@@ -390,7 +390,7 @@ if (isset($_GET['id'])) {
 
 					
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">ওজন <span class="form-required" title="This field is required.">*</span></label>
+							<label for="edit-name">ওজন<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text" id="edit-name" name="weight" value="<?php echo $weight; ?>" size="100" maxlength="100" class="form-text" required>
 						</div>
 
@@ -489,19 +489,11 @@ if (isset($_GET['id'])) {
 							</select>
 						</div>
 
-						<!-- Gurdians Aggress Without Married Sections -->
-						<!-- <div class="shosurbari-biodata-field" id="gurdian-aggress-section" style="display: none;">
-							<div class="shosurbari-biodata-field">
-								<label for="edit-name">পরিবারের অনুমতি নিয়ে বায়োডাটা পোস্ট করতেছেন?<span class="form-required" title="This field is required.">*</span></label>
-								<input type="text" id="edit-name" name="guardians_agree"  value=""  size="100" maxlength="100" class="form-text">
-							</div>
-						</div> -->
-
 						<!-- Divorce Section Start -->
 						<div class="shosurbari-biodata-field" id="divorce-section" style="display: none;">
 							<div class="shosurbari-biodata-field">
 								<label for="edit-name">ডিভোর্সের কারণ বর্ণনা করুন এবং কতদিন সংসার করেছেন?<span class="form-required" title="This field is required.">*</span></label>
-								<textarea rows="5" name="divorce_reason" value="<?php echo $divorce_reason; ?>" placeholder="Describe Your Divorce Reason" class="form-text-describe"></textarea>
+								<textarea rows="5" name="divorce_reason" value="<?php echo $divorce_reason; ?>" placeholder="" class="form-text-describe"></textarea>
 							</div>
 						</div>
 						<!-- Divorce Section End -->
@@ -511,7 +503,7 @@ if (isset($_GET['id'])) {
 						<div class="shosurbari-biodata-field" id="widow-section" style="display: none;">
 							<div class="shosurbari-biodata-field">
 								<label for="edit-name">স্বামী যেভাবে মারা গেছেন এবং কতদিন সংসার করেছেন?<span class="form-required" title="This field is required.">*</span></label>
-								<textarea rows="5" name="how_widow" value="<?php echo $how_widow; ?>" placeholder="Describe How You Became a Widow" class="form-text-describe"></textarea>
+								<textarea rows="5" name="how_widow" value="<?php echo $how_widow; ?>" placeholder="" class="form-text-describe"></textarea>
 							</div>
 						</div>
 						<!-- Widow Section End-->
@@ -521,7 +513,7 @@ if (isset($_GET['id'])) {
 						<div class="shosurbari-biodata-field" id="widower-section" style="display: none;">
 							<div class="shosurbari-biodata-field">
 								<label for="edit-name">স্ত্রী যেভাবে মারা গেছেন এবং কতদিন সংসার করেছেন?<span class="form-required" title="This field is required.">*</span></label>
-								<textarea rows="5" name="how_widower" value="<?php echo $how_widower; ?>" placeholder="Describe How You Became a Widower" class="form-text-describe"></textarea>
+								<textarea rows="5" name="how_widower" value="<?php echo $how_widower; ?>" placeholder="" class="form-text-describe"></textarea>
 							</div>
 						</div>
 						<!-- Widower Section End-->
@@ -541,12 +533,13 @@ if (isset($_GET['id'])) {
 
 							<div class="shosurbari-biodata-field">
 								<label for="edit-name">আবার বিয়ে করার কারণ<span class="form-required" title="This field is required.">*</span></label>
-								<textarea rows="5" name="why_again_married" value="<?php echo $why_again_married; ?>" placeholder="Describe How You Became a Widower" class="form-text-describe"></textarea>
+								<textarea rows="5" name="why_again_married" value="<?php echo $why_again_married; ?>" placeholder="" class="form-text-describe"></textarea>
 							</div>
 						</div>
 						<!-- Married Section End-->
 
 
+						<!-- This Sections For Divorce + Widow + Widower + Married Start-->
 						<div class="shosurbari-biodata-field" id="son-section" style="display: none;">
 							<div class="shosurbari-biodata-field">
 								<label for="edit-name">কয়টি সন্তান আছে<span class="form-required" title="This field is required.">*</span></label>
@@ -569,14 +562,16 @@ if (isset($_GET['id'])) {
 
 							<div class="shosurbari-biodata-field" id="son-details" style="display: none;">
 								<label for="edit-name">সন্তান সম্পর্কিত তথ্য<span class="form-required" title="This field is required.">*</span></label>
-								<textarea rows="5" name="son_details"  value="<?php echo $son_details; ?>" placeholder="Describe Your Son Details" class="form-text-describe"></textarea>
+								<textarea rows="5" name="son_details"  value="<?php echo $son_details; ?>" placeholder="" class="form-text-describe"></textarea>
 							</div>
 						</div>
+						<!-- This Sections For Divorce + Widow + Widower + Married End-->
+
 
 
 						<!-- Bellow Two Sections For Male or Female -->
 						<div class="shosurbari-biodata-field" id="male-allow-wife-job">
-							<label for="edit-name">স্ত্রীকে চাকরি করতে দিতে ইচ্ছুক?<span class="form-required" title="This field is required.">*</span></label>
+							<label for="edit-name">বিয়ের পর স্ত্রীকে চাকরি করতে দিতে ইচ্ছুক?<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text" id="edit-name" name="allowjob_aftermarriage"  value="<?php echo $allowjob_aftermarriage; ?>"  size="100" maxlength="100" class="form-text">
 						</div>
 						<!--Top Male | OR | Bellow Female-->
@@ -586,7 +581,7 @@ if (isset($_GET['id'])) {
 						</div>
 
 						<div class="shosurbari-biodata-field" id="male-allow-wife-study">
-							<label for="edit-name">স্ত্রীকে প্রাতিষ্ঠানিক পড়ালেখা করতে দিতে ইচ্ছুক?<span class="form-required" title="This field is required.">*</span></label>
+							<label for="edit-name">বিয়ের পর স্ত্রীকে প্রাতিষ্ঠানিক পড়ালেখা করতে দিতে ইচ্ছুক?<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text" id="edit-name" name="allowstudy_aftermarriage" value="<?php echo $allowstudy_aftermarriage; ?>" size="100" maxlength="100" class="form-text">
 						</div>
 						<!--Top Male | OR | Bellow Female-->
@@ -625,6 +620,7 @@ if (isset($_GET['id'])) {
 				</div>
 
 				<input type="button" name="previous" class="previous action-button" value="Previous" />			
+                <input type="submit" name="update" value="Update">
 
 				<script>
 					function toggleGenderSections(selectedGender) {
@@ -635,6 +631,14 @@ if (isset($_GET['id'])) {
 						var maleliveWithwife = document.getElementById('male-live-with-wife');
 						var femaleagreeMarriagestudent = document.getElementById('female-agree-marriage-student');
 
+						var maritalStatusSelect = document.getElementsByName('maritalstatus')[0];
+						var optionWidow = maritalStatusSelect.querySelector('option[value="বিধবা"]');
+						var optionWidower = maritalStatusSelect.querySelector('option[value="বিপত্নীক"]');
+						
+						// Reset the display property for all options before toggling
+						optionWidow.style.display = 'block';
+						optionWidower.style.display = 'block';
+						
 						if (selectedGender === 'পাত্রের বায়োডাটা') {
 							maleallowJobwife.style.display = 'block';
 							femaleJobSection.style.display = 'none';
@@ -646,8 +650,6 @@ if (isset($_GET['id'])) {
 							femaleagreeMarriagestudent.style.display = 'none';
 
 							// Hide বিধবা option
-							var maritalStatusSelect = document.getElementsByName('maritalstatus')[0];
-							var optionWidow = maritalStatusSelect.querySelector('option[value="বিধবা"]');
 							optionWidow.style.display = 'none';
 						} else if (selectedGender === 'পাত্রীর বায়োডাটা') {
 							maleallowJobwife.style.display = 'none';
@@ -660,8 +662,6 @@ if (isset($_GET['id'])) {
 							femaleagreeMarriagestudent.style.display = 'block';
 
 							// Hide বিপত্নীক option
-							var maritalStatusSelect = document.getElementsByName('maritalstatus')[0];
-							var optionWidower = maritalStatusSelect.querySelector('option[value="বিপত্নীক"]');
 							optionWidower.style.display = 'none';
 						} else {
 							maleallowJobwife.style.display = 'none';
@@ -683,7 +683,6 @@ if (isset($_GET['id'])) {
 					}
 
 					function toggleMaritalStatus(selectedStatus) {
-						var gurdianAggressSection = document.getElementById('gurdian-aggress-section');
 						var sonDetailsSection = document.getElementById('son-section');
 						var divorceSection = document.getElementById('divorce-section');
 						var widowSection = document.getElementById('widow-section');
@@ -691,7 +690,6 @@ if (isset($_GET['id'])) {
 						var marriedSection = document.getElementById('married-section');
 
 						// Hide all sections initially
-						gurdianAggressSection.style.display = 'none';
 						sonDetailsSection.style.display = 'none';
 						divorceSection.style.display = 'none';
 						widowSection.style.display = 'none';
@@ -699,19 +697,15 @@ if (isset($_GET['id'])) {
 						marriedSection.style.display = 'none';
 
 						if (selectedStatus === 'অবিবাহিত') {
-							gurdianAggressSection.style.display = 'block';
 							sonDetailsSection.style.display = 'none';
 						} else if (selectedStatus === 'ডিভোর্স') {
 							divorceSection.style.display = 'block';
-							gurdianAggressSection.style.display = 'block';
 							sonDetailsSection.style.display = 'block';
 						} else if (selectedStatus === 'বিধবা') {
 							widowSection.style.display = 'block';
 							sonDetailsSection.style.display = 'block';
-							gurdianAggressSection.style.display = 'block';
 						} else if (selectedStatus === 'বিপত্নীক') {
 							widowerSection.style.display = 'block';
-							gurdianAggressSection.style.display = 'block';
 							sonDetailsSection.style.display = 'block';
 						} else if (selectedStatus === 'বিবাহিত') {
 							marriedSection.style.display = 'block';
@@ -729,7 +723,7 @@ if (isset($_GET['id'])) {
 						}
 					}
 				</script>
-                <input type="submit" name="update" value="Update">
+
 			</fieldset>
     </form>
 </div>

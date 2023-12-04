@@ -219,8 +219,8 @@
                      <br>
    
                      <!-- Common Profession-->
-                       <input type="checkbox" name="occupation_sector[]" value="সার্ভিস/ফাইন্যান্স/ফ্রিল্যান্সার/অনলাইন" class="SelectBox val" />
-                       <span class="search-options">সার্ভিস/ফাইন্যান্স/ফ্রিল্যান্সার/অনলাইন</span>
+                       <input type="checkbox" name="occupation_sector[]" value="সার্ভিস/ব্যাংকার/ফ্রিল্যান্সার/উদ্যোক্তা" class="SelectBox val" />
+                       <span class="search-options">সার্ভিস/ব্যাংকার/ফ্রিল্যান্সার/উদ্যোক্তা</span>
                      <br>
    
                      <!-- Working Forign Sector-->                  
@@ -1751,7 +1751,7 @@ th, td {
       <img src="images/sb-home-createaccount.png" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
     </div>
     <div class="card-content">
-      <h1 class="card-title">বায়োডাটা তৈরি করুন</h1>
+      <h1 class="card-title">বায়োডাটা পোস্ট করুন</h1>
       <p>শ্বশুরবাড়ি ডটকমে একাউন্ট খোলা এবং বায়োডাটা পোস্ট করতে কোনো সার্ভিস চার্জ নেওয়া হয় না। পাত্রপাত্রী নিজেই অথবা তাদের অভিভাবক বায়োডাটা পোস্ট করতে পারবে খুব সহজেই।</p>
     </div>
   </div>
