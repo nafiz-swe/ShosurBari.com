@@ -73,7 +73,8 @@ error_reporting(0);
   width: 1400px;
   margin: auto;
   padding-top: 30px;
-  padding-bottom: 30px
+  padding-bottom: 30px;
+  margin-bottom: 70px
 }
 
 .soshurbari-animation-icon,

@@ -804,7 +804,7 @@ ul.nav_1{
     justify-content: space-between;
     background: #06b6d4;
     padding: 1em 0;
-    margin-top: 100px;
+    margin-top: 50px;
 }
   
 .shosurbari-copy-right,
@@ -1241,7 +1241,7 @@ section::before {
 /*Home Featured Profiles Start*/
 .sb-featured-profiles {
     width: 100%;
-    margin: 110px auto 0px auto;
+    margin: 100px auto 70px auto;
     padding-bottom: 30px;
     padding-top: 50px;
 }
@@ -1249,7 +1249,7 @@ section::before {
 .sb-home-search {
     width: 100%;
     margin: 0px auto;
-    padding-top: 50px;
+    padding-top: 20px;
 }
 
 .sb-home-search h1 {
@@ -1550,10 +1550,7 @@ span.m_3{
     flex-wrap: wrap;
     gap: 30px;
     width: 90%;
-    margin-top: 25px;
-    margin-bottom: 150px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 25px auto 120px auto;
 }
 /*Body Section End*/
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
@@ -2192,12 +2189,12 @@ td.day_value {
 
 .shosurbari-details {
     width: 100%;
-    margin: -10px auto 50px auto;
+    margin: 0px auto 80px auto;
     padding: 10px
 }
 
 .shosurbari-details h1 {
-    margin-top: 50px;
+    margin-top: 0px;
     margin-bottom: 0px;
     margin-left: auto;
     margin-right: auto;
@@ -2225,6 +2222,7 @@ td.day_value {
 .about_middle{
     padding: 0 25px;
     margin-top: 100px;
+    margin-bottom: 100px;
 }
 
 .about_middle h2{
@@ -2630,12 +2628,11 @@ small.testi-meta1{
 
 .shosurbari-security {
     width: 100%;
-    margin: -10px auto;
+    margin: 0px auto 80px auto;
     padding: 10px
 }
 
 .shosurbari-security h1 {
-    margin-top: 50px;
     margin-bottom: 0px;
     margin-left: auto;
     margin-right: auto;
@@ -2681,7 +2678,7 @@ ol li{
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 .shosurbari-faq {
     width: 70%;
-    margin: 10px auto;
+    margin: auto;
 }
 
 .shosurbari-faq h1{
@@ -2736,6 +2733,8 @@ ol li{
 .navigationpro {
     display: flex;
     margin: auto;
+    margin-bottom: 70px;
+    padding: 30px;
 }
 
 .shosurbari-userhome-status{
@@ -3337,7 +3336,7 @@ input[type=submit] {
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 .shosurbari-service{
     width: 90%;
-    margin: 10px auto;
+    margin: auto;
 }
 
 .page_header{
@@ -3418,7 +3417,6 @@ i.icon_4{
 .shosurbari-biodata{
     display: flex;
     flex-wrap: wrap;
-    padding-bottom: 30px;
 }
 
 .sb-register-login h2{
@@ -3554,7 +3552,7 @@ i.icon_4{
 
 #biodataForm {
     width: 100%;
-    margin: 25px auto 0px auto;
+    margin: 5px auto 0px auto;
     text-align: center;
     padding-bottom: 50px;
 }
@@ -4516,7 +4514,7 @@ font-size: 14px;
 @media(min-width: 1200px){
     .navigationpro {
         width: 930px;
-        padding: 39px;
+        padding: 30px;
     }
 
     .banner {
@@ -4528,7 +4526,6 @@ font-size: 14px;
 @media(max-width: 1200px){
     .navigationpro {
         width: 921px;
-        padding: 35px;
     }
 
     .banner {
@@ -4803,7 +4800,6 @@ font-size: 14px;
     .navigationpro {
         /* width: 865px; */
         width: 905px;
-        padding: 35px;
     }
 
     .slide p{
@@ -5357,20 +5353,12 @@ font-size: 14px;
         margin: auto;
     }
 
-    .shosurbari-details {
-        margin: -50px auto 0px auto;
-    }
-
-    .shosurbari-security {
-        margin: -50px auto;
-    }
-
     .sb-featured-profiles {
         margin: 90px auto 0px auto;
     }
 
     #biodataForm{
-        margin: 0px auto;
+        margin: 5px auto 0px auto;
     }
 
     .navigationpro .dropdown{
@@ -5458,7 +5446,7 @@ font-size: 14px;
     }
 
     .grid_3, .about_middle{
-        margin-bottom: 0px;
+        margin-bottom: 40x;
         margin-top: 45px;
     }
 
@@ -6321,7 +6309,6 @@ font-size: 14px;
     .navigationpro {
         display: block;
         width: auto;
-        padding: 30px;
       }
 
       .shosurbari-userhome-status {
@@ -6538,6 +6525,10 @@ font-size: 14px;
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width:480px){
 
+    #biodataForm{
+        margin: 0px auto 0px auto;
+    }
+
     .shosurbari-details h2,
     .shosurbari-details h3,
     .shosurbari-details h4,
@@ -6663,7 +6654,6 @@ font-size: 14px;
 
     #progressbar {
         flex-wrap: wrap;
-        justify-content: flex-start;
         width: 300px;
     }
     
@@ -6792,6 +6782,7 @@ font-size: 14px;
     .nav>li>a {
         padding: 8px 5px;
         font-size: 13px;
+        line-height: 22px;
     }
 
     p.description {
@@ -7078,10 +7069,6 @@ font-size: 14px;
 
     .about_middle h2 {
         font-size: 1.5em;
-    }
-
-    .grid_3, .about_middle {
-        margin-bottom: 0px;
     }
 
     .about_bottom h3 {
@@ -7714,7 +7701,6 @@ font-size: 14px;
 
     #progressbar {
         flex-wrap: wrap;
-        justify-content: flex-start;
         width: 260px;
     }
 

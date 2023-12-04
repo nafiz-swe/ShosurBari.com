@@ -2529,7 +2529,7 @@ if(isloggedin()){
 						</div>
 
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">বায়োডাটা টি যার জন্য পোস্ট করতেছেন, তার আপনি কে হন?<span class="form-required" title="This field is required.">*</span></label>
+							<label for="edit-name">বায়োডাটা টি যার তার আপনি কে হন?<span class="form-required" title="This field is required.">*</span></label>
 							<select name="profileby" required>
 								<option hidden selected></option>
 								<option value="নিজের জন্য">নিজের জন্য</option>

@@ -229,13 +229,9 @@ th {
 }
 
 .shosurbari-biodata-form {
-  align-items: center;
-  flex-wrap: wrap;
-  width: 1400px;
-  margin: auto;
-  margin-top: 25px;
-  padding-top: 0px;
-  padding-bottom: 30px
+    padding-top: 0px;
+    padding-bottom: 30px;
+    margin: 0px auto 70px auto;
 }
 
 .soshurbari-animation-icon,

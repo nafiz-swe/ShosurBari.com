@@ -142,8 +142,8 @@ if(isloggedin()){
 		<form action="" method="POST" id="biodataForm">
             <!-- progressbar -->
 			<ul id="progressbar">
-				<li class="active" id="personalPhysical">শারীরিক</li>
-				<li id="MarriageInfo">বিবাহ-সম্পর্কিত</li>
+				<li class="active" id="personalPhysical" data-bengali-number="1">শারীরিক</li>
+				<li id="MarriageInfo" data-bengali-number="2">বিবাহ-সম্পর্কিত</li>
 			</ul>
 
 	
@@ -638,7 +638,7 @@ if(isloggedin()){
 						</div>
 
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">বায়োডাটা টি যার জন্য পোস্ট করতেছেন, তার আপনি কে হন?<span class="form-required" title="This field is required.">*</span></label>
+							<label for="edit-name">বায়োডাটা টি যার তার আপনি কে হন?<span class="form-required" title="This field is required.">*</span></label>
 							<select name="profileby" required>
 								<option hidden selected><?php echo $profileby; ?></option>
 								<option value="নিজের জন্য">নিজের জন্য</option>

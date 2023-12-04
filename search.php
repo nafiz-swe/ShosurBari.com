@@ -1204,7 +1204,7 @@ $result=search();
   </div> -->
 
   <div class="heart-divider">
-    <h1>পছন্দের জীবনসঙ্গী খুঁজুন</h1>
+    <h1>স্বপ্নময় জীবনসঙ্গী খুঁজুন</h1>
 		<span class="grey-line"></span>
 			<i class="fa fa-heart pink-heart"></i>
 			<i class="fa fa-heart grey-heart"></i>

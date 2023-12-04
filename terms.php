@@ -115,10 +115,10 @@
 			<p>These terms and conditions govern the upload and usage of user photos on ShosurBari.com. By uploading a photo on our website, you agree to comply with these terms and conditions. Please read them carefully.</p>
 			<ul>
 
-				<h4>(A) Ownership of Photos</h4>
+				<h4>A) Ownership of Photos</h4>
 				<p>By uploading a photo on ShosurBari.com, you affirm that you are the owner of the photo or have obtained the necessary permissions to upload and use the photo on our website. You retain ownership of the photo, but you grant ShosurBari.com a non-exclusive, royalty-free, worldwide license to use, display, and distribute the photo for the purpose of providing our services.</p>
 			
-				<h3>(B) Photo Content and Dress Code</h3>
+				<h3>B) Photo Content and Dress Code</h3>
 				<p>When uploading a photo, you agree that it complies with the following guidelines:
 					<ol>
 						<li>The photo must represent you accurately and should not include any misleading or false information.</li>
@@ -128,13 +128,13 @@
 					</ol>
 				</p>
 
-				<h3>(C) Photo Deletion and Modification</h3>
+				<h3>C) Photo Deletion and Modification</h3>
 				<p>You have the option to delete or modify your uploaded photo at any time. If you choose to delete your photo, it will be removed from our website, and we will no longer have the right to use, display, or distribute it. However, please note that once a photo is shared with other users or incorporated into other users' accounts, it may be retained by them and we cannot control its further usage.</p>
 				
-				<h3>(D) Security and Confidentiality</h3>
+				<h3>D) Security and Confidentiality</h3>
 				<p>ShosurBari.com takes the security and confidentiality of your photos seriously. We implement industry-standard security measures to protect your uploaded photos from unauthorized access, use, or disclosure. However, please be aware that no method of transmission over the internet or electronic storage is 100% secure, and we cannot guarantee absolute security. By uploading a photo, you acknowledge and accept the inherent risks associated with online data transmission.</p>
 				
-				<h3>(E) User Responsibilities</h3>
+				<h3>E) User Responsibilities</h3>
 				<p>When using ShosurBari.com and accessing user photos, you agree to:
 					<Ol>
 						<li>Respect the privacy and rights of other users.</li>
