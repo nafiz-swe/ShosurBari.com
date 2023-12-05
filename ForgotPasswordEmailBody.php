@@ -18,16 +18,19 @@ body {
 }
 
 .header {
-    background: linear-gradient(#0ea5e9, #06b6d4);
+    background: #0aa4ca;
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: 2px 20px;
+    font-size: 12px;
+    line-height: 30px;
+    height: 60px;
 }
 
 .content {
     padding: 10px 15px;
-    border-right: 50px solid #06b6d4;
-    border-left: 50px solid #06b6d4;
+    border-right: 20px solid #0aa4ca;
+    border-left: 20px solid #0aa4ca;
     text-align: center;
 }
 
@@ -54,13 +57,13 @@ body {
 
 .content span{
     text-decoration: none;
-    color: #06b6d4;
+    color: #0aa4ca;
     font-size: 12px;
 }
 
 .ii a[href] {
     text-decoration: none;
-    color: #06b6d4;
+    color: #0aa4ca;
     font-size: 12px;
 }
 
@@ -86,10 +89,10 @@ span a {
 }
 
 .footer {
-    background: linear-gradient(#06b6d4, #0ea5e9);
+    background: #0aa4ca;
     color: white;
     text-align: center;
-    padding: 15px 10px 30px 10px;
+    padding: 5px 10px 20px 10px;
 }
 
 .footer img{
@@ -104,13 +107,13 @@ span a {
 <body>
     <div class='container'>
         <div class='header'>
-            <h1>শ্বশুরবাড়ি পাসওয়ার্ড পুনরুদ্ধারের অনুরোধ</h1>
+            <h1>পাসওয়ার্ড পরিবর্তন করুন</h1>
         </div>
         <div class='content'>
         <!-- A request has been made to retrieve the password for logging into your account. -->
 
             <h3>আপনার একাউন্ট লগইন করার জন্য পাসওয়ার্ড পুনরুদ্ধারের একটি অনুরোধ করা হয়েছে।</h3>
-            <p>পাসওয়ার্ড: <a style="text-decoration:underline; color:#06b6d4;" href='https://www.shoshurbari.rf.gd/new_password.php' target='_blank'>পাসওয়ার্ড পরিবর্তন করুন <span>(ক্লিক করুন)</span></a></p>
+            <p>পাসওয়ার্ড: <a style="text-decoration:underline; color: #0aa4ca;" href='https://www.shoshurbari.rf.gd/new_password.php' target='_blank'>পাসওয়ার্ড পরিবর্তন করুন <span>(ক্লিক করুন)</span></a></p>
             <p>ই-মেইল: <span style="text-decoration: none; color: #0ea5e9; font-size: 12px;"> <?php echo $email; ?> </span></p>
 
             <h5 class="note" style="font-weight: none;"> <strong style="color: #696262; font-weight: bold;">বি:দ্র: </strong> আপনার পাসওয়ার্ড সুরক্ষিত রাখতে অনুগ্রহ করে মনে রাখবেন। পাসওয়ার্ড কারো সাথে শেয়ার করবেন না।</h5>

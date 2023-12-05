@@ -352,7 +352,7 @@ if (isset($_GET['message'])) {
 
             <div class="form-group">
             <label>Profiled By<span style="color: #ccc; font-size:12px;">(Changeable)</span> </label>
-                <select name="profileby" required>
+                <select name="profileby">
                     <option hidden selected><?php echo $profileby; ?></option>
                     <option value="নিজের জন্য">নিজের জন্য</option>
                     <option value="বাবা হই">বাবা হই</option>

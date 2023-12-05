@@ -172,7 +172,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
         // Set up SMTP configuration for Gmail
         $to = $email;
-        $subject = "Your ShosurBari Password";
+        $subject = "Password change request at ShosurBari.com";
         
         // HTML version of the email body
         ob_start();
@@ -182,7 +182,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         // Plain text version of the email body
         // $plain_text_message = "Your ShosurBari Password\n\nA request has been made to retrieve the password for logging into your account.\n\nYour password is: $password\n\nYour Email is: $email\n\nLogin your account: https://www.shoshurbari.rf.gd/login.php\n\nNote: Please remember to keep your passwords and usernames secure. Do not share them with anyone.\n\n[fa fa-facebook]:https://www.facebook.com/ShoshurBari.bd\nhttps://www.yourwebsite.com\nhttps://www.facebook.com\nhttps://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\n\n(c) 2022-23 ShosurBari.com | All Rights Reserved";
             $plain_text_message = "
-            Your ShosurBari Password
+            Password change request at ShosurBari.com
+            পাসওয়ার্ড পরিবর্তন করুন
             
             A request has been made to retrieve the password for logging into your account.
             Password: https://www.shoshurbari.rf.gd/new_password.php
