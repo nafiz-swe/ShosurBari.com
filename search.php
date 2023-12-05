@@ -42,14 +42,14 @@ $result=search();
   #close-button {
     margin-top: -29px;
     margin-bottom: 15px;
-    color: red;
-    margin-right: -25px;
+    color: white;
+    margin-right: -29px;
     width: 37px;
     height: 37px;
     border-radius: 50%;
     border: 1px solid #ccc;
     font-size: 20px;
-    background: #f1f1f1;
+    background: #06b6d4;
   }
   </style>
 

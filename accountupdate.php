@@ -286,20 +286,28 @@ if (isset($_GET['message'])) {
     border: 1px solid rgba(0,0,0,.05);
     border-radius: 2px;
     padding: 15px;
-    width: 280px;
+    width: 260px;
     text-align: center;
     z-index: 9999;
     '>$message
     <button style='
     position: absolute;
-    top: -5px;
-    right: 3px;
-    background: none;
-    border: none;
-    color: #ff0000;
     cursor: pointer;
-    font-size: 24px;
-    ' onclick='this.parentNode.style.display = \"none\";'>×</button>
+    right: 3px;
+    margin-right: -20px;
+    margin-top: -32px;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    line-height: 5px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    background: #06b6d4;
+    ' onclick='this.parentNode.style.display = \"none\";'>x</button>
     </div>";
 }
 ?>
