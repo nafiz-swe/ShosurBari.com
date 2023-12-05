@@ -102,7 +102,7 @@ $conn->close();
       <div class="breadcrumb1">
         <ul>
           <a href="index.php"><i class="fa fa-home home_1"></i></a>
-          <span class="divider">&nbsp;<|>&nbsp;</span>
+          <span class="divider">&nbsp;|&nbsp;</span>
           <li class="current-page"><h4>User Home</h4></li>
         </ul>
 
@@ -135,7 +135,7 @@ $conn->close();
         <?php if ($deactivated == 0) {
           echo '<span style="color: green;">একটিভ</span>';
           } else {
-          echo '<span style="color: red;">ডিএক্টিভেট</span>';
+          echo '<span style="color: red;">ডিএক্টিভ</span>';
           }
         ?>
       </h4>
@@ -229,18 +229,7 @@ $conn->close();
   width: 1400px;
   margin: auto;
   padding-top: 30px;
-  padding-bottom: 30px
-}
-
-
-.shosurbari-biodata-form {
-  align-items: center;
-  flex-wrap: wrap;
-  width: 1400px;
-  margin: auto;
-  margin-top: 25px;
-  padding-top: 0px;
-  padding-bottom: 30px
+  padding-bottom: 20px
 }
 
 @media (max-width: 1400px){

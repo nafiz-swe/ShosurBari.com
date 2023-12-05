@@ -40,13 +40,16 @@ $result=search();
 
   <style>
   #close-button {
-    margin-top: 2px;
-    margin-bottom: 10px;
+    margin-top: -29px;
+    margin-bottom: 15px;
     color: red;
-    width: 40px;
+    margin-right: -25px;
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
     border: 1px solid #ccc;
-    font-size: 22px;
-    background: none;
+    font-size: 20px;
+    background: #f1f1f1;
   }
   </style>
 

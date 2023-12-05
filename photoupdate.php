@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ uploadphoto($id); }
 
                 <ul>
                     <a href="index.php"><i class="fa fa-home home_1"></i></a>
-                    <span class="divider">&nbsp;<|>&nbsp;</span>
+                    <span class="divider">&nbsp;|&nbsp;</span>
                     <li class="current-page"><h4>Profile Photo</h4></li>
                 </ul>
 
@@ -107,13 +107,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ uploadphoto($id); }
                 <div class="shosurbari-userhome-status">
                     <h3><?php echo "Welcome: $username"; ?></h3>
                     <!-- Display the account status -->
-                    <h4 >Account Status:
+                    <h4 >একাউন্ট অবস্থা:
                         <?php
                             if ($deactivated == 0) {
-                                echo '<span style="color: green;">Active</span>';
+                                echo '<span style="color: green;">একটিভ</span>';
                             } else {
-                                echo '<span style="color: red;">Deactivated</span> <br>';
-                                echo '<span style="color: #0aa4ca; font-size: 14px;">Please Active your account! Go back UserHome page.</span>';
+                                echo '<span style="color: red;">ডিএক্টিভ</span> <br>';
+                                echo '<br><span style="color: #0aa4ca; font-size: 14px; margin-top: 10px;">আপনার একাউন্ট User Home পেজ থেকে একটিভ করুন।</span>';
                             }
                         ?>
                     </h4>
@@ -209,7 +209,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ uploadphoto($id); }
   width: 1400px;
   margin: auto;
   padding-top: 30px;
-  padding-bottom: 30px
+  padding-bottom: 20px
 }
 
 .soshurbari-animation-icon,

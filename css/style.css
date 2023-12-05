@@ -2734,11 +2734,11 @@ ol li{
     display: flex;
     margin: auto;
     margin-bottom: 70px;
-    padding: 30px;
+    padding-top: 0px 30px 30px 30px;
 }
 
 .shosurbari-userhome-status{
-    margin-top: -2px;
+    margin-top: 20px;
     width:  213px;
 }
 
@@ -3055,6 +3055,10 @@ ol li{
     white-space: nowrap;
     font-size: 14px;
     font-weight: 400;
+}
+
+.remember-forgot label:hover {
+    text-decoration: underline;
 }
   
 .remember-forgot a {
@@ -4517,6 +4521,7 @@ font-size: 14px;
     .navigationpro {
         width: 930px;
         padding: 30px;
+        padding-top: 0px;
     }
 
     .banner {
@@ -4835,6 +4840,7 @@ font-size: 14px;
         width: 692px;
         margin-left: auto;
         margin-right: auto;
+        margin-bottom: 100px;
     }
 
     ul.footer_social {
@@ -5370,6 +5376,7 @@ font-size: 14px;
     .navigationpro {
         display: block;
         width: 400px;
+        padding-top: 20px
     }
 
     .shosurbari-userhome-status {

@@ -54,7 +54,7 @@ if(isloggedin()){
 			<div class="breadcrumb1">
 				<ul>
 					<a href="index.php"><i class="fa fa-home home_1"></i></a>
-					<span class="divider">&nbsp;<|>&nbsp;</span>
+					<span class="divider">&nbsp;|&nbsp;</span>
 					<li class="current-page"><h4>Edit Biodata</h4></li>
 				</ul>
 			</div>

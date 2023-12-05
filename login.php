@@ -47,7 +47,7 @@ if (isset($_SESSION['id'])) {
       <div class="breadcrumb1">
         <ul>
           <a href="index.php"><i class="fa fa-home home_1"></i></a>
-          <span class="divider">&nbsp;<|>&nbsp;</span>
+          <span class="divider">&nbsp;|&nbsp;</span>
           <li class="current-page"><h4>Login</h4></li>
         </ul>
       </div>
@@ -172,12 +172,12 @@ if (isset($_SESSION['error_message'])) {
 
           <!-- If the user clicks the Remember Me box when they login, the user's login information will be saved in their cookie.-->
 			    <div class="remember-forgot">
-            <!-- <label><input type="checkbox" id="edit-remember" name="remember" value="1" > Remember me</label> -->
+            <label><input type="checkbox" id="edit-remember" name="remember" value="1" > Remember me</label>
             <a href="forgot_password.php">Forgot password?</a>
           </div>
 
 		      <div class="form-actions">
-            <button  type="submit" id="edit-submit" name="op"  class="btn_1 submit"  > <span> </span> Login Your Account</button>
+            <button  type="submit" id="edit-submit" name="op"  class="btn_1 submit"  > <span> </span> Login Account</button>
           </div>
 
 		      <div class="or">
