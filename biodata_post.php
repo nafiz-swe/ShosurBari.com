@@ -2533,15 +2533,16 @@ if(isloggedin()){
 							<select name="profileby" required>
 								<option hidden selected></option>
 								<option value="নিজের জন্য">নিজের জন্য</option>
-								<option value="বাবা হই">বাবা হই</option>
-								<option value="মা হই">মা হই</option>
-								<option value="ভাই হই">ভাই হই</option>
-								<option value="বোন হই">বোন হই</option>
-								<option value="চাচা/মামা হই">চাচা/মামা হই</option> 
-								<option value="চাচী/মামী হই">চাচী/মামী হই</option>
-								<option value="নানা/দাদা হই">নানা/দাদা হই</option> 
-								<option value="নানী/দাদী হই">নানী/দাদী হই</option> 
-								<option value="অন্যান্য">অন্যান্য</option> 
+								<option value="মা">মা</option>
+								<option value="বাবা">বাবা</option>
+								<option value="ভাই">ভাই</option>
+								<option value="বোন/ভাবি">বোন/ভাবি</option>
+								<option value="আঙ্কেল">আঙ্কেল</option> 
+								<option value="আন্টি">আন্টি</option>
+								<option value="দাদা/নানা">দাদা/নানা</option> 
+								<option value="দাদী/নানী">দাদী/নানী</option> 
+								<option value="শিক্ষক">শিক্ষক</option>
+								<option value="বন্ধু/বান্ধবী">বন্ধু/বান্ধবী</option>
 							</select>
 						</div>
 					</div>    

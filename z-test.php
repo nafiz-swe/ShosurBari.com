@@ -1,288 +1,154 @@
-<?php
+    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+    -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+    --                S  T  A  R  T                  --
+    --             User Account Update               --
+    --                                               --
+    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+    
+    // Password updated START
+function updatePassword($userId, $newPassword) {
+    require_once("includes/dbconn.php");
 
-function register1() {
-    global $conn;
+    // Check if the database connection is established
+    if (!$conn) {
+        return false; // Unable to connect to the database
+    }
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        // Your existing code...
+    // Hash the new password securely
+    $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+    echo "Hashed Password: " . $hashedPassword; // Debug statement
 
-        if (mysqli_query($conn, $sql)) {
-            // Your existing code...
+    // Update the password in the database using prepared statement to prevent SQL injection
+    $update_query = "UPDATE users SET password = ? WHERE id = ?";
+    $stmt = mysqli_prepare($conn, $update_query);
 
-            // Set up SMTP configuration for Gmail
-            $to = $email;
-            $subject = "Welcome to ShosurBari!";
+    if ($stmt) {
+        mysqli_stmt_bind_param($stmt, "si", $hashedPassword, $userId);
+        $update_result = mysqli_stmt_execute($stmt);
 
-            // HTML version of the email body
-            ob_start();
-            include('RegisterEmailBody.php');
-            $email_body = ob_get_clean();
-
-            // Plain text version of the email body
-            $plain_text_message = "
-            Welcome to ShosurBari!
-            
-            Thank you for registering at ShosurBari. Here are your registration details:
-            
-            Biodata Number: $id
-            Full Name: $fname
-            Username: $uname
-            Email: $email
-            Phone Number: $pnumber
-            Gender: $gender
-            Passwors: ********* (For security reasons, do not display the password)
-
-            
-            Login to your account: https://www.shoshurbari.rf.gd/login.php
-            
-            Note: Please remember to keep your passwords secure. Do not share them with anyone.
-            
-            Connect with us:
-            - Website: https://www.shoshurbari.com
-            - Facebook: https://www.facebook.com/ShoshurBari.bd
-            - Email: support@shoshurbari.com
-            - YouTube: https://www.youtube.com/c/ShoshurBari
-            
-            (c) 2022-23 ShosurBari.com | All Rights Reserved
-            ";
-
-            // Headers
-            $headers = "From: nafizulislam.swe@gmail.com\r\n";
-            $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-
-            // Gmail SMTP configuration
-            $smtp_host = "smtp.gmail.com";
-            $smtp_port = 587;
-            $smtp_username = "nafizulislam.swe@gmail.com"; // Your Gmail email
-            $smtp_password = "dnngvzwetnirboae"; // Your Gmail password
-            $smtp_secure = "tls"; // Use 'ssl' for SSL encryption
-
-            // Configure PHPMailer
-            require 'PHPMailer/PHPMailerAutoload.php';
-
-            $mail = new PHPMailer;
-            $mail->isSMTP();
-            $mail->Host = $smtp_host;
-            $mail->Port = $smtp_port;
-            $mail->SMTPSecure = $smtp_secure;
-            $mail->SMTPAuth = true;
-            $mail->Username = $smtp_username;
-            $mail->Password = $smtp_password;
-
-            $mail->setFrom($smtp_username, 'ShosurBari');
-            $mail->addAddress($to);
-            $mail->Subject = $subject;
-            $mail->Body = $email_body;
-            $mail->AltBody = $plain_text_message; // Plain text version of the email
-
-            if ($mail->send()) {
-                // Email sent successfully
-                echo '<script>alert("Registration successful. Check your email for confirmation.");</script>';
-            } else {
-                // Error sending email
-                echo '<script>alert("Error sending registration confirmation email. Please try again later.");</script>';
-            }
+        if (!$update_result) {
+            // Display or log the MySQL error for debugging
+            echo "Error: " . mysqli_error($conn);
+            return false; // Return false on error
         } else {
-            // Your existing code...
+            echo "Password updated successfully";
+        }
+
+        mysqli_stmt_close($stmt);
+
+        if ($update_result) {
+            return true; // Password updated successfully
         }
     }
+
+    return false; // Error updating password
 }
+// Password updated END
 
+// Full Name & Gender updated START
+function updateUserInfo($userId, $newFullname, $newGender) {
+    require_once("includes/dbconn.php");
 
+    // Update the user information in the database using prepared statement
+    $update_query = "UPDATE users SET fullname = ?, gender = ? WHERE id = ?";
+    $stmt = mysqli_prepare($conn, $update_query);
 
+    if ($stmt) {
+        mysqli_stmt_bind_param($stmt, "ssi", $newFullname, $newGender, $userId);
+        $update_result = mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
 
-
-
-
-function registers() {
-    global $conn;
-
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $fname = $_POST['fname'];
-        $uname = $_POST['uname'];
-        $gender = $_POST['gender'];
-        $pnumber = $_POST['pnumber'];
-        $email = $_POST['email'];
-        $hashed_password = hash('sha256', $_POST['pass_1']);
-        // $pass_1 = $_POST['pass_1'];
-        // $pass_2 = $_POST['pass_2'];
-        require_once("includes/dbconn.php");
-
-        // Check if email or username already exist
-        $email_check_sql = "SELECT COUNT(*) FROM users WHERE email = '$email'";
-        $username_check_sql = "SELECT COUNT(*) FROM users WHERE username = '$uname'";
-
-        $email_result = mysqli_query($conn, $email_check_sql);
-        $username_result = mysqli_query($conn, $username_check_sql);
-
-        $email_exists = mysqli_fetch_array($email_result)[0];
-        $username_exists = mysqli_fetch_array($username_result)[0];
-
-        if ($email_exists > 0) {
-            // Set an error message in a session variable
-            $_SESSION['error_message'] = "উফফ! এই Email দিয়ে ইতিমধ্যে একটি একাউন্ট রয়েছে। অনুগ্রহ করে Email পরিবর্তন করে আবার চেষ্টা করুন।";
-            header("location: register.php"); // Redirect back to the registration page
-        exit();
-        } elseif ($username_exists > 0) {
-            // Set an error message in a session variable
-            $_SESSION['error_message'] = "উফফ! এই Username দিয়ে ইতিমধ্যে একটি একাউন্ট রয়েছে। অনুগ্রহ করে Username পরিবর্তন করে আবার চেষ্টা করুন।";
-            header("location: register.php"); // Redirect back to the registration page
-        exit();
-        } else {
-            // Proceed with registration
-            $sql = "INSERT INTO users 
-            (fullname, username, gender, number, email, password, active, register_date) 
-            VALUES ('$fname', '$uname', '$gender', '$pnumber', '$email', '$hashed_password', 1, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
-
-            if (mysqli_query($conn, $sql)) {
-                // Get the ID of the newly registered user
-                $id = mysqli_insert_id($conn);
-
-                // Set a session variable to store the user ID
-                $_SESSION['id'] = $id;
-
-                // Create a record for the user in the deactivate table
-                $deactivate_sql = "INSERT INTO deactivate (user_id, status) VALUES ($id, 0)";
-                mysqli_query($conn, $deactivate_sql);
-
-                // Save login information in cookie
-                setcookie('username', $uname, time() + (86400 * 365), "/");
-                setcookie('email', $email, time() + (86400 * 365), "/");
-                setcookie('password', $pass_1, time() + (86400 * 365), "/");
-
-                // Redirect the user to the userhome.php page with the user ID as a parameter in the URL
-                header("location: userhome.php?id=$id");
-            } else {
-                // Set an error message in a session variable
-                $_SESSION['error_message'] = "Error in registration: " . $conn->error;
-                header("location: register.php"); // Redirect back to the registration page
-                exit();                
-            }
+        if ($update_result) {
+            return true; // User information updated successfully
         }
     }
+
+    return false; // Error updating user information
 }
+// Full Name & Gender updated END
 
+// Full Account Update START
+if (isset($_POST['update_account'])) {
+    $userId = $_SESSION['id'];
+    $newFullname = $_POST['fullname'];
+    $newGender = $_POST['gender'];
+    $newPassword = $_POST['pass_1'];
+    $confirmPassword = $_POST['pass_2'];
 
+    // Check if new passwords match
+    if ($newPassword != $confirmPassword) {
+        echo 'New passwords do not match';
+    } else {
+        // Update user information
+        $userInfoUpdated = updateUserInfo($userId, $newFullname, $newGender);
 
+        // Update the password
+        $passwordUpdated = updatePassword($userId, $newPassword);
 
-
-
-
-function register() {
-    global $conn;
-
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $fname = $_POST['fname'];
-        $uname = $_POST['uname'];
-        $gender = $_POST['gender'];
-        $pnumber = $_POST['pnumber'];
-        $email = $_POST['email'];
-        $hashed_password = hash('sha256', $_POST['pass_1']);
-        
-        require_once("includes/dbconn.php");
-
-        $email_check_sql = "SELECT COUNT(*) FROM users WHERE email = '$email'";
-        $username_check_sql = "SELECT COUNT(*) FROM users WHERE username = '$uname'";
-
-        $email_result = mysqli_query($conn, $email_check_sql);
-        $username_result = mysqli_query($conn, $username_check_sql);
-
-        $email_exists = mysqli_fetch_array($email_result)[0];
-        $username_exists = mysqli_fetch_array($username_result)[0];
-
-        if ($email_exists > 0) {
-            $_SESSION['error_message'] = "উফফ! এই Email দিয়ে ইতিমধ্যে একটি একাউন্ট রয়েছে। অনুগ্রহ করে Email পরিবর্তন করে আবার চেষ্টা করুন।";
-            header("location: register.php");
-            exit();
-        } elseif ($username_exists > 0) {
-            $_SESSION['error_message'] = "উফফ! এই Username দিয়ে ইতিমধ্যে একটি একাউন্ট রয়েছে। অনুগ্রহ করে Username পরিবর্তন করে আবার চেষ্টা করুন।";
-            header("location: register.php");
+        // Redirect back to accountupdate.php with a message
+        if ($userInfoUpdated && $passwordUpdated) {
+            header("Location: accountupdate.php?message=success");
             exit();
         } else {
-            $sql = "INSERT INTO users 
-                (fullname, username, gender, number, email, password, active, register_date) 
-                VALUES ('$fname', '$uname', '$gender', '$pnumber', '$email', '$hashed_password', 1, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
-
-            if (mysqli_query($conn, $sql)) {
-                $id = mysqli_insert_id($conn);
-                $_SESSION['id'] = $id;
-
-                $deactivate_sql = "INSERT INTO deactivate (user_id, status) VALUES ($id, 0)";
-                mysqli_query($conn, $deactivate_sql);
-
-                $to = $email;
-                $subject = "Welcome to ShosurBari!";
-
-                ob_start();
-                include('RegisterEmailBody.php');
-                $email_body = ob_get_clean();
-
-            // Plain text version of the email body
-            $plain_text_message = "
-            Welcome to ShosurBari!
-            
-            Thank you for registering at ShosurBari. Here are your registration details:
-            
-            Biodata Number: $id
-            Full Name: $fname
-            Username: $uname
-            Email: $email
-            Phone Number: $pnumber
-            Gender: $gender
-            Passwors: ********* (For security reasons, do not display the password)
-
-            
-            Login to your account: https://www.shoshurbari.rf.gd/login.php
-            
-            Note: Please remember to keep your passwords secure. Do not share them with anyone.
-            
-            Connect with us:
-            - Website: https://www.shoshurbari.com
-            - Facebook: https://www.facebook.com/ShoshurBari.bd
-            - Email: support@shoshurbari.com
-            - YouTube: https://www.youtube.com/c/ShoshurBari
-            
-            (c) 2022-23 ShosurBari.com | All Rights Reserved
-            ";
-
-
-                $headers = "From: nafizulislam.swe@gmail.com\r\n";
-                $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-
-                $smtp_host = "smtp.gmail.com";
-                $smtp_port = 587;
-                $smtp_username = "nafizulislam.swe@gmail.com";
-                $smtp_password = "dnngvzwetnirboae";
-                $smtp_secure = "tls";
-
-                require 'PHPMailer/PHPMailerAutoload.php';
-
-                $mail = new PHPMailer;
-                $mail->isSMTP();
-                $mail->Host = $smtp_host;
-                $mail->Port = $smtp_port;
-                $mail->SMTPSecure = $smtp_secure;
-                $mail->SMTPAuth = true;
-                $mail->Username = $smtp_username;
-                $mail->Password = $smtp_password;
-
-                $mail->setFrom($smtp_username, 'ShosurBari');
-                $mail->addAddress($to);
-                $mail->Subject = $subject;
-                $mail->Body = $email_body;
-
-                if ($mail->send()) {
-                    echo '<script>alert("Registration successful. Check your email for confirmation.");</script>';
-                } else {
-                    echo '<script>alert("Error sending registration confirmation email. Please try again later.");</script>';
-                }
-
-                header("location: userhome.php?id=$id");
-            } else {
-                $_SESSION['error_message'] = "Error in registration: " . $conn->error;
-                header("location: register.php");
-                exit();
-            }
+            header("Location: accountupdate.php?message=error");
+            exit();
         }
     }
 }
+// Full Account Update END
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+    -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+    --                  E   N   D                    --
+    --         Register User Account Update          --
+    --                                               --
+    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+
+
+
+
+
+
+
+<form action="" method="POST" name="myForm" onsubmit="return validateForm()">
+<div class="form-group">
+    <label>Full Name <span style="color: #ccc; font-size:12px;">(Changeable)</span></label>
+    <input type="text" name="fullname" class="form-text" value="<?php echo $fullname; ?>" />
+</div>
+
+<div class="form-group">
+<label>Gender<span style="color: #ccc; font-size:12px;"> (Changeable)</span> </label>
+    <select name="gender">
+        <option hidden selected><?php echo $gender; ?></option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option> 
+    </select>
+</div>
+
+
+<div class="form-group">
+    <label>New Password <span style="color: #ccc; font-size:12px;">(Changeable)</span> </label>
+    <input type="password" id="pass_1" name="pass_1" class="form-text" />
+    <span class="show-password" style="color:#0aa4ca;  font-size:15px; top:26px;"><i style="color:black;  font-size:15px;" class="fa fa-eye" aria-hidden="true"></i></span> 
+    <span  id="pass_1_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+</div>
+
+<div class="form-group">
+    <label>Confirm Password <span style="color: #ccc; font-size:12px;">(Changeable)</span> </label>
+    <input type="password" id="pass_2" name="pass_2" class="form-text" />
+    <span class="show-password" style="color:#0aa4ca;  font-size:15px; top:26px;"><i style="color:black;  font-size:15px;" class="fa fa-eye" aria-hidden="true"></i></span> 
+    <span  id="pass_2_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+</div>
+
+
+
+<div class="form-actions">
+    <button type="submit" name="update_account" value="Update Account" class="btn_1 submit">
+        <span>Update Account</span>
+    </button>
+</div>
+</form>

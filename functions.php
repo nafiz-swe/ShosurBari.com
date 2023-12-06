@@ -407,55 +407,6 @@
         }
     }
 
-
-
-// Password updated From User Account
-function updatePassword($userId, $newPassword) {
-    require_once("includes/dbconn.php");
-
-    // Hash the new password
-    $hashedPassword = hash('sha256', $newPassword);
-
-    // Update the password in the database
-    $update_query = "UPDATE users SET password = '$hashedPassword' WHERE id = $userId";
-    $update_result = mysqli_query($conn, $update_query);
-
-    if ($update_result) {
-        return true; // Password updated successfully
-    } else {
-        return false; // Error updating password
-    }
-}
-
-// Check if the update account form is submitted
-if (isset($_POST['update_account'])) {
-    // Update user account
-    $userId = $_SESSION['id'];
-    $newPassword = $_POST['pass_1'];
-    $confirmPassword = $_POST['pass_2'];
-
-    // Check if new passwords match
-    if ($newPassword != $confirmPassword) {
-        echo 'New passwords do not match';
-    } else {
-        // Update the password
-        $passwordUpdated = updatePassword($userId, $newPassword);
-
-        // Redirect back to accountupdate.php with a message
-        if ($passwordUpdated) {
-            header("Location: accountupdate.php?message=success");
-            exit();
-        } else {
-            header("Location: accountupdate.php?message=error");
-            exit();
-        }
-    }
-}
-
-
-
-
-
     /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
     -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
     --                   E   N   D                   --
@@ -468,12 +419,75 @@ if (isset($_POST['update_account'])) {
 
 
 
+    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+    -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+    --                S  T  A  R  T                  --
+    --             User Account Update               --
+    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+    // Password updated From User Account
+    function updateAccount($userId, $newPassword, $newFullName, $newGender) {
+        require_once("includes/dbconn.php");
+
+        // Hash the new password
+        $hashedPassword = hash('sha256', $newPassword);
+
+        // Update the account in the database
+        $update_query = "UPDATE users SET password = '$hashedPassword', fullname = '$newFullName', gender = '$newGender' WHERE id = $userId";
+        $update_result = mysqli_query($conn, $update_query);
+
+        if ($update_result) {
+            return true; // Account updated successfully
+        } else {
+            return false; // Error updating account
+        }
+    }
+
+
+
+    // Check if the update account form is submitted
+    if (isset($_POST['update_account'])) {
+        // Update user account
+        $userId = $_SESSION['id'];
+        $newPassword = $_POST['pass_1'];
+        $confirmPassword = $_POST['pass_2'];
+        $newFullName = $_POST['fullname']; // Added
+        $newGender = $_POST['gender']; // Added
+
+        // Check if new passwords match
+        if ($newPassword != $confirmPassword) {
+            echo 'New passwords do not match';
+        } else {
+            // Update the account
+            $accountUpdated = updateAccount($userId, $newPassword, $newFullName, $newGender);
+
+            // Redirect back to accountupdate.php with a message
+            if ($accountUpdated) {
+                $updateMessage = 'Account updated successfully!';
+
+                header("Location: accountupdate.php?message=success&updateMessage=" . urlencode($updateMessage));
+                exit();
+            } else {
+                header("Location: accountupdate.php?message=error");
+                exit();
+            }
+        }
+    }
+    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+    -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+    --                  E   N   D                    --
+    --             User Account Update               --
+    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+
+
 
     /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
     -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
     --                S  T  A  R  T                  --
     --            Biodata Contact / Request          --
-    --                                               --
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
     function biodata_sale_customer() {

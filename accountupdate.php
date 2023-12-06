@@ -3,70 +3,15 @@ include_once("includes/basic_includes.php");
 include_once("functions.php");
 
 error_reporting(0);
-
-function englishToBanglaNumber($number) {
-    $englishDigits = range(0, 9);
-    $banglaDigits = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
-    return str_replace($englishDigits, $banglaDigits, $number);
-}
-
 if (isloggedin()) {
-    // Get the user ID from the session
-    $userId = $_SESSION['id'];
-
-    // Retrieve the user's account status from the database
-    require_once("includes/dbconn.php");
-    $statusSql = "SELECT deactivated FROM users WHERE id = $userId";
-    $result = mysqli_query($conn, $statusSql);
-    $row = mysqli_fetch_assoc($result);
-    $deactivated = $row['deactivated'];
-
-// Query to get the total view_count for the logged-in user
-$totalViewCountSql = "SELECT view_count FROM `1bd_personal_physical` WHERE user_id = $userId";
-$result = mysqli_query($conn, $totalViewCountSql);
-$row = mysqli_fetch_assoc($result);
-$totalViewCount = $row['view_count'];
-
-// Query to get the view_count for the last month
-$lastMonthStart = date('Y-m-d', strtotime('-1 month'));
-$lastMonthViewCountSql = "SELECT SUM(view_count) as last_month_count FROM `page_views` WHERE page_name = '$userId' AND STR_TO_DATE(last_update, '%e %M %Y, %h:%i:%s %p') >= '$lastMonthStart'";
-$result = mysqli_query($conn, $lastMonthViewCountSql);
-$row = mysqli_fetch_assoc($result);
-$lastMonthCount = $row['last_month_count'];
-
-// Query to get the view_count for the last week
-$lastWeekStart = date('Y-m-d', strtotime('-1 week'));
-$lastWeekViewCountSql = "SELECT SUM(view_count) as last_week_count FROM `page_views` WHERE page_name = '$userId' AND STR_TO_DATE(last_update, '%e %M %Y, %h:%i:%s %p') >= '$lastWeekStart'";
-$result = mysqli_query($conn, $lastWeekViewCountSql);
-$row = mysqli_fetch_assoc($result);
-$lastWeekCount = $row['last_week_count'];
-
-// Query to get the view_count for today
-$todayStart = date('Y-m-d') . ' 00:00:00';
-$todayViewCountSql = "SELECT SUM(view_count) as today_count FROM `page_views` WHERE page_name = '$userId' AND STR_TO_DATE(last_update, '%e %M %Y, %h:%i:%s %p') >= '$todayStart'";
-$result = mysqli_query($conn, $todayViewCountSql);
-$row = mysqli_fetch_assoc($result);
-$todayCount = $row['today_count'];
-
-// Convert the counts to Bangla numerals
-$totalViewCountInBangla = englishToBanglaNumber($totalViewCount);
-$lastMonthCountInBangla = englishToBanglaNumber($lastMonthCount);
-$lastWeekCountInBangla = englishToBanglaNumber($lastWeekCount);
-$todayCountInBangla = englishToBanglaNumber($todayCount);
-
 } else {
     header("location:login.php");
 }
-
-// Close the database connection
-$conn->close();
 ?>
 
 
 <!DOCTYPE HTML>
 <html>
-
-
 <head>
 <title>Account | ShosurBari</title>
 <link rel="icon" href="images/shosurbari-icon.png" type="image/png">
@@ -109,14 +54,6 @@ $conn->close();
                     <span class="divider">&nbsp;|&nbsp;</span>
                     <li class="current-page"><h4>Update Account</h4></li>
                 </ul>
-
-                <?php
-                /*	If(isset($_SESSION['username'])) {
-                Echo "Welcome : " . $_SESSION ['username'];
-                } else {
-                Echo "<a href=\”/login.php\”>Login</a>";
-                } */
-                ?>
 
 
                 <?php
@@ -184,81 +121,15 @@ $conn->close();
 
 
 
-
-
-
-
-<div class="sb-home-search">
-    <h1>ব্যবহারকারীর একাউন্ট</h1>
-    <div class="sbhome-heart-divider">
-      <span class="grey-line"></span>
-        <i class="fa fa-heart pink-heart"></i>
-        <i class="fa fa-heart grey-heart"></i>
-      <span class="grey-line"></span>
+    <div class="sb-home-search">
+        <h1>ব্যবহারকারীর একাউন্ট</h1>
+        <div class="sbhome-heart-divider">
+        <span class="grey-line"></span>
+            <i class="fa fa-heart pink-heart"></i>
+            <i class="fa fa-heart grey-heart"></i>
+        <span class="grey-line"></span>
+        </div>
     </div>
-</div>
-<!-- 
-<div class="shosurbari-biodata-form">
-    <div class="shosurbari-animation-form">
-        <form action="" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
-            <div class="sb-biodata-amount-list">
-                <h3>আপনার বায়োডাটার প্রফাইলটি যতজন দেখেছে।</h3>
-                <h2>সর্বমোট ভিজিট করা হয়েছে</h2>
-                <h1><?php
-                        // Display the view count for the logged-in user's profile
-                        if (isset($totalViewCountInBangla)) {
-                            echo "" . $totalViewCountInBangla;
-                        }
-                    ?> বার
-                </h1>
-            </div>
-
-		    <div class="flex-container">
-                <div class="sb-register-login">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>আজকে</th>
-                                <th>শেষ ৭ দিন</th>
-                                <th>শেষ ৩০ দিন</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <?php
-                                        // Display the view count for the logged-in user's profile
-                                        if (isset($totalViewCountInBangla)) {
-                                            echo "" . $todayCountInBangla;
-                                        }
-                                    ?> বার
-                                </td>
-                                <td>
-                                    <?php
-                                        // Display the view count for the logged-in user's profile
-                                        if (isset($totalViewCountInBangla)) {
-                                            echo "" . $lastWeekCountInBangla;
-                                        }
-                                    ?> বার
-                                </td>
-                                <td>
-                                    <?php
-                                        // Display the view count for the logged-in user's profile
-                                        if (isset($totalViewCountInBangla)) {
-                                            echo "" . $lastMonthCountInBangla;
-                                        }
-                                    ?> বার
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-	    </form>
-    </div> 
-</div> -->
-
-
 
 
 
@@ -272,7 +143,7 @@ $conn->close();
     <?php
 // Check if there is a message in the URL
 if (isset($_GET['message'])) {
-    $message = ($_GET['message'] == 'success') ? 'Password updated successfully' : 'Error updating password';
+    $message = ($_GET['message'] == 'success') ? urldecode($_GET['updateMessage']) : 'Error updating account';
 
     // Display the message with a green background color and a close button
     echo "<div style='
@@ -340,17 +211,17 @@ if (isset($_GET['message'])) {
             </div>
 
             <div class="form-group">
-                <label>Email Address <span style="color: #ccc; font-size:12px;">(Fixed)</span> </label>
+                <label>Email Address <span style="color: #ccc; font-size:12px;"> (Fixed)</span> </label>
                 <input type="text" name="email" style="background: #ecfeff" class="form-text" value="<?php echo $email; ?>" disabled />
             </div>
             
             <div class="form-group">
-                <label>Phone Number <span style="color: #ccc; font-size:12px;">(Fixed)</span></label><br>
+                <label>Phone Number <span style="color: #ccc; font-size:12px;"> (Fixed)</span></label><br>
                 <input type="text" id="pnumber" name="pnumber" style="background: #ecfeff" value="<?php echo $pnumber; ?>" size="60" minlength="10" maxlength="15" class="form-text" disabled>
             </div>
 
             <div class="form-group">
-            <label>Gender<span style="color: #ccc; font-size:12px;">(Changeable)</span> </label>
+            <label>Gender<span style="color: #ccc; font-size:12px;"> (Changeable)</span> </label>
                 <select name="gender">
                     <option hidden selected><?php echo $gender; ?></option>
                     <option value="Male">Male</option>
@@ -359,30 +230,25 @@ if (isset($_GET['message'])) {
             </div>
 
             <div class="form-group">
-            <label>Profiled By<span style="color: #ccc; font-size:12px;">(Changeable)</span> </label>
-                <select name="profileby">
+            <label>Profiled By<span style="color: #ccc; font-size:12px;"> (Data show after Biodata post. {Fixed})</span> </label>
+                <select name="profileby" readonly>
                     <option hidden selected><?php echo $profileby; ?></option>
                     <option value="নিজের জন্য">নিজের জন্য</option>
-                    <option value="বাবা হই">বাবা হই</option>
-                    <option value="মা হই">মা হই</option>
-                    <option value="ভাই হই">ভাই হই</option>
-                    <option value="বোন হই">বোন হই</option>
-                    <option value="চাচা/মামা হই">চাচা/মামা হই</option> 
-                    <option value="চাচী/মামী হই">চাচী/মামী হই</option>
-                    <option value="নানা/দাদা হই">নানা/দাদা হই</option> 
-                    <option value="নানী/দাদী হই">নানী/দাদী হই</option> 
-                    <option value="অন্যান্য">অন্যান্য</option> 
+                    <option value="মা">মা</option>
+                    <option value="বাবা">বাবা</option>
+                    <option value="ভাই">ভাই</option>
+                    <option value="বোন/ভাবি">বোন/ভাবি</option>
+                    <option value="আঙ্কেল">আঙ্কেল</option> 
+                    <option value="আন্টি">আন্টি</option>
+                    <option value="দাদা/নানা">দাদা/নানা</option> 
+                    <option value="দাদী/নানী">দাদী/নানী</option> 
+                    <option value="শিক্ষক">শিক্ষক</option>
+                    <option value="বন্ধু/বান্ধবী">বন্ধু/বান্ধবী</option>  
                 </select>
             </div>
 
-            <!-- <div class="form-group">
-                <label for="edit-name">Current Password <span style="color: #ccc; font-size:12px;">(Fixed)</span> </label>
-                <input type="text" id="edit-pass" name="current_password" style="background: #ecfeff" value="<?php echo $password; ?>" class="form-text" disabled/>
-                <span class="show-password" style="display: none; color: #0aa4ca; font-size: 15px; top: 26px;"><i style="color: black; font-size: 15px;" class="fa fa-eye-slash"></i></span> 
-            </div> -->
-
             <div class="form-group">
-                <label>Change Password <span style="color: #ccc; font-size:12px;">(Changeable)</span> </label>
+                <label>New Password <span style="color: #ccc; font-size:12px;">(Changeable)</span> </label>
                 <input type="password" id="pass_1" name="pass_1" class="form-text" />
                 <span class="show-password" style="color:#0aa4ca;  font-size:15px; top:26px;"><i style="color:black;  font-size:15px;" class="fa fa-eye" aria-hidden="true"></i></span> 
                 <span  id="pass_1_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
@@ -394,7 +260,6 @@ if (isset($_GET['message'])) {
                 <span class="show-password" style="color:#0aa4ca;  font-size:15px; top:26px;"><i style="color:black;  font-size:15px;" class="fa fa-eye" aria-hidden="true"></i></span> 
                 <span  id="pass_2_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
             </div>
-
 
             <script>
                 let showPass = document.querySelectorAll('.show-password');
@@ -430,10 +295,8 @@ if (isset($_GET['message'])) {
                     <span>Update Account</span>
                 </button>
             </div>
-
         </form>
     </div>
-
 </div>
 
 <style>
