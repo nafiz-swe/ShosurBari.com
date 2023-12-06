@@ -285,6 +285,7 @@ if (mysqli_num_rows($result) > 0) {
     echo '<table>';
     echo '<tr>
       <th>বায়োডাটা নং</th>
+      <th>বাবার নাম</th>
       <th>বাবা বেঁচে আছেন?</th>
       <th>বাবার পেশা</th>
       <th>মা বেঁচে আছেন?</th>
@@ -308,6 +309,7 @@ if (mysqli_num_rows($result) > 0) {
         }
         echo '<tr>';
         echo '<td>' . $row['user_id'] . '</td>';
+        echo '<td>' . $row['father_name'] . '</td>';
         echo '<td>' . $row['father_alive'] . '</td>';
         echo '<td>' . $row['fatheroccupation'] . '</td>';
         echo '<td>' . $row['mother_alive'] . '</td>';

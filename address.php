@@ -395,7 +395,7 @@ if(isloggedin()){
 						<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
 
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">যে দেশে বসবাস করেন<span class="form-required" title="This field is required.">*</span></label>
+						<label for="edit-name">আপনি কোন দেশের স্থায়ী নাগরিক/সিটিজেন<span class="form-required" title="This field is required.">*</span></label>
 							<select name="country_present_address" required class="selectsearch">
 								<option hidden selected><?php echo $country_present_address;?></option>
 								<option></option>
@@ -481,12 +481,12 @@ if(isloggedin()){
 						</script>
 
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">বর্তমান বসবাসের ঠিকানা<span class="form-required" title="This field is required.">*</span></label>
+							<label for="edit-name">বর্তমানে যেখানে থাকেন পুরো ঠিকানা লিখুন<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text" name="present_address_location" id="edit-name"  value="<?php echo $present_address_location; ?>" size="100" maxlength="100" class="form-text required" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">বাল্যকালে কোথায় থেকেছেন?<span class="form-required" title="This field is required.">*</span></label>
+							<label for="edit-name">বাল্যকালে কোন ঠিকানায় থেকেছেন?<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text" id="edit-name" name="childhood" value="<?php echo $childhood; ?>" size="100" maxlength="100" class="form-text required" required>
 						</div>
 					</div>

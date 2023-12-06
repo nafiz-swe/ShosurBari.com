@@ -211,6 +211,9 @@ if(isloggedin()){
 				$aboutme=$row['aboutme'];
 				}
 				if($row){
+				$groom_bride_name=$row['groom_bride_name'];
+				}
+				if($row){
 				$groom_bride_email=$row['groom_bride_email'];
 				}
 				if($row){
@@ -220,7 +223,7 @@ if(isloggedin()){
 				$groom_bride_family_number=$row['groom_bride_family_number'];
 				}
 				if($row){
-				$family_number_relation=$row['family_number_relation'];
+				$family_member_name_relation=$row['family_member_name_relation'];
 				}
 				}
 			?>
@@ -495,7 +498,7 @@ if(isloggedin()){
 
 						<div class="shosurbari-biodata-field">
 							<label>আপনার শখ, পছন্দ-অপছন্দ, রুচিবোধ, স্বপ্ন ইত্যাদি বিষয়ে লিখুন<span class="form-required" title="This field is required.">*</span></label>
-							<textarea rows="5" name="aboutme" placeholder="Write about you" class="form-text-describe" required><?php echo $aboutme; ?></textarea>
+							<textarea rows="5" name="aboutme" placeholder="" class="form-text-describe" required><?php echo $aboutme; ?></textarea>
 						</div><br>
 
 						<div class="shosurbari-biodata-field">
@@ -505,6 +508,11 @@ if(isloggedin()){
                             আগ্রহী ইউজারকে SMS বা ইমেইলের মাধ্যমে ২৪ ঘন্টার মধ্যে পাত্র-পাত্রীর ইমেইল এবং 
                             অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে। ব্যক্তিগত কোনো কারণে আপনার এই বায়োডাটার অভিভাবক 
                             অনুমতি না দিলে আগ্রহী ইউজারকে যোগাযোগের তথ্য প্রদান না করে টাকা ফেরত দেয়া হবে।</p>
+						</div>
+
+						<div class="shosurbari-biodata-field">
+							<label for="edit-name">পাত্র/পাত্রীর নাম<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
+							<input type="text" id="edit-name" name="groom_bride_name" value="<?php echo $groom_bride_name; ?>" size="100" maxlength="100" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
@@ -523,8 +531,8 @@ if(isloggedin()){
 						</div>
 
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">অভিভাবকের নাম এবং পাত্র-পাত্রীর সাথে অভিভাবকের কিসের সম্পর্ক<span class="form-required" title="This field is required.">*</span> <span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
-							<input type="text" id="edit-name" name="family_number_relation" value="<?php echo $family_number_relation; ?>" size="100" maxlength="100" class="form-text" required>
+							<label for="edit-name">অভিভাবকের নাম এবং অভিভাবক পাত্র-পাত্রীর কে হয়<span class="form-required" title="This field is required.">*</span> <span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
+							<input type="text" id="edit-name" name="family_member_name_relation" value="<?php echo $family_member_name_relation; ?>" size="100" maxlength="100" class="form-text" required>
 						</div>
 
 					</div>

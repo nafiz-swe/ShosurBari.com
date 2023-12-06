@@ -3579,9 +3579,9 @@ i.icon_4{
 /*buttons*/
 #biodataForm .action-button,
 #biodataForm .biodata-submit {
-    width: 140px;
+    width: 45%;
     color: white;
-    background: #06b6d4;
+    background: linear-gradient(#06b6d4, #0aa4ca);
     border-radius: 5px;
     border: 1px solid #f0f0f0;
     cursor: pointer;
@@ -3589,9 +3589,8 @@ i.icon_4{
     margin: 10px 5px;
     text-transform: uppercase;
     font-size: 18px;
-    transition: transform 0.3s;
     box-shadow: 1px 1px 4px #888;
-    line-height: 25px;
+    line-height: 28px;
     height: 40px;
 }
 
@@ -3599,7 +3598,6 @@ i.icon_4{
 #biodataForm .biodata-submit:hover {
     background: linear-gradient(#0aa4ca, #06b6d4);
     color: #fff;
-    transform: scale(1.1);
 }
   
 #progressbar li:first-child:after {
@@ -3786,6 +3784,7 @@ i.icon_4{
 .biodatalist img{
     width: 110px;
     height: 110px;
+    object-fit: cover;
     border-radius: 50%;
     padding: 0px;
     margin-left: auto;
@@ -5348,8 +5347,13 @@ font-size: 14px;
         font-size: 35px;
     }
 
+    ul.nav_1 li a{
+        color:#fff;
+        border: 1px solid #fff;
+    }
+
     .login-navbar-img .img-responsive {
-        margin: auto; /* This centers the image */
+        margin: auto;
     }
 
     .login-navbar-icon a{
@@ -5783,6 +5787,11 @@ font-size: 14px;
 --      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width: 736px){
+    .login-navbar-img .img-responsive,
+    .login-navbar-icon a i{
+        margin: 10px auto;
+    }
+
     .shosurbari-biodata-form {
         margin-top: -60px;
     }
@@ -5923,6 +5932,7 @@ font-size: 14px;
         margin: 18px 0 0 0;
         float:left;
         width:100%;
+        padding-bottom: 10px;
     }
 
     .navbar-header.nav_2 {
@@ -6788,9 +6798,13 @@ font-size: 14px;
         height: 80px;
     }
 
+    .login-navbar-img .img-responsive,
+    .login-navbar-icon a i{
+        margin: auto;
+    }
+
     .nav>li>a {
         padding: 8px 5px;
-        font-size: 13px;
         line-height: 22px;
     }
 

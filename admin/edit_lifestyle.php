@@ -121,10 +121,11 @@ if (isset($_GET['id'])) {
         $occupation_describe = $row['occupation_describe'];
         $dress_code = $row['dress_code'];
         $aboutme = $row['aboutme'];
+		$groom_bride_name = $row['groom_bride_name'];
         $groom_bride_email = $row['groom_bride_email'];
         $groom_bride_number = $row['groom_bride_number'];
         $groom_bride_family_number = $row['groom_bride_family_number'];
-        $family_number_relation = $row['family_number_relation'];
+        $family_member_name_relation = $row['family_member_name_relation'];
 
     } else {
         echo 'User not found.';
@@ -153,10 +154,11 @@ if (isset($_POST['update'])) {
     $occupation_describe = mysqli_real_escape_string($conn, $_POST['occupation_describe']);
     $dress_code = mysqli_real_escape_string($conn, $_POST['dress_code']);
     $aboutme = mysqli_real_escape_string($conn, $_POST['aboutme']);
+	$groom_bride_name = mysqli_real_escape_string($conn, $_POST['groom_bride_name']);
     $groom_bride_email = mysqli_real_escape_string($conn, $_POST['groom_bride_email']);
     $groom_bride_number = mysqli_real_escape_string($conn, $_POST['groom_bride_number']);
     $groom_bride_family_number = mysqli_real_escape_string($conn, $_POST['groom_bride_family_number']);
-    $family_number_relation = mysqli_real_escape_string($conn, $_POST['family_number_relation']);
+    $family_member_name_relation = mysqli_real_escape_string($conn, $_POST['family_member_name_relation']);
 
 
     // Update user data in the database
@@ -179,10 +181,11 @@ if (isset($_POST['update'])) {
         occupation_describe = '$occupation_describe',
         dress_code = '$dress_code',
         aboutme = '$aboutme',
+		groom_bride_name = '$groom_bride_name',
         groom_bride_email = '$groom_bride_email',
         groom_bride_number = '$groom_bride_number',
         groom_bride_family_number = '$groom_bride_family_number',
-        family_number_relation = '$family_number_relation'
+        family_member_name_relation = '$family_member_name_relation'
 
         WHERE id = $userId";
 
@@ -482,6 +485,11 @@ if (isset($_POST['update'])) {
 						</div>
 
 						<div class="shosurbari-biodata-field">
+							<label for="edit-name">পাত্র/পাত্রীর নাম<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
+							<input type="text" id="edit-name" name="groom_bride_name" value="<?php echo $groom_bride_name; ?>" size="100" maxlength="100" class="form-text" required>
+						</div>
+
+						<div class="shosurbari-biodata-field">
 							<label for="edit-name">পাত্র/পাত্রীর ইমেইল<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
 							<input type="text" id="edit-name" name="groom_bride_email" value="<?php echo $groom_bride_email; ?>" size="100" maxlength="100" class="form-text" required>
 						</div>
@@ -497,8 +505,8 @@ if (isset($_POST['update'])) {
 						</div>
 
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">অভিভাবকের নাম এবং পাত্র-পাত্রীর সাথে অভিভাবকের কিসের সম্পর্ক<span class="form-required" title="This field is required.">*</span> <span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
-							<input type="text" id="edit-name" name="family_number_relation" value="<?php echo $family_number_relation; ?>" size="100" maxlength="100" class="form-text" required>
+							<label for="edit-name">অভিভাবকের নাম এবং অভিভাবক পাত্র-পাত্রীর কে হয়<span class="form-required" title="This field is required.">*</span> <span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
+							<input type="text" id="edit-name" name="family_member_name_relation" value="<?php echo $family_member_name_relation; ?>" size="100" maxlength="100" class="form-text" required>
 						</div>
 
 					</div>

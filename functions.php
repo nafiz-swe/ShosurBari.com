@@ -648,11 +648,12 @@
 	$occupation_describe=$_POST['occupation_describe'];
 	$dress_code=$_POST['dress_code'];
 	$aboutme=$_POST['aboutme'];
+    $groom_bride_name=$_POST['groom_bride_name'];		
     $groom_bride_email=$_POST['groom_bride_email'];		
 	$groom_bride_number=$_POST['groom_bride_number'];		
 	$groom_bride_family_number=$_POST['groom_bride_family_number'];		
-	$family_number_relation=$_POST['family_number_relation'];		
-		
+	$family_member_name_relation=$_POST['family_member_name_relation'];		
+
 
 
 	//Biodata 3
@@ -705,6 +706,7 @@
 	$childhood=$_POST['childhood'];
 
 	//Biodata 5
+    $father_name=$_POST['father_name'];
 	$father_alive=$_POST['father_alive'];
 	$fatheroccupation=$_POST['fatheroccupation'];
 	$mother_alive=$_POST['mother_alive'];
@@ -751,6 +753,7 @@
 
 	//Biodata 9
 	$partner_religius=$_POST['partner_religius'];
+    $partner_citizen=$_POST['partner_citizen'];
 	$partner_district=$_POST['partner_district'];
 	$partner_maritialstatus=$_POST['partner_maritialstatus'];
 	$partner_age=$_POST['partner_age'];
@@ -770,10 +773,8 @@
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 --      Personal & Physical  / sb-biodata-1      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-    $sql = "INSERT 
-	INTO
-	1bd_personal_physical
-	(user_id, biodatagender, dateofbirth, height, weight, physicalstatus, Skin_tones, bloodgroup, profilecreationdate) 
+    $sql = "INSERT INTO 1bd_personal_physical
+	(user_id, biodatagender, dateofbirth, height, weight, physicalstatus, Skin_tones, bloodgroup, profilecreationdate  ) 
 	VALUES
 	('$id', '$biodatagender', '$dob', '$height', '$weight', '$physicalstatus', '$Skin_tones', '$bloodgroup', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
     if (mysqli_query($conn,$sql))
@@ -786,9 +787,9 @@
 --     Personal & Life Style  / sb-biodata-2     --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
     $sql = "INSERT INTO 2bd_personal_lifestyle
-	(user_id, smoke, occupation_sector, other_occupation_sector, business_occupation_level, student_occupation_level, health_occupation_level, engineer_occupation_level, teacher_occupation_level, defense_occupation_level, foreigner_occupation_level, garments_occupation_level, driver_occupation_level, service_andcommon_occupation_level, mistri_occupation_level, occupation_describe, dress_code, aboutme, groom_bride_email, groom_bride_number, groom_bride_family_number, family_number_relation, profilecreationdate  ) 
+	(user_id, smoke, occupation_sector, other_occupation_sector, business_occupation_level, student_occupation_level, health_occupation_level, engineer_occupation_level, teacher_occupation_level, defense_occupation_level, foreigner_occupation_level, garments_occupation_level, driver_occupation_level, service_andcommon_occupation_level, mistri_occupation_level, occupation_describe, dress_code, aboutme, groom_bride_name, groom_bride_email, groom_bride_number, groom_bride_family_number, family_member_name_relation, profilecreationdate  ) 
 	VALUES
-	('$id', '$smoke', '$occupation_sector', '$other_occupation_sector', '$business_occupation_level', '$student_occupation_level', '$health_occupation_level', '$engineer_occupation_level', '$teacher_occupation_level', '$defense_occupation_level', '$foreigner_occupation_level', '$garments_occupation_level', '$driver_occupation_level', '$service_andcommon_occupation_level', '$mistri_occupation_level', '$occupation_describe', '$dress_code', '$aboutme', '$groom_bride_email', '$groom_bride_number', '$groom_bride_family_number', '$family_number_relation', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+	('$id', '$smoke', '$occupation_sector', '$other_occupation_sector', '$business_occupation_level', '$student_occupation_level', '$health_occupation_level', '$engineer_occupation_level', '$teacher_occupation_level', '$defense_occupation_level', '$foreigner_occupation_level', '$garments_occupation_level', '$driver_occupation_level', '$service_andcommon_occupation_level', '$mistri_occupation_level', '$occupation_describe', '$dress_code', '$aboutme', '$groom_bride_name', '$groom_bride_email', '$groom_bride_number', '$groom_bride_family_number', '$family_member_name_relation', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
     if (mysqli_query($conn,$sql))
 	{echo " ";}
 
@@ -875,9 +876,9 @@ if (mysqli_query($conn,$sql))
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 $sql = "INSERT INTO 5bd_family_information
-(user_id, father_alive, fatheroccupation, mother_alive, motheroccupation, brosis_number, brosis_info, uncle_profession, family_class, financial_condition, family_religious_condition, profilecreationdate  ) 
+(user_id, father_name, father_alive, fatheroccupation, mother_alive, motheroccupation, brosis_number, brosis_info, uncle_profession, family_class, financial_condition, family_religious_condition, profilecreationdate  ) 
 VALUES
-('$id', '$father_alive', '$fatheroccupation', '$mother_alive', '$motheroccupation', '$brosis_number', '$brosis_info', '$uncle_profession', '$family_class', '$financial_condition', '$family_religious_condition', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+('$id', '$father_name', '$father_alive', '$fatheroccupation', '$mother_alive', '$motheroccupation', '$brosis_number', '$brosis_info', '$uncle_profession', '$family_class', '$financial_condition', '$family_religious_condition', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
 if (mysqli_query($conn,$sql))
 {echo " ";}
 
@@ -953,16 +954,16 @@ if (mysqli_query($conn,$sql))
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 
 $sql = "INSERT INTO 9bd_expected_life_partner
-(user_id, partner_religius, partner_district, partner_maritialstatus, partner_age, partner_skintones, partner_height, partner_education, partner_profession, partner_financial, partner_attributes, parents_permission, real_info_commited, authorities_no_responsible, profilecreationdate  ) 
+(user_id, partner_religius, partner_citizen, partner_district, partner_maritialstatus, partner_age, partner_skintones, partner_height, partner_education, partner_profession, partner_financial, partner_attributes, parents_permission, real_info_commited, authorities_no_responsible, profilecreationdate  ) 
 VALUES
-('$id', '$partner_religius', '$partner_district', '$partner_maritialstatus', '$partner_age', '$partner_skintones', '$partner_height', '$partner_education', '$partner_profession', '$partner_financial', '$partner_attributes', '$parents_permission', '$real_info_commited', '$authorities_no_responsible', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+('$id', '$partner_religius', '$partner_citizen', '$partner_district', '$partner_maritialstatus', '$partner_age', '$partner_skintones', '$partner_height', '$partner_education', '$partner_profession', '$partner_financial', '$partner_attributes', '$parents_permission', '$real_info_commited', '$authorities_no_responsible', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
 if (mysqli_query($conn,$sql))
 {
     echo "Thanks! Successfully Uploaded New Biodata!";
     header("Location: view_profile.php?id={$id}");
 }
 }
-    }
+}
     /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
     -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
     --                   E   N   D                   --
@@ -1157,10 +1158,11 @@ if (mysqli_query($conn,$sql))
         $occupation_describe=$_POST['occupation_describe'];
         $dress_code=$_POST['dress_code'];
         $aboutme=$_POST['aboutme'];
+        $groom_bride_name=$_POST['groom_bride_name'];		
         $groom_bride_email=$_POST['groom_bride_email'];		
         $groom_bride_number=$_POST['groom_bride_number'];		
         $groom_bride_family_number=$_POST['groom_bride_family_number'];		
-        $family_number_relation=$_POST['family_number_relation'];		
+        $family_member_name_relation=$_POST['family_member_name_relation'];		
 		
     
         require_once("includes/dbconn.php");
@@ -1187,10 +1189,11 @@ if (mysqli_query($conn,$sql))
                     occupation_describe = '$occupation_describe',
                     dress_code = '$dress_code',
                     aboutme = '$aboutme',
+                    groom_bride_name = '$groom_bride_name',
                     groom_bride_email = '$groom_bride_email',
                     groom_bride_number = '$groom_bride_number',
                     groom_bride_family_number = '$groom_bride_family_number',
-                    family_number_relation = '$family_number_relation',
+                    family_member_name_relation = '$family_member_name_relation',
                     profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
                 WHERE user_id = '$id'";
 
@@ -1436,6 +1439,7 @@ if (mysqli_query($conn,$sql))
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
      
         //Biodata 5
+        $father_name=$_POST['father_name'];
         $father_alive=$_POST['father_alive'];
         $fatheroccupation=$_POST['fatheroccupation'];
         $mother_alive=$_POST['mother_alive'];
@@ -1456,6 +1460,7 @@ if (mysqli_query($conn,$sql))
         if(mysqli_num_rows($result)>=1){
         $sql = "UPDATE 5bd_family_information SET 
                     father_alive = '$father_alive',
+                    father_name = '$father_name',
                     fatheroccupation = '$fatheroccupation',
                     mother_alive = '$mother_alive',
                     motheroccupation = '$motheroccupation',
@@ -1547,6 +1552,7 @@ if (mysqli_query($conn,$sql))
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       	//Biodata 9
         $partner_religius=$_POST['partner_religius'];
+        $partner_citizen=$_POST['partner_citizen'];
         $partner_district=$_POST['partner_district'];
         $partner_maritialstatus=$_POST['partner_maritialstatus'];
         $partner_age=$_POST['partner_age'];
@@ -1569,6 +1575,7 @@ if (mysqli_query($conn,$sql))
         if(mysqli_num_rows($result)>=1){
         $sql = "UPDATE 9bd_expected_life_partner SET 
                     partner_religius = '$partner_religius',
+                    partner_citizen = '$partner_citizen',
                     partner_district = '$partner_district',
                     partner_maritialstatus = '$partner_maritialstatus',
                     partner_age = '$partner_age',

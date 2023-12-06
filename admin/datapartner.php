@@ -287,6 +287,7 @@ if (mysqli_num_rows($result) > 0) {
     echo '<tr>
       <th>বায়োডাটা নং</th>
       <th>জীবনসঙ্গীর ধর্মীয় বিষয়াবলী</th>
+      <th>জীবনসঙ্গীর নাগরিকত্ব/সিটিজেনশিপ</th>
       <th>জীবনসঙ্গী যেই জেলার</th>
       <th>জীবনসঙ্গীর বৈবাহিক অবস্থা</th>
       <th>জীবনসঙ্গীর বয়স যেমনটা</th>
@@ -313,6 +314,7 @@ if (mysqli_num_rows($result) > 0) {
         echo '<tr>';
         echo '<td>' . $row['user_id'] . '</td>';
         echo '<td>' . $row['partner_religius'] . '</td>';
+        echo '<td>' . $row['partner_citizen'] . '</td>';
         echo '<td>' . $row['partner_district'] . '</td>';
         echo '<td>' . $row['partner_maritialstatus'] . '</td>';
         echo '<td>' . $row['partner_age'] . '</td>';

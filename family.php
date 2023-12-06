@@ -159,6 +159,9 @@ if(isloggedin()){
 				if($result){
 				$row=mysqli_fetch_assoc($result);
 				if($row){
+				$father_name=$row['father_name'];
+				}
+				if($row){
 				$father_alive=$row['father_alive'];
 				}
 				if($row){
@@ -205,6 +208,11 @@ if(isloggedin()){
 
 					<div class="sb-biodata-option">
 						<div class="shosurbari-biodata-field">
+							<label>বাবার নাম<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text" name="father_name" value="<?php echo $father_name; ?>" size="100" maxlength="100" class="form-text" required>
+						</div>
+
+						<div class="shosurbari-biodata-field">
 							<label>বাবা বেঁচে আছেন?<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text"  name="father_alive" value="<?php echo $father_alive; ?>" size="100" maxlength="100" class="form-text" required>
 						</div>
@@ -231,12 +239,12 @@ if(isloggedin()){
 
 						<div class="shosurbari-biodata-field">
 							<label>ভাইবোন সম্পর্কিত তথ্য<span class="form-required" title="This field is required.">*</span></label>
-							<textarea rows="8" name="brosis_info"   placeholder="Discribe Your Sisters & Brothers information" class="form-text-describe" required><?php echo $brosis_info; ?></textarea>
+							<textarea rows="8" name="brosis_info"  class="form-text-describe" required><?php echo $brosis_info; ?></textarea>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label>মামা/চাচাদের পেশা<span class="form-required" title="This field is required.">*</span></label>
-							<textarea rows="8" name="uncle_profession"  placeholder="Describe Profession of Your Uncles" class="form-text-describe" required><?php echo $uncle_profession; ?></textarea>
+							<textarea rows="8" name="uncle_profession" class="form-text-describe" required><?php echo $uncle_profession; ?></textarea>
 						</div>
 
 						<div class="shosurbari-biodata-field">
@@ -253,12 +261,12 @@ if(isloggedin()){
 
 						<div class="shosurbari-biodata-field">
 							<label>পরিবারের অর্থনৈতিক অবস্থা কেমন?<span class="form-required" title="This field is required.">*</span></label>
-							<textarea rows="5" name="financial_condition" placeholder="Describe Your Financial Condition" class="form-text-describe" required><?php echo $financial_condition; ?></textarea>
+							<textarea rows="5" name="financial_condition" class="form-text-describe" required><?php echo $financial_condition; ?></textarea>
 						</div>
 
 						<div class="shosurbari-biodata-field">
-							<label>পারিবারিক ধর্মীয় ও সামাজিক অবস্থা কেমন?<span class="form-required" title="This field is required.">*</span></label>
-							<textarea rows="5" name="family_religious_condition"  placeholder="Describe Your Family's Religious Condition" class="form-text-describe" required><?php echo $family_religious_condition; ?></textarea>
+							<label>পরিবারের ধর্মীয় ও সামাজিক অবস্থা কেমন?<span class="form-required" title="This field is required.">*</span></label>
+							<textarea rows="5" name="family_religious_condition" class="form-text-describe" required><?php echo $family_religious_condition; ?></textarea>
 						</div>
 					</div>
 				</div>

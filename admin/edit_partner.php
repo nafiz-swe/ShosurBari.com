@@ -102,6 +102,7 @@ if (isset($_GET['id'])) {
 
 		// Display the user data in input fields/options
 		$partner_religius = $row['partner_religius'];
+    $partner_citizen = $row['partner_citizen'];
 		$partner_district = $row['partner_district'];
 		$partner_maritialstatus = $row['partner_maritialstatus'];
 		$partner_age = $row['partner_age'];
@@ -125,6 +126,7 @@ if (isset($_GET['id'])) {
 if (isset($_POST['update'])) {
     // Retrieve the updated data from the form
     $partner_religius = mysqli_real_escape_string($conn, $_POST['partner_religius']);
+    $partner_citizen = mysqli_real_escape_string($conn, $_POST['partner_citizen']);
     $partner_district = mysqli_real_escape_string($conn, $_POST['partner_district']);
     $partner_maritialstatus = mysqli_real_escape_string($conn, $_POST['partner_maritialstatus']);
     $partner_age = mysqli_real_escape_string($conn, $_POST['partner_age']);
@@ -142,6 +144,7 @@ if (isset($_POST['update'])) {
     // Update user data in the database
     $updateSql = "UPDATE 9bd_expected_life_partner SET
         partner_religius = '$partner_religius',
+        partner_citizen = '$partner_citizen',
         partner_district = '$partner_district',
         partner_maritialstatus = '$partner_maritialstatus',
         partner_age = '$partner_age',
@@ -185,10 +188,10 @@ if (isset($_POST['update'])) {
 
         <div class="sb-biodata-option">
           <div class="shosurbari-biodata-field">
-            <label for="edit-name">জীবনসঙ্গীর <span style="color: black; font-size: 15px;">ধর্মীয় বিষয়াবলী</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
-            <input type="text" id="edit-name" name="partner_religius"  value="<?php echo $partner_religius; ?>"  size="200" maxlength="200" class="form-text" required>
+            <label for="edit-name">জীবনসঙ্গীর নাগরিকত্ব/সিটিজেনশিপ কোন <span style="color: black; font-size: 15px;"> দেশ</span> আশা করেন<span class="form-required" title="This field is required.">*</span></label>
+            <input type="text" id="edit-name" name="partner_citizen" value="<?php echo $partner_citizen; ?>"  size="1000" maxlength="100" class="form-text" required>
           </div>
-
+          
           <div class="shosurbari-biodata-field">
             <label for="edit-name">জীবনসঙ্গী যেই <span style="color: black; font-size: 15px;">জেলার</span> আশা করেন<span class="form-required" title="This field is required.">*</span></label>
             <input type="text" id="edit-name" name="partner_district" value="<?php echo $partner_district; ?>"  size="100" maxlength="100" class="form-text" required>
@@ -227,6 +230,11 @@ if (isset($_POST['update'])) {
           <div class="shosurbari-biodata-field">
             <label for="edit-name">জীবনসঙ্গীর <span style="color: black; font-size: 15px;">অর্থনৈতিক অবস্থা</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
             <input type="text" id="edit-name" name="partner_financial"  value="<?php echo $partner_financial; ?>"  size="100" maxlength="100" class="form-text" required>
+          </div>
+
+          <div class="shosurbari-biodata-field">
+            <label for="edit-name">জীবনসঙ্গীর <span style="color: black; font-size: 15px;">ধর্মীয় বিষয়াবলী</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
+            <textarea rows="8" id="edit-name" name="partner_religius" placeholder="" class="form-text-describe" required><?php echo $partner_religius; ?></textarea>
           </div>
 
           <div class="shosurbari-biodata-field">

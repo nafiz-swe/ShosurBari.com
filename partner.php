@@ -162,6 +162,9 @@ if(isloggedin()){
 				$partner_religius=$row['partner_religius'];
 				}
 				if($row){
+				$partner_citizen=$row['partner_citizen'];
+				}
+				if($row){
 				$partner_district=$row['partner_district'];
 				}
 				if($row){
@@ -214,8 +217,8 @@ if(isloggedin()){
 
 					<div class="sb-biodata-option">
 						<div class="shosurbari-biodata-field">
-						<label for="edit-name">জীবনসঙ্গীর <span style="color: black; font-size: 15px;">ধর্মীয় বিষয়াবলী</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="partner_religius"  value="<?php echo $partner_religius; ?>"  size="1000" maxlength="1000" class="form-text" required>
+							<label for="edit-name">জীবনসঙ্গীর নাগরিকত্ব/সিটিজেনশিপ কোন <span style="color: black; font-size: 15px;"> দেশ</span> আশা করেন<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text" id="edit-name" name="partner_citizen" value="<?php echo $partner_citizen; ?>"  size="1000" maxlength="100" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
@@ -259,8 +262,13 @@ if(isloggedin()){
 						</div>
 
 						<div class="shosurbari-biodata-field">
+							<label for="edit-name">জীবনসঙ্গীর <span style="color: black; font-size: 15px;">ধর্মীয় বিষয়াবলী</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
+							<textarea rows="8" id="edit-name" name="partner_religius" placeholder="" class="form-text-describe" required><?php echo $partner_religius; ?></textarea>
+						</div>
+
+						<div class="shosurbari-biodata-field">
 							<label for="edit-name">জীবনসঙ্গীর যেসব <span style="color: black; font-size: 15px;">বৈশিষ্ঠ বা গুণাবলী </span>প্রত্যাশা করেন<span class="form-required" title="This field is required.">*</span></label>
-							<textarea rows="8" id="edit-name" name="partner_attributes" placeholder="Describe Expected Qualities or Attributes of Your Life Partner" class="form-text-describe" required><?php echo $partner_attributes; ?></textarea>
+							<textarea rows="8" id="edit-name" name="partner_attributes" placeholder="" class="form-text-describe" required><?php echo $partner_attributes; ?></textarea>
 						</div>
 
 						<div class="sb-biodata-field" style="margin-top: 15px;">

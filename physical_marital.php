@@ -254,7 +254,7 @@ if(isloggedin()){
 						</div>
 
 						<div class="shosurbari-biodata-field">
-							<label for="edit-pass">জন্ম মাস<span class="form-required" title="This field is required.">*</span></label>
+							<label for="edit-pass">জন্ম মাস <span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (আসল)</span></label>
 							<select name="month" required>
 								<option hidden selected></option>
 								<option value="জানুয়ারি">জানুয়ারি</option>
@@ -273,7 +273,7 @@ if(isloggedin()){
 						</div>
 
 						<div class="shosurbari-biodata-field">
-							<label for="edit-pass">জন্ম সাল<span class="form-required" title="This field is required.">*</span></label>
+							<label for="edit-pass">জন্ম সাল <span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (আসল)</span></label>
 							<select name="year" required>
 								<option hidden selected></option>
 								<option value="২০১৫">২০১৫</option>
@@ -322,34 +322,6 @@ if(isloggedin()){
 
 
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">উচ্চতা<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="height" value="<?php echo $height; ?>" size="100" maxlength="100" class="form-text" placeholder="Please enter your height" required>
-						</div>
-
-					
-						<div class="shosurbari-biodata-field">
-							<label for="edit-name">ওজন<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="weight" value="<?php echo $weight; ?>" size="100" maxlength="100" class="form-text" required>
-						</div>
-
-						<div class="shosurbari-biodata-field">
-							<label for="edit-name">শারীরিক সমস্যা আছে কি?<span class="form-required" title="This field is required.">*</span></label>
-							<select name="physicalstatus" required>
-								<option hidden selected><?php echo $physicalstatus; ?></option>
-								<option value="সমস্যা নেই">সমস্যা নেই</option>
-								<option value="অন্ধ">অন্ধ</option> 
-								<option value="বধির">বধির</option> 
-								<option value="বোবা">বোবা</option>
-								<option value="ন্যাংড়া">ন্যাংড়া</option>
-								<option value="হাত ভাঙ্গা">হাত ভাঙ্গা</option> 
-								<option value="হাত কাটা">হাত কাটা</option>  
-								<option value="পা ভাঙ্গা">পা ভাঙ্গা</option> 
-								<option value="পা কাটা">পা কাটা</option> 
- 
-							</select>
-						</div>
-
-						<div class="shosurbari-biodata-field">
 							<label for="edit-name">শারীরিক বর্ণ<span class="form-required" title="This field is required.">*</span></label>
 							<select name="Skin_tones" required>
 								<option hidden selected><?php echo $Skin_tones; ?></option>
@@ -373,7 +345,24 @@ if(isloggedin()){
 								<option value="B-">B-</option> 
 								<option value="AB-">AB-</option>
 								<option value="O-">O-</option>
+								<option value="জানিনা">জানিনা</option>
 							</select>
+						</div>
+
+						<div class="shosurbari-biodata-field">
+							<label for="edit-name">উচ্চতা<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text" id="edit-name" name="height" value="<?php echo $height; ?>" size="100" maxlength="100" class="form-text" required>
+						</div>
+
+					
+						<div class="shosurbari-biodata-field">
+							<label for="edit-name">ওজন<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text" id="edit-name" name="weight" value="<?php echo $weight; ?>" size="100" maxlength="100" class="form-text" required>
+						</div>
+
+						<div class="shosurbari-biodata-field">
+							<label for="edit-name">শারীরিক-মানসিক কোনো সমস্যা/রোগ আছে কি?<span class="form-required" title="This field is required.">*</span></label>
+							<textarea rows="8" id="edit-name" name="physicalstatus" placeholder="" class="form-text-describe" required><?php echo $physicalstatus; ?></textarea>
 						</div>
 					</div>
 				</div>

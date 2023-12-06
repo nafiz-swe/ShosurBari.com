@@ -289,12 +289,13 @@ if (mysqli_num_rows($result) > 0) {
     <th>অন্যান্য পেশা</th>
     <th>পেশার অবস্থান</th>
     <th>পেশার বিস্তারিত তথ্য</th>
-    <th>ঘর ও ঘরের বাহিরে কেমন পোশাক পরেন?</th>
+    <th>ঘর ও ঘরের বাহিরের পোশাক</th>
     <th>আপনার সম্পর্কে কিছু লিখুন</th>
+    <th style="color: blue;">পাত্র/পাত্রীর নাম</th>
     <th style="color: blue;">পাত্র/পাত্রীর ইমেইল</th>
     <th style="color: blue;">পাত্র/পাত্রীর মোবাইল নাম্বার</th>
-    <th style="color: blue;">পিতামাতা/আত্মীয়র মোবাইল নাম্বার</th>
-    <th style="color: blue;">মোবাইল নাম্বার যার, তার পাত্রপাত্রীর সম্পর্ক</th>
+    <th style="color: blue;">অভিভাবকের মোবাইল নাম্বার</th>
+    <th style="color: blue;">অভিভাবকের নাম এবং পাত্র-পাত্রীর সাথে সম্পর্ক</th>
     <th>তারিখ সময়</th>
     <th>ডাটা ইডিট</th>
     </tr>';
@@ -338,10 +339,11 @@ if (mysqli_num_rows($result) > 0) {
         echo '<td>' . $row['occupation_describe'] . '</td>';
         echo '<td>' . $row['dress_code'] . '</td>';
         echo '<td>' . $row['aboutme'] . '</td>';
+        echo '<td style="color: blue;">' . $row['groom_bride_name'] . '</td>';
         echo '<td style="color: blue;">' . $row['groom_bride_email'] . '</td>';
         echo '<td style="color: blue;">' . $row['groom_bride_number'] . '</td>';
         echo '<td style="color: blue;">' . $row['groom_bride_family_number'] . '</td>';
-        echo '<td style="color: blue;">' . $row['family_number_relation'] . '</td>';
+        echo '<td style="color: blue;">' . $row['family_member_name_relation'] . '</td>';
         echo '<td>' . $row['profilecreationdate'] . '</td>';
         echo '<td><a href="edit_lifestyle.php?id=' . $row['id'] . '">Edit</a></td>';
         echo '</tr>';

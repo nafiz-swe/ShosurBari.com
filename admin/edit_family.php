@@ -101,6 +101,7 @@ if (isset($_GET['id'])) {
         $row = mysqli_fetch_assoc($result);
 
         // Display the user data in input fields/options
+        $father_name = $row['father_name'];
         $father_alive = $row['father_alive'];
         $fatheroccupation = $row['fatheroccupation'];
         $mother_alive = $row['mother_alive'];
@@ -120,6 +121,8 @@ if (isset($_GET['id'])) {
 // Handle form submission to update user data
 if (isset($_POST['update'])) {
     // Retrieve the updated data from the form
+    
+    $father_name = mysqli_real_escape_string($conn, $_POST['father_name']);
     $father_alive = mysqli_real_escape_string($conn, $_POST['father_alive']);
     $fatheroccupation = mysqli_real_escape_string($conn, $_POST['fatheroccupation']);
     $mother_alive = mysqli_real_escape_string($conn, $_POST['mother_alive']);
@@ -133,6 +136,7 @@ if (isset($_POST['update'])) {
 
     // Update user data in the database
     $updateSql = "UPDATE 5bd_family_information SET
+        father_name = '$father_name',
         father_alive = '$father_alive',
         fatheroccupation = '$fatheroccupation',
         mother_alive = '$mother_alive',
@@ -173,6 +177,11 @@ if (isset($_POST['update'])) {
 
                 <div class="sb-biodata-option">
                     <div class="shosurbari-biodata-field">
+                      <label>বাবার নাম<span class="form-required" title="This field is required.">*</span></label>
+                      <input type="text" name="father_name" value="<?php echo $father_name; ?>" size="100" maxlength="100" class="form-text" required>
+                    </div>
+            
+                    <div class="shosurbari-biodata-field">
                         <label>বাবা বেঁচে আছেন?<span class="form-required" title="This field is required.">*</span></label>
                         <input type="text"  name="father_alive" value="<?php echo $father_alive; ?>" size="100" maxlength="100" class="form-text" required>
                     </div>
@@ -199,7 +208,7 @@ if (isset($_POST['update'])) {
 
                     <div class="shosurbari-biodata-field">
                         <label>ভাইবোন সম্পর্কিত তথ্য<span class="form-required" title="This field is required.">*</span></label>
-                        <textarea rows="8" name="brosis_info"   placeholder="Discribe Your Sisters & Brothers information" class="form-text-describe" required><?php echo $brosis_info; ?></textarea>
+                        <textarea rows="8" name="brosis_info"   placeholder="" class="form-text-describe" required><?php echo $brosis_info; ?></textarea>
                     </div>
 
                     <div class="shosurbari-biodata-field">
@@ -225,7 +234,7 @@ if (isset($_POST['update'])) {
                     </div>
 
                     <div class="shosurbari-biodata-field">
-                        <label>পারিবারিক ধর্মীয় ও সামাজিক অবস্থা কেমন?<span class="form-required" title="This field is required.">*</span></label>
+                        <label>পরিবারের ধর্মীয় ও সামাজিক অবস্থা কেমন?<span class="form-required" title="This field is required.">*</span></label>
                         <textarea rows="5" name="family_religious_condition"  placeholder="" class="form-text-describe" required><?php echo $family_religious_condition; ?></textarea>
                     </div>
                 </div>

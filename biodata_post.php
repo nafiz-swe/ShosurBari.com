@@ -97,44 +97,7 @@ if(isloggedin()){
 			--                                               --
 			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
 			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-			<?php
-				include("includes/dbconn.php");
 
-				//getting profile details from db
-				$sql="SELECT * FROM 1bd_personal_physical WHERE user_id = $id";
-				$result = mysqlexec($sql);
-
-				if($result){
-				$row=mysqli_fetch_assoc($result);
-				if($row){
-					$biodatagender=$row['biodatagender'];
-				}
-				if($row){
-					$day=$row['dateofbirth'];
-				}
-				if($row){
-					$month=$row['dateofbirth'];
-				}
-				if($row){
-					$year=$row['dateofbirth'];
-				}
-				if($row){
-					$height=$row['height'];
-				}
-				if($row){
-					$weight=$row['weight'];
-				}
-				if($row){
-					$physicalstatus=$row['physicalstatus'];
-				}
-				if($row){
-					$Skin_tones = $row['Skin_tones'];
-				}
-				if($row){
-					$bloodgroup=$row['bloodgroup']; 
-				}
-				}
-			?>
 <style>
 .sb-biodata-field{
 	background: none;
@@ -260,7 +223,7 @@ if(isloggedin()){
 						</div>
 
 						<div class="shosurbari-biodata-field">
-							<label for="edit-pass">জন্ম মাস<span class="form-required" title="This field is required.">*</span></label>
+							<label for="edit-pass">জন্ম মাস <span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (আসল)</span></label>
 							<select name="month" required>
 								<option hidden selected></option>
 								<option value="জানুয়ারি">জানুয়ারি</option>
@@ -279,7 +242,7 @@ if(isloggedin()){
 						</div>
 
 						<div class="shosurbari-biodata-field">
-							<label for="edit-pass">জন্ম সাল<span class="form-required" title="This field is required.">*</span></label>
+							<label for="edit-pass">জন্ম সাল <span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (আসল)</span></label>
 							<select name="year" required>
 								<option hidden selected></option>
 								<option value="২০১৫">২০১৫</option>
@@ -326,48 +289,6 @@ if(isloggedin()){
 							</select>
 						</div>
 
-
-						<div class="shosurbari-biodata-field">
-							<label for="edit-name">উচ্চতা<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="height" value="" size="100" maxlength="100" class="form-text" required>
-						</div>
-
-						<!-- <script>
-							function checkInput(input) {
-								let value = input.value;
-								// Allow only numbers and spaces
-								let regex = /^[A-Za-z0-9-.'" ]+$/;
-								if (!regex.test(value)) {
-									document.getElementById('height-error-message').innerHTML = "Please follow the instruction. Ex: 5 ft 7 in.";
-									input.value = '';
-								} else {
-									document.getElementById('height-error-message').innerHTML = '';
-								}
-							}
-						</script> -->
-					
-						<div class="shosurbari-biodata-field">
-							<label for="edit-name">ওজন<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="weight" value="" size="100" maxlength="100" class="form-text" required>
-						</div>
-
-						<div class="shosurbari-biodata-field">
-							<label for="edit-name">শারীরিক সমস্যা আছে কি?<span class="form-required" title="This field is required.">*</span></label>
-							<select name="physicalstatus" required>
-								<option hidden selected></option>
-								<option value="সমস্যা নেই">সমস্যা নেই</option>
-								<option value="অন্ধ">অন্ধ</option> 
-								<option value="বধির">বধির</option> 
-								<option value="বোবা">বোবা</option>
-								<option value="ন্যাংড়া">ন্যাংড়া</option>
-								<option value="হাত ভাঙ্গা">হাত ভাঙ্গা</option> 
-								<option value="হাত কাটা">হাত কাটা</option>  
-								<option value="পা ভাঙ্গা">পা ভাঙ্গা</option> 
-								<option value="পা কাটা">পা কাটা</option> 
- 
-							</select>
-						</div>
-
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">শারীরিক বর্ণ<span class="form-required" title="This field is required.">*</span></label>
 							<select name="Skin_tones" required>
@@ -392,7 +313,23 @@ if(isloggedin()){
 								<option value="B-">B-</option> 
 								<option value="AB-">AB-</option>
 								<option value="O-">O-</option>
+								<option value="জানিনা">জানিনা</option>
 							</select>
+						</div>
+
+						<div class="shosurbari-biodata-field">
+							<label for="edit-name">উচ্চতা<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text" id="edit-name" name="height" value="" size="100" maxlength="100" class="form-text" required>
+						</div>
+					
+						<div class="shosurbari-biodata-field">
+							<label for="edit-name">ওজন<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text" id="edit-name" name="weight" value="" size="100" maxlength="100" class="form-text" required>
+						</div>
+
+						<div class="shosurbari-biodata-field">
+							<label for="edit-name">শারীরিক-মানসিক কোনো সমস্যা/রোগ আছে কি?<span class="form-required" title="This field is required.">*</span></label>
+							<textarea rows="8" id="edit-name" name="physicalstatus" placeholder="" class="form-text-describe" required></textarea>
 						</div>
 					</div>
 				</div>
@@ -421,81 +358,6 @@ if(isloggedin()){
 			--                                               --
 			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
 			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-			<?php
-				include("includes/dbconn.php");
-
-				//getting profile details from db
-				$sql="SELECT * FROM 2bd_personal_lifestyle WHERE user_id = $id";
-				$result = mysqlexec($sql);
-
-				if($result){
-				$row=mysqli_fetch_assoc($result);
-				if($row){
-				$smoke=$row['smoke'];
-				}
-				if($row){
-				$occupation_sector=$row['occupation_sector'];
-				}
-				if($row){
-				$other_occupation_sector=$row['other_occupation_sector'];
-				}
-				if($row){
-				$business_occupation_level=$row['business_occupation_level'];
-				}
-				if($row){
-				$student_occupation_level=$row['student_occupation_level'];
-				}
-				if($row){
-				$health_occupation_level=$row['health_occupation_level'];
-				}
-				if($row){
-				$engineer_occupation_level=$row['engineer_occupation_level'];
-				}
-				if($row){
-				$teacher_occupation_level=$row['teacher_occupation_level'];
-				}
-				if($row){
-				$defense_occupation_level=$row['defense_occupation_level'];
-				}
-				if($row){
-				$foreigner_occupation_level=$row['foreigner_occupation_level'];
-				}
-				if($row){
-				$garments_occupation_level=$row['garments_occupation_level'];
-				}
-				if($row){
-				$driver_occupation_level=$row['driver_occupation_level'];
-				}
-				if($row){
-				$service_andcommon_occupation_level=$row['service_andcommon_occupation_level'];
-				}
-				if($row){
-				$mistri_occupation_level=$row['mistri_occupation_level'];
-				}
-				if($row){
-				$occupation_describe=$row['occupation_describe'];
-				}
-				if($row){
-				$dress_code=$row['dress_code'];
-				}
-				if($row){
-				$aboutme=$row['aboutme'];
-				}
-				if($row){
-				$groom_bride_email=$row['groom_bride_email'];
-				}
-				if($row){
-				$groom_bride_number=$row['groom_bride_number'];
-				}
-				if($row){
-				$groom_bride_family_number=$row['groom_bride_family_number'];
-				}
-				if($row){
-				$family_number_relation=$row['family_number_relation'];
-				}
-				}
-			?>
-
 
 			<!-- Fieldsets start-->
 			<fieldset>
@@ -759,7 +621,7 @@ if(isloggedin()){
 
 						<div class="shosurbari-biodata-field">
 							<label>আপনার শখ, পছন্দ-অপছন্দ, রুচিবোধ, স্বপ্ন ইত্যাদি বিষয়ে লিখুন<span class="form-required" title="This field is required.">*</span></label>
-							<textarea rows="5" name="aboutme" placeholder="Write about you" class="form-text-describe" required></textarea>
+							<textarea rows="5" name="aboutme" placeholder="" class="form-text-describe" required></textarea>
 						</div><br>
 
 						<div class="shosurbari-biodata-field">
@@ -769,6 +631,11 @@ if(isloggedin()){
                             আগ্রহী ইউজারকে SMS বা ইমেইলের মাধ্যমে ২৪ ঘন্টার মধ্যে পাত্র-পাত্রীর ইমেইল এবং 
                             অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে। ব্যক্তিগত কোনো কারণে আপনার এই বায়োডাটার অভিভাবক 
                             অনুমতি না দিলে আগ্রহী ইউজারকে যোগাযোগের তথ্য প্রদান না করে টাকা ফেরত দেয়া হবে।</p>
+						</div>
+
+						<div class="shosurbari-biodata-field">
+							<label for="edit-name">পাত্র/পাত্রীর নাম<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
+							<input type="text" id="edit-name" name="groom_bride_name" value="" size="100" maxlength="100" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
@@ -787,8 +654,8 @@ if(isloggedin()){
 						</div>
 
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">অভিভাবকের নাম এবং পাত্র-পাত্রীর সাথে অভিভাবকের কিসের সম্পর্ক<span class="form-required" title="This field is required.">*</span> <span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
-							<input type="text" id="edit-name" name="family_number_relation" value="" size="100" maxlength="100" class="form-text" required>
+							<label for="edit-name">অভিভাবকের নাম এবং অভিভাবক পাত্র-পাত্রীর কে হয়<span class="form-required" title="This field is required.">*</span> <span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
+							<input type="text" id="edit-name" name="family_member_name_relation" value="" size="100" maxlength="100" class="form-text" required>
 						</div>
 
 					</div>
@@ -823,136 +690,7 @@ if(isloggedin()){
 			--                                               --
 			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
 			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-			<?php
-				include("includes/dbconn.php");
 
-				//getting profile details from db
-				$sql="SELECT * FROM 3bd_secondaryedu_method WHERE user_id = $id";
-				$result = mysqlexec($sql);
-
-				if($result){
-				$row=mysqli_fetch_assoc($result);
-				
-				if($row){
-				$scndry_edu_method=$row['scndry_edu_method'];
-				}
-				if($row){
-				$maxedu_qulfctn=$row['maxedu_qulfctn'];
-				}
-				if($row){
-				$gnrl_mdrs_secondary_pass=$row['gnrl_mdrs_secondary_pass'];
-				}
-				if($row){
-				$gnrl_mdrs_secondary_pass_year=$row['gnrl_mdrs_secondary_pass_year']; 
-				}
-				if($row){
-				$gnrl_mdrs_secondary_end_year=$row['gnrl_mdrs_secondary_end_year'];
-				}
-				if($row){
-				$gnrlmdrs_secondary_running_std=$row['gnrlmdrs_secondary_running_std'];
-				}
-			}
-
-
-
-
-				//getting profile details from db
-				$sql="SELECT * FROM 3bd_kowmi_madrasaedu_method WHERE user_id = $id";
-				$result = mysqlexec($sql);
-
-				if($result){
-				$row=mysqli_fetch_assoc($result);
-
-				if($row){
-				$qawmi_madrasa_hafez=$row['qawmi_madrasa_hafez'];
-				}
-				if($row){
-				$qawmimadrasa_dawrapass=$row['qawmimadrasa_dawrapass']; 
-				}
-				if($row){
-				$kowmi_dawrapas_year=$row['kowmi_dawrapas_year'];
-				}
-				if($row){
-				$kowmi_current_edu_level=$row['kowmi_current_edu_level'];
-				}
-			}
-
-
-
-
-
-
-				//getting profile details from db
-				$sql="SELECT * FROM 3bd_higher_secondaryedu_method WHERE user_id = $id";
-				$result = mysqlexec($sql);
-
-				if($result){
-				$row=mysqli_fetch_assoc($result);
-
-				if($row){
-				$higher_secondary_edu_method=$row['higher_secondary_edu_method'];
-				}
-				if($row){
-				$gnrlmdrs_hrsecondary_pass=$row['gnrlmdrs_hrsecondary_pass']; 
-				}
-				if($row){
-				$gnrlmdrs_hrsecondary_pass_year=$row['gnrlmdrs_hrsecondary_pass_year'];
-				}
-				if($row){
-				$gnrlmdrs_hrsecondary_exam_year=$row['gnrlmdrs_hrsecondary_exam_year'];
-				}
-				if($row){
-				$gnrlmdrs_hrsecondary_group=$row['gnrlmdrs_hrsecondary_group'];
-				}
-				if($row){
-				$gnrlmdrs_hrsecondary_rningstd=$row['gnrlmdrs_hrsecondary_rningstd']; 
-				}
-				if($row){
-				$diploma_hrsecondary_pass=$row['diploma_hrsecondary_pass'];
-				}
-				if($row){
-				$diploma_hrsecondary_pass_year=$row['diploma_hrsecondary_pass_year'];
-				}
-				if($row){
-				$diploma_hrsecondary_sub=$row['diploma_hrsecondary_sub'];
-				}
-				if($row){
-				$diploma_hrsecondary_endingyear=$row['diploma_hrsecondary_endingyear']; 
-				}
-			}
-
-
-
-				//getting profile details from db
-				$sql="SELECT * FROM 3bd_universityedu_method WHERE user_id = $id";
-				$result = mysqlexec($sql);
-
-				if($result){
-				$row=mysqli_fetch_assoc($result);
-
-				if($row){
-				$varsity_edu_method=$row['varsity_edu_method'];
-				}
-				if($row){
-				$uvarsity_pass=$row['uvarsity_pass'];
-				}
-				if($row){
-				$varsity_passing_year=$row['varsity_passing_year'];
-				}
-				if($row){
-				$university_subject=$row['university_subject']; 
-				}
-				if($row){
-				$varsity_ending_year=$row['varsity_ending_year'];
-				}
-				if($row){
-				$uvarsity_name=$row['uvarsity_name'];
-				}
-				if($row){
-				$others_edu_qualification=$row['others_edu_qualification'];
-				}
-				}
-			?>
 
 
 			<!-- Fieldsets start-->
@@ -1825,53 +1563,6 @@ if(isloggedin()){
 			--                                               --
 			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
 			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-			<?php
-				include("includes/dbconn.php");
-
-				//getting profile details from db
-				$sql="SELECT * FROM 4bd_address_details WHERE user_id = $id";
-				$result = mysqlexec($sql);
-
-				if($result){
-				$row=mysqli_fetch_assoc($result);
-				if($row){
-				$permanent_division=$row['permanent_division'];
-				}
-				if($row){
-				$home_district_under_barishal=$row['home_district_under_barishal'];
-				}
-				if($row){
-				$home_district_under_chattogram=$row['home_district_under_chattogram'];
-				}
-				if($row){
-				$home_district_under_dhaka=$row['home_district_under_dhaka'];
-				}
-				if($row){
-				$home_district_under_khulna=$row['home_district_under_khulna'];
-				}
-				if($row){
-				$home_district_under_mymensingh=$row['home_district_under_mymensingh'];
-				}
-				if($row){
-				$home_district_under_rajshahi=$row['home_district_under_rajshahi'];
-				}
-				if($row){
-				$home_district_under_rangpur=$row['home_district_under_rangpur'];
-				}
-				if($row){
-				$home_district_under_sylhet=$row['home_district_under_sylhet'];
-				}
-				if($row){
-				$country_present_address=$row['country_present_address'];
-				}
-				if($row){
-				$present_address_location=$row['present_address_location'];
-				}
-				if($row){
-				$childhood=$row['childhood'];
-				}
-				}
-			?>
 
 			<!--Fieldsets start-->
 			<fieldset>
@@ -2038,7 +1729,7 @@ if(isloggedin()){
 						</script>
 
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">যে দেশে বসবাস করেন<span class="form-required" title="This field is required.">*</span></label>
+							<label for="edit-name">আপনি কোন দেশের স্থায়ী নাগরিক/সিটিজেন<span class="form-required" title="This field is required.">*</span></label>
 							<select name="country_present_address" required class="selectsearch">
 								<option></option>
 								<option value="Afghanistan">Afghanistan</option>
@@ -2118,12 +1809,12 @@ if(isloggedin()){
 						</div>
 
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">বর্তমান বসবাসের ঠিকানা<span class="form-required" title="This field is required.">*</span></label>
+							<label for="edit-name">বর্তমানে যেখানে থাকেন পুরো ঠিকানা লিখুন<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text" name="present_address_location" id="edit-name"  value="" size="100" maxlength="100" class="form-text required" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">বাল্যকালে কোথায় থেকেছেন?<span class="form-required" title="This field is required.">*</span></label>
+							<label for="edit-name">বাল্যকালে কোন ঠিকানায় থেকেছেন?<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text" id="edit-name" name="childhood" value="" size="100" maxlength="100" class="form-text required" required>
 						</div>
 					</div>
@@ -2155,48 +1846,6 @@ if(isloggedin()){
 			--                                               --
 			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
 			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-			<?php
-				include("includes/dbconn.php");
-
-				//getting profile details from db
-				$sql="SELECT * FROM 5bd_family_information WHERE user_id = $id";
-				$result = mysqlexec($sql);
-
-				if($result){
-				$row=mysqli_fetch_assoc($result);
-				if($row){
-				$father_alive=$row['father_alive'];
-				}
-				if($row){
-				$fatheroccupation=$row['fatheroccupation'];
-				}
-				if($row){
-				$mother_alive=$row['mother_alive'];
-				}
-				if($row){
-				$motheroccupation=$row['motheroccupation'];
-				}
-				if($row){
-				$brosis_number=$row['brosis_number'];
-				}
-				if($row){
-				$brosis_info=$row['brosis_info'];
-				}
-				if($row){
-				$uncle_profession=$row['uncle_profession'];
-				}
-				if($row){
-				$family_class=$row['family_class'];
-				}
-				if($row){
-				$financial_condition=$row['financial_condition'];
-				}
-				if($row){
-				$family_religious_condition=$row['family_religious_condition'];
-				}
-				}
-			?>
-
 			<!--Fieldsets start-->
 			<fieldset>
 				<div class="sb-biodata" id="familyInfo">
@@ -2211,6 +1860,11 @@ if(isloggedin()){
 					</div>
 
 					<div class="sb-biodata-option">
+						<div class="shosurbari-biodata-field">
+							<label>বাবার নাম<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text"  name="father_name" value="" size="100" maxlength="100" class="form-text" required>
+						</div>
+
 						<div class="shosurbari-biodata-field">
 							<label>বাবা বেঁচে আছেন?<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text"  name="father_alive" value="" size="100" maxlength="100" class="form-text" required>
@@ -2238,7 +1892,7 @@ if(isloggedin()){
 
 						<div class="shosurbari-biodata-field">
 							<label>ভাইবোন সম্পর্কিত তথ্য<span class="form-required" title="This field is required.">*</span></label>
-							<textarea rows="8" name="brosis_info"   placeholder="Discribe Your Sisters & Brothers information" class="form-text-describe" required></textarea>
+							<textarea rows="8" name="brosis_info"   placeholder="" class="form-text-describe" required></textarea>
 						</div>
 
 						<div class="shosurbari-biodata-field">
@@ -2264,7 +1918,7 @@ if(isloggedin()){
 						</div>
 
 						<div class="shosurbari-biodata-field">
-							<label>পারিবারিক ধর্মীয় ও সামাজিক অবস্থা কেমন?<span class="form-required" title="This field is required.">*</span></label>
+							<label>পরিবারের ধর্মীয় ও সামাজিক অবস্থা কেমন?<span class="form-required" title="This field is required.">*</span></label>
 							<textarea rows="5" name="family_religious_condition"  placeholder="" class="form-text-describe" required></textarea>
 						</div>
 					</div>
@@ -2296,93 +1950,6 @@ if(isloggedin()){
 			--  Female Marriage related Info / sb-biodata-7  --
 			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
 			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-			<?php
-				include("includes/dbconn.php");
-
-				//bd_marriage_related_qs_male_6;
-				//getting profile details from db
-				$sql="SELECT * FROM 6bd_marriage_related_qs_male WHERE user_id = $id";
-				$result = mysqlexec($sql);
-				if($result){
-					$row=mysqli_fetch_assoc($result);
-					if($row){
-						$allowstudy_aftermarriage=$row['allowstudy_aftermarriage'];
-					}
-					if($row){
-						$allowjob_aftermarriage=$row['allowjob_aftermarriage'];
-					}
-					if($row){
-						$livewife_aftermarriage=$row['livewife_aftermarriage'];
-					}
-					if($row){
-						$profileby=$row['profileby'];
-					}
-				}
-
-				//bd_marriage_related_qs_female_7;
-				//getting profile details from db
-				$sql="SELECT * FROM 7bd_marriage_related_qs_female WHERE user_id = $id";
-				$result = mysqlexec($sql);
-				if($result){
-					$row=mysqli_fetch_assoc($result);
-					if($row){
-						$studies_aftermarriage=$row['studies_aftermarriage'];
-					}
-					if($row){
-						$anyjob_aftermarriage=$row['anyjob_aftermarriage'];
-					}
-					if($row){
-						$agree_marriage_student=$row['agree_marriage_student'];
-					}
-					if($row){
-						$profileby=$row['profileby'];
-					}
-				}
-
-				//6bd_7bd_marital_status;
-				//getting profile details from db
-				$sql="SELECT * FROM 6bd_7bd_marital_status WHERE user_id = $id";
-				$result = mysqlexec($sql);
-				if($result){
-					$row=mysqli_fetch_assoc($result);
-					if($row){
-						$maritalstatus=$row['maritalstatus'];
-					}
-
-					if($row){
-						$divorce_reason=$row['divorce_reason'];
-					}
-
-					if($row){
-						$how_widow=$row['how_widow'];
-					}
-
-
-					if($row){
-						$how_widower=$row['how_widower'];
-					}
-
-					if($row){
-						$get_wife_permission=$row['get_wife_permission'];
-					}
-					if($row){
-						$get_family_permission=$row['get_family_permission'];
-					}
-					if($row){
-						$why_again_married=$row['why_again_married'];
-					}
-					if($row){
-						$how_many_son=$row['how_many_son'];
-					}
-					if($row){
-						$son_details=$row['son_details'];
-					}
-					if($row){
-						$profilecreationdate=$row['profilecreationdate'];
-					}
-				}
-			?>
-
 
 			<!--Fieldsets start-->
 			<fieldset>
@@ -2677,23 +2244,6 @@ if(isloggedin()){
 			--                                               --
 			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
 			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-			<?php
-				include("includes/dbconn.php");
-
-				//getting profile details from db
-				$sql="SELECT * FROM 8bd_religion_details WHERE user_id = $id";
-				$result = mysqlexec($sql);
-
-				if($result){
-				$row=mysqli_fetch_assoc($result);
-				if($row){
-				$religion=$row['religion'];
-				}
-				if($row){
-				$yourreligion_condition=$row['yourreligion_condition'];
-				}
-				}
-			?>
 
 
 			<!--7 fieldsets start-->
@@ -2751,56 +2301,6 @@ if(isloggedin()){
 			--                                               --
 			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
 			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-			<?php
-				include("includes/dbconn.php");
-
-				//getting profile details from db
-				$sql="SELECT * FROM 9bd_expected_life_partner WHERE user_id = $id";
-				$result = mysqlexec($sql);
-
-				if($result){
-				$row=mysqli_fetch_assoc($result);
-				if($row){
-				$partner_religius=$row['partner_religius'];
-				}
-				if($row){
-				$partner_district=$row['partner_district'];
-				}
-				if($row){
-				$partner_maritialstatus=$row['partner_maritialstatus'];
-				}
-				if($row){
-				$partner_age=$row['partner_age'];
-				}
-				if($row){
-				$partner_skintones=$row['partner_skintones'];
-				}
-				if($row){
-				$partner_height=$row['partner_height'];
-				}
-				if($row){
-				$partner_education=$row['partner_education'];
-				}
-				if($row){
-				$partner_profession=$row['partner_profession'];
-				}
-				if($row){
-				$partner_financial=$row['partner_financial'];
-				}
-				if($row){
-				$partner_attributes=$row['partner_attributes'];
-				}
-				if($row){
-				$parents_permission=$row['parents_permission'];
-				}
-				if($row){
-				$real_info_commited=$row['real_info_commited'];
-				}
-				if($row){
-				$authorities_no_responsible=$row['authorities_no_responsible'];
-				}
-				}
-			?>
 
 			<!--Fieldsets start-->
 			<fieldset>
@@ -2817,8 +2317,8 @@ if(isloggedin()){
 
 					<div class="sb-biodata-option">
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">জীবনসঙ্গীর <span style="color: black; font-size: 15px;">ধর্মীয় বিষয়াবলী</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="partner_religius"  value=""  size="1000" maxlength="1000" class="form-text" required>
+							<label for="edit-name">জীবনসঙ্গীর নাগরিকত্ব/সিটিজেনশিপ কোন <span style="color: black; font-size: 15px;"> দেশ</span> আশা করেন<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text" id="edit-name" name="partner_citizen" value=""  size="1000" maxlength="100" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
@@ -2862,8 +2362,13 @@ if(isloggedin()){
 						</div>
 
 						<div class="shosurbari-biodata-field">
+							<label for="edit-name">জীবনসঙ্গীর <span style="color: black; font-size: 15px;">ধর্মীয় বিষয়াবলী</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
+							<textarea rows="8" id="edit-name" name="partner_religius"  class="form-text-describe" required></textarea>
+						</div>
+
+						<div class="shosurbari-biodata-field">
 							<label for="edit-name">জীবনসঙ্গীর যেসব <span style="color: black; font-size: 15px;">বৈশিষ্ঠ বা গুণাবলী </span>প্রত্যাশা করেন<span class="form-required" title="This field is required.">*</span></label>
-							<textarea rows="8" id="edit-name" name="partner_attributes" placeholder="" class="form-text-describe" required></textarea>
+							<textarea rows="8" id="edit-name" name="partner_attributes"  class="form-text-describe" required></textarea>
 						</div>
 
 						<div class="sb-biodata-field" style="margin-top: 15px;">
