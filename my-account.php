@@ -185,19 +185,17 @@ $conn->close();
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">বায়োডাটা আপডেট<span class="caret"></span> </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="physical_marital.php">শারীরিক/বৈবাহিক তথ্য</a></li>
-            <li><a href="personal_info.php">ব্যক্তিগত তথ্য</a></li>
-            <li><a href="education.php">শিক্ষাগত তথ্য</a></li>
-            <li><a href="address.php">ঠিকানা</a></li>
-            <li><a href="family.php">পারিবারিক/সামাজিক</a></li>
-            <li><a href="religion.php">ধর্মীয় বিষয়</a></li>
-            <li><a href="partner.php">জীবনসঙ্গীর-বিবরণ</a></li>
+            <li><a href="update-physical-marital.php">শারীরিক/বৈবাহিক তথ্য</a></li>
+            <li><a href="update-personalInfo.php">ব্যক্তিগত তথ্য</a></li>
+            <li><a href="update-education.php">শিক্ষাগত তথ্য</a></li>
+            <li><a href="update-address.php">ঠিকানা</a></li>
+            <li><a href="update-family.php">পারিবারিক/সামাজিক</a></li>
+            <li><a href="update-religion.php">ধর্মীয় বিষয়</a></li>
+            <li><a href="update-partnerInfo.php">জীবনসঙ্গীর-বিবরণ</a></li>
           </ul>
         </li>
 
-        <li><a href="accountupdate.php">একাউন্ট আপডেট</a></li>
-        <!-- <li><a href="message_list.php?id=<?php echo $id;?>">মেসেজ</a></li> -->
-        <!-- <li><a href="message_list.php?id=<?php echo $id;?>">মেসেজ List</a></li> -->
+        <li><a href="account-update.php">একাউন্ট আপডেট</a></li>
       </ul>
     </div>
   </div>

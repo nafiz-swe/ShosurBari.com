@@ -39,14 +39,7 @@
     --                                               --
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-    function searchid(){
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $profid=$_POST['profid'];
-            $sql="SELECT * FROM users WHERE id=$profid";
-            $result = mysqlexec($sql);
-            return $result;
-        }
-    }
+
 
 
 
@@ -379,9 +372,9 @@
                     $mail->AltBody = $plain_text_message; // Plain text version of the email
 
                     if ($mail->send()) {
-                        echo '<script>alert("Registration successful. Check your email for confirmation.");</script>';
+                        echo '';
                     } else {
-                        echo '<script>alert("Error sending registration confirmation email. Please try again later.");</script>';
+                        echo '';
                     }
     
                     header("location: my-account.php");
@@ -461,16 +454,17 @@
             // Update the account
             $accountUpdated = updateAccount($userId, $newPassword, $newFullName, $newGender);
 
-            // Redirect back to accountupdate.php with a message
+            // Set the appropriate message in session
             if ($accountUpdated) {
-                $updateMessage = 'Account updated successfully!';
-
-                header("Location: accountupdate.php?message=success&updateMessage=" . urlencode($updateMessage));
-                exit();
+                $_SESSION['updateMessage'] = 'Account updated successfully!';
+                $_SESSION['messageType'] = 'success';
             } else {
-                header("Location: accountupdate.php?message=error");
-                exit();
+                $_SESSION['updateMessage'] = 'Error updating account';
+                $_SESSION['messageType'] = 'error';
             }
+            // Redirect back to account-update.php
+            header("Location: account-update.php");
+            exit();
         }
     }
     /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
@@ -494,6 +488,7 @@
         require_once("includes/dbconn.php");
     
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            
             $cust_name = $_POST['cust_name'];
             $cust_email = $_POST['cust_email'];
             $cust_number = $_POST['cust_number'];
@@ -517,25 +512,101 @@
                 $idCount = $_POST['idCount'];
                 $fee = $_POST['fee'];
             }
-
+    
             // Check if the user is logged in using your existing authentication logic
             if (isset($_SESSION['id'])) {
             $user_id = $_SESSION['id'];
             } else {
                 $user_id = 0; // Default value for non-logged-in users
             }
+            
     
             // Insert customer data into the database
             $sql = "INSERT INTO customer (user_id, cust_name, cust_email, cust_number, cust_permanent_address, request_biodata_number, biodata_quantities, total_fee, payment_method, bkash_number, bkash_transaction_id, nagad_number, nagad_transaction_id, roket_number, roket_transaction_id, request_date) 
                     VALUES ('$user_id', '$cust_name', '$cust_email', '$cust_number', '$cust_permanent_address', '$request_biodata_number', '$idCount', '$fee', '$payment_method', '$bkash_number', '$bkash_transaction_id', '$nagad_number', '$nagad_transaction_id', '$roket_number', '$roket_transaction_id', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
     
             if (mysqli_query($conn, $sql)) {
+                $id_customer = mysqli_insert_id($conn);
+                $_SESSION['id_customer'] = $id_customer;
+                $request_date = $row['request_date'];
+                $formatted_date = date('j F Y, g:i:s A', strtotime($request_date));
+
+                
+                // SMTP email sending code
+                $to = $cust_email;
+                $subject = "Your Transaction is Successfully Completed!";
+    
+                ob_start();
+                include('PaymentEmailBody.php'); // Update with the actual file name
+                $email_body = ob_get_clean();
+    
+                // Plain text version of the email body
+                $plain_text_message = "
+                Your Order is Processing! Order Details.
+                
+                আপনাকে ধন্যবাদ! আপনার পেমেন্ট তথ্য যাচাই বাছাইয়ের পর SMS বা ই-মেইলের মাধ্যমে ২৪ ঘন্টার মধ্যে আপনাকে অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে।                Order ID: SB$id_customer
+                Name: $cust_name
+                Email: $cust_email
+                Mobile Number: $cust_number
+                Address: $cust_permanent_address
+                Request Biodata: $request_biodata_number
+                Total Fee: $fee
+                Payment Method: $payment_method
+                Payment Number: $bkash_number || $nagad_number || $roket_number
+                Transaction: $bkash_transaction_id || $nagad_transaction_id || $roket_transaction_id
+                Date: $formatted_date = date('j F Y, g:i:s A', strtotime($request_date));
+    
+                
+                বি:দ্র: ব্যক্তিগত কোনো কারণে অভিভাবক অনুমতি না দিলে যোগাযোগের তথ্য প্রদান না করে টাকা ফেরত দেয়া হবে।
+                
+                Connect with us:
+                - Website: https://www.shoshurbari.com
+                - Facebook: https://www.facebook.com/ShoshurBari.bd
+                - Email: support@shoshurbari.com
+                - YouTube: https://www.youtube.com/c/ShoshurBari
+                
+                (c) 2022-23 ShosurBari.com | All Rights Reserved
+                ";
+                
+                $headers = "From: nafizulislam.swe@gmail.com\r\n";
+                $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+    
+                $smtp_host = "smtp.gmail.com";
+                $smtp_port = 587;
+                $smtp_username = "nafizulislam.swe@gmail.com";
+                $smtp_password = "dnngvzwetnirboae";
+                $smtp_secure = "tls";
+    
+                require 'PHPMailer/PHPMailerAutoload.php';
+    
+                $mail = new PHPMailer;
+                $mail->isSMTP();
+                $mail->Host = $smtp_host;
+                $mail->Port = $smtp_port;
+                $mail->SMTPSecure = $smtp_secure;
+                $mail->SMTPAuth = true;
+                $mail->Username = $smtp_username;
+                $mail->Password = $smtp_password;
+    
+                $mail->setFrom($smtp_username, 'ShosurBari');
+                $mail->addAddress($to);
+                $mail->Subject = $subject;
+                $mail->Body = $email_body;
+                $mail->AltBody = $plain_text_message; // Plain text version of the email
+    
+                if ($mail->send()) {
+                    echo '';
+                } else {
+                    echo '';
+                }
+    
                 // header("location: index.php");
             } else {
                 echo "Error";
             }
         }
     }
+    
     
     
     /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --

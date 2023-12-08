@@ -113,7 +113,7 @@ span a {
         <!-- A request has been made to retrieve the password for logging into your account. -->
 
             <h3>আপনার একাউন্ট লগইন করার জন্য পাসওয়ার্ড পুনরুদ্ধারের একটি অনুরোধ করা হয়েছে।</h3>
-            <p>পাসওয়ার্ড: <a style="text-decoration:underline; color: #0aa4ca;" href='https://www.shoshurbari.rf.gd/new_password.php' target='_blank'>পাসওয়ার্ড পরিবর্তন করুন <span>(ক্লিক করুন)</span></a></p>
+            <p>পাসওয়ার্ড: <a style="text-decoration:underline; color: #0aa4ca;" href='https://www.shoshurbari.com/new-password.php' target='_blank'>পাসওয়ার্ড পরিবর্তন করুন <span>(ক্লিক করুন)</span></a></p>
             <p>ই-মেইল: <span style="text-decoration: none; color: #0ea5e9; font-size: 12px;"> <?php echo $email; ?> </span></p>
 
             <h5 class="note" style="font-weight: none;"> <strong style="color: #696262; font-weight: bold;">বি:দ্র: </strong> আপনার পাসওয়ার্ড সুরক্ষিত রাখতে অনুগ্রহ করে মনে রাখবেন। পাসওয়ার্ড কারো সাথে শেয়ার করবেন না।</h5>

@@ -287,35 +287,177 @@ function post_biodata($id){
 
 
 
+function biodata_sale_customer() {
+    require_once("includes/dbconn.php");
 
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $cust_name = $_POST['cust_name'];
+        $cust_email = $_POST['cust_email'];
+        $cust_number = $_POST['cust_number'];
+        $cust_permanent_address = $_POST['cust_permanent_address'];
+        $request_biodata_number = $_POST['request_biodata_number'];
+        // $biodata_quantities = $_POST['biodata_quantities'];
 
+        $payment_method = $_POST['payment_method'];
+        $bkash_number = $_POST['bkash_number'];
+        $bkash_transaction_id = $_POST['bkash_transaction_id'];
+        $nagad_number = $_POST['nagad_number'];
+        $nagad_transaction_id = $_POST['nagad_transaction_id'];
+        $roket_number = $_POST['roket_number'];
+        $roket_transaction_id = $_POST['roket_transaction_id'];
+    
+        // Check if idCountOne and feeOne are set, if not, fall back to idCount and fee
+        if (isset($_POST['idCountOne']) && isset($_POST['feeOne'])) {
+            $idCount = $_POST['idCountOne'];
+            $fee = $_POST['feeOne'];
+        } else {
+            $idCount = $_POST['idCount'];
+            $fee = $_POST['fee'];
+        }
 
+        // Check if the user is logged in using your existing authentication logic
+        if (isset($_SESSION['id'])) {
+        $user_id = $_SESSION['id'];
+        } else {
+            $user_id = 0; // Default value for non-logged-in users
+        }
 
+        // Insert customer data into the database
+        $sql = "INSERT INTO customer (user_id, cust_name, cust_email, cust_number, cust_permanent_address, request_biodata_number, biodata_quantities, total_fee, payment_method, bkash_number, bkash_transaction_id, nagad_number, nagad_transaction_id, roket_number, roket_transaction_id, request_date) 
+                VALUES ('$user_id', '$cust_name', '$cust_email', '$cust_number', '$cust_permanent_address', '$request_biodata_number', '$idCount', '$fee', '$payment_method', '$bkash_number', '$bkash_transaction_id', '$nagad_number', '$nagad_transaction_id', '$roket_number', '$roket_transaction_id', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
 
-<li><a href="biodata_post.php?id=<?php $id=$_SESSION['id']; echo $id; ?>">Biodata Post</a></li>
+        if (mysqli_query($conn, $sql)) {
+            // SMTP email sending code
+            $to = $cust_email;
+            $subject = "Your Transaction is Successfully Completed!";
 
+            ob_start();
+            include('PaymentEmailBody.php'); // Update with the actual file name
+            $email_body = ob_get_clean();
 
-<li>
-<?php
-// Check if the user is logged in based on your authentication method.
-// Replace the following condition with your authentication logic.
-if (isset($_SESSION['id'])) {
-    $id = $_SESSION['id'];
-    $id = "id";
+            // Plain text version of the email body
+            $plain_text_message = "
+            Your Order is Processing! Order Details.
+            
+            আপনাকে ধন্যবাদ! আপনার পেমেন্ট তথ্য যাচাই বাছাইয়ের পর SMS বা ই-মেইলের মাধ্যমে ২৪ ঘন্টার মধ্যে অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে।
+            Order ID: SB$id_customer
+            Name: $cust_name
+            Email: $cust_email
+            Mobile Number: $cust_number
+            Address: $cust_permanent_address
+            Request Biodata: $request_biodata_number
+            Total Fee: $fee
+            Payment Method: $payment_method
+            Payment Number: $bkash_number || $nagad_number || $roket_number
+            Transaction: $bkash_transaction_id || $nagad_transaction_id || $roket_transaction_id
+            Date: $request_date
 
-    // Getting image filenames from the database
-    $sql3 = "SELECT * FROM users WHERE id = $id";
-    $result3 = mysqlexec($sql3);
-    if ($result3) {
-        $row3 = mysqli_fetch_array($result3);
-        if ($row3) {
-            $id = $row3['id'];
+            
+            বি:দ্র: ব্যক্তিগত কোনো কারণে অভিভাবক অনুমতি না দিলে যোগাযোগের তথ্য প্রদান না করে টাকা ফেরত দেয়া হবে।
+            
+            Connect with us:
+            - Website: https://www.shoshurbari.com
+            - Facebook: https://www.facebook.com/ShoshurBari.bd
+            - Email: support@shoshurbari.com
+            - YouTube: https://www.youtube.com/c/ShoshurBari
+            
+            (c) 2022-23 ShosurBari.com | All Rights Reserved
+            ";
+            
+            $headers = "From: nafizulislam.swe@gmail.com\r\n";
+            $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+
+            $smtp_host = "smtp.gmail.com";
+            $smtp_port = 587;
+            $smtp_username = "nafizulislam.swe@gmail.com";
+            $smtp_password = "dnngvzwetnirboae";
+            $smtp_secure = "tls";
+
+            require 'PHPMailer/PHPMailerAutoload.php';
+
+            $mail = new PHPMailer;
+            $mail->isSMTP();
+            $mail->Host = $smtp_host;
+            $mail->Port = $smtp_port;
+            $mail->SMTPSecure = $smtp_secure;
+            $mail->SMTPAuth = true;
+            $mail->Username = $smtp_username;
+            $mail->Password = $smtp_password;
+
+            $mail->setFrom($smtp_username, 'ShosurBari');
+            $mail->addAddress($to);
+            $mail->Subject = $subject;
+            $mail->Body = $email_body;
+            $mail->AltBody = $plain_text_message; // Plain text version of the email
+
+            if ($mail->send()) {
+                echo '';
+            } else {
+                echo '';
+            }
+
+            // header("location: index.php");
+        } else {
+            echo "Error";
         }
     }
-
-    echo "<li class=\"login-navbar-icon\"><a href=\"biodata_post.php?id=<?php $id=$_SESSION['id']; echo $id; ?>\"> </a></li>";
-} else {
-    echo "<li><a href=\"login.php\">Login</a></li>";
 }
-?>
-</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+function biodata_sale_customermain() {
+    require_once("includes/dbconn.php");
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $cust_name = $_POST['cust_name'];
+        $cust_email = $_POST['cust_email'];
+        $cust_number = $_POST['cust_number'];
+        $cust_permanent_address = $_POST['cust_permanent_address'];
+        $request_biodata_number = $_POST['request_biodata_number'];
+        // $biodata_quantities = $_POST['biodata_quantities'];
+
+        $payment_method = $_POST['payment_method'];
+        $bkash_number = $_POST['bkash_number'];
+        $bkash_transaction_id = $_POST['bkash_transaction_id'];
+        $nagad_number = $_POST['nagad_number'];
+        $nagad_transaction_id = $_POST['nagad_transaction_id'];
+        $roket_number = $_POST['roket_number'];
+        $roket_transaction_id = $_POST['roket_transaction_id'];
+    
+        // Check if idCountOne and feeOne are set, if not, fall back to idCount and fee
+        if (isset($_POST['idCountOne']) && isset($_POST['feeOne'])) {
+            $idCount = $_POST['idCountOne'];
+            $fee = $_POST['feeOne'];
+        } else {
+            $idCount = $_POST['idCount'];
+            $fee = $_POST['fee'];
+        }
+
+        // Check if the user is logged in using your existing authentication logic
+        if (isset($_SESSION['id'])) {
+        $user_id = $_SESSION['id'];
+        } else {
+            $user_id = 0; // Default value for non-logged-in users
+        }
+
+        // Insert customer data into the database
+        $sql = "INSERT INTO customer (user_id, cust_name, cust_email, cust_number, cust_permanent_address, request_biodata_number, biodata_quantities, total_fee, payment_method, bkash_number, bkash_transaction_id, nagad_number, nagad_transaction_id, roket_number, roket_transaction_id, request_date) 
+                VALUES ('$user_id', '$cust_name', '$cust_email', '$cust_number', '$cust_permanent_address', '$request_biodata_number', '$idCount', '$fee', '$payment_method', '$bkash_number', '$bkash_transaction_id', '$nagad_number', '$nagad_transaction_id', '$roket_number', '$roket_transaction_id', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+
+        if (mysqli_query($conn, $sql)) {
+            // header("location: index.php");
+        } else {
+            echo "Error";
+        }
+    }
+}

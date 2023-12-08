@@ -146,8 +146,8 @@ if (isset($_SESSION['id'])) {
 									<li><a href="faq.php">FAQ's</a></li>
 								</ul>
 							</li>
-							<li><a href="choice_list.php">Choice List</a></li>
-							<li><a href="contact.php">Contacts</a></li>
+							<li><a href="choice-list.php">Choice List</a></li>
+							<li><a href="contact-us.php">Contacts</a></li>
 							<li>
 								<?php
 								// Check if the user is logged in based on your authentication method.

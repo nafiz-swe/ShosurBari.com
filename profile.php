@@ -50,7 +50,7 @@
 
 				// // Safety measure: Ensure the $profileid is a valid integer value
 				// if (!filter_var($profileid, FILTER_VALIDATE_INT)) {
-				// 	echo '<script>window.location.href = "user_404.php";</script>'; // Redirect to user_404.php for invalid profile ID
+				// 	echo '<script>window.location.href = "profile-404.php";</script>'; // Redirect to profile-404.php for invalid profile ID
 				// 	exit;
 				// }
 
@@ -58,7 +58,7 @@
 
 				// Safety measure: Ensure the $profileid is a valid integer value
 				if (!filter_var($profileid, FILTER_VALIDATE_INT)) {
-					echo '<script>window.location.href = "user_404.php";</script>';
+					echo '<script>window.location.href = "profile-404.php";</script>';
 					exit;
 				}
 
@@ -72,7 +72,7 @@
 					$accountStatusRow = mysqli_fetch_assoc($accountStatusResult);
 				
 					if ($accountStatusRow['active'] == 0) {
-						echo '<script>window.location.href = "user_404.php";</script>'; // Redirect to user_404.php if the account is deactivated
+						echo '<script>window.location.href = "profile-404.php";</script>'; // Redirect to profile-404.php if the account is deactivated
 						exit;
 					}
 				}
@@ -1089,7 +1089,7 @@ textarea:focus {
 					<div class="profile-btn">
 
 						<div class="contact-bio">
-							<a href="contactbiodata.php?/Biodata=<?php echo $profileid; ?>">
+							<a href="payment-shosurbari.php?/Biodata=<?php echo $profileid; ?>">
 								<button class="chatbtn" id="chatBtn"><i class="fa fa-phone"></i> যোগাযোগ</button>
 							</a>
 						</div>
@@ -1105,7 +1105,7 @@ textarea:focus {
 					<div class="choice-list-options">
 						<?php
 						if (!empty($profileid)) {
-						echo '<form method="POST" action="choice_list.php">';
+						echo '<form method="POST" action="choice-list.php">';
 						echo '<input type="hidden" name="add_to_choice_list" value="' . $profileid . '">';
 						echo '<button type="submit" class="choice-list-btn"><i class="fa fa-heart"> </i> পছন্দের তালিকায়</button>';
 						echo '</form>';
@@ -2773,7 +2773,7 @@ textarea:focus {
 										</div>
 									
 										<div class="contact-bio">
-											<a href="contactbiodata.php?/Biodata=<?php echo $profileid; ?>">
+											<a href="payment-shosurbari.php?/Biodata=<?php echo $profileid; ?>">
 												<button class="chatbtn" id="chatBtn"><i class="fa fa-phone"></i>যোগাযোগ</button>
 											</a>
 										</div></br>

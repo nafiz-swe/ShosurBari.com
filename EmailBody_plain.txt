@@ -18,6 +18,8 @@ Connect with us:
 
 
 
+
+
 <!-- Registration Confirmation Email Body -->
 Welcome to ShosurBari
 
@@ -34,6 +36,37 @@ Password: <?php echo $password; ?>
 Login to your account: https://www.shoshurbari.rf.gd/login.php
 
 Note: Please remember to keep your passwords secure. Do not share them with anyone.
+
+Connect with us:
+- Website: https://www.shoshurbari.com
+- Facebook: https://www.facebook.com/ShoshurBari.bd
+- Email: support@shoshurbari.com
+- YouTube: https://www.youtube.com/c/ShoshurBari
+
+(c) 2022-23 ShosurBari.com | All Rights Reserved
+
+
+
+
+
+
+<!-- Payment Confirmation Email Body -->
+Your Order is Processing! Order Details.
+
+আপনাকে ধন্যবাদ! আপনার পেমেন্ট তথ্য যাচাই বাছাইয়ের পর SMS বা ই-মেইলের মাধ্যমে ২৪ ঘন্টার মধ্যে আপনাকে অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে।
+Order ID: SB$id_customer
+Name: $cust_name
+Email: $cust_email
+Mobile Number: $cust_number
+Address: $cust_permanent_address
+Request Biodata: $request_biodata_number
+Total Fee: $fee
+Payment Method: $payment_method
+Payment Number: $bkash_number || $nagad_number || $roket_number
+Transaction: $bkash_transaction_id || $nagad_transaction_id || $roket_transaction_id
+Date: $formatted_date
+
+বি:দ্র: ব্যক্তিগত কোনো কারণে অভিভাবক অনুমতি না দিলে যোগাযোগের তথ্য প্রদান না করে টাকা ফেরত দেয়া হবে।
 
 Connect with us:
 - Website: https://www.shoshurbari.com

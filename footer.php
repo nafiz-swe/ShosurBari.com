@@ -11,7 +11,7 @@
     		<h4>Help & Support</h4>
     		<ul class="footer_links">
     			<li><a href="https://www.facebook.com/ShosurBari.bd" target="_blank">24x7 Live help <i class="fa fa-angle-double-left"></i></a></li>
-    			<li><a href="about.php">About Us <i class="fa fa-angle-double-left"></i></a></li>
+    			<li><a href="about-us.php">About Us <i class="fa fa-angle-double-left"></i></a></li>
     			<li><a href="faq.php">FAQs <i class="fa fa-angle-double-left"></i></a></li>
     		</ul>
     	</div>
