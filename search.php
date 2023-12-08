@@ -87,7 +87,7 @@ $result=search();
           <script type="text/javascript">
             function viewprofile(){
             var profid=document.getElementById("profid").value;
-            window.location.href="view_profile.php?id="+profid;
+            window.location.href="profile.php?/Biodata="+profid;
             }
           </script>
         </div>
@@ -1071,7 +1071,7 @@ $result=search();
       <script type="text/javascript">
         function viewprofile2(){
         var sbprofid=document.getElementById("sbprofid").value;
-        window.location.href="view_profile.php?id="+sbprofid;
+        window.location.href="profile.php?/Biodata="+sbprofid;
         }
       </script>
     </div>
@@ -2273,7 +2273,7 @@ $result=search();
               echo "<div class=\"biodatalist\">";
               echo "<div class=\"sb_bio_header\">";
               // Start of photo Show
-              echo "<a href=\"view_profile.php?id={$profid}\" target=\"_blank\">";
+              echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\">";
               if (!empty($pic1)) {
                 echo "<img class=\"img-responsive\" src=\"profile/{$profid}/{$pic1}\"/>";
               } else {
@@ -2290,7 +2290,7 @@ $result=search();
               echo "<span class=\"sb_single_data\"> <span class=\"sb_value\"> উচ্চতা </span> <span class=\"sb_data\">{$height}</span></span>";
               echo "<span class=\"sb_single_data\"> <span class=\"sb_value\"> পেশা </span> <span class=\"sb_data\"> {$occupation_value}</span></span>";
               echo "<span class=\"sb_single_data\"> <span class=\"sb_value\"> জন্ম সন </span> <span class=\"sb_data\"> {$dateofbirth}</span></span>";
-              echo "<a href=\"view_profile.php?id={$profid}\" target=\"_blank\"> <button class=\"view_sb_profile\"> সম্পূর্ণ প্রোফাইল</button></a>";
+              echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\"> <button class=\"view_sb_profile\"> সম্পূর্ণ প্রোফাইল</button></a>";
               echo "</div></div>";
 
               $c_count++;

@@ -72,7 +72,7 @@ $conn->close();
 <html>
 
 <head>
-<title>User Home | ShosurBari</title>
+<title>My Account | ShosurBari</title>
 <link rel="icon" href="images/shosurbari-icon.png" type="image/png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -103,7 +103,7 @@ $conn->close();
         <ul>
           <a href="index.php"><i class="fa fa-home home_1"></i></a>
           <span class="divider">&nbsp;|&nbsp;</span>
-          <li class="current-page"><h4>User Home</h4></li>
+          <li class="current-page"><h4>My Account</h4></li>
         </ul>
 
         <?php
@@ -172,30 +172,30 @@ $conn->close();
 
     <div class="collapse_userprofile navbar-collapseprofile" id="bs-megadropdown-tabs">
       <ul class="nav navbar-nav nav_1">
-        <li><a href="view_profile.php?id=<?php echo $id;?>">সম্পূর্ণ প্রোফাইল</a></li>
+        <li><a href="profile.php?/Biodata=<?php echo $id;?>">সম্পূর্ণ প্রোফাইল</a></li>
 
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">বায়োডাটা/ছবি পোস্ট<span class="caret"></span> </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="biodata_post.php?id=<?php echo $id;?>">বায়োডাটা পোস্ট</a></li>
-            <li><a href="photoupdate.php?id=<?php echo $id;?>">ছবি আপলোড/ডিলেট</a></li>
+            <li><a href="biodata-post.php">বায়োডাটা পোস্ট</a></li>
+            <li><a href="profile-photo.php?id=<?php echo $id;?>">ছবি আপলোড/ডিলেট</a></li>
           </ul>
         </li>
 
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">বায়োডাটা আপডেট<span class="caret"></span> </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="physical_marital.php?id=<?php echo $id;?>">শারীরিক/বৈবাহিক তথ্য</a></li>
-            <li><a href="personal_info.php?id=<?php echo $id;?>">ব্যক্তিগত তথ্য</a></li>
-            <li><a href="education.php?id=<?php echo $id;?>">শিক্ষাগত তথ্য</a></li>
-            <li><a href="address.php?id=<?php echo $id;?>">ঠিকানা</a></li>
-            <li><a href="family.php?id=<?php echo $id;?>">পারিবারিক/সামাজিক</a></li>
-            <li><a href="religion.php?id=<?php echo $id;?>">ধর্মীয় বিষয়</a></li>
-            <li><a href="partner.php?id=<?php echo $id;?>">জীবনসঙ্গীর-বিবরণ</a></li>
+            <li><a href="physical_marital.php">শারীরিক/বৈবাহিক তথ্য</a></li>
+            <li><a href="personal_info.php">ব্যক্তিগত তথ্য</a></li>
+            <li><a href="education.php">শিক্ষাগত তথ্য</a></li>
+            <li><a href="address.php">ঠিকানা</a></li>
+            <li><a href="family.php">পারিবারিক/সামাজিক</a></li>
+            <li><a href="religion.php">ধর্মীয় বিষয়</a></li>
+            <li><a href="partner.php">জীবনসঙ্গীর-বিবরণ</a></li>
           </ul>
         </li>
 
-        <li><a href="accountupdate.php?id=<?php echo $id;?>">একাউন্ট</a></li>
+        <li><a href="accountupdate.php">একাউন্ট আপডেট</a></li>
         <!-- <li><a href="message_list.php?id=<?php echo $id;?>">মেসেজ</a></li> -->
         <!-- <li><a href="message_list.php?id=<?php echo $id;?>">মেসেজ List</a></li> -->
       </ul>
@@ -211,6 +211,7 @@ $conn->close();
   width: 100%;
   text-align: left;
   padding: 6px;
+  padding-left: 0;
 }
 
 .sb-biodata-amount-list h1{
@@ -275,7 +276,7 @@ $conn->close();
 	<script>
 		$(document).ready(function() {
 		// Define an array of page names (without the .php extension)
-		var pages = ["userhome"];
+		var pages = ["my-account"];
 
 		// Fetch and display view counts for each page
 		for (var i = 0; i < pages.length; i++) {

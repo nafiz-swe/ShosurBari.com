@@ -679,6 +679,7 @@ ul.nav_1{
 .collapse_userprofile{  /*Include UserHome Page*/
     margin: auto;
     width: auto;
+    margin-left: 48px;
 }
 
 .UserProfile {
@@ -692,8 +693,8 @@ ul.nav_1{
 
 .navigationpro ul{
     background: #fff;
-    width: 100%;
-    /* width: 663px; */
+    /* width: 100%; */
+    width: 698px;
     padding: 5px;
     border-radius: 2px;
     border: 1px solid #ccc;
@@ -3688,7 +3689,7 @@ i.icon_4{
     font-size: 14px;
     background-color: #f1f1f1;
     border-radius: 50%;
-    margin: 15px 3px;
+    margin: 6px 3px 9px 3px;
     text-align: center;
     display: inline-block;
     border: 1px solid #faf9fb;
@@ -3748,13 +3749,14 @@ i.icon_4{
     flex-wrap: wrap;
     width: 79%;
     margin-top: -80px;
+    margin-bottom: 80px;
     margin-right: 0px;
     margin-left: 0px;
     padding: 0px;
 }
 
 .biodatalist{
-    border: 1px solid #ccc;
+    border: 1px solid #06b6d4;
     border-radius: 6px;
     width: 31%;
     gap: 1.5rem;
@@ -3949,6 +3951,7 @@ i.icon_4{
     width: 90%;
     padding: 10px;
     margin-left: auto;
+    margin-bottom: 70px;
     background: #fdfcfc;
     border-radius: 6px;
     border: 1px solid #ccc;
@@ -4794,7 +4797,8 @@ font-size: 14px;
     }
 
     .navigationpro ul {
-        width: 562px;
+        /* width: 562px; */
+        width: 626px;
         /* width: 607px; */
         margin-left: 0;
     }
@@ -4840,6 +4844,10 @@ font-size: 14px;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 100px;
+    }
+
+    .collapse_userprofile{  /*Include UserHome Page*/
+        margin-left: 0;
     }
 
     ul.footer_social {
@@ -5611,7 +5619,8 @@ font-size: 14px;
     .sbbiodata-search-mobile{
         width: 100%;
         position: inherit;
-        margin-top: 30px;
+        margin-top: 60px;
+        margin-bottom: 50px;
         z-index: 1;
     }
     

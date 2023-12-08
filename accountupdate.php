@@ -13,7 +13,7 @@ if (isloggedin()) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Account | ShosurBari</title>
+<title>Account Update | ShosurBari</title>
 <link rel="icon" href="images/shosurbari-icon.png" type="image/png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -52,7 +52,7 @@ if (isloggedin()) {
                 <ul>
                     <a href="index.php"><i class="fa fa-home home_1"></i></a>
                     <span class="divider">&nbsp;|&nbsp;</span>
-                    <li class="current-page"><h4>Update Account</h4></li>
+                    <li class="current-page"><h4>Account Update</h4></li>
                 </ul>
 
 

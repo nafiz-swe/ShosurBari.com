@@ -354,7 +354,7 @@ echo "<table>
         $formattedDate = date('d F Y', strtotime($formattedDateTime));
     
         // Create a profile link using the user ID
-        $profileLink = "<a href='view_profile.php?id=$profileid' target='_blank'>$profileid <span>View</span></a>";
+        $profileLink = "<a href='profile.php?/Biodata=$profileid' target='_blank'>$profileid <span>View</span></a>";
     
         echo "<tr>
         <td class=\"choice-list-id\"> $profileLink</td>
@@ -433,7 +433,7 @@ echo "<table>
                 <?php
                 if (isset($_POST['make_payment'])) {
                     // Redirect to contactbiodata.php and pass the IDs as a query parameter
-                    header("Location: contactbiodata.php?ids=" . urlencode($idList));
+                    header("Location: contactbiodata.php?Biodata=" . urlencode($idList));
                     exit; // Ensure that no further PHP code is executed after the redirection
                 }
                 ?>
@@ -450,7 +450,7 @@ echo "<table>
                     if (!empty($choiceList)) {
                         // Display the "Make Payment" button if $choiceList is not empty
                         echo "<form method='GET' action='contactbiodata.php' class='copy-sbbio-link'>
-                            <input type='hidden' name='ids' value=\"$idList\">
+                            <input type='hidden' name='Biodata' value=\"$idList\">
                             <button type='submit' class='copylink'>পেমেন্ট করুন</button>
                         </form>";
                     }

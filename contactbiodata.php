@@ -5,8 +5,8 @@ error_reporting(0);
 ?>
 
 <?php
-if (isset($_GET['ids'])) {
-    $ids = $_GET['ids'];
+if (isset($_GET['Biodata'])) {
+    $ids = $_GET['Biodata'];
 
     // Explode the IDs by comma and space to count them
     $idArray = explode(', ', $ids);
@@ -210,8 +210,8 @@ if(isset($_SESSION['id'])){
   <div class="form-group">
     <label>পছন্দের বায়োডাটা <span style="color: #ccc; font-size: 12px; font-weight: 500;">(অপরিবর্তনশীল)</span></label>
     <textarea rows="4" id="contact_biodatas_number" name="request_biodata_number" class="form-text required" style="background: #ecfeff;" readonly><?php
-      if (isset($_GET['profileid'])) {
-        $profileid = $_GET['profileid'];
+      if (isset($_GET['/Biodata'])) {
+        $profileid = $_GET['/Biodata'];
         echo htmlspecialchars($profileid);
       } else {
         if (is_array($idArray)) {
@@ -442,8 +442,8 @@ function englishToBanglaNumber($number) {
     return $banglaNumber;
 }
 
-if (isset($_GET['profileid'])) {
-  $profileid = $_GET['profileid'];
+if (isset($_GET['/Biodata'])) {
+  $profileid = $_GET['/Biodata'];
 
   // Specific values for profileid
   $idCountOne = '1'; // Set the desired value

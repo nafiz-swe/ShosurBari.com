@@ -6,7 +6,7 @@
 <html>
 
 <head>
-	<title>View Profile | ShosurBari</title>
+	<title>Biodata | ShosurBari</title>
 	<link rel="icon" href="images/shosurbari-icon.png" type="image/png">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -46,13 +46,23 @@
 
 			<?php
 				error_reporting(0);
-				$profileid = $_GET['id'];
+				// $profileid = $_GET['Biodata'];
+
+				// // Safety measure: Ensure the $profileid is a valid integer value
+				// if (!filter_var($profileid, FILTER_VALIDATE_INT)) {
+				// 	echo '<script>window.location.href = "user_404.php";</script>'; // Redirect to user_404.php for invalid profile ID
+				// 	exit;
+				// }
+
+				$profileid = isset($_GET['/Biodata']) ? $_GET['/Biodata'] : null;
 
 				// Safety measure: Ensure the $profileid is a valid integer value
 				if (!filter_var($profileid, FILTER_VALIDATE_INT)) {
-					echo '<script>window.location.href = "user_404.php";</script>'; // Redirect to user_404.php for invalid profile ID
+					echo '<script>window.location.href = "user_404.php";</script>';
 					exit;
 				}
+
+
 				
 				// Check if the user's account is deactivated (active = 0)
 				$accountStatusSql = "SELECT active FROM users WHERE id = $profileid";
@@ -125,7 +135,7 @@
 				<?php } ?>
 				
 				<?php
-					$id=$_GET['id'];
+					$id=$_GET['/Biodata'];
 					$profileid=$id;
 					
 					//getting profile details from db
@@ -788,7 +798,7 @@ textarea:focus {
 						--   SB Short Biodata / 1bd_personal_physical    --
 						-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 						<?php
-							$id=$_GET['id'];
+							$id=$_GET['/Biodata'];
 							$profileid=$id;
 							
 							//getting profile details from db
@@ -822,7 +832,7 @@ textarea:focus {
 						--   SB Short Biodata / 2bd_personal_lifestyle   --
 						-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 						<?php
-							$id=$_GET['id'];
+							$id=$_GET['/Biodata'];
 							$profileid=$id;
 							
 							//getting profile details from db
@@ -871,7 +881,7 @@ textarea:focus {
 						--     SB Short Biodata / 4bd_address_details    --
 						-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 						<?php
-							$id=$_GET['id'];
+							$id=$_GET['/Biodata'];
 							$profileid=$id;
 							
 							//getting profile details from db
@@ -891,7 +901,7 @@ textarea:focus {
 						--     SB Short Biodata / 6bd_7bd_marital_status --
 						-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 						<?php
-							$id=$_GET['id'];
+							$id=$_GET['/Biodata'];
 							$profileid=$id;
 							
 							//getting profile details from db
@@ -910,7 +920,7 @@ textarea:focus {
 						--    SB Short Biodata / 8bd_religion_details    --
 						-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 						<?php
-							$id=$_GET['id'];
+							$id=$_GET['/Biodata'];
 							$profileid=$id;
 							
 							//getting profile details from db
@@ -1079,7 +1089,7 @@ textarea:focus {
 					<div class="profile-btn">
 
 						<div class="contact-bio">
-							<a href="contactbiodata.php?profileid=<?php echo $profileid; ?>">
+							<a href="contactbiodata.php?/Biodata=<?php echo $profileid; ?>">
 								<button class="chatbtn" id="chatBtn"><i class="fa fa-phone"></i> যোগাযোগ</button>
 							</a>
 						</div>
@@ -1131,7 +1141,7 @@ textarea:focus {
 						FROM 1bd_personal_physical p
 						INNER JOIN users u ON p.user_id = u.id
 						WHERE u.active = 1
-						ORDER BY p.view_count DESC LIMIT 10"; // Top 10 profiles by view_count of active users
+						ORDER BY p.view_count DESC LIMIT 6"; // Top 6 profiles by view_count of active users
 						$result = mysqlexec($sql);
 
 						$count = 1;
@@ -1218,7 +1228,7 @@ textarea:focus {
 										echo "<div class=\"sbbio_header_recent_view\">";
 
 										// Start of Default Photo Show
-										echo "<a href=\"view_profile.php?id={$profid}\" target=\"_blank\">";
+										echo "<a href=\"profile.php?id={$profid}\" target=\"_blank\">";
 										if (!empty($pic1)) {
 											echo "<img class=\"img-responsive\" src=\"profile/{$profid}/{$pic1}\"/>";
 										} else {
@@ -1235,7 +1245,7 @@ textarea:focus {
 										echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> পেশা </span>      <span class=\"sb_data_recentview\"> {$occupation_value}</span></span>";
 										echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> জেলা </span>      <span class=\"sb_data_recentview\"> {$home_district}</span></span>";
 										echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> জন্ম সন </span>        <span class=\"sb_data_recentview\"> {$dateofbirth_recentview1}</span></span>";
-										echo "<a href=\"view_profile.php?id={$profid}\" target=\"_blank\"><button class=\"view_sb_profile_recentview\">সম্পূর্ণ প্রোফাইল</button> </a>";
+										echo "<a href=\"profile.php?id={$profid}\" target=\"_blank\"><button class=\"view_sb_profile_recentview\">সম্পূর্ণ প্রোফাইল</button> </a>";
 										echo "</div></div>";
 										$count++;
 									}
@@ -1272,7 +1282,7 @@ textarea:focus {
 							-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
 							-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->	
 							<?php
-								$id=$_GET['id'];
+								$id=$_GET['/Biodata'];
 								$profileid=$id;
 								
 								//getting profile details from db
@@ -1384,7 +1394,7 @@ textarea:focus {
 								-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
 								-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 								<?php
-									$id=$_GET['id'];
+									$id=$_GET['/Biodata'];
 									$profileid=$id;
 
 									//getting profile details from db
@@ -1594,7 +1604,7 @@ textarea:focus {
 								-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
 								-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 								<?php
-									$id=$_GET['id'];
+									$id=$_GET['/Biodata'];
 									$profileid=$id;
 									
 									//getting profile details from db
@@ -1943,7 +1953,7 @@ textarea:focus {
 								-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
 								-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 								<?php
-									$id=$_GET['id'];
+									$id=$_GET['/Biodata'];
 									$profileid=$id;
 									
 									//getting profile details from db
@@ -2104,7 +2114,7 @@ textarea:focus {
 								-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
 								-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 								<?php
-									$id=$_GET['id'];
+									$id=$_GET['/Biodata'];
 									$profileid=$id;
 									
 
@@ -2372,7 +2382,7 @@ textarea:focus {
 								-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
 								-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 								<?php
-									$id=$_GET['id'];
+									$id=$_GET['/Biodata'];
 									$profileid=$id;
 									
 									//getting profile details from db
@@ -2433,7 +2443,7 @@ textarea:focus {
 							-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
 							-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 							<?php
-								$id=$_GET['id'];
+								$id=$_GET['/Biodata'];
 								$profileid=$id;
 								
 								//getting profile details from db
@@ -2577,7 +2587,7 @@ textarea:focus {
 							-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
 							-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 							<?php
-								$id=$_GET['id'];
+								$id=$_GET['/Biodata'];
 								$profileid=$id;
 								
 								//getting profile details from db
@@ -2763,7 +2773,7 @@ textarea:focus {
 										</div>
 									
 										<div class="contact-bio">
-											<a href="contactbiodata.php?profileid=<?php echo $profileid; ?>">
+											<a href="contactbiodata.php?/Biodata=<?php echo $profileid; ?>">
 												<button class="chatbtn" id="chatBtn"><i class="fa fa-phone"></i>যোগাযোগ</button>
 											</a>
 										</div></br>
@@ -2801,7 +2811,7 @@ textarea:focus {
 	FROM 1bd_personal_physical p
 	INNER JOIN users u ON p.user_id = u.id
 	WHERE u.active = 1
-	ORDER BY p.view_count DESC LIMIT 10"; // Top 10 profiles by view_count of active users
+	ORDER BY p.view_count DESC LIMIT 6"; // Top 6 profiles by view_count of active users
 	$result = mysqlexec($sql);
 
     $count = 1;
@@ -2889,7 +2899,7 @@ textarea:focus {
         echo "<div class=\"sbbio_header_recent_view\">";
 
 		// Start of Default Photo Show
-		echo "<a href=\"view_profile.php?id={$profid}\" target=\"_blank\">";
+		echo "<a href=\"profile.php?id={$profid}\" target=\"_blank\">";
 		if (!empty($pic1)) {
 			echo "<img class=\"img-responsive\" src=\"profile/{$profid}/{$pic1}\"/>";
 		} else {
@@ -2906,7 +2916,7 @@ textarea:focus {
         echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> পেশা </span>      <span class=\"sb_data_recentview\"> {$occupation_recentview2}</span></span>";
         echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> জেলা </span>      <span class=\"sb_data_recentview\"> {$home_district2}</span></span>";
         echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> জন্ম সন </span>        <span class=\"sb_data_recentview\"> {$dateofbirth_recentview2}</span></span>";
-        echo "<a href=\"view_profile.php?id={$profid}\" target=\"_blank\"><button class=\"view_sb_profile_recentview\">সম্পূর্ণ প্রোফাইল</button> </a>";
+        echo "<a href=\"profile.php?id={$profid}\" target=\"_blank\"><button class=\"view_sb_profile_recentview\">সম্পূর্ণ প্রোফাইল</button> </a>";
         echo "</div></div>";
         $count++;
     }
@@ -2930,11 +2940,11 @@ textarea:focus {
 <script>
 $(document).ready(function() {
     // Extract the user ID from the URL
-    var userId = getUrlParameter('id'); // Assuming 'user_id' is the parameter name in your URL
+    var userId = getUrlParameter('/Biodata'); // Assuming 'user_id' is the parameter name in your URL
 
     if (userId) {
         $.ajax({
-            url: 'biodata_visit_count.php?user_id=' + userId,
+            url: 'biodata_visit_count.php?/Biodata=' + userId,
             type: 'GET',
             success: function(data) {
                 $('#viewCount').html(data);
@@ -2952,6 +2962,7 @@ function getUrlParameter(name) {
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
 }
 </script>
+
 
 	<!--=======  Footer Start ========-->
 	<?php include_once("footer.php");?>

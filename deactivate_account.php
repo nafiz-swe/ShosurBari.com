@@ -31,16 +31,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Execute the SQL query
     if (mysqli_query($conn, $updateSql)) {
         // Redirect the user to the profile page with a success message
-        header("location: userhome.php?status=success");
+        header("location: my-account.php?status=success");
         exit;
     } else {
         // Redirect the user to the profile page with an error message
-        header("location: userhome.php?status=error");
+        header("location: my-account.php?status=error");
         exit;
     }
 } else {
     // Redirect the user to the profile page
-    header("location: userhome.php");
+    header("location: my-account.php");
     exit;
 }
 ?>

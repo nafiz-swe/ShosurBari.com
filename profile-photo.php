@@ -409,7 +409,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ uploadphoto($id); }
     <script>
 		$(document).ready(function() {
 		// Define an array of page names (without the .php extension)
-		var pages = ["photoupdate"];
+		var pages = ["profile-photo"];
 
 		// Fetch and display view counts for each page
 		for (var i = 0; i < pages.length; i++) {

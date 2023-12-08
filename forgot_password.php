@@ -3,8 +3,8 @@
 session_start(); // Start the session if not already started
 
 if (isset($_SESSION['id'])) {
-  // User is logged in, so redirect to userhome.php
-  header("location: userhome.php");
+  // User is logged in, so redirect to My Account.php
+  header("location: my-account.php");
   exit;
 }
 ?>

@@ -10,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 
 <?php
+$userId = $_SESSION['id'];
 // $id=$_GET['id'];
 if(isloggedin()){
  //do nothing stay here
@@ -319,17 +320,17 @@ if(isloggedin()){
 
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">উচ্চতা<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="height" value="" size="100" maxlength="100" class="form-text" required>
+							<input type="text" id="edit-name" name="height" value="" class="form-text" required>
 						</div>
 					
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">ওজন<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="weight" value="" size="100" maxlength="100" class="form-text" required>
+							<input type="text" id="edit-name" name="weight" value="" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">শারীরিক-মানসিক কোনো সমস্যা/রোগ আছে কি?<span class="form-required" title="This field is required.">*</span></label>
-							<textarea rows="8" id="edit-name" name="physicalstatus" placeholder="" class="form-text-describe" required></textarea>
+							<textarea type="text" rows="8" id="edit-name" name="physicalstatus" value="" class="form-text-describe" required></textarea>
 						</div>
 					</div>
 				</div>
@@ -405,12 +406,12 @@ if(isloggedin()){
 									
 						<div class="shosurbari-biodata-field section"  id="অন্যান্য" style="display: none;">
 							<label>পেশার নাম <span class="form-required" title="This field is required.">*</span></label>
-							<input type="text"  name="other_occupation_sector" placeholder="" value="" size="100" maxlength="100" class="form-text">
+							<input type="text"  name="other_occupation_sector" value="" class="form-text">
 						</div>
 
 						<div class="shosurbari-biodata-field section"  id="ব্যবসায়ী" style="display: none;">
 							<label>পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text"  name="business_occupation_level" placeholder="" value="" size="100" maxlength="100" class="form-text">
+							<input type="text"  name="business_occupation_level" value="" class="form-text">
 						</div>
 
 						<div class="shosurbari-biodata-field section" id="শিক্ষার্থী" style="display: none;">
@@ -611,17 +612,17 @@ if(isloggedin()){
 
 						<div class="shosurbari-biodata-field" id="occupation_describe_field" style="display: none;">
 							<label>পেশার বিস্তারিত তথ্য<span class="form-required" title="This field is required.">*</span></label>
-							<textarea rows="5" name="occupation_describe" id="edit-name" placeholder="" class="form-text-describe" ></textarea>
+							<textarea type="text" rows="8" name="occupation_describe"  value="" id="edit-name" class="form-text-describe" required></textarea>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label>ঘর ও ঘরের বাহিরে কেমন ধরণের পোশাক পরেন?<span class="form-required" title="This field is required.">*</span></label>
-							<textarea rows="5" name="dress_code" placeholder="" class="form-text-describe" required></textarea>
+							<textarea type="text"  rows="8" name="dress_code"  value="" class="form-text-describe" required></textarea>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label>আপনার শখ, পছন্দ-অপছন্দ, রুচিবোধ, স্বপ্ন ইত্যাদি বিষয়ে লিখুন<span class="form-required" title="This field is required.">*</span></label>
-							<textarea rows="5" name="aboutme" placeholder="" class="form-text-describe" required></textarea>
+							<textarea type="text" rows="8" name="aboutme" value="" class="form-text-describe" required></textarea>
 						</div><br>
 
 						<div class="shosurbari-biodata-field">
@@ -635,27 +636,27 @@ if(isloggedin()){
 
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">পাত্র/পাত্রীর নাম<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
-							<input type="text" id="edit-name" name="groom_bride_name" value="" size="100" maxlength="100" class="form-text" required>
+							<input type="text" id="edit-name" name="groom_bride_name" value="" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">পাত্র/পাত্রীর ইমেইল<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
-							<input type="text" id="edit-name" name="groom_bride_email" value="" size="100" maxlength="100" class="form-text" required>
+							<input type="text" id="edit-name" name="groom_bride_email" value="" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">পাত্র/পাত্রীর মোবাইল নাম্বার<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
-							<input type="text" id="edit-name" name="groom_bride_number" value="" size="100" maxlength="100" class="form-text" required>
+							<input type="text" id="edit-name" name="groom_bride_number" value="" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">অভিভাবকের মোবাইল নাম্বার<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
-							<input type="text" id="edit-name" name="groom_bride_family_number" value="" size="100" maxlength="100" class="form-text" required>
+							<input type="text" id="edit-name" name="groom_bride_family_number" value="" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">অভিভাবকের নাম এবং অভিভাবক পাত্র-পাত্রীর কে হয়<span class="form-required" title="This field is required.">*</span> <span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
-							<input type="text" id="edit-name" name="family_member_name_relation" value="" size="100" maxlength="100" class="form-text" required>
+							<input type="text" id="edit-name" name="family_member_name_relation" value="" class="form-text" required>
 						</div>
 
 					</div>
@@ -722,7 +723,7 @@ if(isloggedin()){
 
 						<div class="shosurbari-biodata-field"  id="maxedu_qualification">
 							<label for="highest_qualification">আপনার সর্বোচ্চ শিক্ষাগত যোগ্যতা?<span style="color: gray; font-size:14px;" class="form-required" title="This field is required.">(বাধ্যতামূলক নয়)</span></label>
-							<input type="text" id="maxedu_qualification" name="maxedu_qulfctn" size="250" maxlength="250" class="form-text required">
+							<input type="text" id="maxedu_qualification" name="maxedu_qulfctn" value="" class="form-text required">
 						</div>
 
 						<!-- For Kowmi Madrasa -->
@@ -856,7 +857,7 @@ if(isloggedin()){
 
 						<div class="shosurbari-biodata-field" id="gnrl_mdrs_running_stdn">
 							<label for="gnrl_mdrs_running_stdn">মাধ্যমিক/সমমান বর্তমান অধ্যায়নরত ক্লাস<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" name="gnrlmdrs_secondary_running_std" id="gnrl_mdrs_running_stdn"  value="" size="250" maxlength="250" class="form-text required">
+							<input type="text" name="gnrlmdrs_secondary_running_std" id="gnrl_mdrs_running_stdn"  value="" class="form-text required">
 						</div>
 
 						<div class="shosurbari-biodata-field" id="higher_seconday_edumethod">
@@ -943,7 +944,7 @@ if(isloggedin()){
 
 						<div class="shosurbari-biodata-field" id="hrgnrl_mdrs_running_stdn">
 							<label for="hrgnrl_mdrs_running_stdn">উচ্চমাধ্যমিক/সমমানে বর্তমান অধ্যায়নরত ক্লাস<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text"  name="gnrlmdrs_hrsecondary_rningstd" id="hrgnrl_mdrs_running_stdn" value="" size="250" maxlength="250" class="form-text required">
+							<input type="text"  name="gnrlmdrs_hrsecondary_rningstd" id="hrgnrl_mdrs_running_stdn" value="" class="form-text required">
 						</div>
 						<!--Higher Seconday Education End -->
 
@@ -992,7 +993,7 @@ if(isloggedin()){
 
 						<div class="shosurbari-biodata-field" id="doploma_hrscnd_subject">
 							<label for="edu-method">ডিপ্লোমায় আপনার সাবজেক্ট<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" name="diploma_hrsecondary_sub" id="diploma_secondary_subject"   size="250" maxlength="250" class="form-text required">
+							<input type="text" name="diploma_hrsecondary_sub" value="" id="diploma_secondary_subject" class="form-text required">
 						</div>
 
 						<div class="shosurbari-biodata-field" id="doploma_hrscnd_exam_year">
@@ -1068,7 +1069,7 @@ if(isloggedin()){
 
 						<div class="shosurbari-biodata-field" id="varsity_subject">
 							<label for="edu-method">স্নাতক/সমমানে আপনার সাবজেক্ট<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" name="university_subject" id="varsity_subject"  value="" size="250" maxlength="250" class="form-text required">
+							<input type="text" name="university_subject" id="varsity_subject"  value="" class="form-text required">
 						</div>
 
 						<div class="shosurbari-biodata-field" id="varsity_exam_year">
@@ -1088,13 +1089,13 @@ if(isloggedin()){
 
 						<div class="shosurbari-biodata-field" id="varsity_name">
 							<label for="edu-method">স্নাতকে/সমমানে শিক্ষা প্রতিষ্ঠান<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" name="uvarsity_name" id="university_name"  value="" size="250" maxlength="250" class="form-text required">
+							<input type="text" name="uvarsity_name" value="" id="university_name"  maxlength="250" class="form-text required">
 						</div>
 						<!-- University Education End -->
 
 						<div class="shosurbari-biodata-field">
 							<label for="edu-method">অন্যান্য শিক্ষাগত যোগ্যতা<span style="color: gray; font-size:14px;" class="form-required" title="This field is required."> (বাধ্যতামূলক নয়)</span></label>
-							<textarea rows="4"  name="others_edu_qualification"  id="others_edu_qualification" placeholder="" class="form-text-describe"></textarea>
+							<textarea type="text" rows="8"  name="others_edu_qualification" value="" id="others_edu_qualification" class="form-text-describe"></textarea>
 						</div>
 					</div>
 				</div>
@@ -1810,12 +1811,12 @@ if(isloggedin()){
 
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">বর্তমানে যেখানে থাকেন পুরো ঠিকানা লিখুন<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" name="present_address_location" id="edit-name"  value="" size="100" maxlength="100" class="form-text required" required>
+							<input type="text" name="present_address_location" id="edit-name"  value="" class="form-text required" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">বাল্যকালে কোন ঠিকানায় থেকেছেন?<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="childhood" value="" size="100" maxlength="100" class="form-text required" required>
+							<input type="text" id="edit-name" name="childhood" value="" class="form-text required" required>
 						</div>
 					</div>
 				</div>
@@ -1862,42 +1863,42 @@ if(isloggedin()){
 					<div class="sb-biodata-option">
 						<div class="shosurbari-biodata-field">
 							<label>বাবার নাম<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text"  name="father_name" value="" size="100" maxlength="100" class="form-text" required>
+							<input type="text"  name="father_name" value="" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label>বাবা বেঁচে আছেন?<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text"  name="father_alive" value="" size="100" maxlength="100" class="form-text" required>
+							<input type="text"  name="father_alive" value="" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label>বাবার পেশা<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text"  name="fatheroccupation" value="" size="200" maxlength="200" class="form-text" required>
+							<input type="text"  name="fatheroccupation" value="" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label>মা বেঁচে আছেন?<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text"  name="mother_alive"  value=""  size="100" maxlength="100" class="form-text" required>
+							<input type="text"  name="mother_alive"  value="" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label>মায়ের পেশা<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text"  name="motheroccupation"  value=""  size="200" maxlength="200" class="form-text" required>
+							<input type="text"  name="motheroccupation"  value="" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label>ভাইবোন কয়জন<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text"  name="brosis_number"  value=""  size="100" maxlength="100" class="form-text" required>
+							<input type="text"  name="brosis_number"  value="" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label>ভাইবোন সম্পর্কিত তথ্য<span class="form-required" title="This field is required.">*</span></label>
-							<textarea rows="8" name="brosis_info"   placeholder="" class="form-text-describe" required></textarea>
+							<textarea type="text" rows="8" name="brosis_info" value="" class="form-text-describe" required></textarea>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label>মামা/চাচাদের পেশা<span class="form-required" title="This field is required.">*</span></label>
-							<textarea rows="8" name="uncle_profession"  placeholder="" class="form-text-describe" required></textarea>
+							<textarea type="text" rows="8" name="uncle_profession" value="" class="form-text-describe" required></textarea>
 						</div>
 
 						<div class="shosurbari-biodata-field">
@@ -1914,12 +1915,12 @@ if(isloggedin()){
 
 						<div class="shosurbari-biodata-field">
 							<label>পরিবারের অর্থনৈতিক অবস্থা কেমন?<span class="form-required" title="This field is required.">*</span></label>
-							<textarea rows="5" name="financial_condition" placeholder="" class="form-text-describe" required></textarea>
+							<textarea type="text" rows="8" name="financial_condition" value="" class="form-text-describe" required></textarea>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label>পরিবারের ধর্মীয় ও সামাজিক অবস্থা কেমন?<span class="form-required" title="This field is required.">*</span></label>
-							<textarea rows="5" name="family_religious_condition"  placeholder="" class="form-text-describe" required></textarea>
+							<textarea type="text" rows="8" name="family_religious_condition"  value="" class="form-text-describe" required></textarea>
 						</div>
 					</div>
 				</div>
@@ -1976,19 +1977,11 @@ if(isloggedin()){
 							</select>
 						</div>
 
-						<!-- Gurdians Aggress Without Married Sections -->
-						<!-- <div class="shosurbari-biodata-field" id="gurdian-aggress-section" style="display: none;">
-							<div class="shosurbari-biodata-field">
-								<label for="edit-name">পরিবারের অনুমতি নিয়ে বায়োডাটা পোস্ট করতেছেন?<span class="form-required" title="This field is required.">*</span></label>
-								<input type="text" id="edit-name" name="guardians_agree"  value=""  size="100" maxlength="100" class="form-text">
-							</div>
-						</div> -->
-
 						<!-- Divorce Section Start -->
 						<div class="shosurbari-biodata-field" id="divorce-section" style="display: none;">
 							<div class="shosurbari-biodata-field">
 								<label for="edit-name">ডিভোর্সের কারণ বর্ণনা করুন এবং কতদিন সংসার করেছেন?<span class="form-required" title="This field is required.">*</span></label>
-								<textarea rows="5" name="divorce_reason" value="" placeholder="" class="form-text-describe"></textarea>
+								<textarea type="text" rows="8" name="divorce_reason" value="" class="form-text-describe"></textarea>
 							</div>
 						</div>
 						<!-- Divorce Section End -->
@@ -1998,7 +1991,7 @@ if(isloggedin()){
 						<div class="shosurbari-biodata-field" id="widow-section" style="display: none;">
 							<div class="shosurbari-biodata-field">
 								<label for="edit-name">স্বামী যেভাবে মারা গেছেন এবং কতদিন সংসার করেছেন?<span class="form-required" title="This field is required.">*</span></label>
-								<textarea rows="5" name="how_widow" value="" placeholder="" class="form-text-describe"></textarea>
+								<textarea type="text"  rows="8" name="how_widow" value="" class="form-text-describe"></textarea>
 							</div>
 						</div>
 						<!-- Widow Section End-->
@@ -2008,7 +2001,7 @@ if(isloggedin()){
 						<div class="shosurbari-biodata-field" id="widower-section" style="display: none;">
 							<div class="shosurbari-biodata-field">
 								<label for="edit-name">স্ত্রী যেভাবে মারা গেছেন এবং কতদিন সংসার করেছেন?<span class="form-required" title="This field is required.">*</span></label>
-								<textarea rows="5" name="how_widower" value="" placeholder="" class="form-text-describe"></textarea>
+								<textarea type="text" rows="8" name="how_widower" value="" class="form-text-describe"></textarea>
 							</div>
 						</div>
 						<!-- Widower Section End-->
@@ -2018,17 +2011,17 @@ if(isloggedin()){
 						<div class="shosurbari-biodata-field" id="married-section" style="display: none;">
 							<div class="shosurbari-biodata-field">
 								<label for="edit-name">বর্তমান স্ত্রীর অনুমতি নিয়েছেন?<span class="form-required" title="This field is required.">*</span></label>
-								<input type="text" id="edit-name" name="get_wife_permission"  value=""  size="100" maxlength="100" class="form-text">
+								<input type="text" id="edit-name" name="get_wife_permission" value="" class="form-text">
 							</div>
 
 							<div class="shosurbari-biodata-field">
 								<label for="edit-name">আপনার ও বর্তমান স্ত্রীর পরিবার থেকে অনুমতি নিয়েছেন?<span class="form-required" title="This field is required.">*</span></label>
-								<input type="text" id="edit-name" name="get_family_permission"  value=""  size="100" maxlength="100" class="form-text">
+								<input type="text" id="edit-name" name="get_family_permission" value="" class="form-text">
 							</div>
 
 							<div class="shosurbari-biodata-field">
 								<label for="edit-name">আবার বিয়ে করার কারণ<span class="form-required" title="This field is required.">*</span></label>
-								<textarea rows="5" name="why_again_married" value="" placeholder="" class="form-text-describe"></textarea>
+								<textarea type="text" rows="8" name="why_again_married" value="" class="form-text-describe"></textarea>
 							</div>
 						</div>
 						<!-- Married Section End-->
@@ -2057,7 +2050,7 @@ if(isloggedin()){
 
 							<div class="shosurbari-biodata-field" id="son-details" style="display: none;">
 								<label for="edit-name">সন্তান সম্পর্কিত তথ্য<span class="form-required" title="This field is required.">*</span></label>
-								<textarea rows="5" name="son_details"  value="" placeholder="" class="form-text-describe"></textarea>
+								<textarea type="text" rows="8" name="son_details"  value="" class="form-text-describe"></textarea>
 							</div>
 						</div>
 						<!-- This Sections For Divorce + Widow + Widower + Married End-->
@@ -2067,32 +2060,32 @@ if(isloggedin()){
 						<!-- Bellow Two Sections For Male or Female -->
 						<div class="shosurbari-biodata-field" id="male-allow-wife-job">
 							<label for="edit-name">বিয়ের পর স্ত্রীকে চাকরি করতে দিতে ইচ্ছুক?<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="allowjob_aftermarriage"  value=""  size="100" maxlength="100" class="form-text">
+							<input type="text" id="edit-name" name="allowjob_aftermarriage"  value="" class="form-text">
 						</div>
 						<!--Top Male | OR | Bellow Female-->
 						<div class="shosurbari-biodata-field" id="female-job-after-marriage">
 							<label for="edit-name">বিয়ের পর চাকরি করতে চান?<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="anyjob_aftermarriage" value="" size="100" maxlength="100" class="form-text">
+							<input type="text" id="edit-name" name="anyjob_aftermarriage" value="" class="form-text">
 						</div>
 
 						<div class="shosurbari-biodata-field" id="male-allow-wife-study">
 							<label for="edit-name">বিয়ের পর স্ত্রীকে প্রাতিষ্ঠানিক পড়ালেখা করতে দিতে ইচ্ছুক?<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="allowstudy_aftermarriage" value="" size="100" maxlength="100" class="form-text">
+							<input type="text" id="edit-name" name="allowstudy_aftermarriage" value="" class="form-text">
 						</div>
 						<!--Top Male | OR | Bellow Female-->
 						<div class="shosurbari-biodata-field" id="female-study-after-marriage">
 							<label for="edit-name">বিয়ের পর পড়াশোনা চালিয়ে যেতে চান?<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="studies_aftermarriage"   value=""  size="200" maxlength="200" class="form-text">
+							<input type="text" id="edit-name" name="studies_aftermarriage"   value="" class="form-text">
 						</div>
 						
 						<div class="shosurbari-biodata-field" id="male-live-with-wife">
 							<label for="edit-name">বিয়ের পর স্ত্রীকে নিয়ে কোথায় থাকবেন?<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="livewife_aftermarriage"  value=""  size="100" maxlength="100" class="form-text">
+							<input type="text" id="edit-name" name="livewife_aftermarriage"  value="" class="form-text">
 						</div>
 						<!--Top Male | OR | Bellow Female-->
 						<div class="shosurbari-biodata-field" id="female-agree-marriage-student">
 							<label for="edit-name">শিক্ষার্থী বিয়ে করতে রাজি আছেন?<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="agree_marriage_student"   value="" size="200" maxlength="200" class="form-text">
+							<input type="text" id="edit-name" name="agree_marriage_student"   value="" class="form-text">
 						</div>
 
 						<div class="shosurbari-biodata-field">
@@ -2274,7 +2267,7 @@ if(isloggedin()){
 
 						<div class="shosurbari-biodata-field">
 							<label for="about me">ধর্মীয় বিধিনিষেধ কতটুকু অনুসরণ করেন?<span class="form-required" title="This field is required.">*</span></label>
-							<textarea rows="5" name="yourreligion_condition" placeholder="" class="form-text-describe" required></textarea>
+							<textarea type="text"  rows="8" name="yourreligion_condition" value="" class="form-text-describe" required></textarea>
 						</div>
 					</div>
 				</div>
@@ -2318,57 +2311,57 @@ if(isloggedin()){
 					<div class="sb-biodata-option">
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">জীবনসঙ্গীর নাগরিকত্ব/সিটিজেনশিপ কোন <span style="color: black; font-size: 15px;"> দেশ</span> আশা করেন<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="partner_citizen" value=""  size="1000" maxlength="100" class="form-text" required>
+							<input type="text" id="edit-name" name="partner_citizen" value="" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">জীবনসঙ্গী যেই <span style="color: black; font-size: 15px;">জেলার</span> আশা করেন<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="partner_district" value=""  size="1000" maxlength="100" class="form-text" required>
+							<input type="text" id="edit-name" name="partner_district" value=""  class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">জীবনসঙ্গীর <span style="color: black; font-size: 15px;">বৈবাহিক অবস্থা</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="partner_maritialstatus"  value=""  size="1000" maxlength="1000" class="form-text" required>
+							<input type="text" id="edit-name" name="partner_maritialstatus"  value=""  class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">জীবনসঙ্গীর <span style="color: black; font-size: 15px;">বয়স</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="partner_age" value=""  size="100" maxlength="100" class="form-text" required>
+							<input type="text" id="edit-name" name="partner_age" value="" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">জীবনসঙ্গীর <span style="color: black; font-size: 15px;">শারীরিক বর্ণ</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="partner_skintones"  value="" size="100" maxlength="100" class="form-text" required>
+							<input type="text" id="edit-name" name="partner_skintones" value=""  class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">জীবনসঙ্গীর <span style="color: black; font-size: 15px;">উচ্চতা</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="partner_height"  value=""  size="100" maxlength="100" class="form-text" required>
+							<input type="text" id="edit-name" name="partner_height" value="" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">জীবনসঙ্গীর <span style="color: black; font-size: 15px;">শিক্ষাগত যোগ্যতা</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="partner_education"  value=""  size="1000" maxlength="1000" class="form-text" required>
+							<input type="text" id="edit-name" name="partner_education" value="" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">জীবনসঙ্গীর <span style="color: black; font-size: 15px;">পেশা</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="partner_profession"  value=""  size="1000" maxlength="1000" class="form-text" required>
+							<input type="text" id="edit-name" name="partner_profession" value="" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">জীবনসঙ্গীর <span style="color: black; font-size: 15px;">অর্থনৈতিক অবস্থা</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="partner_financial"  value=""  size="1000" maxlength="1000" class="form-text" required>
+							<input type="text" id="edit-name" name="partner_financial" value="" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">জীবনসঙ্গীর <span style="color: black; font-size: 15px;">ধর্মীয় বিষয়াবলী</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
-							<textarea rows="8" id="edit-name" name="partner_religius"  class="form-text-describe" required></textarea>
+							<textarea type="text" rows="8" id="edit-name" name="partner_religius" value="" class="form-text-describe" required></textarea>
 						</div>
 
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">জীবনসঙ্গীর যেসব <span style="color: black; font-size: 15px;">বৈশিষ্ঠ বা গুণাবলী </span>প্রত্যাশা করেন<span class="form-required" title="This field is required.">*</span></label>
-							<textarea rows="8" id="edit-name" name="partner_attributes"  class="form-text-describe" required></textarea>
+							<textarea type="text" rows="8" id="edit-name" name="partner_attributes" value="" class="form-text-describe" required></textarea>
 						</div>
 
 						<div class="sb-biodata-field" style="margin-top: 15px;">
@@ -2426,7 +2419,7 @@ and page_views Database Table
 <script>
 	$(document).ready(function() {
 	// Define an array of page names (without the .php extension)
-	var pages = ["biodata_post"];
+	var pages = ["biodata-post"];
 
 	// Fetch and display view counts for each page
 	for (var i = 0; i < pages.length; i++) {

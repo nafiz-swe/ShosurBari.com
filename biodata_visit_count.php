@@ -3,7 +3,7 @@
 require_once("includes/dbconn.php");
 
 // Extract the user ID from the URL
-$user_id = $_GET['user_id'];
+$user_id = $_GET['/Biodata'];
 
 // Increment the view count for the specified user ID
 $sql = "UPDATE page_views SET view_count = view_count + 1, last_update = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p') WHERE page_name = ?";

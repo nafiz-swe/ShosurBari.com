@@ -44,7 +44,7 @@
             if (!isloggedin()) {
               echo '<a href="register.php" class="sb-create-account"><button> বায়োডাটা পোস্ট করুন</button></a>';
             } else {
-              echo '<a href="biodata_post.php" class="sb-create-account"><button>  বায়োডাটা পোস্ট করুন</button></a>';
+              echo '<a href="biodata-post.php" class="sb-create-account"><button>  বায়োডাটা পোস্ট করুন</button></a>';
             }
           ?>
         </div>
@@ -667,7 +667,7 @@
             echo "<div class=\"sb_bio_header\">";
 
             // Start of Default Photo Show
-            echo "<a href=\"view_profile.php?id={$profid}\" target=\"_blank\">";
+            echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\">";
             if (!empty($pic1)) {
                 echo "<img class=\"img-responsive\" src=\"profile/{$profid}/{$pic1}\"/>";
             } else {
@@ -684,7 +684,7 @@
             echo "<span class=\"sb_single_data\"> <span class=\"sb_value\"> উচ্চতা </span> <span class=\"sb_data\">{$height}</span></span>";
             echo "<span class=\"sb_single_data\"> <span class=\"sb_value\"> পেশা </span> <span class=\"sb_data\"> {$occupation_value}</span></span>";
             echo "<span class=\"sb_single_data\"> <span class=\"sb_value\"> জন্ম সন </span> <span class=\"sb_data\"> {$dateofbirth}</span></span>";
-            echo "<a href=\"view_profile.php?id={$profid}\" target=\"_blank\"> <button class=\"view_sb_profile\"> সম্পূর্ণ প্রোফাইল</button></a>";
+            echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\"> <button class=\"view_sb_profile\"> সম্পূর্ণ প্রোফাইল</button></a>";
             echo "</div></div>";
 
             $c_count++;
@@ -1289,7 +1289,7 @@ function createSlides(data) {
             echo "<div class=\"sbbio_header_recent_view\">";
 
             // Start of Default Photo Show
-            echo "<a href=\"view_profile.php?id={$profid}\" target=\"_blank\">";
+            echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\">";
             if (!empty($pic1)) {
               echo "<img class=\"img-responsive\" src=\"profile/{$profid}/{$pic1}\"/>";
             } else {
@@ -1305,7 +1305,7 @@ function createSlides(data) {
             echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> ধর্ম </span>  <span class=\"sb_data_recentview\">{$religion}</span></span>";
             echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> পেশা </span>  <span class=\"sb_data_recentview\">{$occupation_value}</span></span>";
             echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> জন্ম সন</span>        <span class=\"sb_data_recentview\"> {$dateofbirth}</span></span>";
-            echo "<a href=\"view_profile.php?id={$profid}\" target=\"_blank\"><button class=\"view_sb_profile_recentview\">সম্পূর্ণ প্রোফাইল</button> </a>";
+            echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\"><button class=\"view_sb_profile_recentview\">সম্পূর্ণ প্রোফাইল</button> </a>";
             echo "</div></div>";
             echo "</li>";
           }

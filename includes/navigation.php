@@ -118,6 +118,31 @@
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Biodata<span class="caret"></span></a>
 								<ul class="dropdown-menu" role="menu">
 									<li><a href="search.php">Search & Find Biodata</a></li>
+
+									<li>
+<?php
+// Check if the user is logged in based on your authentication method.
+// Replace the following condition with your authentication logic.
+if (isset($_SESSION['id'])) {
+    $id = $_SESSION['id'];
+
+    // Getting image filenames from the database
+    $sql3 = "SELECT * FROM users WHERE id = $id";
+    $result3 = mysqlexec($sql3);
+    if ($result3) {
+        $row3 = mysqli_fetch_array($result3);
+        if ($row3) {
+            $id = $row3['id'];
+            echo "<li class=\"login-navbar-icon\"><a href=\"biodata-post.php\">Biodata Post</a></li>";
+        }
+    }
+} else {
+    echo "<li><a href=\"register.php\">Biodata Post</a></li>";
+}
+?>
+</li>
+
+
 									<li><a href="faq.php">FAQ's</a></li>
 								</ul>
 							</li>
@@ -158,7 +183,7 @@
 										}
 									}
 
-									echo "<li class=\"login-navbar-img\"><a href=\"userhome.php?id=$id\">";
+									echo "<li class=\"login-navbar-img\"><a href=\"my-account.php\">";
 									if (!empty($pic1)) {
 										echo "<img class=\"img-responsive\" src=\"profile/{$id}/{$pic1}\"/>";
 									} else {

@@ -93,7 +93,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             // setcookie('SBGBEN', $encrypted_biodata, time() + 3600, '/', '', false, true);
             // setcookie('SBUAEN', $encrypted_data, time() + 3600, '/', '', false, true);
 
-            header("location:../userhome.php?id={$row['id']}");
+            header("location:../my-account.php");
         } else {
             $_SESSION['error_message'] = "উফফ! আপনার Password এ সমস্যা দেখা দিয়েছে। আপনার Password টি সঠিক নয়।";
                 // Redirect to login page with error message
@@ -184,7 +184,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 // 			}			
 			
 
-// 			header("location:../userhome.php?id={$row['id']}");
+// 			header("location:../my-account?id={$row['id']}");
 // 		} else {
 // 			echo "Invalid username or password";
 // 		}
@@ -238,7 +238,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 // 				setcookie('password', $password, time() + (86400 * 30), '/');
 // 			}
 
-// 			header("location:../userhome.php?id={$row['id']}");
+// 			header("location:../my-account?id={$row['id']}");
 // 		} else {
 // 			echo "Invalid username or password";
 // 		}
@@ -288,7 +288,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 // 			setcookie('password', $password, time() + (86400 * 30), '/');
 // 		}
 
-// 		header("location:../userhome.php?id={$row['id']}");
+// 		header("location:../my-account?id={$row['id']}");
 // 	} 
 // 	else {
 // 		echo "Invalid username or password";
