@@ -1227,7 +1227,7 @@ textarea:focus {
 										echo "<div class=\"sbbio_header_recent_view\">";
 
 										// Start of Default Photo Show
-										echo "<a href=\"profile.php?id={$profid}\" target=\"_blank\">";
+										echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\">";
 										if (!empty($pic1)) {
 											echo "<img class=\"img-responsive\" src=\"profile/{$profid}/{$pic1}\"/>";
 										} else {
@@ -1244,7 +1244,7 @@ textarea:focus {
 										echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> পেশা </span>      <span class=\"sb_data_recentview\"> {$occupation_value}</span></span>";
 										echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> জেলা </span>      <span class=\"sb_data_recentview\"> {$home_district}</span></span>";
 										echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> জন্ম সন </span>        <span class=\"sb_data_recentview\"> {$dateofbirth_recentview1}</span></span>";
-										echo "<a href=\"profile.php?id={$profid}\" target=\"_blank\"><button class=\"view_sb_profile_recentview\">সম্পূর্ণ প্রোফাইল</button> </a>";
+										echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\"><button class=\"view_sb_profile_recentview\">সম্পূর্ণ প্রোফাইল</button> </a>";
 										echo "</div></div>";
 										$count++;
 									}
@@ -2898,7 +2898,7 @@ textarea:focus {
         echo "<div class=\"sbbio_header_recent_view\">";
 
 		// Start of Default Photo Show
-		echo "<a href=\"profile.php?id={$profid}\" target=\"_blank\">";
+		echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\">";
 		if (!empty($pic1)) {
 			echo "<img class=\"img-responsive\" src=\"profile/{$profid}/{$pic1}\"/>";
 		} else {
@@ -2915,7 +2915,7 @@ textarea:focus {
         echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> পেশা </span>      <span class=\"sb_data_recentview\"> {$occupation_recentview2}</span></span>";
         echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> জেলা </span>      <span class=\"sb_data_recentview\"> {$home_district2}</span></span>";
         echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> জন্ম সন </span>        <span class=\"sb_data_recentview\"> {$dateofbirth_recentview2}</span></span>";
-        echo "<a href=\"profile.php?id={$profid}\" target=\"_blank\"><button class=\"view_sb_profile_recentview\">সম্পূর্ণ প্রোফাইল</button> </a>";
+        echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\"><button class=\"view_sb_profile_recentview\">সম্পূর্ণ প্রোফাইল</button> </a>";
         echo "</div></div>";
         $count++;
     }
