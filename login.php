@@ -173,7 +173,7 @@ if (isset($_SESSION['error_message'])) {
           <!-- If the user clicks the Remember Me box when they login, the user's login information will be saved in their cookie.-->
 			    <div class="remember-forgot">
             <label><input type="checkbox" id="edit-remember" name="remember" value="1" > Remember me</label>
-            <a href="forgot_password.php">Forgot password?</a>
+            <a href="forgot-password.php">Forgot password?</a>
           </div>
 
 		      <div class="form-actions">

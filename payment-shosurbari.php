@@ -91,8 +91,9 @@ if (isset($_COOKIE[$cookieName])) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.8/js/intlTelInput.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.8/css/intlTelInput.css" />
-
 </head>
+
+
 <body>
 <!-- ============================  Navigation Start =========================== -->
 <?php include_once("includes/navigation.php");?>
@@ -472,13 +473,13 @@ if (isset($_GET['/Biodata'])) {
             
 <div class="shosurbari-biodata-field" id="payment-border-error" style="border: 1px solid #ccc; margin-bottom: 20px;">
     <label for="edit-name" style="font-weight: bold;">পছন্দের পেমেন্ট পদ্ধতি বেছে নিন।<span class="form-required" title="This field is required.">*</span></label> <br>
-    <input type="radio" name="payment_method" id="bkash_radio" value="bkash">
+    <input type="radio" name="payment_method" id="bkash_radio" value="বিকাশ">
     <label class="custom-radio-option" for="bkash_radio">বিকাশ</label>
 
-    <input type="radio" name="payment_method" id="nagad_radio" value="nagad">
+    <input type="radio" name="payment_method" id="nagad_radio" value="নগদ">
     <label class="custom-radio-option" for="nagad_radio">নগদ</label>
 
-    <input type="radio" name="payment_method" id="roket_radio" value="roket">
+    <input type="radio" name="payment_method" id="roket_radio" value="রকেট">
     <label class="custom-radio-option" for="roket_radio">রকেট</label>
 
     <div id="payment-method-error" class="shosurbari-form-error"></div>
@@ -487,7 +488,7 @@ if (isset($_GET['/Biodata'])) {
 
 
 
-<div class="payment-method bkash" style="background: #e2136e; padding: 20px;">
+<div class="payment-method বিকাশ" style="background: #e2136e; padding: 20px;">
   <div class="soshurbari-payment-icon">
     <div class="sb-icon-laptop">
       <h4> <img src="images/payment-bkash.png"> Send Money </h4>
@@ -510,7 +511,7 @@ if (isset($_GET['/Biodata'])) {
 
 
 
-<div class="payment-method nagad" style="background: #ec1c24; padding: 20px;">
+<div class="payment-method নগদ" style="background: #ec1c24; padding: 20px;">
   <div class="soshurbari-payment-icon">
     <div class="sb-icon-laptop">
       <h4> <img src="images/payment-nagad.png"> Send Money </h4>
@@ -532,7 +533,7 @@ if (isset($_GET['/Biodata'])) {
 </div>
 
 
-<div class="payment-method roket" style="background: #8C3494; padding: 20px;">
+<div class="payment-method রকেট" style="background: #8C3494; padding: 20px;">
   <div class="soshurbari-payment-icon">
     <div class="sb-icon-laptop">
       <h4> <img src="images/payment-rocket.png"> Send Money </h4>
@@ -992,7 +993,7 @@ function continuouslyChangeColor(element, message) {
 
 // BKASH START
 // Determine which payment method is selected and validate the corresponding input fields
-if (selectedPaymentMethod.value === 'bkash') {
+if (selectedPaymentMethod.value === 'বিকাশ') {
     var bkashNumberInput = document.getElementById('bkash_number');
     var bkashTrxIdInput = document.getElementById('bkash_trxid');
     var bkashNumberError = document.getElementById('bkashnumber-error');
@@ -1056,7 +1057,7 @@ if (selectedPaymentMethod.value === 'bkash') {
 
     
 // NAGAD START
-else if (selectedPaymentMethod.value === 'nagad') {
+else if (selectedPaymentMethod.value === 'নগদ') {
     var nagadNumberInput = document.getElementById('nagad_number');
     var nagadTrxIdInput = document.getElementById('nagad_trxid');
     var nagadNumberError = document.getElementById('nagadnumber-error');
@@ -1119,7 +1120,7 @@ else if (selectedPaymentMethod.value === 'nagad') {
     
     
     // ROCKET START
-    else if (selectedPaymentMethod.value === 'roket') {
+    else if (selectedPaymentMethod.value === 'রকেট') {
     var roketNumberInput = document.getElementById('roket_number');
     var roketTrxIdInput = document.getElementById('roket_trxid');
     var roketNumberError = document.getElementById('roketnumber-error');
@@ -1213,8 +1214,8 @@ function showSuccessMessage() {
     popup.style.display = 'none';
     document.querySelector('.overlay').style.display = 'none';
 
-    // Redirect to the previous page
-    window.history.back();
+    // Redirect to the search.php page
+    window.location.href = 'search.php';
   });
 }
 

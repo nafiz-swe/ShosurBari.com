@@ -544,7 +544,7 @@
                 $plain_text_message = "
                 Your Order is Processing! Order Details.
                 
-                আপনাকে ধন্যবাদ! আপনার পেমেন্ট তথ্য যাচাই বাছাইয়ের পর SMS বা ই-মেইলের মাধ্যমে ২৪ ঘন্টার মধ্যে আপনাকে অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে।                Order ID: SB$id_customer
+                আপনাকে ধন্যবাদ! আপনার পেমেন্ট তথ্য সফল ভাবেই জমা হয়েছে। আপনার পেমেন্ট তথ্য যাচাই বাছাইয়ের পর আপনাকে SMS বা ই-মেইলের মাধ্যমে ২৪ ঘন্টার মধ্যে অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে।
                 Name: $cust_name
                 Email: $cust_email
                 Mobile Number: $cust_number
@@ -595,12 +595,16 @@
                 $mail->AltBody = $plain_text_message; // Plain text version of the email
     
                 if ($mail->send()) {
-                    echo '';
-                } else {
-                    echo '';
+                    // header("location: search.php");
+            } else {
+                    echo 'no';
                 }
     
-                // header("location: index.php");
+                // $previousPage = $_SERVER['HTTP_REFERER'];
+                // header("Location: $previousPage");
+                // header("location: search.php");
+
+                exit;
             } else {
                 echo "Error";
             }

@@ -229,3 +229,4 @@ function confirmLogout() {
 document.addEventListener('scroll', updateProgressBar);
 </script>
 
+<?php include('loading-overlay.php'); ?>

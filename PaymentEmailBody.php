@@ -182,7 +182,7 @@ h2 {
         <h1>Your Order is Processing!</h1>
     </div>
     <div class='content'>
-        <h3>আপনাকে ধন্যবাদ! আপনার পেমেন্ট তথ্য যাচাই বাছাইয়ের পর SMS বা ই-মেইলের মাধ্যমে ২৪ ঘন্টার মধ্যে আপনাকে অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে।</h3>
+        <h3>আপনাকে ধন্যবাদ! আপনার পেমেন্ট তথ্য সফল ভাবেই জমা হয়েছে। আপনার পেমেন্ট তথ্য যাচাই বাছাইয়ের পর আপনাকে SMS বা ই-মেইলের মাধ্যমে ২৪ ঘন্টার মধ্যে অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে।</h3>
         <div class="sb-reg-info">
 
         <h2>Order ID: <?php echo "SB$id_customer";?></h2>
@@ -231,17 +231,17 @@ h2 {
                         <?php
                         // Check which payment method was used and display the corresponding number
                         switch ($payment_method) {
-                            case 'bkash':
-                                echo $bkash_number;
-                                break;
-                            case 'nagad':
-                                echo $nagad_number;
-                                break;
-                            case 'roket':
-                                echo $roket_number;
-                                break;
-                            default:
-                                echo "N/A";
+                        case 'বিকাশ':
+                            echo $bkash_number;
+                            break;
+                        case 'নগদ':
+                            echo $nagad_number;
+                            break;
+                        case 'রকেট':
+                            echo $roket_number;
+                            break;
+                        default:
+                            echo "N/A";
                         }
                         ?>
                     </td>
@@ -253,17 +253,17 @@ h2 {
                         <?php
                         // Check which payment method was used and display the corresponding transaction ID
                         switch ($payment_method) {
-                            case 'bkash':
-                                echo $bkash_transaction_id;
-                                break;
-                            case 'nagad':
-                                echo $nagad_transaction_id;
-                                break;
-                            case 'roket':
-                                echo $roket_transaction_id;
-                                break;
-                            default:
-                                echo "N/A";
+                        case 'বিকাশ':
+                            echo $bkash_transaction_id;
+                            break;
+                        case 'নগদ':
+                            echo $nagad_transaction_id;
+                            break;
+                        case 'রকেট':
+                            echo $roket_transaction_id;
+                            break;
+                        default:
+                            echo "N/A";
                         }
                         ?>
                     </td>

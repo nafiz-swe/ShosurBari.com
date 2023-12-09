@@ -36,6 +36,9 @@ if (isset($_SESSION['id'])) {
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- Facebook Icon Link -->
 </head>
+
+
+
 <body>
 <!-- ============================  Navigation Start =========================== -->
 <?php include_once("includes/navigation.php");?>

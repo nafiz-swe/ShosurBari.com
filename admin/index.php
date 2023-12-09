@@ -237,9 +237,9 @@ if (!isset($_SESSION['id'])) {
                             $totalCustomers = $row['totalCustomers'];
 
                             // Calculate the totals for each payment method
-                            $bkashTotal = mysqli_query($conn, "SELECT COUNT(*) as count FROM customer WHERE payment_method = 'bkash'")->fetch_assoc()['count'];
-                            $nagadTotal = mysqli_query($conn, "SELECT COUNT(*) as count FROM customer WHERE payment_method = 'nagad'")->fetch_assoc()['count'];
-                            $roketTotal = mysqli_query($conn, "SELECT COUNT(*) as count FROM customer WHERE payment_method = 'roket'")->fetch_assoc()['count'];
+                            $bkashTotal = mysqli_query($conn, "SELECT COUNT(*) as count FROM customer WHERE payment_method = 'বিকাশ'")->fetch_assoc()['count'];
+                            $nagadTotal = mysqli_query($conn, "SELECT COUNT(*) as count FROM customer WHERE payment_method = 'নগদ'")->fetch_assoc()['count'];
+                            $roketTotal = mysqli_query($conn, "SELECT COUNT(*) as count FROM customer WHERE payment_method = 'রকেট'")->fetch_assoc()['count'];
 
                             // Query to get the total number of distinct user_ids in the 'customer' table
                             $sql = "SELECT COUNT(DISTINCT user_id) as totalUsers FROM customer";
@@ -247,7 +247,6 @@ if (!isset($_SESSION['id'])) {
                             $row = mysqli_fetch_assoc($result);
                             $totalUsers = $row['totalUsers'];
                             // Customers Activity and Sale Biodata Result END
-
 
 
 
