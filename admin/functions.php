@@ -311,7 +311,7 @@ function admin_login(){
             $subject = "Guardian Contact Details";
 
             ob_start();
-            include('EmailBiodataInfo-sent.php'); // Update with the actual file name
+            include('BiodataInfoEmailBody-sent.php'); // Update with the actual file name
             $email_body = ob_get_clean();
 
             // Plain text version of the email body
