@@ -151,58 +151,58 @@ function admin_login(){
             die("Connection failed: " . $conn->connect_error);
         }
 
-      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-          $payment_order_id = $_POST['payment_order_id'];
-          $payment_cust_name = $_POST['payment_cust_name'];
-          $payment_cust_email = $_POST['payment_cust_email'];
-          $payment_cust_number = $_POST['payment_cust_number'];
-          $payment_biodata_quantity = $_POST['payment_biodata_quantity'];
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $payment_order_id = $_POST['payment_order_id'];
+            $payment_cust_name = $_POST['payment_cust_name'];
+            $payment_cust_email = $_POST['payment_cust_email'];
+            $payment_cust_number = $_POST['payment_cust_number'];
+            $payment_biodata_quantity = $_POST['payment_biodata_quantity'];
 
-          $biodata_number_1 = $_POST['biodata_number_1'];
-          $biodata_guardian_1 = $_POST['biodata_guardian_1'];
-          $biodata_patropatri_1 = $_POST['biodata_patropatri_1'];
+            $biodata_number_1 = $_POST['biodata_number_1'];
+            $biodata_guardian_1 = $_POST['biodata_guardian_1'];
+            $biodata_patropatri_1 = $_POST['biodata_patropatri_1'];
 
-          $biodata_number_2 = $_POST['biodata_number_2'];
-          $biodata_guardian_2 = $_POST['biodata_guardian_2'];
-          $biodata_patropatri_2 = $_POST['biodata_patropatri_2'];
+            $biodata_number_2 = $_POST['biodata_number_2'];
+            $biodata_guardian_2 = $_POST['biodata_guardian_2'];
+            $biodata_patropatri_2 = $_POST['biodata_patropatri_2'];
 
-          $biodata_number_3 = $_POST['biodata_number_3'];
-          $biodata_guardian_3 = $_POST['biodata_guardian_3'];
-          $biodata_patropatri_3 = $_POST['biodata_patropatri_3'];
+            $biodata_number_3 = $_POST['biodata_number_3'];
+            $biodata_guardian_3 = $_POST['biodata_guardian_3'];
+            $biodata_patropatri_3 = $_POST['biodata_patropatri_3'];
 
-          $biodata_number_4 = $_POST['biodata_number_4'];
-          $biodata_guardian_4 = $_POST['biodata_guardian_4'];
-          $biodata_patropatri_4 = $_POST['biodata_patropatri_4'];
+            $biodata_number_4 = $_POST['biodata_number_4'];
+            $biodata_guardian_4 = $_POST['biodata_guardian_4'];
+            $biodata_patropatri_4 = $_POST['biodata_patropatri_4'];
 
-          $biodata_number_5 = $_POST['biodata_number_5'];
-          $biodata_guardian_5 = $_POST['biodata_guardian_5'];
-          $biodata_patropatri_5 = $_POST['biodata_patropatri_5'];
+            $biodata_number_5 = $_POST['biodata_number_5'];
+            $biodata_guardian_5 = $_POST['biodata_guardian_5'];
+            $biodata_patropatri_5 = $_POST['biodata_patropatri_5'];
 
-          $biodata_number_6 = $_POST['biodata_number_6'];
-          $biodata_guardian_6 = $_POST['biodata_guardian_6'];
-          $biodata_patropatri_6 = $_POST['biodata_patropatri_6'];
+            $biodata_number_6 = $_POST['biodata_number_6'];
+            $biodata_guardian_6 = $_POST['biodata_guardian_6'];
+            $biodata_patropatri_6 = $_POST['biodata_patropatri_6'];
 
-          $biodata_number_7 = $_POST['biodata_number_7'];
-          $biodata_guardian_7 = $_POST['biodata_guardian_7'];
-          $biodata_patropatri_7 = $_POST['biodata_patropatri_7'];
+            $biodata_number_7 = $_POST['biodata_number_7'];
+            $biodata_guardian_7 = $_POST['biodata_guardian_7'];
+            $biodata_patropatri_7 = $_POST['biodata_patropatri_7'];
 
-          $biodata_number_8 = $_POST['biodata_number_8'];
-          $biodata_guardian_8 = $_POST['biodata_guardian_8'];
-          $biodata_patropatri_8 = $_POST['biodata_patropatri_8'];
+            $biodata_number_8 = $_POST['biodata_number_8'];
+            $biodata_guardian_8 = $_POST['biodata_guardian_8'];
+            $biodata_patropatri_8 = $_POST['biodata_patropatri_8'];
 
-          $biodata_number_9 = $_POST['biodata_number_9'];
-          $biodata_guardian_9 = $_POST['biodata_guardian_9'];
-          $biodata_patropatri_9 = $_POST['biodata_patropatri_9'];
+            $biodata_number_9 = $_POST['biodata_number_9'];
+            $biodata_guardian_9 = $_POST['biodata_guardian_9'];
+            $biodata_patropatri_9 = $_POST['biodata_patropatri_9'];
 
-          $biodata_number_10 = $_POST['biodata_number_10'];
-          $biodata_guardian_10 = $_POST['biodata_guardian_10'];
-          $biodata_patropatri_10 = $_POST['biodata_patropatri_10'];
+            $biodata_number_10 = $_POST['biodata_number_10'];
+            $biodata_guardian_10 = $_POST['biodata_guardian_10'];
+            $biodata_patropatri_10 = $_POST['biodata_patropatri_10'];
 
-          $cust_payment_date = $_POST['cust_payment_date'];
+            $cust_payment_date = $_POST['cust_payment_date'];
 
-  
-          // Insert the contact form data into the contact_us table
-          $sql = "INSERT INTO customer_sent_info_complete (
+    
+            // Insert the contact form data into the contact_us table
+            $sql = "INSERT INTO customer_sent_info_complete (
             payment_order_id,
             payment_cust_name,
             payment_cust_email, 
@@ -302,122 +302,122 @@ function admin_login(){
             
   
 
-  if (mysqli_query($conn, $sql)) {
-    $id = mysqli_insert_id($conn);
-    $_SESSION['id'] = $id;
-    
-    // SMTP email sending code
-    $to = $payment_cust_email;
-    $subject = "Guardian Contact Details";
+            if (mysqli_query($conn, $sql)) {
+            $sbo_id = mysqli_insert_id($conn);
+            $_SESSION['id'] = $sbo_id;
+            
+            // SMTP email sending code
+            $to = $payment_cust_email;
+            $subject = "Guardian Contact Details";
 
-    ob_start();
-    include('EmailBiodataInfo-sent.php'); // Update with the actual file name
-    $email_body = ob_get_clean();
+            ob_start();
+            include('EmailBiodataInfo-sent.php'); // Update with the actual file name
+            $email_body = ob_get_clean();
 
-    // Plain text version of the email body
-    $plain_text_message = "
-    Guardian Contact Details
+            // Plain text version of the email body
+            $plain_text_message = "
+            Guardian Contact Details
 
-    আমাদের সাথে থাকার জন্য আপনাকে ধন্যবাদ! শ্বশুরবাড়ি ডট কম শুধুমাত্র দুইটি পরিবারের মধ্যে যোগাযোগের মাধ্যম হিসাবে পরিচালিত।
+            আমাদের সাথে থাকার জন্য আপনাকে ধন্যবাদ! শ্বশুরবাড়ি ডট কম শুধুমাত্র দুইটি পরিবারের মধ্যে যোগাযোগের মাধ্যম হিসাবে পরিচালিত। নিচে বায়োডাটা নং এ ক্লিক করে দেখে নিতেন পারেন সম্পূর্ণ প্রফাইলটি।
+            
+            
+            পেমেন্ট অর্ডার আইডি: $payment_order_id
+            পেমেন্ট তারিখ: $payment_biodata_quantity
+            মোট বায়োডাটা: $payment_biodata_quantity
 
-    পেমেন্ট অর্ডার আইডি: $payment_order_id
-    পেমেন্ট তারিখ: $payment_biodata_quantity
-    মোট বায়োডাটা: $payment_biodata_quantity
+            বায়োডাটা নং: $biodata_number_1
+            বায়োডাটার অভিভাবক: $biodata_guardian_1
+            পাত্র/পাত্রী: $biodata_patropatri_1
 
-    বায়োডাটা নাম্বার: $biodata_number_1
-    বায়োডাটার অভিভাবক: $biodata_guardian_1
-    পাত্র/পাত্রী: $biodata_patropatri_1
+            বায়োডাটা নং: $biodata_number_2
+            বায়োডাটার অভিভাবক: $biodata_guardian_2
+            পাত্র/পাত্রী: $biodata_patropatri_2
 
-    বায়োডাটা নাম্বার: $biodata_number_2
-    বায়োডাটার অভিভাবক: $biodata_guardian_2
-    পাত্র/পাত্রী: $biodata_patropatri_2
+            বায়োডাটা নং: $biodata_number_3
+            বায়োডাটার অভিভাবক: $biodata_guardian_3
+            পাত্র/পাত্রী: $biodata_patropatri_3
 
-    বায়োডাটা নাম্বার: $biodata_number_3
-    বায়োডাটার অভিভাবক: $biodata_guardian_3
-    পাত্র/পাত্রী: $biodata_patropatri_3
+            বায়োডাটা নং: $biodata_number_4
+            বায়োডাটার অভিভাবক: $biodata_guardian_4
+            পাত্র/পাত্রী: $biodata_patropatri_4
 
-    বায়োডাটা নাম্বার: $biodata_number_4
-    বায়োডাটার অভিভাবক: $biodata_guardian_4
-    পাত্র/পাত্রী: $biodata_patropatri_4
+            বায়োডাটা নং: $biodata_number_5
+            বায়োডাটার অভিভাবক: $biodata_guardian_5
+            পাত্র/পাত্রী: $biodata_patropatri_5
 
-    বায়োডাটা নাম্বার: $biodata_number_5
-    বায়োডাটার অভিভাবক: $biodata_guardian_5
-    পাত্র/পাত্রী: $biodata_patropatri_5
+            বায়োডাটা নং: $biodata_number_6
+            বায়োডাটার অভিভাবক: $biodata_guardian_6
+            পাত্র/পাত্রী: $biodata_patropatri_6
 
-    বায়োডাটা নাম্বার: $biodata_number_6
-    বায়োডাটার অভিভাবক: $biodata_guardian_6
-    পাত্র/পাত্রী: $biodata_patropatri_6
+            বায়োডাটা নং: $biodata_number_7
+            বায়োডাটার অভিভাবক: $biodata_guardian_7
+            পাত্র/পাত্রী: $biodata_patropatri_7
 
-    বায়োডাটা নাম্বার: $biodata_number_7
-    বায়োডাটার অভিভাবক: $biodata_guardian_7
-    পাত্র/পাত্রী: $biodata_patropatri_7
+            বায়োডাটা নং: $biodata_number_8
+            বায়োডাটার অভিভাবক: $biodata_guardian_8
+            পাত্র/পাত্রী: $biodata_patropatri_8
 
-    বায়োডাটা নাম্বার: $biodata_number_8
-    বায়োডাটার অভিভাবক: $biodata_guardian_8
-    পাত্র/পাত্রী: $biodata_patropatri_8
+            বায়োডাটা নং: $biodata_number_9
+            বায়োডাটার অভিভাবক: $biodata_guardian_9
+            পাত্র/পাত্রী: $biodata_patropatri_9
 
-    বায়োডাটা নাম্বার: $biodata_number_9
-    বায়োডাটার অভিভাবক: $biodata_guardian_9
-    পাত্র/পাত্রী: $biodata_patropatri_9
+            বায়োডাটা নং: $biodata_number_10
+            বায়োডাটার অভিভাবক: $biodata_guardian_10
+            পাত্র/পাত্রী: $biodata_patropatri_10
 
-    বায়োডাটা নাম্বার: $biodata_number_10
-    বায়োডাটার অভিভাবক: $biodata_guardian_10
-    পাত্র/পাত্রী: $biodata_patropatri_10
+            বি:দ্র: পরিবার ও পাত্র-পাত্রীর সম্পর্কে নিজ দায়িত্বে ভালভাবে খোঁজ নিয়ে তবেই বিয়ের কথা পাকা করুন। বিয়ের পূর্বেই পাত্র-পাত্রীর পরিবারের সাথে টাকা লেনদেন করে প্রতারিত হবেন না।
+            
+            Connect with us:
+            - Website: https://www.shoshurbari.com
+            - Facebook: https://www.facebook.com/ShoshurBari.bd
+            - Email: support@shoshurbari.com
+            - YouTube: https://www.youtube.com/c/ShoshurBari
+            
+            (c) 2022-23 ShosurBari.com | All Rights Reserved
+            ";
+            
+            $headers = "From: nafizulislam.swe@gmail.com\r\n";
+            $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
-    বি:দ্র: পরিবার ও পাত্র-পাত্রীর সম্পর্কে নিজ দায়িত্বে ভালভাবে খোঁজ নিয়ে তবেই বিয়ের কথা পাকা করুন। বিয়ের পূর্বেই পাত্র-পাত্রীর পরিবারের সাথে টাকা লেনদেন করে প্রতারিত হবেন না।
-    
-    Connect with us:
-    - Website: https://www.shoshurbari.com
-    - Facebook: https://www.facebook.com/ShoshurBari.bd
-    - Email: support@shoshurbari.com
-    - YouTube: https://www.youtube.com/c/ShoshurBari
-    
-    (c) 2022-23 ShosurBari.com | All Rights Reserved
-    ";
-    
-    $headers = "MIME-Version: 1.0" . "\r\n";
-    $headers = "From: nafizulislam.swe@gmail.com\r\n";
-    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+            $smtp_host = "smtp.gmail.com";
+            $smtp_port = 587;
+            $smtp_username = "nafizulislam.swe@gmail.com";
+            $smtp_password = "dnngvzwetnirboae";
+            $smtp_secure = "tls";
 
-    $smtp_host = "smtp.gmail.com";
-    $smtp_port = 587;
-    $smtp_username = "nafizulislam.swe@gmail.com";
-    $smtp_password = "dnngvzwetnirboae";
-    $smtp_secure = "tls";
+            require '../PHPMailer/PHPMailerAutoload.php';
 
-    require '../PHPMailer/PHPMailerAutoload.php';
+            $mail = new PHPMailer;
+            $mail->isSMTP();
+            $mail->Host = $smtp_host;
+            $mail->Port = $smtp_port;
+            $mail->SMTPSecure = $smtp_secure;
+            $mail->SMTPAuth = true;
+            $mail->Username = $smtp_username;
+            $mail->Password = $smtp_password;
 
-    $mail = new PHPMailer;
-    $mail->isSMTP();
-    $mail->Host = $smtp_host;
-    $mail->Port = $smtp_port;
-    $mail->SMTPSecure = $smtp_secure;
-    $mail->SMTPAuth = true;
-    $mail->Username = $smtp_username;
-    $mail->Password = $smtp_password;
+            $mail->setFrom($smtp_username, 'ShosurBari');
+            $mail->addAddress($to);
+            $mail->Subject = $subject;
+            $mail->Body = $email_body;
+            $mail->AltBody = $plain_text_message; // Plain text version of the email
 
-    $mail->setFrom($smtp_username, 'ShosurBari');
-    $mail->addAddress($to);
-    $mail->Subject = $subject;
-    $mail->Body = $email_body;
-    $mail->AltBody = $plain_text_message; // Plain text version of the email
-
-    if ($mail->send()) {
-        // header("location: search.php");
-} else {
-        echo 'no';
+            if ($mail->send()) {
+                echo '<script>';
+                echo 'document.addEventListener("DOMContentLoaded", function() {';
+                echo 'showMessage("success", "Successfully Sent Email.!");';
+                echo '});';
+                echo '</script>';
+            } else {
+                echo '<script>';
+                echo 'document.addEventListener("DOMContentLoaded", function() {';
+                echo 'showMessage("error", "Oops.! Email Sent Failed");';
+                echo '});';
+                echo '</script>';
+            }
+        } else {
+            echo "Error Found.! Email Sent Failed.";
+        }
     }
-
-    // $previousPage = $_SERVER['HTTP_REFERER'];
-    // header("Location: $previousPage");
-    // header("location: search.php");
-
-    exit;
-} else {
-    echo "Error";
 }
-
-
-      }
-  }
 ?>

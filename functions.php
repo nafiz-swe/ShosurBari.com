@@ -316,34 +316,34 @@
                     include('RegisterEmailBody.php');
                     $email_body = ob_get_clean();
     
-                // Plain text version of the email body
-                $plain_text_message = "
-                Welcome to ShosurBari
-                
-                Thank you for registering at ShosurBari. Here are your registration details:
-                
-                Biodata Number: $id
-                Full Name: $fname
-                Username: $uname
-                Email: $email
-                Phone Number: $pnumber
-                Gender: $gender
-                Passwors: ********* (For security reasons, do not display the password)
-    
-                
-                Login to your account: https://www.shoshurbari.rf.gd/login.php
-                
-                Note: Please remember to keep your passwords secure. Do not share them with anyone.
-                
-                Connect with us:
-                - Website: https://www.shoshurbari.com
-                - Facebook: https://www.facebook.com/ShoshurBari.bd
-                - Email: support@shoshurbari.com
-                - YouTube: https://www.youtube.com/c/ShoshurBari
-                
-                (c) 2022-23 ShosurBari.com | All Rights Reserved
-                ";
-    
+                    // Plain text version of the email body
+                    $plain_text_message = "
+                    Welcome to ShosurBari
+                    
+                    Thank you for registering at ShosurBari. Here are your registration details:
+                    
+                    Biodata Number: $id
+                    Full Name: $fname
+                    Username: $uname
+                    Email: $email
+                    Phone Number: $pnumber
+                    Gender: $gender
+                    Passwors: ********* (For security reasons, do not display the password)
+        
+                    
+                    Login to your account: https://www.shoshurbari.rf.gd/login.php
+                    
+                    Note: Please remember to keep your passwords secure. Do not share them with anyone.
+                    
+                    Connect with us:
+                    - Website: https://www.shoshurbari.com
+                    - Facebook: https://www.facebook.com/ShoshurBari.bd
+                    - Email: support@shoshurbari.com
+                    - YouTube: https://www.youtube.com/c/ShoshurBari
+                    
+                    (c) 2022-23 ShosurBari.com | All Rights Reserved
+                    ";
+        
     
                     $headers = "From: nafizulislam.swe@gmail.com\r\n";
                     $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
@@ -596,8 +596,10 @@
                 $mail->AltBody = $plain_text_message; // Plain text version of the email
     
                 if ($mail->send()) {
-                    // header("location: search.php");
-            } else {
+                    echo 'success';
+                    // Flush the output buffer to send the response to the client immediately
+                    flush();
+                } else {
                     echo 'no';
                 }
     

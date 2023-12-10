@@ -92,27 +92,32 @@ error_reporting(0);
 
         <div class="shosurbari-biodata-field">
           <label for="edit-name">পেমেন্ট অর্ডার আইডি<span class="form-required" title="This field is required.">*</span></label>
-          <input type="text" name="payment_order_id" value=""  size="100" maxlength="100" class="form-text" required>
+          <input type="text" name="payment_order_id" value="" class="form-text" required>
         </div>
 
         <div class="shosurbari-biodata-field">
           <label for="edit-name">কাস্টমার নাম<span class="form-required" title="This field is required.">*</span></label>
-          <input type="text" name="payment_cust_name" value=""  size="100" maxlength="100" class="form-text" required>
+          <input type="text" name="payment_cust_name" value="" class="form-text" required>
         </div>
 
         <div class="shosurbari-biodata-field">
           <label for="edit-name">কাস্টমার ই-মেইল<span class="form-required" title="This field is required.">*</span></label>
-          <input type="email" name="payment_cust_email" value=""  size="100" maxlength="100" class="form-text" required>
+          <input type="email" name="payment_cust_email" value="" class="form-text" required>
         </div>
 
         <div class="shosurbari-biodata-field">
           <label for="edit-name">কাস্টমার মোবাইল নাম্বার<span class="form-required" title="This field is required.">*</span></label>
-          <input type="number" name="payment_cust_number" value=""  size="100" maxlength="100" class="form-text" required>
+          <input type="number" name="payment_cust_number" value="" class="form-text" required>
+        </div>
+
+        <div class="shosurbari-biodata-field">
+          <label for="edit-name">পেমেন্ট তারিখ<span class="form-required" title="This field is required.">*</span></label>
+          <input type="text" name="cust_payment_date" value="" class="form-text" required>
         </div>
 
         <div class="shosurbari-biodata-field">
           <label for="edit-name">মোট বায়োডাটা<span class="form-required" title="This field is required.">*</span></label>
-          <input type="text" name="payment_biodata_quantity" value="১,২,৩,৪,৫,৬,৭,৮,৯,১০ টি"  size="100" maxlength="100" class="form-text" required>
+          <input type="text" name="payment_biodata_quantity" value="১,২,৩,৪,৫,৬,৭,৮,৯,১০ টি" class="form-text" required>
         </div>
 
 
@@ -121,17 +126,17 @@ error_reporting(0);
         
           <div class="shosurbari-biodata-field">
             <label for="about me">বায়োডাটা নাম্বার<span class="form-required" title="This field is required.">*</span></label>
-            <input type="text" name="biodata_number_1" value=""  size="100" maxlength="100" class="form-text" required>
+            <input type="text" name="biodata_number_1" value="" class="form-text" required>
           </div>
 
           <div class="shosurbari-biodata-field">
             <label for="about me">বায়োডাটার অভিভাবক<span class="form-required" title="This field is required.">*</span></label>
-            <input type="text" name="biodata_guardian_1" value="অভিভাবক: ,   নাম: ,   মোবাইল-নাম্বার: "  size="100" maxlength="100" class="form-text" required>
+            <textarea rows="4" type="text" name="biodata_guardian_1" value="অভিভাবক: ,   নাম: ,   মোবাইল-নাম্বার: " class="form-text" required></textarea>
           </div>
 
           <div class="shosurbari-biodata-field">
             <label for="about me">পাত্র-পাত্রীর<span class="form-required" title="This field is required.">*</span></label>
-            <input type="text" name="biodata_patropatri_1" value="নাম:  ই-মেইল:"  size="100" maxlength="100" class="form-text" required>
+            <input type="text" name="biodata_patropatri_1" value="নাম:  ই-মেইল:" class="form-text" required>
           </div>
         </div>
 
@@ -140,17 +145,17 @@ error_reporting(0);
         
           <div class="shosurbari-biodata-field">
             <label for="about me">বায়োডাটা নাম্বার</label>
-            <input type="text" name="biodata_number_2" value=""  size="100" maxlength="100" class="form-text">
+            <input type="text" name="biodata_number_2" value="" class="form-text">
           </div>
 
           <div class="shosurbari-biodata-field">
             <label for="about me">বায়োডাটার অভিভাবক</label>
-            <input type="text" name="biodata_guardian_2" value=""  size="100" maxlength="100" class="form-text">
+            <textarea rows="4" type="text" name="biodata_guardian_2" value="" class="form-text"></textarea>
           </div>
 
           <div class="shosurbari-biodata-field">
             <label for="about me">পাত্র-পাত্রীর</label>
-            <input type="text" name="biodata_patropatri_2" value=""  size="100" maxlength="100" class="form-text">
+            <input type="text" name="biodata_patropatri_2" value="" class="form-text">
           </div>
         </div>
 
@@ -159,17 +164,17 @@ error_reporting(0);
         
           <div class="shosurbari-biodata-field">
             <label for="about me">বায়োডাটা নাম্বার</label>
-            <input type="text" name="biodata_number_3" value=""  size="100" maxlength="100" class="form-text">
+            <input type="text" name="biodata_number_3" value="" class="form-text">
           </div>
 
           <div class="shosurbari-biodata-field">
             <label for="about me">বায়োডাটার অভিভাবক</label>
-            <input type="text" name="biodata_guardian_3" value=""  size="100" maxlength="100" class="form-text">
+            <textarea rows="4" type="text" name="biodata_guardian_3" value="" class="form-text"></textarea>
           </div>
 
           <div class="shosurbari-biodata-field">
             <label for="about me">পাত্র-পাত্রীর</label>
-            <input type="text" name="biodata_patropatri_3" value=""  size="100" maxlength="100" class="form-text">
+            <input type="text" name="biodata_patropatri_3" value="" class="form-text">
           </div>
         </div>
 
@@ -178,17 +183,17 @@ error_reporting(0);
         
           <div class="shosurbari-biodata-field">
             <label for="about me">বায়োডাটা নাম্বার</label>
-            <input type="text" name="biodata_number_4" value=""  size="100" maxlength="100" class="form-text">
+            <input type="text" name="biodata_number_4" value="" class="form-text">
           </div>
 
           <div class="shosurbari-biodata-field">
             <label for="about me">বায়োডাটার অভিভাবক</label>
-            <input type="text" name="biodata_guardian_4" value=""  size="100" maxlength="100" class="form-text">
+            <textarea rows="4" type="text" name="biodata_guardian_4" value="" class="form-text"></textarea>
           </div>
 
           <div class="shosurbari-biodata-field">
             <label for="about me">পাত্র-পাত্রীর</label>
-            <input type="text" name="biodata_patropatri_4" value=""  size="100" maxlength="100" class="form-text">
+            <input type="text" name="biodata_patropatri_4" value="" class="form-text">
           </div>
         </div>
 
@@ -197,17 +202,17 @@ error_reporting(0);
         
           <div class="shosurbari-biodata-field">
             <label for="about me">বায়োডাটা নাম্বার</label>
-            <input type="text" name="biodata_number_5" value=""  size="100" maxlength="100" class="form-text">
+            <input type="text" name="biodata_number_5" value="" class="form-text">
           </div>
 
           <div class="shosurbari-biodata-field">
             <label for="about me">বায়োডাটার অভিভাবক</label>
-            <input type="text" name="biodata_guardian_5" value=""  size="100" maxlength="100" class="form-text">
+            <textarea rows="4" type="text" name="biodata_guardian_5" value="" class="form-text"></textarea>
           </div>
 
           <div class="shosurbari-biodata-field">
             <label for="about me">পাত্র-পাত্রীর</label>
-            <input type="text" name="biodata_patropatri_5" value=""  size="100" maxlength="100" class="form-text">
+            <input type="text" name="biodata_patropatri_5" value="" class="form-text">
           </div>
         </div>
 
@@ -216,17 +221,17 @@ error_reporting(0);
         
           <div class="shosurbari-biodata-field">
             <label for="about me">বায়োডাটা নাম্বার</label>
-            <input type="text" name="biodata_number_6" value=""  size="100" maxlength="100" class="form-text">
+            <input type="text" name="biodata_number_6" value="" class="form-text">
           </div>
 
           <div class="shosurbari-biodata-field">
             <label for="about me">বায়োডাটার অভিভাবক</label>
-            <input type="text" name="biodata_guardian_6" value=""  size="100" maxlength="100" class="form-text">
+            <textarea rows="4" type="text" name="biodata_guardian_6" value="" class="form-text"></textarea>
           </div>
 
           <div class="shosurbari-biodata-field">
             <label for="about me">পাত্র-পাত্রীর</label>
-            <input type="text" name="biodata_patropatri_6" value=""  size="100" maxlength="100" class="form-text">
+            <input type="text" name="biodata_patropatri_6" value="" class="form-text">
           </div>
         </div>
 
@@ -235,17 +240,17 @@ error_reporting(0);
         
           <div class="shosurbari-biodata-field">
             <label for="about me">বায়োডাটা নাম্বার</label>
-            <input type="text" name="biodata_number_7" value=""  size="100" maxlength="100" class="form-text">
+            <input type="text" name="biodata_number_7" value="" class="form-text">
           </div>
 
           <div class="shosurbari-biodata-field">
             <label for="about me">বায়োডাটার অভিভাবক</label>
-            <input type="text" name="biodata_guardian_7" value=""  size="100" maxlength="100" class="form-text">
+            <textarea rows="4" type="text" name="biodata_guardian_7" value="" class="form-text"></textarea>
           </div>
 
           <div class="shosurbari-biodata-field">
             <label for="about me">পাত্র-পাত্রীর</label>
-            <input type="text" name="biodata_patropatri_7" value=""  size="100" maxlength="100" class="form-text">
+            <input type="text" name="biodata_patropatri_7" value="" class="form-text">
           </div>
         </div>
 
@@ -254,17 +259,17 @@ error_reporting(0);
         
           <div class="shosurbari-biodata-field">
             <label for="about me">বায়োডাটা নাম্বার</label>
-            <input type="text" name="biodata_number_8" value=""  size="100" maxlength="100" class="form-text">
+            <input type="text" name="biodata_number_8" value="" class="form-text">
           </div>
 
           <div class="shosurbari-biodata-field">
             <label for="about me">বায়োডাটার অভিভাবক</label>
-            <input type="text" name="biodata_guardian_8" value=""  size="100" maxlength="100" class="form-text">
+            <textarea rows="4" type="text" name="biodata_guardian_8" value="" class="form-text"></textarea>
           </div>
 
           <div class="shosurbari-biodata-field">
             <label for="about me">পাত্র-পাত্রীর</label>
-            <input type="text" name="biodata_patropatri_8" value=""  size="100" maxlength="100" class="form-text">
+            <input type="text" name="biodata_patropatri_8" value="" class="form-text">
           </div>
         </div>
 
@@ -273,17 +278,17 @@ error_reporting(0);
         
           <div class="shosurbari-biodata-field">
             <label for="about me">বায়োডাটা নাম্বার</label>
-            <input type="text" name="biodata_number_9" value=""  size="100" maxlength="100" class="form-text">
+            <input type="text" name="biodata_number_9" value="" class="form-text">
           </div>
 
           <div class="shosurbari-biodata-field">
             <label for="about me">বায়োডাটার অভিভাবক</label>
-            <input type="text" name="biodata_guardian_9" value=""  size="100" maxlength="100" class="form-text">
+            <textarea rows="4" type="text" name="biodata_guardian_9" value="" class="form-text"></textarea>
           </div>
 
           <div class="shosurbari-biodata-field">
             <label for="about me">পাত্র-পাত্রীর</label>
-            <input type="text" name="biodata_patropatri_9" value=""  size="100" maxlength="100" class="form-text">
+            <input type="text" name="biodata_patropatri_9" value="" class="form-text">
           </div>
         </div>
 
@@ -292,24 +297,18 @@ error_reporting(0);
         
           <div class="shosurbari-biodata-field">
             <label for="about me">বায়োডাটা নাম্বার</label>
-            <input type="text" name="biodata_number_10" value=""  size="100" maxlength="100" class="form-text">
+            <input type="text" name="biodata_number_10" value="" class="form-text">
           </div>
 
           <div class="shosurbari-biodata-field">
             <label for="about me">বায়োডাটার অভিভাবক</label>
-            <input type="text" name="biodata_guardian_10" value=""  size="100" maxlength="100" class="form-text">
+            <textarea rows="4" type="text" name="biodata_guardian_10" value="" class="form-text"></textarea>
           </div>
 
           <div class="shosurbari-biodata-field">
             <label for="about me">পাত্র-পাত্রীর</label>
-            <input type="text" name="biodata_patropatri_10" value=""  size="100" maxlength="100" class="form-text">
+            <input type="text" name="biodata_patropatri_10" value="" class="form-text">
           </div>
-        </div>
-
-
-        <div class="shosurbari-biodata-field">
-          <label for="edit-name">পেমেন্ট তারিখ<span class="form-required" title="This field is required.">*</span></label>
-          <input type="text" name="cust_payment_date" value=""  size="100" maxlength="100" class="form-text" required>
         </div>
 
       </div>
@@ -362,10 +361,59 @@ html, body { /* Monitor Navigation Bar top Padding 0px */
 fieldset {
 	margin-bottom: 100px;
 }
+
+
+/* PoPup Message Show */
+.message-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  background: #22c55e;
+  box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+  border: 1px solid rgba(0,0,0,.05);
+  border-radius: 2px;
+  padding: 15px;
+  z-index: 9999;
+}
+
+.success {
+  background: #22c55e; /* Green */
+  color: white;
+  font-size: 16px;
+}
+
+.error {
+  background: #f44336; /* Red */
+  color: white;
+  font-size: 16px;
+}
 </style>
 
 
 
+<script>
+    function showMessage(type, message) {
+        var container = document.createElement('div');
+        container.className = 'message-container ' + type;
+        container.innerHTML = message;
+        document.body.appendChild(container);
+
+        setTimeout(function() {
+            container.style.opacity = '1';
+        }, 100);
+
+        setTimeout(function() {
+            container.style.opacity = '0';
+        }, 9000);
+
+        setTimeout(function() {
+            container.remove();
+        }, 10000);
+    }
+</script>
 
 
 <!-- ===== Admin Panel Footer Area ===== -->

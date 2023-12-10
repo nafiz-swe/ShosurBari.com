@@ -17,6 +17,10 @@ if (isloggedin()) {
     // Get the user ID from the session
     $userId = $_SESSION['id'];
 
+
+
+
+    
     // Retrieve the user's account status from the database
     require_once("includes/dbconn.php");
     $statusSql = "SELECT deactivated FROM users WHERE id = $userId";
@@ -225,7 +229,7 @@ $conn->close();
 .shosurbari-biodata-form {
   align-items: center;
   flex-wrap: wrap;
-  width: 1400px;
+  width: auto;
   margin: auto;
   padding-top: 30px;
   padding-bottom: 20px

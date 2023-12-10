@@ -640,53 +640,6 @@ if (isset($_GET['/Biodata'])) {
 
 
 
-<!-- 
-
-<script>
-// Function to convert Arabic numerals to Bengali numerals
-function convertToBengaliNumber(arabicNumber) {
-    const arabicNumbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-    const bengaliNumbers = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
-
-    return arabicNumber.replace(/[\d]/g, (match) => bengaliNumbers[arabicNumbers.indexOf(match)]);
-}
-
-let paymentOptions = {
-    '1 Biodata 145 Tk': 145,
-    '2 Biodata 270 Tk': 270,
-    '3 Biodata 375 Tk': 375,
-    '4 Biodata 460 Tk': 460,
-    '5 Biodata 525 Tk': 525,
-    '10 Biodata 990 Tk': 990
-};
-
-let paymentMessageElement = document.querySelector('#payment-message');
-let paymentAmountElement = document.querySelector('#payment-amount');
-let errorMessageElement = document.querySelector('#error-message');
-
-const radioButtons = document.querySelectorAll('input[name="biodata_quantities"]');
-
-radioButtons.forEach((radioButton) => {
-    radioButton.addEventListener('change', function () {
-        let paymentAmount = paymentOptions[this.value];
-        let bengaliAmount = convertToBengaliNumber(paymentAmount.toString());
-        paymentAmountElement.innerText = bengaliAmount;
-        paymentMessageElement.style.display = 'block';
-        errorMessageElement.style.display = 'none';
-    });
-});
-
-// Add a submit event listener to check if an option is selected
-document.querySelector('form').addEventListener('submit', function (e) {
-    let selectedOption = document.querySelector('input[name="biodata_quantities"]:checked');
-    if (!selectedOption) {
-        errorMessageElement.style.display = 'block';
-        e.preventDefault();
-    }
-});
-</script> -->
-
-
 
 
 
@@ -1187,10 +1140,76 @@ else if (selectedPaymentMethod.value === 'নগদ') {
 
 
 
-
-
-
 <script>
+function showLoadingMessage() {
+  // Show the overlay
+  document.querySelector('.overlay').style.display = 'block';
+
+  // Show the loading message
+  var popup = document.querySelector('.popup-message');
+  popup.style.display = 'block';
+
+  // Set the loading message text
+  popup.querySelector('h3').innerHTML = 'অপেক্ষা করুন...';
+  popup.querySelector('p').innerHTML = 'আপনার তথ্য যাচাইকরণ চলছে।';
+}
+
+function showSuccessMessage() {
+  // Update the overlay and popup with success message
+  var popup = document.querySelector('.popup-message');
+  popup.querySelector('h3').innerHTML = 'ধন্যবাদ!';
+  popup.querySelector('p').innerHTML = 'আপনার তথ্য সফলভাবে জমা হয়েছে। পেমেন্ট তথ্য যাচাই বাছাইয়ের পর ২৪ ঘন্টার মধ্যে যোগাযোগের কাঙ্ক্ষিত তথ্য প্রদান করা হবে।';
+
+  // Add a close button to the popup message
+  var closeButton = document.createElement('button');
+  closeButton.innerHTML = 'ঠিক আছে';
+  closeButton.classList.add('close-button');
+  popup.appendChild(closeButton);
+
+  // Hide the popup and overlay when the close button is clicked
+  closeButton.addEventListener('click', function() {
+    popup.style.display = 'none';
+    document.querySelector('.overlay').style.display = 'none';
+
+    // Redirect to the search.php page
+    window.location.href = 'search.php';
+  });
+}
+
+// Change the form submission code to the following
+$('form[name="myForm"]').submit(function(e) {
+  e.preventDefault(); // Prevent the default form submission
+
+  if (validateForm()) {
+    // Show loading message
+    showLoadingMessage();
+
+    // Submit the form data using AJAX
+    $.ajax({
+      url: 'payment-shosurbari.php', 
+      type: 'POST',
+      data: $(this).serialize(),
+      success: function(response) {
+        // Hide loading message and show success message
+        $('.overlay').hide();
+        showSuccessMessage();
+
+        // Clear the form
+        $('form[name="myForm"]')[0].reset();
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        // Handle errors here
+      }
+    });
+  }
+});
+</script>
+
+
+
+
+
+<!-- <script>
 function showSuccessMessage() {
   // Show the overlay
   document.querySelector('.overlay').style.display = 'block';
@@ -1242,7 +1261,7 @@ $('form[name="myForm"]').submit(function(e) {
     });
   }
 });
-</script>
+</script> -->
 
 
 

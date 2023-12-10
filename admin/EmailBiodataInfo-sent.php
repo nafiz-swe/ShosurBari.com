@@ -39,7 +39,7 @@ body {
 .container {
     max-width: 600px;
     margin: 0 auto;
-    padding: 10px;
+    padding: 30px;
     background: #ffffff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -51,7 +51,7 @@ body {
     padding: 2px 20px;
     font-size: 12px;
     line-height: 30px;
-    height: 60px;
+    height: 80px;
 }
 
 .header h1 {
@@ -60,9 +60,6 @@ body {
 }
 
 .content {
-    padding: 10px 15px;
-    border-right: 20px solid #0aa4ca;
-    border-left: 20px solid #0aa4ca;
     text-align: center;
 }
 
@@ -165,7 +162,7 @@ h2 {
     color: black;
     margin-bottom: 22px;
     text-align: left;
-    line-height: 27px;
+    line-height: 25px;
 }
 
 .content h5 {
@@ -194,7 +191,7 @@ h2 {
 
   .sb-biodata-info-sent{
     background: #ddf4ff66;
-    border: 1px solid #00c292;
+    border: 1px solid #0aa4ca;
     padding: 15px;
     margin: 40px auto;
     margin-bottom: 5px;
@@ -226,10 +223,10 @@ h2 {
     </div>
 
     <div class='content'>
-        <h3>আমাদের সাথে থাকার জন্য আপনাকে ধন্যবাদ! শ্বশুরবাড়ি ডট কম শুধুমাত্র দুইটি পরিবারের মধ্যে যোগাযোগের মাধ্যম হিসাবে পরিচালিত।</h3>
+        <h3>আমাদের সাথে থাকার জন্য আপনাকে ধন্যবাদ! শ্বশুরবাড়ি ডট কম শুধুমাত্র দুইটি পরিবারের মধ্যে যোগাযোগের মাধ্যম হিসাবে পরিচালিত। নিচে বায়োডাটা নং এ ক্লিক করে দেখে নিতেন পারেন সম্পূর্ণ প্রফাইলটি।</h3>
         
         <div class="sb-reg-info">
-            <h2>Receipt ID: <?php echo "SB$id";?></h2>
+            <h2>Receipt ID: <?php echo "SB$sbo_id";?></h2>
             <div class="sb-biodata" id="religionDetails">
 
                 <div class="shosurbari-biodata-field">
@@ -252,7 +249,7 @@ h2 {
                 <div class="sb-biodata-info-sent">
                 <h2>বায়োডাটার তথ্য: ১</h2>
                 <div class="shosurbari-biodata-field">
-                <label>বায়োডাটা নাম্বার</label>
+                <label>বায়োডাটা নং</label>
                 <p>
                     <a href="http://localhost:8000/profile.php?/Biodata=<?php echo $biodata_number_1; ?>">
                         <?php echo $biodata_number_1; ?>
@@ -277,7 +274,7 @@ h2 {
                 <div class="sb-biodata-info-sent">
                 <h2>বায়োডাটার তথ্য: ২</h2>
                 <div class="shosurbari-biodata-field">
-                <label>বায়োডাটা নাম্বার</label>
+                <label>বায়োডাটা নং</label>
                 <p>
                     <a href="http://localhost:8000/profile.php?/Biodata=<?php echo $biodata_number_2; ?>">
                         <?php echo $biodata_number_2; ?>
@@ -303,7 +300,7 @@ h2 {
                 <div class="sb-biodata-info-sent">
                 <h2>বায়োডাটার তথ্য: ৩</h2>
                 <div class="shosurbari-biodata-field">
-                <label>বায়োডাটা নাম্বার</label>
+                <label>বায়োডাটা নং</label>
                 <p>
                     <a href="http://localhost:8000/profile.php?/Biodata=<?php echo $biodata_number_3; ?>">
                         <?php echo $biodata_number_3; ?>
@@ -329,7 +326,7 @@ h2 {
                 <div class="sb-biodata-info-sent">
                 <h2>বায়োডাটার তথ্য: ৪</h2>
                 <div class="shosurbari-biodata-field">
-                <label>বায়োডাটা নাম্বার</label>
+                <label>বায়োডাটা নং</label>
                 <p>
                     <a href="http://localhost:8000/profile.php?/Biodata=<?php echo $biodata_number_4; ?>">
                         <?php echo $biodata_number_4; ?>
@@ -355,7 +352,7 @@ h2 {
                 <div class="sb-biodata-info-sent">
                 <h2>বায়োডাটার তথ্য: ৫</h2>
                 <div class="shosurbari-biodata-field">
-                <label>বায়োডাটা নাম্বার</label>
+                <label>বায়োডাটা নং</label>
                 <p>
                     <a href="http://localhost:8000/profile.php?/Biodata=<?php echo $biodata_number_5; ?>">
                         <?php echo $biodata_number_5; ?>
@@ -381,7 +378,7 @@ h2 {
                 <div class="sb-biodata-info-sent">
                 <h2>বায়োডাটার তথ্য: ৬</h2>
                 <div class="shosurbari-biodata-field">
-                <label>বায়োডাটা নাম্বার</label>
+                <label>বায়োডাটা নং</label>
                 <p>
                     <a href="http://localhost:8000/profile.php?/Biodata=<?php echo $biodata_number_6; ?>">
                         <?php echo $biodata_number_6; ?>
@@ -407,7 +404,7 @@ h2 {
                 <div class="sb-biodata-info-sent">
                 <h2>বায়োডাটার তথ্য: ৭</h2>
                 <div class="shosurbari-biodata-field">
-                <label>বায়োডাটা নাম্বার</label>
+                <label>বায়োডাটা নং</label>
                 <p>
                     <a href="http://localhost:8000/profile.php?/Biodata=<?php echo $biodata_number_7; ?>">
                         <?php echo $biodata_number_7; ?>
@@ -433,7 +430,7 @@ h2 {
                 <div class="sb-biodata-info-sent">
                 <h2>বায়োডাটার তথ্য: ৮</h2>
                 <div class="shosurbari-biodata-field">
-                <label>বায়োডাটা নাম্বার</label>
+                <label>বায়োডাটা নং</label>
                 <p>
                     <a href="http://localhost:8000/profile.php?/Biodata=<?php echo $biodata_number_8; ?>">
                         <?php echo $biodata_number_8; ?>
@@ -459,7 +456,7 @@ h2 {
                 <div class="sb-biodata-info-sent">
                 <h2>বায়োডাটার তথ্য: ৯</h2>
                 <div class="shosurbari-biodata-field">
-                <label>বায়োডাটা নাম্বার</label>
+                <label>বায়োডাটা নং</label>
                 <p>
                     <a href="http://localhost:8000/profile.php?/Biodata=<?php echo $biodata_number_9; ?>">
                         <?php echo $biodata_number_9; ?>
@@ -484,7 +481,7 @@ h2 {
                 <div class="sb-biodata-info-sent">
                 <h2>বায়োডাটার তথ্য: ১০</h2>
                 <div class="shosurbari-biodata-field">
-                <label>বায়োডাটা নাম্বার</label>
+                <label>বায়োডাটা নং</label>
                 <p>
                     <a href="http://localhost:8000/profile.php?/Biodata=<?php echo $biodata_number_10; ?>">
                         <?php echo $biodata_number_10; ?>
