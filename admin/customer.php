@@ -252,7 +252,7 @@ echo "<h3>Total number of user profiles: " . $userCount . "</h3>";
 
 echo '<div id="search-form">
 <form method="POST">
-    <input type="text" id="search-user-id" name="search-user-id" placeholder="Search User ID">
+    <input type="text" id="search-user-id" name="search-user-id" placeholder="Search Customer ID">
     <button class="search-admin" type="submit" name="search">Search</button>
 
     <select style="margin-top: 20px;" name="search-criteria" id="search-criteria">
@@ -296,7 +296,7 @@ if (!empty($searchKeyword)) {
     
 } elseif (!empty($searchUserId)) {
     $searchUserId = mysqli_real_escape_string($conn, $searchUserId);
-    $sql = "SELECT * FROM customer WHERE user_id = $searchUserId $limit";
+    $sql = "SELECT * FROM customer WHERE id_customer = $searchUserId $limit";
 } else {
   $sql = "SELECT * FROM customer ORDER BY id_customer DESC $limit OFFSET $start";
 }
@@ -306,7 +306,7 @@ if (mysqli_num_rows($result) > 0) {
     // Display user data
     echo "<table>";
     echo '<tr>
-    <th>আইডি নং</th>
+    <th>অর্ডার আইডি</th>
     <th>রেজিস্টার ইউজার /</br> বায়োডাটা নং</th>
     <th>কাস্টমার নাম</th>
     <th>কাস্টমার মোবাইল নম্বর</th>
@@ -322,10 +322,24 @@ if (mysqli_num_rows($result) > 0) {
     <th>নগদ ট্রানজেকশন আইডি</th>
     <th>রকেট নাম্বার</th>
     <th>রকেট ট্রানজেকশন আইডি</th>
+    <th>Status</th>
+    <th>Active Status</th>
     <th>তারিখ সময়</th>
 </tr>';
     while ($row = mysqli_fetch_assoc($result)) {
-      echo '<tr>';
+      // Determine and set the CSS class based on the status
+      $statusClass = '';
+      if ($row['processing'] == 1) {
+          $statusClass = 'processing';
+      } elseif ($row['sent'] == 1) {
+          $statusClass = 'sent';
+      } elseif ($row['cancel'] == 1) {
+          $statusClass = 'cancel';
+      } else {
+          $statusClass = 'unknown';
+      }
+
+      echo '<tr class="' . $statusClass . '">';
       echo '<td>' . $row['id_customer'] . '</td>';
       echo '<td>' . $row['user_id'] . '</td>';
       echo '<td>' . $row['cust_name'] . '</td>';
@@ -342,15 +356,43 @@ if (mysqli_num_rows($result) > 0) {
       echo '<td>' . $row['nagad_transaction_id'] . '</td>';
       echo '<td>' . $row['roket_number'] . '</td>';
       echo '<td>' . $row['roket_transaction_id'] . '</td>';
+      
+      echo '<td>';
+      echo '<form action="update_status.php" method="post">'; // Specify the correct action and method
+      echo '<input type="hidden" name="customer_id" value="' . $row['id_customer'] . '">'; // Include a hidden input for the customer ID
+      echo '<select name="new_status">';
+      echo '<option value="processing">Processing</option>';
+      echo '<option value="sent">Sent</option>';
+      echo '<option value="cancel">Cancel</option>';
+      echo '</select>';
+      echo '<input type="submit" value="Update">';
+      echo '</form>';
+      echo '</td>';
+      
+      echo '<td>';
+      if ($row['processing'] == 1) {
+          echo 'Processing';
+      } elseif ($row['sent'] == 1) {
+          echo 'Sent';
+      } elseif ($row['cancel'] == 1) {
+          echo 'Cancel';
+      } else {
+          echo 'Unknown Status';
+      }
+      echo '</td>';
+
       echo '<td>' . $row['request_date'] . '</td>';
       echo '</tr>';
     }
+    
     echo '</table>';
 
     // Progress bar at the bottom
     echo '<div class="progress-container">
     <div class="progress-bar"></div>
     </div>';
+
+    
 
     // Calculate the total number of pages
     $total_pages = ceil($userCount / $profilesPerPage);
@@ -403,7 +445,24 @@ function updateProfilesPerPage() {
 </script>
 
 
+<style>
+tr.processing {
+    background-color: orange;
+}
 
+tr.sent {
+    background-color: green;
+}
+
+tr.cancel {
+    background-color: red;
+}
+
+tr.unknown {
+    background-color: lightgray;
+}
+
+</style>
  
 
 

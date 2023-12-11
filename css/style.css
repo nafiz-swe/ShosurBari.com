@@ -653,52 +653,13 @@ ul.nav_1 li.last{
     padding: 8px;
 }
 
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
--- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
---                   E   N   D                   --
---   SHOSUR BARI WIDTH SCREEN  NAVIGATION BAR    --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-
-
-
-
-
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
--- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
---                S  T  A  R  T                  --
---      SHOSUR BARI MOBILE NAV / MENU BAR        --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-ul.nav_1{
-    font-size: 20px;
-    font-weight: 500;
-    color: #fff;
-}
-
-.collapse_userprofile{  /*Include UserHome Page*/
-    margin: auto;
-    width: auto;
-    margin-left: 48px;
-}
-
-.UserProfile {
-    width: 100%;
-    margin: auto;
-}
-
-.navigationpro{  /*Include UserHome Page*/
-    width: 100%;
-}
 
 .navigationpro ul{
     background: #fff;
-    width: 701px;
-    padding: 5px;
+    width: 200px;
     border-radius: 2px;
     border: 1px solid #ccc;
     box-shadow: 0px 5px 10px 0px #aaa;
-    margin: auto 0px auto auto;
 }
 
 .navigationpro ul li{
@@ -720,6 +681,224 @@ ul.nav_1{
 .navigationpro .navbar-nav>li>.dropdown-menu{
     border-radius: 2px;
     width: auto;
+}
+
+
+.navigationpro {
+    margin: auto;
+    width: 100%;
+    margin-bottom: 70px;
+    padding-top: 0px 30px 30px 30px;
+}
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                   E   N   D                   --
+--   SHOSUR BARI WIDTH SCREEN  NAVIGATION BAR    --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+--                S  T  A  R  T                  --
+--         SHOSUR BARI MY ACCOUNT SIDEBAR        --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+.shosurbari-account-sidebar{
+    margin-top: 40px;
+    width: 200px;
+}
+
+.leftarea-sidebar {
+    width: 215px;
+}
+
+.shosurbari-my-account {
+    list-style: none;
+    padding: 0;
+  }
+  
+.shosurbari-my-account a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    padding: 15px 5px;
+    font-size: 17px;
+    text-align: left;
+    background: linear-gradient(#06b6d4, #0aa4ca);
+  }
+
+  .shosurbari-my-account a:hover {
+    background: linear-gradient(#0aa4ca, #06b6d4);
+  }
+
+  .shosurbari-my-account li {
+    margin-bottom: 10px;
+  }
+
+  .shosurbari-my-account li i {
+    color: #fff;
+    font-size: 20px;
+    margin: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+.shosurbari-sidebar ul{
+    background: #fff;
+    width: 200px;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+}
+
+.shosurbari-sidebar ul li{
+    background: #0aa4ca;
+    border: 1px solid #ccc;
+    margin: 5px;
+    text-align: center;
+    border-radius:2px;
+}
+
+.shosurbari-sidebar .dropdown{
+    background: #0aa4ca;
+    border: 1px solid #ccc;
+    margin: 5px;
+    text-align: center;
+    border-radius: 2px;
+}
+
+.shosurbari-sidebar .navbar-nav>li>.dropdown-menu{
+    border-radius: 2px;
+    width: auto;
+}
+
+
+
+.shosurbari-sidebar {
+    margin: auto;
+    width: 100%;
+    padding-top: 0px 30px 30px 30px;
+    display: flex;
+}
+
+.shosurbari-account-sidebar {
+    display: flex;
+
+}
+
+
+.shosurbari-userhome-status{
+    margin-top: 20px;
+    width:  215px;
+}
+
+.shosurbari-userhome-status h3,
+.shosurbari-userhome-status h4{
+  font-size: 17px;
+  font-weight: 450;
+}
+
+.shosurbari-userhome-status form button{
+    margin-left: 0px;
+    width: 200px;
+    padding: 6px;
+    background: linear-gradient(#06b6d4, #0aa4ca);
+    color: #fff;
+    border: 1px solid #06b6d452;
+    border-radius: 2px;
+    font-size: 17px;
+    height: 35px;
+    line-height: 22px;
+}
+
+.shosurbari-userhome-status form button:hover{
+    background: linear-gradient(#0aa4ca, #06b6d4);
+    color: #fff;
+}
+
+
+.sb-biodata-total-view {
+    text-align: left;
+    padding: 15px 10px;
+    animation: backgroundAnimation 24s infinite; /* 8 colors * 3 seconds = 24 seconds */
+  }
+  
+  @keyframes backgroundAnimation {
+    0% {
+      background-color: antiquewhite;
+    }
+    12.5% {
+      background-color: mintcream;
+    }
+    25% {
+      background-color: powderblue;
+    }
+    37.5% {
+      background-color: beige;
+    }
+    50% {
+      background-color: bisque;
+    }
+    62.5% {
+      background-color: cornsilk;
+    }
+    75% {
+      background-color: lavender;
+    }
+    87.5% {
+      background-color: mistyrose;
+    }
+    100% {
+      background-color: antiquewhite; /* Start the loop again with the first color */
+    }
+  }
+  
+  
+  .sb-biodata-total-view h1{
+    font-size: 28px;
+    margin: 0;
+  }
+  
+  .sb-biodata-total-view h3{
+    font-size: 16px;
+    line-height: 28px;
+    margin-bottom: 5px;
+  }
+  
+  .shosurbari-biodata-view {
+    margin-top: 70px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+    width: 200px;;
+    margin-left: 0;
+  }
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+--                   E   N   D                   --
+--         SHOSUR BARI MY ACCOUNT SIDEBAR        --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+
+
+
+
+
+
+/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+--                S  T  A  R  T                  --
+--      SHOSUR BARI MOBILE NAV / MENU BAR        --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+ul.nav_1{
+    font-size: 20px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.UserProfile {
+    width: 100%;
+    margin: auto;
 }
 
 
@@ -2727,63 +2906,6 @@ ol li{
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
 --                  S  T  A  R  T                --
---     SHOSUR BARI - USER ACCOUNT HOME PAGE      --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-.navigationpro {
-    display: flex;
-    margin: auto;
-    margin-bottom: 70px;
-    padding-top: 0px 30px 30px 30px;
-}
-
-.shosurbari-userhome-status{
-    margin-top: 20px;
-    width:  213px;
-}
-
-.shosurbari-userhome-status h3,
-.shosurbari-userhome-status h4{
-  font-size: 17px;
-  font-weight: 450;
-}
-
-.shosurbari-userhome-status form{
-    margin-left: 0px;
-    width: 185px;
-}
-
-.shosurbari-userhome-status form button{
-    margin-left: 0px;
-    width: 145px;
-    padding: 6px;
-    background: linear-gradient(#06b6d4, #0aa4ca);
-    color: #fff;
-    border: 1px solid #06b6d452;
-    border-radius: 2px;
-    font-size: 17px;
-    height: 35px;
-    line-height: 23px;
-}
-
-.shosurbari-userhome-status form button:hover{
-    background: linear-gradient(#0aa4ca, #06b6d4);
-    color: #fff;
-}
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
--- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
---                   E   N   D                   --
---     SHOSUR BARI - USER ACCOUNT HOME PAGE      --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-
-
-
-
-
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
--- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
---                  S  T  A  R  T                --
 --           SHOSUR BARI - REGISTER PAGE         --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
@@ -3132,13 +3254,14 @@ ol li{
 
 .shosurbari-user-account{  /* Both Page*/
     border-radius: 6px;
-    width: 400px;
+    width: 350px;
     gap: 1.5rem;
     padding: 20px;
     margin:20px auto;
     background: white;
     box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
     border: 1px solid rgba(0,0,0,.05);
+    margin-bottom: auto;
 }
 
 .shosurbari-user-account form{   /* Both Page*/
@@ -4373,10 +4496,6 @@ font-size: 14px;
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width:1280px){
 
-    .navigationpro ul{
-        width: 698px;
-    }
-
     section{
         padding: 0px;
     }
@@ -4530,6 +4649,12 @@ font-size: 14px;
         padding-top: 0px;
     }
 
+    .shosurbari-sidebar {
+        width: 1200px;
+        padding: 30px;
+        padding-top: 0px;
+    }
+
     .banner {
         width: 700px;
     }
@@ -4539,6 +4664,11 @@ font-size: 14px;
 @media(max-width: 1200px){
     .navigationpro {
         width: 936px;
+    }
+
+    .shosurbari-sidebar {
+        width: 936px;
+        padding-bottom: 30px;
     }
 
     .banner {
@@ -4800,12 +4930,11 @@ font-size: 14px;
         padding: 3px 8px;
     }
 
-    .navigationpro ul {
-        width: 626px;
-        margin-left: 0;
+    .navigationpro .dropdown{
+        margin: 3px;
     }
 
-    .navigationpro .dropdown{
+    .shosurbari-sidebar .dropdown{
         margin: 3px;
     }
 
@@ -4840,6 +4969,12 @@ font-size: 14px;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 100px;
+    }
+
+    .shosurbari-sidebar {
+        width: 750px;
+        padding-left: 15px;
+        padding-right: 15px;
     }
 
     .collapse_userprofile{  /*Include UserHome Page*/
@@ -5252,7 +5387,6 @@ font-size: 14px;
 --      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width: 768px){
-
     .slide h1 {
         font-size: clamp(2.3em, 5vmax, 3em);
         top: 20px;
@@ -5376,19 +5510,10 @@ font-size: 14px;
         margin: 5px;
     }
 
-    .navigationpro {
-        display: block;
-        width: 400px;
-        padding-top: 20px
+    .shosurbari-sidebar .dropdown{
+        margin: 5px;
     }
 
-    .shosurbari-userhome-status {
-        margin: auto;
-    }
-
-    .shosurbari-userhome-status form {
-        margin: auto;
-    }
 
     .shosurbari-userhome-status h3, .shosurbari-userhome-status h4 {
         text-align: left;
@@ -5643,30 +5768,9 @@ font-size: 14px;
 
     /* Mobile Search End / Multiple Search Option */ 
 
-    .navigationpro ul {
-        width: 280px;
-        margin: auto;
-    }
-
-    .shosurbari-userhome-status {
-        padding: 0px 0px 20px 0px;
-        margin-left: 10px;
-        margin-top: 20px;
-    }
-
-    .shosurbari-userhome-status form{
-        padding-top: 0; 
-        padding-bottom: 10px; 
-    }
-
     .shosurbari-userhome-status form button {
-        width: 150px;
         font-size: 15px;
         padding: 3px;
-    }
-
-    .shosurbari-userhome-status form{
-        width: 150px;
     }
 
     .nbs-flexisel-container{
@@ -5735,6 +5839,9 @@ font-size: 14px;
 --      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width: 765px) {
+    .shosurbari-sidebar {
+        width: auto;
+    }
 
     ul.nav_1 li a{
         color:#fff;
@@ -6202,6 +6309,21 @@ font-size: 14px;
     line-height: 30px;
 }
 
+.shosurbari-sidebar {
+    margin-top: 10px;
+    padding-top: 30px;
+    display: block;
+}
+
+
+.shosurbari-my-account a {
+    padding: 10px 5px;
+}
+
+.leftarea-sidebar {
+    margin: auto;
+}
+
 .sb-home-reg2 button {
     padding: 8px 5px;
     font-size: 16px;
@@ -6413,10 +6535,6 @@ font-size: 14px;
     .shosurbari-register-error,
     .payment-form{
         width: 350px;
-    }
-
-    .navigationpro ul {
-        width: 270px;
     }
 
     .nbs-flexisel-container{
@@ -6967,10 +7085,6 @@ font-size: 14px;
         padding: 15px;
     }
 
-    .navigationpro ul {
-        width: 260px;
-    }
-
 .nbs-flexisel-container{
     width: 245px;
     position: relative;
@@ -7271,10 +7385,6 @@ font-size: 14px;
 
     .sb_mobilesearch #search-button {
         width: 123px;
-    }
-
-    .navigationpro ul {
-        width: 245px;
     }
 
     #biodataForm fieldset {
@@ -7723,10 +7833,6 @@ font-size: 14px;
         width: 222px;
     }
 
-    .navigationpro ul {
-        width: 235px;
-    }
-
     #biodataForm fieldset {
         width: 310px;
     }
@@ -8139,10 +8245,6 @@ font-size: 14px;
         font-size: 13px;
         margin-left: 5px;
         margin-right: 6px;
-    }
-
-    .navigationpro ul {
-        width: 180px;
     }
 
     .shosurbari-user-account {

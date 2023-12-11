@@ -1,6 +1,4 @@
 
-
-
 <?php
 include_once("includes/basic_includes.php");
 include_once("functions.php");
@@ -8,64 +6,37 @@ include_once("functions.php");
 error_reporting(0);
 
 function englishToBanglaNumber($number) {
-    $englishDigits = range(0, 9);
-    $banglaDigits = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
-    return str_replace($englishDigits, $banglaDigits, $number);
+  $englishDigits = range(0, 9);
+  $banglaDigits = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
+  return str_replace($englishDigits, $banglaDigits, $number);
 }
 
 if (isloggedin()) {
-    // Get the user ID from the session
-    $userId = $_SESSION['id'];
-
-
-
-
+  // Get the user ID from the session
+  $userId = $_SESSION['id'];
     
-    // Retrieve the user's account status from the database
-    require_once("includes/dbconn.php");
-    $statusSql = "SELECT deactivated FROM users WHERE id = $userId";
-    $result = mysqli_query($conn, $statusSql);
-    $row = mysqli_fetch_assoc($result);
-    $deactivated = $row['deactivated'];
+  // Retrieve the user's account status from the database
+  require_once("includes/dbconn.php");
+  $statusSql = "SELECT deactivated FROM users WHERE id = $userId";
+  $result = mysqli_query($conn, $statusSql);
+  $row = mysqli_fetch_assoc($result);
+  $deactivated = $row['deactivated'];
 
-// Query to get the total view_count for the logged-in user
-$totalViewCountSql = "SELECT view_count FROM `1bd_personal_physical` WHERE user_id = $userId";
-$result = mysqli_query($conn, $totalViewCountSql);
-$row = mysqli_fetch_assoc($result);
-$totalViewCount = $row['view_count'];
+  // Query to get the total view_count for the logged-in user
+  $totalViewCountSql = "SELECT view_count FROM `1bd_personal_physical` WHERE user_id = $userId";
+  $result = mysqli_query($conn, $totalViewCountSql);
+  $row = mysqli_fetch_assoc($result);
+  $totalViewCount = $row['view_count'];
 
-// Query to get the view_count for the last month
-$lastMonthStart = date('Y-m-d', strtotime('-1 month'));
-$lastMonthViewCountSql = "SELECT SUM(view_count) as last_month_count FROM `page_views` WHERE page_name = '$userId' AND STR_TO_DATE(last_update, '%e %M %Y, %h:%i:%s %p') >= '$lastMonthStart'";
-$result = mysqli_query($conn, $lastMonthViewCountSql);
-$row = mysqli_fetch_assoc($result);
-$lastMonthCount = $row['last_month_count'];
 
-// Query to get the view_count for the last week
-$lastWeekStart = date('Y-m-d', strtotime('-1 week'));
-$lastWeekViewCountSql = "SELECT SUM(view_count) as last_week_count FROM `page_views` WHERE page_name = '$userId' AND STR_TO_DATE(last_update, '%e %M %Y, %h:%i:%s %p') >= '$lastWeekStart'";
-$result = mysqli_query($conn, $lastWeekViewCountSql);
-$row = mysqli_fetch_assoc($result);
-$lastWeekCount = $row['last_week_count'];
+  // Convert the counts to Bangla numerals
+  $totalViewCountInBangla = englishToBanglaNumber($totalViewCount);
 
-// Query to get the view_count for today
-$todayStart = date('Y-m-d') . ' 00:00:00';
-$todayViewCountSql = "SELECT SUM(view_count) as today_count FROM `page_views` WHERE page_name = '$userId' AND STR_TO_DATE(last_update, '%e %M %Y, %h:%i:%s %p') >= '$todayStart'";
-$result = mysqli_query($conn, $todayViewCountSql);
-$row = mysqli_fetch_assoc($result);
-$todayCount = $row['today_count'];
-
-// Convert the counts to Bangla numerals
-$totalViewCountInBangla = englishToBanglaNumber($totalViewCount);
-$lastMonthCountInBangla = englishToBanglaNumber($lastMonthCount);
-$lastWeekCountInBangla = englishToBanglaNumber($lastWeekCount);
-$todayCountInBangla = englishToBanglaNumber($todayCount);
-
-} else {
+  } else {
     header("location:login.php");
-}
+  }
 
-// Close the database connection
+  // Close the database connection
 $conn->close();
 ?>
 
@@ -93,6 +64,10 @@ $conn->close();
 <!--font-Awesome-->
 <link href="css/font-awesome.css" rel="stylesheet"> 
 <!--font-Awesome-->
+
+<!-- Side Bar Icon -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Side Bar Icon -->
 </head>
 
 
@@ -105,7 +80,7 @@ $conn->close();
     <div class="container">
       <div class="breadcrumb1">
         <ul>
-          <a href="index.php"><i class="fa fa-home home_1"></i></a>
+          <a href="my-account.php"><i class="fa fa-home home_1"></i></a>
           <span class="divider">&nbsp;|&nbsp;</span>
           <li class="current-page"><h4>My Account</h4></li>
         </ul>
@@ -128,146 +103,173 @@ $conn->close();
     </div>
   </div>
 
+  
+  <div class="shosurbari-sidebar">
+    <div class="leftarea-sidebar">
 
-  <div class="navigationpro">
+      <div class="shosurbari-userhome-status">
+        <h3><?php echo "Welcome: $username"; ?></h3>
 
-    <div class="shosurbari-userhome-status">
-      <h3><?php echo "Welcome: $username"; ?></h3>
+        <!-- Display the account status -->
+        <h4 >Account Status:
+            <?php if ($deactivated == 0) {
+            echo '<span style="color: green;">Active</span>';
+            } else {
+            echo '<span style="color: red;">Deactivate</span>';
+            }
+            ?>
+        </h4>
 
-      <!-- Display the account status -->
-      <h4 >একাউন্ট অবস্থা:
-        <?php if ($deactivated == 0) {
-          echo '<span style="color: green;">একটিভ</span>';
-          } else {
-          echo '<span style="color: red;">ডিএক্টিভ</span>';
-          }
-        ?>
-      </h4>
-
-      <form action="deactivate_account.php" method="post">
-        <?php if ($deactivated == 1) { ?>
-          <button type="submit" name="action" value="activate">একটিভ করুন</button>
+        <form action="deactivate_account.php" method="post">
+          <?php if ($deactivated == 1) { ?>
+          <button type="submit" name="action" value="activate">Activation</button>
           <?php } else { ?>
-          <button type="submit" name="action" value="deactivate">ডিএক্টিভেট করুন</button>
-        <?php } ?>
-      </form>
+          <button type="submit" name="action" value="deactivate">Deactivation</button>
+          <?php } ?>
+        </form> 
+      </div>
 
 
+      <div class="shosurbari-account-sidebar" id="bs-megadropdown-tabs">
+        <ul class="shosurbari-my-account">
+          <li><a href="profile.php?/Biodata=<?php echo $id;?>"><i class='fa fa-address-card-o'></i> সম্পূর্ণ প্রোফাইল</a></li>
+          <li><a href="profile-photo.php?id=<?php echo $id;?>"><i class="fa fa-image"></i> প্রোফাইল ছবি</a></li>
+          <li><a href="biodata-post.php"><i class='fa fa-file-text-o'></i> বায়োডাটা পোস্ট</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-edit"></i> বায়োডাটা আপডেট<span class="caret"></span> </a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="update-physical-marital.php">শারীরিক/বৈবাহিক তথ্য</a></li>
+              <li><a href="update-personalInfo.php">ব্যক্তিগত তথ্য</a></li>
+              <li><a href="update-education.php">শিক্ষাগত তথ্য</a></li>
+              <li><a href="update-address.php">ঠিকানা</a></li>
+              <li><a href="update-family.php">পারিবারিক/সামাজিক</a></li>
+              <li><a href="update-religion.php">ধর্মীয় বিষয়</a></li>
+              <li><a href="update-partnerInfo.php">জীবনসঙ্গীর-বিবরণ</a></li>
+            </ul>
+          </li>
 
-      <div class="shosurbari-biodata-form">
-        <div class="shosurbari-animation-form">
-          <form action="" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
-            <div class="sb-biodata-amount-list">
-              <h3>আপনার বায়োডাটাটি দেখা হয়েছে-</h3>
-              <h1><?php
-                      // Display the view count for the logged-in user's profile
-                      if (isset($totalViewCountInBangla)) {
-                        echo "" . $totalViewCountInBangla;
-                      }
-                  ?> বার
-              </h1>
-            </div>
-          </form>
-        </div> 
-      </div>   
-            
+          <li><a href="account-update.php"><i class="fa fa-gear"></i> একাউন্ট আপডেট</a></li>
+        </ul>
+      </div>
+
+
+      <div class="shosurbari-biodata-view">
+        <form action="" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
+          <div class="sb-biodata-total-view">
+            <h3>আপনার বায়োডাটাটি দেখা হয়েছে-</h3>
+            <h1><?php
+              // Display the view count for the logged-in user's profile
+              if (isset($totalViewCountInBangla)) {
+                echo "" . $totalViewCountInBangla;
+              }
+              ?> বার
+            </h1>
+          </div>
+        </form>
+      </div>
+
     </div>
 
 
-    <div class="collapse_userprofile navbar-collapseprofile" id="bs-megadropdown-tabs">
-      <ul class="nav navbar-nav nav_1">
-        <li><a href="profile.php?/Biodata=<?php echo $id;?>">সম্পূর্ণ প্রোফাইল</a></li>
 
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">বায়োডাটা/ছবি পোস্ট<span class="caret"></span> </a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="biodata-post.php">বায়োডাটা পোস্ট</a></li>
-            <li><a href="profile-photo.php?id=<?php echo $id;?>">ছবি আপলোড/ডিলেট</a></li>
-          </ul>
-        </li>
+    <div class="shosurbari-user-account">
+      <?php
+        include("includes/dbconn.php");
 
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">বায়োডাটা আপডেট<span class="caret"></span> </a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="update-physical-marital.php">শারীরিক/বৈবাহিক তথ্য</a></li>
-            <li><a href="update-personalInfo.php">ব্যক্তিগত তথ্য</a></li>
-            <li><a href="update-education.php">শিক্ষাগত তথ্য</a></li>
-            <li><a href="update-address.php">ঠিকানা</a></li>
-            <li><a href="update-family.php">পারিবারিক/সামাজিক</a></li>
-            <li><a href="update-religion.php">ধর্মীয় বিষয়</a></li>
-            <li><a href="update-partnerInfo.php">জীবনসঙ্গীর-বিবরণ</a></li>
-          </ul>
-        </li>
+        // getting profile details from db
+        $sql = "SELECT * FROM customer WHERE user_id = $id";
+        $result = mysqlexec($sql);
 
-        <li><a href="account-update.php">একাউন্ট আপডেট</a></li>
-      </ul>
+      ?>
+
+      <table class="shosurbari-users-customer">
+        <tr>
+            <th>Order ID</th>
+            <th>Request Biodata</th>
+            <th>Total Fee</th>
+            <th>Payment Method</th>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+
+        <?php
+        // Loop through all rows with the same user_id
+        while ($row = mysqli_fetch_assoc($result)) {
+            $id_customer = $row['id_customer'];
+            $request_biodata_number = $row['request_biodata_number'];
+            $total_fee = $row['total_fee'];
+            $payment_method = $row['payment_method'];
+            $request_date = $row['request_date'];
+
+            // Display the data in the table
+            echo "<tr>";
+            echo "<td>SB$id_customer</td>";
+            echo "<td>$request_biodata_number</td>";
+            echo "<td>$total_fee</td>";
+            echo "<td>$payment_method</td>";
+            echo "<td>$request_date</td>";
+            echo "<td>";
+            if ($row['processing'] == 1) {
+                echo "Processing";
+            } elseif ($row['sent'] == 1) {
+                echo "Sent";
+            } elseif ($row['cancel'] == 1) {
+                echo "Cancel";
+            } else {
+                echo "Unknown Status";
+            }
+            echo "</td>";
+            echo "</tr>";
+        }
+        ?>
+      </table>
+
+
     </div>
+
   </div>
 
-
-
-
 <style>
-.sb-biodata-amount-list{
-  margin: 15px auto;
+  /* Table style */
+.shosurbari-users-customer {
   width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+}
+
+/* Table header style */
+.shosurbari-users-customer th {
+  background-color: #f2f2f2;
   text-align: left;
-  padding: 6px;
-  padding-left: 0;
+  padding: 8px;
 }
 
-.sb-biodata-amount-list h1{
-  font-size: 28px;
+/* Table row style */
+.shosurbari-users-customer td {
+  border-bottom: 1px solid #ddd;
+  padding: 8px;
 }
 
-.sb-biodata-amount-list h3{
-  font-size: 16px;
-  line-height: 22px;
-  margin-bottom: 5px;
+/* Alternate row color */
+.shosurbari-users-customer tr:nth-child(even) {
+  background-color: #f9f9f9;
 }
 
-.shosurbari-biodata-form {
-  align-items: center;
-  flex-wrap: wrap;
-  width: auto;
-  margin: auto;
-  padding-top: 30px;
-  padding-bottom: 20px
+/* Hover effect */
+.shosurbari-users-customer tr:hover {
+  background-color: #e2e2e2;
 }
 
-@media (max-width: 1400px){
-  .shosurbari-biodata-form{
-    width: auto;
-  }
-}
 
-@media (max-width: 1024px) {
-.shosurbari-animation-form {
-  flex-basis: 100%;
-  justify-content: center;
-}
 
-.shosurbari-biodata-form {
-  width: auto;
-}
+.dropdown-menu li a {
+    padding: 5px 15px;
+    font-weight: 410;
+    font-size:14px;
+    height: 40px;
+    line-height: 32px;
 }
 </style>
-
-  <style>
-@media (max-width: 768px){
-.shosurbari-userhome-status {
-  padding: 0px;
-  margin: 20px auto auto auto;
-}
-
-.shosurbari-userhome-status h4,
-.shosurbari-userhome-status h3,
-.sb-biodata-amount-list h1 {
-  text-align: center;
-}
-}
-  </style>
-
 
   
 	<!--=======================================

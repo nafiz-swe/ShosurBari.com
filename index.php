@@ -807,37 +807,6 @@ $('.fa-chevron-down').removeClass('rotate');
 
 
 
-<script>
-  var bannerText = document.getElementById("banner_text");
-  var animationDelay = 100; // in milliseconds (adjust the speed here)
-
-  var textToType = "সার্চ ফিল্টার ব্যবহার করে খুঁজেনিন স্বপ্নময় জীবনসঙ্গী";
-  var currentText = "";
-  var currentIndex = 0;
-
-  function typeText() {
-    currentText += textToType[currentIndex];
-    bannerText.textContent = currentText;
-
-    currentIndex++;
-
-    if (currentIndex < textToType.length) {
-      setTimeout(typeText, animationDelay);
-    } else {
-      // Uncomment the next line if you want to repeat the typing animation
-      // setTimeout(resetText, animationDelay * 2);
-    }
-  }
-
-  function resetText() {
-    currentText = "";
-    currentIndex = 0;
-    typeText();
-  }
-
-  typeText();
-</script>
-
 
 <style>
   .form-control {
@@ -939,158 +908,8 @@ form {
     margin-right: -20px;
 }
 </style>
-<!-- <script>
-const intervalText = document.getElementById("interval-text");
-const intervalRange = document.getElementById("interval");
-const bannerContent = document.getElementById("banner-content");
-const sliderBanner = document.getElementById("slider-banner");
-const slideIndicators = document.getElementById("slide-indicators");
-
-const json = `
-[{
-	"srcset": [
-		"images/sb-banner2.png"
-	],
-	"text": "স্বপ্নময় জীবনসঙ্গী খুঁজুন দ্রুততম সময়ে ",
-	"shhosurbari": "We are dedicated to helping you find your perfect life partner through our advanced matchmaking platform."
-},
-{
-	"srcset": [
-		"images/msb-banner2.png"
-	],
-
-	"text": "আপনার স্বপ্নময় জীবনসঙ্গী এখন শ্বশুরবাড়ি ডটকমে",
-	"shhosurbari": "Trusted online matrimonial service provider for Bengali community of all professions worldwide."
-}]
-`;
-
-const images = JSON.parse(json);
-
-createSlides(images);
-
-function createSlides(data) {
-  const slides = [];
-  const indicators = [];
-  let interval = 12000; // Set the interval to 45 seconds
-
-  data.forEach((slideData, index) => {
-    const slide = document.createElement("div");
-    slide.className = `slide slide-${index}`;
-    if (index === 0) slide.classList.add("active");
-
-    const text = document.createElement("h1");
-    text.textContent = slideData.text;
-    slide.append(text);
-
-    const shhosurbariText = document.createElement("h5"); // Create a paragraph element for shhosurbari text
-    shhosurbariText.textContent = slideData.shhosurbari; // Set the shhosurbari text content
-    slide.append(shhosurbariText); // Append shhosurbari text to the slide
-
-    const indicator = document.createElement("div");
-    indicator.className = "slide-indicator";
-    if (index === 0) indicator.classList.add("active");
-
-    slides.push(slide);
-    indicators.push(indicator);
-  });
-
-  bannerContent.append(...slides);
-  slideIndicators.append(...indicators);
-
-  let intervalID;
-
-  function startSlideshow() {
-    if (intervalID) {
-      clearInterval(intervalID);
-    }
-
-    let currentIndex = 0;
-    intervalID = setInterval(() => {
-      slides[currentIndex].classList.remove("active");
-      indicators[currentIndex].classList.remove("active");
-      currentIndex = (currentIndex + 1) % slides.length;
-
-      slides[currentIndex].classList.add("active");
-      indicators[currentIndex].classList.add("active");
-    }, interval);
-  }
-
-  startSlideshow();
-}
-</script> -->
-
-  <!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-  -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
-  --                   S  T  A  R  T               --
-  --           SHOSURBARI HOME PAGE / BANNER       --
-  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
-  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-  <div class="banner2">
-    <!-- <div class="banner_info">
-
-      <h3 id="banner_text">Thousands of verified Members here</h3>
-      <h1>বাংলাদেশী  ম্যাট্রিমনি<br>শ্বশুরবাড়ি ডটকম</h1>
-
-      <div class="shosurbari-title">
-        <h4>“সকল ধর্ম, বর্ণ, জেলা, পেশার দেশি ও প্রবাসী বাঙালি পাত্র পাত্রী  খুঁজে পাওয়ার সহজ মাধ্যম।”</h4>
-      </div>
-
-    </div> -->
 
 
-
-    <!-- <body onLoad="initClock()">
-    <div class="clock" id="timedate">
-      <h4>Today</h4>
-      <p>Day: <a id="day"> </a></p>
-      <p>Date: <a id="date"> </a> <a id="month"> <a id="year">  </a> </p>
-
-      <p>Time: <a id="time">  </a> </p>
-    </div>  -->
-  </div> 
-
-
-  <!-- <script>
-    // START CLOCK SCRIPT
-    Number.prototype.pad = function(n) {
-      for (var r = this.toString(); r.length < n; r = '0' + r);
-      return r;
-    };
-
-    function updateClock() {
-      var now = new Date();
-      var sec = now.getSeconds(),
-      min = now.getMinutes(),
-      hou = now.getHours(),
-      dy = now.getDate(),
-      mo = now.getMonth(),
-      yr = now.getFullYear();
-      var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-      var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
-      var ampm = hou >= 12 ? 'PM' : 'AM';
-      hou = hou % 12;
-      hou = hou ? hou : 12;
-
-      document.getElementById("day").textContent = days[now.getDay()];
-      document.getElementById("date").textContent = dy;
-      document.getElementById("month").textContent = months[mo];
-      document.getElementById("year").textContent = yr;
-      document.getElementById("time").textContent = hou.pad(2) + ":" + min.pad(2) + ":" + sec.pad(2) + " " + ampm;
-    }
-
-    function initClock() {
-      updateClock();
-      setInterval(updateClock, 1000);
-    }
-    // END CLOCK SCRIPT
-  </script> -->
-  <!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-  -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
-  --                     E   N   D                 --
-  --           SHOSURBARI HOME PAGE / BANNER       --
-  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
-  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 
   <style>
 
@@ -1622,49 +1441,7 @@ th, td {
 
     // Calculate total biodata count
     $totalBiodataCount = $maleCount + $femaleCount;
-    
 
-
-
-
-  // Find Unique Visitors of my Website
-  // Get the visitor's IP address
-  $ip = $_SERVER['REMOTE_ADDR'];
-
-  // Check if the IP address is already in the unique_visitors table
-  $check_sql = "SELECT id FROM unique_visitors WHERE ip_address = ?";
-  $check_stmt = $conn->prepare($check_sql);
-  $check_stmt->bind_param("s", $ip);
-  $check_stmt->execute();
-  $check_stmt->store_result();
-
-  if ($check_stmt->num_rows === 0) {
-      // IP address is not in the database, meaning a unique visitor
-      $insert_sql = "INSERT INTO unique_visitors (ip_address, visit_time) VALUES (?, NOW())";
-      $insert_stmt = $conn->prepare($insert_sql);
-      $insert_stmt->bind_param("s", $ip);
-
-      if ($insert_stmt->execute()) {
-          // Successfully inserted a new unique visitor record
-      } else {
-          // Handle the insert error
-          echo "Error inserting new unique visitor: " . $conn->error;
-      }
-  }
-
-  // Retrieve counts for different time intervals
-  $last_year_sql = "SELECT COUNT(*) FROM unique_visitors WHERE visit_time >= DATE_SUB(NOW(), INTERVAL 1 YEAR)";
-  $last_month_sql = "SELECT COUNT(*) FROM unique_visitors WHERE visit_time >= DATE_SUB(NOW(), INTERVAL 1 MONTH)";
-  $last_week_sql = "SELECT COUNT(*) FROM unique_visitors WHERE visit_time >= DATE_SUB(NOW(), INTERVAL 1 WEEK)";
-  $last_24_hours_sql = "SELECT COUNT(*) FROM unique_visitors WHERE visit_time >= DATE_SUB(NOW(), INTERVAL 24 HOUR)";
-  $last_1_hour_sql = "SELECT COUNT(*) FROM unique_visitors WHERE visit_time >= DATE_SUB(NOW(), INTERVAL 1 HOUR)";
-
-  // Execute the queries to get counts
-  $last_year_count = $conn->query($last_year_sql)->fetch_row()[0];
-  $last_month_count = $conn->query($last_month_sql)->fetch_row()[0];
-  $last_week_count = $conn->query($last_week_sql)->fetch_row()[0];
-  $last_24_hours_count = $conn->query($last_24_hours_sql)->fetch_row()[0];
-  $last_1_hour_count = $conn->query($last_1_hour_sql)->fetch_row()[0];
 
   mysqli_close($conn);
 ?>
@@ -1890,28 +1667,22 @@ th, td {
 
 
   <!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-  -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
   --                 S  T  A  R  T                 --
   --       SHOSURBARI HOME PAGE / WEB  DETAILS     --
-  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->	
 
   
   <!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-  -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
   --                     E   N   D                 --
   --       SHOSURBARI HOME PAGE / WEB  DETAILS     --
-  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->	
 
 
 
 
   <!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-  -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
   --                   E   N   D                    --
   --      SHOSURBARI HOME PAGE / BODY CONTENT      --
-  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 
 
@@ -1949,55 +1720,6 @@ th, td {
 <!--=======  Footer End  =========-->
 
 
-
-<?php
-// Include the database connection file
-require_once("includes/dbconn.php");
-
-// Get the visitor's IP address
-$ip = $_SERVER['REMOTE_ADDR'];
-
-// Check if the IP address is already in the unique_visitors table
-$check_sql = "SELECT id FROM unique_visitors WHERE ip_address = ?";
-$check_stmt = $conn->prepare($check_sql);
-$check_stmt->bind_param("s", $ip);
-$check_stmt->execute();
-$check_stmt->store_result();
-
-if ($check_stmt->num_rows === 0) {
-    // IP address is not in the database, meaning a unique visitor
-    $insert_sql = "INSERT INTO unique_visitors (ip_address, visit_time) VALUES (?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
-    $insert_stmt = $conn->prepare($insert_sql);
-    $insert_stmt->bind_param("s", $ip);
-
-    if ($insert_stmt->execute()) {
-        // Successfully inserted a new unique visitor record
-    } else {
-        // Handle the insert error
-        echo "Error inserting new unique visitor: " . $conn->error;
-    }
-} else {
-    // If you see this message, it means the IP is already in the database
-    echo "This IP address is already in the database.";
-}
-
-// Retrieve counts for different time intervals
-$last_year_sql = "SELECT COUNT(*) FROM unique_visitors WHERE DATE(visit_time) >= DATE_SUB(CURDATE(), INTERVAL 1 YEAR)";
-$last_month_sql = "SELECT COUNT(*) FROM unique_visitors WHERE DATE(visit_time) >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH)";
-$last_week_sql = "SELECT COUNT(*) FROM unique_visitors WHERE DATE(visit_time) >= DATE_SUB(CURDATE(), INTERVAL 1 WEEK)";
-$last_24_hours_sql = "SELECT COUNT(*) FROM unique_visitors WHERE DATE(visit_time) >= DATE_SUB(NOW(), INTERVAL 24 HOUR)";
-$last_1_hour_sql = "SELECT COUNT(*) FROM unique_visitors WHERE DATE(visit_time) >= DATE_SUB(NOW(), INTERVAL 1 HOUR)";
-
-// Execute the queries to get counts
-$last_year_count = $conn->query($last_year_sql)->fetch_row()[0];
-$last_month_count = $conn->query($last_month_sql)->fetch_row()[0];
-$last_week_count = $conn->query($last_week_sql)->fetch_row()[0];
-$last_24_hours_count = $conn->query($last_24_hours_sql)->fetch_row()[0];
-$last_1_hour_count = $conn->query($last_1_hour_sql)->fetch_row()[0];
-
-// Close the database connection
-$conn->close();
-?>
 
 
   

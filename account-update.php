@@ -3,12 +3,75 @@ include_once("includes/basic_includes.php");
 include_once("functions.php");
 
 error_reporting(0);
-if (isloggedin()) {
-} else {
-    header("location:login.php");
+
+function englishToBanglaNumber($number) {
+  $englishDigits = range(0, 9);
+  $banglaDigits = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
+  return str_replace($englishDigits, $banglaDigits, $number);
 }
+
+if (isloggedin()) {
+  // Get the user ID from the session
+  $userId = $_SESSION['id'];
+    
+  // Retrieve the user's account status from the database
+  require_once("includes/dbconn.php");
+  $statusSql = "SELECT deactivated FROM users WHERE id = $userId";
+  $result = mysqli_query($conn, $statusSql);
+  $row = mysqli_fetch_assoc($result);
+  $deactivated = $row['deactivated'];
+
+  // Query to get the total view_count for the logged-in user
+  $totalViewCountSql = "SELECT view_count FROM `1bd_personal_physical` WHERE user_id = $userId";
+  $result = mysqli_query($conn, $totalViewCountSql);
+  $row = mysqli_fetch_assoc($result);
+  $totalViewCount = $row['view_count'];
+
+
+  // Convert the counts to Bangla numerals
+  $totalViewCountInBangla = englishToBanglaNumber($totalViewCount);
+
+  } else {
+    header("location:login.php");
+  }
+
+  // Close the database connection
+$conn->close();
 ?>
 
+
+<?php
+    include("includes/dbconn.php");
+
+    //getting profile details from db
+    $sql="SELECT * FROM users WHERE id = $userId";
+    $result = mysqlexec($sql);
+
+    if($result){
+    $row=mysqli_fetch_assoc($result);
+    if($row){
+        $fullname=$row['fullname'];
+        }
+    if($row){
+    $username=$row['username'];
+    }
+    if($row){
+    $password=$row['password'];
+    }
+    if($row){
+    $email=$row['email'];
+    }
+    if($row){
+        $pnumber=$row['number'];
+    }
+    if($row){
+        $gender=$row['gender'];
+        }
+    if($row){
+        $userId=$row['id'];
+    }
+    }
+?>
 
 <!DOCTYPE HTML>
 <html>
@@ -36,6 +99,10 @@ if (isloggedin()) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.8/js/intlTelInput.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.8/css/intlTelInput.css" />
+
+<!-- Side Bar Icon -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Side Bar Icon -->
 </head>
 
 
@@ -48,97 +115,29 @@ if (isloggedin()) {
     <div class="grid_3">
         <div class="container">
             <div class="breadcrumb1">
-
                 <ul>
-                    <a href="index.php"><i class="fa fa-home home_1"></i></a>
-                    <span class="divider">&nbsp;|&nbsp;</span>
-                    <li class="current-page"><h4>Account Update</h4></li>
+                <a href="my-account.php"><i class="fa fa-home home_1"></i></a>
+                <span class="divider">&nbsp;|&nbsp;</span>
+                <li class="current-page"><h4>My Account</h4></li>
                 </ul>
 
-
                 <?php
-                    include("includes/dbconn.php");
+                include("includes/dbconn.php");
+                //getting profile details from db
+                $sql="SELECT * FROM users WHERE id = $userId";
+                $result = mysqlexec($sql);
 
-                    //getting profile details from db
-                    $sql="SELECT * FROM users WHERE id = $id";
-                    $result = mysqlexec($sql);
-
-                    if($result){
-                    $row=mysqli_fetch_assoc($result);
-                    if($row){
-                        $fullname=$row['fullname'];
-                        }
-                    if($row){
-                    $username=$row['username'];
-                    }
-                    if($row){
-                    $password=$row['password'];
-                    }
-                    if($row){
-                    $email=$row['email'];
-                    }
-                    if($row){
-                        $pnumber=$row['number'];
-                    }
-                    if($row){
-                        $gender=$row['gender'];
-                        }
-                    if($row){
-                        $id=$row['id'];
-                    }
-                    }
-
-                    //6bd_7bd_marital_status;
-                    //getting profile details from db
-                    $sql="SELECT * FROM 7bd_marriage_related_qs_female WHERE user_id = $id";
-                    $result = mysqlexec($sql);
-                    if($result){
-                    $row=mysqli_fetch_assoc($result);
-                    if($row){
-                        $profileby=$row['profileby'];
-                    }
-                    }
+                if($result){
+                $row=mysqli_fetch_assoc($result);
+                if($row){
+                $username=$row['username'];
+                }
+                }
                 ?>
-
-                <div class="shosurbari-userhome-status">
-                    <h3><?php echo "Welcome: $username"; ?></h3>
-                    <!-- Display the account status -->
-                    <h4 >একাউন্ট অবস্থা:
-                        <?php
-                            if ($deactivated == 0) {
-                                echo '<span style="color: green;">একটিভ</span>';
-                            } else {
-                                echo '<span style="color: red;">ডিএক্টিভ</span> <br>';
-                                echo '<br><span style="color: #0aa4ca; font-size: 14px; margin-top: 10px;">আপনার একাউন্ট User Home পেজ থেকে একটিভ করুন।</span>';
-                            }
-                        ?>
-                    </h4>
-                </div>
 
             </div>
         </div>
     </div>
-
-
-
-    <div class="sb-home-search">
-        <h1>ব্যবহারকারীর একাউন্ট</h1>
-        <div class="sbhome-heart-divider">
-        <span class="grey-line"></span>
-            <i class="fa fa-heart pink-heart"></i>
-            <i class="fa fa-heart grey-heart"></i>
-        <span class="grey-line"></span>
-        </div>
-    </div>
-
-
-
-    <!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-    -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
-    --                S  T  A  R  T                  --
-    --    SHOSURBARI USER ACCOUNT PASSWORD UPDATE    --
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 
 
 
@@ -196,7 +195,77 @@ if (isset($_SESSION['updateMessage'])) {
 
 
 
-    <div class="shosurbari-biodata-form">
+
+<div class="shosurbari-sidebar">
+    <div class="leftarea-sidebar">
+
+        <div class="shosurbari-userhome-status">
+            <h3><?php echo "Welcome: $username"; ?></h3>
+
+            <!-- Display the account status -->
+            <h4 >Account Status:
+                <?php if ($deactivated == 0) {
+                echo '<span style="color: green;">Active</span>';
+                } else {
+                echo '<span style="color: red;">Deactivate</span>';
+                }
+                ?>
+            </h4>
+
+            <form action="deactivate_account.php" method="post">
+                <?php if ($deactivated == 1) { ?>
+                <button type="submit" name="action" value="activate">Activation</button>
+                <?php } else { ?>
+                <button type="submit" name="action" value="deactivate">Deactivation</button>
+                <?php } ?>
+            </form> 
+            
+        </div>
+
+
+        <div class="shosurbari-account-sidebar" id="bs-megadropdown-tabs">
+            <ul class="shosurbari-my-account">
+                <li><a href="profile.php?/Biodata=<?php echo $userId;?>"><i class='fa fa-address-card-o'></i> সম্পূর্ণ প্রোফাইল</a></li>
+                <li><a href="profile-photo.php?id=<?php echo $userId;?>"><i class="fa fa-image"></i> প্রোফাইল ছবি</a></li>
+                <li><a href="biodata-post.php"><i class='fa fa-file-text-o'></i> বায়োডাটা পোস্ট</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-edit"></i> বায়োডাটা আপডেট<span class="caret"></span> </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="update-physical-marital.php">শারীরিক/বৈবাহিক তথ্য</a></li>
+                        <li><a href="update-personalInfo.php">ব্যক্তিগত তথ্য</a></li>
+                        <li><a href="update-education.php">শিক্ষাগত তথ্য</a></li>
+                        <li><a href="update-address.php">ঠিকানা</a></li>
+                        <li><a href="update-family.php">পারিবারিক/সামাজিক</a></li>
+                        <li><a href="update-religion.php">ধর্মীয় বিষয়</a></li>
+                        <li><a href="update-partnerInfo.php">জীবনসঙ্গীর-বিবরণ</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="account-update.php"><i class="fa fa-gear fa-spin"></i> একাউন্ট আপডেট</a></li>
+            </ul>
+        </div>
+
+
+        <div class="shosurbari-biodata-view">
+            <form action="" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
+                <div class="sb-biodata-total-view">
+                    <h3>আপনার বায়োডাটাটি দেখা হয়েছে-</h3>
+                    <h1><?php
+                            // Display the view count for the logged-in user's profile
+                            if (isset($totalViewCountInBangla)) {
+                                echo "" . $totalViewCountInBangla;
+                            }
+                        ?> বার
+                    </h1>
+                </div>
+            </form>
+        </div> 
+    </div>
+
+
+
+
+
     <div class="shosurbari-user-account">
 
         <div class="soshurbari-animation-icon">
@@ -237,24 +306,6 @@ if (isset($_SESSION['updateMessage'])) {
                     <option hidden selected><?php echo $gender; ?></option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option> 
-                </select>
-            </div>
-
-            <div class="form-group">
-            <label>Profiled By<span style="color: #ccc; font-size:12px;"> (Data show after Biodata post. {Fixed})</span> </label>
-                <select name="profileby" readonly>
-                    <option hidden selected><?php echo $profileby; ?></option>
-                    <option value="নিজের জন্য">নিজের জন্য</option>
-                    <option value="মা">মা</option>
-                    <option value="বাবা">বাবা</option>
-                    <option value="ভাই">ভাই</option>
-                    <option value="বোন/ভাবি">বোন/ভাবি</option>
-                    <option value="আঙ্কেল">আঙ্কেল</option> 
-                    <option value="আন্টি">আন্টি</option>
-                    <option value="দাদা/নানা">দাদা/নানা</option> 
-                    <option value="দাদী/নানী">দাদী/নানী</option> 
-                    <option value="শিক্ষক">শিক্ষক</option>
-                    <option value="বন্ধু/বান্ধবী">বন্ধু/বান্ধবী</option>  
                 </select>
             </div>
 
@@ -308,165 +359,87 @@ if (isset($_SESSION['updateMessage'])) {
             </div>
         </form>
     </div>
+
 </div>
 
+
+
+
+
 <style>
-.sb-biodata-amount-list h1{
-    font-size: 28px;
+    .dropdown-menu li a {
+    padding: 5px 15px;
+    font-weight: 410;
+    font-size:14px;
+    height: 40px;
+    line-height: 32px;
 }
 
-.sb-biodata-amount-list h2{
-    font-size: 16px;
-    margin: 15px auto;
-}
-
-.sb-biodata-amount-list h3{
-    font-size: 16px;
-}
-
-.sb-register-login{
-    margin-top: 10px;
-}
-
-.sb-home-search{
-    margin-top: 0px;
-}
-
-.sb-biodata-field{
+  .sb-biodata-field{
     background: none;
-}
-
-.sb-biodata-field h2{
-    color: #000;
-    font-size: 23px;
-    font-weight: bold;
-    background: none;
-    text-align: left;
-}
-
-.shosurbari-biodata-form {
-    align-items: center;
-    flex-wrap: wrap;
-    width: 1400px;
-    margin: auto;
-    padding-top: 30px;
-    padding-bottom: 30px
-}
-
-.soshurbari-animation-icon,
-.shosurbari-animation-form {
-    flex-basis: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.soshurbari-animation-icon h3 {
-    font-size: 23px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    margin-top: 15px;
-}
-
-.soshurbari-animation-icon img {
-    justify-content: flex-end;
-    margin: auto;
-    width: 37px;
-    height: 35px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th, td {
-    padding: 10px;
-    text-align: center;
-    border: 1px solid #ddd;
-}
-
-th {
-    background: linear-gradient(180deg, #00bbff61 0%,rgba(238,246,253,0) 100%);
-}
-
-.sb-biodata-field{
-    background: none;
-}
-  
-.sb-register-login h2{
-    color: #000;
-    font-size: 23px;
-    font-weight: bold;
-    background: none;
-    text-align: left;
-    line-height: 35px;
-}
-
-.shosurbari-biodata-form {
-    align-items: center;
-    flex-wrap: wrap;
-    width: 1400px;
-    margin: auto;
-    margin-top: 25px;
-    padding-top: 0px;
-    padding-bottom: 30px
-}
-
-.soshurbari-animation-icon,
-.shosurbari-animation-form {
-    flex-basis: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.soshurbari-animation-icon h3 {
-    font-size: 23px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    margin-top: 15px;
-}
-
-.soshurbari-animation-icon img {
-    justify-content: flex-end;
-    margin: auto;
-    width: 37px;
-    height: 35px;
-}
-
-@media (max-width: 1400px){
-  .shosurbari-biodata-form{
-    width: auto;
   }
+  
+  .sb-biodata-field h2{
+    color: #000;
+    font-size: 23px;
+    font-weight: bold;
+    background: none;
+    text-align: left;
+}
+
+.shosurbari-biodata-form {
+  align-items: center;
+  flex-wrap: wrap;
+  width: 1400px;
+  margin: auto;
+  padding-top: 30px;
+  padding-bottom: 20px
+}
+
+.soshurbari-animation-icon,
+.shosurbari-animation-form {
+  flex-basis: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.soshurbari-animation-icon h3 {
+  font-size: 23px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.soshurbari-animation-icon img {
+  justify-content: flex-end;
+  margin: auto;
+
+  width: 37px;
+  height: 35px;
+}
+
+@media (max-width: 1280px){
+    .shosurbari-biodata-form{
+        width: auto;
+    }
 }
 
 @media (max-width: 1024px) {
-.shosurbari-animation-form {
-    flex-basis: 100%;
-    justify-content: center;
-}
-
-.shosurbari-biodata-form {
-    width: auto;
-}
-}
-
-@media (max-width: 600px) {
-th, td {
-    font-size: 15px;
-    padding: 8px;
-}
+    .shosurbari-biodata-form {
+        width: auto;
+    }
 }
 
 
-@media (max-width: 384px) {
-    th, td {
-    font-size: 13px;
-    padding: 5px;
+@media (max-width: 768px){
+.shosurbari-userhome-status h3,
+.shosurbari-userhome-status h4 {
+    text-align: left;
 }
 }
 </style>
+
 
 
 
