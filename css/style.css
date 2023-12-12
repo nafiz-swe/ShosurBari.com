@@ -707,11 +707,11 @@ ul.nav_1 li.last{
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 .shosurbari-account-sidebar{
     margin-top: 40px;
-    width: 200px;
+    width: 210px;
 }
 
 .leftarea-sidebar {
-    width: 215px;
+    width: 210px;
 }
 
 .shosurbari-my-account {
@@ -723,7 +723,7 @@ ul.nav_1 li.last{
     text-decoration: none;
     color: #fff;
     display: block;
-    padding: 15px 5px;
+    padding: 15px 3px;
     font-size: 17px;
     text-align: left;
     background: linear-gradient(#06b6d4, #0aa4ca);
@@ -747,7 +747,7 @@ ul.nav_1 li.last{
 
 .shosurbari-sidebar ul{
     background: #fff;
-    width: 200px;
+    width: 210px;
     border-radius: 2px;
     border: 1px solid #ccc;
 }
@@ -780,6 +780,7 @@ ul.nav_1 li.last{
     width: 100%;
     padding-top: 0px 30px 30px 30px;
     display: flex;
+    margin-bottom: 80px;
 }
 
 .shosurbari-account-sidebar {
@@ -790,7 +791,7 @@ ul.nav_1 li.last{
 
 .shosurbari-userhome-status{
     margin-top: 20px;
-    width:  215px;
+    width:  210px;
 }
 
 .shosurbari-userhome-status h3,
@@ -801,7 +802,7 @@ ul.nav_1 li.last{
 
 .shosurbari-userhome-status form button{
     margin-left: 0px;
-    width: 200px;
+    width: 210px;
     padding: 6px;
     background: linear-gradient(#06b6d4, #0aa4ca);
     color: #fff;
@@ -870,7 +871,7 @@ ul.nav_1 li.last{
     margin-top: 70px;
     margin-bottom: 50px;
     flex-wrap: wrap;
-    width: 200px;;
+    width: 210px;;
     margin-left: 0;
   }
 
@@ -3262,6 +3263,51 @@ ol li{
     box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
     border: 1px solid rgba(0,0,0,.05);
     margin-bottom: auto;
+    overflow-x: auto;
+}
+
+.shosurbari-dashboard {  /* Both Page*/
+    border-radius: 6px;
+    width: auto;
+    gap: 1.5rem;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05);
+    border: 1px solid rgba(0, 0, 0, .05);
+    margin-bottom: auto;
+    overflow-x: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 0;
+    margin-left: 30px;
+}
+
+.shosurbari-order-dashboard {
+    margin: auto;
+    margin-bottom: 100px;
+    overflow-y: hidden;
+}
+
+.shosurbari-receive-dashboard {
+    margin: auto;
+    overflow-y: hidden;
+    margin-bottom: 25px;
+}
+
+.shosurbari-dashboard h1 {
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    max-width: 100%;
+    line-height: 35px;
+}
+
+.shosurbari-order-dashboard p,
+.shosurbari-receive-dashboard p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: left;
 }
 
 .shosurbari-user-account form{   /* Both Page*/
@@ -5387,6 +5433,7 @@ font-size: 14px;
 --      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width: 768px){
+
     .slide h1 {
         font-size: clamp(2.3em, 5vmax, 3em);
         top: 20px;
@@ -6315,13 +6362,25 @@ font-size: 14px;
     display: block;
 }
 
+.shosurbari-dashboard{ 
+    margin: 20px 10px;
+}
+
+
+.sb-biodata-total-view {
+    text-align: center;
+    width: 350px;
+    margin-left: -68px;
+} 
+
 
 .shosurbari-my-account a {
-    padding: 10px 5px;
+    padding: 10px 3px;
 }
 
 .leftarea-sidebar {
     margin: auto;
+    padding-bottom: 60px;
 }
 
 .sb-home-reg2 button {
@@ -7408,6 +7467,12 @@ font-size: 14px;
     .search-title h4 {
         font-size: 20px;
         line-height: 30px;
+    }
+
+    .sb-biodata-total-view {
+        text-align: center;
+        width: 200px;
+        margin-left: 0px;
     }
 
     #close-button {

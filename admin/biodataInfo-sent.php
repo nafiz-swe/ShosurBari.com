@@ -96,6 +96,11 @@ error_reporting(0);
         </div>
 
         <div class="shosurbari-biodata-field">
+          <label for="edit-name">ইউজার আইডি<span class="form-required" title="This field is required.">*</span></label>
+          <input type="number" name="user_id" value="" class="form-text" required>
+        </div>
+
+        <div class="shosurbari-biodata-field">
           <label for="edit-name">কাস্টমার নাম<span class="form-required" title="This field is required.">*</span></label>
           <input type="text" name="payment_cust_name" value="" class="form-text" required>
         </div>
@@ -125,18 +130,18 @@ error_reporting(0);
           <h2>বায়োডাটা নাম্বার ১</h2>
         
           <div class="shosurbari-biodata-field">
-            <label for="about me">বায়োডাটা নাম্বার<span class="form-required" title="This field is required.">*</span></label>
+            <label for="about me">বায়োডাটা নং<span class="form-required" title="This field is required.">*</span></label>
             <input type="text" name="biodata_number_1" value="" class="form-text" required>
           </div>
 
           <div class="shosurbari-biodata-field">
             <label for="about me">বায়োডাটার অভিভাবক<span class="form-required" title="This field is required.">*</span></label>
-            <textarea rows="4" type="text" name="biodata_guardian_1" value="অভিভাবক: ,   নাম: ,   মোবাইল-নাম্বার: " class="form-text" required></textarea>
+            <textarea rows="4" type="text" name="biodata_guardian_1" value="" placeholder="অভিভাবক: ,   নাম: ,   মোবাইল-নাম্বার: " class="form-text" required></textarea>
           </div>
 
           <div class="shosurbari-biodata-field">
             <label for="about me">পাত্র-পাত্রীর<span class="form-required" title="This field is required.">*</span></label>
-            <input type="text" name="biodata_patropatri_1" value="নাম:  ই-মেইল:" class="form-text" required>
+            <input type="text" name="biodata_patropatri_1" value="" placeholder="নাম:  ই-মেইল:" class="form-text" required>
           </div>
         </div>
 
@@ -144,7 +149,7 @@ error_reporting(0);
           <h2>বায়োডাটা নাম্বার ২</h2>
         
           <div class="shosurbari-biodata-field">
-            <label for="about me">বায়োডাটা নাম্বার</label>
+            <label for="about me">বায়োডাটা নং</label>
             <input type="text" name="biodata_number_2" value="" class="form-text">
           </div>
 
@@ -163,7 +168,7 @@ error_reporting(0);
           <h2>বায়োডাটা নাম্বার ৩</h2>
         
           <div class="shosurbari-biodata-field">
-            <label for="about me">বায়োডাটা নাম্বার</label>
+            <label for="about me">বায়োডাটা নং</label>
             <input type="text" name="biodata_number_3" value="" class="form-text">
           </div>
 
@@ -182,7 +187,7 @@ error_reporting(0);
           <h2>বায়োডাটা নাম্বার ৪</h2>
         
           <div class="shosurbari-biodata-field">
-            <label for="about me">বায়োডাটা নাম্বার</label>
+            <label for="about me">বায়োডাটা নং</label>
             <input type="text" name="biodata_number_4" value="" class="form-text">
           </div>
 
@@ -201,7 +206,7 @@ error_reporting(0);
           <h2>বায়োডাটা নাম্বার ৫</h2>
         
           <div class="shosurbari-biodata-field">
-            <label for="about me">বায়োডাটা নাম্বার</label>
+            <label for="about me">বায়োডাটা নং</label>
             <input type="text" name="biodata_number_5" value="" class="form-text">
           </div>
 
@@ -220,7 +225,7 @@ error_reporting(0);
           <h2>বায়োডাটা নাম্বার ৬</h2>
         
           <div class="shosurbari-biodata-field">
-            <label for="about me">বায়োডাটা নাম্বার</label>
+            <label for="about me">বায়োডাটা নং</label>
             <input type="text" name="biodata_number_6" value="" class="form-text">
           </div>
 
@@ -239,7 +244,7 @@ error_reporting(0);
           <h2>বায়োডাটা নাম্বার ৭</h2>
         
           <div class="shosurbari-biodata-field">
-            <label for="about me">বায়োডাটা নাম্বার</label>
+            <label for="about me">বায়োডাটা নং</label>
             <input type="text" name="biodata_number_7" value="" class="form-text">
           </div>
 
@@ -258,7 +263,7 @@ error_reporting(0);
           <h2>বায়োডাটা নাম্বার ৮</h2>
         
           <div class="shosurbari-biodata-field">
-            <label for="about me">বায়োডাটা নাম্বার</label>
+            <label for="about me">বায়োডাটা নং</label>
             <input type="text" name="biodata_number_8" value="" class="form-text">
           </div>
 
@@ -277,7 +282,7 @@ error_reporting(0);
           <h2>বায়োডাটা নাম্বার ৯</h2>
         
           <div class="shosurbari-biodata-field">
-            <label for="about me">বায়োডাটা নাম্বার</label>
+            <label for="about me">বায়োডাটা নং</label>
             <input type="text" name="biodata_number_9" value="" class="form-text">
           </div>
 
@@ -296,7 +301,7 @@ error_reporting(0);
           <h2>বায়োডাটা নাম্বার ১০</h2>
         
           <div class="shosurbari-biodata-field">
-            <label for="about me">বায়োডাটা নাম্বার</label>
+            <label for="about me">বায়োডাটা নং</label>
             <input type="text" name="biodata_number_10" value="" class="form-text">
           </div>
 

@@ -227,10 +227,10 @@ h2 {
         
         <div class="sb-reg-info">
             <h2>Receipt ID: <?php echo "SB$sbo_id";?></h2>
-            <div class="sb-biodata" id="religionDetails">
+            <div class="sb-biodata">
 
                 <div class="shosurbari-biodata-field">
-                <label for="edit-name">পেমেন্ট অর্ডার আইডি</label>
+                <label for="edit-name">রিকোয়েস্ট আইডি</label>
                 <p> <?php echo $payment_order_id;?> </p>
                 </div>
 

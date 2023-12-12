@@ -153,6 +153,7 @@ function admin_login(){
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $payment_order_id = $_POST['payment_order_id'];
+            $user_id = $_POST['user_id'];
             $payment_cust_name = $_POST['payment_cust_name'];
             $payment_cust_email = $_POST['payment_cust_email'];
             $payment_cust_number = $_POST['payment_cust_number'];
@@ -204,6 +205,7 @@ function admin_login(){
             // Insert the contact form data into the contact_us table
             $sql = "INSERT INTO customer_sent_info_complete (
             payment_order_id,
+            user_id,
             payment_cust_name,
             payment_cust_email, 
             payment_cust_number, 
@@ -251,7 +253,8 @@ function admin_login(){
 
             cust_payment_date,    
             info_sent_time) 
-            VALUES ('$payment_order_id', 
+            VALUES ('$payment_order_id',
+            '$user_id', 
             '$payment_cust_name', 
             '$payment_cust_email', 
             '$payment_cust_number', 

@@ -225,8 +225,9 @@ if (isset($_SESSION['updateMessage'])) {
 
         <div class="shosurbari-account-sidebar" id="bs-megadropdown-tabs">
             <ul class="shosurbari-my-account">
-                <li><a href="profile.php?/Biodata=<?php echo $userId;?>"><i class='fa fa-address-card-o'></i> সম্পূর্ণ প্রোফাইল</a></li>
-                <li><a href="profile-photo.php?id=<?php echo $userId;?>"><i class="fa fa-image"></i> প্রোফাইল ছবি</a></li>
+                <li><a href="my-account.php"><i class="fa fa-dashboard"></i> ড্যাশবোর্ড</a></li>
+                <li><a href="profile.php?/Biodata=<?php echo $userId;?>"><i class='fa fa-address-card-o'></i> সম্পূর্ণ বায়োডাটা</a></li>
+                <li><a href="profile-photo.php?id=<?php echo $userId;?>"><i class="fa fa-image"></i> বায়োডাটার ছবি</a></li>
                 <li><a href="biodata-post.php"><i class='fa fa-file-text-o'></i> বায়োডাটা পোস্ট</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-edit"></i> বায়োডাটা আপডেট<span class="caret"></span> </a>
@@ -240,7 +241,7 @@ if (isset($_SESSION['updateMessage'])) {
                         <li><a href="update-partnerInfo.php">জীবনসঙ্গীর-বিবরণ</a></li>
                     </ul>
                 </li>
-
+                <li><a href="search.php"><i class="fa fa-search"></i> বায়োডাটা খুঁজুন</a></li>
                 <li><a href="account-update.php"><i class="fa fa-gear fa-spin"></i> একাউন্ট আপডেট</a></li>
             </ul>
         </div>

@@ -132,8 +132,9 @@ $conn->close();
 
       <div class="shosurbari-account-sidebar" id="bs-megadropdown-tabs">
         <ul class="shosurbari-my-account">
-          <li><a href="profile.php?/Biodata=<?php echo $id;?>"><i class='fa fa-address-card-o'></i> সম্পূর্ণ প্রোফাইল</a></li>
-          <li><a href="profile-photo.php?id=<?php echo $id;?>"><i class="fa fa-image"></i> প্রোফাইল ছবি</a></li>
+        <li><a href="my-account.php"><i class="fa fa-dashboard"></i> ড্যাশবোর্ড</a></li>
+          <li><a href="profile.php?/Biodata=<?php echo $id;?>"><i class='fa fa-address-card-o'></i> সম্পূর্ণ বায়োডাটা</a></li>
+          <li><a href="profile-photo.php?id=<?php echo $id;?>"><i class="fa fa-image"></i> বায়োডাটার ছবি</a></li>
           <li><a href="biodata-post.php"><i class='fa fa-file-text-o'></i> বায়োডাটা পোস্ট</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-edit"></i> বায়োডাটা আপডেট<span class="caret"></span> </a>
@@ -147,8 +148,8 @@ $conn->close();
               <li><a href="update-partnerInfo.php">জীবনসঙ্গীর-বিবরণ</a></li>
             </ul>
           </li>
-
-          <li><a href="account-update.php"><i class="fa fa-gear"></i> একাউন্ট আপডেট</a></li>
+          <li><a href="search.php"><i class="fa fa-search"></i> বায়োডাটা খুঁজুন</a></li>
+          <li><a href="account-update.php"><i class="fa fa-gear fa-spin"></i> একাউন্ট আপডেট</a></li>
         </ul>
       </div>
 
@@ -172,91 +173,287 @@ $conn->close();
 
 
 
-    <div class="shosurbari-user-account">
+    <div class="shosurbari-dashboard">
       <?php
-        include("includes/dbconn.php");
+      include("includes/dbconn.php");
 
-        // getting profile details from db
-        $sql = "SELECT * FROM customer WHERE user_id = $id";
-        $result = mysqlexec($sql);
+      // getting profile details from db
+      $id = isset($_SESSION['id']) ? $_SESSION['id'] : 0;
 
+      // Query for customer table
+      $sql = "SELECT * FROM customer WHERE user_id = $id";
+      $result = mysqlexec($sql);
+
+      // Query for customer_sent_info_complete table
+      $sql2 = "SELECT * FROM customer_sent_info_complete WHERE user_id = $id";
+      $result2 = mysqlexec($sql2);
       ?>
 
-      <table class="shosurbari-users-customer">
-        <tr>
-            <th>Order ID</th>
-            <th>Request Biodata</th>
-            <th>Total Fee</th>
-            <th>Payment Method</th>
-            <th>Date</th>
-            <th>Status</th>
-        </tr>
 
-        <?php
-        // Loop through all rows with the same user_id
-        while ($row = mysqli_fetch_assoc($result)) {
-            $id_customer = $row['id_customer'];
-            $request_biodata_number = $row['request_biodata_number'];
-            $total_fee = $row['total_fee'];
-            $payment_method = $row['payment_method'];
-            $request_date = $row['request_date'];
+      <h1>রিকোয়েস্ট বায়োডাটা পেমেন্ট তথ্য </h1>
+      <p style="margin-bottom: 20px;">আপনি যদি কোনো বায়োডাটার অভিভাবকের সাথে যোগাযোগ করতে আগ্রহ হন, সেই জন্য আপনাকে কিছু সার্ভিস চার্জ প্রদান করতে হবে। সার্ভিস চার্জ প্রদান করার পর এখানে পেমেন্ট তথ্য দেখতে পাবেন।</p>
+      <div class="shosurbari-order-dashboard">
+        <table class="shosurbari-users-request">
+          <tr>
+              <th>রিকোয়েস্ট আইডি</th>
+              <th>রিকোয়েস্ট বায়োডাটা</th>
+              <th>মোট টাকা</th>
+              <th>পেমেন্ট মেথড</th>
+              <th>স্ট্যাটাস</th>
+              <th>রিকোয়েস্ট তারিখ</th>
+          </tr>
 
-            // Display the data in the table
-            echo "<tr>";
-            echo "<td>SB$id_customer</td>";
-            echo "<td>$request_biodata_number</td>";
-            echo "<td>$total_fee</td>";
-            echo "<td>$payment_method</td>";
-            echo "<td>$request_date</td>";
-            echo "<td>";
-            if ($row['processing'] == 1) {
-                echo "Processing";
-            } elseif ($row['sent'] == 1) {
-                echo "Sent";
-            } elseif ($row['cancel'] == 1) {
-                echo "Cancel";
-            } else {
-                echo "Unknown Status";
-            }
-            echo "</td>";
-            echo "</tr>";
-        }
-        ?>
-      </table>
+          <?php
+          // Loop through all rows with the same user_id
+          while ($row = mysqli_fetch_assoc($result)) {
+              $id_customer = $row['id_customer'];
+              $request_biodata_number = $row['request_biodata_number'];
+              $total_fee = $row['total_fee'];
+              $payment_method = $row['payment_method'];
+              $request_date = $row['request_date'];
 
+
+              // Display the data in the table
+              echo "<tr>";
+              echo "<td>SB$id_customer</td>";
+              echo "<td>$request_biodata_number</td>";
+              echo "<td>$total_fee</td>";
+              echo "<td>$payment_method</td>";
+              echo "<td style='color: white; text-align: center; ";
+              if ($row['processing'] == 1) {
+                  echo "background-color: orange;'>Processing";
+              } elseif ($row['sent'] == 1) {
+                  echo "background-color: #22c55e;'>Sent";
+              } elseif ($row['cancel'] == 1) {
+                  echo "background-color: #ff0000;'>Invalid";
+              } else {
+                  echo "background-color: gray;'>Unknown";
+              }
+              echo "</td>";
+              echo "<td>$request_date</td>";
+              echo "</tr>";
+          }
+          ?>
+        </table>
+      </div>
+
+
+
+      <h1>অভিভাবকের সাথে যোগাযোগের তথ্য </h1>
+      <div class="shosurbari-receive-dashboard">
+        <table class="shosurbari-users-request">
+          <tr>
+              <th>রিসিভ আইডি</th>
+              <th>রিকোয়েস্ট আইডি</th>
+              <th>মোট বায়োডাটা</th>
+              <th>পেমেন্ট তারিখ</th>
+              <th>রিসিভ তারিখ</th>
+              <th>বায়োডাটার তথ্য-১</th>
+              <th>বায়োডাটার তথ্য-২</th>
+              <th>বায়োডাটার তথ্য-৩</th>
+              <th>বায়োডাটার তথ্য-৪</th>
+              <th>বায়োডাটার তথ্য-৫</th>
+              <th>বায়োডাটার তথ্য-৬</th>
+              <th>বায়োডাটার তথ্য-৭</th>
+              <th>বায়োডাটার তথ্য-৮</th>
+              <th>বায়োডাটার তথ্য-৯</th>
+              <th>বায়োডাটার তথ্য-১০</th>
+          </tr>
+
+          <?php
+          // Loop through all rows with the same user_id
+          while ($row2 = mysqli_fetch_assoc($result2)) {
+            $id = $row2['id'];
+            $payment_order_id = $row2['payment_order_id'];
+            $payment_biodata_quantity = $row2['payment_biodata_quantity'];
+            $cust_payment_date = $row2['cust_payment_date'];
+            $info_sent_time = $row2['info_sent_time'];
+
+            
+            $biodata_number_1 = $row2['biodata_number_1'];
+            $biodata_guardian_1 = $row2['biodata_guardian_1'];
+            $biodata_patropatri_1 = $row2['biodata_patropatri_1'];
+
+            $biodata_number_2 = $row2['biodata_number_2'];
+            $biodata_guardian_2 = $row2['biodata_guardian_2'];
+            $biodata_patropatri_2 = $row2['biodata_patropatri_2'];
+
+            $biodata_number_3 = $row2['biodata_number_3'];
+            $biodata_guardian_3 = $row2['biodata_guardian_3'];
+            $biodata_patropatri_3 = $row2['biodata_patropatri_3'];
+
+            $biodata_number_4 = $row2['biodata_number_4'];
+            $biodata_guardian_4 = $row2['biodata_guardian_4'];
+            $biodata_patropatri_4 = $row2['biodata_patropatri_4'];
+
+            $biodata_number_5 = $row2['biodata_number_5'];
+            $biodata_guardian_5 = $row2['biodata_guardian_5'];
+            $biodata_patropatri_5 = $row2['biodata_patropatri_5'];
+
+            $biodata_number_6 = $row2['biodata_number_6'];
+            $biodata_guardian_6 = $row2['biodata_guardian_6'];
+            $biodata_patropatri_6 = $row2['biodata_patropatri_6'];
+
+            $biodata_number_7 = $row2['biodata_number_7'];
+            $biodata_guardian_7 = $row2['biodata_guardian_7'];
+            $biodata_patropatri_7 = $row2['biodata_patropatri_7'];
+
+            $biodata_number_8 = $row2['biodata_number_8'];
+            $biodata_guardian_8 = $row2['biodata_guardian_8'];
+            $biodata_patropatri_8 = $row2['biodata_patropatri_8'];
+
+            $biodata_number_9 = $row2['biodata_number_9'];
+            $biodata_guardian_9 = $row2['biodata_guardian_9'];
+            $biodata_patropatri_9 = $row2['biodata_patropatri_9'];
+
+            $biodata_number_10 = $row2['biodata_number_10'];
+            $biodata_guardian_10 = $row2['biodata_guardian_10'];
+            $biodata_patropatri_10 = $row2['biodata_patropatri_10'];
+
+
+              // Display the data in the table
+              echo "<tr>";
+              echo "<td>SB$id</td>";
+              echo "<td>$payment_order_id</td>";
+              echo "<td>$payment_biodata_quantity</td>";
+              echo "<td>$cust_payment_date</td>";
+              echo "<td>$info_sent_time</td>";
+
+              for ($i = 1; $i <= 10; $i++) {
+                  echo "<td class='biodata-link' style='text-align: left;'>";
+                  $biodata_number = ${"biodata_number_" . $i};
+                  $biodata_guardian = ${"biodata_guardian_" . $i};
+                  $biodata_patropatri = ${"biodata_patropatri_" . $i};
+
+                  if (!empty($biodata_number) || !empty($biodata_guardian) || !empty($biodata_patropatri)) {
+                      echo "<a class='biodata-button' target=\"_blank\" href=\"http://localhost:8000/profile.php?/Biodata=$biodata_number\">";
+                      echo "<span style='color: #000;'>বায়োডাটা নং:  $biodata_number </span>";
+                      echo "<p style='color: #0aa4ca;'>অভিভাবক: $biodata_guardian</p>";
+                      echo "<span style='color: #000;'>পাত্র-পাত্রী: $biodata_patropatri</span>";
+                      echo "<br><button class='view-button'>সম্পূর্ণ বায়োডাটা</button>";
+                      echo "</a>";
+                  }
+                  echo "</td>";
+              }
+              echo "</tr>" ;
+          }
+          ?>
+        </table>
+
+      </div>
+      <p> <span style="color: #ff0000;">নোটিস:</span> যেকোনো প্রয়োজনে আমাদের সাথে যোগাযোগ করতে <a href="contact-us.php" target="_blank"> Contact</a> পেজ অনুসরণ করুন। অথবা আমাদের <a href="https://www.facebook.com/ShosurBari.bd" target="_blank"> FaceBook</a> পেজ ফলো করুন।</p>
 
     </div>
 
   </div>
 
 <style>
+table {
+    border-collapse: collapse;
+    width: max-content;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+th:nth-child(6), th:nth-child(7), th:nth-child(8), th:nth-child(9), th:nth-child(10),
+th:nth-child(11), th:nth-child(12), th:nth-child(13), th:nth-child(14), th:nth-child(15) {
+    max-width: 320px;
+    min-width: 320px;
+}
+
+th:nth-child(1), th:nth-child(2), th:nth-child(3) {
+    max-width: 130px;
+    min-width: 130px;
+}
+
+th:nth-child(4), th:nth-child(5) {
+    max-width: 170px;
+    min-width: 170px;
+}
+
+
   /* Table style */
-.shosurbari-users-customer {
+.shosurbari-users-request {
   width: 100%;
-  border-collapse: collapse;
-  font-family: Arial, sans-serif;
+  margin-bottom: 10px;
 }
 
 /* Table header style */
-.shosurbari-users-customer th {
+.shosurbari-users-request th {
   background-color: #f2f2f2;
-  text-align: left;
+  text-align: center;
   padding: 8px;
 }
 
+td, th {
+  border: 1px solid #ccc;
+}
 /* Table row style */
-.shosurbari-users-customer td {
-  border-bottom: 1px solid #ddd;
-  padding: 8px;
+.shosurbari-users-request td {
+  padding: 12px 10px;
+}
+
+td a, td a:hover{
+  text-decoration: none;
+}
+
+.biodata-link {
+    position: relative;
+    text-decoration: none; /* Remove default underline */
+}
+
+.biodata-link .view-button {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 8px;
+    background: linear-gradient(#0aa4ca, #06b6d4);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.biodata-link:hover .view-button {
+    display: block;
+}
+
+.biodata-link:hover::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+}
+
+.biodata-link:hover::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #333;
+    font-weight: bold;
+    z-index: 1000;
 }
 
 /* Alternate row color */
-.shosurbari-users-customer tr:nth-child(even) {
+.shosurbari-users-request tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
 /* Hover effect */
-.shosurbari-users-customer tr:hover {
+.shosurbari-users-request tr:hover {
   background-color: #e2e2e2;
 }
 
