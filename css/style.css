@@ -800,17 +800,23 @@ ul.nav_1 li.last{
   font-weight: 450;
 }
 
+.shosurbari-userhome-status form {
+    border: 1px solid #ccc;
+    width: 210px;
+    border-radius: 2px;
+
+}
+
 .shosurbari-userhome-status form button{
     margin-left: 0px;
-    width: 210px;
-    padding: 6px;
-    background: linear-gradient(#06b6d4, #0aa4ca);
+    width: 208px;
+    padding: 3px;
     color: #fff;
-    border: 1px solid #06b6d452;
-    border-radius: 2px;
-    font-size: 17px;
-    height: 35px;
-    line-height: 22px;
+    border: 3px solid #fff;
+    border-radius: 5px;
+    font-size: 16px;
+    height: 38px;
+    background: linear-gradient(#06b6d4, #0aa4ca);
 }
 
 .shosurbari-userhome-status form button:hover{
@@ -3282,6 +3288,10 @@ ol li{
     margin-left: 30px;
 }
 
+.shosurbari-dashboard p {
+    text-align: justify;
+}
+
 .shosurbari-order-dashboard {
     margin: auto;
     margin-bottom: 100px;
@@ -4409,7 +4419,7 @@ font-size: 14px;
 }
 
 .remove-button {
-    background-color: #ff0000;
+    background-color: #ff0080;
     color: #ffffff;
     border: none;
     padding: 3px 6px;
@@ -5817,7 +5827,7 @@ font-size: 14px;
 
     .shosurbari-userhome-status form button {
         font-size: 15px;
-        padding: 3px;
+        height: 39px;
     }
 
     .nbs-flexisel-container{
@@ -6520,11 +6530,6 @@ font-size: 14px;
         display: block;
         width: auto;
       }
-
-      .shosurbari-userhome-status {
-        width: 188px;
-        padding: 0px 0px 20px 0px;
-    }
 
     #terms-checkbox {
         width: 27px;

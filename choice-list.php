@@ -324,7 +324,7 @@ th {
             <div class="payment-form">
                 <div class="soshurbari-animation-icon">
                     <div class="sb-icon-laptop">
-                    <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
+                    <h3> <img src="images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
                     </div>
                 </div>
 
@@ -477,8 +477,8 @@ echo "<table>
     <div class="shosurbari-animation-form">
         <form action="" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
             <div class="sb-biodata-amount-list">
-            <p>শশুরবাড়ি ডট কমের পাত্রপাত্রীদের সাথে যোগাযোগ করতে চাইলে সামান্য সার্ভিস চার্জ প্রদান করতে হবে, যার বায়োডাটা তাদের থেকে কোনো টাকা নেয়া হয় না। আপনি চাইলে এক বা একাধিক পাত্র/পাত্রীর সাথে যোগাযোগ করতে পারবেন। আপনার পেমেন্ট সম্পন্ন হয়ে গেলে, পেমেন্ট তথ্যগুলো যাচাইবাচায়ের পর ২৪ ঘন্টার মধ্যেই আপনার নাম্বারে পাত্র/পাত্রীর অভিভাবকের নাম্বর পাঠিয়ে দেয়া হবে। <span style="color:#06b6d4;"> নিচের টাকা ব্যাতিত বিয়ের পর অথবা বিয়ের আগে আর কোনো টাকা নেয়া হয় না।</span> দেখেনিন ১ থেকে ১০টি বায়োডাটার মোট মূল্য সহ একাধিক বায়োডাটার এভারেজ মূল্য।</p>
-                </br> <p> <span style="color:#ff0000; font-weight: 600;">বি: দ্র:</span> পাত্রপাত্রীর অভিভাবকের মোবাইল নাম্বার এবং পাত্রপাত্রীর ইমেইল প্রদান করা হবে। পাত্রপাত্রীদের মোবাইল নাম্বার প্রদান করা হয় না।</p>
+                <p><i class="fa fa-bell" style="color: #0aa4ca; margin-right: 10px;"></i>শ্বশুরবাড়ি ডট কমের পাত্র-পাত্রীদের সাথে যোগাযোগ করতে চাইলে সামান্য সার্ভিস চার্জ প্রদান করতে হবে, যার বায়োডাটা তাদের থেকে কোনো টাকা নেয়া হয় না। আপনি চাইলে এক বা একাধিক পাত্র/পাত্রীর সাথে যোগাযোগ করতে পারবেন। আপনার পেমেন্ট সম্পন্ন হয়ে গেলে, পেমেন্ট তথ্যগুলো যাচাইবাচায়ের পর ২৪ ঘন্টার মধ্যেই আপনাকে পাত্র/পাত্রীর অভিভাবকের নাম্বর পাঠিয়ে দেয়া হবে। <span style="color:#06b6d4;"> নিচের টাকা ব্যাতিত বিয়ের পর অথবা বিয়ের আগে আর কোনো টাকা নেয়া হয় না।</span> দেখেনিন ১ থেকে ১০টি বায়োডাটার মোট মূল্য সহ একাধিক বায়োডাটার এভারেজ মূল্য।</p>
+                </br><p><i class="fa fa-bell-slash" style="color: #ff0080; margin-right: 10px;"></i>যোগাযোগের জন্য পাত্র-পাত্রীর অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে। পাত্র-পাত্রীর মোবাইল নাম্বার প্রদান করা হয় না। তবে অভিভাবক অনুমতি দিলে পাত্র-পাত্রীর ই-মেইল ও প্রদান করা হবে।</p>
             </div>
 
 		    <div class="flex-container">
@@ -486,7 +486,7 @@ echo "<table>
 
                     <div class="soshurbari-animation-icon">
                         <div class="sb-icon-laptop">
-                        <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
+                        <h3> <img src="images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
                         </div>
                     </div>
 
@@ -537,7 +537,7 @@ echo "<table>
 
                     <div class="soshurbari-animation-icon">
                         <div class="sb-icon-laptop">
-                        <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
+                        <h3> <img src="images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
                         </div>
                     </div>
 

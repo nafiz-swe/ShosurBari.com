@@ -657,8 +657,8 @@
             }
     
             // Insert the contact form data into the contact_us table
-            $sql = "INSERT INTO contact_us (user_id, name_contactus, number_contactus, email_contactus, subject, message_contactus, message_sendingdate) 
-                VALUES ('$user_id', '$name_contactus', '$number_contactus', '$email_contactus', '$subject', '$message_contactus', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            $sql = "INSERT INTO contact_us (user_id, name_contactus, number_contactus, email_contactus, subject, message_contactus, unread_message, read_message, message_sendingdate) 
+                VALUES ('$user_id', '$name_contactus', '$number_contactus', '$email_contactus', '$subject', '$message_contactus', 1, 0, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
     
             if (mysqli_query($conn, $sql)) {
                 header("location: index.php");

@@ -191,43 +191,94 @@ $conn->close();
 
 
       <h1>রিকোয়েস্ট বায়োডাটা পেমেন্ট তথ্য </h1>
-      <p style="margin-bottom: 20px;">আপনি যদি কোনো বায়োডাটার অভিভাবকের সাথে যোগাযোগ করতে আগ্রহ হন, সেই জন্য আপনাকে কিছু সার্ভিস চার্জ প্রদান করতে হবে। সার্ভিস চার্জ প্রদান করার পর এখানে পেমেন্ট তথ্য দেখতে পাবেন।</p>
+      <p style="margin-bottom: 20px;"><i class="fa fa-bell" style="color: #0aa4ca; margin-right: 10px;"></i>আপনি যদি কোনো বায়োডাটার অভিভাবকের সাথে যোগাযোগ করতে আগ্রহ হন, সেই জন্য আপনাকে কিছু সার্ভিস চার্জ প্রদান করতে হবে। সার্ভিস চার্জ প্রদান করার পর এখানে পেমেন্ট তথ্য দেখতে পাবেন।</p>
       <div class="shosurbari-order-dashboard">
         <table class="shosurbari-users-request">
           <tr>
-              <th>রিকোয়েস্ট আইডি</th>
-              <th>রিকোয়েস্ট বায়োডাটা</th>
-              <th>মোট টাকা</th>
-              <th>পেমেন্ট মেথড</th>
-              <th>স্ট্যাটাস</th>
-              <th>রিকোয়েস্ট তারিখ</th>
+            <th>স্ট্যাটাস</th>
+            <th>রিকোয়েস্ট আইডি</th>
+            <th>ই-মেইল</th>
+            <th>মোবাইল নাম্বার</th>
+            <th>পেমেন্ট মেথড</th>
+            <th>মোট টাকা</th>
+            <th>পছন্দের বায়োডাটা</th>
+
+            <th>পেমেন্ট মোবাইল নাম্বার</th>
+            <th>ট্রানজেকশন আইডি</th>
+
+            <th>রিকোয়েস্ট তারিখ</th>
           </tr>
 
           <?php
           // Loop through all rows with the same user_id
           while ($row = mysqli_fetch_assoc($result)) {
               $id_customer = $row['id_customer'];
+              $cust_email = $row['cust_email'];
+              $cust_number = $row['cust_number'];
               $request_biodata_number = $row['request_biodata_number'];
               $total_fee = $row['total_fee'];
               $payment_method = $row['payment_method'];
+
+              $bkash_number = $row['bkash_number'];
+              $bkash_transaction_id = $row['bkash_transaction_id'];
+              $nagad_number = $row['nagad_number'];
+              $nagad_transaction_id = $row['nagad_transaction_id'];
+              $roket_number = $row['roket_number'];
+              $roket_transaction_id = $row['roket_transaction_id'];
+
               $request_date = $row['request_date'];
 
+          
 
               // Display the data in the table
               echo "<tr>";
-              echo "<td>SB$id_customer</td>";
-              echo "<td>$request_biodata_number</td>";
-              echo "<td>$total_fee</td>";
-              echo "<td>$payment_method</td>";
               echo "<td style='color: white; text-align: center; ";
               if ($row['processing'] == 1) {
                   echo "background-color: orange;'>Processing";
               } elseif ($row['sent'] == 1) {
                   echo "background-color: #22c55e;'>Sent";
               } elseif ($row['cancel'] == 1) {
-                  echo "background-color: #ff0000;'>Invalid";
+                  echo "background-color: #ff0080;'>Invalid";
               } else {
                   echo "background-color: gray;'>Unknown";
+              }
+              echo "</td>";
+              echo "<td>SB$id_customer</td>";
+              echo "<td>$cust_email</td>";
+              echo "<td>$cust_number</td>";
+              echo "<td>$payment_method</td>";
+              echo "<td>$total_fee</td>";
+              echo "<td>$request_biodata_number</td>";
+
+
+              echo "<td>";
+              switch ($payment_method) {
+                  case 'বিকাশ':
+                      echo $bkash_number;
+                      break;
+                  case 'নগদ':
+                      echo $nagad_number;
+                      break;
+                  case 'রকেট':
+                      echo $roket_number;
+                      break;
+                  default:
+                      echo "N/A";
+              }
+              echo "</td>";
+              echo "<td>";
+              switch ($payment_method) {
+                  case 'বিকাশ':
+                      echo $bkash_transaction_id;
+                      break;
+                  case 'নগদ':
+                      echo $nagad_transaction_id;
+                      break;
+                  case 'রকেট':
+                      echo $roket_transaction_id;
+                      break;
+                  default:
+                      echo "N/A";
               }
               echo "</td>";
               echo "<td>$request_date</td>";
@@ -313,7 +364,7 @@ $conn->close();
 
               // Display the data in the table
               echo "<tr>";
-              echo "<td>SB$id</td>";
+              echo "<td style='background: #22c55e; color: #fff;'>SB$id</td>";
               echo "<td>$payment_order_id</td>";
               echo "<td>$payment_biodata_quantity</td>";
               echo "<td>$cust_payment_date</td>";
@@ -341,7 +392,7 @@ $conn->close();
         </table>
 
       </div>
-      <p> <span style="color: #ff0000;">নোটিস:</span> যেকোনো প্রয়োজনে আমাদের সাথে যোগাযোগ করতে <a href="contact-us.php" target="_blank"> Contact</a> পেজ অনুসরণ করুন। অথবা আমাদের <a href="https://www.facebook.com/ShosurBari.bd" target="_blank"> FaceBook</a> পেজ ফলো করুন।</p>
+      <p><i class="fa fa-bell" style="color: #0aa4ca; margin-right: 10px;"></i>যেকোনো প্রয়োজনে আমাদের সাথে যোগাযোগ করতে <a href="contact-us.php" target="_blank"> Contact</a> পেজ অনুসরণ করুন। অথবা আমাদের <a href="https://www.facebook.com/ShosurBari.bd" target="_blank"> FaceBook</a> পেজ ফলো করুন।</p>
 
     </div>
 

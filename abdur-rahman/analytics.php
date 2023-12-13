@@ -1,96 +1,23 @@
 <?php
-// Include necessary files and initialize the session
 include_once("includes/basic_includes.php");
 include_once("functions.php");
 require_once("includes/dbconn.php");
-?>
 
-<?php
 error_reporting(0);
-require_once("includes/dbconn.php");
 if (!isset($_SESSION['id'])) {
-  // Redirect the user to the login page or display an error message
-  header("location: ../admin/admin_login.php");
+  header("location: ../abdur-rahman/admin_login.php");
   exit;
 }
 ?>
 <!doctype html>
 <html class="no-js" lang="">
-
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Admin - Analytics | ShosurBari</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- favicon
-		============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
-    <!-- Google Fonts
-		============================================ -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
-    <!-- Bootstrap CSS
-		============================================ -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- font awesome CSS
-		============================================ -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <!-- owl.carousel CSS
-		============================================ -->
-    <link rel="stylesheet" href="css/owl.carousel.css">
-    <link rel="stylesheet" href="css/owl.theme.css">
-    <link rel="stylesheet" href="css/owl.transitions.css">
-    <!-- meanmenu CSS
-		============================================ -->
-    <link rel="stylesheet" href="css/meanmenu/meanmenu.min.css">
-    <!-- animate CSS
-		============================================ -->
-    <link rel="stylesheet" href="css/animate.css">
-    <!-- normalize CSS
-		============================================ -->
-    <link rel="stylesheet" href="css/normalize.css">
-    <!-- mCustomScrollbar CSS
-		============================================ -->
-    <link rel="stylesheet" href="css/scrollbar/jquery.mCustomScrollbar.min.css">
-    <!-- jvectormap CSS
-		============================================ -->
-    <link rel="stylesheet" href="css/jvectormap/jquery-jvectormap-2.0.3.css">
-    <!-- Notika icon CSS
-		============================================ -->
-    <link rel="stylesheet" href="css/notika-custom-icon.css">
-    <!-- wave CSS
-		============================================ -->
-    <link rel="stylesheet" href="css/wave/waves.min.css">
-    <!-- main CSS
-		============================================ -->
-    <link rel="stylesheet" href="css/main.css">
-    <!-- style CSS
-		============================================ -->
-    <link rel="stylesheet" href="style.css">
-    <!-- responsive CSS
-		============================================ -->
-    <link rel="stylesheet" href="css/responsive.css">
-    <!-- modernizr JS
-		============================================ -->
-    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-<!-- fa fa icon / logout icon
-    ============================================ -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-
 <body>
-
-
-
-<!-- ====== Admin Panel Navigation Bar ====== -->
-    <?php include("admin_navigation.php"); ?>
-<!-- ========================================= -->
-
-
-
-
-
-
+    <!-- ====== Admin Panel Navigation Bar ====== -->
+        <?php include("admin_navigation.php"); ?>
+    <!-- ========================================= -->
 
 	<!-- Breadcomb area Start-->
 	<div class="breadcomb-area">
@@ -317,14 +244,9 @@ if (!isset($_SESSION['id'])) {
     </div>
     <!-- Search Engine End-->
 
- 
-
-
-<!-- ===== Admin Panel Footer Area ===== -->
-<?php include("admin_footer.php"); ?>
-<!-- =================================== -->
-
-
+    <!-- ===== Admin Panel Footer Area ===== -->
+    <?php include("admin_footer.php"); ?>
+    <!-- =================================== -->
 </body>
 
 </html>

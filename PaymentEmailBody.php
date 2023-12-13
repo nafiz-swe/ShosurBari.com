@@ -185,48 +185,48 @@ h2 {
         <h3>ধন্যবাদ! আপনার পেমেন্ট তথ্য সফল ভাবেই জমা হয়েছে। আপনার পেমেন্ট তথ্য যাচাই বাছাইয়ের পর ২৪ ঘন্টার মধ্যে আপনাকে SMS বা ই-মেইলের মাধ্যমে অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে।</h3>
         <div class="sb-reg-info">
 
-        <h2>Request ID: <?php echo "SB$id_customer";?></h2>
+        <h2>রিকোয়েস্ট আইডি: <?php echo "SB$id_customer";?></h2>
 
         <table>
             <tbody>
 
                 <tr>
-                    <td class="sb-reg-info-heading">Name</td>
+                    <td class="sb-reg-info-heading">নাম</td>
                     <td class="sb-reg-info-data"> <?php echo $cust_name; ?> </td>
                 </tr>
 
                 <tr>
-                    <td class="sb-reg-info-heading">Email</td>
+                    <td class="sb-reg-info-heading">ই-মেইল</td>
                     <td class="sb-reg-info-data"> <?php echo $cust_email; ?> </td>
                 </tr>
 
                 <tr>
-                    <td class="sb-reg-info-heading">Mobile Number</td>
+                    <td class="sb-reg-info-heading">মোবাইল নাম্বার</td>
                     <td class="sb-reg-info-data"> <?php echo $cust_number; ?> </td>
                 </tr>
 
                 <tr>
-                    <td class="sb-reg-info-heading">Address</td>
+                    <td class="sb-reg-info-heading">ঠিকানা</td>
                     <td class="sb-reg-info-data"> <?php echo $cust_permanent_address; ?> </td>
                 </tr>
 
                 <tr>
-                    <td class="sb-reg-info-heading">Request Biodata</td>
+                    <td class="sb-reg-info-heading">পছন্দের বায়োডাটা</td>
                     <td class="sb-reg-info-data"> <?php echo $request_biodata_number; ?> </td>
                 </tr>
 
                 <tr>
-                    <td class="sb-reg-info-heading">Total Fee</td>
+                    <td class="sb-reg-info-heading">মোট টাকা</td>
                     <td class="sb-reg-info-data"> <?php echo $fee; ?> </td>
                 </tr>
 
                 <tr>
-                    <td class="sb-reg-info-heading">Payment Method</td>
+                    <td class="sb-reg-info-heading">পেমেন্ট মেথড</td>
                     <td class="sb-reg-info-data"> <?php echo $payment_method; ?> </td>
                 </tr>
 
                 <tr>
-                    <td class="sb-reg-info-heading">Payment Number</td>
+                    <td class="sb-reg-info-heading">পেমেন্ট নাম্বার</td>
                     <td class="sb-reg-info-data">
                         <?php
                         // Check which payment method was used and display the corresponding number
@@ -248,7 +248,7 @@ h2 {
                 </tr>
 
                 <tr>
-                    <td class="sb-reg-info-heading">Transaction</td>
+                    <td class="sb-reg-info-heading">ট্রানজেকশন আইডি</td>
                     <td class="sb-reg-info-data">
                         <?php
                         // Check which payment method was used and display the corresponding transaction ID
@@ -270,7 +270,7 @@ h2 {
                 </tr>
 
                 <tr>
-                    <td class="sb-reg-info-heading">Date</td>
+                    <td class="sb-reg-info-heading">রিকোয়েস্ট তারিখ</td>
                     <td class="sb-reg-info-data"><?php echo $formatted_date; ?></td>
                 </tr>
                 

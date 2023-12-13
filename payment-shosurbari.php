@@ -4,6 +4,7 @@
 error_reporting(0);
 ?>
 
+
 <?php
 if (isset($_GET['Biodata'])) {
     $ids = $_GET['Biodata'];
@@ -184,7 +185,7 @@ if(isset($_SESSION['id'])){
   </div>
 
 <div class="form-group">
-    <label>নাম্বার<span class="form-required" title="This field is required.">*</span></label>
+    <label>মোবাইল নাম্বার<span class="form-required" title="This field is required.">*</span></label>
     <input type="tel" id="pnumber" placeholder="আপনার ফোন নাম্বার" name="cust_number" value="<?php echo $pnumber; ?>" size="60" minlength="10" maxlength="14" class="form-text required">
     <span id="phone-error" class="shosurbari-form-error"></span>
   </div>
@@ -1172,7 +1173,11 @@ function showSuccessMessage() {
     document.querySelector('.overlay').style.display = 'none';
 
     // Redirect to the search.php page
-    window.location.href = 'search.php';
+    if (isLoggedIn) {
+      window.location.href = 'my-account.php';
+    } else {
+      window.location.href = 'search.php';
+    }
   });
 }
 
@@ -1207,64 +1212,19 @@ $('form[name="myForm"]').submit(function(e) {
 
 
 
+<?php
+// Assuming you have a PHP session started
+session_start();
 
-
-<!-- <script>
-function showSuccessMessage() {
-  // Show the overlay
-  document.querySelector('.overlay').style.display = 'block';
-
-  // Show the popup message
-  var popup = document.querySelector('.popup-message');
-  popup.style.display = 'block';
-
-  // Set the message text
-  popup.querySelector('h3').innerHTML = 'ধন্যবাদ!';
-  popup.querySelector('p').innerHTML = 'আপনার তথ্য সফলভাবে জমা হয়েছে। পেমেন্ট তথ্য যাচাই বাছাইয়ের পর ২৪ ঘন্টার মধ্যে যোগাযোগের কাঙ্ক্ষিত তথ্য আপনার মোবাইল নাম্বারে অথবা ই-মেইলে পাঠিয়ে দেয়া হবে।';
-
-  // Add a close button to the popup message
-  var closeButton = document.createElement('button');
-  closeButton.innerHTML = 'ঠিক আছে';
-  closeButton.classList.add('close-button');
-  popup.appendChild(closeButton);
-
-  // Hide the popup and overlay when the close button is clicked
-  closeButton.addEventListener('click', function() {
-    popup.style.display = 'none';
-    document.querySelector('.overlay').style.display = 'none';
-
-    // Redirect to the search.php page
-    window.location.href = 'search.php';
-  });
+// Set the JavaScript variable based on the PHP session
+echo '<script>';
+if(isset($_SESSION['id'])) {
+    echo 'var isLoggedIn = true;';
+} else {
+    echo 'var isLoggedIn = false;';
 }
-
-// Change the form submission code to the following
-$('form[name="myForm"]').submit(function(e) {
-  e.preventDefault(); // Prevent the default form submission
-
-  if (validateForm()) {
-    // Submit the form data using AJAX
-    $.ajax({
-      url: 'payment-shosurbari.php', 
-      type: 'POST',
-      data: $(this).serialize(),
-      success: function(response) {
-        // Show the success message
-        showSuccessMessage();
-
-        // Clear the form
-        $('form[name="myForm"]')[0].reset();
-      },
-      error: function(jqXHR, textStatus, errorThrown) {
-        // Handle errors here
-      }
-    });
-  }
-});
-</script> -->
-
-
-
+echo '</script>';
+?>
 
 
 <style>
