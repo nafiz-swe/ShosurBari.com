@@ -1,127 +1,83 @@
 <?php
     function mysqlexec($sql){
-          $host="localhost"; // Host name
-          $username="root"; // Mysql username
-          $password=""; // Mysql password
-          $db_name="matrimony"; // Database name
-
-        //  $host="sql211.infinityfree.com"; // Host name 
-        //  $username="if0_34380678"; // Mysql username 
-        //  $password="AJFC2H7KllI"; // Mysql password 
-        //  $db_name="if0_34380678_matrimony"; // Database name 
-
-        error_reporting(0);
-
-        // Connect to server and select databse.
-        $conn=mysqli_connect("$host", "$username", "$password")or die("cannot connect");
-
-        mysqli_select_db($conn,"$db_name")or die("cannot select DB");
-        mysqli_set_charset($conn, "utf8mb4"); //Bangla font show from database.
-
-
-        if($result = mysqli_query($conn, $sql)){
-            return $result;
-        }
-        else{
-            echo mysqli_error($conn);
-        }
+    $host="localhost"; // Host name
+    $username="root"; // Mysql username
+    $password=""; // Mysql password
+    $db_name="matrimony"; // Database name
+    error_reporting(0);
+    $conn=mysqli_connect("$host", "$username", "$password")or die("cannot connect");
+    mysqli_select_db($conn,"$db_name")or die("cannot select DB");
+    mysqli_set_charset($conn, "utf8mb4"); //Bangla font show from database.
+    if($result = mysqli_query($conn, $sql)){
+    return $result;
     }
-
-
-
-
-
+    else{
+        echo mysqli_error($conn);
+    }
+    }
     /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-    -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
     --                S  T  A  R  T                  --
     --           New Admin Register Function         --
-    --                                               --
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-    
-// Admin registration
-function admin_register(){
-    global $conn;
-
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    function admin_register(){
+        global $conn;
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $fullname = $_POST['fullname'];
         $username = $_POST['username'];
         $email = $_POST['email'];
-        $password = $_POST['password_1'];  // Assuming you have an input field named 'password_1'
-        
+        $password = $_POST['password_1'];
         // Hash the password before storing it in the database
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-        
         require_once("includes/dbconn.php");
-
         $sql = "INSERT INTO admin 
         (fullname, username, email, password, active) 
         VALUES ('$fullname', '$username', '$email', '$hashed_password', 1)";
-
         if (mysqli_query($conn, $sql)) {
-            // Get the ID of the newly registered user
             $id = mysqli_insert_id($conn);
-            
             // Set a session variable to store the user ID
             $_SESSION['id'] = $id;
-            
-            // Redirect the user to the userhome.php page with the user ID as a parameter in the URL
-            header("location: ../admin/index.php?id=$id");
+            header("location: ../abdur-rahman/index.php?id=$id");
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
+        }
     }
-}
-
-// Admin login
-function admin_login(){
+    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+    --                S  T  A  R  T                  --
+    --            Admin Login Function               --
+    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+    function admin_login(){
     global $conn;
-
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $username = $_POST['username'];
         $password = $_POST['password'];
-        
         // Retrieve the hashed password from the database
         $sql = "SELECT id, password FROM admin WHERE (username = ? OR email = ?)";
-        
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("ss", $username, $username);
         $stmt->execute();
         $stmt->store_result();
-        
         if ($stmt->num_rows > 0) {
-            $stmt->bind_result($id, $stored_password);
-            $stmt->fetch();
-
-            // Verify the hashed input password with the stored hashed password
-            if (password_verify($password, $stored_password)) {
-                $_SESSION['id'] = $id;
-                
-                // Redirect the user to the userhome.php page with the user ID as a parameter in the URL
-                header("location: ../admin/index.php?id=$id");
-            } else {
-                echo "Invalid password";
-            }
+        $stmt->bind_result($id, $stored_password);
+        $stmt->fetch();
+        // Verify the hashed input password with the stored hashed password
+        if (password_verify($password, $stored_password)) {
+        $_SESSION['id'] = $id;
+        // Redirect the user to the userhome.php page with the user ID as a parameter in the URL
+        header("location: ../abdur-rahman/index.php?id=$id");
         } else {
-            echo "Invalid username or email";
+        echo "Invalid password";
         }
-
+        } else {
+        echo "Invalid username or email";
+        }
         $stmt->close();
+        }
     }
-}
-
-
     /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-    -- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
-    --                   E   N   D                   --
-    --           New Admin Register Function         --
-    --                                               --
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
+    --                S  T  A  R  T                  --
+    --           Admin Logout Function               --
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-    
-
-
-
     function isloggedin(){
         if(!isset($_SESSION['id'])){
             return false;
@@ -130,27 +86,19 @@ function admin_login(){
             return true;
         }
     }
-?>
-
-
-
-
-
-<?php
+    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+    --                S  T  A  R  T                  --
+    --  Request Biodata Info Sent To Customers Email --
+    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
     function customer_sent_info_complete() {
         $servername = "localhost";
         $username = "root";
         $password = "";
         $database = "matrimony";
-
-        // Create connection
         $conn = new mysqli($servername, $username, $password, $database);
-
-        // Check connection
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $payment_order_id = $_POST['payment_order_id'];
             $user_id = $_POST['user_id'];
@@ -158,50 +106,47 @@ function admin_login(){
             $payment_cust_email = $_POST['payment_cust_email'];
             $payment_cust_number = $_POST['payment_cust_number'];
             $payment_biodata_quantity = $_POST['payment_biodata_quantity'];
-
+            // Biodata Info 1
             $biodata_number_1 = $_POST['biodata_number_1'];
             $biodata_guardian_1 = $_POST['biodata_guardian_1'];
             $biodata_patropatri_1 = $_POST['biodata_patropatri_1'];
-
+            // Biodata Info 2
             $biodata_number_2 = $_POST['biodata_number_2'];
             $biodata_guardian_2 = $_POST['biodata_guardian_2'];
             $biodata_patropatri_2 = $_POST['biodata_patropatri_2'];
-
+            // Biodata Info 3
             $biodata_number_3 = $_POST['biodata_number_3'];
             $biodata_guardian_3 = $_POST['biodata_guardian_3'];
             $biodata_patropatri_3 = $_POST['biodata_patropatri_3'];
-
+            // Biodata Info 4
             $biodata_number_4 = $_POST['biodata_number_4'];
             $biodata_guardian_4 = $_POST['biodata_guardian_4'];
             $biodata_patropatri_4 = $_POST['biodata_patropatri_4'];
-
+            // Biodata Info 5
             $biodata_number_5 = $_POST['biodata_number_5'];
             $biodata_guardian_5 = $_POST['biodata_guardian_5'];
             $biodata_patropatri_5 = $_POST['biodata_patropatri_5'];
-
+            // Biodata Info 6
             $biodata_number_6 = $_POST['biodata_number_6'];
             $biodata_guardian_6 = $_POST['biodata_guardian_6'];
             $biodata_patropatri_6 = $_POST['biodata_patropatri_6'];
-
+            // Biodata Info 7
             $biodata_number_7 = $_POST['biodata_number_7'];
             $biodata_guardian_7 = $_POST['biodata_guardian_7'];
             $biodata_patropatri_7 = $_POST['biodata_patropatri_7'];
-
+            // Biodata Info 8
             $biodata_number_8 = $_POST['biodata_number_8'];
             $biodata_guardian_8 = $_POST['biodata_guardian_8'];
             $biodata_patropatri_8 = $_POST['biodata_patropatri_8'];
-
+            // Biodata Info 9
             $biodata_number_9 = $_POST['biodata_number_9'];
             $biodata_guardian_9 = $_POST['biodata_guardian_9'];
             $biodata_patropatri_9 = $_POST['biodata_patropatri_9'];
-
+            // Biodata Info 10
             $biodata_number_10 = $_POST['biodata_number_10'];
             $biodata_guardian_10 = $_POST['biodata_guardian_10'];
             $biodata_patropatri_10 = $_POST['biodata_patropatri_10'];
-
-            $cust_payment_date = $_POST['cust_payment_date'];
-
-    
+            $cust_payment_date = $_POST['cust_payment_date'];    
             // Insert the contact form data into the contact_us table
             $sql = "INSERT INTO customer_sent_info_complete (
             payment_order_id,
@@ -210,47 +155,36 @@ function admin_login(){
             payment_cust_email, 
             payment_cust_number, 
             payment_biodata_quantity,
-
             biodata_number_1,
             biodata_guardian_1,
             biodata_patropatri_1,
-
             biodata_number_2,
             biodata_guardian_2,
             biodata_patropatri_2,
-
             biodata_number_3,
             biodata_guardian_3,
             biodata_patropatri_3,
-
             biodata_number_4,
             biodata_guardian_4,
             biodata_patropatri_4,
-
             biodata_number_5,
             biodata_guardian_5,
             biodata_patropatri_5,
-
             biodata_number_6,
             biodata_guardian_6,
             biodata_patropatri_6,
-
             biodata_number_7,
             biodata_guardian_7,
             biodata_patropatri_7,
-
             biodata_number_8,
             biodata_guardian_8,
             biodata_patropatri_8,
-
             biodata_number_9,
             biodata_guardian_9,
             biodata_patropatri_9,
-
             biodata_number_10,
             biodata_guardian_10,
             biodata_patropatri_10,
-
             cust_payment_date,    
             info_sent_time) 
             VALUES ('$payment_order_id',
@@ -259,137 +193,109 @@ function admin_login(){
             '$payment_cust_email', 
             '$payment_cust_number', 
             '$payment_biodata_quantity',
-
             '$biodata_number_1',
             '$biodata_guardian_1',
             '$biodata_patropatri_1',
-
             '$biodata_number_2',
             '$biodata_guardian_2',
             '$biodata_patropatri_2',
-
             '$biodata_number_3',
             '$biodata_guardian_3',
             '$biodata_patropatri_3',
-
             '$biodata_number_4',
             '$biodata_guardian_4',
             '$biodata_patropatri_4',
-
             '$biodata_number_5',
             '$biodata_guardian_5',
             '$biodata_patropatri_5',
-
             '$biodata_number_6',
             '$biodata_guardian_6',
             '$biodata_patropatri_6',
-
             '$biodata_number_7',
             '$biodata_guardian_7',
             '$biodata_patropatri_7',
-
             '$biodata_number_8',
             '$biodata_guardian_8',
             '$biodata_patropatri_8',
-
             '$biodata_number_9',
             '$biodata_guardian_9',
             '$biodata_patropatri_9',
-
             '$biodata_number_10',
             '$biodata_guardian_10',
             '$biodata_patropatri_10',
-
             '$cust_payment_date', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
-  
-            
-  
-
             if (mysqli_query($conn, $sql)) {
             $sbo_id = mysqli_insert_id($conn);
             $_SESSION['id'] = $sbo_id;
-            
             // SMTP email sending code
             $to = $payment_cust_email;
             $subject = "Guardian Contact Details";
-
             ob_start();
             include('BiodataInfoEmailBody-sent.php'); // Update with the actual file name
             $email_body = ob_get_clean();
-
             // Plain text version of the email body
             $plain_text_message = "
             Guardian Contact Details
-
             আমাদের সাথে থাকার জন্য আপনাকে ধন্যবাদ! শ্বশুরবাড়ি ডট কম শুধুমাত্র দুইটি পরিবারের মধ্যে যোগাযোগের মাধ্যম হিসাবে পরিচালিত। নিচে বায়োডাটা নং এ ক্লিক করে দেখে নিতেন পারেন সম্পূর্ণ প্রফাইলটি।
-            
-            
             পেমেন্ট অর্ডার আইডি: $payment_order_id
             পেমেন্ট তারিখ: $payment_biodata_quantity
             মোট বায়োডাটা: $payment_biodata_quantity
-
+            // Biodata Info 1
             বায়োডাটা নং: $biodata_number_1
             বায়োডাটার অভিভাবক: $biodata_guardian_1
             পাত্র/পাত্রী: $biodata_patropatri_1
-
+            // Biodata Info 2
             বায়োডাটা নং: $biodata_number_2
             বায়োডাটার অভিভাবক: $biodata_guardian_2
             পাত্র/পাত্রী: $biodata_patropatri_2
-
+            // Biodata Info 3
             বায়োডাটা নং: $biodata_number_3
             বায়োডাটার অভিভাবক: $biodata_guardian_3
             পাত্র/পাত্রী: $biodata_patropatri_3
-
+            // Biodata Info 4
             বায়োডাটা নং: $biodata_number_4
             বায়োডাটার অভিভাবক: $biodata_guardian_4
             পাত্র/পাত্রী: $biodata_patropatri_4
-
+            // Biodata Info 5
             বায়োডাটা নং: $biodata_number_5
             বায়োডাটার অভিভাবক: $biodata_guardian_5
             পাত্র/পাত্রী: $biodata_patropatri_5
-
+            // Biodata Info 6
             বায়োডাটা নং: $biodata_number_6
             বায়োডাটার অভিভাবক: $biodata_guardian_6
             পাত্র/পাত্রী: $biodata_patropatri_6
-
+            // Biodata Info 7
             বায়োডাটা নং: $biodata_number_7
             বায়োডাটার অভিভাবক: $biodata_guardian_7
             পাত্র/পাত্রী: $biodata_patropatri_7
-
+            // Biodata Info 8
             বায়োডাটা নং: $biodata_number_8
             বায়োডাটার অভিভাবক: $biodata_guardian_8
             পাত্র/পাত্রী: $biodata_patropatri_8
-
+            // Biodata Info 9
             বায়োডাটা নং: $biodata_number_9
             বায়োডাটার অভিভাবক: $biodata_guardian_9
             পাত্র/পাত্রী: $biodata_patropatri_9
-
+            // Biodata Info 10
             বায়োডাটা নং: $biodata_number_10
             বায়োডাটার অভিভাবক: $biodata_guardian_10
             পাত্র/পাত্রী: $biodata_patropatri_10
-
             বি:দ্র: পরিবার ও পাত্র-পাত্রীর সম্পর্কে নিজ দায়িত্বে ভালভাবে খোঁজ নিয়ে তবেই বিয়ের কথা পাকা করুন। বিয়ের পূর্বেই পাত্র-পাত্রীর পরিবারের সাথে টাকা লেনদেন করে প্রতারিত হবেন না।
-            
             Connect with us:
             - Website: https://www.shoshurbari.com
             - Facebook: https://www.facebook.com/ShoshurBari.bd
             - Email: support@shoshurbari.com
             - YouTube: https://www.youtube.com/c/ShoshurBari
-            
             (c) 2022-23 ShosurBari.com | All Rights Reserved
             ";
-            
             $headers = "From: nafizulislam.swe@gmail.com\r\n";
             $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-
             $smtp_host = "smtp.gmail.com";
             $smtp_port = 587;
             $smtp_username = "nafizulislam.swe@gmail.com";
             $smtp_password = "dnngvzwetnirboae";
             $smtp_secure = "tls";
-
             require '../PHPMailer/PHPMailerAutoload.php';
-
             $mail = new PHPMailer;
             $mail->isSMTP();
             $mail->Host = $smtp_host;
@@ -398,13 +304,11 @@ function admin_login(){
             $mail->SMTPAuth = true;
             $mail->Username = $smtp_username;
             $mail->Password = $smtp_password;
-
             $mail->setFrom($smtp_username, 'ShosurBari');
             $mail->addAddress($to);
             $mail->Subject = $subject;
             $mail->Body = $email_body;
             $mail->AltBody = $plain_text_message; // Plain text version of the email
-
             if ($mail->send()) {
                 echo '<script>';
                 echo 'document.addEventListener("DOMContentLoaded", function() {';
@@ -419,8 +323,8 @@ function admin_login(){
                 echo '</script>';
             }
         } else {
-            echo "Error Found.! Email Sent Failed.";
+        echo "Error Found.! Email Sent Failed.";
+        }
         }
     }
-}
 ?>

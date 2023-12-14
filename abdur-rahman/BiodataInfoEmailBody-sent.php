@@ -16,6 +16,161 @@ if ($result && mysqli_num_rows($result) > 0) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        background-color: #2ecc71; /* Updated background color */
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 30px;
+        background: #ffffff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .header {
+        background: #0aa4ca;
+        color: white;
+        text-align: center;
+        padding: 2px 20px;
+        font-size: 12px;
+        line-height: 30px;
+        height: 80px;
+    }
+    .header h1 {
+        font-size: 30px;
+        line-height: 40px;
+    }
+    .content {
+        text-align: center;
+    }
+    .sb-reg-info{
+        text-align: left;
+    }
+    .sb-reg-info h2{
+        text-align: center;
+        padding-bottom: 0px;
+        text-decoration: underline;
+    }
+    .shosurbari-biodata-field{
+        margin-top: 25px;
+        margin-bottom: 5px;
+    }
+    .sb-reg-info  .shosurbari-biodata-field label {
+        color: #0aa4ca;
+        font-weight: bold;
+        font-size: 16px;
+    }
+    .sb-reg-info  .shosurbari-biodata-field p{
+        width: auto;
+        height: auto;
+        line-height: 30px;
+        padding: 6px 12px;
+        font-size: 16px;
+        font-weight: 500;
+        text-align: left;
+        color: black;
+        background-color: #4cafe809;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-top: 0px;
+    } 
+    p {
+        display: block;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+    }
+    .note{
+        border: 1.5px solid #ccc;
+        margin-top: 5px;
+        padding: 13px;
+    }
+    .content p {
+        font-size: 12px;
+        color: #000;
+        font-weight: bold;
+        padding: 2px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        text-align: left;
+    }
+    .content p span{
+        font-size: 10px;
+        color: #000;
+    }
+    .content span{
+        text-decoration: none;
+        color: #0aa4ca;
+        font-size: 12px;
+    }
+    .ii a[href] {
+        text-decoration: none;
+        color: #0aa4ca;
+        font-size: 12px;
+    }
+    span a {
+        text-decoration: none;
+        color: black;
+        font-size: 12px;
+    }
+    h2 {
+        margin-top: 0px;
+        color: #0aa4ca;
+        margin-bottom: 10px;
+        font-size: 25px;
+    }
+    .content h3 {
+        font-size: 15px;
+        font-weight: none;
+        color: black;
+        margin-bottom: 22px;
+        text-align: left;
+        line-height: 25px;
+    }
+    .content h5 {
+        text-align: justify;
+        color: #696262;
+        font-size: 12px;
+        margin-top: 15px;
+    }
+    .footer {
+        background: #0aa4ca;
+        color: white;
+        text-align: center;
+        padding: 5px 10px 25px 10px;
+        margin-top: 0px;
+        display: block;
+    }
+    .footer img{
+        padding:10px;
+        margin: auto;
+        align-items: center;
+    }
+    .sb-biodata-info-sent{
+        background: #ddf4ff66;
+        border: 1px solid #0aa4ca;
+        padding: 15px;
+        margin: 40px auto;
+        margin-bottom: 5px;
+    }
+    .sb-biodata{
+        width: auto;
+        margin-bottom: 0px;
+    }
+    .sb-biodata-info-sent h2 {
+        font-size: 25px;
+        margin-top: 10px;
+    }
+    .sb-biodata-field h2{
+        font-size: 25px;
+        margin-top: 15px;
+    }
+    </style>
     <div class='container'>
         <div class='header'>
             <h1>Guardian Contact Details</h1>
@@ -231,160 +386,5 @@ if ($result && mysqli_num_rows($result) > 0) {
             <a href="https://www.youtube.com/"> <img src="https://i.postimg.cc/T1zYw33X/shosurbari-youtube.png" style="border-radius: 4px; padding: 2px; background: #fff; margin: auto 10px; outline:none;text-decoration:none;height:24px;width:24px;vertical-align:middle" width="24" height="24" class="CToWUd" data-bit="iit"></a>
         </div>
     </div>
-    <style>
-    body {
-        font-family: Arial, sans-serif;
-        font-family: 'AdorshoLipi', Arial, sans-serif !important;
-        background-color: #2ecc71; /* Updated background color */
-        margin: 0;
-        padding: 0;
-    }
-    .container {
-        max-width: 600px;
-        margin: 0 auto;
-        padding: 30px;
-        background: #ffffff;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    .header {
-        background: #0aa4ca;
-        color: white;
-        text-align: center;
-        padding: 2px 20px;
-        font-size: 12px;
-        line-height: 30px;
-        height: 80px;
-    }
-    .header h1 {
-        font-size: 30px;
-        line-height: 40px;
-    }
-    .content {
-        text-align: center;
-    }
-    .sb-reg-info{
-        text-align: left;
-    }
-    .sb-reg-info h2{
-        text-align: center;
-        padding-bottom: 0px;
-        text-decoration: underline;
-    }
-    .shosurbari-biodata-field{
-        margin-top: 25px;
-        margin-bottom: 5px;
-    }
-    .sb-reg-info  .shosurbari-biodata-field label {
-        color: #0aa4ca;
-        font-weight: bold;
-        font-size: 16px;
-    }
-    .sb-reg-info  .shosurbari-biodata-field p{
-        width: auto;
-        height: auto;
-        line-height: 30px;
-        padding: 6px 12px;
-        font-size: 16px;
-        font-weight: 500;
-        text-align: left;
-        color: black;
-        background-color: #4cafe809;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        margin-top: 0px;
-    } 
-    p {
-        display: block;
-        margin-block-start: 1em;
-        margin-block-end: 1em;
-        margin-inline-start: 0px;
-        margin-inline-end: 0px;
-    }
-    .note{
-        border: 1.5px solid #ccc;
-        margin-top: 5px;
-        padding: 13px;
-    }
-    .content p {
-        font-size: 12px;
-        color: #000;
-        font-weight: bold;
-        padding: 2px;
-        margin-top: 0px;
-        margin-bottom: 0px;
-        text-align: left;
-    }
-    .content p span{
-        font-size: 10px;
-        color: #000;
-    }
-    .content span{
-        text-decoration: none;
-        color: #0aa4ca;
-        font-size: 12px;
-    }
-    .ii a[href] {
-        text-decoration: none;
-        color: #0aa4ca;
-        font-size: 12px;
-    }
-    span a {
-        text-decoration: none;
-        color: black;
-        font-size: 12px;
-    }
-    h2 {
-        margin-top: 0px;
-        color: #0aa4ca;
-        margin-bottom: 10px;
-        font-size: 25px;
-    }
-    .content h3 {
-        font-size: 15px;
-        font-weight: none;
-        color: black;
-        margin-bottom: 22px;
-        text-align: left;
-        line-height: 25px;
-    }
-    .content h5 {
-        text-align: justify;
-        color: #696262;
-        font-size: 12px;
-        margin-top: 15px;
-    }
-    .footer {
-        background: #0aa4ca;
-        color: white;
-        text-align: center;
-        padding: 5px 10px 25px 10px;
-        margin-top: 0px;
-        display: block;
-    }
-    .footer img{
-        padding:10px;
-        margin: auto;
-        align-items: center;
-    }
-    .sb-biodata-info-sent{
-        background: #ddf4ff66;
-        border: 1px solid #0aa4ca;
-        padding: 15px;
-        margin: 40px auto;
-        margin-bottom: 5px;
-    }
-    .sb-biodata{
-        width: auto;
-        margin-bottom: 0px;
-    }
-    .sb-biodata-info-sent h2 {
-        font-size: 25px;
-        margin-top: 10px;
-    }
-    .sb-biodata-field h2{
-        font-size: 25px;
-        margin-top: 15px;
-    }
-    </style>
 </body>
 </html>

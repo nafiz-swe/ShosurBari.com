@@ -6,27 +6,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="active-inactive-page-area">
-    <div class="active-inactive-page-wrap">
-      <i class="notika-icon notika-checked"></i>
-      <h2>Activated Success!</h2>
-      <?php
-        $id = $_GET['id'];
-        include('includes/dbconn.php');
-        // Set active to 1 and deactivated to 0
-        $sql = "UPDATE users SET active = 1, deactivated = 0 WHERE id = $id";
-        if (mysqli_query($conn, $sql)) {
-            echo "<p>Users ID Successfully Activated.</p>";
-        } else {
-            echo "<p>Error: " . mysqli_error($conn) . "</p>";
-        }
-        mysqli_close($conn);
-      ?>
-      <a href="users.php" class="btn">Go to Back User Page</a>
-      <a href="index.html" class="btn error-btn-mg">Go to Back Dashboard</a>
-    </div>
-  </div>
-  <style>
+<style>
   .active-inactive-page-area{
     min-height:100vh;
     text-align:center;
@@ -91,5 +71,25 @@
     display: block;
   }
   </style>
+  <div class="active-inactive-page-area">
+    <div class="active-inactive-page-wrap">
+      <i class="notika-icon notika-checked"></i>
+      <h2>Activated Success!</h2>
+      <?php
+        $id = $_GET['id'];
+        include('includes/dbconn.php');
+        // Set active to 1 and deactivated to 0
+        $sql = "UPDATE users SET active = 1, deactivated = 0 WHERE id = $id";
+        if (mysqli_query($conn, $sql)) {
+          echo "<p>Users ID Successfully Activated.</p>";
+        } else {
+          echo "<p>Error: " . mysqli_error($conn) . "</p>";
+        }
+        mysqli_close($conn);
+      ?>
+      <a href="users.php" class="btn">Go to Back User Page</a>
+      <a href="index.html" class="btn error-btn-mg">Go to Back Dashboard</a>
+    </div>
+  </div>
 </body>
 </html>

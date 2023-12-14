@@ -2,7 +2,6 @@
 include_once("includes/basic_includes.php");
 include_once("functions.php");
 require_once("includes/dbconn.php");
-
 error_reporting(0);
 if (!isset($_SESSION['id'])) {
   header("location: ../abdur-rahman/admin_login.php");
@@ -12,13 +11,12 @@ if (!isset($_SESSION['id'])) {
 <!doctype html>
 <html class="no-js" lang="">
 <head>
-    <title>Admin - Analytics | ShosurBari</title>
+    <title>Analytics-Admin | ShosurBari</title>
 </head>
 <body>
     <!-- ====== Admin Panel Navigation Bar ====== -->
         <?php include("admin_navigation.php"); ?>
     <!-- ========================================= -->
-
 	<!-- Breadcomb area Start-->
 	<div class="breadcomb-area">
 		<div class="container">
@@ -243,10 +241,8 @@ if (!isset($_SESSION['id'])) {
         </div>
     </div>
     <!-- Search Engine End-->
-
     <!-- ===== Admin Panel Footer Area ===== -->
     <?php include("admin_footer.php"); ?>
     <!-- =================================== -->
 </body>
-
 </html>

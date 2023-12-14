@@ -49,7 +49,7 @@
 			</div>
 
 			<div class="shosurbari-payment">
-			<h4 style="color: white; font-size: 13px;"> We Accept	<img class="brn-payment" src="images/brn.png"> </h4>
+			<h4 style="color: white; font-size: 13px; font-weight: 500;"> We Accept	<img class="brn-payment" src="images/brn.png"> </h4>
 			</div>
     	</div>
 	</div>

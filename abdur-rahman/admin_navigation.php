@@ -46,6 +46,7 @@
   <link rel="stylesheet" href="css/main.css">
   <!-- style CSS
   =========================== -->
+  <link rel="stylesheet" href="admin.css">
   <link rel="stylesheet" href="style.css">
   <!-- responsive CSS
   =========================== -->
@@ -56,6 +57,12 @@
   <!-- fa fa icon / logout icon
   =========================== -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- jQuery Icon
+  =========================== -->
+  <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css">
+    <!-- Page Views Count
+  =========================== -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
 </head>
 <!-- Mobile Menu start -->
 <div class="mobile-menu-area">
@@ -71,16 +78,16 @@
                                     <li><a href="analytics.php">Analytics</a></li>
                                 </ul>
                             </li>
-
                             <li><a data-toggle="collapse" data-target="#Pagemob" href="#">Pages</a>
                                 <ul class="notika-main-menu-dropdown">
-                                    <li><a href="customer.php">Customer</a></li>
+                                    <li><a href="customer.php">Customers</a></li>
                                     <li><a href="biodataInfo-sent.php">Email Sent</a></li>
                                     <li><a href="contact_us.php">ContactUs</a></li>
                                     <li><a href="photos.php">Photos</a></li>
+                                    <li><a href="trash.php">Trash Img</a></li>
                                     <li><a href="users.php">Users</a></li>
                                     <li><a href="dataphysical_marital.php">PhysicalMarital</a></li>
-                                    <li><a href="datalifestyle.php">LifeStyle</a></li>
+                                    <li><a href="datapersonal.php">Personal</a></li>
                                     <li><a href="dataeducation.php">Edcation</a></li>
                                     <li><a href="dataaddress.php">Address</a></li>
                                     <li><a href="datareligion.php">Religion</a></li>
@@ -103,7 +110,6 @@
     </div>
 </div>
 <!-- Mobile Menu end -->
-
 <!-- Width Screen Navigation Area Start-->
 <div class="main-menu-area mg-tb-40">
     <div class="container">
@@ -124,16 +130,16 @@
                             </li>
                         </ul>
                     </div>
-
                     <div id="Page" class="tab-pane notika-tab-menu-bg animated flipInX">
                         <ul class="notika-main-menu-dropdown">
-                        <li><a href="customer.php">Customer</a></li>
+                        <li><a href="customer.php">Customers</a></li>
                         <li><a href="biodataInfo-sent.php">Email Sent</a></li>
                             <li><a href="contact_us.php">ContactUs</a></li>
                             <li><a href="photos.php">Photos</a></li>
+                            <li><a href="trash.php">Trash Img</a></li>
                             <li><a href="users.php">Users</a></li>
                             <li><a href="dataphysical_marital.php">PhysicalMarital</a></li>
-                            <li><a href="datalifestyle.php">LifeStyle</a></li>
+                            <li><a href="datapersonal.php">Personal</a></li>
                             <li><a href="dataeducation.php">Edcation</a></li>
                             <li><a href="dataaddress.php">Address</a></li>
                             <li><a href="datareligion.php">Religion</a></li>

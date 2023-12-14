@@ -2,7 +2,6 @@
 include_once("includes/basic_includes.php");
 include_once("functions.php");
 require_once("includes/dbconn.php");
-
 error_reporting(0);
 if (!isset($_SESSION['id'])) {
   header("location: ../abdur-rahman/admin_login.php");
@@ -12,13 +11,12 @@ if (!isset($_SESSION['id'])) {
 <!doctype html>
 <html class="no-js" lang="">
 <head>
-  <title>Admin - ContactUs | ShosurBari</title>
+  <title>ContactUs-Admin | ShosurBari</title>
 </head>
 <body>
   <!-- ====== Admin Panel Navigation Bar ====== -->
   <?php include("admin_navigation.php"); ?>
   <!-- ========================================= -->
-
   <?php
   echo '<style>
   h1{

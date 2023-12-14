@@ -2,7 +2,6 @@
 include_once("includes/basic_includes.php");
 require_once("includes/dbconn.php");
 include_once("functions.php");
-
 admin_login(); 
 error_reporting(0);
 session_start();
@@ -14,13 +13,12 @@ if (isset($_SESSION['id'])) {
 <!doctype html>
 <html class="no-js" lang="">
 <head>
-  <title>Admin - Login | ShosurBari</title>
+  <title>Login-Admin | ShosurBari</title>
 </head>
 <body>
   <!-- ====== Admin Panel Navigation Bar ====== -->
   <?php include("admin_navigation.php"); ?>
   <!-- ========================================= -->
-
   <style>
   .shosurbari-biodata-form {
     display: flex;
@@ -118,7 +116,6 @@ if (isset($_SESSION['id'])) {
     });
   </script>
   <!-- Password Show Eye Icon End-->
-
   <!-- === Admin Panel Navigation Bar === -->
   <?php include("admin_footer.php"); ?>
   <!-- =================================== -->

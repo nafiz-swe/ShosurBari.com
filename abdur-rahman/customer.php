@@ -2,25 +2,21 @@
 include_once("includes/basic_includes.php");
 include_once("functions.php");
 require_once("includes/dbconn.php");
-
 error_reporting(0);
 if (!isset($_SESSION['id'])) {
-  header("location: ../admin/admin_login.php");
+  header("location: ../abdur-rahman/admin_login.php");
   exit;
 }
 ?>
 <!doctype html>
 <html class="no-js" lang="">
 <head>
-  <title>Admin - Customer | ShosurBari</title>
+  <title>Customers-Admin | ShosurBari</title>
 </head>
 <body>
   <!-- ====== Admin Panel Navigation Bar ====== -->
   <?php include("admin_navigation.php"); ?>
   <!-- ========================================= -->
-
-
-
   <?php
   echo '<style>
   h1{
@@ -328,7 +324,6 @@ if (!isset($_SESSION['id'])) {
     window.location.href = `?per_page=${selectedValue}`;
   }
   </script>
-
   <!-- ===== Admin Panel Footer Area ===== -->
   <?php include("admin_footer.php"); ?>
   <!-- =================================== -->

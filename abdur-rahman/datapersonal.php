@@ -11,7 +11,7 @@ if (!isset($_SESSION['id'])) {
 <!doctype html>
 <html class="no-js" lang="">
 <head>
-  <title>Family-Admin | ShosurBari</title>
+  <title>Personal-Admin | ShosurBari</title>
 </head>
 <body>
   <!-- ====== Admin Panel Navigation Bar ====== -->
@@ -139,10 +139,9 @@ if (!isset($_SESSION['id'])) {
   // Pagination variables
   $page = isset($_GET['page']) ? $_GET['page'] : 1;
   $start = ($page - 1) * $profilesPerPage;
-  // Execute the SQL query to count the total number of user profiles
-  $sql = "SELECT COUNT(DISTINCT user_id) AS user_count FROM 5bd_family_information";
+  // Count the total number of user profiles
+  $sql = "SELECT COUNT(DISTINCT user_id) AS user_count FROM 2bd_personal_lifestyle";
   $result = $conn->query($sql);
-  // Check if the query was successful
   if ($result) {
     $row = $result->fetch_assoc();
     $userCount = $row["user_count"];
@@ -150,16 +149,16 @@ if (!isset($_SESSION['id'])) {
     echo "Error: " . $conn->error;
   }
   // Fetch user data from the database with pagination
-  $sql = "SELECT * FROM 5bd_family_information $limit OFFSET $start";
+  $sql = "SELECT * FROM 2bd_personal_lifestyle $limit OFFSET $start";
   $result = mysqli_query($conn, $sql);
   echo '<div class="table-container">';
-    echo "<h1>পারিবারিক ও সামাজিক তথ্য</h1>";
+    echo "<h1>ব্যক্তিগত তথ্য</h1>";
     echo '<div class="table-wrapper">';
       echo "<h3>Total number of user profiles: " . $userCount . "</h3>";
       echo '<div id="search-form">
         <form method="POST">
           <input type="text" id="search-user-id" name="search-user-id" placeholder="Search User ID" required>
-          <button class="search-admin" type="submit" name="search">Search</button>
+          <button class="search-admin"  type="submit" name="search">Search</button>
           <button class="search-clear-admin" type="submit" name="clear">Clear Search</button></br>
         </form>
         <form method="GET">
@@ -177,50 +176,74 @@ if (!isset($_SESSION['id'])) {
       </div>';
       if (isset($_POST['search'])) {
         $searchUserId = mysqli_real_escape_string($conn, $_POST['search-user-id']);
-        $sql = "SELECT * FROM 5bd_family_information WHERE user_id = $searchUserId $limit";
+        $sql = "SELECT * FROM 2bd_personal_lifestyle WHERE user_id = $searchUserId $limit";
         $result = mysqli_query($conn, $sql);
       }
       if (mysqli_num_rows($result) > 0) {
       echo '<table>';
         echo '<tr>
-          <th>বায়োডাটা নং</th>
-          <th>বাবার নাম</th>
-          <th>বাবা বেঁচে আছেন?</th>
-          <th>বাবার পেশা</th>
-          <th>মা বেঁচে আছেন?</th>
-          <th>মায়ের পেশা</th>
-          <th>ভাইবোন কয়জন</th>
-          <th>ভাইবোন সম্পর্কিত তথ্য</th>
-          <th>মামা/চাচাদের পেশা</th>
-          <th>পারিবারিক শ্রেণী</th>
-          <th>পরিবারের অর্থনৈতিক অবস্থা</th>
-          <th>পারিবারিক ধর্মীয় ও সামাজিক অবস্থা</th>
-          <th>তারিখ সময়</th>
-          <th>ডাটা ইডিট</th>
+        <th>বায়োডাটা নং</th>
+        <th>ধূমপান করা হয়?</th>
+        <th>পেশা</th>
+        <th>অন্যান্য পেশা</th>
+        <th>পেশার অবস্থান</th>
+        <th>পেশার বিস্তারিত তথ্য</th>
+        <th>ঘর ও ঘরের বাহিরের পোশাক</th>
+        <th>আপনার সম্পর্কে কিছু লিখুন</th>
+        <th style="color: blue;">পাত্র/পাত্রীর নাম</th>
+        <th style="color: blue;">পাত্র/পাত্রীর ইমেইল</th>
+        <th style="color: blue;">পাত্র/পাত্রীর মোবাইল নাম্বার</th>
+        <th style="color: blue;">অভিভাবকের মোবাইল নাম্বার</th>
+        <th style="color: blue;">অভিভাবকের নাম এবং পাত্র-পাত্রীর সাথে সম্পর্ক</th>
+        <th>তারিখ সময়</th>
+        <th>ডাটা ইডিট</th>
         </tr>';
         $count = 0;
         while ($row = mysqli_fetch_assoc($result)) {
-          $count++;
-          if ($profilesPerPage !== 'all' && $count > $profilesPerPage) {
-            // Hide profiles beyond the selected per page limit
-            continue;
-          }
-          echo '<tr>';
-          echo '<td>' . $row['user_id'] . '</td>';
-          echo '<td>' . $row['father_name'] . '</td>';
-          echo '<td>' . $row['father_alive'] . '</td>';
-          echo '<td>' . $row['fatheroccupation'] . '</td>';
-          echo '<td>' . $row['mother_alive'] . '</td>';
-          echo '<td>' . $row['motheroccupation'] . '</td>';
-          echo '<td>' . $row['brosis_number'] . '</td>';
-          echo '<td>' . $row['brosis_info'] . '</td>';
-          echo '<td>' . $row['uncle_profession'] . '</td>';
-          echo '<td>' . $row['family_class'] . '</td>';
-          echo '<td>' . $row['financial_condition'] . '</td>';
-          echo '<td>' . $row['family_religious_condition'] . '</td>';
-          echo '<td>' . $row['profilecreationdate'] . '</td>';
-          echo '<td><a target="_blank" href="edit_family.php?id=' . $row['user_id'] . '">Edit</a></td>';
-          echo '</tr>';
+        $count++;
+        if ($profilesPerPage !== 'all' && $count > $profilesPerPage) {
+          // Hide profiles beyond the selected per page limit
+          continue;
+        }
+        echo '<tr>';
+        echo '<td>' . $row['user_id'] . '</td>';
+        echo '<td>' . $row['smoke'] . '</td>';
+        echo '<td>' . $row['occupation_sector'] . '</td>';
+        echo '<td>' . $row['other_occupation_sector'] . '</td>';
+        if (!empty($row['business_occupation_level'])) {
+        echo '<td>' . $row['business_occupation_level'] . '</td>';
+        } elseif (!empty($row['student_occupation_level'])) {
+        echo '<td>' . $row['student_occupation_level'] . '</td>';
+        } elseif (!empty($row['health_occupation_level'])) {
+        echo '<td>' . $row['health_occupation_level'] . '</td>';
+        } elseif (!empty($row['engineer_occupation_level'])) {
+        echo '<td>' . $row['engineer_occupation_level'] . '</td>';
+        }  elseif (!empty($row['teacher_occupation_level'])) {
+        echo '<td>' . $row['teacher_occupation_level'] . '</td>';
+        } elseif (!empty($row['defense_occupation_level'])) {
+        echo '<td>' . $row['defense_occupation_level'] . '</td>';
+        } elseif (!empty($row['foreigner_occupation_level'])) {
+        echo '<td>' . $row['foreigner_occupation_level'] . '</td>';
+        }  elseif (!empty($row['garments_occupation_level'])) {
+        echo '<td>' . $row['garments_occupation_level'] . '</td>';
+        } elseif (!empty($row['driver_occupation_level'])) {
+        echo '<td>' . $row['driver_occupation_level'] . '</td>';
+        } elseif (!empty($row['service_andcommon_occupation_level'])) {
+        echo '<td>' . $row['service_andcommon_occupation_level'] . '</td>';
+        } elseif (!empty($row['mistri_occupation_level'])) {
+        echo '<td>' . $row['mistri_occupation_level'] . '</td>';
+        }
+        echo '<td>' . $row['occupation_describe'] . '</td>';
+        echo '<td>' . $row['dress_code'] . '</td>';
+        echo '<td>' . $row['aboutme'] . '</td>';
+        echo '<td style="color: blue;">' . $row['groom_bride_name'] . '</td>';
+        echo '<td style="color: blue;">' . $row['groom_bride_email'] . '</td>';
+        echo '<td style="color: blue;">' . $row['groom_bride_number'] . '</td>';
+        echo '<td style="color: blue;">' . $row['groom_bride_family_number'] . '</td>';
+        echo '<td style="color: blue;">' . $row['family_member_name_relation'] . '</td>';
+        echo '<td>' . $row['profilecreationdate'] . '</td>';
+        echo '<td><a target="_blank" href="edit_personal.php?id=' . $row['user_id'] . '">Edit</a></td>';
+        echo '</tr>';
         }
       echo '</table>';
       // Progress bar at the bottom
@@ -230,7 +253,7 @@ if (!isset($_SESSION['id'])) {
       // Calculate the total number of pages
       $total_pages = ceil($userCount / $profilesPerPage);
       // Define how many pages to show before and after the current page
-      $pages_to_show = 1;
+      $pages_to_show = 1; // You can adjust this number as needed
       // Pagination links
       echo "<div class='pagination'>";
         if ($total_pages > 1) {
@@ -265,8 +288,8 @@ if (!isset($_SESSION['id'])) {
     window.location.href = `?per_page=${selectedValue}`;
   }
   </script>
-  <!-- ===== Admin Panel Footer Area ===== -->
-  <?php include("admin_footer.php"); ?>
-  <!-- =================================== -->
+<!-- ===== Admin Panel Footer Area ===== -->
+<?php include("admin_footer.php"); ?>
+<!-- =================================== -->
 </body>
 </html>

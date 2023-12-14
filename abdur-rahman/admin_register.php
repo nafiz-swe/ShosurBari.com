@@ -1,19 +1,24 @@
-<?php include_once("includes/basic_includes.php");?>
-<?php require_once("includes/dbconn.php"); ?>
-<?php include_once("functions.php"); ?>
-<?php admin_register(); 
-  error_reporting(0);
+<?php
+include_once("includes/basic_includes.php");
+require_once("includes/dbconn.php");
+include_once("functions.php");
+admin_register(); 
+error_reporting(0);
+session_start();
+if (isset($_SESSION['id'])) {
+  header("location: index.php");
+  exit;
+}
 ?>
 <!doctype html>
 <html class="no-js" lang="">
 <head>
-  <title>Register -Admin | ShosurBari</title>
+  <title>Register-Admin | ShosurBari</title>
 </head>
 <body>
   <!-- ====== Admin Panel Navigation Bar ====== -->
   <?php include("admin_navigation.php"); ?>
   <!-- ========================================= -->
-
   <style>
   .shosurbari-biodata-form {
     display: flex;
@@ -150,7 +155,6 @@
     });
   </script>
   <!-- Password Slash End-->
-
   <!-- === Admin Panel Navigation Bar === -->
   <?php include("admin_footer.php"); ?>
   <!-- =================================== -->

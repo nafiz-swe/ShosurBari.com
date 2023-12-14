@@ -3,20 +3,76 @@
 include_once("includes/basic_includes.php");
 include_once("functions.php");
 require_once("includes/dbconn.php");
-
 customer_sent_info_complete(); 
 error_reporting(0);
 ?>
 <!doctype html>
 <html class="no-js" lang="">
 <head>
-  <title>BiodataInfo Sent - Admin | ShosurBari</title>
+  <title>BiodataInfo Sent-Admin | ShosurBari</title>
 </head>
 <body>
   <!-- ====== Admin Panel Navigation Bar ====== -->
   <?php include("admin_navigation.php"); ?>
   <!-- ========================================= -->
-
+  <style>
+  .sb-biodata-info-sent{
+    background: #ddf4ff66;
+    border: 1px solid #00c292;
+    padding: 15px;
+    margin: 40px auto;
+  }
+  .sb-biodata-info-sent h2 {
+    font-size: 25px;
+    margin-top: 15px;
+  }
+  .sb-biodata-field h2{
+    font-size: 25px;
+    margin-top: 15px;
+  }
+  input[type=submit] {
+    cursor: pointer;
+    height: 35px;
+    width: 400px;
+    margin-top: 10px;
+    background: linear-gradient(#06b6d4, #0ea5e9);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #fff;
+    box-shadow: 1px 1px 4px #888;
+  }
+  html, body { 
+    padding-top: 0px; /*Monitor Navigation Bar top*/
+  }
+  fieldset {
+    margin-bottom: 100px;
+  }
+  /* PoPup Message Show Start*/
+  .message-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    background: #22c55e;
+    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+    border: 1px solid rgba(0,0,0,.05);
+    border-radius: 2px;
+    padding: 15px;
+    z-index: 9999;
+  }
+  .success {
+    background: #22c55e;
+    color: white;
+    font-size: 16px;
+  }
+  .error {
+    background: #f44336;
+    color: white;
+    font-size: 16px;
+  }
+  </style>
   <div class="shosurbari-biodata">
     <form action="" method="POST" id="biodataForm">
       <fieldset>
@@ -217,64 +273,6 @@ error_reporting(0);
       </fieldset>
     </form>
   </div>
-  <style>
-  .sb-biodata-info-sent{
-    background: #ddf4ff66;
-    border: 1px solid #00c292;
-    padding: 15px;
-    margin: 40px auto;
-  }
-  .sb-biodata-info-sent h2 {
-    font-size: 25px;
-    margin-top: 15px;
-  }
-  .sb-biodata-field h2{
-    font-size: 25px;
-    margin-top: 15px;
-  }
-  input[type=submit] {
-    cursor: pointer;
-    height: 35px;
-    width: 400px;
-    margin-top: 10px;
-    background: linear-gradient(#06b6d4, #0ea5e9);
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    color: #fff;
-    box-shadow: 1px 1px 4px #888;
-  }
-  html, body { 
-    padding-top: 0px; /*Monitor Navigation Bar top*/
-  }
-  fieldset {
-    margin-bottom: 100px;
-  }
-  /* PoPup Message Show Start*/
-  .message-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    background: #22c55e;
-    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
-    border: 1px solid rgba(0,0,0,.05);
-    border-radius: 2px;
-    padding: 15px;
-    z-index: 9999;
-  }
-  .success {
-    background: #22c55e;
-    color: white;
-    font-size: 16px;
-  }
-  .error {
-    background: #f44336;
-    color: white;
-    font-size: 16px;
-  }
-  </style>
   <!-- PopUp Message Show Start -->
   <script>
     function showMessage(type, message) {
@@ -294,7 +292,6 @@ error_reporting(0);
     }
   </script>
   <!-- PopUp Message Show End -->
-
   <!-- ===== Admin Panel Footer Area ===== -->
   <?php include("admin_footer.php"); ?>
   <!-- =================================== -->

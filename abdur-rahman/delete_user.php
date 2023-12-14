@@ -15,30 +15,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="error-page-area">
-    <div class="error-page-wrap">
-      <i class="notika-icon notika-close"></i>
-      <h2>Delete Success!</h2>
-	  	<?php
-		$conn = mysqli_connect("localhost", "root", "", "matrimony");
-		if (!$conn) {
-			die("Connection failed: " . mysqli_connect_error());
-		}
-		$id = $_GET['id'];
-		$sql = "DELETE FROM users WHERE id = $id";
-		$result = mysqli_query($conn, $sql);
-		if ($result) {
-			echo "<p>Users ID Successfully Deleted.</p>";
-		} else {
-			echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-		}
-		mysqli_close($conn);
-	?>
-      <a href="users.php" class="btn">Go to Back User Page</a>
-      <a href="index.html" class="btn error-btn-mg">Go to Back Dashboard</a>
-    </div>
-  </div>
-  <style>
+	<style>
 	.error-page-area{
 		min-height:100vh;
 		text-align:center;
@@ -102,6 +79,28 @@
 		padding-bottom: 15px !important;
 		display: block;
 	}
-  </style>
+  	</style>
+  	<div class="error-page-area">
+		<div class="error-page-wrap">
+		<h2>Delete Success!</h2>
+			<?php
+			$conn = mysqli_connect("localhost", "root", "", "matrimony");
+			if (!$conn) {
+				die("Connection failed: " . mysqli_connect_error());
+			}
+			$id = $_GET['id'];
+			$sql = "DELETE FROM users WHERE id = $id";
+			$result = mysqli_query($conn, $sql);
+			if ($result) {
+				echo "<p>Users ID Successfully Deleted.</p>";
+			} else {
+				echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+			}
+			mysqli_close($conn);
+			?>
+    		<a href="users.php" class="btn">Go to Back User Page</a>
+    		<a href="index.html" class="btn error-btn-mg">Go to Back Dashboard</a>
+    	</div>
+  	</div>
 </body>
 </html>
