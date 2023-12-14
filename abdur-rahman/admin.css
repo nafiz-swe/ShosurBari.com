@@ -500,7 +500,6 @@ input#submit-btn {
     position: relative;
     z-index: 2;
 }
-
 #progressbar li:after {
     content: '';
     width: calc(50% + 23px);
@@ -512,7 +511,6 @@ input#submit-btn {
     top: 24px;
     z-index: 1;
 }
-
 /*marking active/completed steps green*/
 /*The number of the step and the connector before it = green*/
 #progressbar li.active:before,
@@ -521,17 +519,14 @@ input#submit-btn {
     color: white;
     z-index: 3;
 }
-
 /* Progressbar color */
 #progressbar li:not(.active):after {
     background: #ccc;
 }
-
 #height-error-message {
     color: red;
     font-size: 12px;
 }
-
 #biodataForm {
     width: 100%;
     margin: 0px auto;
@@ -540,7 +535,6 @@ input#submit-btn {
     padding-top: 50px;
     padding-bottom: 50px;
 }
-
 #biodataForm fieldset {
     border: 0 none;
     border-radius: 3px;
@@ -548,12 +542,10 @@ input#submit-btn {
     box-sizing: border-box;
     margin: auto;
 }
-
 /*Hide all except first fieldset*/
 #biodataForm fieldset:not(:first-of-type) {
     display: none;
 }
-
 /*buttons*/
 #biodataForm .action-button,
 #biodataForm .biodata-submit {
@@ -570,567 +562,28 @@ input#submit-btn {
     transition: transform 0.3s;
     box-shadow: 1px 1px 4px #888;
 }
-
 #biodataForm .action-button:hover,
 #biodataForm .biodata-submit:hover {
     background: linear-gradient(#0aa4ca, #0acef1);
     color: #fff;
     transform: scale(1.1);
 }
-
 #progressbar li:first-child:after {
     /*connector not needed before the first step*/
     content: none;
 }
-
 .error-message-empty{
     color: red;
 }
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
--- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
 --                    E   N   D                  --
 --   SHOSUR BARI BIODATA POST PAGE / FORM LIST   --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-
-
-
-
-
-
+/* End & Start */
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
--- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
---                S  T  A  R  T                  --
---      SHOSUR BARI SEARCH PAGE / FIND USER      --
---  SHOSURBARI SINGLE / MULTIPLE BIODATA SEARCH  --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-.total_biodata{
-    margin-top: 10px;
-}
-
-.count-display {
-    font-weight: 400;
-    color: #000000;
-    margin-top: 10px;
-}
-
-
-/* After Search - Profile Next & Previous Option Start*/
-.pagination {
-    width: 90%;
-    margin: 50px auto 0px auto;
-    padding: 0px;
-    text-align: center;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.pagination a {
-    transition: background-color 0.3s ease;
-    color: #000;
-    padding: 5px 12px;
-    text-decoration: none;
-    font-size: 14px;
-    background: #eee;
-    border-radius: 50%;
-    margin: 8px 3px;
-    border: 1px solid #ccc;
-}
-
-#prev-page-btn{
-    margin-bottom: 15px;
-    margin-top: 0px;
-}
-
-#profiles-show-info{
-    margin-bottom: 10px;
-}
-
-.highlight-end, .highlight-start {
-    color: #0aa4ca;
-}
-
-#next-page-btn{
-    margin-bottom: 0px;
-    margin-top: 15px;
-}
-
-#profiles-info{
-    margin-top: 10px;
-}
-
-.pagination a:hover {
-    background: linear-gradient(#0aa4ca, #0acef1);
-    color: #fff;
-}
-
-.pagination .active {
-    background: linear-gradient(#06b6d4, #0aa4ca);
-    color: #fff;
-    border: 1px solid #ddd;
-}
-/* After Search - Profile Next & Previous Option End*/
-
-
-/* After Search Profile List Start*/
-.flex-container-shosurbaribio {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: -50px;
-}
-
-.sb_biodata_profile{
-    display: flex;
-    flex-wrap: wrap;
-    width: 79%;
-    margin-top: -80px;
-    margin-bottom: 0px;
-    margin-right: 0px;
-    margin-left: 0px;
-    padding: 0px;
-}
-
-.biodatalist{
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    width: 31%;
-    gap: 1.5rem;
-    padding: 0px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: auto;
-    margin-top: 30px;
-    background: white;
-    transition: transform .2s;
-}
-
-.biodatalist:hover{
-    background: #ecfeff;
-    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
-    transform: scale(1.03);
-}
-
-.sb_bio_header{
-    background: linear-gradient(#06b6d4, #0aa4ca);
-    margin: 0px;
-    padding-top: 10px;
-    border-bottom: 1px solid #ccc;
-    border-radius: 6px 6px 100% 0% / 5px 5px 50% 100%;
-}
-
-.biodatalist img{
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
-    padding: 0px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: auto;
-    margin-top: 0px;
-    border: 2px solid white;
-}
-
-.sb_bio_number{
-    text-align: center;
-    padding: 10px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    margin-bottom: 25px;
-}
-
-.sb_biodatanumber{
-    font-size: 24px;
-    color: #fff;
-    font-weight: 500;
-}
-
-.sb_user{
-    text-align: center;
-    padding: 5px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
-
-.sb_single_data{
-    display: flex;
-    flex-wrap: wrap;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
-.sb_user .sb_single_data{
-    display: flex;
-    flex-wrap: wrap;
-    padding-top: 0px;
-    padding-bottom: 0px;
-}
-
-.sb_user .sb_value{
-    color: black;
-    padding: 6px;
-    font-size: 15px;
-    font-weight: 400;
-    border: 1px solid #d5d5d5;
-    border-style: groove;
-    width: 35%;
-    position: inherit;
-}
-
-.sb_user .sb_data{
-    color: black;
-    padding: 6px;
-    font-size: 15px;
-    font-weight: 400;
-    border: 1px solid #d5d5d5;
-    border-style: groove;
-    width: 65%;
-    position: inherit;
-}
-
-.view_sb_profile {
-    text-align: center;
-    border: 1px solid #d5d5d5;
-    padding: 5px;
-    margin-top: 10px;
-    margin-bottom: 0px;
-    border-radius: 4px;
-    background: linear-gradient(#06b6d4, #0aa4ca);
-    color: white;
-    width: 100%;
-    height: 35px;
-}
-
-.view_sb_profile:hover {
-    background: linear-gradient(#0aa4ca, #0acef1);
-    color: #fff;
-}
-
-
-.view_sb_profile a{
-    color: white;
-}
-/*After Search Profile List End*/
-
-
-/* Single Biodata Search Start*/
-.sb_singlebio_search {
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 30px;
-    width: 90%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    padding: 7px;
-    background-color: #fff;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-}
-
-.sb_singlebio_search input{
-    width: 100%;
-    padding-left: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    height: 35px;
-    margin-top: 10px;
-}
-
-.sb_singlebio_search input:focus {
-    border: 1px solid #0aa4ca !important;
-}
-
-.sb_singlebio_search button{
-    cursor: pointer;
-    width: 100%;
-    height: 35px;
-    margin-top: 10px;
-    background: linear-gradient(#06b6d4, #0aa4ca);
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    color: #fff;
-    box-shadow: 1px 1px 4px #888;
-}
-
-.sb_singlebio_search button:hover{
-    background: linear-gradient(#0aa4ca, #0acef1);
-}
-/* Single Biodata Search End*/
-
-
-/* Multiple Biodata Search Start*/
-.search-options{
-    margin-left: 20px;
-    list-style: none;
-    margin-top: -22px;
-    display: list-item;
-    color: black;
-    font-size: 15px;
-    line-height: 21px;
-    margin-bottom: -13px;
-}
-
-.label-search-options{
-    color: #0aa4ca;
-    font-size: 17px;
-    font-weight: 500;
-    margin-top: 23px;
-}
-
-.sbbiodata-search form{
-    width: 90%;
-    padding: 10px;
-    margin-left: auto;
-    background: #fdfcfc;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-size: 15px;
-}
-
-.sbbiodata-search{
-    width: 257px;
-    position: inherit;
-    margin-top: -50px;
-    margin-left: 0px;
-    z-index: 1;
-}
-
-.form_radios {
-    color: #000;
-    font-size: 13px;
-    padding: 0px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-
-.select-block1 select {
-    box-shadow: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    outline: 0;
-    background: #ffffff;
-    height: 30px;
-    line-height: 14px;
-    padding: 5px 15px;
-    width: 150%;
-    color: black;
-    font-size: 13px;
-    margin-left: 15px
-}
-
-.control-lable1 {
-    padding: 0;
-    font-size: 14px;
-    color: #06b6d4;
-    margin-top: 4px;
-    margin-bottom: 4px;
-    margin-right: -15px;
-}
-
-.form_but1 {
-    margin-bottom: 10px;
-}
-
-input[type=submit] {   /* Include User Photo Update Page, Upload Button*/
-    cursor: pointer;
-    width: 100%;
-    height: 35px;
-    margin-top: 10px;
-    background: linear-gradient(#06b6d4, #0aa4ca);
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    color: #fff;
-    box-shadow: 1px 1px 4px #888;
-}
-
-input[type=submit]:hover {
-    background: linear-gradient(#0aa4ca, #0acef1);
-}
-
-.toggle-next{
-    border-radius: 0;
-}
-
-.ellipsis {
-    text-overflow: ellipsis;
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    color: #06b6d4;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: 500;
-}
-
-.apply-selection{
-    display: none;
-    width: 100%;
-    margin: 0;
-    padding: 5px 10px;
-    border-bottom: 1px solid #ccc;
-}
-
-.ajax-link {
-    display: none;
-}
-
-.checkboxes{
-    margin: 0;
-    display: none;
-    border: 1px solid #ccc;
-    border-top: 0;
-}
-
-.inner-wrap{
-    padding: 5px;
-    max-height: 200px;
-    overflow: auto;
-}
-
-.wrapper{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: auto;
-    margin: 10px auto;
-    padding: 7px;
-    background-color: #f1f1f1;
-    box-shadow: 1px 1px 4px #888;
-    border-radius: 4px;
-}
-
-label span {
-    color: red;
-    font-size: 17px;
-    font-weight: 500;
-}
-
-label{
-    color: #0aa4ca;
-    font-size: 15px;
-    cursor: pointer;
-}
-
-.search-title{
-    margin: auto;
-    padding: 10px;
-    color: black;
-}
-
-.search-title h4{
-    font-size: 17px;
-    font-weight: 600;
-    text-align: center;
-    line-height: 27px;
-    margin: auto;
-}
-
-.fa-female:before {
-    font-size: 15px;
-}
-
-.fa-male:before {
-    font-size: 15px;
-}
-
-.gender-radio-select{
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 11px;
-    padding-right: 0px;
-    display: flex;
-	align-items: center;
-	border: 1px solid #ccc;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    background: #fff;
-}
-
-.gender-radio-select .gender-option {
-    margin-top: 0px;
-    margin-bottom: 0px;
-    margin-left: 28px;
-    margin-right: -16px;
-    width: 65%;
-}
-
-.gender-radio-select .gender-option input[type="radio"]{
-	display: none;
-}
-
-.gender-radio-select .gender-option label{
-    display: inline-block;
-    transition: all 0.3s;
-	font-weight: 500;
-    font-size: 15px;
-    cursor: pointer;
-	margin-top: 4px;
-    margin-bottom: 4px;
-	border: 1px solid #ccc;
-	border-radius: 3px;
-    text-align: center;
-    margin-left: -34px;
-    margin-right: 19px;
-    padding-left: 4px;
-    padding-right: 4px;
-    padding-top: 2px;
-    padding-bottom: 1px;
-
-}
-
-.gender-radio-select .gender-option label i{
-    font-size: 17px;
-}
-
-.gender-radio-select .gender-option input[type="radio"]:checked + label{
-    background: #0aa4ca;
-    border: 1px solid #ccc;
-    color: #fff;
-	border-radius: 3px
-}
-
-.wrapper .toggle-next .fa {
-    position: absolute;
-    right: 10px;
-    top: 19px;
-    font-size: 12px;
-}
-
-.toggle-next span i {
-    transition: all 0.2s ease;
-}
-
-.toggle-next:hover span i {
-    transform: rotate(180deg);
-}
-/* Multiple Biodata Search End*/
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
--- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
---                 E    N    D                   --
---      SHOSUR BARI SEARCH PAGE / FIND USER      --
---  SHOSURBARI SINGLE / MULTIPLE BIODATA SEARCH  --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-
-
-
-
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
--- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
 --               S  T  A  R  T                   --
 --      This is for Admin Customigation CSS      --
---                                               --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-
 #search-user-id,
 #search-keyword,
 #search { /*admin page search input field design */
@@ -1141,11 +594,9 @@ label{
     padding: 0 10px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-
 .input-group input[type="text"], select{
     height: 30px;
 }
-
 .search-admin{
     border: 2px solid #00c292;
     border-radius: 3px;
@@ -1156,7 +607,6 @@ label{
     background: white;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-
 .search-clear-admin{
     border: 2px solid #00c292;
     border-radius: 3px;
@@ -1167,20 +617,15 @@ label{
     background: white;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-
 .search-admin:hover,
 .search-clear-admin:hover{
     background: #00c292;
     color: white;
 }
 
-
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
--- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
 --                 E    N    D                   --
 --      This is for Admin Customigation CSS      --
---                                               --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 
 
