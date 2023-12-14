@@ -84,6 +84,9 @@ form {
     background: none;
     border-radius: 4px;
 }
+input[type=submit] {
+    width: 90%;
+}
 .input-group input[type="text"], select{
     border-radius: 4px;
     border: 1px solid #ccc;
@@ -627,3820 +630,747 @@ input#submit-btn {
 --                 E    N    D                   --
 --      This is for Admin Customigation CSS      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-
-
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
--- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
---               S  T  A  R  T                   --
---      Media Responsive / Phone Responsive      --
---                                               --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-
-@media (min-width:1600px){
-    .contact-bio,
-    .copy-sbbio-link {
-        width: 50%;
-        margin-top: 20px;
-        margin-bottom: 0px;
-        margin-left: 5px;
-        margin-right: 5px;
-    }
-
-    button.chatbtn,
-    button.copylink {
-        width: 100%;
-        padding: 3px;
-    }
-
-    .sb_user_recentview .sb_value_recentview {
-        font-size: 14px;
-    }
-
-    .sb_user_recentview .sb_data_recentview {
-        font-size: 14px;
-    }
-
-    td.day_label {
-        font-size: 16px;
-    }
-
-    td.day_value {
-        font-size: 15px;
-    }
-}
-
-
-@media (max-width:1600px){
-    td.day_label {
-        font-size: 15px;
-    }
-
-    td.day_value {
-        font-size: 14px;
-    }
-}
-
-
-@media (max-width:1366px){
-    .biodatalist{
-        width: 31%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .sb_biodata_profile{
-        display: flex;
-        flex-wrap: wrap;
-        width: 79%;
-        margin-top: -80px;
-        margin-bottom: 0px;
-        margin-right: 0px;
-        margin-left: 0px;
-        padding: 0px;
-    }
-
-    .sb_user .sb_value{
-        font-size: 15px;
-        font-weight: 400;
-        width: 35%;
-    }
-
-    .sb_user .sb_data{
-        font-size: 15px;
-        font-weight: 400;
-        width: 65%;
-    }
-
-    .ellipsis {
-        font-size: 14px;
-    }
-}
-
-
-/* @media (max-width: 1400px){
-    .sb-search-page {
-        width: 1000px;
-    }
-} */
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---          max-width:1280px / S T A R T         --
---      Media Responsive / Phone Responsive      --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-@media (max-width:1280px){
-    section{
-        padding: 0px;
-        height: auto;
-    }
-
-    .slide{
-        padding: 0px;
-    }
-
-    .slide h1 {
-        font-size: clamp(3.5em, 5vmax, 3em);
-        left: 0px;
-        top: 100px;
-        line-height: 80px;
-        width: 750px;
-        padding: 20px;
-    }
-
-    .slide h5 {
-        font-size: 18px;
-        top: 290px;
-        left: 0px;
-        width: 600px;
-        line-height: 25px;
-        margin-top: auto;
-        text-align: left;
-    }
-
-    .sb-home-reg2 {
-        position: absolute;
-        top: 350px;
-        left: 0px;
-        z-index: 1;
-        padding: 20px;
-    }
-
-    .sb-search-btn-banner {
-        position: absolute;
-        top: 350px;
-        left: 350px;
-        z-index: 1;
-        padding: 20px;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-        font-size: 45px;
-    }
-
-    .profile-nav-info h3 {
-        font-size: 24px;
-        text-align: left;
-    }
-
-    .profile-img img {
-        height: 168px;
-        width: 168px;
-        top: 30px;
-    }
-
-    .profile-img {
-        min-width: 30%;
-    }
-
-    .left-side{
-        width: 30%;
-    }
-
-    .right-side {
-        width: 68%;
-        margin-top: 50px;
-        margin-left: auto;
-        margin-right: 0;
-    }
-
-    .sb_user_recentview .sb_value_recentview {
-        font-size: 13px;
-    }
-    .sb_user_recentview .sb_data_recentview {
-        font-size: 13px;
-    }
-
-    .biodatarecent_viewlist {
-        width: 85%;
-    }
-
-    .sb_newbiodata li{
-        width: 33%;
-    }
-
-    .sb_newbiodata .nbs-flexisel-item li{
-        width: 33%;
-    }
-
-    .nbs-flexisel-item li{
-        width: 33%;
-    }
-
-    .nbs-flexisel-item {
-        float: left;
-        position: relative;
-        margin: auto 0px;
-        padding: 0px;
-        line-height: 17px;
-        min-height: 220px;
-    }
-
-    .sb_featured_profile_head {
-        width: 215px;
-    }
-
-    .nbs-flexisel-item:first-child{
-        margin-left: 0px;
-    }
-
-    ul.profile_item{
-        padding:0;
-        margin:0 0 1.5em 0;
-        list-style:none;
-        width: 110%;
-        display: flex;
-        font-size: 13px;
-    }
-
-    .sb_biodata_profile{
-        display: flex;
-        flex-wrap: wrap;
-        width: 74%;
-        margin-top: -80px;
-        margin-bottom: 0px;
-        margin-right: 0px;
-        margin-left: 0px;
-        padding: 0px;
-    }
-
-    .biodatalist{
-        width: 31%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .sb_user .sb_value{
-        font-size: 14px;
-        font-weight: 400;
-        width: 42%;
-    }
-
-    .sb_user .sb_data{
-        font-size: 14px;
-        font-weight: 400;
-        width: 58%;
-    }
-
-    .ellipsis {
-        font-size: 14px;
-    }
-
-    .profile-nav-info .address {
-        font-size: 14px;
-    }
-}
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---           max-width:1280px / E  N  D          --
---      Media Responsive / Phone Responsive      --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-
-
-@media(min-width: 1200px){
-    .navigationpro {
-        width: 930px;
-        padding: 39px;
-    }
-
-    .banner {
-        width: 1170px;
-    }
-}
-
-
-@media(max-width: 1200px){
-    .navigationpro {
-        width: 921px;
-        padding: 35px;
-    }
-
-    .banner {
-        width: 970px;
-    }
-}
-
-
-@media (min-width:1280px){
-    .shosurbari-about-contact,
-    .shosurbari-trmcnd-prvplcy,
-    .shosurbari-service {
-        width: 1170px;
-        margin: auto;
-    }
-
-    .shosurbari-faq {
-        width: 800px;
-        margin: auto;
-    }
-
-    .nbs-flexisel-item {
-        float: left;
-        position: relative;
-        margin: auto 0px;
-        padding: 0px;
-        line-height: 17px;
-        min-height: 220px;
-    }
-
-    .sb_featured_profile_head {
-        width: 215px;
-    }
-
-    .nbs-flexisel-item:first-child{
-        margin-left: 0px;
-    }
-
-    .sb_newbiodata .nbs-flexisel-item li{
-      width: 33%;
-    }
-
-    .sb_newbiodata li{
-      width: 33%;
-    }
-
-    .nbs-flexisel-item li{
-      width: 33%;
-    }
-
-    .flex-container-shosurbaribio {
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: -50px;
-        width: 1250px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-
-
-@media (min-width:1024px){
-    .nbs-flexisel-container {
-        position: relative;
-        width: 920px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-
-
+/* End & Start */
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 --          max-width:1024px / S T A R T         --
---      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width:1024px){
-
-
-    .banner{
-        width: 970px;
-    }
-
-    .sb-search-page {
-        flex-direction: column;
-        text-align: center;
-        width: auto;
-    }
-
-    .sb-search-logo-btn {
-        display: block;
-    }
-
-    .sb-search-options {
-        display: none; /* Hide the image */
-    }
-
-    .nbs-flexisel-item {
-        float: left;
-        position: relative;
-        margin: auto 30px;
-        padding: 0px;
-        line-height: 17px;
-        min-height: 220px;
-    }
-
-    .sb_featured_profile_head {
-        width: 225px;
-    }
-
-    .nbs-flexisel-item:first-child{
-        margin-left: -50px;
-    }
-
-    .profile-img img {
-        height: 168px;
-        width: 168px;
-        top: 30px;
-    }
-
-    .nav>li>a {
-        position: relative;
-        display: block;
-        padding: 10px 10px;
-    }
-
-    .nav-tabs1>li.active>a, .nav-tabs1>li.active>a:focus, .nav-tabs1>li.active>a:hover {
-        padding: 6px;
-    }
-
-    .profile-nav-info {
-        width: 24%;
-    }
-
-    .profile-nav-info h3 {
-        font-size: 22px;
-    }
-
-    .profile-nav-info .address {
-        font-size: 13px;
-    }
-
-    .nav-tabs1 {
-        font-size: 14px;
-    }
-
-    .see_sb_biodata {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .profile-img {
-        min-width: 32%;
-    }
-
-    .left-side{
-        width: 32%;
-    }
-
-    .right-side {
-        width: 65%;
-        margin-top: 50px;
-        margin-left: auto;
-        margin-right: 0;
-    }
-
-    td.day_label {
-        font-size: 14px;
-    }
-    td.day_value {
-        font-size: 14px;
-    }
-
-    .hvr-shutter-out-horizontal {
-        padding: 8px 25px;
-        font-size: 18px;
-    }
-
-    .profile_search {
-        margin:7em 0 0 0;
-    }
-
-    .post-meta {
-        margin-right: 6%;
-    }
-
-    h4.post-title {
-        font-size: 0.95em;
-    }
-
-    .testi_grid .testi_grid_blockquote > div a {
-        font-size: 0.8125em;
-    }
-
-    .testi-meta1 {
-        padding: 15px 220px 0 0;
-    }
-
-    .post_networks ul li {
-        margin: 3.5em 0 0 0;
-    }
-
-    .profile_search1 input[type="text"] {
-        width: 72%;
-        margin-right: 0px;
-    }
-
-    .thumb_bottom {
-        margin:0;
-    }
-
-    a.order-btn {
-        width: 60%;
-    }
-
-    .newsletter input[type="submit"] {
-        padding: 8px 14px;
-    }
-
-    ul.profile_item{
-        padding:0;
-        margin:0 0 1.5em 0;
-        list-style:none;
-        width: 98%;
-        display: flex;
-        font-size: 10px;
-    }
-
-    .biodatanumber h2{
-        font-size: 30px;
-    }
-
-    .sb_biodata_profile{
-        display: flex;
-        flex-wrap: wrap;
-        width: 72%;
-        margin-top: -100px;
-        margin-bottom: 0px;
-        margin-right: auto;
-        margin-left: auto;
-        padding: 20px;
-    }
-
-    .biodatalist{
-        width: 45%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .sb_user .sb_value{
-        font-size: 14px;
-        width: 38%;
-    }
-
-    .sb_user .sb_data{
-        font-size: 14px;
-        width: 62%;
-    }
-
-    .sb_biodatanumber{
-        font-size: 20px;
-    }
-
-    ul.nav_1 li {
-        margin: 3px;
-    }
-
-    .nbs-flexisel-container{
-        width: 725px;
-        position: relative;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .navbar-nav > li > a {
-        padding: 10px;
-    }
-
-    .navigationpro ul {
-        width: 607px;
-        margin-left: 0;
-    }
-
-    .navigationpro .dropdown{
-        margin: 3px;
-    }
-
-    .navigationpro {
-        width: 865px;
-        padding: 35px;
-    }
-
-    .slide p{
-        font-size: clamp(0em, 4vmax, 3em);
-        top: 85px;
-        left: 60px;
-        width: 601px;
-        padding: 10px;
-        border-radius: 15px;
-    }
+.see_sb_biodata {
+    margin-left: auto;
+    margin-right: auto;
+}
+.profile-img {
+    min-width: 32%;
+}
+.sb_biodata_profile{
+    display: flex;
+    flex-wrap: wrap;
+    width: 72%;
+    margin-top: -100px;
+    margin-bottom: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 20px;
+}
+.biodatalist{
+    width: 45%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.sb_biodatanumber{
+    font-size: 20px;
+}
 }
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 --           max-width:1024px / E  N  D          --
---      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-
-
-
-@media (min-width: 992px){
-    .col-md-2 {
-        width: 21.666667%;
-    }
-}
-
-
-@media (max-width: 992px){
-
-    .banner {
-        width: 750px;
-    }
-
-    .navigationpro {
-        display: block;
-        width: 652px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    ul.footer_social {
-        text-align: right;
-    }
-
-    .col_2 h6 {
-        text-align: right;
-    }
-
-    .brn-payment {
-        width: 180px;
-    }
-}
-
-
-@media only screen and (min-width: 930px) {
-    .sbbiodata_profile_recentview-mobile{
-      display: none;
-    }
-}
-
-
+/* End & Start */
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 --          max-width:930px / S T A R T         --
---      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width:930px){
-    .slide p{
-        font-size: 35px;
-        width: 520px;
-        border-radius: 10px;
-    }
-
-    .payment-form{
-        margin-top: 50px;
-    }
-
-    .banner{
-        height: 450px;
-    }
-    .slide h1 {
-        font-size: clamp(2.8em, 5vmax, 3em);
-        top: 30px;
-        line-height: 70px;
-        width: 615px;
-    }
-
-    .slide h5 {
-        top: 200px;
-    }
-
-    .sb-home-reg2, .sb-search-btn-banner {
-        top: 260px;
-    }
-
-    .nbs-flexisel-item {
-        float: left;
-        position: relative;
-        margin: auto 30px;
-        padding: 0px;
-        line-height: 17px;
-        min-height: 220px;
-    }
-
-    .sb_featured_profile_head {
-        width: 220px;
-    }
-
-    .nbs-flexisel-item:first-child {
-        margin-left: -54px;
-    }
-
-    .col_2 p{
-        padding-left: 30px;
-        padding-right: 30px;
-    }
-
-    ul.footer_social {
-        text-align: center;
-    }
-
-    ul.footer_links li{
-        text-align: center;
-    }
-
-    .col_2 h4 {
-        text-align: center;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-        font-size: 40px;
-    }
-
-    #progressbar li {
-        font-size: 15px;
-        width: 80px;
-    }
-
-    #progressbar li:after {
-        width: calc(30% + 23px);
-        left: -23px;
-    }
-
-    .sbbiodata_profile_recentview{
-        display: none;
-    }
-
-    .sbbiodata_profile_recentview-mobile h3{
-        text-align: center;
-        width: 100%;
-    }
-
-    .profile-nav-info .address {
-        justify-content: center;
-    }
-
-    .profile-side {
-        width: 100%;
-        text-align: center;
-        padding: 3px;
-        margin: auto;
-    }
-
-    .main-bd {
-        flex-direction: column;
-        padding-right: 0;
-    }
-
-    .profile-nav-info {
-        text-align: center;
-        width: 90%;
-        margin: auto;
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
-
-    .profile-img img {
-        position: relative;
-        height: 168px;
-        width: 168px;
-    }
-
-    .profile-img {
-        float: left;
-        width: 100%;
-        height: 200px;
-    }
-
-    .profile-nav-info h3 {
-        text-align: center;
-    }
-
-    .right-side {
-        width: 90%;
-        margin-top: 50px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .left-side {
-        width: 400px;
-        margin-top: 30px;
-        margin-left: auto;
-        margin-right: auto;
-        border-top: 3px solid #06b6d4;
-    }
-
-    .biodatarecent_viewlist {
-        width: 30%;
-    }
-
-    .profile-header {
-        display: flex;
-        width: 100%;
-        height: 100%;
-        flex-direction: column;
-        text-align: center;
-        padding-bottom: 20px;
-        margin-top: 22px;
-    }
-
-    .navbar-nav > li > a {
-        padding: 10px;
-    }
-
-    ul.nav_1 li {
-        margin: 3px;
-    }
-
-    .inline-block {
-        padding-right: 1%;
-    }
-
-    .heart-divider {
-        margin-top: 100px;
-        margin-bottom: 100px;
-    }
-
-    .bg_left {
-        padding: 1em;
-    }
-
-    .col-md-4.row_1-right {
-        margin: 3em 0 0 0;
-    }
-
-    .religion {
-        margin: 2em 0;
-    }
-
-    .grid_2 {
-        margin-bottom: 3em;
-    }
-
-    .bg_left h4 {
-        font-size: 1.3em;
-    }
-
-    .col_2 {
-        margin-bottom: 0em;
-        padding: 25px;
-    }
-
-    .col_2 h4 {
-        margin-bottom: 10px;
-    }
-
-    .faq-details {
-        padding-left: 25px;
-        padding-right: 25px;
-        margin: 2em 0 0 0;
-    }
-
-    .about_middle h2 {
-        font-size:2em;
-    }
-
-    .testi_grid .testi_grid_blockquote > div {
-        padding: 10px;
-        text-align: justify;
-    }
-
-    .testi_grid .testi_grid_blockquote > div a {
-        font-size: 12px;
-    }
-
-    .testi-meta1 {
-        padding: 15px 115px 0 0;
-    }
-
-    .about_grid1{
-        width:50%;
-        float:left;
-        margin-bottom:2em;
-    }
-
-    .about_bottom {
-        padding: 5em 0 3em;
-    }
-
-    .post_networks ul li {
-        margin: 6em 0 0 0;
-    }
-
-    .profile_left2 {
-        margin-bottom: 3em;
-    }
-
-    .match_right{
-        padding-left:0;
-    }
-
-    .col-md-9.profile_left {
-        padding-left: 0;
-        margin: 2em 0 0 0;
-    }
-
-    .col-md-9.members_box {
-        padding-left: 0;
-        margin: 2em 0 0 0;
-    }
-
-    .search_left {
-        padding-left: 0;
-        margin-bottom: 3em;
-    }
-
-    .profile_search1 {
-        margin-bottom: 2em;
-    }
-
-    .profile_left1 {
-        margin-bottom: 3em;
-    }
-
-    .col-md-9.members_box2 {
-        padding-left: 0;
-        margin: 2em 0 0 0;
-    }
-
-    .nav-tabs1 {
-        display: inline-block;
-        border-bottom: none;
-        border-radius: 4px;
-        font-size: 15px;
-        font-weight: 500;
-        background: linear-gradient(#06b6d4, #0aa4ca);
-        box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
-        width: auto;
-        padding-top: 0px;
-        margin: auto;
-        white-space: nowrap;
-    }
-
-    .pricing-table {
-        width: 50%;
-        float: left;
-    }
-
-    .grid_4 {
-        width: 220px;
-    }
-
-    .profile_right{
-        padding-left:0;
-        margin:3em 0 0 0;
-    }
-
-    ul.profile_item{
-        padding: 0;
-        list-style: none;
-        width: 55%;
-        display: flex;
-        font-size: 18px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .biodatanumber h2{
-        font-size: 28px;
-    }
-
-    .sb_biodata_profile{
-        display: flex;
-        flex-wrap: wrap;
-        width: 66%;
-        margin-top: -80px;
-        margin-bottom: 0px;
-        margin-right: 0px;
-        margin-left: 0px;
-        padding: 0px;
-    }
-
-    .biodatalist{
-        width: 45%;
-    }
-
-    .sb_user .sb_value{
-        font-size: 13px;
-        width: 41%;
-    }
-
-    .sb_user .sb_data{
-        font-size: 13px;
-        width: 59%;
-    }
-
-    .sb_biodatanumber{
-        font-size: 22px;
-    }
-
-    .ellipsis {
-        font-size: 14px;
-    }
-
-    .fa-chevron-down:before {
-        font-size: 10px;
-    }
-
-    .nbs-flexisel-container{
-        width: 701px;
-        position: relative;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .sbbiodata_profile_recentview-mobile {
-        width: 745px;
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: 80px;
-        margin-bottom: 0px;
-        margin-right: auto;
-        margin-left: auto;
-        padding: 0px;
-    }
+h1, h2, h3, h4, h5, h6 {
+    font-size: 40px;
+}
+#progressbar li {
+    font-size: 15px;
+    width: 80px;
+}
+#progressbar li:after {
+    width: calc(30% + 23px);
+    left: -23px;
+}
+.profile-side {
+    width: 100%;
+    text-align: center;
+    padding: 3px;
+    margin: auto;
+}
+.main-bd {
+    flex-direction: column;
+    padding-right: 0;
+}
+.profile-img img {
+    position: relative;
+    height: 168px;
+    width: 168px;
+}
+
+.inline-block {
+    padding-right: 1%;
+}
+.biodatanumber h2{
+    font-size: 28px;
+}
+.sb_biodata_profile{
+    display: flex;
+    flex-wrap: wrap;
+    width: 66%;
+    margin-top: -80px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding: 0px;
+}
+.biodatalist{
+    width: 45%;
+}
 }
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 --          max-width:930px / E  N  D         --
---      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-
-
-
-
-
+/* End & Start */
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 --          max-width:768px / S T A R T          --
---      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width: 768px){
-    .slide h1 {
-        font-size: clamp(2.3em, 5vmax, 3em);
-        top: 20px;
-        line-height: 60px;
-        width: 520px;
-    }
-
-    .slide h5 {
-        top: 163px;
-        width: 445px;
-    }
-
-    .sb-home-reg2{
-        top: 250px;
-        padding: 10px;
-    }
-
-  .sb-search-btn-banner {
-        position: absolute;
-        top: 250px;
-        left: 250px;
-        z-index: 1;
-        padding: 10px;
-    }
-
-    .sb-home-reg2 button, .sb-search-btn-banner button {
-        background: linear-gradient(#06b6d4, #0aa4ca);
-        padding: 10px;
-        font-size: 18px;
-        width: 200px;
-    }
-
-    .slide p {
-        font-size: 30px;
-        width: 450px;
-        border-radius: 10px;
-        top: 60px;
-        left: 50px;
-    }
-
-    .testi_grid .testi_grid_blockquote{
-        padding: 0px;
-        margin-bottom: 40px;
-    }
-
-    #banner_text{
-        line-height: 50px;
-    }
-
-    .banner{
-        height: 350px;
-        margin-top: 0px;
-        width: 590px;
-    }
-
-    .slide{
-        height: 350px;
-    }
-
-    .banner-content {
-        height: 350px;
-    }
-
-    section{
-        margin-top: 22px;
-    }
-
-    #banner_text{
-        margin-top: 90px;
-    }
-
-    .shosurbari-body-notice {
-        margin: 90px auto 0px auto;
-    }
-
-    .shosurbari-user-info {
-        margin-top: 30px;
-        margin-bottom: 110px;
-    }
-
-    .shosurbari-about {
-        margin-top: 90px;
-        padding-left: 40px;
-        padding-right: 40px;
-        line-height: 50px;
-    }
-
-    .shosurbar-grrombride-about {
-        margin-top: 30px;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-        font-size: 35px;
-    }
-
-    .login-navbar-img .img-responsive {
-        margin: auto; /* This centers the image */
-    }
-
-    .login-navbar-icon a{
-        margin: auto;
-    }
-
-    .login-navbar-icon a i{
-        font-size: 18px;
-        margin: auto;
-    }
-
-    .shosurbari-details {
-        margin: -50px auto;
-    }
-
-    .shosurbari-security {
-        margin: -50px auto;
-    }
-
-    .sb-featured-profiles {
-        margin: 90px auto 0px auto;
-    }
-
-    .shosurbari-title {
-        margin:auto;
-        backdrop-filter: blur(5px);
-        width: 80%;
-    }
-
-    .shosurbari-title h4 {
-        font-size: 23px;
-        line-height: 40px;
-        font-weight: 550;
-    }
-
-    #biodataForm{
-        margin: -30px auto;
-    }
-
-    .navigationpro .dropdown{
-        margin: 5px;
-    }
-
-    .navigationpro {
-        display: block;
-        width: 400px;
-    }
-
-    .shosurbari-userhome-status {
-        margin: auto;
-    }
-
-    .shosurbari-userhome-status form {
-        margin: auto;
-    }
-
-    .shosurbari-userhome-status h3, .shosurbari-userhome-status h4 {
-        text-align: center;
-    }
-
-    .shosurbari-faq {
-        width: 80%;
-        margin: auto;
-    }
-
-    .biodatarecent_viewlist {
-        width: 45%;
-    }
-
-    .sbbiodata_profile_recentview-mobile{
-        width: 540px;
-    }
-
-    ul.nav_1 li {
-        margin: 5px;
-    }
-
-    .hvr-shutter-out-horizontal {
-        padding: 6px 15px;
-        font-size: 16px;
-    }
-
-    .profile_search {
-        margin: 5em 0 0 0;
-    }
-
-    .age_box1 {
-        width: 50% !important;
-    }
-
-    label.gender_1 {
-        margin-right: 0px;
-    }
-
-    .grid_1 {
-        padding: 0;
-    }
-
-    .footer {
-        padding: 1em 0;
-    }
-
-    .shosurbari-copy-right {
-        margin: 3em 0 0 0;
-    }
-
-    .profile_search {
-    padding: 2em 1em;
-    }
-
-    .inline-block {
-        padding-right: 0;
-    }
-
-    .wrap_1{
-        width:720px;
-    }
-
-    .center-middle {
-        margin: 85px 0 0 0;
-    }
-
-    .navbar-nav > li > a {
-        padding: 8px 8px;
-        font-size: 14px;
-    }
-
-    .grid_3, .about_middle{
-        margin-bottom: 0px;
-        margin-top: 45px;
-    }
-
-    .about_bottom {
-        padding: 3em 0 2em;
-    }
-
-    i.icon_4 {
-        font-size: 50px;
-        line-height: 80px;
-    }
-
-    .row_2 ul img{
-        height: 160px;
-        width: 150px;
-        padding: 15px;
-        margin-top: 0px;
-        margin-left: 0px;
-        margin-right: 0px;
-        margin-bottom: 31px;
-    }
-
-    .biodatanumber h2{
-        font-size: 28px;
-    }
-
-    .sb_biodata_profile {
-        display: flex;
-        flex-wrap: wrap;
-        width: 90%;
-        margin-top: -80px;
-        margin-bottom: 0px;
-        margin-right: auto;
-        margin-left: auto;
-        padding: 0px;
-    }
-
-    .sbbiodata-search{
-        display: none;
-    }
-
-    /* Mobile Search Start / Multiple & Single Search */
-    .heart-divider {
-        margin-top: 30px;
-        margin-left: auto;
-    }
-
-    #search-bar {
-        width: 100%;
-        position: relative;
-        margin-top: 150px;
-        margin-bottom: 20px;
-    }
-
-    .sb_mobilesearch{
-        display: flex;
-        width: 100%;
-    }
-    /* Mobile Search End / Multiple & Single Search */
-
-
-
-    /* Mobile Search Start / Single Biodata*/
-    .sb_singlebio_mobilesearch {
-        width: 194px;
-        margin-left: 50px;
-        margin-right: auto;
-        padding: 7px;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        height: auto;
-        background-color: #fff;
-        border-radius: 4px;
-        border: 1px solid #ccc;
-    }
-
-    .sb_singlebio_mobilesearch input{
-        width: 100%;
-        padding-left: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        height: 35px;
-    }
-
-    .sb_singlebio_mobilesearch input:focus {
-        border: 1px solid #0aa4ca !important;
-    }
-
-    .sb_singlebio_mobilesearch button{
-        cursor: pointer;
-        width: 100%;
-        height: 35px;
-        margin-top: 10px;
-        background: #06b6d4;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        color: #fff;
-        box-shadow: 1px 1px 4px #888;
-    }
-
-    .sb_singlebio_mobilesearch button:hover{
-        background: linear-gradient(#0aa4ca, #0acef1);
-    }
-    /* Mobile Search End / Single Biodata*/
-
-
-
-
-    /* Mobile Search Start / Multiple Search Option */
-    .sb_mobilesearch #search-button{
-        width: 150px;
-        margin-left: auto;
-        margin-right: 50px;
-        background: #06b6d4;
-        color: #FFF;
-        padding: 8px;
-        border-radius: 5px;
-        font-size: 16px;
-        text-align: center;
-        cursor: pointer;
-        height: 40px;
-    }
-
-    .sb_mobilesearch #search-button:hover{
-        background: linear-gradient(#0aa4ca, #0acef1);
-    }
-
-    #close-button{
-        display: block;
-        width: 50px;
-        background: #06b6d4;
-        color: white;
-        padding: 3px;
-        margin-left: auto;
-        margin-right: 0px;
-        text-align: center;
-        border-radius: 3px;
-    }
-
-    #search-bar #search-button:hover{
-        background: linear-gradient(#0aa4ca, #0acef1);
-    }
-
-    #search-bar #filters{
-        display: none;
-    }
-
-    #close-button:hover {
-        background: linear-gradient(#0aa4ca, #0acef1);
-    }
-
-    .sbbiodata-search-mobile form{
-        width: 250px;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 0px;
-        padding: 10px;
-        background: #fdfcfc;
-        border-radius: 6px;
-        border: 1px solid #ccc;
-        font-size: 15px;
-        display: block;
-    }
-
-    .sbbiodata-search-mobile{
-        width: 100%;
-        position: inherit;
-        margin-top: 30px;
-        z-index: 1;
-    }
-
-    .gender-radio-select .gender-option label {
-        display: inline-block;
-        font-size: 15px;
-        transition: all 0.3s;
-        font-weight: 500;
-        cursor: pointer;
-        margin-top: 4px;
-        margin-bottom: 4px;
-        border: 1px solid #ccc;
-        border-radius: 3px;
-        margin-left: 25px;
-        margin-right: -15px;
-        padding-left: 4px;
-        padding-right: 4px;
-        padding-top: 2px;
-        padding-bottom: 1px;
-    }
-
-    .gender-radio-select .gender-option {
-        margin-top: 0px;
-        margin-bottom: 0px;
-        margin-left: -22px;
-        margin-right: 0px;
-        width: 142%;
-    }
-
-    .ellipsis {
-        font-size: 14px;
-    }
-    /* Mobile Search End / Multiple Search Option */
-
-    .navigationpro ul {
-        width: 280px;
-        margin: auto;
-    }
-
-    .shosurbari-userhome-status {
-        padding: 0px 0px 20px 0px;
-    }
-
-    .shosurbari-userhome-status form{
-        padding-top: 0;
-        padding-bottom: 10px;
-    }
-
-    .shosurbari-userhome-status form button {
-        width: 150px;
-        font-size: 15px;
-        padding: 3px;
-    }
-
-    .shosurbari-userhome-status form{
-        width: 150px;
-    }
-
-    .nbs-flexisel-container{
-        width: 696px;
-        position: relative;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .sb_user_recentview .sb_value_recentview {
-        width: 44%;
-    }
-
-    .sb_user_recentview .sb_data_recentview {
-        width: 56%;
-    }
-
-    .nbs-flexisel-item {
-        float: left;
-        position: relative;
-        margin: auto 0px;
-        padding: 0px;
-        line-height: 17px;
-        min-height: 220px;
-    }
-
-    .sb_featured_profile_head {
-        width: 225px;
-    }
-
-    .nbs-flexisel-item:first-child{
-        margin-left: 0px;
-    }
+h1, h2, h3, h4, h5, h6 {
+    font-size: 35px;
+}
+.shosurbari-title {
+    margin:auto;
+    backdrop-filter: blur(5px);
+    width: 80%;
+}
+.shosurbari-title h4 {
+    font-size: 23px;
+    line-height: 40px;
+    font-weight: 550;
+}
+#biodataForm{
+    margin: -30px auto;
+}
+.biodatanumber h2{
+    font-size: 28px;
+}
+.sb_biodata_profile {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    margin-top: -80px;
+    margin-bottom: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0px;
+}
 }
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 --           max-width:768px / E  N  D           --
---      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-
-
-  /* Mobile Search Start*/
-@media only screen and (min-width: 768px) {
-    .sbbiodata-search-mobile form{
-        display: none;
-    }
-
-    .sb_singlebio_mobilesearch {
-        display: none;
-    }
-
-    .navbar-collapse.collapse {
-        display: block!important;
-        height: auto!important;
-        padding-bottom: 0;
-        overflow: visible!important;
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-}
-/* Mobile Search End*/
-
 
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 --          max-width:765px / S T A R T          --
 --      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width: 765px) {
-    .navbar-toggle1 {
-        height: 40px;
-        margin: 0px 15px 0 0px;
-        color: #fff;
-        padding:0px;
-    }
-
-    .sb_biodata_profile {
-        display: flex;
-        flex-wrap: wrap;
-        width: 90%;
-        margin-top: -80px;
-        margin-bottom: 0px;
-        margin-right: auto;
-        margin-left: auto;
-        padding: 0px;
-    }
-
-    .sb_user .sb_value{
-        font-size: 14px;
-        width: 38%;
-    }
-
-    .sb_user .sb_data{
-        font-size: 14px;
-        width: 62%;
-    }
-
-    .sb_biodatanumber{
-        font-size: 22px;
-    }
-
-    .biodatalist{
-        width: 45%;
-    }
+.sb_biodata_profile {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    margin-top: -80px;
+    margin-bottom: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0px;
+}
+.sb_biodatanumber{
+    font-size: 22px;
+}
+.biodatalist{
+    width: 45%;
+}
 }
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 --           max-width:765px / E  N  D           --
---      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-
-
-
-
-
-
-
 
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 --          max-width:736px / S T A R T          --
---      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width: 736px){
-    .shosurbari-biodata-form {
-        margin-top: -60px;
-    }
-
-    section{
-        margin-top: 68px;
-    }
-
-    .nbs-flexisel-item {
-        float: left;
-        position: relative;
-        margin: auto 40px;
-        padding: 0px;
-        line-height: 17px;
-        min-height: 220px;
-    }
-
-    .sb_featured_profile_head {
-        width: 225px;
-    }
-
-    .nbs-flexisel-item:first-child{
-        margin-left: -53px;
-    }
-
-    .col_2 {
-        margin-bottom: 2em;
-    }
-
-    .sb-search-logo {
-        margin: auto;
-    }
-
-    .shosurbari-title {
-        border: 1px solid;
-        border-radius: 6px;
-    }
-
-    .shosurbari-title h4 {
-        font-size: 22px;
-        line-height: 35px;
-        font-weight: 550;
-    }
-
-    #progressbar li:before{
-        width: 30px;
-        line-height: 28px;
-    }
-
-    #progressbar li {
-        font-size: 14px;
-        width: 65px;
-    }
-
-    #progressbar li:after {
-        width: calc(20% + 23px);
-        left: -18px;
-    }
-
-    .left-side {
-        width: 350px;
-    }
-
-    .columns {
-        margin: 2em 0 0 0;
-    }
-
-    .column_grid {
-        padding: 0;
-    }
-
-    .pull-right {
-        float: none!important;
-    }
-
-    .navigation {
-        margin-right: 30%;
-    }
-
-    .nav_bottom {
-        background: linear-gradient(#06b6d4, #0aa4ca); /* For Mobile Navbar / Menu Bar Background Color*/
-    }
-
-    .inline-block {
-        display: inline-block;
-        margin-bottom: 10px;
-    }
-
-    .wrap_1 {
-        width:480px;
-    }
-
-    .age_box1 {
-        width: 50% !important;
-    }
-
-    .search_top {
-        margin-bottom:0;
-    }
-
-    .profile_search {
-        margin: 3em 0 0 0;
-        padding:10px;
-    }
-
-    .age_box2 {
-        max-width: 100% !important;
-    }
-
-    input#submit-btn {
-        font-size: 0.85em;
-        padding: 4px 10px;
-    }
-
-    .hvr-shutter-out-horizontal {
-        padding: 5px 10px;
-        font-size: 14px;
-    }
-
-    .bg_left {
-        padding: 10px;
-        margin-bottom: 1em;
-    }
-
-    .bg {
-        min-height: 600px;
-        padding: 3em 0 0 0;
-    }
-
-    .testi_grid {
-        width:100%;
-    }
-
-    .testi_grid:nth-child(2n+1) .testi-meta {
-        padding: 5px 0px 0 0;
-        text-align: right;
-    }
-
-    .testi-meta1 {
-        padding: 5px 325px 0 0;
-    }
-
-    .testi_grid .testi_grid_blockquote .featured-thumbnail img {
-        width: 100%;
-    }
-
-    .about_middle-grid1 {
-        margin-bottom: 1em;
-    }
-
-    .navbar-nav {
-        margin: 18px 0 0 0;
-        float:left;
-        width:100%;
-    }
-
-    .navbar-header.nav_2 {
-        display:block;
-    }
-
-    .navbar-default .navbar-toggle {
-        border-color:#2f374c;
-        background-color:#2f374c;
-        border-radius: 2px;
-    }
-
-    .dropdown-menu>li>a {
-        color: #fff !important;
-    }
-
-    .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
-        background-color:#06b6d4;
-    }
-
-    .col-sm-3, .col-sm-6{
-        padding-left:0;
-    }
-
-    .suceess_story ul li:first-child {
-        padding-top: 1rem;
-    }
-
-    .suceess_story ul li {
-        padding-bottom: 1rem;
-    }
-
-    i.icon_4 {
-        font-size: 50px;
-        line-height: 60px;
-    }
-
-    .col-sm-4.item_content {
-        text-align: center;
-        margin-bottom: 2em;
-    }
-
-    .services_top {
-        margin-bottom: 0;
-    }
-
-    ul.login_details1 {
-        margin: 1em 0;
-    }
-
-    .form_radios {
-        padding-left: 0;
-    }
-
-    .col-sm-5.input-group1 {
-        padding-left: 0;
-        margin-bottom: 5px;
-    }
-
-    p + .addr, .addr + .addr, .terms + .addr {
-        margin-bottom: 0;
-    }
-
-    .grid_4 {
-        width: 160px;
-    }
-
-    #contact-form input[type='text'], #contact-form textarea {
-        padding: 10px;
-    }
-
-    #contact-form input[type="submit"] {
-        padding:10px;
-    }
-
-    .login_left {
-        margin-bottom: 2em;
-    }
-
-    label {
-        font-size: 13px;
-    }
-
-    .sharing li {
-        margin-bottom: 10px;
-    }
-
-    .col-sm-4.form_box2 {
-        padding: 0;
-        margin: 5px 0;
-    }
-
-    .form_box, .form_box1{
-        padding:0;
-    }
-
-    ul.login_details1 {
-        margin: 5px 0;
-    }
-
-    .col_2 {
-        padding: 0;
-    }
-
-    .col-sm-8.row_1 {
-        padding: 15px;
-    }
-
-    ul.profile_item{
-        padding: 0;
-        list-style: none;
-        width: 60%;
-        display: flex;
-        font-size: 15px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .biodatanumber h2{
-        font-size: 27px;
-    }
-
-    .sb_biodata_profile{
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-        margin-top: -100px;
-        margin-bottom: 0px;
-        margin-right: 0px;
-        margin-left: 0px;
-        padding: 20px;
-    }
-
-    .sb_user .sb_value{
-        font-size: 14px;
-        width: 38%;
-    }
-
-    .sb_user .sb_data{
-        font-size: 14px;
-        width: 62%;
-    }
-
-    .sb_biodatanumber{
-        font-size: 20px;
-    }
-
-    .biodatalist{
-        width: 45%;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 30px;
-        margin-bottom: auto;
-    }
-
-    .profile-header {
-        margin-top: 68px;
-    }
-
-    .sb_mobilesearch {
-        margin-top: 20px;
-    }
-
-    /*404 Error Page Start */
-    .error-message {
-        text-align: center;
-        margin-top: 100px;
-    }
-
-    .error-page {
-        background-color: #f8f9fa;
-        padding: 20px 0;
-        text-align: center;
-    }
-
-    .error-title {
-        font-size: 1.7rem;
-        color: red;
-    }
-
-    .error-code {
-        font-size: 4rem;
-        font-weight: bold;
-        color: #000;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-
-    .error-text {
-        font-size: 1.2rem;
-        margin-bottom: 20px;
-    }
-    /*404 Error Page End */
-
-    .nbs-flexisel-container{
-        width: 538px; /* 399px; */
-        position: relative;
-        margin-left: auto;
-        margin-right: auto;
-    }
+.shosurbari-biodata-form {
+    margin-top: -60px;
+}
+section{
+    margin-top: 68px;
+}
+.shosurbari-title {
+    border: 1px solid;
+    border-radius: 6px;
+}
+.shosurbari-title h4 {
+    font-size: 22px;
+    line-height: 35px;
+    font-weight: 550;
+}
+#progressbar li:before{
+    width: 30px;
+    line-height: 28px;
+}
+#progressbar li {
+    font-size: 14px;
+    width: 65px;
+}
+#progressbar li:after {
+    width: calc(20% + 23px);
+    left: -18px;
+}
+.inline-block {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.wrap_1 {
+    width:480px;
+}
+input#submit-btn {
+    font-size: 0.85em;
+    padding: 4px 10px;
+}
+#contact-form input[type='text'], #contact-form textarea {
+    padding: 10px;
+}
+#contact-form input[type="submit"] {
+    padding:10px;
+}
+.login_left {
+    margin-bottom: 2em;
+}
+label {
+    font-size: 13px;
+}
+.biodatanumber h2{
+    font-size: 27px;
+}
+.sb_biodata_profile{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: -100px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding: 20px;
+}
+.sb_biodatanumber{
+    font-size: 20px;
+}
+.biodatalist{
+    width: 45%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: auto;
+}
 }
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 --           max-width:736px / E  N  D           --
---      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-
-
-
 @media (min-width: 600px){
-    #biodataForm fieldset {
-        width: 550px;
-    }
+#biodataForm fieldset {
+    width: 550px;
 }
-
-
-@media (max-width: 601px){
-    .nbs-flexisel-item {
-        float: left;
-        position: relative;
-        margin: auto 65px;
-        padding: 0px;
-        line-height: 17px;
-        min-height: 220px;
-    }
-
-    .sb_featured_profile_head {
-        width: 225px;
-    }
-
-    .nbs-flexisel-item:first-child{
-        margin-left: 160px;
-    }
 }
-
-
-
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 --          max-width:600px / S T A R T          --
---      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width: 600px){
-    .sb-search-page-notice h2{
-        line-height: 40px;
-        margin: 150px auto 40px auto;
-    }
-
-    .banner{
-        width: auto;
-    }
-
-    .slide h1 {
-        font-size: clamp(2em, 5vmax, 3em);
-        top: 30px;
-        line-height: 50px;
-        width: 450px;
-    }
-
-    .sb-home-reg2, .sb-search-btn-banner {
-        top: 250px;
-    }
-
-    .slide h5 {
-        top: 160px;
-    }
-
-    .slide p {
-        font-size: 26px;
-        width: 388px;
-        border-radius: 7px;
-        top: 40px;
-        left: 40px;
-    }
-
-    .sb-search-page h2{
-        line-height: 45px;
-    }
-
-    #banner_text{
-        line-height: 40px;
-    }
-
-    .nbs-flexisel-item {
-        float: left;
-        position: relative;
-        margin: auto 0px;
-        padding: 0px;
-        line-height: 17px;
-        min-height: 220px;
-    }
-
-    .sb_featured_profile_head {
-        width: 225px;
-    }
-
-    .nbs-flexisel-item:first-child{
-        margin-left: 0px;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-        font-size: 30px;
-    }
-
-    .sb_featured_profile_head {
-        width: 94%;
-    }
-
-    .form-actions a{
-        font-size: 14px;
-    }
-
-    .show-password i{
-        font-size: 16px;
-        top: 2px;
-    }
-
-    i .fa{
-        font-size: 15px;
-        top: 2px;
-    }
-
-    .btn_1 {
-        font-size: 15px;
-    }
-
-    .sb-biodata-field h2{
-        font-size: 25px;
-    }
-
-    .current-page h4 {
-        font-size: 21px;
-    }
-
-    .sb-search-logo {
-        margin: auto;
-    }
-
-    .shosurbari-title h4 {
-        font-size: 17px;
-        line-height: 30px;
-        font-weight: 550;
-    }
-
-    #progressbar li:before{
-        width: 25px;
-        line-height: 24px;
-        font-size: 13px;
-    }
-
-    #progressbar li {
-        font-size: 13px;
-        width: 55px;
-    }
-
-    #progressbar li:after {
-        width: calc(15% + 23px);
-        left: -15px;
-        top: 21px;
-    }
-
-    .navigationpro {
-        display: block;
-        width: auto;
-        padding: 30px;
-      }
-
-      .shosurbari-userhome-status {
-        width: 188px;
-        padding: 0px 0px 20px 0px;
-    }
-
-    #terms-checkbox {
-        width: 27px;
-    }
-
-    #terms-checkbox:checked::after{
-        left: 5px;
-    }
-
-    .biodatarecent_viewlist {
-        width: 60%;
-    }
-
-    .sbbiodata_profile_recentview-mobile{
-        width: 430px;
-    }
-
-    ul.profile_item{
-        padding: 0;
-        list-style: none;
-        width: 72%;
-        display: flex;
-        font-size: 13px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .biodatanumber h2{
-        font-size: 27px;
-    }
-
-    .sb_biodata_profile{
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-        margin-top: -100px;
-        margin-bottom: 0px;
-        margin-right: 0px;
-        margin-left: 0px;
-        padding: 10px;
-    }
-
-    .sb_user .sb_value{
-        font-size: 14px;
-        width: 40%;
-    }
-
-    .sb_user .sb_data{
-        font-size: 14px;
-        width: 60%;
-    }
-
-    .sb_biodatanumber{
-        font-size: 20px;
-    }
-
-    .biodatalist{
-        width: 45%;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 30px;
-        margin-bottom: auto;
-    }
-
-    .sb-register-login, .payment-form{
-        width: 350px;
-    }
-
-    .navigationpro ul {
-        width: 270px;
-    }
-
-    .nbs-flexisel-container{
-        width: 448px; /* 399px; */
-        position: relative;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .shosurbari-user-account {
-        width: 350px;
-    }
-
-    .payment-form {
-        width: 350px;
-    }
-
-    #biodataForm fieldset {
-        width: 470px;
-    }
+h1, h2, h3, h4, h5, h6 {
+    font-size: 30px;
+}
+.form-actions a{
+    font-size: 14px;
+}
+.show-password i{
+    font-size: 16px;
+    top: 2px;
+}
+i .fa{
+    font-size: 15px;
+    top: 2px;
+}
+.btn_1 {
+    font-size: 15px;
+}
+.sb-biodata-field h2{
+    font-size: 25px;
+}
+.current-page h4 {
+    font-size: 21px;
+}
+.shosurbari-title h4 {
+    font-size: 17px;
+    line-height: 30px;
+    font-weight: 550;
+}
+#progressbar li:before{
+    width: 25px;
+    line-height: 24px;
+    font-size: 13px;
+}
+#progressbar li {
+    font-size: 13px;
+    width: 55px;
+}
+#progressbar li:after {
+    width: calc(15% + 23px);
+    left: -15px;
+    top: 21px;
+}
+#terms-checkbox {
+    width: 27px;
+}
+#terms-checkbox:checked::after{
+    left: 5px;
+}
+.sbbiodata_profile_recentview-mobile{
+    width: 430px;
+}
+.biodatanumber h2{
+    font-size: 27px;
+}
+.sb_biodata_profile{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: -100px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding: 10px;
+}
+.sb_biodatanumber{
+    font-size: 20px;
+}
+.biodatalist{
+    width: 45%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: auto;
+}
+.sb-register-login, .payment-form{
+    width: 350px;
+}
+#biodataForm fieldset {
+    width: 470px;
+}
 }
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 --            max-width:600px / E  N  D          --
---      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-
-
-
-
-
-
 
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 --          max-width:540px / S T A R T          --
---      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width: 540px){
-
-    .slide h1 {
-        font-size: clamp(2em, 5vmax, 3em);
-        top: -20px;
-        line-height: 50px;
-        width: 450px;
-    }
-
-    .slide h5 {
-        top: 110px;
-    }
-
-    .sb-home-reg2, .sb-search-btn-banner {
-        top: 200px;
-    }
-
-    .slide{
-        height: 260px;
-    }
-
-    .banner-content {
-        height: 260px;
-    }
-
-    .biodatanumber h2{
-        font-size: 24px;
-    }
-
-    .sb_biodata_profile{
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-        margin-top: -100px;
-        margin-bottom: 0px;
-        margin-right: 0px;
-        margin-left: 0px;
-        padding: 20px;
-    }
-
-    .sb_user .sb_value{
-        font-size: 14px;
-        width: 40%;
-    }
-
-    .sb_user .sb_data{
-        font-size: 14px;
-        width: 60%;
-    }
-
-    .sb_biodatanumber{
-        font-size: 22px;
-    }
-
-    .biodatalist{
-        width: 300px;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 30px;
-        margin-bottom: auto;
-    }
-
-    .sb_mobilesearch #search-button {
-        width: 151px;
-    }
-
-    .nbs-flexisel-container{
-        width: 422px; /* 399px; */
-        position: relative;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .sb-home-reg{
-        left: 20px;
-        bottom: 10px;
-        padding: 15px;
-    }
-
-    .sb-search-btn{
-        right: 20px;
-        margin-bottom: 120px;
-        padding: 15px;
-    }
+.biodatanumber h2{
+    font-size: 24px;
+}
+.sb_biodata_profile{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: -100px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding: 20px;
+}
+.sb_biodatanumber{
+    font-size: 22px;
+}
+.biodatalist{
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: auto;
+}
 }
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 --           max-width:540px / E  N  D           --
---      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-
-
-
-
 
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 --          max-width:480px / S T A R T          --
---      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width:480px){
-    .shosurbari-about {
-        line-height: 40px;
-    }
-
-    .banner{
-        height: 280px;
-    }
-
-    .slide h1 {
-        font-size: clamp(1.74em, 5vmax, 3px);
-        top: 5px;
-        line-height: 45px;
-        width: 367px;
-        padding: 10px;
-    }
-
-    .slide h5 {
-        font-size: 17px;
-        top: 95px;
-        width: 367px;
-        padding: 10px;
-    }
-
-    .sb-home-reg2 button, .sb-search-btn-banner button {
-        padding: 7px;
-        font-size: 17px;
-        width: 180px;
-    }
-
-    .sb-search-btn-banner {
-        left: 190px;
-    }
-
-    .slide p {
-        font-size: 23px;
-        width: 346px;
-        left: 30px;
-    }
-
-    .sb-search-page h2{
-        line-height: 40px;
-    }
-
-    .brn-payment {
-        width: 150px;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-        font-size: 25px;
-    }
-
-    .update-image .camera-wrapper i {
-        font-size: 18px;
-        padding: 7px;
-        margin-top: 110px;
-        margin-left: 100px;
-    }
-
-    .form-actions p {
-        font-size: 13px;
-    }
-
-    .shosurbari-details p {
-        font-size: 15px;
-    }
-
-    .remember-forgot label {
-        font-size: 13px;
-    }
-
-    .remember-forgot a {
-        font-size: 13px;
-    }
-
-    .btn_1 {
-        font-size: 14px;
-    }
-
-    .sb-biodata-field h2{
-        font-size: 23px;
-    }
-
-    .current-page h4 {
-        font-size: 20px;
-    }
-
-    i.home_1 {
-        font-size: 25px;
-    }
-
-    .sb-search-logo {
-        margin: auto;
-    }
-
-    .shosurbari-title h4 {
-        line-height: 30px;
-        font-weight: 550;
-    }
-
-    #progressbar {
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        width: 300px;
-    }
-
-    #progressbar li:after {
-        left: -28px;
-        top: 25px;
-        width: calc(40% + 23px);
-    }
-
-    #progressbar li:nth-child(4):before {
-        margin-bottom: 10px;
-    }
-
-    #progressbar li:nth-child(5) {
-        clear: left;
-    }
-
-    #progressbar li {
-        width: 70px;
-        font-size: 14px;
-        float: left;
-        text-align: center;
-        padding: 5px;
-        margin-left: calc((40px - 35px) / 2);
-        margin-right: calc((40px - 35px) / 2);
-    }
-
-    #terms-checkbox {
-        width: 32px;
-    }
-
-    .contact-bio,
-    .copy-sbbio-link {
-        font-size: 13px;
-    }
-
-    .left-side {
-        width: 90%;
-    }
-
-    .sb_featured_profile_head {
-        width: 90%;
-    }
-
-    .shosurbari-user-account {
-        width: 300px;
-    }
-
-    .payment-form {
-        width: 300px;
-    }
-
-    .hvr-shutter-out-horizontal {
-        font-size: 13px;
-    }
-
-    .profile_search {
-        margin: 2em 0 0 0;
-        padding: 10px;
-    }
-
-    label.gender_1 {
-        font-size: 12px;
-    }
-
-    .input-group input[type="text"], select, input.transparent{
-        font-size: 10px;
-    }
-
-    input#submit-btn {
-        font-size: 0.8125em;
-        padding: 3px 8px;
-    }
-
-    .wrap_1 {
-        width: 452px;
-    }
-
-    .inline-block {
-        margin-bottom: 5px;
-    }
-
-    .heart-divider {
-        margin: 2em auto;
-    }
-
-    .religion_1-title {
-        font-size: 1.2em;
-    }
-
-    .grid_2 {
-        margin-bottom: 1em;
-    }
-
-    .col-sm-3, .col-sm-6 {
-        padding:0;
-    }
-
-    .bg {
-        min-height: 625px;
-    }
-
-    .map iframe {
-        height:200px;
-    }
-
-    .testi-meta1 {
-        padding: 5px 177px 0 0;
-    }
-
-    .testi_grid .testi_grid_blockquote .featured-thumbnail {
-        width: 80px;
-        height: 80px;
-    }
-
-    .nav>li>a {
-        padding: 8px 5px;
-        font-size: 13px;
-    }
-
-    p.description {
-        font-size: 12px;
-        line-height: 1.5em;
-    }
-
-    .jobs-item .top-btns li {
-        margin-left: 4px;
-    }
-
-    .menu ul li a {
-        line-height: 2em;
-    }
-
-    .jobs-item {
-        margin-bottom: 2em;
-    }
-
-    i.icon_1 {
-        font-size: 30px;
-    }
-
-    i.icon_2 {
-        font-size: 20px;
-    }
-
-    ul.phone li.phone_right p {
-        font-size: 12px;
-    }
-
-    .row {
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    .pricing-table {
-        width: 100%;
-        float: none;
-        margin-bottom:5px;
-    }
-
-    .grid_4 {
-        width: 140px;
-        margin: 0;
-    }
-
-    .nbs-flexisel-nav-right:after, .nbs-flexisel-nav-left:after  {
-        top:20px;
-    }
-
-    .nbs-flexisel-item {
-        float: left;
-        position: relative;
-        margin: auto 105px;
-        padding: 0px;
-        line-height: 17px;
-        min-height: 220px;
-    }
-
-    .sb_featured_profile_head {
-        width: 225px;
-    }
-
-    .nbs-flexisel-item:first-child{
-        margin-left: 70px;
-    }
-
-    ul.profile_item{
-        padding: 0;
-        list-style: none;
-        width: 81%;
-        display: flex;
-        font-size: 12px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .biodatanumber h2{
-        font-size: 18px;
-    }
-
-    .update-image-button{
-        font-size: 13px;
-        display: block;
-    }
-
-    .deleteimage {
-        padding: 10px;
-        margin-top: -15px;
-        margin-left: -9px;
-        width: 85%;
-    }
-
-    .update-image img {
-        height: 148px;
-        width: 148px;
-    }
-
-    .sb_biodata_profile{
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-        margin-top: -50px;
-        margin-bottom: 0px;
-        margin-right: 0px;
-        margin-left: 0px;
-        padding: 20px;
-    }
-
-    .sb_user .sb_value{
-        font-size: 14px;
-        width: 40%;
-    }
-
-    .sb_user .sb_data{
-        font-size: 14px;
-        width: 60%;
-    }
-
-    .sb_biodatanumber{
-        font-size: 22px;
-    }
-
-    .sb_mobilesearch  .sb_singlebio_mobilesearch {
-        width: 194px;
-        margin-left: 25px;
-        margin-right: auto;
-    }
-
-    .sb_mobilesearch  #search-button{
-        width: 135px;
-        margin-left: auto;
-        margin-right: 25px;
-    }
-
-    .sb-register-login, .payment-form{
-        width: 300px;
-    }
-
-    .navigationpro ul {
-        width: 260px;
-    }
-
-.nbs-flexisel-container{
-    /* width: 280px; */
-    width: 245px;
-    position: relative;
-    margin-left: auto;
+.sb-home-reg2 button, .sb-search-btn-banner button {
+    padding: 7px;
+    font-size: 17px;
+    width: 180px;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size: 25px;
+}
+.form-actions p {
+    font-size: 13px;
+}
+.shosurbari-details p {
+    font-size: 15px;
+}
+.remember-forgot label {
+    font-size: 13px;
+}
+.remember-forgot a {
+    font-size: 13px;
+}
+.btn_1 {
+    font-size: 14px;
+}
+.sb-biodata-field h2{
+    font-size: 23px;
+}
+.current-page h4 {
+    font-size: 20px;
+}
+.shosurbari-title h4 {
+    line-height: 30px;
+    font-weight: 550;
+}
+#progressbar {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 300px;
+}
+#progressbar li:after {
+    left: -28px;
+    top: 25px;
+    width: calc(40% + 23px);
+}
+#progressbar li:nth-child(4):before {
+    margin-bottom: 10px;
+}
+#progressbar li:nth-child(5) {
+    clear: left;
+}
+#progressbar li {
+    width: 70px;
+    font-size: 14px;
+    float: left;
+    text-align: center;
+    padding: 5px;
+    margin-left: calc((40px - 35px) / 2);
+    margin-right: calc((40px - 35px) / 2);
+}
+.input-group input[type="text"], select, input.transparent{
+    font-size: 10px;
+}
+input#submit-btn {
+    font-size: 0.8125em;
+    padding: 3px 8px;
+}
+.wrap_1 {
+    width: 452px;
+}
+.inline-block {
+    margin-bottom: 5px;
+}
+.biodatanumber h2{
+    font-size: 18px;
+}
+.update-image-button{
+    font-size: 13px;
+    display: block;
+}
+.deleteimage {
+    padding: 10px;
+    margin-top: -15px;
+    margin-left: -9px;
+    width: 85%;
+}
+.update-image img {
+    height: 148px;
+    width: 148px;
+}
+.sb_biodata_profile{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: -50px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding: 20px;
+}
+.sb_biodatanumber{
+    font-size: 22px;
+}
+.sb_mobilesearch  .sb_singlebio_mobilesearch {
+    width: 194px;
+    margin-left: 25px;
     margin-right: auto;
 }
-
-    .sb_user_recentview .sb_value_recentview {
-        width: 44%;
-    }
-
-    .sb_user_recentview .sb_data_recentview {
-        width: 56%;
-    }
-
-    .sbbiodata_profile_recentview-mobile{
-        width: 290px;
-    }
-
-    .biodatarecent_viewlist {
-        width: 85%;
-    }
-
-    #biodataForm fieldset {
-        width: 404px;
-    }
+.sb_mobilesearch  #search-button{
+    width: 135px;
+    margin-left: auto;
+    margin-right: 25px;
+}
+.sb-register-login{
+    width: 300px;
+}
+#biodataForm fieldset {
+    width: 404px;
+}
 }
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 --           max-width:480px / E  N  D           --
---      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-
-
-@media (max-width: 479px){
-    .nbs-flexisel-item {
-        float: left;
-        position: relative;
-        margin: auto 0px;
-        padding: 0px;
-        line-height: 17px;
-        min-height: 220px;
-    }
-
-    .sb_featured_profile_head {
-        width: 225px;
-    }
-
-    .nbs-flexisel-item:first-child{
-        margin-left: 0px;
-    }
-}
-
 
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 --          max-width:414px / S T A R T          --
---      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width:414px){
-    .sb-search-btn-banner {
-        left: 185px;
-    }
-
-    .sb-home-reg2 button, .sb-search-btn-banner button {
-        width: 160px;
-    }
-
-    .slide p {
-        font-size: 22px;
-        width: 333px;
-        left: 23px;
-    }
-
-    .message-footer p {
-        font-size: 16px;
-    }
-
-    .shosurbari-title h4 {
-        line-height: 25px;
-    }
-
-    .wrap_1 {
-        width: 375px;
-    }
-
-    .hvr-shutter-out-horizontal {
-        padding: 4px 8px;
-        font-size: 11px;
-    }
-
-    .profile_search {
-        margin: 1em 0 0 0;
-        padding:5px;
-    }
-
-    .navigation {
-        margin-right: 23%;
-        margin-top: 0;
-    }
-
-    .bg_left h4 {
-        font-size: 1.1em;
-    }
-
-    .bg_left h5 {
-        font-size: 0.85em;
-    }
-
-    .bg {
-        min-height: 640px;
-        padding: 2em 0 0 0;
-    }
-
-    .col_2 {
-        margin-bottom: 2em;
-    }
-
-    .about_middle h2 {
-        font-size: 1.5em;
-    }
-
-    .grid_3, .about_middle {
-        margin-bottom: 0px;
-    }
-
-    .about_bottom h3 {
-        font-size: 1.8em;
-    }
-
-    .desc h4 {
-        font-size: 1.1em;
-    }
-
-    .post_networks ul li {
-        margin: 2.5em 0 0 0;
-    }
-
-    .profile_left h2 {
-        font-size: 1em;
-    }
-
-    .page_header h3 {
-        font-size: 1em;
-    }
-
-    .page_header h1 {
-        margin-bottom:10px;
-    }
-
-    i.icon_4 {
-        font-size: 35px;
-        line-height: 50px;
-    }
-
-    .col-sm-4.item_content {
-        margin-bottom: 1em;
-    }
-
-    .footer {
-        padding: 1em 0;
-    }
-
-    .about_bottom {
-        padding: 2em 0 0em;
-    }
-
-    ul.match_box {
-        margin: 0 0 1em 0;
-    }
-
-    ol.terms_list li {
-        font-size: 0.8125em;
-    }
-
-    .nbs-flexisel-nav-right:after, .nbs-flexisel-nav-left:after  {
-        top:20px;
-    }
-
-    .terms h4 {
-        font-size: 1.2em;
-    }
-
-    .form_radios {
-        font-size: 12px;
-    }
-
-    .search_left {
-        margin-bottom: 1em;
-    }
-
-    .view_profile2 {
-        margin: 3em 0 0 0;
-    }
-
-    ul.pagination_1 {
-        margin: 0 0 2em 0;
-    }
-
-    .members_box2 p {
-        margin-bottom: 1em;
-    }
-
-    .addr dl dt, .addr dl dd {
-        font-size: 12px;
-    }
-
-    .grid_4 {
-        width: 115px;
-    }
-
-    form#contact-form {
-        width: 60%;
-    }
-
-    #contact-form input[type='text'], #contact-form textarea {
-        padding: 7px;
-    }
-
-    #contact-form input[type="submit"] {
-        padding: 8px;
-        font-size: 13px;
-    }
-
-    ul.profile_item{
-        padding: 0;
-        list-style: none;
-        width: 84%;
-        display: flex;
-        font-size: 11px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .biodatanumber h2{
-        font-size: 16px;
-    }
-
-    .update-image-button{
-        font-size: 13px;
-        display: block;
-    }
-
-    .deleteimage {
-        padding: 10px;
-        margin-top: -15px;
-        margin-left: -9px;
-        width: 85%;
-    }
-
-    .sb_biodata_profile{
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-        margin-top: -50px;
-        margin-bottom: 0px;
-        margin-right: 0px;
-        margin-left: 0px;
-        padding: 20px;
-    }
-
-    .sb_user .sb_value{
-        font-size: 14px;
-        width: 40%;
-    }
-
-    .sb_user .sb_data{
-        font-size: 14px;
-        width: 60%;
-    }
-
-    .sb_biodatanumber{
-        font-size: 22px;
-    }
-
-    .biodatalist{
-        width: 280px;
-    }
-
-    .gender-radio-select .gender-option label {
-        font-size: 14px;
-    }
-
-    .gender-radio-select .gender-option {
-        margin-top: 0px;
-        margin-bottom: 0px;
-        margin-left: -22px;
-        margin-right: 0px;
-        width: 142%;
-    }
-
-    .sb_mobilesearch #search-button {
-        width: 123px;
-    }
-
-    .navigationpro ul {
-        width: 245px;
-    }
-
-    #biodataForm fieldset {
-        width: 374px;
-    }
+.shosurbari-title h4 {
+    line-height: 25px;
+}
+.wrap_1 {
+    width: 375px;
+}
+.profile_left h2 {
+    font-size: 1em;
+}
+.members_box2 p {
+    margin-bottom: 1em;
+}
+form#contact-form {
+    width: 60%;
+}
+#contact-form input[type='text'], #contact-form textarea {
+    padding: 7px;
+}
+#contact-form input[type="submit"] {
+    padding: 8px;
+    font-size: 13px;
+}
+.biodatanumber h2{
+    font-size: 16px;
+}
+.update-image-button{
+    font-size: 13px;
+    display: block;
+}
+.deleteimage {
+    padding: 10px;
+    margin-top: -15px;
+    margin-left: -9px;
+    width: 85%;
+}
+.sb_biodata_profile{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: -50px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding: 20px;
+}
+.sb_biodatanumber{
+    font-size: 22px;
+}
+.biodatalist{
+    width: 280px;
+}
+.sb_mobilesearch #search-button {
+    width: 123px;
+}
+#biodataForm fieldset {
+    width: 374px;
+}
 }
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 --            max-width:414px / E  N  D          --
---      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-
-
-
-
 
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 --          max-width: 384px / S T A R T          --
---      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width:384px){
-    .sb-home-reg2{
-        top: 165px;
-    }
-
-    .sb-search-btn-banner {
-        top: 212px;
-        left: 0px;
-    }
-
-    .slide h1 {
-        font-size: clamp(1.66em, 5vmax, 3px);
-        top: 6px;
-        line-height: 37px;
-        width: 300px;
-        padding: 10px;
-    }
-
-    .slide h5 {
-        top: 82px;
-    }
-
-    .sb-search-page .sb-search-btn2 {
-        width: 275px;
-    }
-
-    .slide p {
-        font-size: 21px;
-        width: 317px;
-        left: 17px;
-    }
-
-    .update-image .camera-wrapper i {
-        font-size: 17px;
-        padding: 6px;
-        margin-top: 115px;
-        margin-left: 100px;
-    }
-
-    .shosurbari-details p {
-        font-size: 14px;
-    }
-
-    .btn_1 {
-        font-size: 13px;
-    }
-
-    .sb-biodata-field h2{
-        font-size: 21px;
-    }
-
-    .current-page h4 {
-        font-size: 19px;
-    }
-
-    i.home_1 {
-        font-size: 24px;
-    }
-
-    .shosurbari-title h4 {
-        line-height: 25px;
-    }
-
-    #terms-checkbox {
-        width: 36px;
-    }
-
-    .sb-terms-privacy-checkbox input {
-        margin-top: -40px;
-    }
-
-    a#profile-tab, a#home-tab, a#profile-tab1 {
-        font-size: 12px;
-    }
-
-    .nav-tabs1>li.active>a, .nav-tabs1>li.active>a:focus, .nav-tabs1>li.active>a:hover {
-        margin: 3px;
-    }
-
-    .shosurbari-user-account {
-        width: 270px;
-    }
-
-    .payment-form {
-        width: 270px;
-    }
-
-    .wrap_1 {
-        width: 350px;
-    }
-
-    .inline-block {
-        margin-bottom:2px;
-    }
-
-    a.brand img {
-        width: 150px;
-    }
-
-    .navigation {
-        margin-top: -6px;
-    }
-
-    .grid_1 {
-        padding: 2em 0;
-    }
-
-    .suceess_story-content-info h4 {
-        font-size: 1em;
-    }
-
-    .suceess_story-content-container, .suceess_story-date {
-        margin-left: 1.813rem;
-    }
-
-    .suceess_story-content-featured-image {
-        margin-right: 10px;
-        margin-bottom: 0;
-    }
-
-    .post-meta span.day {
-        font-size: 25px;
-    }
-
-    .post-content {
-        font-size: 0.8125em;
-        margin: 5px 0;
-    }
-
-    a.religion_1 {
-        font-size: 0.8125em;
-    }
-
-    .religion {
-        margin: 1em 0;
-    }
-
-    .religion_1-title {
-    margin-bottom: 5px;
-    }
-
-    .bg_left p, .col_2 p, .about_right p, .desc p,  .headings p, .column_grid p, .members_box2 p, .page_header p, .item_content p, .suceess_story-content-info p{
-        font-size:12px;
-    }
-
-    .profile_left2 {
-        margin-bottom: 2em;
-    }
-
-    .menu > li {
-        font-size:0.95em;
-    }
-
-    ul.login_details1 li p {
-        line-height: 1.5em;
-        margin: 1em 0;
-        font-size: 12px;
-    }
-
-    .phone_1 {
-        margin-right: 0%;
-    }
-
-    .span_1_of_3 {
-        width: 32.2%;
-    }
-
-    .profile_left1 {
-        margin-bottom: 2em;
-    }
-
-    .profile_left1 h1 {
-        margin-bottom: 1em;
-    }
-
-    .faq-list_h h4{
-        font-size:0.8125em;
-        color:#000;
-    }
-
-    .list_1 {
-        margin: 2em 0 0 0;
-    }
-
-    .list_1 h3 {
-        font-size: 1.3em;
-    }
-
-    .jobs-item .thumb {
-        margin-right: 10px;
-    }
-
-    .jobs-item .top-btns {
-        right: -15px;
-    }
-
-    .jobs-item .top-btns li {
-        margin-left: 2px;
-    }
-
-    p + .addr, .addr + .addr, .terms + .addr {
-        margin-top: 10px;
-    }
-
-    #contact-form input[type='text'], #contact-form textarea {
-        font-size: 12px;
-    }
-
-    #contact-form textarea{
-        height:100px;
-    }
-
-    input#submit-btn {
-        font-size: 0.8125em;
-        padding: 1px 5px;
-    }
-
-    .terms_1 h3, .terms_1 h5{
-        font-size: 1em;
-    }
-
-    .testi_grid .testi_grid_blockquote > div {
-        line-height: 16px;
-    }
-
-    ul.profile_item{
-        padding: 0;
-        list-style: none;
-        width: 100%;
-        display: flex;
-        font-size: 10px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .biodatanumber h2{
-        font-size: 12px;
-    }
-
-    .update-image-button{
-        font-size: 13px;
-        display: block;
-    }
-
-    .deleteimage {
-        padding: 10px;
-        margin-top: -15px;
-        margin-left: -9px;
-        width: 85%;
-    }
-
-    .sb_biodata_profile{
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-        margin-top: -50px;
-        margin-bottom: 0px;
-        margin-right: 0px;
-        margin-left: 0px;
-        padding: 20px;
-    }
-
-    .sb_user .sb_value{
-        font-size: 14px;
-        width: 40%;
-    }
-
-    .sb_user .sb_data{
-        font-size: 14px;
-        width: 60%;
-    }
-
-    .sb_biodatanumber{
-        font-size: 20px;
-    }
-
-    .biodatalist{
-        width: 260px;
-    }
-
-    .sb_mobilesearch  .sb_singlebio_mobilesearch {
-        width: 194px;
-        margin-left: 10px;
-        margin-right: auto;
-    }
-
-    .sb_mobilesearch #search-button {
-        width: 123px;
-        margin-left: auto;
-        margin-right: 10px;
-    }
-
-    .sb-register-login, .payment-form {
-        width: 270px;
-    }
-
-    .gender-select-reg .gender-option label {
-        font-size: 12px;
-    }
-
-    .sb-profile-gender {
-        font-size: 12px;
-    }
-
-    #biodataForm fieldset {
-        width: 340px;
-    }
+.shosurbari-details p {
+    font-size: 14px;
+}
+.btn_1 {
+    font-size: 13px;
+}
+.sb-biodata-field h2{
+    font-size: 21px;
+}
+.current-page h4 {
+    font-size: 19px;
+}
+.shosurbari-title h4 {
+    line-height: 25px;
+}
+#terms-checkbox {
+    width: 36px;
+}
+.wrap_1 {
+    width: 350px;
+}
+.inline-block {
+    margin-bottom:2px;
+}
+#contact-form input[type='text'], #contact-form textarea {
+    font-size: 12px;
+}
+#contact-form textarea{
+    height:100px;
+}
+input#submit-btn {
+    font-size: 0.8125em;
+    padding: 1px 5px;
+}
+.biodatanumber h2{
+    font-size: 12px;
+}
+.update-image-button{
+    font-size: 13px;
+    display: block;
+}
+.deleteimage {
+    padding: 10px;
+    margin-top: -15px;
+    margin-left: -9px;
+    width: 85%;
+}
+.sb_biodata_profile{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: -50px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding: 20px;
+}
+.sb_biodatanumber{
+    font-size: 20px;
+}
+.biodatalist{
+    width: 260px;
+}
+.sb-register-login{
+    width: 270px;
+}
+#biodataForm fieldset {
+    width: 340px;
+}
 }
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 --            max-width:384px / E  N  D          --
---      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-
-
-
-
 
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 --       max-width:350px / S  T  A  R  T         --
---      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width: 350px) {
-    .slide h1, .slide h5 {
-        width: 330px;
-    }
-
-    .slide p {
-        font-size: 18px;
-        width: 274px;
-        left: 2px;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-        font-size: 23px;
-    }
-
-    .message-footer p {
-        font-size: 15px;
-    }
-
-    .shosurbari-title h4 {
-        line-height: 25px;
-    }
-
-    .sb_biodata_profile{
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-        margin-top: -50px;
-        margin-bottom: 0px;
-        margin-right: 0px;
-        margin-left: 0px;
-        padding: 10px;
-    }
-
-    .sb_user .sb_value{
-        font-size: 14px;
-        width: 40%;
-    }
-
-    .sb_user .sb_data{
-        font-size: 14px;
-        width: 60%;
-    }
-
-    .sb_biodatanumber{
-        font-size: 20px;
-    }
-
-    .ellipsis {
-        font-size: 12.5px;
-    }
-
-    .sb_mobilesearch  #search-button {
-        width: 113px;
-        font-size: 14px;
-    }
-
-    .sb_mobilesearch  .sb_singlebio_mobilesearch {
-        width: 175px;
-        font-size: 14px;
-    }
-
-    .sbbiodata-search-mobile form {
-        width: 222px;
-    }
-
-    .navigationpro ul {
-        width: 235px;
-    }
-
-    #biodataForm fieldset {
-        width: 310px;
-    }
-
-    #progressbar {
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        width: 260px;
-    }
-
-    #progressbar li:after {
-        left: -18px;
-        top: 25px;
-        width: calc(25% + 23px);
-    }
-
-    #progressbar li {
-        width: 70px;
-        font-size: 14px;
-        float: left;
-        text-align: center;
-        padding: 5px;
-        margin-left: calc((30px - 35px) / 2);
-        margin-right: calc((30px - 35px) / 2);
-    }
+h1, h2, h3, h4, h5, h6 {
+    font-size: 23px;
+}
+.shosurbari-title h4 {
+    line-height: 25px;
+}
+.sb_biodata_profile{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: -50px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding: 10px;
+}
+.sb_biodatanumber{
+    font-size: 20px;
+}
+#biodataForm fieldset {
+    width: 310px;
+}
+#progressbar {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 260px;
+}
+#progressbar li:after {
+    left: -18px;
+    top: 25px;
+    width: calc(25% + 23px);
+}
+#progressbar li {
+    width: 70px;
+    font-size: 14px;
+    float: left;
+    text-align: center;
+    padding: 5px;
+    margin-left: calc((30px - 35px) / 2);
+    margin-right: calc((30px - 35px) / 2);
+}
 }
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 --            max-width:350px / E  N  D          --
---      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-
-
-
-
 
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 --          max-width:320px / S T A R T          --
---      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width:320px){
-
-    .sb-search-btn button, .sb-home-reg button {
-        padding: 3px 1px;
-        font-size: 13px;
-        width: 141px;
-    }
-
-    .sb-home-reg{
-        left: 4px;
-        padding: 2px;
-    }
-
-    .sb-search-btn{
-        right: 4px;
-        padding: 2px;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-        font-size: 22px;
-    }
-
-    .message-footer p {
-        font-size: 14px;
-    }
-
-    .shosurbari-title h4 {
-        line-height: 24px;
-    }
-
-    a#profile-tab, a#home-tab, a#profile-tab1 {
-        font-size: 14px;
-    }
-
-    .nav-tabs1>li.active>a, .nav-tabs1>li.active>a:focus, .nav-tabs1>li.active>a:hover {
-        margin: 5px;
-    }
-
-    .nav-tabs1 {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 0px;
-        margin: 0px;
-        white-space: normal;
-    }
-
-    .profile-img img {
-        position: relative;
-        height: 168px;
-        width: 168px;
-    }
-
-    .sb_user_recentview .sb_value_recentview {
-        font-size: 13px;
-        width: 44%;
-    }
-
-    .sb_user_recentview .sb_data_recentview {
-        font-size: 13px;
-        width: 56%;
-    }
-
-    .sbbiodata_profile_recentview-mobile{
-        width: 240px;
-    }
-
-    .biodatarecent_viewlist {
-        width: 90%;
-    }
-
-    .wrap_1 {
-        width: 330px;
-    }
-
-    a.brand img {
-        width: 135px;
-    }
-
-    .navigation {
-        margin-right: 20%;
-    }
-
-    .row_1-right h3 {
-        margin-bottom: 1em;
-        font-size: 1.3em;
-    }
-
-    h4.post-title {
-        font-size: 0.85em;
-    }
-
-    .nbs-flexisel-nav-right:after, .nbs-flexisel-nav-left:after {
-        top: -15px;
-    }
-
-    a.religion_1 {
-        font-size: 12px;
-    }
-
-    .suceess_story,.col-md-4.row_1-right{
-        padding: 0;
-    }
-
-    .suceess_story:before, .suceess_story:after {
-        left: -8px;
-    }
-
-    .bg {
-        min-height: 660px;
-    }
-
-    .bg_left {
-        margin-bottom: 5px;
-    }
-
-    .col_2 h4 {
-        font-size: 1.1em;
-    }
-
-    .shosurbari-copy-right p {
-        font-size: 0.8125em;
-    }
-
-    .jb-accordion-title {
-        padding: 5px 10px 7px;
-        font-size: 15px;
-    }
-
-    .about_grid1{
-        padding:0 5px;
-    }
-
-    .nav>li>a {
-        padding: 3px 5px;
-    }
-
-    .nav>li>a {
-        font-size: 12px;
-    }
-
-    .tab_box p {
-        font-size: 0.8125em;
-    }
-
-    .basic_1 h3 {
-        font-size: 1em;
-    }
-
-    .basic_1, .tab_box{
-        margin-bottom: 1em;
-    }
-
-    .profile_right {
-        margin: 2em 0 0 0;
-    }
-
-    .newsletter input[type="text"] {
-        padding: 8px 2%;
-        max-width: 74%;
-    }
-
-    .newsletter input[type="submit"] {
-        padding: 6px 14px;
-    }
-
-    .newsletter {
-        margin-bottom: 2em;
-    }
-
-    .view_profile h3 {
-        font-size: 1.1em;
-    }
-
-    .view_profile1 {
-        margin: 2em 0 0 0;
-    }
-
-    ul.profile_item li.profile_item-desc h4, ul.profile_item li.profile_item-desc h5, ul.profile_item li.profile_item-desc p, ul.footer_links li {
-    font-size: 12px;
-    }
-
-    .faq-details {
-        margin: 1em 0 0 0;
-    }
-
-    .profile_top h2 {
-        font-size: 0.85em;
-    }
-
-    .breadcrumb1 {
-        margin-bottom: 1em;
-    }
-
-    .pagination>li >a {
-        padding: 4px 10px;
-        font-size: 12px;
-    }
-
-    .jobs-item .thumb img {
-        width: 70px;
-    }
-
-    h6.title {
-        font-size: 0.85em;
-    }
-
-    .jobs-item .top-btns li a {
-        font-size: 12px;
-    }
-
-    ul.login_details1 li {
-        font-size: 12px;
-    }
-
-    .breadcrumb1 li {
-        margin-right: 0;
-        padding-right: 0;
-        font-size: 0.85em;
-    }
-
-    ul.match_box li {
-        font-size: 12px;
-    }
-
-    .terms h4 {
-        font-size: 1em;
-    }
-
-    ol.terms_list {
-        margin-bottom: 1em;
-    }
-
-    .terms p {
-        margin-bottom: 1em;
-    }
-
-    p.m_4{
-        font-size:0.8125em;
-    }
-
-    .list_1 h3 {
-        font-size: 1.1em;
-    }
-
-    a.photo_view {
-        padding: 5px 8px;
-    }
-
-    .pricing-table-grid ul li span {
-        padding:7px;
-        font-size: 13px;
-    }
-
-    .pricing-table-grid h3 {
-        padding: 10px 0 10px;
-        font-size: 1.2em;
-    }
-
-    span.month1 {
-        font-size: 12px;
-        line-height: 2em;
-    }
-
-    .pricing-table-grid ul li a, .pricing-table-grid ul li span {
-        padding: 8px 0;
-        font-size: 0.8125em;
-    }
-
-    a.order-btn {
-        width: 50%;
-        padding: 6px 10px;
-    }
-
-    .page_header {
-        margin-bottom: 1em;
-    }
-
-    ul.profile_item{
-        padding: 0;
-        list-style: none;
-        width: 110%;
-        display: flex;
-        font-size: 10px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .update-image-button{
-        font-size: 13px;
-        display: block;
-    }
-
-    .deleteimage {
-        padding: 10px;
-        margin-top: -15px;
-        margin-left: -9px;
-        width: 85%;
-    }
-
-    .sb_biodata_profile{
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-        margin-top: -50px;
-        margin-bottom: 0px;
-        margin-right: 0px;
-        margin-left: 0px;
-        padding: 10px;
-    }
-
-    .sb_user .sb_value{
-        font-size: 13px;
-        width: 42%;
-    }
-
-    .sb_user .sb_data{
-        font-size: 13px;
-        width: 58%;
-    }
-
-    .sb_biodatanumber{
-        font-size: 18px;
-    }
-
-    .biodatalist{
-        width: 255px;
-    }
-
-    .ellipsis {
-        font-size: 12.5px;
-    }
-
-    .remember-forgot{
-        display: block;
-    }
-
-    .sb_mobilesearch #search-button {
-        width: 123px;
-        font-size: 13px;
-        margin-right: 3px;
-    }
-
-    .sb_mobilesearch  .sb_singlebio_mobilesearch {
-        width: 190px;
-        font-size: 13px;
-        margin-left: 5px;
-        margin-right: 6px;
-    }
-
-    .navigationpro ul {
-        width: 180px;
-    }
-
-    .shosurbari-user-account {
-        width: 263px;
-    }
-
-    .sb-register-login{
-        width: 263px;
-    }
-
-    .payment-form {
-        width: 263px;
-    }
-
-    #biodataForm fieldset {
-        width: 290px;
-    }
+h1, h2, h3, h4, h5, h6 {
+    font-size: 22px;
+}
+.shosurbari-title h4 {
+    line-height: 24px;
+}
+.wrap_1 {
+    width: 330px;
+}
+ul.profile_item{
+    padding: 0;
+    list-style: none;
+    width: 110%;
+    display: flex;
+    font-size: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.update-image-button{
+    font-size: 13px;
+    display: block;
+}
+.deleteimage {
+    padding: 10px;
+    margin-top: -15px;
+    margin-left: -9px;
+    width: 85%;
+}
+.sb_biodata_profile{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: -50px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding: 10px;
+}
+.sb_biodatanumber{
+    font-size: 18px;
+}
+.biodatalist{
+    width: 255px;
+}
+.remember-forgot{
+    display: block;
+}
+.sb-register-login{
+    width: 263px;
+}
+#biodataForm fieldset {
+    width: 290px;
+}
 }
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 --           max-width:320px / E  N  D           --
---      Media Responsive / Phone Responsive      --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/

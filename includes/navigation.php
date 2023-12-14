@@ -12,19 +12,16 @@
 	z-index: 9999;
 	pointer-events: none; /* Allow user interactions on elements behind the overlay */
 }
-
 .warning-message {
 	color: white;
 	font-size: 24px;
 	text-align: center;
-	padding: 10px;
-	border: 2px solid #f0f0f0;
-	background-color: #ff0000a1;
-	border-radius: 3px;
+	padding: 5px 10px;
+	border: 1px solid #ccc;
+	background-color: #ff0080;
+	border-radius: 5px;
 }
 </style>
-
-
 <script>
 	// Show warning message on right-click or context menu
 	document.addEventListener("contextmenu", function (e) {

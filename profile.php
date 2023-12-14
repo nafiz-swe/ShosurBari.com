@@ -291,7 +291,7 @@
 @media(max-width:2150px){
 	.fixed {
 		position: fixed;
-		top: 70px;
+		top: 72px;
 		right: 5%;
 		width: 55.8%;
 		z-index: 100;
@@ -384,7 +384,7 @@
 
 @media (max-width: 736px){
 	.fixed {
-		top: 116px;
+		top: 128px;
 	}
 }
 
