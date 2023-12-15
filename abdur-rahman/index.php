@@ -5,7 +5,7 @@ include_once("functions.php");
 require_once("includes/dbconn.php");
 $_SESSION['user_logged_in'] = true;
 error_reporting(0);
-if (!isset($_SESSION['id'])) {
+if (!isset($_SESSION['admin_id'])) {
   header("location: ../abdur-rahman/admin_login.php");
   exit;
 }

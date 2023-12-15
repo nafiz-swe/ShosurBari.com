@@ -3,7 +3,7 @@ include_once("includes/basic_includes.php");
 include_once("functions.php");
 require_once("includes/dbconn.php");
 error_reporting(0);
-if (!isset($_SESSION['id'])) {
+if (!isset($_SESSION['admin_id'])) {
   header("location: ../abdur-rahman/admin_login.php");
   exit;
 }

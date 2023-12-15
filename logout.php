@@ -8,7 +8,6 @@ session_destroy();
     <title>Logout | ShosurBari</title>
     <link rel="icon" href="images/shosurbari-icon.png" type="image/png">
     <script>
-        // Redirect to index.php after a delay
         setTimeout(function () {
             window.location.href = "index.php";
         }, 0); // 3000 milliseconds (3 seconds)

@@ -5,7 +5,7 @@ include_once("functions.php");
 admin_login(); 
 error_reporting(0);
 session_start();
-if (isset($_SESSION['id'])) {
+if (isset($_SESSION['admin_id'])) {
   header("location: index.php");
   exit;
 }

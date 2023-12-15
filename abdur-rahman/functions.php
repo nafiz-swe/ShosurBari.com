@@ -33,10 +33,9 @@
         (fullname, username, email, password, active) 
         VALUES ('$fullname', '$username', '$email', '$hashed_password', 1)";
         if (mysqli_query($conn, $sql)) {
-            $id = mysqli_insert_id($conn);
-            // Set a session variable to store the user ID
-            $_SESSION['id'] = $id;
-            header("location: ../abdur-rahman/index.php?id=$id");
+            $admin_id = mysqli_insert_id($conn);
+            $_SESSION['admin_id'] = $admin_id;
+            header("location: ../abdur-rahman/index.php?id=$admin_id");
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
@@ -52,19 +51,19 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
         // Retrieve the hashed password from the database
-        $sql = "SELECT id, password FROM admin WHERE (username = ? OR email = ?)";
+        $sql = "SELECT admin_id, password FROM admin WHERE (username = ? OR email = ?)";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("ss", $username, $username);
         $stmt->execute();
         $stmt->store_result();
         if ($stmt->num_rows > 0) {
-        $stmt->bind_result($id, $stored_password);
+        $stmt->bind_result($admin_id, $stored_password);
         $stmt->fetch();
         // Verify the hashed input password with the stored hashed password
         if (password_verify($password, $stored_password)) {
-        $_SESSION['id'] = $id;
+        $_SESSION['admin_id'] = $admin_id;
         // Redirect the user to the userhome.php page with the user ID as a parameter in the URL
-        header("location: ../abdur-rahman/index.php?id=$id");
+        header("location: ../abdur-rahman/index.php?id=$admin_id");
         } else {
         echo "Invalid password";
         }
@@ -79,7 +78,7 @@
     --           Admin Logout Function               --
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
     function isloggedin(){
-        if(!isset($_SESSION['id'])){
+        if(!isset($_SESSION['admin_id'])){
             return false;
         }
         else{

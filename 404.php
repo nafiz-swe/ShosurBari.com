@@ -1,6 +1,5 @@
 <?php include_once("includes/basic_includes.php");?>
 <?php include_once("functions.php"); ?>
-
 <?php
 $result=search();
 ?>
@@ -11,31 +10,6 @@ $result=search();
 <link rel="icon" href="images/shosurbari-icon.png" type="image/png">
 </head>
 <body>
-
-   
-<div class="shosurbari-error-form">
-    <div class="soshurbari-animation-icon">
-        <div class="sb-icon-laptop">
-            <img src="images/shosurbari-error.png">
-        </div>
-    </div>
-
-    <!-- 404 Page area Start-->
-    <div class="error-page-area">
-        <h2>Page Not Found!</h2>
-        <p>Please check the URL, refresh your browser, or explore other content on our site.</p>
-
-<div class="button-container">
-    <a href="index.php" class="btn">Home Page</a>
-    <a href="contact.php" class="btn error-btn-mg">Problem Report</a>
-</div>
-
-    </div>
-</div>
-
-<!-- 404 Page area End-->
- 
-
 <style>
 body {
   margin: 0;
@@ -45,12 +19,10 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 .shosurbari-error-form {
   text-align: center;
   width: 100%;
 }
-
 .soshurbari-animation-icon {
   display: flex;
   justify-content: center;
@@ -58,12 +30,10 @@ body {
   margin-bottom: 0px; 
 
 }
-
 .sb-icon-laptop img {
   height: 300px;
   width: 300px;
 }
-
 .error-page-area {
   display: flex;
   flex-direction: column;
@@ -72,7 +42,6 @@ body {
   width: 500px;
   margin: auto;
 }
-
 .error-page-area h2 {
   width: 710px;
   font-size: 28px;
@@ -83,25 +52,22 @@ body {
   margin-right: 50px;
   font-weight: 500;
 }
-
 .error-page-area p {
   font-size: 15px;
   line-height: 30px;
   margin-bottom: 5px;
   margin-top: -5px;
 }
-
 .button-container {
-  display: flex; /* Display buttons in the same row */
-  justify-content: center; /* Center the buttons horizontally */
-  align-items: center; /* Center the buttons vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 .btn {
   display: flex;
   padding: 10px;
   background: #06b6d4;
-  color: #fff; /* Set your desired button text color */
+  color: #fff;
   text-decoration: none;
   border-radius: 2px;
   margin: 5px;
@@ -110,17 +76,26 @@ body {
   width: auto;
   text-align: center;
 }
-
 .btn:hover{
 	background:#0aa4ca;
 	color:#fff;
 }
-
-.error-btn-mg {
-  /* Add any specific styles you need for the "Report Problem" button */
-}
 </style>
-
+<div class="shosurbari-error-form">
+  <div class="soshurbari-animation-icon">
+      <div class="sb-icon-laptop">
+        <img src="images/shosurbari-error.png">
+      </div>
+  </div>
+  <div class="error-page-area">
+    <h2>Page Not Found!</h2>
+    <p>Please check the URL, refresh your browser, or explore other content on our site.</p>
+    <div class="button-container">
+      <a href="index.php" class="btn">Home Page</a>
+      <a href="contact.php" class="btn error-btn-mg">Problem Report</a>
+    </div>
+  </div>
+</div>
 <!--=======================================
 How Many Visitors View This Page.
 This Script Connected to get_view_count.php
@@ -144,6 +119,5 @@ and page_views Database Table
 	}
 	});
 </script>
-
 </body>
 </html>	

@@ -54,25 +54,15 @@
 		}, 3000); // Remove the overlay after 3 seconds
 	}
 </script> -->
-
-
-
-
-
-
-
 <!-- ============================  Navigation Start =========================== -->
 <div class="navbar navbar-inverse-blue navbar">
     <!--<div class="navbar navbar-inverse-blue navbar-fixed-top">-->
 	<div class="navbar-inner navbar-inner_1">
 		<div class="container">
-
 			<a class="brand" href="index.php"><img style="width: 175px; margin-top: 6px;" src="images/shosurbari-logo.png" alt="logo"></a>
 			<div class="pull-right">
 				<nav class="navbar nav_bottom" role="navigation">
-
 					<!-- Brand and toggle get grouped for better mobile display -->
-
 					<div class="navbar-header nav_2">
 						<a class="navbar-brand" href="#">MENU</a>
 						<button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
@@ -84,13 +74,11 @@
 							</div>
 						</button>
 					</div>
-
 					<script>
 					function myFunction(x) {
 					x.classList.toggle("change");
 					}
 					</script>
-
 					<script>
 					$(document).ready(function(){
 						$(".dropdown").hover(            
@@ -105,41 +93,32 @@
 						);
 					});
 					</script>
-
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
-
 						<ul class="nav navbar-nav nav_1">
 							<li><a href="index.php">Home</a></li>
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Biodata<span class="caret"></span></a>
 								<ul class="dropdown-menu" role="menu">
 									<li><a href="search.php">Search & Find Biodata</a></li>
-
 									<li>
-<?php
-// Check if the user is logged in based on your authentication method.
-// Replace the following condition with your authentication logic.
-if (isset($_SESSION['id'])) {
-    $id = $_SESSION['id'];
-
-    // Getting image filenames from the database
-    $sql3 = "SELECT * FROM users WHERE id = $id";
-    $result3 = mysqlexec($sql3);
-    if ($result3) {
-        $row3 = mysqli_fetch_array($result3);
-        if ($row3) {
-            $id = $row3['id'];
-            echo "<li class=\"login-navbar-icon\"><a href=\"biodata-post.php\">Biodata Post</a></li>";
-        }
-    }
-} else {
-    echo "<li><a href=\"register.php\">Biodata Post</a></li>";
-}
-?>
-</li>
-
-
+										<?php
+										if (isset($_SESSION['id'])) {
+											$id = $_SESSION['id'];
+											$sql3 = "SELECT * FROM users WHERE id = $id";
+											$result3 = mysqlexec($sql3);
+											if ($result3) {
+												$row3 = mysqli_fetch_array($result3);
+												if ($row3) {
+													$id = $row3['id'];
+													echo "<li class=\"login-navbar-icon\"><a href=\"biodata-post.php\">Biodata Post</a></li>";
+												}
+											}
+										} else {
+											echo "<li><a href=\"register.php\">Biodata Post</a></li>";
+										}
+										?>
+									</li>
 									<li><a href="faq.php">FAQ's</a></li>
 								</ul>
 							</li>
@@ -147,13 +126,9 @@ if (isset($_SESSION['id'])) {
 							<li><a href="contact-us.php">Contacts</a></li>
 							<li>
 								<?php
-								// Check if the user is logged in based on your authentication method.
-								// Replace the following condition with your authentication logic.
 								if (isset($_SESSION['id'])) {
 									$id = $_SESSION['id'];
 									$pic1 = "";
-
-									// Getting image filenames from the database
 									$sql2 = "SELECT * FROM photos WHERE user_id = $id";
 									$result2 = mysqlexec($sql2);
 									if ($result2) {
@@ -162,24 +137,17 @@ if (isset($_SESSION['id'])) {
 											$pic1 = $row2['pic1'];
 										}
 									}
-
-									// Define the default image
 									$defaultImage = "shosurbari-default-icon.png";
-
-									// Check if biodatagender exists in the database
 									$sql1 = "SELECT biodatagender FROM 1bd_personal_physical WHERE user_id = $id";
 									$result1 = mysqlexec($sql1);
 									$row1 = mysqli_fetch_assoc($result1);
-
 									if ($row1) {
-										// Check the value of biodatagender to determine the image
 										if ($row1['biodatagender'] == 'পাত্রের বায়োডাটা') {
 											$defaultImage = "shosurbari-male-icon.jpg";
 										} elseif ($row1['biodatagender'] == 'পাত্রীর বায়োডাটা') {
 											$defaultImage = "shosurbari-female-icon.png";
 										}
 									}
-
 									echo "<li class=\"login-navbar-img\"><a href=\"my-account.php\">";
 									if (!empty($pic1)) {
 										echo "<img class=\"img-responsive\" src=\"profile/{$id}/{$pic1}\"/>";
@@ -187,7 +155,6 @@ if (isset($_SESSION['id'])) {
 										echo "<img class=\"img-responsive\" src=\"images/$defaultImage\" />";
 									}
 									echo "</a></li>";
-
 									echo "<li class=\"login-navbar-icon\"><a href=\"#\" onclick=\"confirmLogout();\"><i class=\"fa fa-sign-out\"></i></a></li>";
 								} else {
 									echo "<li><a href=\"login.php\">Login</a></li>";
@@ -196,7 +163,6 @@ if (isset($_SESSION['id'])) {
 								?>
 							</li>
 						</ul>
-
 					</div><!-- /.navbar-collapse -->
 				</nav>
 				<div id="progress-bar"></div>
@@ -206,7 +172,6 @@ if (isset($_SESSION['id'])) {
 	</div> <!-- end navbar-inner -->
 </div> <!-- end navbar-inverse-blue -->
 <!-- ============================  Navigation End ============================ -->
-
 <script>
 function confirmLogout() {
     var confirmLogout = confirm("Are you sure you want to Logout?");
@@ -215,15 +180,12 @@ function confirmLogout() {
     }
 }
 </script>
-
 <script>
 	function updateProgressBar(){
   const {scrollTop, scrollHeight} = document.documentElement;
   const scrollPercent = scrollTop / (scrollHeight - window.innerHeight) * 100 + '%';
   document.querySelector('#progress-bar').style.setProperty('--progress', scrollPercent);
 }
-
 document.addEventListener('scroll', updateProgressBar);
 </script>
-
 <?php include('loading-overlay.php'); ?>

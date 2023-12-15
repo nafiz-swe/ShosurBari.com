@@ -1,57 +1,38 @@
 <?php
 include_once("includes/basic_includes.php");
 include_once("functions.php");
-
 error_reporting(0);
-
 function englishToBanglaNumber($number) {
   $englishDigits = range(0, 9);
   $banglaDigits = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
   return str_replace($englishDigits, $banglaDigits, $number);
 }
-
 if (isloggedin()) {
-  // Get the user ID from the session
   $userId = $_SESSION['id'];
-    
-  // Retrieve the user's account status from the database
   require_once("includes/dbconn.php");
   $statusSql = "SELECT deactivated FROM users WHERE id = $userId";
   $result = mysqli_query($conn, $statusSql);
   $row = mysqli_fetch_assoc($result);
   $deactivated = $row['deactivated'];
-
-  // Query to get the total view_count for the logged-in user
   $totalViewCountSql = "SELECT view_count FROM `1bd_personal_physical` WHERE user_id = $userId";
   $result = mysqli_query($conn, $totalViewCountSql);
   $row = mysqli_fetch_assoc($result);
   $totalViewCount = $row['view_count'];
-
-
-  // Convert the counts to Bangla numerals
   $totalViewCountInBangla = englishToBanglaNumber($totalViewCount);
-
-  } else {
+} else {
     header("location:login.php");
-  }
-
-  // Close the database connection
+}
 $conn->close();
 ?>
-
-
 <?php
     include("includes/dbconn.php");
-
-    //getting profile details from db
     $sql="SELECT * FROM users WHERE id = $userId";
     $result = mysqlexec($sql);
-
     if($result){
     $row=mysqli_fetch_assoc($result);
     if($row){
-        $fullname=$row['fullname'];
-        }
+    $fullname=$row['fullname'];
+    }
     if($row){
     $username=$row['username'];
     }
@@ -62,17 +43,16 @@ $conn->close();
     $email=$row['email'];
     }
     if($row){
-        $pnumber=$row['number'];
+    $pnumber=$row['number'];
     }
     if($row){
-        $gender=$row['gender'];
-        }
+    $gender=$row['gender'];
+    }
     if($row){
-        $userId=$row['id'];
+    $userId=$row['id'];
     }
     }
 ?>
-
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -94,36 +74,90 @@ $conn->close();
 <!--font-Awesome-->
 <link href="css/font-awesome.css" rel="stylesheet"> 
 <!--font-Awesome-->
-
 <!-- Country Code with Flag for Number input field -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.8/js/intlTelInput.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.8/css/intlTelInput.css" />
-
 <!-- Side Bar Icon -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- Side Bar Icon -->
 </head>
-
-
 <body>
-    <!-- ============================  Navigation Start =========================== -->
-    <?php include_once("includes/navigation.php");?>
-    <!-- ============================  Navigation End ============================ -->
-
-
+	<!-- ===========  Navigation Start =========== -->
+	<?php include_once("includes/navigation.php");?>
+	<!-- ===========  Navigation End ============= -->
+    <style>
+    .dropdown-menu li a {
+        padding: 5px 15px;
+        font-weight: 410;
+        font-size:14px;
+        height: 40px;
+        line-height: 32px;
+    }
+    .sb-biodata-field{
+        background: none;
+    }
+    .sb-biodata-field h2{
+        color: #000;
+        font-size: 23px;
+        font-weight: bold;
+        background: none;
+        text-align: left;
+    }
+    .shosurbari-biodata-form {
+        align-items: center;
+        flex-wrap: wrap;
+        width: 1400px;
+        margin: auto;
+        padding-top: 30px;
+        padding-bottom: 20px
+    }
+    .soshurbari-animation-icon,
+    .shosurbari-animation-form {
+        flex-basis: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .soshurbari-animation-icon h3 {
+        font-size: 23px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        margin-top: 15px;
+    }
+    .soshurbari-animation-icon img {
+        justify-content: flex-end;
+        margin: auto;
+        width: 37px;
+        height: 35px;
+    }
+    @media (max-width: 1280px){
+        .shosurbari-biodata-form{
+            width: auto;
+        }
+    }
+    @media (max-width: 1024px) {
+        .shosurbari-biodata-form {
+            width: auto;
+        }
+    }
+    @media (max-width: 768px){
+    .shosurbari-userhome-status h3,
+    .shosurbari-userhome-status h4 {
+        text-align: left;
+    }
+    }
+    </style>
     <div class="grid_3">
         <div class="container">
             <div class="breadcrumb1">
                 <ul>
-                <a href="my-account.php"><i class="fa fa-home home_1"></i></a>
-                <span class="divider">&nbsp;|&nbsp;</span>
-                <li class="current-page"><h4>My Account</h4></li>
+                    <a href="index.php"><i class="fa fa-home home_1"></i></a>
+                    <span class="divider">&nbsp;|&nbsp;</span>
+                    <li class="current-page"><h4>My Account</h4></li>
                 </ul>
-
                 <?php
                 include("includes/dbconn.php");
-                //getting profile details from db
                 $sql="SELECT * FROM users WHERE id = $userId";
                 $result = mysqlexec($sql);
 
@@ -134,200 +168,158 @@ $conn->close();
                 }
                 }
                 ?>
-
             </div>
         </div>
     </div>
-
-
-
-
-<?php
-// Start the session (if not already started)
-session_start();
-
-// Check if there is a message in the session
-if (isset($_SESSION['updateMessage'])) {
-    $messageType = ($_SESSION['messageType'] == 'success') ? 'success' : 'error';
-    $updateMessage = $_SESSION['updateMessage'];
-
-    // Display the message with a green background color and a close button
-    echo "<div style='
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: " . ($messageType == 'success' ? '#22c55e' : '#ff3333') . ";
-    color: #fff;
-    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
-    border: 1px solid rgba(0,0,0,.05);
-    border-radius: 2px;
-    padding: 15px;
-    width: 260px;
-    text-align: center;
-    z-index: 9999;
-    '>$updateMessage
-    <button style='
-    position: absolute;
-    cursor: pointer;
-    right: 3px;
-    margin-right: -20px;
-    margin-top: -32px;
-    margin-bottom: 15px;
-    padding-bottom: 5px;
-    line-height: 5px;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    border: 1px solid #ccc;
-    font-size: 20px;
-    font-weight: 600;
-    color: white;
-    background: " . ($messageType == 'success' ? '#06b6d4' : '#ff3333') . ";
-    ' onclick='this.parentNode.style.display = \"none\";'>x</button>
-    </div>";
-
-    // Clear the session variables
-    unset($_SESSION['updateMessage']);
-    unset($_SESSION['messageType']);
-}
-?>
-
-
-
-
-<div class="shosurbari-sidebar">
-    <div class="leftarea-sidebar">
-
-        <div class="shosurbari-userhome-status">
-            <h3><?php echo "Welcome: $username"; ?></h3>
-
-            <!-- Display the account status -->
-            <h4 >Account Status:
-                <?php if ($deactivated == 0) {
-                echo '<span style="color: green;">Active</span>';
-                } else {
-                echo '<span style="color: red;">Deactivate</span>';
-                }
-                ?>
-            </h4>
-
-            <form action="deactivate_account.php" method="post">
-                <?php if ($deactivated == 1) { ?>
-                <button type="submit" name="action" value="activate">Activation</button>
-                <?php } else { ?>
-                <button type="submit" name="action" value="deactivate">Deactivation</button>
-                <?php } ?>
-            </form> 
-            
-        </div>
-
-
-        <div class="shosurbari-account-sidebar" id="bs-megadropdown-tabs">
-            <ul class="shosurbari-my-account">
-                <li><a href="my-account.php"><i class="fa fa-dashboard"></i> ড্যাশবোর্ড</a></li>
-                <li><a href="profile.php?/Biodata=<?php echo $userId;?>"><i class='fa fa-address-card-o'></i> সম্পূর্ণ বায়োডাটা</a></li>
-                <li><a href="profile-photo.php?id=<?php echo $userId;?>"><i class="fa fa-image"></i> বায়োডাটার ছবি</a></li>
-                <li><a href="biodata-post.php"><i class='fa fa-file-text-o'></i> বায়োডাটা পোস্ট</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-edit"></i> বায়োডাটা আপডেট<span class="caret"></span> </a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="update-physical-marital.php">শারীরিক/বৈবাহিক তথ্য</a></li>
-                        <li><a href="update-personalInfo.php">ব্যক্তিগত তথ্য</a></li>
-                        <li><a href="update-education.php">শিক্ষাগত তথ্য</a></li>
-                        <li><a href="update-address.php">ঠিকানা</a></li>
-                        <li><a href="update-family.php">পারিবারিক/সামাজিক</a></li>
-                        <li><a href="update-religion.php">ধর্মীয় বিষয়</a></li>
-                        <li><a href="update-partnerInfo.php">জীবনসঙ্গীর-বিবরণ</a></li>
-                    </ul>
-                </li>
-                <li><a href="search.php"><i class="fa fa-search"></i> বায়োডাটা খুঁজুন</a></li>
-                <li><a href="account-update.php"><i class="fa fa-gear fa-spin"></i> একাউন্ট আপডেট</a></li>
-            </ul>
-        </div>
-
-
-        <div class="shosurbari-biodata-view">
-            <form action="" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
-                <div class="sb-biodata-total-view">
-                    <h3>আপনার বায়োডাটাটি দেখা হয়েছে-</h3>
-                    <h1><?php
-                            // Display the view count for the logged-in user's profile
-                            if (isset($totalViewCountInBangla)) {
+    <?php
+    session_start();
+    if (isset($_SESSION['updateMessage'])) {
+        $messageType = ($_SESSION['messageType'] == 'success') ? 'success' : 'error';
+        $updateMessage = $_SESSION['updateMessage'];
+        echo "<div style='
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: " . ($messageType == 'success' ? '#22c55e' : '#ff0080') . ";
+        color: #fff;
+        box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+        border: 1px solid rgba(0,0,0,.05);
+        border-radius: 2px;
+        padding: 10px;
+        width: 262px;
+        text-align: center;
+        z-index: 9999;
+        '>$updateMessage
+        <button class='cancel-button' style='
+        position: absolute;
+        cursor: pointer;
+        right: 3px;
+        margin-right: -20px;
+        margin-top: -67px;
+        margin-bottom: 15px;
+        padding-bottom: 5px;
+        line-height: 5px;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 1px solid #ccc;
+        font-size: 20px;
+        font-weight: 600;
+        color: white;
+        background: " . ($messageType == 'success' ? '#0aa4ca' : '#0aa4ca') . ";
+        ' onclick='this.parentNode.style.display = \"none\";'>x</button>
+        </div>";
+        unset($_SESSION['updateMessage']);
+        unset($_SESSION['messageType']);
+    }
+    ?>
+    <div class="shosurbari-sidebar">
+        <div class="leftarea-sidebar">
+            <div class="shosurbari-userhome-status">
+                <h3><?php echo "Welcome: $username"; ?></h3>
+                <h4 >Account Status:
+                    <?php if ($deactivated == 0) {
+                    echo '<span style="color: green;">Active</span>';
+                    } else {
+                    echo '<span style="color: red;">Deactivate</span>';
+                    }
+                    ?>
+                </h4>
+                <form action="deactivate_account.php" method="post">
+                    <?php if ($deactivated == 1) { ?>
+                    <button type="submit" name="action" value="activate">Activation</button>
+                    <?php } else { ?>
+                    <button type="submit" name="action" value="deactivate">Deactivation</button>
+                    <?php } ?>
+                </form> 
+            </div>
+            <div class="shosurbari-account-sidebar" id="bs-megadropdown-tabs">
+                <ul class="shosurbari-my-account">
+                    <li><a href="my-account.php"><i class="fa fa-dashboard"></i> ড্যাশবোর্ড</a></li>
+                    <li><a href="profile.php?/Biodata=<?php echo $userId;?>"><i class='fa fa-address-card-o'></i> সম্পূর্ণ বায়োডাটা</a></li>
+                    <li><a href="profile-photo.php?id=<?php echo $userId;?>"><i class="fa fa-image"></i> বায়োডাটার ছবি</a></li>
+                    <li><a href="biodata-post.php"><i class='fa fa-file-text-o'></i> বায়োডাটা পোস্ট</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-edit"></i> বায়োডাটা আপডেট<span class="caret"></span> </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="update-physical-marital.php">শারীরিক/বৈবাহিক তথ্য</a></li>
+                            <li><a href="update-personalInfo.php">ব্যক্তিগত তথ্য</a></li>
+                            <li><a href="update-education.php">শিক্ষাগত তথ্য</a></li>
+                            <li><a href="update-address.php">ঠিকানা</a></li>
+                            <li><a href="update-family.php">পারিবারিক/সামাজিক</a></li>
+                            <li><a href="update-religion.php">ধর্মীয় বিষয়</a></li>
+                            <li><a href="update-partnerInfo.php">জীবনসঙ্গীর-বিবরণ</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="search.php"><i class="fa fa-search"></i> বায়োডাটা খুঁজুন</a></li>
+                    <li><a href="account-update.php"><i class="fa fa-gear fa-spin"></i> একাউন্ট আপডেট</a></li>
+                </ul>
+            </div>
+            <div class="shosurbari-biodata-view">
+                <form action="" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
+                    <div class="sb-biodata-total-view">
+                        <h3>আপনার বায়োডাটাটি দেখা হয়েছে-</h3>
+                        <h1><?php
+                                if (isset($totalViewCountInBangla)) {
                                 echo "" . $totalViewCountInBangla;
-                            }
-                        ?> বার
-                    </h1>
+                                }
+                            ?> বার
+                        </h1>
+                    </div>
+                </form>
+            </div> 
+        </div>
+        <div class="shosurbari-user-account">
+            <div class="soshurbari-animation-icon">
+                <div class="sb-icon-laptop">
+                <h3> <img src="images/shosurbari-icon.png"> ShosurBari </h3>
                 </div>
-            </form>
-        </div> 
-    </div>
-
-
-
-
-
-    <div class="shosurbari-user-account">
-
-        <div class="soshurbari-animation-icon">
-            <div class="sb-icon-laptop">
-              <h3> <img src="images/shosurbari-icon.png"> ShosurBari </h3>
             </div>
-        </div>
-
-        <div class="sb-biodata-field">
-            <h2>Your Account</h2>
-        </div>
-
-        <form action="" method="POST" name="myForm" onsubmit="return validateForm()">
-
-            <div class="form-group">
-                <label>Full Name <span style="color: #ccc; font-size:12px;">(Changeable)</span></label>
-                <input type="text" name="fullname" class="form-text" value="<?php echo $fullname; ?>" />
+            <div class="sb-biodata-field">
+                <h2>Your Account</h2>
             </div>
-
-            <div class="form-group">
-                <label>Username <span style="color: #ccc; font-size:12px;">(Fixed)</span> </label>
-                <input type="text" name="uname" style="background: #ecfeff" class="form-text" value="<?php echo $username; ?>" disabled />
-            </div>
-
-            <div class="form-group">
-                <label>Email Address <span style="color: #ccc; font-size:12px;"> (Fixed)</span> </label>
-                <input type="text" name="email" style="background: #ecfeff" class="form-text" value="<?php echo $email; ?>" disabled />
-            </div>
-            
-            <div class="form-group">
-                <label>Phone Number <span style="color: #ccc; font-size:12px;"> (Fixed)</span></label><br>
-                <input type="text" id="pnumber" name="pnumber" style="background: #ecfeff" value="<?php echo $pnumber; ?>" size="60" minlength="10" maxlength="15" class="form-text" disabled>
-            </div>
-
-            <div class="form-group">
-            <label>Gender<span style="color: #ccc; font-size:12px;"> (Changeable)</span> </label>
-                <select name="gender">
-                    <option hidden selected><?php echo $gender; ?></option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option> 
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label>New Password <span style="color: #ccc; font-size:12px;">(Changeable)</span> </label>
-                <input type="password" id="pass_1" name="pass_1" class="form-text" />
-                <span class="show-password" style="color:#0aa4ca;  font-size:15px; top:26px;"><i style="color:black;  font-size:15px;" class="fa fa-eye" aria-hidden="true"></i></span> 
-                <span  id="pass_1_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
-            </div>
-
-            <div class="form-group">
-                <label>Confirm Password <span style="color: #ccc; font-size:12px;">(Changeable)</span> </label>
-                <input type="password" id="pass_2" name="pass_2" class="form-text" />
-                <span class="show-password" style="color:#0aa4ca;  font-size:15px; top:26px;"><i style="color:black;  font-size:15px;" class="fa fa-eye" aria-hidden="true"></i></span> 
-                <span  id="pass_2_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
-            </div>
-
-            <script>
-                let showPass = document.querySelectorAll('.show-password');
-                showPass.forEach(function(el) {
-                el.addEventListener('click', function(){
+            <form action="" method="POST" name="myForm" onsubmit="return validateForm()">
+                <div class="form-group">
+                    <label>Full Name <span style="color: #ccc; font-size:12px;">(Changeable)</span></label>
+                    <input type="text" name="fullname" class="form-text" value="<?php echo $fullname; ?>" />
+                </div>
+                <div class="form-group">
+                    <label>Username <span style="color: #ccc; font-size:12px;">(Fixed)</span> </label>
+                    <input type="text" name="uname" style="background: #ecfeff" class="form-text" value="<?php echo $username; ?>" disabled />
+                </div>
+                <div class="form-group">
+                    <label>Email Address <span style="color: #ccc; font-size:12px;"> (Fixed)</span> </label>
+                    <input type="text" name="email" style="background: #ecfeff" class="form-text" value="<?php echo $email; ?>" disabled />
+                </div>
+                <div class="form-group">
+                    <label>Phone Number <span style="color: #ccc; font-size:12px;"> (Fixed)</span></label><br>
+                    <input type="text" id="pnumber" name="pnumber" style="background: #ecfeff" value="<?php echo $pnumber; ?>" size="60" minlength="10" maxlength="15" class="form-text" disabled>
+                </div>
+                <div class="form-group">
+                <label>Gender<span style="color: #ccc; font-size:12px;"> (Changeable)</span> </label>
+                    <select name="gender">
+                        <option hidden selected><?php echo $gender; ?></option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option> 
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>New Password <span style="color: #ccc; font-size:12px;">(Changeable)</span> </label>
+                    <input type="password" id="pass_1" name="pass_1" class="form-text" />
+                    <span class="show-password" style="color:#0aa4ca;  font-size:15px; top:26px;"><i style="color:black;  font-size:15px;" class="fa fa-eye" aria-hidden="true"></i></span> 
+                    <span  id="pass_1_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+                </div>
+                <div class="form-group">
+                    <label>Confirm Password <span style="color: #ccc; font-size:12px;">(Changeable)</span> </label>
+                    <input type="password" id="pass_2" name="pass_2" class="form-text" />
+                    <span class="show-password" style="color:#0aa4ca;  font-size:15px; top:26px;"><i style="color:black;  font-size:15px;" class="fa fa-eye" aria-hidden="true"></i></span> 
+                    <span  id="pass_2_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+                </div>
+                <script>
+                    let showPass = document.querySelectorAll('.show-password');
+                    showPass.forEach(function(el) {
+                    el.addEventListener('click', function(){
                     let input = this.previousElementSibling;
                     if (input.type === "password") {
                     input.type = "text";
@@ -335,123 +327,29 @@ if (isset($_SESSION['updateMessage'])) {
                     } else {
                     input.type = "password";
                     this.innerHTML = "<i class='fa fa-eye'></i>";
-                }
-                });
-                });
-            </script>
-	
-
-
-
-            <div class="form-actions">
-                <?php if (isset($_SESSION['id'])) { ?>
-                    <input type="hidden" id="edit-remember" name="remember" value="1">
-                <?php } else { ?>
-
-                <div class="form-group">
-                    <label><input type="checkbox" id="edit-remember" name="remember" value="1" <?php if(isset($_COOKIE['remember']) && $_COOKIE['remember'] == 1) { echo 'checked'; } ?>> Remember me</label>
+                    }
+                    });
+                    });
+                </script>
+                <div class="form-actions">
+                    <?php if (isset($_SESSION['id'])) { ?>
+                        <input type="hidden" id="edit-remember" name="remember" value="1">
+                    <?php } else { ?>
+                    <div class="form-group">
+                        <label><input type="checkbox" id="edit-remember" name="remember" value="1" <?php if(isset($_COOKIE['remember']) && $_COOKIE['remember'] == 1) { echo 'checked'; } ?>> Remember me</label>
+                    </div>
+                    <?php } ?>
+                    <button type="submit" name="update_account" value="Update Account" class="btn_1 submit">
+                        <span>Update Account</span>
+                    </button>
                 </div>
-
-                <?php } ?>
-
-                <button type="submit" name="update_account" value="Update Account" class="btn_1 submit">
-                    <span>Update Account</span>
-                </button>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
-
-</div>
-
-
-
-
-
-<style>
-    .dropdown-menu li a {
-    padding: 5px 15px;
-    font-weight: 410;
-    font-size:14px;
-    height: 40px;
-    line-height: 32px;
-}
-
-  .sb-biodata-field{
-    background: none;
-  }
-  
-  .sb-biodata-field h2{
-    color: #000;
-    font-size: 23px;
-    font-weight: bold;
-    background: none;
-    text-align: left;
-}
-
-.shosurbari-biodata-form {
-  align-items: center;
-  flex-wrap: wrap;
-  width: 1400px;
-  margin: auto;
-  padding-top: 30px;
-  padding-bottom: 20px
-}
-
-.soshurbari-animation-icon,
-.shosurbari-animation-form {
-  flex-basis: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.soshurbari-animation-icon h3 {
-  font-size: 23px;
-  font-weight: bold;
-  margin-bottom: 15px;
-  margin-top: 15px;
-}
-
-.soshurbari-animation-icon img {
-  justify-content: flex-end;
-  margin: auto;
-
-  width: 37px;
-  height: 35px;
-}
-
-@media (max-width: 1280px){
-    .shosurbari-biodata-form{
-        width: auto;
-    }
-}
-
-@media (max-width: 1024px) {
-    .shosurbari-biodata-form {
-        width: auto;
-    }
-}
-
-
-@media (max-width: 768px){
-.shosurbari-userhome-status h3,
-.shosurbari-userhome-status h4 {
-    text-align: left;
-}
-}
-</style>
-
-
-
-
     <script>
         function validateForm(){
-
         var pass_1 = document.forms["myForm"]["pass_1"].value;
         var pass_2 = document.forms["myForm"]["pass_2"].value;
-
-
-        
         //New Password validation
         if (pass_1 == "") {
             document.getElementById('pass_1').style.borderColor = "red";
@@ -459,12 +357,10 @@ if (isset($_SESSION['updateMessage'])) {
             behavior: 'smooth',
             block: 'center',
             });
-
             var errorDiv = document.getElementById('pass_1_error');
             errorDiv.innerHTML = "Please Enter Your New Password !";
             errorDiv.style.display = 'block';
             errorDiv.classList.add('fade-in');
-
             // Change color multiple times
             var colors = ['green', 'blue', 'red'];
             var colorIndex = 0;
@@ -472,17 +368,12 @@ if (isset($_SESSION['updateMessage'])) {
             errorDiv.style.color = colors[colorIndex];
             colorIndex = (colorIndex + 1) % colors.length;
             }, 500);
-
             return false;
         }else{
             document.getElementById('pass_1').style.borderColor = "green";
             document.getElementById('pass_1').style.backgroundColor = "#ecfeff";
             document.getElementById('pass_1_error').innerHTML = "";
         }
-
-        
-
-
         //Confirm Password validation
         if (pass_2 == "") {
             document.getElementById('pass_2').style.borderColor = "red";
@@ -490,12 +381,10 @@ if (isset($_SESSION['updateMessage'])) {
             behavior: 'smooth',
             block: 'center',
             });
-
             var errorDiv = document.getElementById('pass_2_error');
             errorDiv.innerHTML = "Please Enter Your Confirm Password !";
             errorDiv.style.display = 'block';
             errorDiv.classList.add('fade-in');
-
             // Change color multiple times
             var colors = ['green', 'blue', 'red'];
             var colorIndex = 0;
@@ -503,7 +392,6 @@ if (isset($_SESSION['updateMessage'])) {
             errorDiv.style.color = colors[colorIndex];
             colorIndex = (colorIndex + 1) % colors.length;
             }, 500);
-
             return false;
         }else if(pass_2 != pass_1){
             document.getElementById('pass_2').style.borderColor = "red";
@@ -511,12 +399,10 @@ if (isset($_SESSION['updateMessage'])) {
             behavior: 'smooth',
             block: 'center',
             });
-
             var errorDiv = document.getElementById('pass_2_error');
             errorDiv.innerHTML = "Your Password Do Not Match !";
             errorDiv.style.display = 'block';
             errorDiv.classList.add('fade-in');
-
             // Change color multiple times
             var colors = ['green', 'blue', 'red'];
             var colorIndex = 0;
@@ -524,7 +410,6 @@ if (isset($_SESSION['updateMessage'])) {
             errorDiv.style.color = colors[colorIndex];
             colorIndex = (colorIndex + 1) % colors.length;
             }, 500);
-
             return false;
         }else{
             document.getElementById('pass_2').style.borderColor = "green";
@@ -533,10 +418,6 @@ if (isset($_SESSION['updateMessage'])) {
         }
         }
     </script>
-
-
-
-
     <!--=======================================
     How Many Visitors View This Page.
     This Script Connected to get_view_count.php
@@ -546,12 +427,10 @@ if (isset($_SESSION['updateMessage'])) {
         $(document).ready(function() {
         // Define an array of page names (without the .php extension)
         var pages = ["account-update"];
-
-        // Fetch and display view counts for each page
         for (var i = 0; i < pages.length; i++) {
             var page = pages[i];
             $.ajax({
-            url: 'get_view_count.php?page=' + page, // Adjust the URL to your PHP script
+            url: 'get_view_count.php?page=' + page,
             type: 'GET',
             success: function(data) {
             $('#viewCount' + page.replace("_", "")).html(data);
@@ -560,13 +439,9 @@ if (isset($_SESSION['updateMessage'])) {
         }
         });
     </script>
-
-
     <!--=======  Footer Start ========-->
     <?php include_once("footer.php");?>
     <!--=======  Footer End  =========-->
-
-
     <!-- FlexSlider -->
     <script defer src="js/jquery.flexslider.js"></script>
         <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
@@ -579,7 +454,6 @@ if (isset($_SESSION['updateMessage'])) {
         });
         });
     </script>  
-
 </body>
 </html>	
 

@@ -25,10 +25,10 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
 		// Compare the hashed input password with the stored hashed password
 		if ($hashed_password === $stored_password) {
-			$id = $row['id'];
-			$_SESSION['id'] = $id;
+			$admin_id = $row['admin_id'];
+			$_SESSION['admin_id'] = $admin_id;
 
-			header("location:../users.php?id={$row['id']}");
+			header("location:../users.php?id={$row['admin_id']}");
 
 		} else {
 			echo "Invalid username";
@@ -69,9 +69,9 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 	
 // 	if ($result->num_rows > 0) {
 // 		$row = $result->fetch_assoc();
-// 		$id = $row['id'];
+// 		$admin_id = $row['id'];
 // 		session_start();
-// 		$_SESSION['id'] = $id;
+// 		$_SESSION['id'] = $admin_id;
 
 // 		// if remember me checkbox is checked
 // 		if (isset($_POST['remember'])) {

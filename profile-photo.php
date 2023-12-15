@@ -310,8 +310,8 @@ $conn->close();
 
         </div>
 
-        <div class="popup-message" style="display: none;">
-            <h3></h3>
+        <div class="update-message" style="display: none;">
+            <i class="fa fa-check-circle" style="font-size: 30px; margin-bottom: 10px;"></i>
             <p></p>
         </div>
     
@@ -357,35 +357,31 @@ $conn->close();
 
 
 <style>
-    .dropdown-menu li a {
+.dropdown-menu li a {
     padding: 5px 15px;
     font-weight: 410;
     font-size:14px;
     height: 40px;
     line-height: 32px;
 }
-
-
-  .sb-biodata-field{
+.sb-biodata-field{
     background: none;
     text-align: justify;
-  }
-  
-  .sb-biodata-field h2{
+}
+.sb-biodata-field h2{
     color: #000;
     font-size: 23px;
     font-weight: bold;
     background: none;
     text-align: left;
 }
-
 .shosurbari-biodata-form {
-  align-items: center;
-  flex-wrap: wrap;
-  width: 1400px;
-  margin: auto;
-  padding-top: 30px;
-  padding-bottom: 20px
+    align-items: center;
+    flex-wrap: wrap;
+    width: 1400px;
+    margin: auto;
+    padding-top: 30px;
+    padding-bottom: 20px
 }
 
 .soshurbari-animation-icon,
@@ -430,6 +426,40 @@ $conn->close();
     text-align: left;
 }
 }
+
+.update-message{
+position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background:#22c55e;
+    color: #fff;
+    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+    border: 1px solid rgba(0,0,0,.05);
+    border-radius: 2px;
+    padding: 10px;
+    width: 245px;
+    text-align: center;
+    z-index: 9999;
+}
+.cancel-button{
+    position: absolute;
+    cursor: pointer;
+    right: 3px;
+    margin-right: -20px;
+    margin-top: -90px;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    line-height: 5px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    background: #0aa4ca;
+}
 </style>
 
 
@@ -447,17 +477,17 @@ $conn->close();
 
         function showSuccessMessage() {
             // Show the popup message
-            var popup = document.querySelector('.popup-message');
+            var popup = document.querySelector('.update-message');
             popup.style.display = 'block';
 
             // Set the message text
-            popup.querySelector('h3').innerHTML = 'Success!';
-            popup.querySelector('p').innerHTML = 'Your photo has been uploaded successfully.';
+            popup.querySelector('i').innerHTML = '';
+            popup.querySelector('p').innerHTML = 'ছবি সফলভাবে আপলোড হয়েছে!';
 
             // Add a close button to the popup message
             var closeButton = document.createElement('button');
-            closeButton.innerHTML = 'Close';
-            closeButton.classList.add('close-button');
+            closeButton.innerHTML = 'x';
+            closeButton.classList.add('cancel-button');
             popup.appendChild(closeButton);
 
             // Hide the popup when the close button is clicked

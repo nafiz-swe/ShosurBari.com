@@ -1,10 +1,13 @@
 <?php
-// Include necessary files and initialize the session
 include_once("includes/basic_includes.php");
 include_once("functions.php");
 require_once("includes/dbconn.php");
-customer_sent_info_complete(); 
 error_reporting(0);
+customer_sent_info_complete(); 
+if (!isset($_SESSION['admin_id'])) {
+  header("location: ../abdur-rahman/admin_login.php");
+  exit;
+}
 ?>
 <!doctype html>
 <html class="no-js" lang="">
