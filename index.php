@@ -151,12 +151,10 @@
   .ellipsis {
     font-size: 17px;
   }
-  /* for the select elements */
   .shosurbari-home-search select {
     width: 200px;
     margin-top: 5px;
   }
-  /* Style for the submit button */
   .shosurbari-home-search input[type="submit"] {
     margin: 2px auto;
   }

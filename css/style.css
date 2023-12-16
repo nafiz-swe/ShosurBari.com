@@ -1361,7 +1361,7 @@ span.m_3{
     height: 140px;
     position: relative;
     box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
-    margin-top: 22px;
+    margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -1503,6 +1503,12 @@ span.m_3{
 }
 .biodata_value_data{
     width: 100%;
+}
+.biodata_value_data tbody tr:nth-child(even) {
+    background-color: #fff; /* Even row color */
+}
+.biodata_value_data tbody tr:nth-child(odd) {
+    background-color: rgba(245,246,252,.4); /* Odd row color */
 }
 .main-bd {
     width: 90%;
@@ -1862,7 +1868,7 @@ td.day_label {
     color: #000000;
     padding: 8px;
     font-weight: 450;
-    border: 1px #ccc;
+    border: 1px #dbdbdb;
     border-style: groove;
     width: 45%;
     position: inherit;
@@ -1871,7 +1877,7 @@ td.day_value {
     color: black;
     padding: 8px;
     font-weight: 400;
-    border: 1px #ccc;
+    border: 1px #dbdbdb;
     border-style: groove;
     width: 55%;
 }
@@ -3244,7 +3250,7 @@ i.icon_4{
     padding: 6px;
     font-size: 15px;
     font-weight: 400;
-    border: 1px solid #d5d5d5;
+    border: 1px solid #ccc;
     border-style: groove;
     width: 35%;
     position: inherit;
@@ -3254,7 +3260,7 @@ i.icon_4{
     padding: 6px;
     font-size: 15px;
     font-weight: 400;
-    border: 1px solid #d5d5d5;
+    border: 1px solid #ccc;
     border-style: groove;
     width: 65%;
     position: inherit;
@@ -4217,7 +4223,7 @@ font-size: 14px;
         flex-direction: column;
         text-align: center;
         padding-bottom: 20px;
-        margin-top: 22px;
+        margin-top: 28px;
     }
     ul.nav_1 li {
         margin: 3px;
@@ -5046,7 +5052,7 @@ font-size: 14px;
         margin-bottom: auto;
     }
     .profile-header {
-        margin-top: 68px;
+        margin-top: 80px;
     }
     .sb_mobilesearch {
         margin-top: 20px;

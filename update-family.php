@@ -1,28 +1,17 @@
-<?php include_once("includes/basic_includes.php");?>
-<?php include_once("functions.php"); ?>
-
-<?php
+<?php 
+include_once("includes/basic_includes.php");
+include_once("functions.php");
 $id=$_SESSION['id'];
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	family_update($id);
-	//processprofile_form
 }
-?>
-
-<?php
-// $id=$_GET['id'];
 if(isloggedin()){
- //do nothing stay here
 } else{
    header("location:login.php");
 }
 ?>
-
 <!DOCTYPE HTML>
 <html>
-
-
-
 <head>
 <title>Family Update | ShosurBari</title>
 <link rel="icon" href="images/shosurbari-icon.png" type="image/png">
@@ -44,13 +33,10 @@ if(isloggedin()){
 <link href="css/font-awesome.css" rel="stylesheet"> 
 <!--font-Awesome-->
 </head>
-
-
-
 <body>
-	<!-- ============================  Navigation Start =========================== -->
+	<!-- ===========  Navigation Start =========== -->
 	<?php include_once("includes/navigation.php");?>
-	<!-- ============================  Navigation End ============================ -->
+	<!-- ===========  Navigation End ============= -->
 	<div class="grid_3">
 		<div class="container">
 			<div class="breadcrumb1">
@@ -62,8 +48,6 @@ if(isloggedin()){
 			</div>
 		</div>
 	</div>
-
-
 	<div class="sb-home-search">
 		<h1>তথ্য পরিবর্তন করুন</h1>
 		<div class="sbhome-heart-divider">
@@ -73,89 +57,69 @@ if(isloggedin()){
 		<span class="grey-line"></span>
 		</div>
 	</div>
-
-
 	<style>
-.sb-biodata-field{
-	background: none;
-}
-  
-.sb-biodata-field h2{
-    color: #000;
-    font-size: 23px;
-    font-weight: bold;
-    background: none;
-    text-align: left;
-}
-
-.shosurbari-biodata-form {
-  align-items: center;
-  flex-wrap: wrap;
-  width: 1400px;
-  margin: auto;
-  padding-top: 30px;
-  padding-bottom: 30px
-}
-
-.soshurbari-animation-icon,
-.shosurbari-animation-form {
-  flex-basis: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.soshurbari-animation-icon h3 {
-  font-size: 23px;
-  font-weight: bold;
-  margin-bottom: 15px;
-  margin-top: 15px;
-}
-
-.soshurbari-animation-icon img {
-  justify-content: flex-end;
-  margin: auto;
-
-  width: 37px;
-  height: 35px;
-}
-
-@media (max-width: 1400px){
-  .shosurbari-biodata-form{
-    width: auto;
-  }
-}
-
-@media (max-width: 1024px) {
-
-  .shosurbari-animation-form {
-    flex-basis: 100%;
-    justify-content: center;
-  }
-
-  .shosurbari-biodata-form {
-    width: auto;
-  }
-}
-</style>
-
+	.sb-biodata-field{
+		background: none;
+	}
+	.sb-biodata-field h2{
+		color: #000;
+		font-size: 23px;
+		font-weight: bold;
+		background: none;
+		text-align: left;
+	}
+	.shosurbari-biodata-form {
+		align-items: center;
+		flex-wrap: wrap;
+		width: 1400px;
+		margin: auto;
+		padding-top: 30px;
+		padding-bottom: 30px
+	}
+	.soshurbari-animation-icon,
+	.shosurbari-animation-form {
+		flex-basis: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.soshurbari-animation-icon h3 {
+		font-size: 23px;
+		font-weight: bold;
+		margin-bottom: 15px;
+		margin-top: 15px;
+	}
+	.soshurbari-animation-icon img {
+		justify-content: flex-end;
+		margin: auto;
+		width: 37px;
+		height: 35px;
+	}
+	@media (max-width: 1400px){
+	.shosurbari-biodata-form{
+		width: auto;
+	}
+	}
+	@media (max-width: 1024px) {
+	.shosurbari-animation-form {
+		flex-basis: 100%;
+		justify-content: center;
+	}
+	.shosurbari-biodata-form {
+		width: auto;
+	}
+	}
+	</style>
 	<div class="shosurbari-biodata">
-		<!-- multistep form -->
 		<form action="" method="POST" id="biodataForm">
-		<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-			-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
+			<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 			--                S  T  A  R  T                  --
 			--     Family Information  / sb-biodata-5        --
-			--                                               --
-			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
 			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 			<?php
 				include("includes/dbconn.php");
-
-				//getting profile details from db
 				$sql="SELECT * FROM 5bd_family_information WHERE user_id = $id";
 				$result = mysqlexec($sql);
-
 				if($result){
 				$row=mysqli_fetch_assoc($result);
 				if($row){
@@ -193,8 +157,6 @@ if(isloggedin()){
 				}
 				}
 			?>
-
-			<!--Fieldsets start-->
 			<fieldset>
 				<div class="sb-biodata" id="familyInfo">
 					<div class="soshurbari-animation-icon">
@@ -205,48 +167,39 @@ if(isloggedin()){
 					<div class="sb-biodata-field">
 						<h2>পারিবারিক ও সামাজিক তথ্য</h2>
 					</div>
-
 					<div class="sb-biodata-option">
 						<div class="shosurbari-biodata-field">
 							<label>বাবার নাম<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text" name="father_name" value="<?php echo $father_name; ?>" size="100" maxlength="100" class="form-text" required>
 						</div>
-
 						<div class="shosurbari-biodata-field">
 							<label>বাবা বেঁচে আছেন?<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text"  name="father_alive" value="<?php echo $father_alive; ?>" size="100" maxlength="100" class="form-text" required>
 						</div>
-
 						<div class="shosurbari-biodata-field">
 							<label>বাবার পেশা<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text"  name="fatheroccupation" value="<?php echo $fatheroccupation; ?>" size="200" maxlength="200" class="form-text" required>
 						</div>
-
 						<div class="shosurbari-biodata-field">
 							<label>মা বেঁচে আছেন?<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text"  name="mother_alive"  value="<?php echo $mother_alive; ?>"  size="100" maxlength="100" class="form-text" required>
 						</div>
-
 						<div class="shosurbari-biodata-field">
 							<label>মায়ের পেশা<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text"  name="motheroccupation"  value="<?php echo $motheroccupation; ?>"  size="200" maxlength="200" class="form-text" required>
 						</div>
-
 						<div class="shosurbari-biodata-field">
 							<label>ভাইবোন কয়জন<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text"  name="brosis_number"  value="<?php echo $brosis_number; ?>"  size="100" maxlength="100" class="form-text" required>
 						</div>
-
 						<div class="shosurbari-biodata-field">
 							<label>ভাইবোন সম্পর্কিত তথ্য<span class="form-required" title="This field is required.">*</span></label>
 							<textarea rows="8" name="brosis_info"  class="form-text-describe" required><?php echo $brosis_info; ?></textarea>
 						</div>
-
 						<div class="shosurbari-biodata-field">
 							<label>মামা/চাচাদের পেশা<span class="form-required" title="This field is required.">*</span></label>
 							<textarea rows="8" name="uncle_profession" class="form-text-describe" required><?php echo $uncle_profession; ?></textarea>
 						</div>
-
 						<div class="shosurbari-biodata-field">
 							<label>পারিবারিক শ্রেণী<span class="form-required" title="This field is required.">*</span></label>
 							<select name="family_class" required>
@@ -258,49 +211,36 @@ if(isloggedin()){
 								<option value="নিম্ন শ্রেণী">নিম্ন শ্রেণী</option>  
 							</select>
 						</div>
-
 						<div class="shosurbari-biodata-field">
 							<label>পরিবারের অর্থনৈতিক অবস্থা কেমন?<span class="form-required" title="This field is required.">*</span></label>
 							<textarea rows="5" name="financial_condition" class="form-text-describe" required><?php echo $financial_condition; ?></textarea>
 						</div>
-
 						<div class="shosurbari-biodata-field">
 							<label>পরিবারের ধর্মীয় ও সামাজিক অবস্থা কেমন?<span class="form-required" title="This field is required.">*</span></label>
 							<textarea rows="5" name="family_religious_condition" class="form-text-describe" required><?php echo $family_religious_condition; ?></textarea>
 						</div>
 					</div>
 				</div>
-
 				<button type="submit" id="edit-submit" name="op" class="biodata-submit"><span></span> আপডেট করুন</button>			
 			</fieldset>
-			<!--Fieldsets end-->
 			<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-			-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
 			--                   E   N   D                   --
 			--     Family Information  / sb-biodata-5        --
-			--                                               --
-			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
 			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-
 		</form>
 	</div>
-	
-	
-<!--=======================================
-How Many Visitors View This Page.
-This Script Connected to get_view_count.php
-and page_views Database Table
-========================================-->
-<script>
+	<!--=======================================
+	How Many Visitors View This Page.
+	This Script Connected to get_view_count.php
+	and page_views Database Table
+	========================================-->
+	<script>
 	$(document).ready(function() {
-	// Define an array of page names (without the .php extension)
 	var pages = ["update-family"];
-
-	// Fetch and display view counts for each page
 	for (var i = 0; i < pages.length; i++) {
 		var page = pages[i];
 		$.ajax({
-		url: 'get_view_count.php?page=' + page, // Adjust the URL to your PHP script
+		url: 'get_view_count.php?page=' + page,
 		type: 'GET',
 		success: function(data) {
 		$('#viewCount' + page.replace("_", "")).html(data);
@@ -308,106 +248,60 @@ and page_views Database Table
 		});
 	}
 	});
-</script>
-
-
-<!--=======  Footer Start ========-->
-<?php include_once("footer.php");?>
-<!--=======  Footer End  =========-->
-
-
+	</script>
+	<script>
+		var current_fs, next_fs, previous_fs;
+		$(".next").click(function() {
+			current_fs = $(this).closest("fieldset");
+			next_fs = current_fs.next("fieldset");
+			if (!validateFields(current_fs)) {
+				return;
+			}
+			$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+			next_fs.show();
+			current_fs.hide();
+			$('html, body').animate({ scrollTop: $('#progressbar').offset().top }, 800);
+		});
+		$(".previous").click(function() {
+			current_fs = $(this).closest("fieldset");
+			previous_fs = current_fs.prev("fieldset");
+			previous_fs.show();
+			current_fs.hide();
+			$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+			$('html, body').animate({ scrollTop: $('#progressbar').offset().top }, 800);
+		});
+		function validateFields(current_fs) {
+			var isValid = true;
+			var inputs = current_fs.find(":input[required]");
+			current_fs.find(".error-message-empty").remove();
+			inputs.each(function() {
+				if ($(this).val().trim() === "") {
+				$(this).addClass("error"); 
+				isValid = false;
+				var errorMessage = "<span class='error-message-empty'>This field is required.</span>";
+				$(this).after(errorMessage);
+				} else {
+				$(this).removeClass("error");
+				}
+			});
+			if (!isValid) {
+				var firstEmptyField = current_fs.find(".error").first();
+				var windowHeight = $(window).height();
+				var fieldTop = firstEmptyField.offset().top;
+				var fieldHeight = firstEmptyField.outerHeight();
+				var middleOffset = (windowHeight / 2) - (fieldHeight / 2);
+				var scrollTo = fieldTop - middleOffset;
+				$('html, body').animate({ scrollTop: scrollTo }, 800);
+			}
+			return isValid;
+		}
+	</script>
+	<!-- jQuery -->
+	<script src="http://thecodeplayer.com/uploads/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+	<!-- jQuery easing plugin -->
+	<script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
+	<!--=======  Footer Start ========-->
+	<?php include_once("footer.php");?>
+	<!--=======  Footer End  =========-->
 </body>
 </html>
-
-<!-- jQuery -->
-<script src="http://thecodeplayer.com/uploads/js/jquery-1.9.1.min.js" type="text/javascript"></script>
-<!-- jQuery easing plugin -->
-<script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
-
-
-
-
-<script>
-	// jQuery time
-	var current_fs, next_fs, previous_fs; // fieldsets
-
-	$(".next").click(function() {
-		current_fs = $(this).closest("fieldset");
-		next_fs = current_fs.next("fieldset");
-
-		// Validate fields in the current fieldset
-		if (!validateFields(current_fs)) {
-			return; // Stop execution if fields are empty
-		}
-
-		// Activate next step on progressbar
-		$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-
-		// Show the next fieldset
-		next_fs.show();
-		// Hide the current fieldset
-		current_fs.hide();
-
-		// Smooth scroll to the top of the progress bar
-		$('html, body').animate({ scrollTop: $('#progressbar').offset().top }, 800);
-	});
-
-
-
-	$(".previous").click(function() {
-		current_fs = $(this).closest("fieldset");
-		previous_fs = current_fs.prev("fieldset");
-
-		// Show the previous fieldset
-		previous_fs.show();
-		// Hide the current fieldset
-		current_fs.hide();
-
-		// De-activate current step on progressbar
-		$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
-
-		// Smooth scroll to the top of the progress bar
-		$('html, body').animate({ scrollTop: $('#progressbar').offset().top }, 800);
-	});
-
-
-
-	// Validate the fields in the current fieldset
-	function validateFields(current_fs) {
-		var isValid = true;
-
-		// Get all required input fields within the current fieldset
-		var inputs = current_fs.find(":input[required]");
-
-		// Remove previous error messages
-		current_fs.find(".error-message-empty").remove();
-
-		// Loop through each input field and check if it's empty
-		inputs.each(function() {
-			if ($(this).val().trim() === "") {
-			$(this).addClass("error"); // Add error class to highlight the empty field
-			isValid = false;
-
-			// Show error message
-			var errorMessage = "<span class='error-message-empty'>This field is required.</span>";
-			$(this).after(errorMessage);
-			} else {
-			$(this).removeClass("error"); // Remove error class if the field is not empty
-			}
-		});
-
-
-		// Scroll to the first empty input field
-		if (!isValid) {
-			var firstEmptyField = current_fs.find(".error").first();
-			var windowHeight = $(window).height();
-			var fieldTop = firstEmptyField.offset().top;
-			var fieldHeight = firstEmptyField.outerHeight();
-			var middleOffset = (windowHeight / 2) - (fieldHeight / 2);
-			var scrollTo = fieldTop - middleOffset;
-
-			$('html, body').animate({ scrollTop: scrollTo }, 800);
-		}
-		return isValid;
-	}
-</script>
