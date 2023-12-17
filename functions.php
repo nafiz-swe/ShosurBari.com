@@ -328,7 +328,6 @@
         } else {
             // Update the account
             $accountUpdated = updateAccount($userId, $newPassword, $newFullName, $newGender);
-            // Set the appropriate message in session
             if ($accountUpdated) {
             $_SESSION['updateMessage'] = '<i class="fa fa-check-circle" style="font-size: 30px; margin-bottom: 10px;"></i></br> একাউন্ট সফলভাবে আপডেট হয়েছে!';
             $_SESSION['messageType'] = 'success';
@@ -609,7 +608,6 @@
             $religion=$_POST['religion'];
             $yourreligion_condition=$_POST['yourreligion_condition'];
             //Biodata 9
-            $partner_religius=$_POST['partner_religius'];
             $partner_citizen=$_POST['partner_citizen'];
             $partner_district=$_POST['partner_district'];
             $partner_maritialstatus=$_POST['partner_maritialstatus'];
@@ -699,8 +697,8 @@
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --     Expected Life Partner / sb-biodata-9      --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-            $sql9 = "INSERT INTO 9bd_expected_life_partner (user_id, partner_religius, partner_citizen, partner_district, partner_maritialstatus, partner_age, partner_skintones, partner_height, partner_education, partner_profession, partner_financial, partner_attributes, parents_permission, real_info_commited, authorities_no_responsible, profilecreationdate) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            $sql9 = "INSERT INTO 9bd_expected_life_partner (user_id, partner_citizen, partner_district, partner_maritialstatus, partner_age, partner_skintones, partner_height, partner_education, partner_profession, partner_financial, partner_attributes, parents_permission, real_info_commited, authorities_no_responsible, profilecreationdate) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
             $stmt9 = mysqli_prepare($conn, $sql9);
             // Personal & Physical
             mysqli_stmt_bind_param($stmt1, "sssssssss", $id, $biodatagender, $dob, $height, $weight, $physicalstatus, $Skin_tones, $bloodgroup);
@@ -739,7 +737,7 @@
             mysqli_stmt_bind_param($stmt8, "sss", $id, $religion, $yourreligion_condition);
             mysqli_stmt_execute($stmt8);
             // Expected Life Partner (sb-biodata-9)
-            mysqli_stmt_bind_param($stmt9, "ssssssssssssssss", $id, $partner_religius, $partner_citizen, $partner_district, $partner_maritialstatus, $partner_age, $partner_skintones, $partner_height, $partner_education, $partner_profession, $partner_financial, $partner_attributes, $parents_permission, $real_info_commited, $authorities_no_responsible);
+            mysqli_stmt_bind_param($stmt9, "sssssssssssssss", $id, $partner_citizen, $partner_district, $partner_maritialstatus, $partner_age, $partner_skintones, $partner_height, $partner_education, $partner_profession, $partner_financial, $partner_attributes, $parents_permission, $real_info_commited, $authorities_no_responsible);
             mysqli_stmt_execute($stmt9);
             // Execute the statement
             if (mysqli_stmt_execute($conn, $stmt1) && mysqli_stmt_execute($conn, $stmt2) && mysqli_stmt_execute($conn, $stmt31) && mysqli_stmt_execute($conn, $stmt32) && mysqli_stmt_execute($conn, $stmt33) && mysqli_stmt_execute($conn, $stmt34) && mysqli_stmt_execute($conn, $stmt4) && mysqli_stmt_execute($conn, $stmt5) && mysqli_stmt_execute($conn, $stmt61) && mysqli_stmt_execute($conn, $stmt62) && mysqli_stmt_execute($conn, $stmt7) && mysqli_stmt_execute($conn, $stmt8) && mysqli_stmt_execute($conn, $stmt9) ) {
@@ -817,7 +815,6 @@
         require_once("includes/dbconn.php");
         $sql="SELECT user_id FROM 1bd_personal_physical WHERE user_id=$id";
         $result=mysqlexec($sql);
-        // Update query
         if(mysqli_num_rows($result)>=1){
         $sql = "UPDATE 1bd_personal_physical SET 
             biodatagender = '$biodatagender',
@@ -835,7 +832,6 @@
         }
         $sql="SELECT user_id FROM 6bd_7bd_marital_status WHERE user_id=$id";
         $result=mysqlexec($sql);
-        // Update query
         if(mysqli_num_rows($result)>=1){
         $sql = "UPDATE 6bd_7bd_marital_status SET 
             maritalstatus = '$maritalstatus',
@@ -855,7 +851,6 @@
         }
         $sql="SELECT user_id FROM 6bd_marriage_related_qs_male WHERE user_id=$id";
         $result=mysqlexec($sql);
-        // Update query
         if(mysqli_num_rows($result)>=1){
         $sql = "UPDATE 6bd_marriage_related_qs_male SET 
             allowstudy_aftermarriage = '$allowstudy_aftermarriage',
@@ -870,7 +865,6 @@
         }
         $sql="SELECT user_id FROM 7bd_marriage_related_qs_female WHERE user_id=$id";
         $result=mysqlexec($sql);
-        // Update query
         if(mysqli_num_rows($result)>=1){
         $sql = "UPDATE 7bd_marriage_related_qs_female SET 
             studies_aftermarriage = '$studies_aftermarriage',
@@ -880,9 +874,19 @@
             profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
         WHERE user_id = '$id'";
         $result=mysqlexec($sql);
-        if ($result)
-        {    echo "Thanks! Successfully Uploaded New Biodata!";
-            header("Location: profile.php?/Biodata={$id}");}
+        if ($result) {
+            session_start();
+            $_SESSION['updateMessage'] = '<i class="fa fa-check-circle" style="font-size: 30px; margin-bottom: 10px;"></i></br> ডেটা সফলভাবে আপডেট হয়েছে!';
+            $_SESSION['messageType'] = 'success';
+            header("Location: update-physical-marital.php");
+            exit();
+        } else {
+            session_start();
+            $_SESSION['updateMessage'] = '<i class="fa fa-times-circle" style="font-size: 30px; margin-bottom: 10px;"></i> </br>উফফ! সমস্যা দেখা দিয়েছে।';
+            $_SESSION['messageType'] = 'error';
+            header("Location: update-physical-marital.php");
+            exit();
+        }
         }
         }
     }
@@ -925,7 +929,6 @@
         require_once("includes/dbconn.php");
         $sql="SELECT user_id FROM 2bd_personal_lifestyle WHERE user_id=$id";
         $result=mysqlexec($sql);
-        // Update query
         if(mysqli_num_rows($result)>=1){
         $sql = "UPDATE 2bd_personal_lifestyle SET 
             smoke = '$smoke',
@@ -953,9 +956,19 @@
             profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
         WHERE user_id = '$id'";
         $result=mysqlexec($sql);
-        if ($result)
-        {    echo "Thanks! Successfully Uploaded New Biodata!";
-            header("Location: profile.php?/Biodata={$id}");}
+        if ($result) {
+            session_start();
+            $_SESSION['updateMessage'] = '<i class="fa fa-check-circle" style="font-size: 30px; margin-bottom: 10px;"></i></br> ডেটা সফলভাবে আপডেট হয়েছে!';
+            $_SESSION['messageType'] = 'success';
+            header("Location: update-personalInfo.php");
+            exit();
+        } else {
+            session_start();
+            $_SESSION['updateMessage'] = '<i class="fa fa-times-circle" style="font-size: 30px; margin-bottom: 10px;"></i> </br>উফফ! সমস্যা দেখা দিয়েছে।';
+            $_SESSION['messageType'] = 'error';
+            header("Location: update-personalInfo.php");
+            exit();
+        }
         }
         }
     }
@@ -1003,7 +1016,6 @@
         require_once("includes/dbconn.php");
         $sql="SELECT user_id FROM 3bd_secondaryedu_method WHERE user_id=$id";
         $result=mysqlexec($sql);
-        // Update query
         if(mysqli_num_rows($result)>=1){
         $sql = "UPDATE 3bd_secondaryedu_method SET 
             scndry_edu_method = '$scndry_edu_method',
@@ -1020,7 +1032,6 @@
         }
         $sql="SELECT user_id FROM 3bd_kowmi_madrasaedu_method WHERE user_id=$id";
         $result=mysqlexec($sql);
-        // Update query
         if(mysqli_num_rows($result)>=1){
         $sql = "UPDATE 3bd_kowmi_madrasaedu_method SET 
             qawmi_madrasa_hafez = '$qawmi_madrasa_hafez',
@@ -1035,7 +1046,6 @@
         }
         $sql="SELECT user_id FROM 3bd_higher_secondaryedu_method WHERE user_id=$id";
         $result=mysqlexec($sql);
-        // Update query
         if(mysqli_num_rows($result)>=1){
         $sql = "UPDATE 3bd_higher_secondaryedu_method SET 
                 higher_secondary_edu_method = '$higher_secondary_edu_method',
@@ -1056,7 +1066,6 @@
         }
         $sql="SELECT user_id FROM 3bd_universityedu_method WHERE user_id=$id";
         $result=mysqlexec($sql);
-        // Update query
         if(mysqli_num_rows($result)>=1){
         $sql = "UPDATE 3bd_universityedu_method SET 
                 varsity_edu_method = '$varsity_edu_method',
@@ -1068,11 +1077,20 @@
                 others_edu_qualification = '$others_edu_qualification',
                 profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
             WHERE user_id = '$id'";
-
         $result=mysqlexec($sql);
-        if ($result)
-        {    echo "Thanks! Successfully Uploaded New Biodata!";
-            header("Location: profile.php?/Biodata={$id}");}
+        if ($result) {
+            session_start();
+            $_SESSION['updateMessage'] = '<i class="fa fa-check-circle" style="font-size: 30px; margin-bottom: 10px;"></i></br> ডেটা সফলভাবে আপডেট হয়েছে!';
+            $_SESSION['messageType'] = 'success';
+            header("Location: update-education.php");
+            exit();
+        } else {
+            session_start();
+            $_SESSION['updateMessage'] = '<i class="fa fa-times-circle" style="font-size: 30px; margin-bottom: 10px;"></i> </br>উফফ! সমস্যা দেখা দিয়েছে।';
+            $_SESSION['messageType'] = 'error';
+            header("Location: update-education.php");
+            exit();
+        }
         }
         }
     }
@@ -1105,7 +1123,6 @@
         require_once("includes/dbconn.php");
         $sql="SELECT user_id FROM 4bd_address_details WHERE user_id=$id";
         $result=mysqlexec($sql);
-        // Update query
         if(mysqli_num_rows($result)>=1){
         $sql = "UPDATE 4bd_address_details SET 
             permanent_division = '$permanent_division',
@@ -1123,9 +1140,19 @@
             profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
         WHERE user_id = '$id'";
         $result=mysqlexec($sql);
-        if ($result)
-        {    echo "Thanks! Successfully Uploaded New Biodata!";
-            header("Location: profile.php?/Biodata={$id}");}
+        if ($result) {
+            session_start();
+            $_SESSION['updateMessage'] = '<i class="fa fa-check-circle" style="font-size: 30px; margin-bottom: 10px;"></i></br> ডেটা সফলভাবে আপডেট হয়েছে!';
+            $_SESSION['messageType'] = 'success';
+            header("Location: update-address.php");
+            exit();
+        } else {
+            session_start();
+            $_SESSION['updateMessage'] = '<i class="fa fa-times-circle" style="font-size: 30px; margin-bottom: 10px;"></i> </br>উফফ! সমস্যা দেখা দিয়েছে।';
+            $_SESSION['messageType'] = 'error';
+            header("Location: update-address.php");
+            exit();
+        }
         }
         }
     }
@@ -1157,7 +1184,6 @@
         require_once("includes/dbconn.php");
         $sql="SELECT user_id FROM 5bd_family_information WHERE user_id=$id";
         $result=mysqlexec($sql);
-        // Update query
         if(mysqli_num_rows($result)>=1){
         $sql = "UPDATE 5bd_family_information SET 
             father_alive = '$father_alive',
@@ -1174,9 +1200,19 @@
             profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
         WHERE user_id = '$id'";
         $result=mysqlexec($sql);
-        if ($result)
-        {    echo "Thanks! Successfully Uploaded New Biodata!";
-            header("Location: profile.php?/Biodata={$id}");}
+        if ($result) {
+            session_start();
+            $_SESSION['updateMessage'] = '<i class="fa fa-check-circle" style="font-size: 30px; margin-bottom: 10px;"></i></br> ডেটা সফলভাবে আপডেট হয়েছে!';
+            $_SESSION['messageType'] = 'success';
+            header("Location: update-family.php");
+            exit();
+        } else {
+            session_start();
+            $_SESSION['updateMessage'] = '<i class="fa fa-times-circle" style="font-size: 30px; margin-bottom: 10px;"></i> </br>উফফ! সমস্যা দেখা দিয়েছে।';
+            $_SESSION['messageType'] = 'error';
+            header("Location: update-family.php");
+            exit();
+        }
         }
         }
     }
@@ -1191,27 +1227,35 @@
     --              8bd_religion_details            --
     --       User Bio Data Update to Database        --
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-    function religion_update($id){
+    function religion_update($id) {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        //Biodata 8
-        $religion=$_POST['religion'];
-        $yourreligion_condition=$_POST['yourreligion_condition'];
-        require_once("includes/dbconn.php");
-        $sql="SELECT user_id FROM 8bd_religion_details WHERE user_id=$id";
-        $result=mysqlexec($sql);
-        // Update query
-        if(mysqli_num_rows($result)>=1){
-        $sql = "UPDATE 8bd_religion_details SET 
-            religion = '$religion',
-            yourreligion_condition = '$yourreligion_condition',
-            profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
-        WHERE user_id = '$id'";
-
-        $result=mysqlexec($sql);
-        if ($result)
-        {    echo "Thanks! Successfully Uploaded New Biodata!";
-            header("Location: profile.php?/Biodata={$id}");}
-        }
+            // Biodata 8
+            $religion = $_POST['religion'];
+            $yourreligion_condition = $_POST['yourreligion_condition'];
+            require_once("includes/dbconn.php");
+            $sql = "SELECT user_id FROM 8bd_religion_details WHERE user_id = $id";
+            $result = mysqlexec($sql);
+            if (mysqli_num_rows($result) >= 1) {
+                $sql = "UPDATE 8bd_religion_details SET 
+                    religion = '$religion',
+                    yourreligion_condition = '$yourreligion_condition',
+                    profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
+                WHERE user_id = '$id'";
+                $result = mysqlexec($sql);
+                if ($result) {
+                    session_start();
+                    $_SESSION['updateMessage'] = '<i class="fa fa-check-circle" style="font-size: 30px; margin-bottom: 10px;"></i></br> ডেটা সফলভাবে আপডেট হয়েছে!';
+                    $_SESSION['messageType'] = 'success';
+                    header("Location: religion-update.php");
+                    exit();
+                } else {
+                    session_start();
+                    $_SESSION['updateMessage'] = '<i class="fa fa-times-circle" style="font-size: 30px; margin-bottom: 10px;"></i> </br>উফফ! সমস্যা দেখা দিয়েছে।';
+                    $_SESSION['messageType'] = 'error';
+                    header("Location: religion-update.php");
+                    exit();
+                }
+            }
         }
     }
     /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
@@ -1228,7 +1272,6 @@
     function partner_update($id){
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       	//Biodata 9
-        $partner_religius=$_POST['partner_religius'];
         $partner_citizen=$_POST['partner_citizen'];
         $partner_district=$_POST['partner_district'];
         $partner_maritialstatus=$_POST['partner_maritialstatus'];
@@ -1245,10 +1288,8 @@
         require_once("includes/dbconn.php");
         $sql="SELECT user_id FROM 9bd_expected_life_partner WHERE user_id=$id";
         $result=mysqlexec($sql);
-        // Update query
         if(mysqli_num_rows($result)>=1){
         $sql = "UPDATE 9bd_expected_life_partner SET 
-            partner_religius = '$partner_religius',
             partner_citizen = '$partner_citizen',
             partner_district = '$partner_district',
             partner_maritialstatus = '$partner_maritialstatus',
@@ -1259,17 +1300,21 @@
             partner_profession = '$partner_profession',
             partner_financial = '$partner_financial',
             partner_attributes = '$partner_attributes',
-
             parents_permission = '$parents_permission',
             real_info_commited = '$real_info_commited',
             authorities_no_responsible = '$authorities_no_responsible',
             profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
         WHERE user_id = '$id'";
-
         $result=mysqlexec($sql);
-        if ($result)
-        {    echo "Thanks! Successfully Uploaded New Biodata!";
-            header("Location: profile.php?/Biodata={$id}");}
+        if ($result) {
+            session_start();
+            $_SESSION['updateMessage'] = '<i class="fa fa-check-circle" style="font-size: 30px; margin-bottom: 10px;"></i></br> ডেটা সফলভাবে আপডেট হয়েছে!';
+            $_SESSION['messageType'] = 'success';
+            header("Location: update-partnerInfo.php");
+            exit();
+        } else {
+            echo "Error updating data.";
+        }
         }
         }
     }

@@ -1,26 +1,17 @@
-<?php include_once("includes/basic_includes.php");?>
-<?php include_once("functions.php"); ?>
-
-<?php
+<?php 
+include_once("includes/basic_includes.php");
+include_once("functions.php"); 
 $id=$_SESSION['id'];
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	physical_marital_update($id);
-	//processprofile_form
 }
-?>
-
-<?php
-// $id=$_GET['id'];
 if(isloggedin()){
- //do nothing stay here
 } else{
    header("location:login.php");
 }
 ?>
-
 <!DOCTYPE HTML>
 <html>
-
 <head>
 <title>Physical & Marital Update | ShosurBari</title>
 <link rel="icon" href="images/shosurbari-icon.png" type="image/png">
@@ -35,20 +26,112 @@ if(isloggedin()){
 <!-- Custom Theme files -->
 <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css">
 <link href="css/style.css" rel='stylesheet' type='text/css' />
-
 <link href='//fonts.googleapis.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
 <!--font-Awesome-->
 <link href="css/font-awesome.css" rel="stylesheet"> 
 <!--font-Awesome-->
 </head>
-
-
-
 <body>
-	<!-- ============================  Navigation Start =========================== -->
+	<!-- ===========  Navigation Start =========== -->
 	<?php include_once("includes/navigation.php");?>
-	<!-- ============================  Navigation End ============================ -->
+	<!-- ===========  Navigation End ============= -->
+	<style>
+	.sb-biodata-field{
+		background: none;
+	}
+	.sb-biodata-field h2{
+		color: #000;
+		font-size: 23px;
+		font-weight: bold;
+		background: none;
+		text-align: left;
+	}
+	.shosurbari-biodata-form {
+		align-items: center;
+		flex-wrap: wrap;
+		width: 1400px;
+		margin: auto;
+		padding-top: 30px;
+		padding-bottom: 30px
+	}
+	.soshurbari-animation-icon,
+	.shosurbari-animation-form {
+		flex-basis: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.soshurbari-animation-icon h3 {
+		font-size: 23px;
+		font-weight: bold;
+		margin-bottom: 15px;
+		margin-top: 15px;
+	}
+	.soshurbari-animation-icon img {
+		justify-content: flex-end;
+		margin: auto;
+		width: 37px;
+		height: 35px;
+	}
+	@media (max-width: 1400px){
+	.shosurbari-biodata-form{
+			width: auto;
+	}
+	}
+	@media (max-width: 1024px) {
+	.shosurbari-animation-form {
+		flex-basis: 100%;
+		justify-content: center;
+	}
+	.shosurbari-biodata-form {
+		width: auto;
+	}
+	}
+	</style>
+	<?php
+    session_start();
+    if (isset($_SESSION['updateMessage'])) {
+        $messageType = ($_SESSION['messageType'] == 'success') ? 'success' : 'error';
+        $updateMessage = $_SESSION['updateMessage'];
+        echo "<div style='
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: " . ($messageType == 'success' ? '#22c55e' : '#ff0080') . ";
+        color: #fff;
+        box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+        border: 1px solid rgba(0,0,0,.05);
+        border-radius: 2px;
+        padding: 10px;
+        width: 262px;
+        text-align: center;
+        z-index: 9999;
+        '>$updateMessage
+        <button class='cancel-button' style='
+        position: absolute;
+        cursor: pointer;
+        right: 3px;
+        margin-right: -20px;
+        margin-top: -67px;
+        margin-bottom: 15px;
+        padding-bottom: 5px;
+        line-height: 5px;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 1px solid #ccc;
+        font-size: 20px;
+        font-weight: 600;
+        color: white;
+        background: " . ($messageType == 'success' ? '#0aa4ca' : '#0aa4ca') . ";
+        ' onclick='this.parentNode.style.display = \"none\";'>x</button>
+        </div>";
+        unset($_SESSION['updateMessage']);
+        unset($_SESSION['messageType']);
+    }
+    ?>
 	<div class="grid_3">
 		<div class="container">
 			<div class="breadcrumb1">
@@ -60,71 +143,6 @@ if(isloggedin()){
 			</div>
 		</div>
 	</div>
-
-	<style>
-.sb-biodata-field{
-	background: none;
-}
-  
-.sb-biodata-field h2{
-    color: #000;
-    font-size: 23px;
-    font-weight: bold;
-    background: none;
-    text-align: left;
-}
-
-.shosurbari-biodata-form {
-  align-items: center;
-  flex-wrap: wrap;
-  width: 1400px;
-  margin: auto;
-  padding-top: 30px;
-  padding-bottom: 30px
-}
-
-.soshurbari-animation-icon,
-.shosurbari-animation-form {
-  flex-basis: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.soshurbari-animation-icon h3 {
-  font-size: 23px;
-  font-weight: bold;
-  margin-bottom: 15px;
-  margin-top: 15px;
-}
-
-.soshurbari-animation-icon img {
-  justify-content: flex-end;
-  margin: auto;
-
-  width: 37px;
-  height: 35px;
-}
-
-@media (max-width: 1400px){
-  .shosurbari-biodata-form{
-    width: auto;
-  }
-}
-
-@media (max-width: 1024px) {
-
-  .shosurbari-animation-form {
-    flex-basis: 100%;
-    justify-content: center;
-  }
-
-  .shosurbari-biodata-form {
-    width: auto;
-  }
-}
-</style>
-
 	<div class="sb-home-search">
 		<h1>তথ্য পরিবর্তন করুন</h1>
 		<div class="sbhome-heart-divider">
@@ -134,66 +152,51 @@ if(isloggedin()){
 		<span class="grey-line"></span>
 		</div>
 	</div>
-
-
-
 	<div class="shosurbari-biodata">
-		<!-- multistep form -->
 		<form action="" method="POST" id="biodataForm">
-            <!-- progressbar -->
 			<ul id="progressbar">
 				<li class="active" id="personalPhysical" data-bengali-number="1">শারীরিক</li>
 				<li id="MarriageInfo" data-bengali-number="2">বিবাহ-সম্পর্কিত</li>
 			</ul>
-
-	
 			<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-			-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
 			--                S  T  A  R  T                  --
 			--      Personal & Physical  / sb-biodata-1      --
-			--                                               --
-			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
 			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 			<?php
 				include("includes/dbconn.php");
-
-				//getting profile details from db
 				$sql="SELECT * FROM 1bd_personal_physical WHERE user_id = $id";
 				$result = mysqlexec($sql);
-
 				if($result){
 				$row=mysqli_fetch_assoc($result);
 				if($row){
-					$biodatagender=$row['biodatagender'];
+				$biodatagender=$row['biodatagender'];
 				}
 				if($row){
-					$day=$row['dateofbirth'];
+				$day=$row['dateofbirth'];
 				}
 				if($row){
-					$month=$row['dateofbirth'];
+				$month=$row['dateofbirth'];
 				}
 				if($row){
-					$year=$row['dateofbirth'];
+				$year=$row['dateofbirth'];
 				}
 				if($row){
-					$height=$row['height'];
+				$height=$row['height'];
 				}
 				if($row){
-					$weight=$row['weight'];
+				$weight=$row['weight'];
 				}
 				if($row){
-					$physicalstatus=$row['physicalstatus'];
+				$physicalstatus=$row['physicalstatus'];
 				}
 				if($row){
-					$Skin_tones = $row['Skin_tones'];
+				$Skin_tones = $row['Skin_tones'];
 				}
 				if($row){
-					$bloodgroup=$row['bloodgroup']; 
+				$bloodgroup=$row['bloodgroup']; 
 				}
 				}
 			?>
-
-			<!-- Start Fieldset -->
 			<fieldset>
 				<div class="sb-biodata" id="personalPhysical">
 					<div class="soshurbari-animation-icon">
@@ -204,7 +207,6 @@ if(isloggedin()){
 					<div class="sb-biodata-field">
 						<h2>শারীরিক অবস্থা</h2>
 					</div>
-
 					<div class="sb-biodata-option">
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">বায়োডাটার ধরণ<span class="form-required" title="This field is required.">*</span></label>
@@ -214,7 +216,6 @@ if(isloggedin()){
 								<option value="পাত্রীর বায়োডাটা">পাত্রীর বায়োডাটা</option> 
 							</select>
 						</div>
-
 						<div class="shosurbari-biodata-field">
 							<label for="edit-pass">জন্ম তারিখ<span class="form-required" title="This field is required.">*</span></label>
 							<select name="day" required>
@@ -252,7 +253,6 @@ if(isloggedin()){
 								<option value="৩১">৩১</option>
 							</select>
 						</div>
-
 						<div class="shosurbari-biodata-field">
 							<label for="edit-pass">জন্ম মাস <span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (আসল)</span></label>
 							<select name="month" required>
@@ -271,7 +271,6 @@ if(isloggedin()){
 								<option value="ডিসেম্বর">ডিসেম্বর</option>
 							</select>
 						</div>
-
 						<div class="shosurbari-biodata-field">
 							<label for="edit-pass">জন্ম সাল <span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (আসল)</span></label>
 							<select name="year" required>
@@ -319,8 +318,6 @@ if(isloggedin()){
 								<option value="১৯৭৫">১৯৭৫</option>
 							</select>
 						</div>
-
-
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">শারীরিক বর্ণ<span class="form-required" title="This field is required.">*</span></label>
 							<select name="Skin_tones" required>
@@ -332,7 +329,6 @@ if(isloggedin()){
 								<option value="কালো">কালো</option>
 							</select>
 						</div>
-
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">রক্তের গ্রুপ<span class="form-required" title="This field is required.">*</span></label>
 							<select name="bloodgroup" required>
@@ -348,141 +344,106 @@ if(isloggedin()){
 								<option value="জানিনা">জানিনা</option>
 							</select>
 						</div>
-
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">উচ্চতা<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text" id="edit-name" name="height" value="<?php echo $height; ?>" size="100" maxlength="100" class="form-text" required>
 						</div>
-
-					
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">ওজন<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text" id="edit-name" name="weight" value="<?php echo $weight; ?>" size="100" maxlength="100" class="form-text" required>
 						</div>
-
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">শারীরিক-মানসিক কোনো সমস্যা/রোগ আছে কি?<span class="form-required" title="This field is required.">*</span></label>
 							<textarea rows="8" id="edit-name" name="physicalstatus" placeholder="" class="form-text-describe" required><?php echo $physicalstatus; ?></textarea>
 						</div>
 					</div>
 				</div>
-
 				<input type="button" name="next" class="next action-button" value="পরবর্তী ধাপ" />
 			</fieldset>
-			<!--Fieldsets end -->
 			<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-			-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
 			--                   E   N   D                   --
 			--       Personal & Physical  / sb-biodata-1     --
-			--                                               --
-			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
 			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-
-
-
-
-
-
-
-
-
-
+			<!-- End & Start -->
             <!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-			-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
 			--                S  T  A  R  T                  --
 			--   Male Marriage related Info / sb-biodata-6   --
 			--  Female Marriage related Info / sb-biodata-7  --
-			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
 			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 			<?php
 				include("includes/dbconn.php");
-
-				//bd_marriage_related_qs_male_6;
-				//getting profile details from db
 				$sql="SELECT * FROM 6bd_marriage_related_qs_male WHERE user_id = $id";
 				$result = mysqlexec($sql);
 				if($result){
 					$row=mysqli_fetch_assoc($result);
 					if($row){
-						$allowstudy_aftermarriage=$row['allowstudy_aftermarriage'];
+					$allowstudy_aftermarriage=$row['allowstudy_aftermarriage'];
 					}
 					if($row){
-						$allowjob_aftermarriage=$row['allowjob_aftermarriage'];
+					$allowjob_aftermarriage=$row['allowjob_aftermarriage'];
 					}
 					if($row){
-						$livewife_aftermarriage=$row['livewife_aftermarriage'];
+					$livewife_aftermarriage=$row['livewife_aftermarriage'];
 					}
 					if($row){
-						$profileby=$row['profileby'];
+					$profileby=$row['profileby'];
 					}
 				}
-
 				//bd_marriage_related_qs_female_7;
-				//getting profile details from db
 				$sql="SELECT * FROM 7bd_marriage_related_qs_female WHERE user_id = $id";
 				$result = mysqlexec($sql);
 				if($result){
 					$row=mysqli_fetch_assoc($result);
 					if($row){
-						$studies_aftermarriage=$row['studies_aftermarriage'];
+					$studies_aftermarriage=$row['studies_aftermarriage'];
 					}
 					if($row){
-						$anyjob_aftermarriage=$row['anyjob_aftermarriage'];
+					$anyjob_aftermarriage=$row['anyjob_aftermarriage'];
 					}
 					if($row){
-						$agree_marriage_student=$row['agree_marriage_student'];
+					$agree_marriage_student=$row['agree_marriage_student'];
 					}
 					if($row){
-						$profileby=$row['profileby'];
+					$profileby=$row['profileby'];
 					}
 				}
-
 				//6bd_7bd_marital_status;
-				//getting profile details from db
 				$sql="SELECT * FROM 6bd_7bd_marital_status WHERE user_id = $id";
 				$result = mysqlexec($sql);
 				if($result){
 					$row=mysqli_fetch_assoc($result);
 					if($row){
-						$maritalstatus=$row['maritalstatus'];
-					}
-
-					if($row){
-						$divorce_reason=$row['divorce_reason'];
-					}
-
-					if($row){
-						$how_widow=$row['how_widow'];
-					}
-
-
-					if($row){
-						$how_widower=$row['how_widower'];
-					}
-
-					if($row){
-						$get_wife_permission=$row['get_wife_permission'];
+					$maritalstatus=$row['maritalstatus'];
 					}
 					if($row){
-						$get_family_permission=$row['get_family_permission'];
+					$divorce_reason=$row['divorce_reason'];
 					}
 					if($row){
-						$why_again_married=$row['why_again_married'];
+					$how_widow=$row['how_widow'];
 					}
 					if($row){
-						$how_many_son=$row['how_many_son'];
+					$how_widower=$row['how_widower'];
 					}
 					if($row){
-						$son_details=$row['son_details'];
+					$get_wife_permission=$row['get_wife_permission'];
 					}
 					if($row){
-						$profilecreationdate=$row['profilecreationdate'];
+					$get_family_permission=$row['get_family_permission'];
+					}
+					if($row){
+					$why_again_married=$row['why_again_married'];
+					}
+					if($row){
+					$how_many_son=$row['how_many_son'];
+					}
+					if($row){
+					$son_details=$row['son_details'];
+					}
+					if($row){
+					$profilecreationdate=$row['profilecreationdate'];
 					}
 				}
 			?>
-
-
-			<!--Fieldsets start-->
 			<fieldset>
 				<div class="sb-biodata" id="maleMarriageInfo">
 					<div class="soshurbari-animation-icon">
@@ -493,7 +454,6 @@ if(isloggedin()){
 					<div class="sb-biodata-field">
 						<h2>বিবাহ সম্পর্কিত তথ্য</h2>
 					</div>
-
 					<div class="sb-biodata-option">
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">বৈবাহিক অবস্থা<span class="form-required" title="This field is required.">*</span></label>
@@ -506,8 +466,6 @@ if(isloggedin()){
 								<option value="বিবাহিত">বিবাহিত</option>
 							</select>
 						</div>
-
-
 						<!-- Divorce Section Start -->
 						<div class="shosurbari-biodata-field" id="divorce-section" style="display: none;">
 							<div class="shosurbari-biodata-field">
@@ -516,8 +474,6 @@ if(isloggedin()){
 							</div>
 						</div>
 						<!-- Divorce Section End -->
-
-
 						<!-- Widow Section Start-->
 						<div class="shosurbari-biodata-field" id="widow-section" style="display: none;">
 							<div class="shosurbari-biodata-field">
@@ -526,8 +482,6 @@ if(isloggedin()){
 							</div>
 						</div>
 						<!-- Widow Section End-->
-
-
 						<!-- Widower Section Start-->
 						<div class="shosurbari-biodata-field" id="widower-section" style="display: none;">
 							<div class="shosurbari-biodata-field">
@@ -536,8 +490,6 @@ if(isloggedin()){
 							</div>
 						</div>
 						<!-- Widower Section End-->
-
-
 						<!-- Married Section Start-->
 						<div class="shosurbari-biodata-field" id="married-section" style="display: none;">
 							<div class="shosurbari-biodata-field">
@@ -556,8 +508,6 @@ if(isloggedin()){
 							</div>
 						</div>
 						<!-- Married Section End-->
-
-
 						<!-- This Sections For Divorce + Widow + Widower + Married Start-->
 						<div class="shosurbari-biodata-field" id="son-section" style="display: none;">
 							<div class="shosurbari-biodata-field">
@@ -578,16 +528,12 @@ if(isloggedin()){
 									<option value="১০টি সন্তান">১০টি সন্তান</option>
 								</select>
 							</div>
-
 							<div class="shosurbari-biodata-field" id="son-details" style="display: none;">
 								<label for="edit-name">সন্তান সম্পর্কিত তথ্য<span class="form-required" title="This field is required.">*</span></label>
 								<textarea rows="5" name="son_details"  value="<?php echo $son_details; ?>" placeholder="" class="form-text-describe"></textarea>
 							</div>
 						</div>
 						<!-- This Sections For Divorce + Widow + Widower + Married End-->
-
-
-
 						<!-- Bellow Two Sections For Male or Female -->
 						<div class="shosurbari-biodata-field" id="male-allow-wife-job">
 							<label for="edit-name">বিয়ের পর স্ত্রীকে চাকরি করতে দিতে ইচ্ছুক?<span class="form-required" title="This field is required.">*</span></label>
@@ -598,7 +544,6 @@ if(isloggedin()){
 							<label for="edit-name">বিয়ের পর চাকরি করতে চান?<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text" id="edit-name" name="anyjob_aftermarriage" value="<?php echo $anyjob_aftermarriage; ?>" size="100" maxlength="100" class="form-text">
 						</div>
-
 						<div class="shosurbari-biodata-field" id="male-allow-wife-study">
 							<label for="edit-name">বিয়ের পর স্ত্রীকে প্রাতিষ্ঠানিক পড়ালেখা করতে দিতে ইচ্ছুক?<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text" id="edit-name" name="allowstudy_aftermarriage" value="<?php echo $allowstudy_aftermarriage; ?>" size="100" maxlength="100" class="form-text">
@@ -608,7 +553,6 @@ if(isloggedin()){
 							<label for="edit-name">বিয়ের পর পড়াশোনা চালিয়ে যেতে চান?<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text" id="edit-name" name="studies_aftermarriage"   value="<?php echo $studies_aftermarriage; ?>"  size="200" maxlength="200" class="form-text">
 						</div>
-						
 						<div class="shosurbari-biodata-field" id="male-live-with-wife">
 							<label for="edit-name">বিয়ের পর স্ত্রীকে নিয়ে কোথায় থাকবেন?<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text" id="edit-name" name="livewife_aftermarriage"  value="<?php echo $livewife_aftermarriage; ?>"  size="100" maxlength="100" class="form-text">
@@ -618,7 +562,6 @@ if(isloggedin()){
 							<label for="edit-name">শিক্ষার্থী বিয়ে করতে রাজি আছেন?<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text" id="edit-name" name="agree_marriage_student"   value="<?php echo $agree_marriage_student; ?>"size="200" maxlength="200" class="form-text">
 						</div>
-
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">বায়োডাটা টি যার তার আপনি কে হন?<span class="form-required" title="This field is required.">*</span></label>
 							<select name="profileby" required>
@@ -638,10 +581,8 @@ if(isloggedin()){
 						</div>
 					</div>    
 				</div>
-
 				<input type="button" name="previous" class="previous action-button" value="Previous" />
 				<button type="submit" id="edit-submit" name="op" class="biodata-submit"><span></span> আপডেট করুন</button>			
-
 				<script>
 					function toggleGenderSections(selectedGender) {
 						var maleallowJobwife = document.getElementById('male-allow-wife-job');
@@ -650,49 +591,37 @@ if(isloggedin()){
 						var femaleStudySection = document.getElementById('female-study-after-marriage');
 						var maleliveWithwife = document.getElementById('male-live-with-wife');
 						var femaleagreeMarriagestudent = document.getElementById('female-agree-marriage-student');
-
 						var maritalStatusSelect = document.getElementsByName('maritalstatus')[0];
 						var optionWidow = maritalStatusSelect.querySelector('option[value="বিধবা"]');
 						var optionWidower = maritalStatusSelect.querySelector('option[value="বিপত্নীক"]');
-						
 						// Reset the display property for all options before toggling
 						optionWidow.style.display = 'block';
 						optionWidower.style.display = 'block';
-						
 						if (selectedGender === 'পাত্রের বায়োডাটা') {
 							maleallowJobwife.style.display = 'block';
 							femaleJobSection.style.display = 'none';
-
 							maleallowStudywife.style.display = 'block';
 							femaleStudySection.style.display = 'none';
-
 							maleliveWithwife.style.display = 'block';
 							femaleagreeMarriagestudent.style.display = 'none';
-
 							// Hide বিধবা option
 							optionWidow.style.display = 'none';
 						} else if (selectedGender === 'পাত্রীর বায়োডাটা') {
 							maleallowJobwife.style.display = 'none';
 							femaleJobSection.style.display = 'block';
-
 							maleallowStudywife.style.display = 'none';
 							femaleStudySection.style.display = 'block';
-
 							maleliveWithwife.style.display = 'none';
 							femaleagreeMarriagestudent.style.display = 'block';
-
 							// Hide বিপত্নীক option
 							optionWidower.style.display = 'none';
 						} else {
 							maleallowJobwife.style.display = 'none';
 							femaleJobSection.style.display = 'none';
-
 							maleallowStudywife.style.display = 'none';
 							femaleStudySection.style.display = 'none';
-
 							maleliveWithwife.style.display = 'none';
 							femaleagreeMarriagestudent.style.display = 'none';
-
 							// Show all options
 							var maritalStatusSelect = document.getElementsByName('maritalstatus')[0];
 							var options = maritalStatusSelect.querySelectorAll('option');
@@ -701,21 +630,18 @@ if(isloggedin()){
 							});
 						}
 					}
-
 					function toggleMaritalStatus(selectedStatus) {
 						var sonDetailsSection = document.getElementById('son-section');
 						var divorceSection = document.getElementById('divorce-section');
 						var widowSection = document.getElementById('widow-section');
 						var widowerSection = document.getElementById('widower-section');
 						var marriedSection = document.getElementById('married-section');
-
 						// Hide all sections initially
 						sonDetailsSection.style.display = 'none';
 						divorceSection.style.display = 'none';
 						widowSection.style.display = 'none';
 						widowerSection.style.display = 'none';
 						marriedSection.style.display = 'none';
-
 						if (selectedStatus === 'অবিবাহিত') {
 							sonDetailsSection.style.display = 'none';
 						} else if (selectedStatus === 'ডিভোর্স') {
@@ -732,10 +658,8 @@ if(isloggedin()){
 							sonDetailsSection.style.display = 'block';
 						}
 					}
-
 					function toggleSonDetails(selectedSonCount) {
 						var sonAboutSection = document.getElementById('son-details');
-
 						if (selectedSonCount !== 'কোনো সন্তান নেই') {
 							sonAboutSection.style.display = 'block';
 						} else {
@@ -743,151 +667,96 @@ if(isloggedin()){
 						}
 					}
 				</script>
-
 			</fieldset>
-			<!--Fieldsets end-->
 			<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-			-- -- -- -- -- -- -- -- --- -- -- -- -- -- -- -- --
 			--                   E   N   D                   --
 			--   Male Marriage related Info / sb-biodata-6   --
 			--  Female Marriage related Info / sb-biodata-7  --
-			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---
 			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 		</form>
-	</div>
-	
-	
-<!--=======================================
-How Many Visitors View This Page.
-This Script Connected to get_view_count.php
-and page_views Database Table
-========================================-->
-<script>
-	$(document).ready(function() {
-	// Define an array of page names (without the .php extension)
-	var pages = ["update-physical-marital"];
-
-	// Fetch and display view counts for each page
-	for (var i = 0; i < pages.length; i++) {
-		var page = pages[i];
-		$.ajax({
-		url: 'get_view_count.php?page=' + page, // Adjust the URL to your PHP script
-		type: 'GET',
-		success: function(data) {
-		$('#viewCount' + page.replace("_", "")).html(data);
+	</div>	
+	<!--=======================================
+	How Many Visitors View This Page.
+	This Script Connected to get_view_count.php
+	and page_views Database Table
+	========================================-->
+	<script>
+		$(document).ready(function() {
+		var pages = ["update-physical-marital"];
+		for (var i = 0; i < pages.length; i++) {
+			var page = pages[i];
+			$.ajax({
+			url: 'get_view_count.php?page=' + page,
+			type: 'GET',
+			success: function(data) {
+			$('#viewCount' + page.replace("_", "")).html(data);
+			}
+			});
 		}
 		});
-	}
-	});
-</script>
+	</script>
+	<script>
+		var current_fs, next_fs, previous_fs;
+		$(".next").click(function() {
+			current_fs = $(this).closest("fieldset");
+			next_fs = current_fs.next("fieldset");
+			if (!validateFields(current_fs)) {
+				return;
+			}
+			$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+			next_fs.show();
+			current_fs.hide();
+			var progressBarHeight = $('#progressbar').outerHeight();
+			var windowHeight = $(window).height();
+			var marginTop = (windowHeight - progressBarHeight) / 15;
+			var topMargin = 50;
+			$('html, body').animate({ scrollTop: $('#progressbar').offset().top - marginTop - topMargin }, 800);
+		});
+		$(".previous").click(function() {
+			current_fs = $(this).closest("fieldset");
+			previous_fs = current_fs.prev("fieldset");
+			previous_fs.show();
+			current_fs.hide();
+			$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+			var progressBarHeight = $('#progressbar').outerHeight();
+			var windowHeight = $(window).height();
+			var marginTop = (windowHeight - progressBarHeight) / 15;
+			var topMargin = 50;
 
-
-<!--=======  Footer Start ========-->
-<?php include_once("footer.php");?>
-<!--=======  Footer End  =========-->
-
-
+			$('html, body').animate({ scrollTop: $('#progressbar').offset().top - marginTop - topMargin }, 800);
+		});
+		function validateFields(current_fs) {
+			var isValid = true;
+			var inputs = current_fs.find(":input[required]");
+			current_fs.find(".error-message-empty").remove();
+			inputs.each(function() {
+				if ($(this).val().trim() === "") {
+				$(this).addClass("error");
+				isValid = false;
+				var errorMessage = "<span class='error-message-empty'>This field is required.</span>";
+				$(this).after(errorMessage);
+				} else {
+				$(this).removeClass("error");
+				}
+			});
+			if (!isValid) {
+				var firstEmptyField = current_fs.find(".error").first();
+				var windowHeight = $(window).height();
+				var fieldTop = firstEmptyField.offset().top;
+				var fieldHeight = firstEmptyField.outerHeight();
+				var middleOffset = (windowHeight / 2) - (fieldHeight / 2);
+				var scrollTo = fieldTop - middleOffset;
+				$('html, body').animate({ scrollTop: scrollTo }, 800);
+			}
+			return isValid;
+		}
+	</script>
+	<!-- jQuery -->
+	<script src="http://thecodeplayer.com/uploads/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+	<!-- jQuery easing plugin -->
+	<script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
+	<!--=======  Footer Start ========-->
+	<?php include_once("footer.php");?>
+	<!--=======  Footer End  =========-->
 </body>
 </html>
-
-<!-- jQuery -->
-<script src="http://thecodeplayer.com/uploads/js/jquery-1.9.1.min.js" type="text/javascript"></script>
-<!-- jQuery easing plugin -->
-<script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
-
-
-
-<script>
-	// jQuery time
-	var current_fs, next_fs, previous_fs; // fieldsets
-
-	$(".next").click(function() {
-		current_fs = $(this).closest("fieldset");
-		next_fs = current_fs.next("fieldset");
-
-		// Validate fields in the current fieldset
-		if (!validateFields(current_fs)) {
-			return; // Stop execution if fields are empty
-		}
-
-		// Activate next step on progressbar
-		$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-
-		// Show the next fieldset
-		next_fs.show();
-		// Hide the current fieldset
-		current_fs.hide();
-
-		// Smooth scroll to the top of the progress bar
-		var progressBarHeight = $('#progressbar').outerHeight();
-		var windowHeight = $(window).height();
-		var marginTop = (windowHeight - progressBarHeight) / 15;
-		var topMargin = 50;
-
-		$('html, body').animate({ scrollTop: $('#progressbar').offset().top - marginTop - topMargin }, 800);
-	});
-
-
-
-	$(".previous").click(function() {
-		current_fs = $(this).closest("fieldset");
-		previous_fs = current_fs.prev("fieldset");
-
-		// Show the previous fieldset
-		previous_fs.show();
-		// Hide the current fieldset
-		current_fs.hide();
-
-		// De-activate current step on progressbar
-		$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
-
-		// Smooth scroll to the top of the progress bar
-		var progressBarHeight = $('#progressbar').outerHeight();
-		var windowHeight = $(window).height();
-		var marginTop = (windowHeight - progressBarHeight) / 15;
-		var topMargin = 50;
-
-		$('html, body').animate({ scrollTop: $('#progressbar').offset().top - marginTop - topMargin }, 800);
-	});
-
-
-
-	// Validate the fields in the current fieldset
-	function validateFields(current_fs) {
-		var isValid = true;
-
-		// Get all required input fields within the current fieldset
-		var inputs = current_fs.find(":input[required]");
-
-		// Remove previous error messages
-		current_fs.find(".error-message-empty").remove();
-
-		// Loop through each input field and check if it's empty
-		inputs.each(function() {
-			if ($(this).val().trim() === "") {
-			$(this).addClass("error"); // Add error class to highlight the empty field
-			isValid = false;
-
-			// Show error message
-			var errorMessage = "<span class='error-message-empty'>This field is required.</span>";
-			$(this).after(errorMessage);
-			} else {
-			$(this).removeClass("error"); // Remove error class if the field is not empty
-			}
-		});
-
-
-		// Scroll to the first empty input field
-		if (!isValid) {
-			var firstEmptyField = current_fs.find(".error").first();
-			var windowHeight = $(window).height();
-			var fieldTop = firstEmptyField.offset().top;
-			var fieldHeight = firstEmptyField.outerHeight();
-			var middleOffset = (windowHeight / 2) - (fieldHeight / 2);
-			var scrollTo = fieldTop - middleOffset;
-
-			$('html, body').animate({ scrollTop: scrollTo }, 800);
-		}
-		return isValid;
-	}
-</script>

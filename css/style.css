@@ -1355,8 +1355,45 @@ span.m_3{
 --  SHOSUR BARI - USER PROFILE PAGE / VIEW BIO   --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 /*Profile Short Heading Start*/
+.star {
+    position: absolute;
+    background: white;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    animation: twinkle 1.5s linear infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+.star:nth-child(1) { top: 8%; left: 5%; width: 12px; height: 12px; }
+.star:nth-child(2) { top: 54%; left: 80%; width: 10px; height: 10px; }
+.star:nth-child(3) { top: 52%; left: 60%; width: 10px; height: 15px; }
+.star:nth-child(4) { top: 10%; left: 25%; width: 8px; height: 8px; }
+.star:nth-child(5) { top: 15%; left: 70%; width: 15px; height: 15px; }
+.star:nth-child(6) { top: 70%; left: 5%; width: 14px; height: 14px; }
+.star:nth-child(7) { top: 20%; left: 50%; width: 11px; height: 11px; }
+/* .star:nth-child(8) { top: 90%; left: 40%; width: 15px; height: 15px; } */
+.star:nth-child(9) { top: 25%; left: 35%; width: 14px; height: 14px; }
+/* .star:nth-child(10) { top: 80%; left: 20%; width: 16px; height: 16px; } */
+.star:nth-child(11) { top: 30%; left: 10%; width: 8px; height: 8px; }
+.star:nth-child(12) { top: 75%; left: 85%; width: 14px; height: 14px; }
+/* .star:nth-child(13) { top: 30%; left: 80%; width: 13px; height: 13px; } */
+/* .star:nth-child(14) { top: 78%; left: 70%; width: 17px; height: 17px; } */
+/* .star:nth-child(15) { top: 40%; left: 65%; width: 15px; height: 15px; } */
+.star:nth-child(16) { top: 80%; left: 53%; width: 6px; height: 6px; }
+.star:nth-child(17) { top: 40%; left: 45%; width: 13px; height: 13px; }
+/* .star:nth-child(18) { top: 60%; left: 30%; width: 10px; height: 10px; } */
+.star:nth-child(19) { top: 50%; left: 20%; width: 14px; height: 14px; }
+.star:nth-child(20) { top: 20%; left: 95%; width: 9px; height: 9px; }
+
 .profile-header {
-    background: linear-gradient(180deg, #00bbff61 0%,rgba(238,246,253,0) 100%);
+    background: linear-gradient(180deg, #000000 0%,rgb(73 101 129) 100%);
+    /* background: linear-gradient(180deg, #00bbff61 0%,rgba(238,246,253,0) 100%); */
     display: flex;
     height: 140px;
     position: relative;
@@ -1446,12 +1483,12 @@ span.m_3{
     text-align: left;
     font-family: sans-serif;
     font-weight: bold;
-    animation: textAnimation 10s linear infinite;
+    color: #fff;
+    /* animation: textAnimation 10s linear infinite; */
 }
 .profile-nav-info .address {
     display: flex;
-    font-weight: bold;
-    color: #777;
+    color: #fff;
 }
 .profile-nav-info .address p {
     margin-right: 5px;
@@ -1515,6 +1552,7 @@ span.m_3{
     display: flex;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 130px;
 }
 .biodatanumber_head{
 	width: 100%;
@@ -4385,7 +4423,7 @@ font-size: 14px;
         display: flex;
         flex-wrap: wrap;
         margin-top: 80px;
-        margin-bottom: 0px;
+        margin-bottom: 130px;
         margin-right: auto;
         margin-left: auto;
         padding: 0px;

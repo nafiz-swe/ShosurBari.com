@@ -1089,7 +1089,7 @@ if(isloggedin()){
 
 						<div class="shosurbari-biodata-field" id="varsity_name">
 							<label for="edu-method">স্নাতকে/সমমানে শিক্ষা প্রতিষ্ঠান<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" name="uvarsity_name" value="" id="university_name"  maxlength="250" class="form-text required">
+							<input type="text" name="uvarsity_name" value="" id="university_name" class="form-text required">
 						</div>
 						<!-- University Education End -->
 
@@ -2352,11 +2352,6 @@ if(isloggedin()){
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">জীবনসঙ্গীর <span style="color: black; font-size: 15px;">অর্থনৈতিক অবস্থা</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text" id="edit-name" name="partner_financial" value="" class="form-text" required>
-						</div>
-
-						<div class="shosurbari-biodata-field">
-							<label for="edit-name">জীবনসঙ্গীর <span style="color: black; font-size: 15px;">ধর্মীয় বিষয়াবলী</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
-							<textarea type="text" rows="8" id="edit-name" name="partner_religius" value="" class="form-text-describe" required></textarea>
 						</div>
 
 						<div class="shosurbari-biodata-field">

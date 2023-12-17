@@ -109,13 +109,51 @@ if(isloggedin()){
 	}
 	}
 	</style>
+	<?php
+    session_start();
+    if (isset($_SESSION['updateMessage'])) {
+        $messageType = ($_SESSION['messageType'] == 'success') ? 'success' : 'error';
+        $updateMessage = $_SESSION['updateMessage'];
+        echo "<div style='
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: " . ($messageType == 'success' ? '#22c55e' : '#ff0080') . ";
+        color: #fff;
+        box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+        border: 1px solid rgba(0,0,0,.05);
+        border-radius: 2px;
+        padding: 10px;
+        width: 262px;
+        text-align: center;
+        z-index: 9999;
+        '>$updateMessage
+        <button class='cancel-button' style='
+        position: absolute;
+        cursor: pointer;
+        right: 3px;
+        margin-right: -20px;
+        margin-top: -67px;
+        margin-bottom: 15px;
+        padding-bottom: 5px;
+        line-height: 5px;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 1px solid #ccc;
+        font-size: 20px;
+        font-weight: 600;
+        color: white;
+        background: " . ($messageType == 'success' ? '#0aa4ca' : '#0aa4ca') . ";
+        ' onclick='this.parentNode.style.display = \"none\";'>x</button>
+        </div>";
+        unset($_SESSION['updateMessage']);
+        unset($_SESSION['messageType']);
+    }
+    ?>
 	<div class="shosurbari-biodata">
-		<!-- multistep form -->
 		<form action="" method="POST" id="biodataForm">
-			<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-			--                S  T  A  R  T                  --
-			--  Educational Qualifications  / sb-biodata-3   --
-			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 			<?php
 				include("includes/dbconn.php");
 				$sql="SELECT * FROM 3bd_secondaryedu_method WHERE user_id = $id";
@@ -995,10 +1033,6 @@ if(isloggedin()){
 				</script>
 				<button type="submit" id="edit-submit" name="op" class="biodata-submit"><span></span> আপডেট করুন</button>			
 			</fieldset>
-			<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-			--                   E   N   D                   --
-			--  Educational Qualifications  / sb-biodata-3   --
-			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 		</form>
 	</div>
 	<!--=======================================
