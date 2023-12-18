@@ -517,7 +517,7 @@ require_once("includes/dbconn.php");
 									</tr>
 									<tr class="opened">
 										<?php if (!empty($Skin_tones)) { ?>
-										<td class="day_label">শারীরিক বর্ণ</td>
+										<td class="day_label">গাত্র বর্ণ</td>
 										<td class="day_value"><?php echo $Skin_tones;?></td>
 										<?php } ?>
 									</tr>
@@ -646,7 +646,7 @@ require_once("includes/dbconn.php");
 						$("#copy-message").addClass("show");
 						setTimeout(function() {
 							$("#copy-message").removeClass("show");
-						}, 5000);
+						}, 6000);
 						})
 					</script>
 				</div>
@@ -738,7 +738,7 @@ require_once("includes/dbconn.php");
 										echo "<div class=\"sbbio_number_recentview\"><span class=\"sb_biodatanumber_recentview\"> {$profid} <br> বায়োডাটা নং </span> </div>";
 										echo "</div>";
 										echo "<div class=\"sb_user_recentview\">";
-										echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> শারীরিক বর্ণ </span>  <span class=\"sb_data_recentview\">{$Skin_tones_recentview1}</span></span>";
+										echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> গাত্র বর্ণ </span>  <span class=\"sb_data_recentview\">{$Skin_tones_recentview1}</span></span>";
 										echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> উচ্চতা </span>  <span class=\"sb_data_recentview\">{$height_recentview1}</span></span>";
 										echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> পেশা </span>      <span class=\"sb_data_recentview\"> {$occupation_value}</span></span>";
 										echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> জেলা </span>      <span class=\"sb_data_recentview\"> {$home_district}</span></span>";
@@ -833,7 +833,7 @@ require_once("includes/dbconn.php");
 											<?php endif; ?>
 											<?php if (!empty($Skin_tones)) : ?>
 											<tr class="opened">
-												<td class="day_label">শারীরিক বর্ণ</td>
+												<td class="day_label">গাত্র বর্ণ</td>
 												<td class="day_value closed"><span><?php echo $Skin_tones; ?></span></td>
 											</tr>
 											<?php endif; ?>
@@ -1149,7 +1149,7 @@ require_once("includes/dbconn.php");
 											<?php endif; ?>
 											<?php if (!empty($qawmi_madrasa_hafez)) : ?>
 											<tr class="opened">
-												<td class="day_label">আপনি কি হাফেজ / হাফেজা?</td>
+												<td class="day_label">আপনি কি হাফেজ/হাফেজা?</td>
 												<td class="day_value"><?php echo $qawmi_madrasa_hafez; ?></td>
 											</tr>
 											<?php endif; ?>
@@ -1351,6 +1351,9 @@ require_once("includes/dbconn.php");
 									$present_address_location=$row['present_address_location'];
 									}
 									if($row){
+									$present_address_living_purpose=$row['present_address_living_purpose'];
+									}
+									if($row){
 									$childhood=$row['childhood'];
 									}
 									}
@@ -1359,64 +1362,64 @@ require_once("includes/dbconn.php");
 									<table class="biodata_value_data">
 										<h3>বর্তমান এবং স্থায়ী ঠিকানা</h3>
 										<tbody>
+											<?php if (!empty($country_present_address)) : ?>
+											<tr class="opened">
+												<td class="day_label">যেই দেশের স্থায়ী নাগরিক/সিটিজেন</td>
+												<td class="day_value"><?php echo $country_present_address;?></td>
+											</tr>
+											<?php endif; ?>
 											<?php if (!empty($permanent_division)) : ?>
 											<tr class="opened">
-												<td class="day_label">স্থায়ী ঠিকানা বিভাগ</td>
+												<td class="day_label">বাংলাদেশে স্থায়ী ঠিকানা-বিভাগ</td>
 												<td class="day_value"><?php echo $permanent_division; ?></td>
 											</tr>
 											<?php endif; ?>
 											<?php if (!empty($home_district_under_barishal)) : ?>
 											<tr class="closed">
-												<td class="day_label">স্থায়ী ঠিকানা জেলা</td>
+												<td class="day_label">বাংলাদেশে স্থায়ী ঠিকানা-জেলা</td>
 												<td class="day_value closed"><?php echo $home_district_under_barishal;?></td>
 											</tr>
 											<?php endif; ?>
 											<?php if (!empty($home_district_under_chattogram)) : ?>
 											<tr class="closed">
-												<td class="day_label">স্থায়ী ঠিকানার জেলা</td>
+												<td class="day_label">বাংলাদেশে স্থায়ী ঠিকানা-জেলা</td>
 												<td class="day_value closed"><?php echo $home_district_under_chattogram;?></td>
 											</tr>
 											<?php endif; ?>
 											<?php if (!empty($home_district_under_dhaka)) : ?>
 											<tr class="closed">
-												<td class="day_label">স্থায়ী ঠিকানার জেলা</td>
+												<td class="day_label">বাংলাদেশে স্থায়ী ঠিকানা-জেলা</td>
 												<td class="day_value closed"><?php echo $home_district_under_dhaka;?></td>
 											</tr>
 											<?php endif; ?>
 											<?php if (!empty($home_district_under_khulna)) : ?>
 											<tr class="closed">
-												<td class="day_label">স্থায়ী ঠিকানার জেলা</td>
+												<td class="day_label">বাংলাদেশে স্থায়ী ঠিকানা-জেলা</td>
 												<td class="day_value closed"><?php echo $home_district_under_khulna;?></td>
 											</tr>
 											<?php endif; ?>
 											<?php if (!empty($home_district_under_mymensingh)) : ?>
 											<tr class="closed">
-												<td class="day_label">স্থায়ী ঠিকানার জেলা</td>
+												<td class="day_label">বাংলাদেশে স্থায়ী ঠিকানা-জেলা</td>
 												<td class="day_value closed"><?php echo $home_district_under_mymensingh;?></td>
 											</tr>
 											<?php endif; ?>
 											<?php if (!empty($home_district_under_rajshahi)) : ?>
 											<tr class="closed">
-												<td class="day_label">স্থায়ী ঠিকানার জেলা</td>
+												<td class="day_label">বাংলাদেশে স্থায়ী ঠিকানা-জেলা</td>
 												<td class="day_value closed"><?php echo $home_district_under_rajshahi;?></td>
 											</tr>
 											<?php endif; ?>
 											<?php if (!empty($home_district_under_rangpur)) : ?>
 											<tr class="closed">
-												<td class="day_label">স্থায়ী ঠিকানার জেলা</td>
+												<td class="day_label">বাংলাদেশে স্থায়ী ঠিকানা-জেলা</td>
 												<td class="day_value closed"><?php echo $home_district_under_rangpur;?></td>
 											</tr>
 											<?php endif; ?>
 											<?php if (!empty($home_district_under_sylhet)) : ?>
 											<tr class="closed">
-												<td class="day_label">স্থায়ী ঠিকানার জেলা</td>
+												<td class="day_label">বাংলাদেশে স্থায়ী ঠিকানা-জেলা</td>
 												<td class="day_value closed"><?php echo $home_district_under_sylhet;?></td>
-											</tr>
-											<?php endif; ?>
-											<?php if (!empty($country_present_address)) : ?>
-											<tr class="opened">
-												<td class="day_label">যেই দেশের স্থায়ী নাগরিক/সিটিজেন</td>
-												<td class="day_value"><?php echo $country_present_address;?></td>
 											</tr>
 											<?php endif; ?>
 											<?php if (!empty($present_address_location)) : ?>
@@ -1425,10 +1428,10 @@ require_once("includes/dbconn.php");
 												<td class="day_value"><?php echo $present_address_location; ?></td>
 											</tr>
 											<?php endif; ?>
-											<?php if (!empty($present_address_location)) : ?>
+											<?php if (!empty($present_address_living_purpose)) : ?>
 											<tr class="opened">
-												<td class="day_label">উক্ত বর্তমান ঠিকানায় যেই উদ্দেশ্যে থাকা হয়</td>
-												<td class="day_value"><?php echo $present_address_location; ?></td>
+												<td class="day_label">উক্ত বর্তমান ঠিকানায় যেই উদ্দেশ্যে থাকা হয়, সাথে পরিবারের সদস্য থাকছে কিনা এবং সেখানে কত দিন যাবৎ থাকছেন?</td>
+												<td class="day_value"><?php echo $present_address_living_purpose; ?></td>
 											</tr>
 											<?php endif; ?>
 											<?php if (!empty($childhood)) : ?>
@@ -1518,6 +1521,9 @@ require_once("includes/dbconn.php");
 										}
 										if($row){
 											$son_details=$row['son_details'];
+										}
+										if($row){
+											$agree_marriage_other_religion=$row['agree_marriage_other_religion'];
 										}
 										if($row){
 											$profilecreationdate=$row['profilecreationdate'];
@@ -1634,10 +1640,10 @@ require_once("includes/dbconn.php");
 												<td class="day_value"><?php echo $agree_marriage_student; ?></td>
 											</tr>
 											<?php endif; ?>
-											<?php if (!empty($agree_marriage_student)) : ?>
+											<?php if (!empty($agree_marriage_other_religion)) : ?>
 											<tr class="opened">
 												<td class="day_label">অন্য ধর্মের অনুসারী যে কাওকে বিয়ে করতে রাজি হবেন যদি সে আপনার ধর্ম গ্রহণ করে?</td>
-												<td class="day_value"><?php echo $agree_marriage_student; ?></td>
+												<td class="day_value"><?php echo $agree_marriage_other_religion; ?></td>
 											</tr>
 											<?php endif; ?>
 										</tbody>
@@ -1707,6 +1713,9 @@ require_once("includes/dbconn.php");
 								if($result){
 								$row= mysqli_fetch_assoc($result);
 								if($row){
+								$family_major_guardian=$row['family_major_guardian'];
+								}
+								if($row){
 								$father_alive=$row['father_alive'];
 								}
 								if($row){
@@ -1743,6 +1752,12 @@ require_once("includes/dbconn.php");
 									<table class="biodata_value_data">
 										<h3>পারিবারিক ও সামাজিক তথ্য</h3>
 										<tbody>
+											<?php if (!empty($family_major_guardian)) : ?>
+											<tr class="opened">
+												<td class="day_label">পরিবারের প্রধান অভিভাবক কে?</td>
+												<td class="day_value closed"><span><?php echo $family_major_guardian; ?></span></td>
+											</tr>
+											<?php endif; ?>
 											<?php if (!empty($father_alive)) : ?>
 											<tr class="opened">
 												<td class="day_label">বাবা বেঁচে আছেন?</td>
@@ -1799,13 +1814,7 @@ require_once("includes/dbconn.php");
 											<?php endif; ?>
 											<?php if (!empty($family_religious_condition)) : ?>
 											<tr class="opened">
-												<td class="day_label">পরিবারের প্রধান অভিভাবক কে?</td>
-												<td class="day_value closed"><span><?php echo $family_religious_condition; ?></span></td>
-											</tr>
-											<?php endif; ?>
-											<?php if (!empty($family_religious_condition)) : ?>
-											<tr class="opened">
-												<td class="day_label">পরিবারের সকলের সামাজিক এবং ধর্মীয় মূল্যবোধ কেমন?</td>
+												<td class="day_label">পরিবারের সকলের সামাজিক এবং ধর্মীয় মূল্যবোধ কেমন? সামাজিক এবং ধর্মীয় বিধিনিষেধ কত টুকু মেনে চলে?</td>
 												<td class="day_value closed"><span><?php echo $family_religious_condition; ?></span></td>
 											</tr>
 											<?php endif; ?>
@@ -1831,7 +1840,7 @@ require_once("includes/dbconn.php");
 								if($result){
 								$row= mysqli_fetch_assoc($result);
 								if($row){
-								$partner_religius=$row['partner_religius'];
+								$partner_citizen=$row['partner_citizen'];
 								}
 								if($row){
 								$partner_district=$row['partner_district'];
@@ -1876,10 +1885,10 @@ require_once("includes/dbconn.php");
 									<table class="biodata_value_data">
 										<h3>প্রত্যাশিত জীবনসঙ্গীর বিবরণ</h3>
 										<tbody>
-											<?php if (!empty($partner_district)) : ?>
+											<?php if (!empty($partner_citizen)) : ?>
 											<tr class="opened">
 												<td class="day_label">স্থায়ী নাগরিক/সিটিজেন (দেশ)</td>
-												<td class="day_value"><?php echo $partner_district; ?></td>
+												<td class="day_value"><?php echo $partner_citizen; ?></td>
 											</tr>
 											<?php endif; ?>
 											<?php if (!empty($partner_district)) : ?>
@@ -1896,7 +1905,7 @@ require_once("includes/dbconn.php");
 											<?php endif; ?>
 											<?php if (!empty($partner_skintones)) : ?>
 											<tr class="opened">
-												<td class="day_label">শারীরিক বর্ণ</td>
+												<td class="day_label">গাত্র বর্ণ</td>
 												<td class="day_value closed"><span><?php echo $partner_skintones; ?></span></td>
 											</tr>
 											<?php endif; ?>
@@ -1932,7 +1941,7 @@ require_once("includes/dbconn.php");
 											<?php if (!empty($partner_attributes)) : ?>
 											</tr>
 											<tr class="opened">
-												<td class="day_label">জীবনসঙ্গীর যেসব গুণাবলী বা বৈশিষ্ট্য প্রত্যাশা করেন</td>
+												<td class="day_label">জীবনসঙ্গীর যেসব বৈশিষ্ঠ বা গুণাবলী প্রত্যাশা করেন</td>
 												<td class="day_value closed"><span><?php echo $partner_attributes; ?></span></td>
 											</tr>
 											<?php endif; ?>
@@ -2086,7 +2095,7 @@ require_once("includes/dbconn.php");
         echo "<div class=\"sbbio_number_recentview\"><span class=\"sb_biodatanumber_recentview\"> {$profid} <br> বায়োডাটা নং </span> </div>";
         echo "</div>";
         echo "<div class=\"sb_user_recentview\">";
-        echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> শারীরিক বর্ণ </span>  <span class=\"sb_data_recentview\">{$Skin_tones_recentview2}</span></span>";
+        echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> গাত্র বর্ণ </span>  <span class=\"sb_data_recentview\">{$Skin_tones_recentview2}</span></span>";
         echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> উচ্চতা </span>  <span class=\"sb_data_recentview\">{$height_recentview2}</span></span>";
         echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> পেশা </span>      <span class=\"sb_data_recentview\"> {$occupation_recentview2}</span></span>";
         echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> জেলা </span>      <span class=\"sb_data_recentview\"> {$home_district2}</span></span>";

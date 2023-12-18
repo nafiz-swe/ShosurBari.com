@@ -644,19 +644,16 @@ $result=search();
                   <input type="checkbox" name="family_class[]" value="Any Family Class" class="SelectBox all" onchange="handleAllFamilyClasses(this)" checked />
                   <span class="search-options">সকল পারিবার</span>
                   <br>
-                  <input type="checkbox" name="family_class[]" value="উচ্চ শ্রেণী" class="SelectBox val" />
+                  <input type="checkbox" name="family_class[]" value="উচ্চবিত্ত" class="SelectBox val" />
                   <span class="search-options">উচ্চবিত্ত</span>
                   <br>
-                  <input type="checkbox" name="family_class[]" value="উচ্চ মধ্যম শ্রেণী" class="SelectBox val" />
-                  <span class="search-options">উচ্চ মধ্যবিত্ত</span>
-                  <br>
-                  <input type="checkbox" name="family_class[]" value="মধ্যম শ্রেণী" class="SelectBox val" />
+                  <input type="checkbox" name="family_class[]" value="মধ্যবিত্ত" class="SelectBox val" />
                   <span class="search-options">মধ্যবিত্ত</span>
                   <br>
-                  <input type="checkbox" name="family_class[]" value="নিম্নমধ্যম শ্রেণী" class="SelectBox val" />
-                  <span class="search-options">নিম্নমধ্যবিত্ত</span>
-                  <br> 
-                  <input type="checkbox" name="family_class[]" value="নিম্ন শ্রেণী" class="SelectBox val" />
+                  <input type="checkbox" name="family_class[]" value="নিম্ন মধ্যবিত্ত" class="SelectBox val" />
+                  <span class="search-options">নিম্ন মধ্যবিত্ত</span>
+                  <br>
+                  <input type="checkbox" name="family_class[]" value="নিম্নবিত্ত" class="SelectBox val" />
                   <span class="search-options">নিম্নবিত্ত</span>
                 </div>
               </div>
@@ -1373,19 +1370,16 @@ $result=search();
               <input type="checkbox" name="family_class[]" value="Any Family Class" class="SelectBox all" onchange="handleAllFamilyClasses(this)" checked />
               <span class="search-options">সকল পারিবার</span>
               <br>
-              <input type="checkbox" name="family_class[]" value="উচ্চ শ্রেণী" class="SelectBox val" />
+              <input type="checkbox" name="family_class[]" value="উচ্চবিত্ত" class="SelectBox val" />
               <span class="search-options">উচ্চবিত্ত</span>
               <br>
-              <input type="checkbox" name="family_class[]" value="উচ্চ মধ্যম শ্রেণী" class="SelectBox val" />
-              <span class="search-options">উচ্চ মধ্যবিত্ত</span>
-              <br>
-              <input type="checkbox" name="family_class[]" value="মধ্যম শ্রেণী" class="SelectBox val" />
+              <input type="checkbox" name="family_class[]" value="মধ্যবিত্ত" class="SelectBox val" />
               <span class="search-options">মধ্যবিত্ত</span>
               <br>
-              <input type="checkbox" name="family_class[]" value="নিম্নমধ্যম শ্রেণী" class="SelectBox val" />
-              <span class="search-options">নিম্নমধ্যবিত্ত</span>
-              <br> 
-              <input type="checkbox" name="family_class[]" value="নিম্ন শ্রেণী" class="SelectBox val" />
+              <input type="checkbox" name="family_class[]" value="নিম্ন মধ্যবিত্ত" class="SelectBox val" />
+              <span class="search-options">নিম্ন মধ্যবিত্ত</span>
+              <br>
+              <input type="checkbox" name="family_class[]" value="নিম্নবিত্ত" class="SelectBox val" />
               <span class="search-options">নিম্নবিত্ত</span>
             </div>
           </div>

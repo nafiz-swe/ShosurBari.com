@@ -379,8 +379,8 @@ if(isloggedin()){
 						<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
 						<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
 						<div class="shosurbari-biodata-field">
-						<label for="edit-name">আপনি কোন দেশের স্থায়ী নাগরিক/সিটিজেন<span class="form-required" title="This field is required.">*</span></label>
-							<select name="country_present_address" required class="selectsearch">
+							<label for="edit-name">আপনি কোন দেশের স্থায়ী নাগরিক/সিটিজেন<span class="form-required" title="This field is required.">*</span></label>
+							<select name="country_present_address" required >
 								<option hidden selected><?php echo $country_present_address;?></option>
 								<option></option>
 								<option hidden disabled>Search Country</option>

@@ -566,8 +566,10 @@
             $home_district_under_sylhet=$_POST['home_district_under_sylhet'];
             $country_present_address=$_POST['country_present_address'];
             $present_address_location=$_POST['present_address_location'];
+            $present_address_living_purpose=$_POST['present_address_living_purpose'];
             $childhood=$_POST['childhood'];
             //Biodata 5
+            $family_major_guardian=$_POST['family_major_guardian'];
             $father_name=$_POST['father_name'];
             $father_alive=$_POST['father_alive'];
             $fatheroccupation=$_POST['fatheroccupation'];
@@ -579,27 +581,22 @@
             $family_class=$_POST['family_class'];
             $financial_condition=$_POST['financial_condition'];
             $family_religious_condition=$_POST['family_religious_condition'];
-            //Biodata 61 / 62
+            //Biodata 6bd_7bd
             $maritalstatus=$_POST['maritalstatus'];
-            // Divorce
             $divorce_reason=$_POST['divorce_reason'];
-            // Widow
             $how_widow=$_POST['how_widow'];
-            // Widower
             $how_widower=$_POST['how_widower'];
-            // Married
+            $how_many_son=$_POST['how_many_son'];
+            $son_details=$_POST['son_details'];
             $get_wife_permission=$_POST['get_wife_permission'];
             $get_family_permission=$_POST['get_family_permission'];
             $why_again_married=$_POST['why_again_married'];
-            //Soon Info
-            $how_many_son=$_POST['how_many_son'];
-            $son_details=$_POST['son_details'];
-            //Male Questions
+            $agree_marriage_other_religion=$_POST['agree_marriage_other_religion'];
+            //6bd Male Questions
             $allowstudy_aftermarriage=$_POST['allowstudy_aftermarriage'];
             $allowjob_aftermarriage=$_POST['allowjob_aftermarriage'];
             $livewife_aftermarriage=$_POST['livewife_aftermarriage'];
-            $profileby=$_POST['profileby'];
-            //Biodata 7
+            //7bd Female Questions
             $anyjob_aftermarriage=$_POST['anyjob_aftermarriage'];
             $studies_aftermarriage=$_POST['studies_aftermarriage'];
             $agree_marriage_student=$_POST['agree_marriage_student'];
@@ -661,20 +658,20 @@
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --       Address Details  /  sb-biodata-4        --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-            $sql4 = "INSERT INTO 4bd_address_details (user_id, permanent_division, home_district_under_barishal, home_district_under_chattogram, home_district_under_dhaka, home_district_under_khulna, home_district_under_mymensingh, home_district_under_rajshahi, home_district_under_rangpur, home_district_under_sylhet, country_present_address, present_address_location, childhood, profilecreationdate) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            $sql4 = "INSERT INTO 4bd_address_details (user_id, permanent_division, home_district_under_barishal, home_district_under_chattogram, home_district_under_dhaka, home_district_under_khulna, home_district_under_mymensingh, home_district_under_rajshahi, home_district_under_rangpur, home_district_under_sylhet, country_present_address, present_address_location, present_address_living_purpose, childhood, profilecreationdate) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
             $stmt4 = mysqli_prepare($conn, $sql4);
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --     Family Information  / sb-biodata-5        --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-            $sql5 = "INSERT INTO 5bd_family_information (user_id, father_name, father_alive, fatheroccupation, mother_alive, motheroccupation, brosis_number, brosis_info, uncle_profession, family_class, financial_condition, family_religious_condition, profilecreationdate) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            $sql5 = "INSERT INTO 5bd_family_information (user_id, family_major_guardian, father_name, father_alive, fatheroccupation, mother_alive, motheroccupation, brosis_number, brosis_info, uncle_profession, family_class, financial_condition, family_religious_condition, profilecreationdate) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
             $stmt5 = mysqli_prepare($conn, $sql5);
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --  Marriage related Info /Marital Status 6 & 7  --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-            $sql61 = "INSERT INTO 6bd_7bd_marital_status (user_id, maritalstatus, divorce_reason, how_widow, how_widower, get_wife_permission, get_family_permission, why_again_married, how_many_son, son_details, profilecreationdate) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            $sql61 = "INSERT INTO 6bd_7bd_marital_status (user_id, maritalstatus, divorce_reason, how_widow, how_widower, get_wife_permission, get_family_permission, why_again_married, how_many_son, son_details, agree_marriage_other_religion, profilecreationdate) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
             $stmt61 = mysqli_prepare($conn, $sql61);
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --   Male Marriage related Info / sb-biodata-6   --
@@ -719,13 +716,13 @@
             mysqli_stmt_bind_param($stmt34, "ssssssss", $id, $varsity_edu_method, $uvarsity_pass, $varsity_passing_year, $university_subject, $varsity_ending_year, $uvarsity_name, $others_edu_qualification);
             mysqli_stmt_execute($stmt34);
             // Address Details (sb-biodata-4)
-            mysqli_stmt_bind_param($stmt4, "ssssssssssssssssssssss", $id, $permanent_division, $home_district_under_barishal, $home_district_under_chattogram, $home_district_under_dhaka, $home_district_under_khulna, $home_district_under_mymensingh, $home_district_under_rajshahi, $home_district_under_rangpur, $home_district_under_sylhet, $country_present_address, $present_address_location, $childhood);
+            mysqli_stmt_bind_param($stmt4, "ssssssssssssssssssssss", $id, $permanent_division, $home_district_under_barishal, $home_district_under_chattogram, $home_district_under_dhaka, $home_district_under_khulna, $home_district_under_mymensingh, $home_district_under_rajshahi, $home_district_under_rangpur, $home_district_under_sylhet, $country_present_address, $present_address_location, $present_address_living_purpose, $childhood);
             mysqli_stmt_execute($stmt4);
             // Family Information (sb-biodata-5)
-            mysqli_stmt_bind_param($stmt5, "ssssssssssssss", $id, $father_name, $father_alive, $fatheroccupation, $mother_alive, $motheroccupation, $brosis_number, $brosis_info, $uncle_profession, $family_class, $financial_condition, $family_religious_condition);
+            mysqli_stmt_bind_param($stmt5, "sssssssssssssss", $id, $family_major_guardian, $father_name, $father_alive, $fatheroccupation, $mother_alive, $motheroccupation, $brosis_number, $brosis_info, $uncle_profession, $family_class, $financial_condition, $family_religious_condition);
             mysqli_stmt_execute($stmt5);
             // Marriage related Info/Marital Status 6 & 7
-            mysqli_stmt_bind_param($stmt61, "ssssssssss", $id, $maritalstatus, $divorce_reason, $how_widow, $how_widower, $get_wife_permission, $get_family_permission, $why_again_married, $how_many_son, $son_details);
+            mysqli_stmt_bind_param($stmt61, "sssssssssss", $id, $maritalstatus, $divorce_reason, $how_widow, $how_widower, $get_wife_permission, $get_family_permission, $why_again_married, $how_many_son, $son_details, $agree_marriage_other_religion);
             mysqli_stmt_execute($stmt61);
             // Male Marriage related Info (sb-biodata-6)
             mysqli_stmt_bind_param($stmt62, "sssss", $id, $allowstudy_aftermarriage, $allowjob_aftermarriage, $livewife_aftermarriage, $profileby);
@@ -788,30 +785,26 @@
         $physicalstatus=$_POST['physicalstatus'];
         $Skin_tones = $_POST['Skin_tones'];
         $bloodgroup=$_POST['bloodgroup'];
-        // Marital Status - Biodata 6 & 7
+        //Biodata 6bd_7bd
         $maritalstatus=$_POST['maritalstatus'];
-        // Divorce
         $divorce_reason=$_POST['divorce_reason'];
-        // Widow
         $how_widow=$_POST['how_widow'];
-        // Widower
         $how_widower=$_POST['how_widower'];
-        // Married
+        $how_many_son=$_POST['how_many_son'];
+        $son_details=$_POST['son_details'];
         $get_wife_permission=$_POST['get_wife_permission'];
         $get_family_permission=$_POST['get_family_permission'];
         $why_again_married=$_POST['why_again_married'];
-        $how_many_son=$_POST['how_many_son'];
-        $son_details=$_POST['son_details'];
-        //Biodata 6
+        $agree_marriage_other_religion=$_POST['agree_marriage_other_religion'];
+        //6bd Male Questions
         $allowstudy_aftermarriage=$_POST['allowstudy_aftermarriage'];
         $allowjob_aftermarriage=$_POST['allowjob_aftermarriage'];
         $livewife_aftermarriage=$_POST['livewife_aftermarriage'];
         $profileby=$_POST['profileby'];
-        //Biodata 7
+        //7bd Female Questions
         $anyjob_aftermarriage=$_POST['anyjob_aftermarriage'];
         $studies_aftermarriage=$_POST['studies_aftermarriage'];
         $agree_marriage_student=$_POST['agree_marriage_student'];
-        $profileby=$_POST['profileby'];
         require_once("includes/dbconn.php");
         $sql="SELECT user_id FROM 1bd_personal_physical WHERE user_id=$id";
         $result=mysqlexec($sql);
@@ -841,6 +834,7 @@
             get_wife_permission = '$get_wife_permission',
             get_family_permission = '$get_family_permission',
             why_again_married = '$why_again_married',
+            agree_marriage_other_religion = '$agree_marriage_other_religion',
             how_many_son = '$how_many_son',
             son_details = '$son_details',
             profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
@@ -1119,6 +1113,7 @@
         $home_district_under_sylhet=$_POST['home_district_under_sylhet'];
         $country_present_address=$_POST['country_present_address'];
         $present_address_location=$_POST['present_address_location'];
+        $present_address_living_purpose=$_POST['present_address_living_purpose'];
         $childhood=$_POST['childhood'];
         require_once("includes/dbconn.php");
         $sql="SELECT user_id FROM 4bd_address_details WHERE user_id=$id";
@@ -1136,6 +1131,7 @@
             home_district_under_sylhet = '$home_district_under_sylhet',
             country_present_address = '$country_present_address',
             present_address_location = '$present_address_location',
+            present_address_living_purpose = '$present_address_living_purpose',
             childhood = '$childhood',
             profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
         WHERE user_id = '$id'";
@@ -1170,6 +1166,7 @@
     function family_update($id){
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         //Biodata 5
+        $family_major_guardian=$_POST['family_major_guardian'];
         $father_name=$_POST['father_name'];
         $father_alive=$_POST['father_alive'];
         $fatheroccupation=$_POST['fatheroccupation'];
@@ -1186,8 +1183,9 @@
         $result=mysqlexec($sql);
         if(mysqli_num_rows($result)>=1){
         $sql = "UPDATE 5bd_family_information SET 
-            father_alive = '$father_alive',
+            family_major_guardian = '$family_major_guardian',
             father_name = '$father_name',
+            father_alive = '$father_alive',
             fatheroccupation = '$fatheroccupation',
             mother_alive = '$mother_alive',
             motheroccupation = '$motheroccupation',
