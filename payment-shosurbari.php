@@ -197,9 +197,8 @@ if (isset($_COOKIE[$cookieName])) {
     margin: 25px auto 0px auto;
     width: 100%;
     color: #fff;
-    border: 1px solid #ccc;
     padding: 6px;
-    border-radius: 4px;
+    border-radius: 3px;
     background: linear-gradient(#06b6d4, #0aa4ca);
     cursor: pointer;
     position: relative;
@@ -208,6 +207,8 @@ if (isset($_COOKIE[$cookieName])) {
     font-size: 0.60em;
     height: 40px;
     line-height: 27px;
+    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+    border: 1px solid rgba(0,0,0,.05);
   }
   .form-actions button:hover{
     color: #fff;
@@ -320,7 +321,7 @@ if (isset($_COOKIE[$cookieName])) {
             <span id="address-error" class="shosurbari-form-error"></span>
           </div>
           <div class="form-group">
-            <label>পছন্দের বায়োডাটা <span style="color: #ccc; font-size: 12px; font-weight: 500;">(অপরিবর্তনশীল)</span></label>
+            <label>পছন্দের বায়োডাটা<span class="form-required" title="This field is required.">*</span><span style="color: #7b7b7b; font-size: 14px; font-weight: 500;" class="form-required" title="This field is required."> (অপরিবর্তনশীল)</span></label>
             <textarea rows="4" id="contact_biodatas_number" name="request_biodata_number" class="form-text required" style="background: #ecfeff;" readonly><?php
               if (isset($_GET['/Biodata'])) {
               $profileid = $_GET['/Biodata'];
@@ -328,8 +329,7 @@ if (isset($_COOKIE[$cookieName])) {
               } else {
               if (is_array($idArray)) {
               echo htmlspecialchars(implode(', ', $idArray));
-              }}?>
-            </textarea>
+              }}?></textarea>
             <span id="biodata-error" class="shosurbari-form-error"></span>
           </div>
           <div class="form-actions">

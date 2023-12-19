@@ -1,3 +1,333 @@
+<script>
+
+
+function clearFieldValuesAndResetSelect(field) {
+
+
+var dawraPassField = document.getElementById("dawra_pass_field");
+var dawraPassingYearField = document.getElementById("dawra_passing_year_field");
+var currentEduLevelField = document.getElementById("current_edu_level_field");
+var hafezField = document.getElementById("hafez_field");
+
+var maxeduQualification = document.getElementById("maxedu_qualification");
+var gnrlMdrsScndPass = document.getElementById("gnrl_mdrs_scnd_pass");
+var gnrlMdrsScndPassYear = document.getElementById("gnrl_mdrs_scnd_pass_year");
+var gnrlMdrsScndExamYear = document.getElementById("gnrl_mdrs_scnd_exam_year");
+var gnrMmdrsRunningStdn = document.getElementById("gnrl_mdrs_running_stdn");
+
+var higherSecondayEdumethod = document.getElementById("higher_seconday_edumethod");
+var gnrlMdrsHrscndPass = document.getElementById("gnrl_mdrs_hrscnd_pass");
+var gnrlMdrsHrscndPassYear = document.getElementById("gnrl_mdrs_hrscnd_pass_year");
+var gnrlMdrsHrscndExamYear = document.getElementById("gnrl_mdrs_hrscnd_exam_year");
+var higherSecondayGroup = document.getElementById("higher_seconday_group");
+var hrgnrlMdrsRunningStdn = document.getElementById("hrgnrl_mdrs_running_stdn");
+
+var doplomaHrscndPass = document.getElementById("doploma_hrscnd_pass");
+var doplomaHrscndPassYear = document.getElementById("doploma_hrscnd_pass_year");
+var doplomaHrscndSubject = document.getElementById("doploma_hrscnd_subject");
+var doplomaHrscndExamYear = document.getElementById("doploma_hrscnd_exam_year");
+var varsityEdumethod = document.getElementById("varsity_edumethod");
+
+var varsityPass = document.getElementById("varsity_pass");
+var varsityPassYear = document.getElementById("varsity_pass_year");
+var varsitySubject = document.getElementById("varsity_subject");
+var varsityExamYear = document.getElementById("varsity_exam_year");
+var varsityName = document.getElementById("varsity_name");
+
+
+// 1
+var inputs = dawraPassField.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = "";  // Clear the input field value
+}
+var selects = dawraPassField.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0;  // Reset the selected index for the select field
+}
+
+// 2
+var inputs = dawraPassingYearField.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = "";  // Clear the input field value
+}
+var selects = dawraPassingYearField.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0;  // Reset the selected index for the select field
+}
+
+// 3
+var inputs = currentEduLevelField.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = "";  // Clear the input field value
+}
+var selects = currentEduLevelField.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0;  // Reset the selected index for the select field
+}
+
+// 4
+var inputs = hafezField.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = "";  // Clear the input field value
+}
+var selects = hafezField.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0;  // Reset the selected index for the select field
+}
+
+// 5
+var inputs = maxeduQualification.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = "";  // Clear the input field value
+}
+var selects = maxeduQualification.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0;  // Reset the selected index for the select field
+}
+
+
+// 6
+var inputs = gnrlMdrsScndPass.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = "";  // Clear the input field value
+}
+var selects = gnrlMdrsScndPass.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0;  // Reset the selected index for the select field
+}
+
+// 7
+var inputs = gnrlMdrsScndPassYear.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = "";  // Clear the input field value
+}
+var selects = gnrlMdrsScndPassYear.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0;  // Reset the selected index for the select field
+}
+
+// 8
+var inputs = gnrlMdrsScndExamYear.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = "";  // Clear the input field value
+}
+var selects = gnrlMdrsScndExamYear.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0;  // Reset the selected index for the select field
+}
+
+// 9
+var inputs = gnrMmdrsRunningStdn.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = "";  // Clear the input field value
+}
+var selects = gnrMmdrsRunningStdn.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0;  // Reset the selected index for the select field
+}
+
+// 10
+var inputs = higherSecondayEdumethod.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = "";  // Clear the input field value
+}
+var selects = higherSecondayEdumethod.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0;  // Reset the selected index for the select field
+}
+
+
+// 11
+var inputs = gnrlMdrsHrscndPass.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = "";  // Clear the input field value
+}
+var selects = gnrlMdrsHrscndPass.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0;  // Reset the selected index for the select field
+}
+
+// 12
+var inputs = gnrlMdrsHrscndPassYear.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = "";  // Clear the input field value
+}
+var selects = gnrlMdrsHrscndPassYear.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0;  // Reset the selected index for the select field
+}
+
+// 13
+var inputs = gnrlMdrsHrscndExamYear.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = "";  // Clear the input field value
+}
+var selects = gnrlMdrsHrscndExamYear.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0;  // Reset the selected index for the select field
+}
+
+// 14
+var inputs = higherSecondayGroup.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = "";  // Clear the input field value
+}
+var selects = higherSecondayGroup.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0;  // Reset the selected index for the select field
+}
+
+// 15
+var inputs = hrgnrlMdrsRunningStdn.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = "";  // Clear the input field value
+}
+var selects = hrgnrlMdrsRunningStdn.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0;  // Reset the selected index for the select field
+}
+
+
+// 16
+var inputs = doplomaHrscndPass.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = "";  // Clear the input field value
+}
+var selects = doplomaHrscndPass.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0;  // Reset the selected index for the select field
+}
+
+// 17
+var inputs = doplomaHrscndPassYear.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = "";  // Clear the input field value
+}
+var selects = doplomaHrscndPassYear.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0;  // Reset the selected index for the select field
+}
+
+// 18
+var inputs = doplomaHrscndSubject.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = "";  // Clear the input field value
+}
+var selects = doplomaHrscndSubject.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0;  // Reset the selected index for the select field
+}
+
+// 19
+var inputs = doplomaHrscndExamYear.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = "";  // Clear the input field value
+}
+var selects = doplomaHrscndExamYear.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0;  // Reset the selected index for the select field
+}
+
+// 20
+var inputs = varsityEdumethod.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = "";  // Clear the input field value
+}
+var selects = varsityEdumethod.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0;  // Reset the selected index for the select field
+}
+
+// 21
+var inputs = varsityPass.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = "";  // Clear the input field value
+}
+var selects = varsityPass.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0;  // Reset the selected index for the select field
+}
+
+// 22
+var inputs = varsityPassYear.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = "";  // Clear the input field value
+}
+var selects = varsityPassYear.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0;  // Reset the selected index for the select field
+}
+
+
+// 23
+var inputs = varsitySubject.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = "";  // Clear the input field value
+}
+var selects = varsitySubject.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0;  // Reset the selected index for the select field
+}
+
+// 24
+var inputs = varsityExamYear.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = "";  // Clear the input field value
+}
+var selects = varsityExamYear.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0;  // Reset the selected index for the select field
+}
+
+// 25
+var inputs = varsityName.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = "";  // Clear the input field value
+}
+var selects = varsityName.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0;  // Reset the selected index for the select field
+}
+
+}
+clearFieldValuesAndResetSelect("dawra_pass_field");
+clearFieldValuesAndResetSelect("dawra_passing_year_field");
+clearFieldValuesAndResetSelect("current_edu_level_field");
+clearFieldValuesAndResetSelect("hafez_field");
+clearFieldValuesAndResetSelect("maxedu_qualification");
+clearFieldValuesAndResetSelect("gnrl_mdrs_scnd_pass");
+clearFieldValuesAndResetSelect("gnrl_mdrs_scnd_pass_year");
+clearFieldValuesAndResetSelect("gnrl_mdrs_scnd_exam_year");
+clearFieldValuesAndResetSelect("gnrl_mdrs_running_stdn");
+clearFieldValuesAndResetSelect("higher_seconday_edumethod");
+clearFieldValuesAndResetSelect("gnrl_mdrs_hrscnd_pass");
+clearFieldValuesAndResetSelect("gnrl_mdrs_hrscnd_pass_year");
+clearFieldValuesAndResetSelect("gnrl_mdrs_hrscnd_exam_year");
+clearFieldValuesAndResetSelect("higher_seconday_group");
+clearFieldValuesAndResetSelect("hrgnrl_mdrs_running_stdn");
+clearFieldValuesAndResetSelect("doploma_hrscnd_pass");
+clearFieldValuesAndResetSelect("doploma_hrscnd_pass_year");
+clearFieldValuesAndResetSelect("doploma_hrscnd_subject");
+clearFieldValuesAndResetSelect("doploma_hrscnd_exam_year");
+clearFieldValuesAndResetSelect("varsity_edumethod");
+clearFieldValuesAndResetSelect("varsity_pass");
+clearFieldValuesAndResetSelect("varsity_pass_year");
+clearFieldValuesAndResetSelect("varsity_subject");
+clearFieldValuesAndResetSelect("varsity_exam_year");
+clearFieldValuesAndResetSelect("varsity_name");
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
 <?php
 
 

@@ -371,7 +371,7 @@ require_once("includes/dbconn.php");
 		<div class="main-bd"> <!-- Main BioData-->
 			<div class="left-side">
 				<div class="profile-side">
-					<div class="biodatavalue_list" style="background: none; border-radius: 4px 4px 0px 0px; border-bottom: none; border-top: 1px solid #ccc; margin-top: 0px;">
+					<div class="biodatavalue_list" style="background: none; border-radius: 10px 10px 0px 0px; border-top: 3px solid #06b6d4; border-bottom: none; margin-top: 0px; border-left: 1px solid #dbdbdb; border-right: 1px solid #dbdbdb;">
 						<h3 style="background: none; border-style: none;">সংক্ষেপে</h3>
 					</div>
 					<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --

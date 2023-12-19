@@ -1496,7 +1496,6 @@ span.m_3{
 .left-side{
     width: 36%;
     border-radius: 4px;
-    border-top: 3px solid #06b6d4;
     margin-top: 75px;
 }
 .right-side {
@@ -1515,26 +1514,25 @@ span.m_3{
 }
 .biodatavalue_list {
     width: 100%;
-    margin-top: 25px;
+    margin-top: 30px;
     background: #fff;
-    border-radius: 4px;
-    padding: 3px;
+    border-radius: 7px 7px 0 0;
     border-top: 3px solid #06b6d4;
-    border-bottom: 1px solid #ccc;
-    border-left: 1px solid #ccc;
-    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #06b6d424;
+    border-left: 1px solid #06b6d424;
+    border-right: 1px solid #06b6d424;
 }
 .biodatavalue_list h3{
     font-size: 1.5em;
     text-align: center;
     background: #fff;
     margin-bottom: 0px;
-    padding: 10px;
+    padding: 20px 10px;
     border-radius: 4px 4px 0px 0px;
-    border-top: 1px #ccc;
+    border-top: 0px #dbdbdb;
     border-bottom: 0px;
-    border-left: 1px #ccc;
-    border-right: 1px #ccc;
+    border-left: 1px #dbdbdb;
+    border-right: 1px #dbdbdb;
     border-style: groove;
     animation: textAnimation 10s linear infinite;
 }
@@ -1561,16 +1559,15 @@ span.m_3{
 }
 .profile-side {
   	width: 100%;
-  	padding: 3px 3px 10px 3px;
 	font-family: "Bree Serif", serif;
   	z-index: 99;
     background: linear-gradient(0deg, #00bbff61 0%,rgba(238,246,253,0) 100%);
     margin-left: auto;
     margin-right: auto;
-	border-top:0px solid #ccc;
+	/* border-top:0px solid #ccc;
 	border-right:1px solid #ccc;
 	border-bottom:1px solid #ccc;
-	border-left:1px solid #ccc;
+	border-left:1px solid #ccc; */
 }
 .profile-side p {
     margin-bottom: 7px;
@@ -2962,7 +2959,8 @@ i.icon_4{
     font-size: 30px;
 }
 .shosurbari-biodata-field{
-    padding: 10px 0px;
+    padding: 0px;
+    margin-top: 32px;
     text-align: left;
 }
 #progressbar {
@@ -3070,19 +3068,19 @@ i.icon_4{
 /*buttons*/
 #biodataForm .action-button,
 #biodataForm .biodata-submit {
-    width: 45%;
+    width: 47%;
     color: white;
     background: linear-gradient(#06b6d4, #0aa4ca);
-    border-radius: 5px;
-    border: 1px solid #f0f0f0;
+    border-radius: 3px;
     cursor: pointer;
-    padding: 7px;
-    margin: 10px 5px;
+    padding: 0;
+    margin: 10px 0px;
     text-transform: uppercase;
     font-size: 18px;
-    box-shadow: 1px 1px 4px #888;
     line-height: 28px;
     height: 40px;
+    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+    border: 1px solid rgba(0,0,0,.05);
 }
 #biodataForm .action-button:hover,
 #biodataForm .biodata-submit:hover {
@@ -3215,7 +3213,7 @@ i.icon_4{
     padding: 0px;
 }
 .biodatalist{
-    border: 1px solid #06b6d4;
+    border: 1px solid #ccc;
     border-radius: 6px;
     width: 31%;
     gap: 1.5rem;
@@ -4209,7 +4207,6 @@ font-size: 14px;
     .profile-side {
         width: 100%;
         text-align: center;
-        padding: 3px;
         margin: auto;
     }
     .main-bd {

@@ -1199,6 +1199,297 @@ if(isloggedin()){
 						document.getElementById("varsity_exam_year").style.display = "none";
 						document.getElementById("varsity_name").style.display = "none";
 
+
+						//start
+						var dawraPassField = document.getElementById("dawra_pass_field");
+						var dawraPassingYearField = document.getElementById("dawra_passing_year_field");
+						var currentEduLevelField = document.getElementById("current_edu_level_field");
+						var hafezField = document.getElementById("hafez_field");
+
+						var maxeduQualification = document.getElementById("maxedu_qualification");
+						var gnrlMdrsScndPass = document.getElementById("gnrl_mdrs_scnd_pass");
+						var gnrlMdrsScndPassYear = document.getElementById("gnrl_mdrs_scnd_pass_year");
+						var gnrlMdrsScndExamYear = document.getElementById("gnrl_mdrs_scnd_exam_year");
+						var gnrMmdrsRunningStdn = document.getElementById("gnrl_mdrs_running_stdn");
+
+						var higherSecondayEdumethod = document.getElementById("higher_seconday_edumethod");
+						var gnrlMdrsHrscndPass = document.getElementById("gnrl_mdrs_hrscnd_pass");
+						var gnrlMdrsHrscndPassYear = document.getElementById("gnrl_mdrs_hrscnd_pass_year");
+						var gnrlMdrsHrscndExamYear = document.getElementById("gnrl_mdrs_hrscnd_exam_year");
+						var higherSecondayGroup = document.getElementById("higher_seconday_group");
+						var hrgnrlMdrsRunningStdn = document.getElementById("hrgnrl_mdrs_running_stdn");
+
+						var doplomaHrscndPass = document.getElementById("doploma_hrscnd_pass");
+						var doplomaHrscndPassYear = document.getElementById("doploma_hrscnd_pass_year");
+						var doplomaHrscndSubject = document.getElementById("doploma_hrscnd_subject");
+						var doplomaHrscndExamYear = document.getElementById("doploma_hrscnd_exam_year");
+						var varsityEdumethod = document.getElementById("varsity_edumethod");
+
+						var varsityPass = document.getElementById("varsity_pass");
+						var varsityPassYear = document.getElementById("varsity_pass_year");
+						var varsitySubject = document.getElementById("varsity_subject");
+						var varsityExamYear = document.getElementById("varsity_exam_year");
+						var varsityName = document.getElementById("varsity_name");
+
+
+						// 1
+var inputs = dawraPassField.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = ""; 
+}
+var selects = dawraPassField.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0; 
+}
+
+// 2
+var inputs = dawraPassingYearField.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = ""; 
+}
+var selects = dawraPassingYearField.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0; 
+}
+
+// 3
+var inputs = currentEduLevelField.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = ""; 
+}
+var selects = currentEduLevelField.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0; 
+}
+
+// 4
+var inputs = hafezField.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = ""; 
+}
+var selects = hafezField.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0; 
+}
+
+// 5
+var inputs = maxeduQualification.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = ""; 
+}
+var selects = maxeduQualification.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0; 
+}
+var textarea = maxeduQualification.getElementsByTagName("textarea");
+for (var l = 0; l < textarea.length; l++) {
+	textarea[l].value = ""; 
+}
+
+
+// 6
+var inputs = gnrlMdrsScndPass.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = ""; 
+}
+var selects = gnrlMdrsScndPass.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0; 
+}
+
+// 7
+var inputs = gnrlMdrsScndPassYear.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = ""; 
+}
+var selects = gnrlMdrsScndPassYear.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0; 
+}
+
+// 8
+var inputs = gnrlMdrsScndExamYear.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = ""; 
+}
+var selects = gnrlMdrsScndExamYear.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0; 
+}
+
+// 9
+var inputs = gnrMmdrsRunningStdn.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = ""; 
+}
+var selects = gnrMmdrsRunningStdn.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0; 
+}
+
+// 10
+var inputs = higherSecondayEdumethod.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = ""; 
+}
+var selects = higherSecondayEdumethod.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0; 
+}
+
+
+// 11
+var inputs = gnrlMdrsHrscndPass.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = ""; 
+}
+var selects = gnrlMdrsHrscndPass.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0; 
+}
+
+// 12
+var inputs = gnrlMdrsHrscndPassYear.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = ""; 
+}
+var selects = gnrlMdrsHrscndPassYear.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0; 
+}
+
+// 13
+var inputs = gnrlMdrsHrscndExamYear.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = ""; 
+}
+var selects = gnrlMdrsHrscndExamYear.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0; 
+}
+
+// 14
+var inputs = higherSecondayGroup.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = ""; 
+}
+var selects = higherSecondayGroup.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0; 
+}
+
+// 15
+var inputs = hrgnrlMdrsRunningStdn.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = ""; 
+}
+var selects = hrgnrlMdrsRunningStdn.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0; 
+}
+
+
+// 16
+var inputs = doplomaHrscndPass.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = ""; 
+}
+var selects = doplomaHrscndPass.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0; 
+}
+
+// 17
+var inputs = doplomaHrscndPassYear.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = ""; 
+}
+var selects = doplomaHrscndPassYear.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0; 
+}
+
+// 18
+var inputs = doplomaHrscndSubject.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = ""; 
+}
+var selects = doplomaHrscndSubject.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0; 
+}
+
+// 19
+var inputs = doplomaHrscndExamYear.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = ""; 
+}
+var selects = doplomaHrscndExamYear.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0; 
+}
+
+// 20
+var inputs = varsityEdumethod.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = ""; 
+}
+var selects = varsityEdumethod.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0; 
+}
+
+// 21
+var inputs = varsityPass.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = ""; 
+}
+var selects = varsityPass.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0; 
+}
+
+// 22
+var inputs = varsityPassYear.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = ""; 
+}
+var selects = varsityPassYear.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0; 
+}
+
+
+// 23
+var inputs = varsitySubject.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = ""; 
+}
+var selects = varsitySubject.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0; 
+}
+
+// 24
+var inputs = varsityExamYear.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = ""; 
+}
+var selects = varsityExamYear.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0; 
+}
+
+// 25
+var inputs = varsityName.getElementsByTagName("input");
+for (var j = 0; j < inputs.length; j++) {
+inputs[j].value = ""; 
+}
+var selects = varsityName.getElementsByTagName("select");
+for (var k = 0; k < selects.length; k++) {
+selects[k].selectedIndex = 0; 
+}
+
 						// Show or hide sections based on the selected value
 						if (selectedValue === "কওমি মাদ্রাসা") {
 							document.getElementById("hafez_field").style.display = "block";
@@ -1229,6 +1520,8 @@ if(isloggedin()){
 
 						var dawraPassingYearField = document.getElementById("dawra_passing_year_field");
 						var currentEduLevelField = document.getElementById("current_edu_level_field");
+
+
 
 						// Show or hide fields based on the selected value
 						if (selectedValue === "হ্যাঁ") {
@@ -1718,9 +2011,6 @@ if(isloggedin()){
 								<option value="Others">Others</option>    
 							</select>
 						</div>
-						<script>
-							jQuery('.selectsearch').chosen();
-						</script>
 						<div class="shosurbari-biodata-field">
 							<label>বাংলাদেশে স্থায়ী ঠিকানা-বিভাগ<span class="form-required" title="This field is required.">*</span></label>
 							<select name="permanent_division" required onchange="showSection(this.value)">
@@ -1793,8 +2083,8 @@ if(isloggedin()){
 						<div class="shosurbari-biodata-field section" id="খুলনা" style="display: none;">
 							<label>বাংলাদেশে স্থায়ী ঠিকানা-জেলা<span class="form-required" title="This field is required.">*</span></label>
 							<select name="home_district_under_khulna">
-							<option>...</option>
 								<option hidden selected></option>
+								<option>...</option>
 								<option value="কুষ্টিয়া">কুষ্টিয়া</option>
 								<option value="খুলনা">খুলনা</option>
 								<option value="চুয়াডাঙ্গা">চুয়াডাঙ্গা</option>
@@ -1871,10 +2161,16 @@ if(isloggedin()){
 							for (var i = 0; i < districtSections.length; i++) {
 								districtSections[i].style.display = "none";
 							}
+
 							// Show the selected division's district section
 							var selectedDivisionSection = document.getElementById(division);
 							if (selectedDivisionSection) {
 								selectedDivisionSection.style.display = "block";
+							}
+
+							var selects = selectedDivisionSection.getElementsByTagName("select");
+							for (var k = 0; k < selects.length; k++) {
+							selects[k].selectedIndex = 0; 
 							}
 							}
 						</script>
@@ -2065,7 +2361,7 @@ if(isloggedin()){
 						<!-- Widow Section Start-->
 						<div class="shosurbari-biodata-field" id="widow-section" style="display: none;">
 							<div class="shosurbari-biodata-field">
-								<label for="edit-name">স্বামী যেভাবে মারা গেছেন এবং কতদিন সংসার করেছেন?<span class="form-required" title="This field is required.">*</span></label>
+								<label for="edit-name">স্বামী যেভাবে মারা গেছে এবং কতদিন সংসার করেছেন?<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বিস্তারিত লিখুন)</span></label>
 								<textarea type="text"  rows="8" name="how_widow" value="" class="form-text-describe"></textarea>
 							</div>
 						</div>
@@ -2075,7 +2371,7 @@ if(isloggedin()){
 						<!-- Widower Section Start-->
 						<div class="shosurbari-biodata-field" id="widower-section" style="display: none;">
 							<div class="shosurbari-biodata-field">
-								<label for="edit-name">স্ত্রী যেভাবে মারা গেছেন এবং কতদিন সংসার করেছেন?<span class="form-required" title="This field is required.">*</span></label>
+								<label for="edit-name">স্ত্রী যেভাবে মারা গেছে এবং কতদিন সংসার করেছেন?<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বিস্তারিত লিখুন)</span></label>
 								<textarea type="text" rows="8" name="how_widower" value="" class="form-text-describe"></textarea>
 							</div>
 						</div>
@@ -2095,7 +2391,7 @@ if(isloggedin()){
 							</div>
 
 							<div class="shosurbari-biodata-field">
-								<label for="edit-name">আবার বিয়ে করার কারণ<span class="form-required" title="This field is required.">*</span></label>
+								<label for="edit-name">আবার বিয়ে করার কারণ<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বিস্তারিত লিখুন)</span></label>
 								<textarea type="text" rows="8" name="why_again_married" value="" class="form-text-describe"></textarea>
 							</div>
 						</div>
@@ -2124,7 +2420,7 @@ if(isloggedin()){
 							</div>
 
 							<div class="shosurbari-biodata-field" id="son-details" style="display: none;">
-								<label for="edit-name">সন্তান সম্পর্কিত তথ্য<span class="form-required" title="This field is required.">*</span></label>
+								<label for="edit-name">সন্তান সম্পর্কিত তথ্য<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বিস্তারিত লিখুন)</span></label>
 								<textarea type="text" rows="8" name="son_details"  value="" class="form-text-describe"></textarea>
 							</div>
 						</div>
@@ -2168,7 +2464,7 @@ if(isloggedin()){
 						</div>
 
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">বায়োডাটা টি যার তার আপনি কে হন?<span class="form-required" title="This field is required.">*</span></label>
+							<label for="edit-name">বায়োডাটা টি যার তার আপনি কে হন?<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
 							<select name="profileby" required>
 								<option hidden selected></option>
 								<option value="নিজের জন্য">নিজের জন্য</option>
@@ -2256,6 +2552,77 @@ if(isloggedin()){
 						var widowSection = document.getElementById('widow-section');
 						var widowerSection = document.getElementById('widower-section');
 						var marriedSection = document.getElementById('married-section');
+
+						//1
+						var inputs = sonDetailsSection.getElementsByTagName("input");
+						for (var j = 0; j < inputs.length; j++) {
+						inputs[j].value = ""; 
+						}
+						var selects = sonDetailsSection.getElementsByTagName("select");
+						for (var k = 0; k < selects.length; k++) {
+						selects[k].selectedIndex = 0; 
+						}
+						var textarea = sonDetailsSection.getElementsByTagName("textarea");
+						for (var l = 0; l < textarea.length; l++) {
+							textarea[l].value = ""; 
+						}
+
+						//2
+						var inputs = divorceSection.getElementsByTagName("input");
+						for (var j = 0; j < inputs.length; j++) {
+						inputs[j].value = ""; 
+						}
+						var selects = divorceSection.getElementsByTagName("select");
+						for (var k = 0; k < selects.length; k++) {
+						selects[k].selectedIndex = 0; 
+						}
+						var textarea = divorceSection.getElementsByTagName("textarea");
+						for (var l = 0; l < textarea.length; l++) {
+							textarea[l].value = ""; 
+						}
+
+						//3
+						var inputs = widowSection.getElementsByTagName("input");
+						for (var j = 0; j < inputs.length; j++) {
+						inputs[j].value = ""; 
+						}
+						var selects = widowSection.getElementsByTagName("select");
+						for (var k = 0; k < selects.length; k++) {
+						selects[k].selectedIndex = 0; 
+						}
+						var textarea = widowSection.getElementsByTagName("textarea");
+						for (var l = 0; l < textarea.length; l++) {
+							textarea[l].value = ""; 
+						}
+
+						//4
+						var inputs = widowerSection.getElementsByTagName("input");
+						for (var j = 0; j < inputs.length; j++) {
+						inputs[j].value = ""; 
+						}
+						var selects = widowerSection.getElementsByTagName("select");
+						for (var k = 0; k < selects.length; k++) {
+						selects[k].selectedIndex = 0; 
+						}
+						var textarea = widowerSection.getElementsByTagName("textarea");
+						for (var l = 0; l < textarea.length; l++) {
+							textarea[l].value = ""; 
+						}
+
+						//5
+						var inputs = marriedSection.getElementsByTagName("input");
+						for (var j = 0; j < inputs.length; j++) {
+						inputs[j].value = ""; 
+						}
+						var selects = marriedSection.getElementsByTagName("select");
+						for (var k = 0; k < selects.length; k++) {
+						selects[k].selectedIndex = 0; 
+						}
+						var textarea = marriedSection.getElementsByTagName("textarea");
+						for (var l = 0; l < textarea.length; l++) {
+							textarea[l].value = ""; 
+						}
+
 
 						// Hide all sections initially
 						sonDetailsSection.style.display = 'none';
@@ -2432,7 +2799,7 @@ if(isloggedin()){
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">জীবনসঙ্গীর যেসব <span style="color: black; font-size: 15px;">বৈশিষ্ঠ বা গুণাবলী </span>প্রত্যাশা করেন<span class="form-required" title="This field is required.">*</span></label>
 							<textarea type="text" rows="8" id="edit-name" name="partner_attributes" value="" class="form-text-describe" required></textarea>
-						</div>
+						</div> </br>
 
 						<div class="sb-biodata-field" style="margin-top: 15px;">
 							<h2>প্রতিশ্রুতি গ্রহণ</h2>
