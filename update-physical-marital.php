@@ -470,7 +470,7 @@ if(isloggedin()){
 						<div class="shosurbari-biodata-field" id="divorce-section" style="display: none;">
 							<div class="shosurbari-biodata-field">
 								<label for="edit-name">ডিভোর্সের কারণ বর্ণনা করুন এবং কতদিন সংসার করেছেন?<span class="form-required" title="This field is required.">*</span></label>
-								<textarea rows="5" name="divorce_reason" value="<?php echo $divorce_reason; ?>" placeholder="" class="form-text-describe"></textarea>
+								<textarea rows="5" name="divorce_reason" placeholder="" class="form-text-describe"><?php echo $divorce_reason; ?></textarea>
 							</div>
 						</div>
 						<!-- Divorce Section End -->

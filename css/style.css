@@ -1496,7 +1496,7 @@ span.m_3{
 .left-side{
     width: 36%;
     border-radius: 4px;
-    margin-top: 75px;
+    margin-top: 80px;
 }
 .right-side {
     width: 62%;
@@ -1564,10 +1564,8 @@ span.m_3{
     background: linear-gradient(0deg, #00bbff61 0%,rgba(238,246,253,0) 100%);
     margin-left: auto;
     margin-right: auto;
-	/* border-top:0px solid #ccc;
-	border-right:1px solid #ccc;
-	border-bottom:1px solid #ccc;
-	border-left:1px solid #ccc; */
+    padding-bottom: 10px;
+    border-radius: 7px;
 }
 .profile-side p {
     margin-bottom: 7px;
@@ -4246,7 +4244,6 @@ font-size: 14px;
         margin-top: 30px;
         margin-left: auto;
         margin-right: auto;
-        border-top: 3px solid #06b6d4;
     }
     .biodatarecent_viewlist {
         width: 30%;

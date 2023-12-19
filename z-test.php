@@ -1,737 +1,532 @@
-<script>
-
-
-function clearFieldValuesAndResetSelect(field) {
-
-
-var dawraPassField = document.getElementById("dawra_pass_field");
-var dawraPassingYearField = document.getElementById("dawra_passing_year_field");
-var currentEduLevelField = document.getElementById("current_edu_level_field");
-var hafezField = document.getElementById("hafez_field");
-
-var maxeduQualification = document.getElementById("maxedu_qualification");
-var gnrlMdrsScndPass = document.getElementById("gnrl_mdrs_scnd_pass");
-var gnrlMdrsScndPassYear = document.getElementById("gnrl_mdrs_scnd_pass_year");
-var gnrlMdrsScndExamYear = document.getElementById("gnrl_mdrs_scnd_exam_year");
-var gnrMmdrsRunningStdn = document.getElementById("gnrl_mdrs_running_stdn");
-
-var higherSecondayEdumethod = document.getElementById("higher_seconday_edumethod");
-var gnrlMdrsHrscndPass = document.getElementById("gnrl_mdrs_hrscnd_pass");
-var gnrlMdrsHrscndPassYear = document.getElementById("gnrl_mdrs_hrscnd_pass_year");
-var gnrlMdrsHrscndExamYear = document.getElementById("gnrl_mdrs_hrscnd_exam_year");
-var higherSecondayGroup = document.getElementById("higher_seconday_group");
-var hrgnrlMdrsRunningStdn = document.getElementById("hrgnrl_mdrs_running_stdn");
-
-var doplomaHrscndPass = document.getElementById("doploma_hrscnd_pass");
-var doplomaHrscndPassYear = document.getElementById("doploma_hrscnd_pass_year");
-var doplomaHrscndSubject = document.getElementById("doploma_hrscnd_subject");
-var doplomaHrscndExamYear = document.getElementById("doploma_hrscnd_exam_year");
-var varsityEdumethod = document.getElementById("varsity_edumethod");
-
-var varsityPass = document.getElementById("varsity_pass");
-var varsityPassYear = document.getElementById("varsity_pass_year");
-var varsitySubject = document.getElementById("varsity_subject");
-var varsityExamYear = document.getElementById("varsity_exam_year");
-var varsityName = document.getElementById("varsity_name");
-
-
-// 1
-var inputs = dawraPassField.getElementsByTagName("input");
-for (var j = 0; j < inputs.length; j++) {
-inputs[j].value = "";  // Clear the input field value
-}
-var selects = dawraPassField.getElementsByTagName("select");
-for (var k = 0; k < selects.length; k++) {
-selects[k].selectedIndex = 0;  // Reset the selected index for the select field
-}
-
-// 2
-var inputs = dawraPassingYearField.getElementsByTagName("input");
-for (var j = 0; j < inputs.length; j++) {
-inputs[j].value = "";  // Clear the input field value
-}
-var selects = dawraPassingYearField.getElementsByTagName("select");
-for (var k = 0; k < selects.length; k++) {
-selects[k].selectedIndex = 0;  // Reset the selected index for the select field
-}
-
-// 3
-var inputs = currentEduLevelField.getElementsByTagName("input");
-for (var j = 0; j < inputs.length; j++) {
-inputs[j].value = "";  // Clear the input field value
-}
-var selects = currentEduLevelField.getElementsByTagName("select");
-for (var k = 0; k < selects.length; k++) {
-selects[k].selectedIndex = 0;  // Reset the selected index for the select field
-}
-
-// 4
-var inputs = hafezField.getElementsByTagName("input");
-for (var j = 0; j < inputs.length; j++) {
-inputs[j].value = "";  // Clear the input field value
-}
-var selects = hafezField.getElementsByTagName("select");
-for (var k = 0; k < selects.length; k++) {
-selects[k].selectedIndex = 0;  // Reset the selected index for the select field
-}
-
-// 5
-var inputs = maxeduQualification.getElementsByTagName("input");
-for (var j = 0; j < inputs.length; j++) {
-inputs[j].value = "";  // Clear the input field value
-}
-var selects = maxeduQualification.getElementsByTagName("select");
-for (var k = 0; k < selects.length; k++) {
-selects[k].selectedIndex = 0;  // Reset the selected index for the select field
-}
-
-
-// 6
-var inputs = gnrlMdrsScndPass.getElementsByTagName("input");
-for (var j = 0; j < inputs.length; j++) {
-inputs[j].value = "";  // Clear the input field value
-}
-var selects = gnrlMdrsScndPass.getElementsByTagName("select");
-for (var k = 0; k < selects.length; k++) {
-selects[k].selectedIndex = 0;  // Reset the selected index for the select field
-}
-
-// 7
-var inputs = gnrlMdrsScndPassYear.getElementsByTagName("input");
-for (var j = 0; j < inputs.length; j++) {
-inputs[j].value = "";  // Clear the input field value
-}
-var selects = gnrlMdrsScndPassYear.getElementsByTagName("select");
-for (var k = 0; k < selects.length; k++) {
-selects[k].selectedIndex = 0;  // Reset the selected index for the select field
-}
-
-// 8
-var inputs = gnrlMdrsScndExamYear.getElementsByTagName("input");
-for (var j = 0; j < inputs.length; j++) {
-inputs[j].value = "";  // Clear the input field value
-}
-var selects = gnrlMdrsScndExamYear.getElementsByTagName("select");
-for (var k = 0; k < selects.length; k++) {
-selects[k].selectedIndex = 0;  // Reset the selected index for the select field
-}
-
-// 9
-var inputs = gnrMmdrsRunningStdn.getElementsByTagName("input");
-for (var j = 0; j < inputs.length; j++) {
-inputs[j].value = "";  // Clear the input field value
-}
-var selects = gnrMmdrsRunningStdn.getElementsByTagName("select");
-for (var k = 0; k < selects.length; k++) {
-selects[k].selectedIndex = 0;  // Reset the selected index for the select field
-}
-
-// 10
-var inputs = higherSecondayEdumethod.getElementsByTagName("input");
-for (var j = 0; j < inputs.length; j++) {
-inputs[j].value = "";  // Clear the input field value
-}
-var selects = higherSecondayEdumethod.getElementsByTagName("select");
-for (var k = 0; k < selects.length; k++) {
-selects[k].selectedIndex = 0;  // Reset the selected index for the select field
-}
-
-
-// 11
-var inputs = gnrlMdrsHrscndPass.getElementsByTagName("input");
-for (var j = 0; j < inputs.length; j++) {
-inputs[j].value = "";  // Clear the input field value
-}
-var selects = gnrlMdrsHrscndPass.getElementsByTagName("select");
-for (var k = 0; k < selects.length; k++) {
-selects[k].selectedIndex = 0;  // Reset the selected index for the select field
-}
-
-// 12
-var inputs = gnrlMdrsHrscndPassYear.getElementsByTagName("input");
-for (var j = 0; j < inputs.length; j++) {
-inputs[j].value = "";  // Clear the input field value
-}
-var selects = gnrlMdrsHrscndPassYear.getElementsByTagName("select");
-for (var k = 0; k < selects.length; k++) {
-selects[k].selectedIndex = 0;  // Reset the selected index for the select field
-}
-
-// 13
-var inputs = gnrlMdrsHrscndExamYear.getElementsByTagName("input");
-for (var j = 0; j < inputs.length; j++) {
-inputs[j].value = "";  // Clear the input field value
-}
-var selects = gnrlMdrsHrscndExamYear.getElementsByTagName("select");
-for (var k = 0; k < selects.length; k++) {
-selects[k].selectedIndex = 0;  // Reset the selected index for the select field
-}
-
-// 14
-var inputs = higherSecondayGroup.getElementsByTagName("input");
-for (var j = 0; j < inputs.length; j++) {
-inputs[j].value = "";  // Clear the input field value
-}
-var selects = higherSecondayGroup.getElementsByTagName("select");
-for (var k = 0; k < selects.length; k++) {
-selects[k].selectedIndex = 0;  // Reset the selected index for the select field
-}
-
-// 15
-var inputs = hrgnrlMdrsRunningStdn.getElementsByTagName("input");
-for (var j = 0; j < inputs.length; j++) {
-inputs[j].value = "";  // Clear the input field value
-}
-var selects = hrgnrlMdrsRunningStdn.getElementsByTagName("select");
-for (var k = 0; k < selects.length; k++) {
-selects[k].selectedIndex = 0;  // Reset the selected index for the select field
-}
-
-
-// 16
-var inputs = doplomaHrscndPass.getElementsByTagName("input");
-for (var j = 0; j < inputs.length; j++) {
-inputs[j].value = "";  // Clear the input field value
-}
-var selects = doplomaHrscndPass.getElementsByTagName("select");
-for (var k = 0; k < selects.length; k++) {
-selects[k].selectedIndex = 0;  // Reset the selected index for the select field
-}
-
-// 17
-var inputs = doplomaHrscndPassYear.getElementsByTagName("input");
-for (var j = 0; j < inputs.length; j++) {
-inputs[j].value = "";  // Clear the input field value
-}
-var selects = doplomaHrscndPassYear.getElementsByTagName("select");
-for (var k = 0; k < selects.length; k++) {
-selects[k].selectedIndex = 0;  // Reset the selected index for the select field
-}
-
-// 18
-var inputs = doplomaHrscndSubject.getElementsByTagName("input");
-for (var j = 0; j < inputs.length; j++) {
-inputs[j].value = "";  // Clear the input field value
-}
-var selects = doplomaHrscndSubject.getElementsByTagName("select");
-for (var k = 0; k < selects.length; k++) {
-selects[k].selectedIndex = 0;  // Reset the selected index for the select field
-}
-
-// 19
-var inputs = doplomaHrscndExamYear.getElementsByTagName("input");
-for (var j = 0; j < inputs.length; j++) {
-inputs[j].value = "";  // Clear the input field value
-}
-var selects = doplomaHrscndExamYear.getElementsByTagName("select");
-for (var k = 0; k < selects.length; k++) {
-selects[k].selectedIndex = 0;  // Reset the selected index for the select field
-}
-
-// 20
-var inputs = varsityEdumethod.getElementsByTagName("input");
-for (var j = 0; j < inputs.length; j++) {
-inputs[j].value = "";  // Clear the input field value
-}
-var selects = varsityEdumethod.getElementsByTagName("select");
-for (var k = 0; k < selects.length; k++) {
-selects[k].selectedIndex = 0;  // Reset the selected index for the select field
-}
-
-// 21
-var inputs = varsityPass.getElementsByTagName("input");
-for (var j = 0; j < inputs.length; j++) {
-inputs[j].value = "";  // Clear the input field value
-}
-var selects = varsityPass.getElementsByTagName("select");
-for (var k = 0; k < selects.length; k++) {
-selects[k].selectedIndex = 0;  // Reset the selected index for the select field
-}
-
-// 22
-var inputs = varsityPassYear.getElementsByTagName("input");
-for (var j = 0; j < inputs.length; j++) {
-inputs[j].value = "";  // Clear the input field value
-}
-var selects = varsityPassYear.getElementsByTagName("select");
-for (var k = 0; k < selects.length; k++) {
-selects[k].selectedIndex = 0;  // Reset the selected index for the select field
-}
-
-
-// 23
-var inputs = varsitySubject.getElementsByTagName("input");
-for (var j = 0; j < inputs.length; j++) {
-inputs[j].value = "";  // Clear the input field value
-}
-var selects = varsitySubject.getElementsByTagName("select");
-for (var k = 0; k < selects.length; k++) {
-selects[k].selectedIndex = 0;  // Reset the selected index for the select field
-}
-
-// 24
-var inputs = varsityExamYear.getElementsByTagName("input");
-for (var j = 0; j < inputs.length; j++) {
-inputs[j].value = "";  // Clear the input field value
-}
-var selects = varsityExamYear.getElementsByTagName("select");
-for (var k = 0; k < selects.length; k++) {
-selects[k].selectedIndex = 0;  // Reset the selected index for the select field
-}
-
-// 25
-var inputs = varsityName.getElementsByTagName("input");
-for (var j = 0; j < inputs.length; j++) {
-inputs[j].value = "";  // Clear the input field value
-}
-var selects = varsityName.getElementsByTagName("select");
-for (var k = 0; k < selects.length; k++) {
-selects[k].selectedIndex = 0;  // Reset the selected index for the select field
-}
-
-}
-clearFieldValuesAndResetSelect("dawra_pass_field");
-clearFieldValuesAndResetSelect("dawra_passing_year_field");
-clearFieldValuesAndResetSelect("current_edu_level_field");
-clearFieldValuesAndResetSelect("hafez_field");
-clearFieldValuesAndResetSelect("maxedu_qualification");
-clearFieldValuesAndResetSelect("gnrl_mdrs_scnd_pass");
-clearFieldValuesAndResetSelect("gnrl_mdrs_scnd_pass_year");
-clearFieldValuesAndResetSelect("gnrl_mdrs_scnd_exam_year");
-clearFieldValuesAndResetSelect("gnrl_mdrs_running_stdn");
-clearFieldValuesAndResetSelect("higher_seconday_edumethod");
-clearFieldValuesAndResetSelect("gnrl_mdrs_hrscnd_pass");
-clearFieldValuesAndResetSelect("gnrl_mdrs_hrscnd_pass_year");
-clearFieldValuesAndResetSelect("gnrl_mdrs_hrscnd_exam_year");
-clearFieldValuesAndResetSelect("higher_seconday_group");
-clearFieldValuesAndResetSelect("hrgnrl_mdrs_running_stdn");
-clearFieldValuesAndResetSelect("doploma_hrscnd_pass");
-clearFieldValuesAndResetSelect("doploma_hrscnd_pass_year");
-clearFieldValuesAndResetSelect("doploma_hrscnd_subject");
-clearFieldValuesAndResetSelect("doploma_hrscnd_exam_year");
-clearFieldValuesAndResetSelect("varsity_edumethod");
-clearFieldValuesAndResetSelect("varsity_pass");
-clearFieldValuesAndResetSelect("varsity_pass_year");
-clearFieldValuesAndResetSelect("varsity_subject");
-clearFieldValuesAndResetSelect("varsity_exam_year");
-clearFieldValuesAndResetSelect("varsity_name");
-
-
-
-
-
-
-
-
-
-</script>
-
-
-
 <?php
-
-
-function post_biodata($id){
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-        //Biodata 1
-        $biodatagender=$_POST['biodatagender'];
-        $day=$_POST['day'];
-        $month=$_POST['month'];
-        $year=$_POST['year'];
-        $dob=$day ." ". $month . "," .$year ;
-        $height=$_POST['height'];
-        $weight=$_POST['weight'];
-        $physicalstatus=$_POST['physicalstatus'];
-        $Skin_tones = $_POST['Skin_tones'];
-        $bloodgroup=$_POST['bloodgroup'];
-
-
-        //Biodata 2
-        $smoke=$_POST['smoke'];
-        $occupation_sector=$_POST['occupation_sector'];
-        $other_occupation_sector=$_POST['other_occupation_sector'];
-        $business_occupation_level=$_POST['business_occupation_level'];
-        $student_occupation_level=$_POST['student_occupation_level'];
-        $health_occupation_level=$_POST['health_occupation_level'];
-        $engineer_occupation_level=$_POST['engineer_occupation_level'];
-        $teacher_occupation_level=$_POST['teacher_occupation_level'];
-        $defense_occupation_level=$_POST['defense_occupation_level'];
-        $foreigner_occupation_level=$_POST['foreigner_occupation_level'];
-        $garments_occupation_level=$_POST['garments_occupation_level'];
-        $driver_occupation_level=$_POST['driver_occupation_level'];
-        $service_andcommon_occupation_level=$_POST['service_andcommon_occupation_level'];
-            $mistri_occupation_level=$_POST['mistri_occupation_level'];
-            $occupation_describe=$_POST['occupation_describe'];
-            $dress_code=$_POST['dress_code'];
-            $aboutme=$_POST['aboutme'];
-            $groom_bride_name=$_POST['groom_bride_name'];
-            $groom_bride_email=$_POST['groom_bride_email'];
-            $groom_bride_number=$_POST['groom_bride_number'];
-            $groom_bride_family_number=$_POST['groom_bride_family_number'];
-            $family_member_name_relation=$_POST['family_member_name_relation'];
-
-
-        //Biodata 31 / 32 / 33 / 34
-        $scndry_edu_method=$_POST['scndry_edu_method'];
-        $maxedu_qulfctn=$_POST['maxedu_qulfctn'];
-
-        $qawmi_madrasa_hafez=$_POST['qawmi_madrasa_hafez'];
-        $qawmimadrasa_dawrapass=$_POST['qawmimadrasa_dawrapass'];
-        $kowmi_dawrapas_year=$_POST['kowmi_dawrapas_year'];
-        $kowmi_current_edu_level=$_POST['kowmi_current_edu_level'];
-
-        $gnrl_mdrs_secondary_pass=$_POST['gnrl_mdrs_secondary_pass'];
-        $gnrl_mdrs_secondary_pass_year=$_POST['gnrl_mdrs_secondary_pass_year'];
-        $gnrl_mdrs_secondary_end_year=$_POST['gnrl_mdrs_secondary_end_year'];
-        $gnrlmdrs_secondary_running_std=$_POST['gnrlmdrs_secondary_running_std'];
-
-        $higher_secondary_edu_method=$_POST['higher_secondary_edu_method'];
-        $gnrlmdrs_hrsecondary_pass=$_POST['gnrlmdrs_hrsecondary_pass'];
-        $gnrlmdrs_hrsecondary_pass_year=$_POST['gnrlmdrs_hrsecondary_pass_year'];
-        $gnrlmdrs_hrsecondary_exam_year=$_POST['gnrlmdrs_hrsecondary_exam_year'];
-        $gnrlmdrs_hrsecondary_group=$_POST['gnrlmdrs_hrsecondary_group'];
-        $gnrlmdrs_hrsecondary_rningstd=$_POST['gnrlmdrs_hrsecondary_rningstd'];
-        $diploma_hrsecondary_pass=$_POST['diploma_hrsecondary_pass'];
-        $diploma_hrsecondary_pass_year=$_POST['diploma_hrsecondary_pass_year'];
-        $diploma_hrsecondary_sub=$_POST['diploma_hrsecondary_sub'];
-        $diploma_hrsecondary_endingyear=$_POST['diploma_hrsecondary_endingyear'];
-
-        $varsity_edu_method=$_POST['varsity_edu_method'];
-        $uvarsity_pass=$_POST['uvarsity_pass'];
-        $varsity_passing_year=$_POST['varsity_passing_year'];
-        $university_subject=$_POST['university_subject'];
-        $varsity_ending_year=$_POST['varsity_ending_year'];
-        $uvarsity_name=$_POST['uvarsity_name'];
-        $others_edu_qualification=$_POST['others_edu_qualification'];
-
-
-        //Biodata 4
-        $permanent_division=$_POST['permanent_division'];
-        $home_district_under_barishal=$_POST['home_district_under_barishal'];
-        $home_district_under_chattogram=$_POST['home_district_under_chattogram'];
-        $home_district_under_dhaka=$_POST['home_district_under_dhaka'];
-        $home_district_under_khulna=$_POST['home_district_under_khulna'];
-        $home_district_under_mymensingh=$_POST['home_district_under_mymensingh'];
-        $home_district_under_rajshahi=$_POST['home_district_under_rajshahi'];
-        $home_district_under_rangpur=$_POST['home_district_under_rangpur'];
-        $home_district_under_sylhet=$_POST['home_district_under_sylhet'];
-
-        $country_present_address=$_POST['country_present_address'];
-        $present_address_location=$_POST['present_address_location'];
-        $childhood=$_POST['childhood'];
-
-
-        //Biodata 5
-        $father_name=$_POST['father_name'];
-        $father_alive=$_POST['father_alive'];
-        $fatheroccupation=$_POST['fatheroccupation'];
-        $mother_alive=$_POST['mother_alive'];
-        $motheroccupation=$_POST['motheroccupation'];
-        $brosis_number=$_POST['brosis_number'];
-        $brosis_info=$_POST['brosis_info'];
-        $uncle_profession=$_POST['uncle_profession'];
-        $family_class=$_POST['family_class'];
-        $financial_condition=$_POST['financial_condition'];
-        $family_religious_condition=$_POST['family_religious_condition'];
-
-
-        //Biodata 61 / 62
-        $maritalstatus=$_POST['maritalstatus'];
-        // Divorce
-        $divorce_reason=$_POST['divorce_reason'];
-        // Widow
-        $how_widow=$_POST['how_widow'];
-        // Widower
-        $how_widower=$_POST['how_widower'];
-        // Married
-        $get_wife_permission=$_POST['get_wife_permission'];
-        $get_family_permission=$_POST['get_family_permission'];
-        $why_again_married=$_POST['why_again_married'];
-
-        $how_many_son=$_POST['how_many_son'];
-        $son_details=$_POST['son_details'];
-
-        $allowstudy_aftermarriage=$_POST['allowstudy_aftermarriage'];
-        $allowjob_aftermarriage=$_POST['allowjob_aftermarriage'];
-        $livewife_aftermarriage=$_POST['livewife_aftermarriage'];
-        $profileby=$_POST['profileby'];
-
-
-        //Biodata 7
-        $anyjob_aftermarriage=$_POST['anyjob_aftermarriage'];
-        $studies_aftermarriage=$_POST['studies_aftermarriage'];
-        $agree_marriage_student=$_POST['agree_marriage_student'];
-        $profileby=$_POST['profileby'];
-
-
-        //Biodata 8
-        $religion=$_POST['religion'];
-        $yourreligion_condition=$_POST['yourreligion_condition'];
-
-
-        //Biodata 9
-        $partner_religius=$_POST['partner_religius'];
-        $partner_citizen=$_POST['partner_citizen'];
-        $partner_district=$_POST['partner_district'];
-        $partner_maritialstatus=$_POST['partner_maritialstatus'];
-        $partner_age=$_POST['partner_age'];
-        $partner_skintones=$_POST['partner_skintones'];
-        $partner_height=$_POST['partner_height'];
-        $partner_education=$_POST['partner_education'];
-        $partner_profession=$_POST['partner_profession'];
-        $partner_financial=$_POST['partner_financial'];
-        $partner_attributes=$_POST['partner_attributes'];
-        $parents_permission=$_POST['parents_permission'];
-        $real_info_commited=$_POST['real_info_commited'];
-        $authorities_no_responsible=$_POST['authorities_no_responsible'];
-
-        require_once("includes/dbconn.php");
-
-
-        /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-        --      Personal & Physical  / sb-biodata-1      --
-        -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-        $sql1 = "INSERT INTO 1bd_personal_physical (user_id, biodatagender, dateofbirth, height, weight, physicalstatus, Skin_tones, bloodgroup, profilecreationdate)
-        VALUES ('$id', '$biodatagender', '$dob', '$height', '$weight', '$physicalstatus', '$Skin_tones', '$bloodgroup', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
-
-
-        /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-        --     Personal & Life Style  / sb-biodata-2     --
-        -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-        $sql2 = "INSERT INTO 2bd_personal_lifestyle (user_id, smoke, occupation_sector, other_occupation_sector, business_occupation_level, student_occupation_level, health_occupation_level, engineer_occupation_level, teacher_occupation_level, defense_occupation_level, foreigner_occupation_level, garments_occupation_level, driver_occupation_level, service_andcommon_occupation_level, mistri_occupation_level, occupation_describe, dress_code, aboutme, groom_bride_name, groom_bride_email, groom_bride_number, groom_bride_family_number, family_member_name_relation, profilecreationdate)
-        VALUES ('$id', '$smoke', '$occupation_sector', '$other_occupation_sector', '$business_occupation_level', '$student_occupation_level', '$health_occupation_level', '$engineer_occupation_level', '$teacher_occupation_level', '$defense_occupation_level', '$foreigner_occupation_level', '$garments_occupation_level', '$driver_occupation_level', '$service_andcommon_occupation_level', '$mistri_occupation_level', '$occupation_describe', '$dress_code', '$aboutme', '$groom_bride_name', '$groom_bride_email', '$groom_bride_number', '$groom_bride_family_number', '$family_member_name_relation', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
-
-
-        /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-        --  Educational Qualifications  / sb-biodata-3   --
-        -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --*/
-        $sql31 = "INSERT INTO 3bd_secondaryedu_method (user_id, scndry_edu_method, maxedu_qulfctn, gnrl_mdrs_secondary_pass, gnrl_mdrs_secondary_pass_year, gnrl_mdrs_secondary_end_year, gnrlmdrs_secondary_running_std, profilecreationdate)
-        VALUES ('$id', '$scndry_edu_method', '$maxedu_qulfctn', '$gnrl_mdrs_secondary_pass', '$gnrl_mdrs_secondary_pass_year', '$gnrl_mdrs_secondary_end_year', '$gnrlmdrs_secondary_running_std', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
-
-
-        /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-        --  Educational Qualifications  / sb-biodata-3   --
-        -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --*/
-        $sql32 = "INSERT INTO 3bd_kowmi_madrasaedu_method (user_id, qawmi_madrasa_hafez, qawmimadrasa_dawrapass, kowmi_dawrapas_year, kowmi_current_edu_level, profilecreationdate)
-        VALUES ('$id', '$qawmi_madrasa_hafez', '$qawmimadrasa_dawrapass', '$kowmi_dawrapas_year', '$kowmi_current_edu_level', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
-
-
-        /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-        --  Educational Qualifications  / sb-biodata-3   --
-        -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --*/
-        $sql33 = "INSERT INTO 3bd_higher_secondaryedu_method (user_id, higher_secondary_edu_method, gnrlmdrs_hrsecondary_pass, gnrlmdrs_hrsecondary_pass_year, gnrlmdrs_hrsecondary_exam_year, gnrlmdrs_hrsecondary_group, gnrlmdrs_hrsecondary_rningstd, diploma_hrsecondary_pass, diploma_hrsecondary_pass_year, diploma_hrsecondary_sub, diploma_hrsecondary_endingyear, profilecreationdate)
-        VALUES ('$id', '$higher_secondary_edu_method', '$gnrlmdrs_hrsecondary_pass', '$gnrlmdrs_hrsecondary_pass_year', '$gnrlmdrs_hrsecondary_exam_year', '$gnrlmdrs_hrsecondary_group', '$gnrlmdrs_hrsecondary_rningstd', '$diploma_hrsecondary_pass', '$diploma_hrsecondary_pass_year', '$diploma_hrsecondary_sub', '$diploma_hrsecondary_endingyear', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
-
-
-        /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-        --  Educational Qualifications  / sb-biodata-3   --
-        -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --*/
-        $sql34 = "INSERT INTO 3bd_universityedu_method (user_id, varsity_edu_method, uvarsity_pass, varsity_passing_year, university_subject, varsity_ending_year, uvarsity_name, others_edu_qualification, profilecreationdate)
-        VALUES ('$id', '$varsity_edu_method', '$uvarsity_pass', '$varsity_passing_year', '$university_subject', '$varsity_ending_year', '$uvarsity_name', '$others_edu_qualification', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
-
-
-        /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-        --       Address Details  /  sb-biodata-4        --
-        -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-        $sql4 = "INSERT INTO 4bd_address_details (user_id, permanent_division, home_district_under_barishal, home_district_under_chattogram, home_district_under_dhaka, home_district_under_khulna, home_district_under_mymensingh, home_district_under_rajshahi, home_district_under_rangpur, home_district_under_sylhet, country_present_address, present_address_location, childhood, profilecreationdate)
-        VALUES ('$id', '$permanent_division', '$home_district_under_barishal', '$home_district_under_chattogram', '$home_district_under_dhaka', '$home_district_under_khulna', '$home_district_under_mymensingh', '$home_district_under_rajshahi', '$home_district_under_rangpur', '$home_district_under_sylhet', '$country_present_address', '$present_address_location', '$childhood', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
-
-
-        /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-        --     Family Information  / sb-biodata-5        --
-        -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-        $sql5 = "INSERT INTO 5bd_family_information (user_id, father_name, father_alive, fatheroccupation, mother_alive, motheroccupation, brosis_number, brosis_info, uncle_profession, family_class, financial_condition, family_religious_condition, profilecreationdate)
-        VALUES ('$id', '$father_name', '$father_alive', '$fatheroccupation', '$mother_alive', '$motheroccupation', '$brosis_number', '$brosis_info', '$uncle_profession', '$family_class', '$financial_condition', '$family_religious_condition', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
-
-
-        /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-        --  Marriage related Info /Marital Status 6 & 7  --
-        -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-        $sql61 = "INSERT INTO 6bd_7bd_marital_status (user_id, maritalstatus, divorce_reason, how_widow, how_widower, get_wife_permission, get_family_permission, why_again_married, how_many_son, son_details, profilecreationdate)
-        VALUES ('$id', '$maritalstatus', '$divorce_reason', '$how_widow', '$how_widower', '$get_wife_permission', '$get_family_permission', '$why_again_married', '$how_many_son', '$son_details', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
-
-
-        /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-        --   Male Marriage related Info / sb-biodata-6   --
-        -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-        $sql62 = "INSERT INTO 6bd_marriage_related_qs_male (user_id, allowstudy_aftermarriage, allowjob_aftermarriage, livewife_aftermarriage, profileby, profilecreationdate)
-        VALUES ('$id', '$allowstudy_aftermarriage', '$allowjob_aftermarriage', '$livewife_aftermarriage', '$profileby', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
-
-
-        /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-        --  Female Marriage related Info / sb-biodata-7  --
-        -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-        $sql7 = "INSERT INTO 7bd_marriage_related_qs_female (user_id, anyjob_aftermarriage, studies_aftermarriage, agree_marriage_student, profileby, profilecreationdate)
-        VALUES ('$id', '$anyjob_aftermarriage', '$studies_aftermarriage', '$agree_marriage_student', '$profileby', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
-
-
-        /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-        --        Religion Details / sb-biodata-8        --
-        -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-        $sql8 = "INSERT INTO 8bd_religion_details (user_id, religion, yourreligion_condition, profilecreationdate)
-        VALUES ('$id', '$religion', '$yourreligion_condition', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
-
-
-        /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-        --     Expected Life Partner / sb-biodata-9      --
-        -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-        // $sql9 = "INSERT INTO 9bd_expected_life_partner (user_id, partner_religius, partner_citizen, partner_district, partner_maritialstatus, partner_age, partner_skintones, partner_height, partner_education, partner_profession, partner_financial, partner_attributes, parents_permission, real_info_commited, authorities_no_responsible, profilecreationdate)
-        // VALUES ('$id', '$partner_religius', '$partner_citizen', '$partner_district', '$partner_maritialstatus', '$partner_age', '$partner_skintones', '$partner_height', '$partner_education', '$partner_profession', '$partner_financial', '$partner_attributes', '$parents_permission', '$real_info_commited', '$authorities_no_responsible', '$profileCreationDate')";
-
-
-        // // Execute the queries
-        // if (mysqli_query($conn, $sql1) && mysqli_query($conn, $sql2) && mysqli_query($conn, $sql31) && mysqli_query($conn, $sql32) && mysqli_query($conn, $sql33) && mysqli_query($conn, $sql34) && mysqli_query($conn, $sql4) && mysqli_query($conn, $sql5) && mysqli_query($conn, $sql61) && mysqli_query($conn, $sql62) && mysqli_query($conn, $sql7) && mysqli_query($conn, $sql8) && mysqli_query($conn, $sql9)) {
-        //     echo "Thanks! Successfully Uploaded New Biodata!";
-        //     header("Location: view_profile.php?id={$id}");
-        // } else {
-        //     echo "Error: " . mysqli_error($conn);
-        // }
-
-        // // Close the MySQL connection
-        // mysqli_close($conn);
-
-
-        $sql9 = "INSERT INTO 9bd_expected_life_partner (user_id, partner_religius, partner_citizen, partner_district, partner_maritialstatus, partner_age, partner_skintones, partner_height, partner_education, partner_profession, partner_financial, partner_attributes, parents_permission, real_info_commited, authorities_no_responsible, profilecreationdate)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
-
-        $stmt9 = mysqli_prepare($conn, $sql9);
-
-        // Bind parameters
-        mysqli_stmt_bind_param($stmt9, "ssssssssssssssss", $id, $partner_religius, $partner_citizen, $partner_district, $partner_maritialstatus, $partner_age, $partner_skintones, $partner_height, $partner_education, $partner_profession, $partner_financial, $partner_attributes, $parents_permission, $real_info_commited, $authorities_no_responsible);
-
-        // Execute the statement
-        if (mysqli_stmt_execute($stmt9)) {
-            echo "Thanks! Successfully Uploaded New Biodata!";
-            header("Location: view_profile.php?id={$id}");
-        } else {
-            echo "Error: " . mysqli_stmt_error($stmt9);
-        }
-
-        // Close the statement
-        mysqli_stmt_close($stmt9);
-
-    }
+include_once("includes/basic_includes.php");
+include_once("functions.php");
+$id=$_SESSION['id'];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	address_update($id);
 }
-
-
-
-
-function biodata_sale_customer() {
-    require_once("includes/dbconn.php");
-
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $cust_name = $_POST['cust_name'];
-        $cust_email = $_POST['cust_email'];
-        $cust_number = $_POST['cust_number'];
-        $cust_permanent_address = $_POST['cust_permanent_address'];
-        $request_biodata_number = $_POST['request_biodata_number'];
-        // $biodata_quantities = $_POST['biodata_quantities'];
-
-        $payment_method = $_POST['payment_method'];
-        $bkash_number = $_POST['bkash_number'];
-        $bkash_transaction_id = $_POST['bkash_transaction_id'];
-        $nagad_number = $_POST['nagad_number'];
-        $nagad_transaction_id = $_POST['nagad_transaction_id'];
-        $roket_number = $_POST['roket_number'];
-        $roket_transaction_id = $_POST['roket_transaction_id'];
-
-        // Check if idCountOne and feeOne are set, if not, fall back to idCount and fee
-        if (isset($_POST['idCountOne']) && isset($_POST['feeOne'])) {
-            $idCount = $_POST['idCountOne'];
-            $fee = $_POST['feeOne'];
-        } else {
-            $idCount = $_POST['idCount'];
-            $fee = $_POST['fee'];
-        }
-
-        // Check if the user is logged in using your existing authentication logic
-        if (isset($_SESSION['id'])) {
-        $user_id = $_SESSION['id'];
-        } else {
-            $user_id = 0; // Default value for non-logged-in users
-        }
-
-        // Insert customer data into the database
-        $sql = "INSERT INTO customer (user_id, cust_name, cust_email, cust_number, cust_permanent_address, request_biodata_number, biodata_quantities, total_fee, payment_method, bkash_number, bkash_transaction_id, nagad_number, nagad_transaction_id, roket_number, roket_transaction_id, request_date)
-                VALUES ('$user_id', '$cust_name', '$cust_email', '$cust_number', '$cust_permanent_address', '$request_biodata_number', '$idCount', '$fee', '$payment_method', '$bkash_number', '$bkash_transaction_id', '$nagad_number', '$nagad_transaction_id', '$roket_number', '$roket_transaction_id', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
-
-        if (mysqli_query($conn, $sql)) {
-            // SMTP email sending code
-            $to = $cust_email;
-            $subject = "Your Transaction is Successfully Completed!";
-
-            ob_start();
-            include('PaymentEmailBody.php'); // Update with the actual file name
-            $email_body = ob_get_clean();
-
-            // Plain text version of the email body
-            $plain_text_message = "
-            Your Order is Processing! Order Details.
-
-            আপনাকে ধন্যবাদ! আপনার পেমেন্ট তথ্য যাচাই বাছাইয়ের পর SMS বা ই-মেইলের মাধ্যমে ২৪ ঘন্টার মধ্যে অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে।
-            Order ID: SB$id_customer
-            Name: $cust_name
-            Email: $cust_email
-            Mobile Number: $cust_number
-            Address: $cust_permanent_address
-            Request Biodata: $request_biodata_number
-            Total Fee: $fee
-            Payment Method: $payment_method
-            Payment Number: $bkash_number || $nagad_number || $roket_number
-            Transaction: $bkash_transaction_id || $nagad_transaction_id || $roket_transaction_id
-            Date: $request_date
-
-
-            বি:দ্র: ব্যক্তিগত কোনো কারণে অভিভাবক অনুমতি না দিলে যোগাযোগের তথ্য প্রদান না করে টাকা ফেরত দেয়া হবে।
-
-            Connect with us:
-            - Website: https://www.shoshurbari.com
-            - Facebook: https://www.facebook.com/ShoshurBari.bd
-            - Email: support@shoshurbari.com
-            - YouTube: https://www.youtube.com/c/ShoshurBari
-
-            (c) 2022-23 ShosurBari.com | All Rights Reserved
-            ";
-
-            $headers = "From: nafizulislam.swe@gmail.com\r\n";
-            $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-
-            $smtp_host = "smtp.gmail.com";
-            $smtp_port = 587;
-            $smtp_username = "nafizulislam.swe@gmail.com";
-            $smtp_password = "dnngvzwetnirboae";
-            $smtp_secure = "tls";
-
-            require 'PHPMailer/PHPMailerAutoload.php';
-
-            $mail = new PHPMailer;
-            $mail->isSMTP();
-            $mail->Host = $smtp_host;
-            $mail->Port = $smtp_port;
-            $mail->SMTPSecure = $smtp_secure;
-            $mail->SMTPAuth = true;
-            $mail->Username = $smtp_username;
-            $mail->Password = $smtp_password;
-
-            $mail->setFrom($smtp_username, 'ShosurBari');
-            $mail->addAddress($to);
-            $mail->Subject = $subject;
-            $mail->Body = $email_body;
-            $mail->AltBody = $plain_text_message; // Plain text version of the email
-
-            if ($mail->send()) {
-                echo '';
-            } else {
-                echo '';
-            }
-
-            // header("location: index.php");
-        } else {
-            echo "Error";
-        }
-    }
-}
-
-
+if(isloggedin()){
+   } else{
+	header("location:login.php");
+   }
 ?>
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Address Update | ShosurBari</title>
+<link rel="icon" href="images/shosurbari-icon.png" type="image/png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery.min.js"></script>
+<script src="js/optionsearch.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!-- Custom Theme files -->
+<link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css">
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href='//fonts.googleapis.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
+<!--font-Awesome-->
+<link href="css/font-awesome.css" rel="stylesheet"> 
+<!--font-Awesome-->
+</head>
+<body>
+	<!-- ===========  Navigation Start =========== -->
+	<?php include_once("includes/navigation.php");?>
+	<!-- ===========  Navigation End ============= -->
+	<div class="grid_3">
+		<div class="container">
+			<div class="breadcrumb1">
+				<ul>
+					<a href="index.php"><i class="fa fa-home home_1"></i></a>
+					<span class="divider">&nbsp;|&nbsp;</span>
+					<li class="current-page"><h4>Update Address Info</h4></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="sb-home-search">
+		<h1>তথ্য পরিবর্তন করুন</h1>
+		<div class="sbhome-heart-divider">
+		<span class="grey-line"></span>
+			<i class="fa fa-heart pink-heart"></i>
+			<i class="fa fa-heart grey-heart"></i>
+		<span class="grey-line"></span>
+		</div>
+	</div>
+	<style>
+	.sb-biodata-field{
+		background: none;
+	}
+	.sb-biodata-field h2{
+		color: #000;
+		font-size: 23px;
+		font-weight: bold;
+		background: none;
+		text-align: left;
+	}
+	.shosurbari-biodata-form {
+		align-items: center;
+		flex-wrap: wrap;
+		width: 1400px;
+		margin: auto;
+		padding-top: 30px;
+		padding-bottom: 30px
+	}
+	.soshurbari-animation-icon,
+	.shosurbari-animation-form {
+		flex-basis: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.soshurbari-animation-icon h3 {
+		font-size: 23px;
+		font-weight: bold;
+		margin-bottom: 15px;
+		margin-top: 15px;
+	}
+	.soshurbari-animation-icon img {
+		justify-content: flex-end;
+		margin: auto;
+		width: 37px;
+		height: 35px;
+	}
+	@media (max-width: 1400px){
+	.shosurbari-biodata-form{
+		width: auto;
+	}
+	}
+	@media (max-width: 1024px) {
+	.shosurbari-animation-form {
+		flex-basis: 100%;
+		justify-content: center;
+	}
+	.shosurbari-biodata-form {
+		width: auto;
+	}
+	}
+	</style>
+	<?php
+    session_start();
+    if (isset($_SESSION['updateMessage'])) {
+        $messageType = ($_SESSION['messageType'] == 'success') ? 'success' : 'error';
+        $updateMessage = $_SESSION['updateMessage'];
+        echo "<div style='
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: " . ($messageType == 'success' ? '#22c55e' : '#ff0080') . ";
+        color: #fff;
+        box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+        border: 1px solid rgba(0,0,0,.05);
+        border-radius: 2px;
+        padding: 10px;
+        width: 262px;
+        text-align: center;
+        z-index: 9999;
+        '>$updateMessage
+        <button class='cancel-button' style='
+        position: absolute;
+        cursor: pointer;
+        right: 3px;
+        margin-right: -20px;
+        margin-top: -67px;
+        margin-bottom: 15px;
+        padding-bottom: 5px;
+        line-height: 5px;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 1px solid #ccc;
+        font-size: 20px;
+        font-weight: 600;
+        color: white;
+        background: " . ($messageType == 'success' ? '#0aa4ca' : '#0aa4ca') . ";
+        ' onclick='this.parentNode.style.display = \"none\";'>x</button>
+        </div>";
+        unset($_SESSION['updateMessage']);
+        unset($_SESSION['messageType']);
+    }
+    ?>
+	<div class="shosurbari-biodata">
+		<form action="" method="POST" id="biodataForm">
+			<?php
+				include("includes/dbconn.php");
+				$sql="SELECT * FROM 4bd_address_details WHERE user_id = $id";
+				$result = mysqlexec($sql);
+				if($result){
+				$row=mysqli_fetch_assoc($result);
+				if($row){
+				$permanent_division=$row['permanent_division'];
+				}
+				if($row){
+				$home_district_under_barishal=$row['home_district_under_barishal'];
+				}
+				if($row){
+				$home_district_under_chattogram=$row['home_district_under_chattogram'];
+				}
+				if($row){
+				$home_district_under_dhaka=$row['home_district_under_dhaka'];
+				}
+				if($row){
+				$home_district_under_khulna=$row['home_district_under_khulna'];
+				}
+				if($row){
+				$home_district_under_mymensingh=$row['home_district_under_mymensingh'];
+				}
+				if($row){
+				$home_district_under_rajshahi=$row['home_district_under_rajshahi'];
+				}
+				if($row){
+				$home_district_under_rangpur=$row['home_district_under_rangpur'];
+				}
+				if($row){
+				$home_district_under_sylhet=$row['home_district_under_sylhet'];
+				}
+				if($row){
+				$country_present_address=$row['country_present_address'];
+				}
+				if($row){
+				$present_address_location=$row['present_address_location'];
+				}
+                if($row){
+                $present_address_living_purpose=$row['present_address_living_purpose'];
+                }
+				if($row){
+				$childhood=$row['childhood'];
+				}
+				}
+			?>
+			<fieldset>
+				<div class="sb-biodata" id="addressDetails">
+					<div class="soshurbari-animation-icon">
+                        <div class="sb-icon-laptop">
+                        <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
+                        </div>
+                    </div>
+					<div class="sb-biodata-field">
+						<h2>বর্তমান এবং স্থায়ী ঠিকানা</h2>
+					</div>
+					<div class="sb-biodata-option">
+						<div class="shosurbari-biodata-field">
+							<label for="edit-name">আপনি কোন দেশের স্থায়ী নাগরিক/সিটিজেন<span class="form-required" title="This field is required.">*</span></label>
+							<select name="country_present_address" required>
+                            <option hidden selected><?php echo $country_present_address;?></option>
+								<option value="Afghanistan">Afghanistan</option>
+								<option value="Argentina">Argentina</option>
+								<option value="Armenia">Armenia</option> 
+								<option value="Australia">Australia</option>
+								<option value="Austria">Austria</option>
+								<option value="Bahrain">Bahrain</option> 
+								<option value="Bangladesh">Bangladesh</option> 
+								<option value="Belgium">Belgium</option>
+								<option value="Bhutan">Bhutan</option> 
+								<option value="Brazil">Brazil</option>
+								<option value="Canada">Canada</option>
+								<option value="China">China</option> 
+								<option value="Colombia">Colombia</option>
+								<option value="Denmark">Denmark</option> 
+								<option value="Egypt">Egypt</option>
+								<option value="Finland">Finland</option> 
+								<option value="France">France</option>
+								<option value="Germany">Germany</option> 
+								<option value="Greece">Greece</option>
+								<option value="Hungary">Hungary</option> 
+								<option value="India">India</option>
+								<option value="Indonesia">Indonesia</option> 
+								<option value="Iran">Iran</option>
+								<option value="Iraq">Iraq</option> 
+								<option value="Ireland">Ireland</option>
+								<option value="Italy">Italy</option> 
+								<option value="Japan">Japan</option>
+								<option value="Jordan">Jordan</option> 
+								<option value="Kazakhstan">Kazakhstan</option> 
+								<option value="Korea, North">Korea, North</option>
+								<option value="Korea, South">Korea, South</option> 
+								<option value="Kuwait">Kuwait</option>
+								<option value="Libya">Libya</option> 
+								<option value="Luxembourg">Luxembourg</option>
+								<option value="Malaysia">Malaysia</option> 
+								<option value="Maldives">Maldives</option> 
+								<option value="Mexico">Mexico</option>
+								<option value="Morocco">Morocco</option>
+								<option value="Myanmar">Myanmar</option>  
+								<option value="Nepal">Nepal</option>
+								<option value="Netherlands">Netherlands</option> 
+								<option value="New Zealand">New Zealand</option>
+								<option value="Norway">Norway</option> 
+								<option value="Oman">Oman</option> 
+								<option value="Pakistan">Pakistan</option>
+								<option value="Palestine">Palestine</option>
+								<option value="Paraguay">Paraguay</option>
+								<option value="Philippines">Philippines</option>
+								<option value="Poland">Poland</option>
+								<option value="Portugal">Portugal</option> 
+								<option value="Qatar">Qatar</option> 
+								<option value="Russia">Russia</option> 
+								<option value="Saudi Arabia">Saudi Arabia</option>
+								<option value="Singapore">Singapore</option>
+								<option value="South Africa">South Africa</option>  
+								<option value="Spain">Spain</option>
+								<option value="Sri Lanka">Sri Lanka</option>
+								<option value="Sudan">Sudan</option> 
+								<option value="Sweden">Sweden</option>
+								<option value="Switzerland">Switzerland</option>
+								<option value="Syria">Syria</option> 
+								<option value="Taiwan">Taiwan</option>  
+								<option value="Tajikistan">Tajikistan</option>   
+								<option value="Thailand">Thailand</option> 
+								<option value="Turkey">Turkey</option>
+								<option value="Ukraine">Ukraine</option>
+								<option value="United Arab Emirates">United Arab Emirates</option>  
+								<option value="United Kingdom">United Kingdom</option>
+								<option value="United States of America">United States of America</option> 
+								<option value="Uruguay">Uruguay</option>
+								<option value="Vietnam">Vietnam</option>
+								<option value="Yemen">Yemen</option>
+								<option value="Others">Others</option>    
+							</select>
+						</div>
+						<div class="shosurbari-biodata-field">
+							<label>বাংলাদেশে স্থায়ী ঠিকানা-বিভাগ<span class="form-required" title="This field is required.">*</span></label>
+							<select name="permanent_division" required onchange="showSection(this.value)">
+                            <option hidden selected><?php echo $permanent_division;?></option>
+								<option value="ঢাকা">ঢাকা</option>
+								<option value="চট্টগ্রাম">চট্টগ্রাম</option>
+								<option value="খুলনা">খুলনা</option>
+								<option value="ময়মনসিংহ">ময়মনসিংহ</option>
+								<option value="রাজশাহী">রাজশাহী</option>
+								<option value="রংপুর">রংপুর</option>
+								<option value="বরিশাল">বরিশাল</option>
+								<option value="সিলেট">সিলেট</option>
+							</select>
+						</div>
+						<div class="shosurbari-biodata-field section" id="বরিশাল" style="display: none;">
+							<label>বাংলাদেশে স্থায়ী ঠিকানা-জেলা<span class="form-required" title="This field is required.">*</span></label>
+							<select name="home_district_under_barishal">
+                            <option hidden selected><?php echo $home_district_under_barishal;?></option>
+								<option value="ঝালকাঠী">ঝালকাঠী</option>
+								<option value="পটুয়াখালী">পটুয়াখালী</option> 
+								<option value="পিরোজপুর">পিরোজপুর</option>
+								<option value="বরিশাল">বরিশাল</option> 
+								<option value="বরগুনা">বরগুনা</option>
+								<option value="ভোলা">ভোলা</option>
+							</select>
+						</div>
+						<div class="shosurbari-biodata-field section" id="চট্টগ্রাম" style="display: none;">
+							<label>বাংলাদেশে স্থায়ী ঠিকানা-জেলা<span class="form-required" title="This field is required.">*</span></label>
+							<select name="home_district_under_chattogram">
+                            <option hidden selected><?php echo $home_district_under_chattogram;?></option>
+								<option value="কক্সবাজার">কক্সবাজার</option>  
+								<option value="কুমিল্লা">কুমিল্লা</option>
+								<option value="খাগড়াছড়ি">খাগড়াছড়ি</option>
+								<option value="চট্টগ্রাম">চট্টগ্রাম</option>
+								<option value="চাঁদপুর">চাঁদপুর</option>
+								<option value="নোয়াখালী">নোয়াখালী</option>
+								<option value="ফেনী">ফেনী</option>
+								<option value="বান্দরবান">বান্দরবান</option>
+								<option value="ব্রাহ্মনবাড়ীয়া">ব্রাহ্মনবাড়ীয়া</option> 
+								<option value="লক্ষীপুর">লক্ষীপুর</option>
+								<option value="রাঙ্গামাটি">রাঙ্গামাটি</option>
+							</select>
+						</div>
+						<div class="shosurbari-biodata-field section" id="ঢাকা" style="display: none;">
+							<label>বাংলাদেশে স্থায়ী ঠিকানা-জেলা<span class="form-required" title="This field is required.">*</span></label>
+							<select name="home_district_under_dhaka">
+							<option hidden selected><?php echo $home_district_under_dhaka;?></option>
+							<option value="কিশোরগঞ্জ">কিশোরগঞ্জ</option>
+							<option value="গাজীপুর">গাজীপুর</option>
+							<option value="গোপালগঞ্জ">গোপালগঞ্জ</option>
+							<option value="টাঙ্গাইল">টাঙ্গাইল</option>
+							<option value="ঢাকা">ঢাকা</option>
+							<option value="নরসিংদী">নরসিংদী</option>
+							<option value="নারায়ণগঞ্জ">নারায়ণগঞ্জ</option>
+							<option value="ফরিদপুর">ফরিদপুর</option>
+							<option value="মাদারীপুর">মাদারীপুর</option>
+							<option value="মানিকগঞ্জ">মানিকগঞ্জ</option>
+							<option value="মুন্সীগঞ্জ">মুন্সীগঞ্জ</option>
+							<option value="রাজবাড়ী">রাজবাড়ী</option>
+							<option value="শরীয়তপুর">শরীয়তপুর</option>
+							</select>
+						</div>
+						<div class="shosurbari-biodata-field section" id="খুলনা" style="display: none;">
+							<label>বাংলাদেশে স্থায়ী ঠিকানা-জেলা<span class="form-required" title="This field is required.">*</span></label>
+							<select name="home_district_under_khulna">
+                            <option hidden selected><?php echo $home_district_under_khulna;?></option>
+								<option value="কুষ্টিয়া">কুষ্টিয়া</option>
+								<option value="খুলনা">খুলনা</option>
+								<option value="চুয়াডাঙ্গা">চুয়াডাঙ্গা</option>
+								<option value="ঝিনাইদহ">ঝিনাইদহ</option>
+								<option value="নড়াইল">নড়াইল</option>
+								<option value="বাগেরহাট">বাগেরহাট</option>
+								<option value="মাগুরা">মাগুরা</option>
+								<option value="মেহেরপুর">মেহেরপুর</option>
+								<option value="যশোর">যশোর</option>
+								<option value="সাতক্ষীরা">সাতক্ষীরা</option>
+							</select>
+						</div>
+						<div class="shosurbari-biodata-field section" id="ময়মনসিংহ" style="display: none;">
+							<label>বাংলাদেশে স্থায়ী ঠিকানা-জেলা<span class="form-required" title="This field is required.">*</span></label>
+							<select name="home_district_under_mymensingh">
+                            <option hidden selected><?php echo $home_district_under_mymensingh;?></option>
+								<option value="জামালপুর">জামালপুর</option>
+								<option value="নেত্রকোনা">নেত্রকোনা</option>
+								<option value="ময়মনসিংহ">ময়মনসিংহ</option> 
+								<option value="শেরপুর">শেরপুর</option>
+							</select>
+						</div>
+						<div class="shosurbari-biodata-field section" id="রাজশাহী" style="display: none;">
+							<label>স্বাংলাদেশে থায়ী ঠিকানা-জেলা<span class="form-required" title="This field is required.">*</span></label>
+							<select name="home_district_under_rajshahi">
+                            <option hidden selected><?php echo $home_district_under_rajshahi;?></option>
+								<option value="চাঁপাই-নবাবগঞ্জ">চাঁপাই-নবাবগঞ্জ</option>
+								<option value="জয়পুরহাট">জয়পুরহাট</option>
+								<option value="নওগাঁ">নওগাঁ</option>
+								<option value="নাটোর">নাটোর</option>
+								<option value="পাবনা">পাবনা</option>
+								<option value="বগুড়া">বগুড়া</option>
+								<option value="রাজশাহী">রাজশাহী</option>
+								<option value="সিরাজগঞ্জ">সিরাজগঞ্জ</option>
+							</select>
+						</div>
+						<div class="shosurbari-biodata-field section" id="রংপুর" style="display: none;">
+							<label>বাংলাদেশে স্থায়ী ঠিকানা-জেলা<span class="form-required" title="This field is required.">*</span></label>
+							<select name="home_district_under_rangpur">
+                            <option hidden selected><?php echo $home_district_under_rangpur;?></option>
+								<option value="কুড়িগ্রাম">কুড়িগ্রাম</option>
+								<option value="গাইবান্ধা">গাইবান্ধা</option>
+								<option value="ঠাকুরগাঁও">ঠাকুরগাঁও</option>
+								<option value="দিনাজপুর">দিনাজপুর</option>
+								<option value="নীলফামারী">নীলফামারী</option>
+								<option value="পঞ্চগড়">পঞ্চগড়</option>
+								<option value="রংপুর">রংপুর</option>
+								<option value="লালমনিরহাট">লালমনিরহাট</option>
+							</select>
+						</div>
+						<div class="shosurbari-biodata-field section" id="সিলেট" style="display: none;">
+							<label>বাংলাদেশে স্থায়ী ঠিকানা-জেলা<span class="form-required" title="This field is required.">*</span></label>
+							<select name="home_district_under_sylhet">
+                            <option hidden selected><?php echo $home_district_under_sylhet;?></option>
+								<option value="মৌলভীবাজার">মৌলভীবাজার</option>
+								<option value="সুনামগঞ্জ">সুনামগঞ্জ</option>
+								<option value="সিলেট">সিলেট</option>
+								<option value="হবিগঞ্জ">হবিগঞ্জ</option> 
+							</select>
+						</div>
+						<script>
+							function showSection(division) {
+							// Hide all district sections
+							var districtSections = document.getElementsByClassName("section");
+							for (var i = 0; i < districtSections.length; i++) {
+								districtSections[i].style.display = "none";
+							}
+							// Show the selected division's district section
+							var selectedDivisionSection = document.getElementById(division);
+							if (selectedDivisionSection) {
+								selectedDivisionSection.style.display = "block";
+							}
+							var selects = selectedDivisionSection.getElementsByTagName("select");
+							for (var k = 0; k < selects.length; k++) {
+							selects[k].selectedIndex = 0; 
+							}
+							}
+						</script>
+						<div class="shosurbari-biodata-field">
+							<label for="edit-name">বর্তমানে যেখানে থাকেন পুরো ঠিকানা লিখুন<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text" name="present_address_location" id="edit-name"  value="<?php echo $present_address_location; ?>" class="form-text required" required>
+						</div>
+						<div class="shosurbari-biodata-field">
+							<label>উক্ত বর্তমান ঠিকানায় কোন উদ্দেশ্যে থাকা হয়, আপনার সাথে পরিবারের সদস্য থাকছে কিনা এবং সেখানে কত দিন যাবৎ থাকছেন?<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বিস্তারিত লিখুন)</span> </label>
+							<textarea type="text" rows="8" name="present_address_living_purpose" class="form-text-describe" required><?php echo $present_address_living_purpose; ?></textarea>
+						</div>
+						<div class="shosurbari-biodata-field">
+							<label for="edit-name">বাল্যকালে কোন ঠিকানায় বড় হয়েছেন?<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text" id="edit-name" name="childhood" value="<?php echo $childhood; ?>" class="form-text required" required>
+						</div>
+					</div>
+				</div>
+				<button type="submit" id="edit-submit" name="op" class="biodata-submit"><span></span> আপডেট করুন</button>			
+			</fieldset>
+		</form>
+	</div>
+	<!--=======================================
+	How Many Visitors View This Page.
+	This Script Connected to get_view_count.php
+	and page_views Database Table
+	========================================-->
+	<script>
+		$(document).ready(function() {
+		var pages = ["update-address"];
+		for (var i = 0; i < pages.length; i++) {
+		var page = pages[i];
+		$.ajax({
+		url: 'get_view_count.php?page=' + page,
+		type: 'GET',
+		success: function(data) {
+		$('#viewCount' + page.replace("_", "")).html(data);
+		}
+		});
+		}
+		});
+	</script>
+	<script>
+		var current_fs, next_fs, previous_fs; 
+		$(".next").click(function() {
+			current_fs = $(this).closest("fieldset");
+			next_fs = current_fs.next("fieldset");
+			if (!validateFields(current_fs)) {
+				return;
+			}
+			$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+			next_fs.show();
+			current_fs.hide();
+			$('html, body').animate({ scrollTop: $('#progressbar').offset().top }, 800);
+		});
+		$(".previous").click(function() {
+			current_fs = $(this).closest("fieldset");
+			previous_fs = current_fs.prev("fieldset");
+			previous_fs.show();
+			current_fs.hide();
+			$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+			$('html, body').animate({ scrollTop: $('#progressbar').offset().top }, 800);
+		});
+		// Validate the fields in the current fieldset
+		function validateFields(current_fs) {
+			var isValid = true;
+			var inputs = current_fs.find(":input[required]");
+			current_fs.find(".error-message-empty").remove();
+			inputs.each(function() {
+				if ($(this).val().trim() === "") {
+				$(this).addClass("error");
+				isValid = false;
+				var errorMessage = "<span class='error-message-empty'>This field is required.</span>";
+				$(this).after(errorMessage);
+				} else {
+				$(this).removeClass("error"); 
+				}
+			});
+			if (!isValid) {
+				var firstEmptyField = current_fs.find(".error").first();
+				var windowHeight = $(window).height();
+				var fieldTop = firstEmptyField.offset().top;
+				var fieldHeight = firstEmptyField.outerHeight();
+				var middleOffset = (windowHeight / 2) - (fieldHeight / 2);
+				var scrollTo = fieldTop - middleOffset;
+				$('html, body').animate({ scrollTop: scrollTo }, 800);
+			}
+			return isValid;
+		}
+	</script>
+	<!--=======  Footer Start ========-->
+	<?php include_once("footer.php");?>
+	<!--=======  Footer End  =========-->
+	<!-- jQuery -->
+	<script src="http://thecodeplayer.com/uploads/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+	<!-- jQuery easing plugin -->
+	<script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
+</body>
+</html>
