@@ -378,7 +378,7 @@ if(isloggedin()){
 							<label for="edit-name">ধূমপান করা হয়?<span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বাধ্যতামূলক নয়)</span></label>
 							<select name="smoke">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
 								<option value="না">না</option>
 								<option value="হ্যাঁ">হ্যাঁ</option> 
 								<option value="মাঝে মাঝে করা হয়">মাঝে মাঝে করা হয়</option>
@@ -417,7 +417,7 @@ if(isloggedin()){
 							<label >পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
 							<select name="student_occupation_level">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
 								<option value="কওমি মাদ্রাসার শিক্ষার্থী">কওমি মাদ্রাসার শিক্ষার্থী</option>
 								<option value="আলিয়া মাদ্রাসার দাখিল শিক্ষার্থী">আলিয়া মাদ্রাসার দাখিল শিক্ষার্থী</option> 
 								<option value="মাধ্যমিক শিক্ষার্থী">মাধ্যমিক শিক্ষার্থী</option>
@@ -451,7 +451,7 @@ if(isloggedin()){
 							<label>পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
 							<select name="health_occupation_level">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
 								<option value="এম.বি.বি.এস. ডাক্তার">এম.বি.বি.এস. ডাক্তার</option>
 								<option value="ইন্টার্নশীপ ডাক্তার">ইন্টার্নশীপ ডাক্তার</option> 
 								<option value="পশু চিকিৎসক">পশু চিকিৎসক</option>
@@ -467,7 +467,7 @@ if(isloggedin()){
 							<label>পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
 							<select name="engineer_occupation_level">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
 								<option value="সফটওয়্যার ইঞ্জিনিয়ার">সফটওয়্যার ইঞ্জিনিয়ার</option> 
 								<option value="টেক্সটাইল ইঞ্জিনিয়ার">টেক্সটাইল ইঞ্জিনিয়ার</option>
 								<option value="সিভিল ইঞ্জিনিয়ার">সিভিল ইঞ্জিনিয়ার</option>
@@ -488,7 +488,7 @@ if(isloggedin()){
 							<label>পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
 							<select name="teacher_occupation_level">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
 								<option value="কওমি মাদ্রাসার শিক্ষক">কওমি মাদ্রাসার শিক্ষক</option>
 								<option value="আলিয়া মাদ্রাসার শিক্ষক">আলিয়া মাদ্রাসার শিক্ষক</option>  
 								<option value="স্কুল শিক্ষক">স্কুল শিক্ষক</option> 
@@ -502,7 +502,7 @@ if(isloggedin()){
 							<label>পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
 							<select name="defense_occupation_level">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
 								<option value="সেনাবাহিনী">সেনাবাহিনী</option> 
 								<option value="বিমানবাহিনী">বিমানবাহিনী</option>
 								<option value="নৌবাহিনী">নৌবাহিনী</option>
@@ -522,7 +522,7 @@ if(isloggedin()){
 							<label>পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
 							<select name="foreigner_occupation_level">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
 								<option value="বিদেশে চাকরি করি">বিদেশে চাকরি করি</option>
 								<option value="বিদেশে কাজ করি">বিদেশে কাজ করি</option>
 								<option value="বিদেশে ব্যবসা করি">বিদেশে ব্যবসা করি</option>
@@ -534,7 +534,7 @@ if(isloggedin()){
 							<label>পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
 							<select name="garments_occupation_level">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
 								<option value="গার্মেন্টস ম্যানেজার">গার্মেন্টস ম্যানেজার</option>
 								<option value="গার্মেন্টস বায়িং হাউস">গার্মেন্টস বায়িং হাউস</option>
 								<option value="গার্মেন্টস শ্রমিক">গার্মেন্টস শ্রমিক</option> 
@@ -545,7 +545,7 @@ if(isloggedin()){
 							<label>পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
 							<select name="driver_occupation_level">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
 								<option value="পাঠাও/উবার রাইডার">পাঠাও/উবার রাইডার</option>
 								<option value="বাস ড্রাইভার">বাস ড্রাইভার</option> 
 								<option value="মাইক্রো বাস ড্রাইভার">মাইক্রো বাস ড্রাইভার</option> 
@@ -561,7 +561,7 @@ if(isloggedin()){
 							<label>পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
 							<select name="service_andcommon_occupation_level">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
 								<option value="HR">HR</option>
 								<option value="ব্যাংকার">ব্যাংকার</option>
 								<option value="আইনজীবী">আইনজীবী</option> 
@@ -577,7 +577,7 @@ if(isloggedin()){
 							<label>পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
 							<select name="mistri_occupation_level">
 							<option hidden selected></option>
-							<option>...</option>
+							<option></option>
 							<option value="রাজ মিস্ত্রি">রাজ মিস্ত্রি</option>
 							<option value="কাঠ মিস্ত্রি">কাঠ মিস্ত্রি</option>
 							<option value="ইলেকট্রিক মিস্ত্রি">ইলেকট্রিক মিস্ত্রি</option>
@@ -774,7 +774,7 @@ if(isloggedin()){
 							<label for="hafez">আপনি কি হাফেজ/হাফেজা?<span class="form-required" title="This field is required.">*</span></label>
 							<select name="qawmi_madrasa_hafez" id="hafez">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
 								<option value="হ্যাঁ">হ্যাঁ</option>
 								<option value="না">না</option>
 							</select>
@@ -784,7 +784,7 @@ if(isloggedin()){
 							<label for="dawra_pass">দাওরায়ে হাদিস পাস করেছেন? (মাস্টার্স)<span class="form-required" title="This field is required.">*</span></label>
 							<select name="qawmimadrasa_dawrapass" id="dawra_pass">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
 								<option value="হ্যাঁ">হ্যাঁ</option>
 								<option value="না, অধ্যায়নরত আছি">না, অধ্যায়নরত আছি </option>
 								<option value="না, বাদ দিয়েছি">না, বাদ দিয়েছি</option>
@@ -795,7 +795,8 @@ if(isloggedin()){
 							<label for="dawra_passing_year">দাওরায়ে হাদিস পাসের বর্ষ<span class="form-required" title="This field is required.">*</span></label>
 							<select name="kowmi_dawrapas_year" id="dawra_passing_year">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
+                                <option value="২০২৫">২০২৫</option>
 								<option value="২০২৪">২০২৪</option>
 								<option value="২০২৩">২০২৩</option>
 								<option value="২০২২">২০২২</option>
@@ -821,13 +822,23 @@ if(isloggedin()){
 								<option value="২০০২">২০০২</option>
 								<option value="২০০১">২০০১</option>
 								<option value="২০০০">২০০০</option>
+                                <option value="১৯৯৯">১৯৯৯</option>
+                                <option value="১৯৯৮">১৯৯৮</option>
+                                <option value="১৯৯৭">১৯৯৭</option>
+                                <option value="১৯৯৬">১৯৯৬</option>
+                                <option value="১৯৯৫">১৯৯৫</option>
+                                <option value="১৯৯৪">১৯৯৪</option>
+                                <option value="১৯৯৩">১৯৯৩</option>
+                                <option value="১৯৯২">১৯৯২</option>
+                                <option value="১৯৯১">১৯৯১</option>
+                                <option value="১৯৯০">১৯৯০</option>
 							</select>
 						</div>
 						<div class="shosurbari-biodata-field" id="current_edu_level_field">
 							<label for="current_edu_level">মাদ্রাসায় বর্তমান অধ্যায়নরত জামাত<span class="form-required" title="This field is required.">*</span></label>
 							<select name="kowmi_current_edu_level" id="current_edu_level">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
 								<option value="জামাতে তাইসীর">জামাতে তাইসীর</option>
 								<option value="জামাতে মীযান">জামাতে মীযান</option>
 								<option value="জামাতে নাহবে মীর">জামাতে নাহবে মীর</option>
@@ -847,7 +858,7 @@ if(isloggedin()){
 							<label for="secondary_pass">মাধ্যমিক/সমমান পাস করেছেন?<span class="form-required" title="This field is required.">*</span></label>
 							<select name="gnrl_mdrs_secondary_pass" id="secondary_pass">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
 								<option value="হ্যাঁ">হ্যাঁ</option>
 								<option value="না, পরীক্ষার্থী">না, পরীক্ষার্থী</option>
 								<option value="না, অধ্যায়নরত আছি">না, অধ্যায়নরত আছি </option>
@@ -859,7 +870,8 @@ if(isloggedin()){
 							<label for="gnrl_mdrs_scnd_pass_year">মাধ্যমিক/সমমান পাসের বর্ষ<span class="form-required" title="This field is required.">*</span></label>
 							<select name="gnrl_mdrs_secondary_pass_year" id="gnrl_mdrs_scnd_pass_year">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
+                                <option value="২০২৫">২০২৫</option>
 								<option value="২০২৪">২০২৪</option>
 								<option value="২০২৩">২০২৩</option>
 								<option value="২০২২">২০২২</option>
@@ -885,6 +897,16 @@ if(isloggedin()){
 								<option value="২০০২">২০০২</option>
 								<option value="২০০১">২০০১</option>
 								<option value="২০০০">২০০০</option>
+                                <option value="১৯৯৯">১৯৯৯</option>
+                                <option value="১৯৯৮">১৯৯৮</option>
+                                <option value="১৯৯৭">১৯৯৭</option>
+                                <option value="১৯৯৬">১৯৯৬</option>
+                                <option value="১৯৯৫">১৯৯৫</option>
+                                <option value="১৯৯৪">১৯৯৪</option>
+                                <option value="১৯৯৩">১৯৯৩</option>
+                                <option value="১৯৯২">১৯৯২</option>
+                                <option value="১৯৯১">১৯৯১</option>
+                                <option value="১৯৯০">১৯৯০</option>
 							</select>
 						</div>
 
@@ -892,7 +914,12 @@ if(isloggedin()){
 							<label for="gnrl_mdrs_scnd_exam_year">মাধ্যমিক/সমমান বোর্ড পরীক্ষার বর্ষ<span class="form-required" title="This field is required.">*</span></label>
 							<select name="gnrl_mdrs_secondary_end_year" id="gnrl_mdrs_scnd_exam_year">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
+								<option value="২০৩৫">২০৩৫</option>
+								<option value="২০৩৪">২০৩৪</option>
+								<option value="২০৩৩">২০৩৩</option>
+								<option value="২০৩২">২০৩২</option>
+								<option value="২০৩১">২০৩১</option>
 								<option value="২০৩০">২০৩০</option>
 								<option value="২০২৯">২০২৯</option>
 								<option value="২০২৮">২০২৮</option>
@@ -900,7 +927,6 @@ if(isloggedin()){
 								<option value="২০২৬">২০২৬</option>
 								<option value="২০২৫">২০২৫</option>
 								<option value="২০২৪">২০২৪</option>
-								<option value="২০২৩">২০২৩</option>
 							</select>
 						</div>
 
@@ -913,7 +939,7 @@ if(isloggedin()){
 							<label for="higherscndry_edumethod">উচ্চমাধ্যমিক/সমমান শিক্ষার মাধ্যম<span class="form-required" title="This field is required.">*</span></label>
 							<select name="higher_secondary_edu_method" id="higherscndry_edumethod">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
 								<option value="জেনারেল">জেনারেল</option>
 								<option value="আলিয়া মাদ্রাসা">আলিয়া মাদ্রাসা</option>
 								<option value="ডিপ্লোমা">ডিপ্লোমা</option>
@@ -929,7 +955,7 @@ if(isloggedin()){
 							<label for="hrsecondary_pass">উচ্চমাধ্যমিক/সমমান পাস করেছেন?<span class="form-required" title="This field is required.">*</span></label>
 							<select name="gnrlmdrs_hrsecondary_pass" id="hrsecondary_pass">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
 								<option value="হ্যাঁ">হ্যাঁ</option>
 								<option value="না, পরীক্ষার্থী">না, পরীক্ষার্থী</option>
 								<option value="না, এখনো অধ্যায়নরত">না, এখনো অধ্যায়নরত</option>
@@ -940,7 +966,8 @@ if(isloggedin()){
 							<label for="edu-method">উচ্চমাধ্যমিক/সমমান পাসের বর্ষ<span class="form-required" title="This field is required.">*</span></label>
 							<select name="gnrlmdrs_hrsecondary_pass_year">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
+                                <option value="২০২৫">২০২৫</option>
 								<option value="২০২৪">২০২৪</option>
 								<option value="২০২৩">২০২৩</option>
 								<option value="২০২২">২০২২</option>
@@ -966,6 +993,16 @@ if(isloggedin()){
 								<option value="২০০২">২০০২</option>
 								<option value="২০০১">২০০১</option>
 								<option value="২০০০">২০০০</option>
+                                <option value="১৯৯৯">১৯৯৯</option>
+                                <option value="১৯৯৮">১৯৯৮</option>
+                                <option value="১৯৯৭">১৯৯৭</option>
+                                <option value="১৯৯৬">১৯৯৬</option>
+                                <option value="১৯৯৫">১৯৯৫</option>
+                                <option value="১৯৯৪">১৯৯৪</option>
+                                <option value="১৯৯৩">১৯৯৩</option>
+                                <option value="১৯৯২">১৯৯২</option>
+                                <option value="১৯৯১">১৯৯১</option>
+                                <option value="১৯৯০">১৯৯০</option>
 							</select>
 						</div>
 
@@ -973,7 +1010,12 @@ if(isloggedin()){
 							<label for="edu-method">উচ্চমাধ্যমিক/সমমান বোর্ড পরীক্ষার বর্ষ<span class="form-required" title="This field is required.">*</span></label>
 							<select name="gnrlmdrs_hrsecondary_exam_year">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
+								<option value="২০৩৫">২০৩৫</option>
+								<option value="২০৩৪">২০৩৪</option>
+								<option value="২০৩৩">২০৩৩</option>
+								<option value="২০৩২">২০৩২</option>
+								<option value="২০৩১">২০৩১</option>
 								<option value="২০৩০">২০৩০</option>
 								<option value="২০২৯">২০২৯</option>
 								<option value="২০২৮">২০২৮</option>
@@ -981,7 +1023,6 @@ if(isloggedin()){
 								<option value="২০২৬">২০২৬</option>
 								<option value="২০২৫">২০২৫</option>
 								<option value="২০২৪">২০২৪</option>
-								<option value="২০২৩">২০২৩</option>
 							</select>
 						</div>
 
@@ -989,7 +1030,7 @@ if(isloggedin()){
 							<label for="edu-method">উচ্চমাধ্যমিক/সমমানে গ্রুপ?<span class="form-required" title="This field is required.">*</span></label>
 							<select name="gnrlmdrs_hrsecondary_group">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
 								<option value="বিজ্ঞান">বিজ্ঞান শাখা</option>
 								<option value="মানবিক শাখা">মানবিক শাখা</option>
 								<option value="ব্যবসা ও বাণিজ্য শাখা">ব্যবসা ও বাণিজ্য শাখা</option>
@@ -1008,7 +1049,7 @@ if(isloggedin()){
 							<label for="doploma_hrscdmethod">ডিপ্লোমা পাস করেছেন?<span class="form-required" title="This field is required.">*</span></label>
 							<select name="diploma_hrsecondary_pass" id="doploma_hrscdmethod">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
 								<option value="হ্যাঁ">হ্যাঁ</option>
 								<option value="না, অধ্যায়নরত আছি">না, অধ্যায়নরত আছি </option>
 							</select>
@@ -1018,7 +1059,8 @@ if(isloggedin()){
 							<label for="doploma_hrscnd_pass_year">ডিপ্লোমা পাসের বর্ষ<span class="form-required" title="This field is required.">*</span></label>
 							<select name="diploma_hrsecondary_pass_year">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
+                                <option value="২০২৫">২০২৫</option>
 								<option value="২০২৪">২০২৪</option>
 								<option value="২০২৩">২০২৩</option>
 								<option value="২০২২">২০২২</option>
@@ -1044,6 +1086,16 @@ if(isloggedin()){
 								<option value="২০০২">২০০২</option>
 								<option value="২০০১">২০০১</option>
 								<option value="২০০০">২০০০</option>
+                                <option value="১৯৯৯">১৯৯৯</option>
+                                <option value="১৯৯৮">১৯৯৮</option>
+                                <option value="১৯৯৭">১৯৯৭</option>
+                                <option value="১৯৯৬">১৯৯৬</option>
+                                <option value="১৯৯৫">১৯৯৫</option>
+                                <option value="১৯৯৪">১৯৯৪</option>
+                                <option value="১৯৯৩">১৯৯৩</option>
+                                <option value="১৯৯২">১৯৯২</option>
+                                <option value="১৯৯১">১৯৯১</option>
+                                <option value="১৯৯০">১৯৯০</option>
 							</select>
 						</div>
 
@@ -1056,7 +1108,12 @@ if(isloggedin()){
 							<label for="edu-method">ডিপ্লোমা অধ্যায়ন সম্পন্ন হবে<span class="form-required" title="This field is required.">*</span></label>
 							<select name="diploma_hrsecondary_endingyear">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
+								<option value="২০৩৫">২০৩৫</option>
+								<option value="২০৩৪">২০৩৪</option>
+								<option value="২০৩৩">২০৩৩</option>
+								<option value="২০৩২">২০৩২</option>
+								<option value="২০৩১">২০৩১</option>
 								<option value="২০৩০">২০৩০</option>
 								<option value="২০২৯">২০২৯</option>
 								<option value="২০২৮">২০২৮</option>
@@ -1064,7 +1121,6 @@ if(isloggedin()){
 								<option value="২০২৬">২০২৬</option>
 								<option value="২০২৫">২০২৫</option>
 								<option value="২০২৪">২০২৪</option>
-								<option value="২০২৩">২০২৩</option>
 							</select>
 						</div>
 
@@ -1072,7 +1128,7 @@ if(isloggedin()){
 							<label for="university_edumethod">স্নাতক/সমমান শিক্ষার মাধ্যম<span class="form-required" title="This field is required.">*</span></label>
 							<select name="varsity_edu_method" id="university_edumethod">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
 								<option value="জেনারেল">জেনারেল</option>
 								<option value="আলিয়া মাদ্রাসা">আলিয়া মাদ্রাসা</option>
 								<option value="ডিপ্লোমা">ডিপ্লোমা</option>
@@ -1088,7 +1144,7 @@ if(isloggedin()){
 							<label for="university_pass">স্নাতক/সমমান পাস করেছেন?<span class="form-required" title="This field is required.">*</span></label>
 							<select name="uvarsity_pass" id="university_pass">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
 								<option value="হ্যাঁ">হ্যাঁ</option>
 								<option value="না, অধ্যায়নরত আছি">না, অধ্যায়নরত আছি </option>
 							</select>
@@ -1098,7 +1154,8 @@ if(isloggedin()){
 							<label for="edu-method">স্নাতক/সমমান পাসের বর্ষ<span class="form-required" title="This field is required.">*</span></label>
 							<select name="varsity_passing_year">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
+                                <option value="২০২৫">২০২৫</option>
 								<option value="২০২৪">২০২৪</option>
 								<option value="২০২৩">২০২৩</option>
 								<option value="২০২২">২০২২</option>
@@ -1124,6 +1181,16 @@ if(isloggedin()){
 								<option value="২০০২">২০০২</option>
 								<option value="২০০১">২০০১</option>
 								<option value="২০০০">২০০০</option>
+                                <option value="১৯৯৯">১৯৯৯</option>
+                                <option value="১৯৯৮">১৯৯৮</option>
+                                <option value="১৯৯৭">১৯৯৭</option>
+                                <option value="১৯৯৬">১৯৯৬</option>
+                                <option value="১৯৯৫">১৯৯৫</option>
+                                <option value="১৯৯৪">১৯৯৪</option>
+                                <option value="১৯৯৩">১৯৯৩</option>
+                                <option value="১৯৯২">১৯৯২</option>
+                                <option value="১৯৯১">১৯৯১</option>
+                                <option value="১৯৯০">১৯৯০</option>
 							</select>
 						</div>
 
@@ -1136,7 +1203,12 @@ if(isloggedin()){
 							<label for="edu-method">স্নাতক/সমমান অধ্যায়ন সম্পন্ন হবে<span class="form-required" title="This field is required.">*</span></label>
 							<select name="varsity_ending_year">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
+								<option value="২০৩৫">২০৩৫</option>
+								<option value="২০৩৪">২০৩৪</option>
+								<option value="২০৩৩">২০৩৩</option>
+								<option value="২০৩২">২০৩২</option>
+								<option value="২০৩১">২০৩১</option>
 								<option value="২০৩০">২০৩০</option>
 								<option value="২০২৯">২০২৯</option>
 								<option value="২০২৮">২০২৮</option>
@@ -1144,7 +1216,6 @@ if(isloggedin()){
 								<option value="২০২৬">২০২৬</option>
 								<option value="২০২৫">২০২৫</option>
 								<option value="২০২৪">২০২৪</option>
-								<option value="২০২৩">২০২৩</option>
 							</select>
 						</div>
 
@@ -2030,7 +2101,7 @@ selects[k].selectedIndex = 0;
 							<label>বাংলাদেশে স্থায়ী ঠিকানা-জেলা<span class="form-required" title="This field is required.">*</span></label>
 							<select name="home_district_under_barishal">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
 								<option value="ঝালকাঠী">ঝালকাঠী</option>
 								<option value="পটুয়াখালী">পটুয়াখালী</option> 
 								<option value="পিরোজপুর">পিরোজপুর</option>
@@ -2044,7 +2115,7 @@ selects[k].selectedIndex = 0;
 							<label>বাংলাদেশে স্থায়ী ঠিকানা-জেলা<span class="form-required" title="This field is required.">*</span></label>
 							<select name="home_district_under_chattogram">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
 								<option value="কক্সবাজার">কক্সবাজার</option>  
 								<option value="কুমিল্লা">কুমিল্লা</option>
 								<option value="খাগড়াছড়ি">খাগড়াছড়ি</option>
@@ -2063,7 +2134,7 @@ selects[k].selectedIndex = 0;
 							<label>বাংলাদেশে স্থায়ী ঠিকানা-জেলা<span class="form-required" title="This field is required.">*</span></label>
 							<select name="home_district_under_dhaka">
 							<option hidden selected></option>
-							<option>...</option>
+							<option></option>
 							<option value="কিশোরগঞ্জ">কিশোরগঞ্জ</option>
 							<option value="গাজীপুর">গাজীপুর</option>
 							<option value="গোপালগঞ্জ">গোপালগঞ্জ</option>
@@ -2084,7 +2155,7 @@ selects[k].selectedIndex = 0;
 							<label>বাংলাদেশে স্থায়ী ঠিকানা-জেলা<span class="form-required" title="This field is required.">*</span></label>
 							<select name="home_district_under_khulna">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
 								<option value="কুষ্টিয়া">কুষ্টিয়া</option>
 								<option value="খুলনা">খুলনা</option>
 								<option value="চুয়াডাঙ্গা">চুয়াডাঙ্গা</option>
@@ -2102,7 +2173,7 @@ selects[k].selectedIndex = 0;
 							<label>বাংলাদেশে স্থায়ী ঠিকানা-জেলা<span class="form-required" title="This field is required.">*</span></label>
 							<select name="home_district_under_mymensingh">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
 								<option value="জামালপুর">জামালপুর</option>
 								<option value="নেত্রকোনা">নেত্রকোনা</option>
 								<option value="ময়মনসিংহ">ময়মনসিংহ</option> 
@@ -2114,7 +2185,7 @@ selects[k].selectedIndex = 0;
 							<label>স্বাংলাদেশে থায়ী ঠিকানা-জেলা<span class="form-required" title="This field is required.">*</span></label>
 							<select name="home_district_under_rajshahi">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
 								<option value="চাঁপাই-নবাবগঞ্জ">চাঁপাই-নবাবগঞ্জ</option>
 								<option value="জয়পুরহাট">জয়পুরহাট</option>
 								<option value="নওগাঁ">নওগাঁ</option>
@@ -2130,7 +2201,7 @@ selects[k].selectedIndex = 0;
 							<label>বাংলাদেশে স্থায়ী ঠিকানা-জেলা<span class="form-required" title="This field is required.">*</span></label>
 							<select name="home_district_under_rangpur">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
 								<option value="কুড়িগ্রাম">কুড়িগ্রাম</option>
 								<option value="গাইবান্ধা">গাইবান্ধা</option>
 								<option value="ঠাকুরগাঁও">ঠাকুরগাঁও</option>
@@ -2146,7 +2217,7 @@ selects[k].selectedIndex = 0;
 							<label>বাংলাদেশে স্থায়ী ঠিকানা-জেলা<span class="form-required" title="This field is required.">*</span></label>
 							<select name="home_district_under_sylhet">
 								<option hidden selected></option>
-								<option>...</option>
+								<option></option>
 								<option value="মৌলভীবাজার">মৌলভীবাজার</option>
 								<option value="সুনামগঞ্জ">সুনামগঞ্জ</option>
 								<option value="সিলেট">সিলেট</option>
@@ -2404,7 +2475,7 @@ selects[k].selectedIndex = 0;
 								<label for="edit-name">কয়টি সন্তান আছে<span class="form-required" title="This field is required.">*</span></label>
 								<select name="how_many_son" onchange="toggleSonDetails(this.value)">
 									<option hidden selected></option>
-									<option>...</option>
+									<option></option>
 									<option value="কোনো সন্তান নেই">কোনো সন্তান নেই</option>
 									<option value="১টি সন্তান">১টি সন্তান</option>
 									<option value="২টি সন্তান">২টি সন্তান</option>
