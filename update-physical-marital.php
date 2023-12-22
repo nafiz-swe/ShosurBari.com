@@ -168,33 +168,18 @@ if(isloggedin()){
 				$result = mysqlexec($sql);
 				if($result){
 				$row=mysqli_fetch_assoc($result);
-				if($row){
-				$biodatagender=$row['biodatagender'];
-				}
-				if($row){
-				$day=$row['dateofbirth'];
-				}
-				if($row){
-				$month=$row['dateofbirth'];
-				}
-				if($row){
-				$year=$row['dateofbirth'];
-				}
-				if($row){
-				$height=$row['height'];
-				}
-				if($row){
-				$weight=$row['weight'];
-				}
-				if($row){
-				$physicalstatus=$row['physicalstatus'];
-				}
-				if($row){
-				$Skin_tones = $row['Skin_tones'];
-				}
-				if($row){
-				$bloodgroup=$row['bloodgroup']; 
-				}
+				$biodatagender = isset($row['biodatagender']) ? $row['biodatagender'] : '';
+				$day = isset($row['dateofbirth']) ? $row['dateofbirth'] : '';
+				$month = isset($row['dateofbirth']) ? $row['dateofbirth'] : '';
+				$year = isset($row['dateofbirth']) ? $row['dateofbirth'] : '';
+				$height = isset($row['height']) ? $row['height'] : '';
+				$weight = isset($row['weight']) ? $row['weight'] : '';
+				$Skin_tones = isset($row['Skin_tones']) ? $row['Skin_tones'] : '';
+				$bloodgroup = isset($row['bloodgroup']) ? $row['bloodgroup'] : '';
+				$physicalstatus = isset($row['physicalstatus']) ? $row['physicalstatus'] : '';
+
+				$Displaybiodatagender = $biodatagender ? 'block' : 'none';
+
 				}
 			?>
 			<fieldset>
@@ -208,7 +193,7 @@ if(isloggedin()){
 						<h2>শারীরিক অবস্থা</h2>
 					</div>
 					<div class="sb-biodata-option">
-						<div class="shosurbari-biodata-field">
+						<div class="shosurbari-biodata-field" style="display: <?php echo $Displaybiodatagender; ?>;">
 							<label for="edit-name">বায়োডাটার ধরণ<span class="form-required" title="This field is required.">*</span></label>
 							<select name="biodatagender" required onchange="toggleGenderSections(this.value)">
 								<option hidden selected><?php echo $biodatagender; ?></option>
@@ -319,7 +304,7 @@ if(isloggedin()){
 							</select>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">শারীরিক বর্ণ<span class="form-required" title="This field is required.">*</span></label>
+							<label for="edit-name">গাত্র বর্ণ<span class="form-required" title="This field is required.">*</span></label>
 							<select name="Skin_tones" required>
 								<option hidden selected><?php echo $Skin_tones; ?></option>
 								<option value="উজ্জ্বল ফর্সা">উজ্জ্বল ফর্সা</option>
@@ -328,6 +313,14 @@ if(isloggedin()){
 								<option value="শ্যামবর্ণ">শ্যামবর্ণ</option>
 								<option value="কালো">কালো</option>
 							</select>
+						</div>
+						<div class="shosurbari-biodata-field">
+							<label for="edit-name">উচ্চতা<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text" id="edit-name" name="height" value="<?php echo $height; ?>" class="form-text" required>
+						</div>
+						<div class="shosurbari-biodata-field">
+							<label for="edit-name">ওজন<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text" id="edit-name" name="weight" value="<?php echo $weight; ?>" class="form-text" required>
 						</div>
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">রক্তের গ্রুপ<span class="form-required" title="This field is required.">*</span></label>
@@ -345,14 +338,6 @@ if(isloggedin()){
 							</select>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">উচ্চতা<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="height" value="<?php echo $height; ?>" size="100" maxlength="100" class="form-text" required>
-						</div>
-						<div class="shosurbari-biodata-field">
-							<label for="edit-name">ওজন<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="weight" value="<?php echo $weight; ?>" size="100" maxlength="100" class="form-text" required>
-						</div>
-						<div class="shosurbari-biodata-field">
 							<label for="edit-name">শারীরিক-মানসিক কোনো সমস্যা/রোগ আছে কি?<span class="form-required" title="This field is required.">*</span></label>
 							<textarea rows="8" id="edit-name" name="physicalstatus" placeholder="" class="form-text-describe" required><?php echo $physicalstatus; ?></textarea>
 						</div>
@@ -367,81 +352,65 @@ if(isloggedin()){
 			<!-- End & Start -->
             <!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 			--                S  T  A  R  T                  --
-			--   Male Marriage related Info / sb-biodata-6   --
-			--  Female Marriage related Info / sb-biodata-7  --
+			--			  Marriage related Info				 --
 			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 			<?php
 				include("includes/dbconn.php");
-				$sql="SELECT * FROM 6bd_marriage_related_qs_male WHERE user_id = $id";
-				$result = mysqlexec($sql);
-				if($result){
-					$row=mysqli_fetch_assoc($result);
-					if($row){
-					$allowstudy_aftermarriage=$row['allowstudy_aftermarriage'];
-					}
-					if($row){
-					$allowjob_aftermarriage=$row['allowjob_aftermarriage'];
-					}
-					if($row){
-					$livewife_aftermarriage=$row['livewife_aftermarriage'];
-					}
-					if($row){
-					$profileby=$row['profileby'];
-					}
-				}
-				//bd_marriage_related_qs_female_7;
-				$sql="SELECT * FROM 7bd_marriage_related_qs_female WHERE user_id = $id";
-				$result = mysqlexec($sql);
-				if($result){
-					$row=mysqli_fetch_assoc($result);
-					if($row){
-					$studies_aftermarriage=$row['studies_aftermarriage'];
-					}
-					if($row){
-					$anyjob_aftermarriage=$row['anyjob_aftermarriage'];
-					}
-					if($row){
-					$agree_marriage_student=$row['agree_marriage_student'];
-					}
-					if($row){
-					$profileby=$row['profileby'];
-					}
-				}
-				//6bd_7bd_marital_status;
+				// 6bd_7bd_marital_status
 				$sql="SELECT * FROM 6bd_7bd_marital_status WHERE user_id = $id";
 				$result = mysqlexec($sql);
 				if($result){
 					$row=mysqli_fetch_assoc($result);
-					if($row){
-					$maritalstatus=$row['maritalstatus'];
-					}
-					if($row){
-					$divorce_reason=$row['divorce_reason'];
-					}
-					if($row){
-					$how_widow=$row['how_widow'];
-					}
-					if($row){
-					$how_widower=$row['how_widower'];
-					}
-					if($row){
-					$get_wife_permission=$row['get_wife_permission'];
-					}
-					if($row){
-					$get_family_permission=$row['get_family_permission'];
-					}
-					if($row){
-					$why_again_married=$row['why_again_married'];
-					}
-					if($row){
-					$how_many_son=$row['how_many_son'];
-					}
-					if($row){
-					$son_details=$row['son_details'];
-					}
-					if($row){
-					$profilecreationdate=$row['profilecreationdate'];
-					}
+					$maritalstatus = isset($row['maritalstatus']) ? $row['maritalstatus'] : '';
+					$agree_marriage_other_religion = isset($row['agree_marriage_other_religion']) ? $row['agree_marriage_other_religion'] : '';
+					$divorce_reason = isset($row['divorce_reason']) ? $row['divorce_reason'] : '';
+					$how_widow = isset($row['how_widow']) ? $row['how_widow'] : '';
+					$how_widower = isset($row['how_widower']) ? $row['how_widower'] : '';
+					$how_many_son = isset($row['how_many_son']) ? $row['how_many_son'] : '';
+					$son_details = isset($row['son_details']) ? $row['son_details'] : '';
+					$get_wife_permission = isset($row['get_wife_permission']) ? $row['get_wife_permission'] : '';
+					$get_family_permission = isset($row['get_family_permission']) ? $row['get_family_permission'] : '';
+					$why_again_married = isset($row['why_again_married']) ? $row['why_again_married'] : '';
+					
+					// Show or hide fields based on the existence of data
+					$displayMaritalstatus = $maritalstatus ? 'block' : 'none';
+					$divorceReason = $divorce_reason ? 'block' : 'none';
+					$howWidow = $how_widow ? 'block' : 'none';
+					$howWidower = $how_widower ? 'block' : 'none';
+					$howManySon = $how_many_son ? 'block' : 'none';
+					$DisplaysonDetails = $son_details ? 'block' : 'none';
+					$getWifePermission = $get_wife_permission ? 'block' : 'none';
+					$getFamilyPermission = $get_family_permission ? 'block' : 'none';
+					$whyAgainMarried = $why_again_married ? 'block' : 'none';
+				}
+				//6bd_marriage_related_qs_male;
+				$sql="SELECT * FROM 6bd_marriage_related_qs_male WHERE user_id = $id";
+				$result = mysqlexec($sql);
+				if($result){
+					$row=mysqli_fetch_assoc($result);
+					$allowstudy_aftermarriage = isset($row['allowstudy_aftermarriage']) ? $row['allowstudy_aftermarriage'] : '';
+					$allowjob_aftermarriage = isset($row['allowjob_aftermarriage']) ? $row['allowjob_aftermarriage'] : '';
+					$livewife_aftermarriage = isset($row['livewife_aftermarriage']) ? $row['livewife_aftermarriage'] : '';
+					$profileby = isset($row['profileby']) ? $row['profileby'] : '';
+					// Show or hide fields based on the existence of data
+					$allowstudyAftermarriage = $allowstudy_aftermarriage ? 'block' : 'none';
+					$allowjobAftermarriage = $allowjob_aftermarriage ? 'block' : 'none';
+					$livewifeAftermarriage = $livewife_aftermarriage ? 'block' : 'none';
+				}
+
+				//7bd_marriage_related_qs_female;
+				$sql="SELECT * FROM 7bd_marriage_related_qs_female WHERE user_id = $id";
+				$result = mysqlexec($sql);
+				if($result){
+					$row=mysqli_fetch_assoc($result);
+					$anyjob_aftermarriage = isset($row['anyjob_aftermarriage']) ? $row['anyjob_aftermarriage'] : '';
+					$studies_aftermarriage = isset($row['studies_aftermarriage']) ? $row['studies_aftermarriage'] : '';
+					$agree_marriage_student = isset($row['agree_marriage_student']) ? $row['agree_marriage_student'] : '';
+					$profileby = isset($row['profileby']) ? $row['profileby'] : '';
+					// Show or hide fields based on the existence of data
+					$anyjobAftermarriage = $anyjob_aftermarriage ? 'block' : 'none';
+					$studiesAftermarriage = $studies_aftermarriage ? 'block' : 'none';
+					$agreeMarriageStudent = $agree_marriage_student ? 'block' : 'none';
 				}
 			?>
 			<fieldset>
@@ -455,7 +424,7 @@ if(isloggedin()){
 						<h2>বিবাহ সম্পর্কিত তথ্য</h2>
 					</div>
 					<div class="sb-biodata-option">
-						<div class="shosurbari-biodata-field">
+						<div class="shosurbari-biodata-field" style="display: <?php echo $displayMaritalstatus; ?>;">
 							<label for="edit-name">বৈবাহিক অবস্থা<span class="form-required" title="This field is required.">*</span></label>
 							<select name="maritalstatus" required onchange="toggleMaritalStatus(this.value)">
 								<option hidden selected><?php echo $maritalstatus; ?></option>
@@ -467,50 +436,50 @@ if(isloggedin()){
 							</select>
 						</div>
 						<!-- Divorce Section Start -->
-						<div class="shosurbari-biodata-field" id="divorce-section" style="display: none;">
+						<div class="shosurbari-biodata-field" id="divorce-section" style="display: <?php echo $divorceReason; ?>;">
 							<div class="shosurbari-biodata-field">
 								<label for="edit-name">ডিভোর্সের কারণ বর্ণনা করুন এবং কতদিন সংসার করেছেন?<span class="form-required" title="This field is required.">*</span></label>
-								<textarea rows="5" name="divorce_reason" placeholder="" class="form-text-describe"><?php echo $divorce_reason; ?></textarea>
+								<textarea type="text" rows="8" name="divorce_reason" class="form-text-describe"><?php echo $divorce_reason; ?></textarea>
 							</div>
 						</div>
 						<!-- Divorce Section End -->
 						<!-- Widow Section Start-->
-						<div class="shosurbari-biodata-field" id="widow-section" style="display: none;">
+						<div class="shosurbari-biodata-field" id="widow-section" style="display: <?php echo $howWidow; ?>;">
 							<div class="shosurbari-biodata-field">
-								<label for="edit-name">স্বামী যেভাবে মারা গেছেন এবং কতদিন সংসার করেছেন?<span class="form-required" title="This field is required.">*</span></label>
-								<textarea rows="5" name="how_widow" value="<?php echo $how_widow; ?>" placeholder="" class="form-text-describe"></textarea>
+								<label for="edit-name">স্বামী যেভাবে মারা গেছে এবং কতদিন সংসার করেছেন?<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বিস্তারিত লিখুন)</span></label>
+								<textarea type="text"  rows="8" name="how_widow"  class="form-text-describe"><?php echo $how_widow; ?></textarea>
 							</div>
 						</div>
 						<!-- Widow Section End-->
 						<!-- Widower Section Start-->
-						<div class="shosurbari-biodata-field" id="widower-section" style="display: none;">
+						<div class="shosurbari-biodata-field" id="widower-section" style="display: <?php echo $howWidower; ?>;">
 							<div class="shosurbari-biodata-field">
-								<label for="edit-name">স্ত্রী যেভাবে মারা গেছেন এবং কতদিন সংসার করেছেন?<span class="form-required" title="This field is required.">*</span></label>
-								<textarea rows="5" name="how_widower" value="<?php echo $how_widower; ?>" placeholder="" class="form-text-describe"></textarea>
+								<label for="edit-name">স্ত্রী যেভাবে মারা গেছে এবং কতদিন সংসার করেছেন?<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বিস্তারিত লিখুন)</span></label>
+								<textarea type="text" rows="8" name="how_widower" class="form-text-describe"><?php echo $how_widower; ?></textarea>
 							</div>
 						</div>
 						<!-- Widower Section End-->
 						<!-- Married Section Start-->
-						<div class="shosurbari-biodata-field" id="married-section" style="display: none;">
+						<div class="shosurbari-biodata-field" id="married-section" style="display: <?php echo $getWifePermission; ?>;">
 							<div class="shosurbari-biodata-field">
 								<label for="edit-name">বর্তমান স্ত্রীর অনুমতি নিয়েছেন?<span class="form-required" title="This field is required.">*</span></label>
-								<input type="text" id="edit-name" name="get_wife_permission"  value="<?php echo $get_wife_permission; ?>"  size="100" maxlength="100" class="form-text">
+								<input type="text" id="edit-name" name="get_wife_permission"  value="<?php echo $get_wife_permission; ?>" class="form-text">
 							</div>
 
-							<div class="shosurbari-biodata-field">
-								<label for="edit-name">আপনার ও বর্তমান স্ত্রীর পরিবার থেকে অনুমতি নিয়েছেন?<span class="form-required" title="This field is required.">*</span></label>
-								<input type="text" id="edit-name" name="get_family_permission"  value="<?php echo $get_family_permission; ?>"  size="100" maxlength="100" class="form-text">
+							<div class="shosurbari-biodata-field" id="married-family-permission" style="display: <?php echo $getFamilyPermission; ?>;">
+								<label for="edit-name">বর্তমান স্ত্রীর পরিবার থেকে অনুমতি নিয়েছেন?<span class="form-required" title="This field is required.">*</span></label>
+								<input type="text" id="edit-name" name="get_family_permission"  value="<?php echo $get_family_permission; ?>" class="form-text">
 							</div>
 
-							<div class="shosurbari-biodata-field">
-								<label for="edit-name">আবার বিয়ে করার কারণ<span class="form-required" title="This field is required.">*</span></label>
-								<textarea rows="5" name="why_again_married" value="<?php echo $why_again_married; ?>" placeholder="" class="form-text-describe"></textarea>
+							<div class="shosurbari-biodata-field" id="why-again-married" style="display: <?php echo $whyAgainMarried; ?>;">
+								<label for="edit-name">আবার বিয়ে করার কারণ<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বিস্তারিত লিখুন)</span></label>
+								<textarea rows="5" name="why_again_married" class="form-text-describe"><?php echo $why_again_married; ?></textarea>
 							</div>
 						</div>
 						<!-- Married Section End-->
 						<!-- This Sections For Divorce + Widow + Widower + Married Start-->
-						<div class="shosurbari-biodata-field" id="son-section" style="display: none;">
-							<div class="shosurbari-biodata-field">
+						<div class="shosurbari-biodata-field" id="son-section" style="display: <?php echo $howManySon; ?>;">
+							<div class="shosurbari-biodata-field" id="how-many-son">
 								<label for="edit-name">কয়টি সন্তান আছে<span class="form-required" title="This field is required.">*</span></label>
 								<select name="how_many_son" onchange="toggleSonDetails(this.value)">
 									<option hidden selected><?php echo $how_many_son; ?></option>
@@ -528,42 +497,46 @@ if(isloggedin()){
 									<option value="১০টি সন্তান">১০টি সন্তান</option>
 								</select>
 							</div>
-							<div class="shosurbari-biodata-field" id="son-details" style="display: none;">
-								<label for="edit-name">সন্তান সম্পর্কিত তথ্য<span class="form-required" title="This field is required.">*</span></label>
-								<textarea rows="5" name="son_details"  value="<?php echo $son_details; ?>" placeholder="" class="form-text-describe"></textarea>
+							<div class="shosurbari-biodata-field" id="son-details" style="display: <?php echo $DisplaysonDetails; ?>;">
+							<label for="edit-name">সন্তান সম্পর্কিত তথ্য<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বিস্তারিত লিখুন)</span></label>
+								<textarea rows="5" name="son_details" class="form-text-describe"><?php echo $son_details; ?></textarea>
 							</div>
 						</div>
 						<!-- This Sections For Divorce + Widow + Widower + Married End-->
 						<!-- Bellow Two Sections For Male or Female -->
-						<div class="shosurbari-biodata-field" id="male-allow-wife-job">
-							<label for="edit-name">বিয়ের পর স্ত্রীকে চাকরি করতে দিতে ইচ্ছুক?<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="allowjob_aftermarriage"  value="<?php echo $allowjob_aftermarriage; ?>"  size="100" maxlength="100" class="form-text">
+						<div class="shosurbari-biodata-field" id="male-allow-wife-job" style="display: <?php echo $allowjobAftermarriage; ?>;">
+						<label for="edit-name">বিয়ের পর স্ত্রীকে চাকরি করতে দিতে ইচ্ছুক?<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text" id="edit-name" name="allowjob_aftermarriage"  value="<?php echo $allowjob_aftermarriage; ?>" class="form-text">
 						</div>
-						<!--Top Male | OR | Bellow Female-->
-						<div class="shosurbari-biodata-field" id="female-job-after-marriage">
-							<label for="edit-name">বিয়ের পর চাকরি করতে চান?<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="anyjob_aftermarriage" value="<?php echo $anyjob_aftermarriage; ?>" size="100" maxlength="100" class="form-text">
+						<!--Top Male | & | Bellow Female-->
+						<div class="shosurbari-biodata-field" id="female-job-after-marriage" style="display: <?php echo $anyjobAftermarriage; ?>;">
+						<label for="edit-name">বিয়ের পর চাকরি করতে চান?<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text" id="edit-name" name="anyjob_aftermarriage" value="<?php echo $anyjob_aftermarriage; ?>" class="form-text">
 						</div>
-						<div class="shosurbari-biodata-field" id="male-allow-wife-study">
-							<label for="edit-name">বিয়ের পর স্ত্রীকে প্রাতিষ্ঠানিক পড়ালেখা করতে দিতে ইচ্ছুক?<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="allowstudy_aftermarriage" value="<?php echo $allowstudy_aftermarriage; ?>" size="100" maxlength="100" class="form-text">
+						<div class="shosurbari-biodata-field" id="male-allow-wife-study" style="display: <?php echo $allowstudyAftermarriage; ?>;">
+						<label for="edit-name">বিয়ের পর স্ত্রীকে প্রাতিষ্ঠানিক পড়ালেখা করতে দিতে ইচ্ছুক?<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text" id="edit-name" name="allowstudy_aftermarriage" value="<?php echo $allowstudy_aftermarriage; ?>" class="form-text">
 						</div>
-						<!--Top Male | OR | Bellow Female-->
-						<div class="shosurbari-biodata-field" id="female-study-after-marriage">
-							<label for="edit-name">বিয়ের পর পড়াশোনা চালিয়ে যেতে চান?<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="studies_aftermarriage"   value="<?php echo $studies_aftermarriage; ?>"  size="200" maxlength="200" class="form-text">
+						<!--Top Male | & | Bellow Female-->
+						<div class="shosurbari-biodata-field" id="female-study-after-marriage" style="display: <?php echo $studiesAftermarriage; ?>;">
+						<label for="edit-name">বিয়ের পর পড়াশোনা চালিয়ে যেতে চান?<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text" id="edit-name" name="studies_aftermarriage"   value="<?php echo $studies_aftermarriage; ?>" class="form-text">
 						</div>
-						<div class="shosurbari-biodata-field" id="male-live-with-wife">
-							<label for="edit-name">বিয়ের পর স্ত্রীকে নিয়ে কোথায় থাকবেন?<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="livewife_aftermarriage"  value="<?php echo $livewife_aftermarriage; ?>"  size="100" maxlength="100" class="form-text">
+						<div class="shosurbari-biodata-field" id="male-live-with-wife" style="display: <?php echo $livewifeAftermarriage; ?>;">
+						<label for="edit-name">বিয়ের পর স্ত্রীকে নিয়ে কোথায় থাকবেন?<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text" id="edit-name" name="livewife_aftermarriage"  value="<?php echo $livewife_aftermarriage; ?>" class="form-text">
 						</div>
-						<!--Top Male | OR | Bellow Female-->
-						<div class="shosurbari-biodata-field" id="female-agree-marriage-student">
-							<label for="edit-name">শিক্ষার্থী বিয়ে করতে রাজি আছেন?<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="agree_marriage_student"   value="<?php echo $agree_marriage_student; ?>"size="200" maxlength="200" class="form-text">
+						<!--Top Male | & | Bellow Female-->
+						<div class="shosurbari-biodata-field" id="female-agree-marriage-student" style="display: <?php echo $agreeMarriageStudent; ?>;">
+						<label for="edit-name">শিক্ষার্থী বিয়ে করতে রাজি আছেন?<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text" id="edit-name" name="agree_marriage_student"   value="<?php echo $agree_marriage_student; ?>" class="form-text">
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">বায়োডাটা টি যার তার আপনি কে হন?<span class="form-required" title="This field is required.">*</span></label>
+						<label for="edit-name">অন্য ধর্মের অনুসারী যে কাওকে বিয়ে করতে রাজি হবেন যদি সে আপনার ধর্ম গ্রহণ করে?<span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বাধ্যতামূলক নয়)</span></label>
+							<input type="text" id="edit-name" name="agree_marriage_other_religion"   value="<?php echo $agree_marriage_other_religion; ?>" class="form-text">
+						</div>
+						<div class="shosurbari-biodata-field">
+						<label for="edit-name">বায়োডাটা টি যার তার আপনি কে হন?<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
 							<select name="profileby" required>
 								<option hidden selected><?php echo $profileby; ?></option>
 								<option value="নিজের জন্য">নিজের জন্য</option>
@@ -591,12 +564,16 @@ if(isloggedin()){
 						var femaleStudySection = document.getElementById('female-study-after-marriage');
 						var maleliveWithwife = document.getElementById('male-live-with-wife');
 						var femaleagreeMarriagestudent = document.getElementById('female-agree-marriage-student');
+
 						var maritalStatusSelect = document.getElementsByName('maritalstatus')[0];
 						var optionWidow = maritalStatusSelect.querySelector('option[value="বিধবা"]');
 						var optionWidower = maritalStatusSelect.querySelector('option[value="বিপত্নীক"]');
+						var optionMarriade = maritalStatusSelect.querySelector('option[value="বিবাহিত"]');
+
 						// Reset the display property for all options before toggling
 						optionWidow.style.display = 'block';
 						optionWidower.style.display = 'block';
+						optionMarriade.style.display = 'block';
 						if (selectedGender === 'পাত্রের বায়োডাটা') {
 							maleallowJobwife.style.display = 'block';
 							femaleJobSection.style.display = 'none';
@@ -615,6 +592,7 @@ if(isloggedin()){
 							femaleagreeMarriagestudent.style.display = 'block';
 							// Hide বিপত্নীক option
 							optionWidower.style.display = 'none';
+							optionMarriade.style.display = 'none';
 						} else {
 							maleallowJobwife.style.display = 'none';
 							femaleJobSection.style.display = 'none';
@@ -630,18 +608,147 @@ if(isloggedin()){
 							});
 						}
 					}
-					function toggleMaritalStatus(selectedStatus) {
+					function toggleMaritalStatus(selectedStatus) { 
 						var sonDetailsSection = document.getElementById('son-section');
+						var howManySonHave = document.getElementById('how-many-son');
 						var divorceSection = document.getElementById('divorce-section');
 						var widowSection = document.getElementById('widow-section');
 						var widowerSection = document.getElementById('widower-section');
 						var marriedSection = document.getElementById('married-section');
+						var marriedFamilyPermission = document.getElementById('married-family-permission');
+						var whyAgainIntarestMarried = document.getElementById('why-again-married');
+
+						var maleAllowWifeJob = document.getElementById('male-allow-wife-job');
+						var femaleJobAfterMarriage = document.getElementById('female-job-after-marriage');
+						var maleAllowWifeStudy = document.getElementById('male-allow-wife-study');
+						var femaleStudyAfterMarriage = document.getElementById('female-study-after-marriage');
+						var maleLiveWithWife = document.getElementById('male-live-with-wife');
+						var femaleAgreeMarriageStudent = document.getElementById('female-agree-marriage-student');
+
+
+						//0
+						var inputs = maleAllowWifeJob.getElementsByTagName("input");
+						for (var j = 0; j < inputs.length; j++) {
+						inputs[j].value = ""; 
+						}
+						var inputs = femaleJobAfterMarriage.getElementsByTagName("input");
+						for (var j = 0; j < inputs.length; j++) {
+						inputs[j].value = ""; 
+						}
+						var inputs = maleAllowWifeStudy.getElementsByTagName("input");
+						for (var j = 0; j < inputs.length; j++) {
+						inputs[j].value = ""; 
+						}
+						var inputs = femaleStudyAfterMarriage.getElementsByTagName("input");
+						for (var j = 0; j < inputs.length; j++) {
+						inputs[j].value = ""; 
+						}
+						var inputs = maleLiveWithWife.getElementsByTagName("input");
+						for (var j = 0; j < inputs.length; j++) {
+						inputs[j].value = ""; 
+						}
+						var inputs = femaleAgreeMarriageStudent.getElementsByTagName("input");
+						for (var j = 0; j < inputs.length; j++) {
+						inputs[j].value = ""; 
+						}
+
+
+						//.11
+						var inputs = howManySonHave.getElementsByTagName("input");
+						for (var j = 0; j < inputs.length; j++) {
+						inputs[j].value = ""; 
+						}
+						var selects = howManySonHave.getElementsByTagName("select");
+						for (var k = 0; k < selects.length; k++) {
+						selects[k].selectedIndex = 0; 
+						}
+						var textarea = howManySonHave.getElementsByTagName("textarea");
+						for (var l = 0; l < textarea.length; l++) {
+							textarea[l].value = ""; 
+						}
+
+						//1
+						var inputs = sonDetailsSection.getElementsByTagName("input");
+						for (var j = 0; j < inputs.length; j++) {
+						inputs[j].value = ""; 
+						}
+						var selects = sonDetailsSection.getElementsByTagName("select");
+						for (var k = 0; k < selects.length; k++) {
+						selects[k].selectedIndex = 0; 
+						}
+						var textarea = sonDetailsSection.getElementsByTagName("textarea");
+						for (var l = 0; l < textarea.length; l++) {
+							textarea[l].value = ""; 
+						}
+
+						//2
+						var inputs = divorceSection.getElementsByTagName("input");
+						for (var j = 0; j < inputs.length; j++) {
+						inputs[j].value = ""; 
+						}
+						var selects = divorceSection.getElementsByTagName("select");
+						for (var k = 0; k < selects.length; k++) {
+						selects[k].selectedIndex = 0; 
+						}
+						var textarea = divorceSection.getElementsByTagName("textarea");
+						for (var l = 0; l < textarea.length; l++) {
+							textarea[l].value = ""; 
+						}
+
+						//3
+						var inputs = widowSection.getElementsByTagName("input");
+						for (var j = 0; j < inputs.length; j++) {
+						inputs[j].value = ""; 
+						}
+						var selects = widowSection.getElementsByTagName("select");
+						for (var k = 0; k < selects.length; k++) {
+						selects[k].selectedIndex = 0; 
+						}
+						var textarea = widowSection.getElementsByTagName("textarea");
+						for (var l = 0; l < textarea.length; l++) {
+							textarea[l].value = ""; 
+						}
+
+						//4
+						var inputs = widowerSection.getElementsByTagName("input");
+						for (var j = 0; j < inputs.length; j++) {
+						inputs[j].value = ""; 
+						}
+						var selects = widowerSection.getElementsByTagName("select");
+						for (var k = 0; k < selects.length; k++) {
+						selects[k].selectedIndex = 0; 
+						}
+						var textarea = widowerSection.getElementsByTagName("textarea");
+						for (var l = 0; l < textarea.length; l++) {
+							textarea[l].value = ""; 
+						}
+
+						//5
+						var inputs = marriedSection.getElementsByTagName("input");
+						for (var j = 0; j < inputs.length; j++) {
+						inputs[j].value = ""; 
+						}
+						var selects = marriedSection.getElementsByTagName("select");
+						for (var k = 0; k < selects.length; k++) {
+						selects[k].selectedIndex = 0; 
+						}
+						var textarea = marriedSection.getElementsByTagName("textarea");
+						for (var l = 0; l < textarea.length; l++) {
+							textarea[l].value = ""; 
+						}
+
+
 						// Hide all sections initially
 						sonDetailsSection.style.display = 'none';
 						divorceSection.style.display = 'none';
 						widowSection.style.display = 'none';
 						widowerSection.style.display = 'none';
 						marriedSection.style.display = 'none';
+						marriedFamilyPermission.style.display = 'none';
+						whyAgainIntarestMarried.style.display = 'none';
+
+
+
 						if (selectedStatus === 'অবিবাহিত') {
 							sonDetailsSection.style.display = 'none';
 						} else if (selectedStatus === 'ডিভোর্স') {
@@ -655,6 +762,8 @@ if(isloggedin()){
 							sonDetailsSection.style.display = 'block';
 						} else if (selectedStatus === 'বিবাহিত') {
 							marriedSection.style.display = 'block';
+							marriedFamilyPermission.style.display = 'block';
+							whyAgainIntarestMarried.style.display = 'block';
 							sonDetailsSection.style.display = 'block';
 						}
 					}

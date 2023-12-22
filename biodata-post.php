@@ -167,7 +167,7 @@ if(isloggedin()){
 				<div class="sb-biodata" id="personalPhysical">
 					<div class="soshurbari-animation-icon">
                         <div class="sb-icon-laptop">
-                        <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
+                        <h3> <img src="images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
                         </div>
                     </div>
 
@@ -303,6 +303,16 @@ if(isloggedin()){
 						</div>
 
 						<div class="shosurbari-biodata-field">
+							<label for="edit-name">উচ্চতা<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text" id="edit-name" name="height" value="" class="form-text" required>
+						</div>
+					
+						<div class="shosurbari-biodata-field">
+							<label for="edit-name">ওজন<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text" id="edit-name" name="weight" value="" class="form-text" required>
+						</div>
+
+						<div class="shosurbari-biodata-field">
 							<label for="edit-name">রক্তের গ্রুপ<span class="form-required" title="This field is required.">*</span></label>
 							<select name="bloodgroup" required>
 								<option hidden selected></option>
@@ -316,16 +326,6 @@ if(isloggedin()){
 								<option value="O-">O-</option>
 								<option value="জানিনা">জানিনা</option>
 							</select>
-						</div>
-
-						<div class="shosurbari-biodata-field">
-							<label for="edit-name">উচ্চতা<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="height" value="" class="form-text" required>
-						</div>
-					
-						<div class="shosurbari-biodata-field">
-							<label for="edit-name">ওজন<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="weight" value="" class="form-text" required>
 						</div>
 
 						<div class="shosurbari-biodata-field">
@@ -365,7 +365,7 @@ if(isloggedin()){
 				<div class="sb-biodata" id="personalLife">
 					<div class="soshurbari-animation-icon">
                         <div class="sb-icon-laptop">
-                        <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
+                        <h3> <img src="images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
                         </div>
                     </div>
 
@@ -385,7 +385,7 @@ if(isloggedin()){
 							</select>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label for="occupation_sector">পেশা<span class="form-required" title="This field is required.">*</span></label>
+							<label for="occupation_sector">পেশা<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (এই অপশনটি প্রকাশিত না হয়ে এর সাব ক্যাটাগরি প্রকাশিত হবে, যেকোনো একটি পেশা সিলেক্ট করলেই পেশা অনুযায়ী সাব ক্যাটাগরি দেখতে পাবেন।)</span></label>
 							<select name="occupation_sector" required onchange="showOccupationSector(this.value)">
 								<option hidden selected></option>
 								<option value="ব্যবসায়ী">ব্যবসায়ী</option>
@@ -409,7 +409,7 @@ if(isloggedin()){
 						</div>
 
 						<div class="shosurbari-biodata-field section"  id="ব্যবসায়ী" style="display: none;">
-							<label>পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
+						<label>কিসের ব্যবসা করেন?<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size:14px;" class="form-required" title="This field is required."> (ব্যবসার নামটি লিখুন)</span></label>
 							<input type="text"  name="business_occupation_level" value="" class="form-text">
 						</div>
 
@@ -418,32 +418,61 @@ if(isloggedin()){
 							<select name="student_occupation_level">
 								<option hidden selected></option>
 								<option></option>
-								<option value="কওমি মাদ্রাসার শিক্ষার্থী">কওমি মাদ্রাসার শিক্ষার্থী</option>
-								<option value="আলিয়া মাদ্রাসার দাখিল শিক্ষার্থী">আলিয়া মাদ্রাসার দাখিল শিক্ষার্থী</option> 
-								<option value="মাধ্যমিক শিক্ষার্থী">মাধ্যমিক শিক্ষার্থী</option>
+								<option class="label-search-options" disabled>মাদ্রাসা</option>
+								<option value="কওমী মাদ্রাসার শিক্ষার্থী">কওমী মাদ্রাসার শিক্ষার্থী</option>
+								<option class="label-search-options" disabled></option>
 
-								<option value="কলেজ শিক্ষার্থী">কলেজ শিক্ষার্থী</option>
-								<option value="আলিয়া মাদ্রাসার আলিম শিক্ষার্থী">আলিয়া মাদ্রাসার আলিম শিক্ষার্থী</option> 
-								<option value="পলিটেকনিক্যাল শিক্ষার্থী">পলিটেকনিক্যাল শিক্ষার্থী</option>
+								<option class="label-search-options" disabled>মাধ্যমিক/সমমান</option>
+								<option value="মাধ্যমিক শিক্ষার্থী-জেনারেল">মাধ্যমিক শিক্ষার্থী-জেনারেল</option>
+								<option value="মাধ্যমিক শিক্ষার্থী-ভোকেশনাল">মাধ্যমিক শিক্ষার্থী-ভোকেশনাল</option>
+								<option value="দাখিল শিক্ষার্থী-আলিয়া মাদ্রাসা">দাখিল শিক্ষার্থী-আলিয়া মাদ্রাসা</option>
+								<option class="label-search-options" disabled></option>
+
+								<option class="label-search-options" disabled>উচ্চমাধ্যমিক/সমমান</option>
+								<option value="উচ্চমাধ্যমিক শিক্ষার্থী-জেনারেল">উচ্চমাধ্যমিক শিক্ষার্থী-জেনারেল</option>
+								<option value="উচ্চমাধ্যমিক শিক্ষার্থী-ভোকেশনাল">উচ্চমাধ্যমিক শিক্ষার্থী-ভোকেশনাল</option>
+								<option value="আলিম শিক্ষার্থী-আলিয়া মাদ্রাসা">আলিম শিক্ষার্থী-আলিয়া মাদ্রাসা</option>
+								<option class="label-search-options" disabled></option>
+
+								<option class="label-search-options" disabled>ডিপ্লোমা-আন্ডারগ্রাজুয়েট/গ্রাজুয়েট</option>
+								<option value="ইঞ্জিনিয়ারিং-ডিপ্লোমা শিক্ষার্থী">ইঞ্জিনিয়ারিং-ডিপ্লোমা শিক্ষার্থী</option>
+								<option value="কৃষি-ডিপ্লোমা শিক্ষার্থী">কৃষি-ডিপ্লোমা শিক্ষার্থী</option>
+								<option value="হোমিওপ্যাথিক ডিপ্লোমা-শিক্ষার্থী">হোমিওপ্যাথিক ডিপ্লোমা-শিক্ষার্থী</option>
+								<option value="মেডিকেল অ্যাসিস্ট্যান্ট শিক্ষার্থী">মেডিকেল অ্যাসিস্ট্যান্ট শিক্ষার্থী</option>
+								<option value="মেডিকেল টেকনোলজি শিক্ষার্থী">মেডিকেল টেকনোলজি শিক্ষার্থী</option>
+								<option value="প্যারামেডিকেল শিক্ষার্থী">প্যারামেডিকেল শিক্ষার্থী</option>
 								<option value="নার্সিং শিক্ষার্থী">নার্সিং শিক্ষার্থী</option>
-								<option value="মিডউইফারী শিক্ষার্থী">মিডউইফারী শিক্ষার্থী</option>
-								<option value="পেরামেডিক্যাল শিক্ষার্থী">পেরামেডিক্যাল শিক্ষার্থী</option>
+								<option value="মিডওয়াইফারি শিক্ষার্থী">মিডওয়াইফারি শিক্ষার্থী</option>
+								<option class="label-search-options" disabled></option>
 
+								<option class="label-search-options" disabled>স্নাতক/ব্যাচেলর</option>
 								<option value="মেডিকেল শিক্ষার্থী">মেডিকেল শিক্ষার্থী</option>
 								<option value="ফার্মেসী শিক্ষার্থী">ফার্মেসী শিক্ষার্থী</option> 
 								<option value="বি.এসসি. ইঞ্জিনিয়ারিং শিক্ষার্থী">বি.এসসি. ইঞ্জিনিয়ারিং শিক্ষার্থী</option>
-								<option value="বি.বি.এ. শিক্ষার্থী">বি.বি.এ. শিক্ষার্থী</option> 
-
-
 								<option value="বি.এসসি. শিক্ষার্থী">বি.এসসি. শিক্ষার্থী</option>
+								<option value="বি.এস.এস. শিক্ষার্থী">বি.এস.এস. শিক্ষার্থী</option>
 								<option value="বি.এ. শিক্ষার্থী">বি.এ. শিক্ষার্থী</option>
 								<option value="বি.কম. শিক্ষার্থী">বি.কম. শিক্ষার্থী</option> 
-								<option value="আলিয়া মাদ্রাসার ফাজিল শিক্ষার্থী">আলিয়া মাদ্রাসার ফাজিল শিক্ষার্থী</option> 
+								<option value="বি.বি.এ. শিক্ষার্থী">বি.বি.এ. শিক্ষার্থী</option>
+								<option value="এল.এল.বি. শিক্ষার্থী">এল.এল.বি. শিক্ষার্থী</option> 
+								<option value="ফাজিল শিক্ষার্থী-আলিয়া মাদ্রাসা">ফাজিল শিক্ষার্থী-আলিয়া মাদ্রাসা</option>
+								<option class="label-search-options" disabled></option>
 
+								<option class="label-search-options" disabled>স্নাতকোত্তর/মাস্টার্স</option>
 								<option value="এম.এসসি. শিক্ষার্থী">এম.এসসি. শিক্ষার্থী</option>
-								<option value="এম.এ. শিক্ষার্থী">এম.এ. শিক্ষার্থী</option> 
 								<option value="এম.কম. শিক্ষার্থী">এম.কম. শিক্ষার্থী</option>
-								<option value="কামিল শিক্ষার্থী">কামিল শিক্ষার্থী</option> 
+								<option value="এম.এ. শিক্ষার্থী">এম.এ. শিক্ষার্থী</option>
+								<option value="এম.বি.এ. শিক্ষার্থী">এম.বি.এ. শিক্ষার্থী</option>  
+								<option value="এল.এল.এম. শিক্ষার্থী">এল.এল.এম. শিক্ষার্থী</option> 
+								<option value="কামিল শিক্ষার্থী-আলিয়া মাদ্রাসা">কামিল শিক্ষার্থী-আলিয়া মাদ্রাসা</option>
+								<option class="label-search-options" disabled></option>
+
+								<option class="label-search-options" disabled>অথবা</option>
+								<option value="মাধ্যমিক/সমমান শিক্ষার্থী">মাধ্যমিক/সমমান শিক্ষার্থী</option>
+								<option value="উচ্চমাধ্যমিক/সমমান শিক্ষার্থী">উচ্চমাধ্যমিক/সমমান শিক্ষার্থী</option>
+								<option value="ডিপ্লোমা শিক্ষার্থী">ডিপ্লোমা শিক্ষার্থী</option>
+								<option value="স্নাতক/ব্যাচেলর শিক্ষার্থী">স্নাতক/ব্যাচেলর শিক্ষার্থী</option>
+								<option value="স্নাতকোত্তর/মাস্টার্স শিক্ষার্থী">স্নাতকোত্তর/মাস্টার্স শিক্ষার্থী</option>   
 							</select>
 						</div>			
 
@@ -453,12 +482,16 @@ if(isloggedin()){
 								<option hidden selected></option>
 								<option></option>
 								<option value="এম.বি.বি.এস. ডাক্তার">এম.বি.বি.এস. ডাক্তার</option>
-								<option value="ইন্টার্নশীপ ডাক্তার">ইন্টার্নশীপ ডাক্তার</option> 
+								<option value="ডেন্টিস্ট">ডেন্টিস্ট</option>
+								<option value="ইন্টার্ন ডাক্তার (MBBS)">ইন্টার্ন ডাক্তার (MBBS)</option> 
 								<option value="পশু চিকিৎসক">পশু চিকিৎসক</option>
 								<option value="ফার্মাসিস্ট">ফার্মাসিস্ট</option>
-								<option value="ডিপ্লোমা ডাক্তার">ডিপ্লোমা ডাক্তার</option>
+								<option value="হোমিও ডাক্তার">হোমিও ডাক্তার</option>
+								<option value="মেডিকেল অ্যাসিস্ট্যান্ট">মেডিকেল অ্যাসিস্ট্যান্ট</option>
+								<option value="মেডিকেল টেকনোলজিস্ট">মেডিকেল টেকনোলজিস্ট</option>
+								<option value="প্যারামেডিকেল">প্যারামেডিকেল</option>
 								<option value="নার্স">নার্স</option>
-								<option value="মিডউইফারী">মিডউইফারী</option>
+								<option value="মিডওয়াইফারি">মিডওয়াইফারি</option>
 								<option value="পল্লী চিকিৎসক">পল্লী চিকিৎসক</option>
 							</select>
 						</div>
@@ -472,6 +505,7 @@ if(isloggedin()){
 								<option value="টেক্সটাইল ইঞ্জিনিয়ার">টেক্সটাইল ইঞ্জিনিয়ার</option>
 								<option value="সিভিল ইঞ্জিনিয়ার">সিভিল ইঞ্জিনিয়ার</option>
 								<option value="ইলেকট্রিক্যাল ইঞ্জিনিয়ার">ইলেকট্রিক্যাল ইঞ্জিনিয়ার</option>
+								<option value="ইলেকট্রনিক্স ইঞ্জিনিয়ার">ইলেকট্রনিক্স ইঞ্জিনিয়ার</option>
 								<option value="মেরিন ইঞ্জিনিয়ার">মেরিন ইঞ্জিনিয়ার</option> 
 								<option value="নেটওয়ার্ক ইঞ্জিনিয়ার">নেটওয়ার্ক ইঞ্জিনিয়ার</option> 
 								<option value="রোবোটিক্স ইঞ্জিনিয়ার">রোবোটিক্স ইঞ্জিনিয়ার</option>
@@ -480,7 +514,7 @@ if(isloggedin()){
 								<option value="মেকানিক্যাল ইঞ্জিনিয়ার">মেকানিক্যাল ইঞ্জিনিয়ার</option>
 								<option value="কেমিক্যাল ইঞ্জিনিয়ার">কেমিক্যাল ইঞ্জিনিয়ার</option>
 								<option value="বিয়োমেডিক্যাল ইঞ্জিনিয়ার">বিয়োমেডিক্যাল ইঞ্জিনিয়ার</option>
-								<option value="এরোস্পেস ইঞ্জিনিয়ারিং">এরোস্পেস ইঞ্জিনিয়ারিং</option>
+								<option value="এরোস্পেস ইঞ্জিনিয়ার">এরোস্পেস ইঞ্জিনিয়ার</option>
 							</select>
 						</div>
 
@@ -489,12 +523,13 @@ if(isloggedin()){
 							<select name="teacher_occupation_level">
 								<option hidden selected></option>
 								<option></option>
-								<option value="কওমি মাদ্রাসার শিক্ষক">কওমি মাদ্রাসার শিক্ষক</option>
+								<option value="কওমী মাদ্রাসার শিক্ষক">কওমী মাদ্রাসার শিক্ষক</option>
 								<option value="আলিয়া মাদ্রাসার শিক্ষক">আলিয়া মাদ্রাসার শিক্ষক</option>  
 								<option value="স্কুল শিক্ষক">স্কুল শিক্ষক</option> 
 								<option value="কলেজ শিক্ষক">কলেজ শিক্ষক</option>
-								<option value="বিশ্ববিদ্যালয় প্রফেসর">বিশ্ববিদ্যালয় শিক্ষক</option>
-								<option value="ডিগ্রির প্রফেসর">ডিগ্রির শিক্ষক</option>
+								<option value="বিশ্ববিদ্যালয়ের শিক্ষক">বিশ্ববিদ্যালয়ের শিক্ষক</option>
+								<option value="ডিগ্রির শিক্ষক">ডিগ্রির শিক্ষক</option>
+								<option value="প্রফেসর">প্রফেসর</option>
 							</select>
 						</div>
 
@@ -523,10 +558,10 @@ if(isloggedin()){
 							<select name="foreigner_occupation_level">
 								<option hidden selected></option>
 								<option></option>
-								<option value="বিদেশে চাকরি করি">বিদেশে চাকরি করি</option>
-								<option value="বিদেশে কাজ করি">বিদেশে কাজ করি</option>
-								<option value="বিদেশে ব্যবসা করি">বিদেশে ব্যবসা করি</option>
-								<option value="বিদেশে পড়াশোনা করি">বিদেশে পড়াশোনা করি</option>
+								<option value="বিদেশে চাকরি">বিদেশে চাকরি</option>
+								<option value="বিদেশে কাজ">বিদেশে কাজ</option>
+								<option value="বিদেশে ব্যবসা">বিদেশে ব্যবসা</option>
+								<option value="বিদেশে পড়াশোনা">বিদেশে পড়াশোনা</option>
 							</select>
 						</div>
 
@@ -742,7 +777,7 @@ if(isloggedin()){
 				<div class="sb-biodata" id="educationalQualifications">
 					<div class="soshurbari-animation-icon">
                         <div class="sb-icon-laptop">
-                        <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
+                        <h3> <img src="images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
                         </div>
                     </div>
 
@@ -758,7 +793,7 @@ if(isloggedin()){
 								<option value="জেনারেল">জেনারেল</option>
 								<option value="আলিয়া মাদ্রাসা">আলিয়া মাদ্রাসা</option>
 								<option value="ভোকেশনাল">ভোকেশনাল</option>
-								<option value="কওমি মাদ্রাসা">কওমি মাদ্রাসা</option>
+								<option value="কওমী মাদ্রাসা">কওমী মাদ্রাসা</option>
 								<option value="মাধ্যমিক পড়িনাই">মাধ্যমিক পড়িনাই</option>
 								<option value="অন্যান্য">অন্যান্য</option>
 							</select>
@@ -841,13 +876,13 @@ if(isloggedin()){
 								<option></option>
 								<option value="জামাতে তাইসীর">জামাতে তাইসীর</option>
 								<option value="জামাতে মীযান">জামাতে মীযান</option>
-								<option value="জামাতে নাহবে মীর">জামাতে নাহবে মীর</option>
-								<option value="জামাতে হেদায়াতুন্নাহূ">জামাতে হেদায়াতুন্নাহূ</option>
+								<option value="জামাতে নাহবেমীর">জামাতে নাহবেমীর</option>
+								<option value="জামাতে হেদায়াতুন নাহু">জামাতে হেদায়াতুন নাহু</option>
 								<option value="জামাতে কাফিয়া">জামাতে কাফিয়া</option>
 								<option value="জামাতে শরহে জামী">জামাতে শরহে জামী</option>
 								<option value="জামাতে জালালাইন">জামাতে জালালাইন</option>
 								<option value="জামাতে মেশকাত">জামাতে মেশকাত</option>
-								<option value="দাওরায়ে হাদীস পরীক্ষার্থী">দাওরায়ে হাদীস পরীক্ষার্থী</option>
+								<option value="জামাতে তাকমিল">জামাতে তাকমিল</option>
 							</select>
 						</div>
 						<!--Kowmi Madrasa ending -->
@@ -1562,7 +1597,7 @@ selects[k].selectedIndex = 0;
 }
 
 						// Show or hide sections based on the selected value
-						if (selectedValue === "কওমি মাদ্রাসা") {
+						if (selectedValue === "কওমী মাদ্রাসা") {
 							document.getElementById("hafez_field").style.display = "block";
 							document.getElementById("dawra_pass_field").style.display = "block";
 							document.getElementById("dawra_passing_year_field").style.display = "none";
@@ -1995,7 +2030,7 @@ selects[k].selectedIndex = 0;
 				<div class="sb-biodata" id="addressDetails">
 					<div class="soshurbari-animation-icon">
                         <div class="sb-icon-laptop">
-                        <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
+                        <h3> <img src="images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
                         </div>
                     </div>
 
@@ -2292,7 +2327,7 @@ selects[k].selectedIndex = 0;
 				<div class="sb-biodata" id="familyInfo">
 					<div class="soshurbari-animation-icon">
                         <div class="sb-icon-laptop">
-                        <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
+                        <h3> <img src="images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
                         </div>
                     </div>
 
@@ -2399,7 +2434,7 @@ selects[k].selectedIndex = 0;
 				<div class="sb-biodata" id="maleMarriageInfo">
 					<div class="soshurbari-animation-icon">
                         <div class="sb-icon-laptop">
-                        <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
+                        <h3> <img src="images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
                         </div>
                     </div>
 					<div class="sb-biodata-field">
@@ -2423,7 +2458,7 @@ selects[k].selectedIndex = 0;
 						<div class="shosurbari-biodata-field" id="divorce-section" style="display: none;">
 							<div class="shosurbari-biodata-field">
 								<label for="edit-name">ডিভোর্সের কারণ বর্ণনা করুন এবং কতদিন সংসার করেছেন?<span class="form-required" title="This field is required.">*</span></label>
-								<textarea type="text" rows="8" name="divorce_reason" value="" class="form-text-describe"></textarea>
+								<textarea type="text" rows="8" name="divorce_reason" class="form-text-describe"></textarea>
 							</div>
 						</div>
 						<!-- Divorce Section End -->
@@ -2456,12 +2491,12 @@ selects[k].selectedIndex = 0;
 								<input type="text" id="edit-name" name="get_wife_permission" value="" class="form-text">
 							</div>
 
-							<div class="shosurbari-biodata-field">
-								<label for="edit-name">আপনার ও বর্তমান স্ত্রীর পরিবার থেকে অনুমতি নিয়েছেন?<span class="form-required" title="This field is required.">*</span></label>
+							<div class="shosurbari-biodata-field" id="married-family-permission">
+								<label for="edit-name">বর্তমান স্ত্রীর পরিবার থেকে অনুমতি নিয়েছেন?<span class="form-required" title="This field is required.">*</span></label>
 								<input type="text" id="edit-name" name="get_family_permission" value="" class="form-text">
 							</div>
 
-							<div class="shosurbari-biodata-field">
+							<div class="shosurbari-biodata-field" id="why-again-married">
 								<label for="edit-name">আবার বিয়ে করার কারণ<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বিস্তারিত লিখুন)</span></label>
 								<textarea type="text" rows="8" name="why_again_married" value="" class="form-text-describe"></textarea>
 							</div>
@@ -2529,7 +2564,7 @@ selects[k].selectedIndex = 0;
 							<label for="edit-name">শিক্ষার্থী বিয়ে করতে রাজি আছেন?<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text" id="edit-name" name="agree_marriage_student"   value="" class="form-text">
 						</div>
-						<div class="shosurbari-biodata-field" id="female-agree-marriage-student">
+						<div class="shosurbari-biodata-field">
 							<label for="edit-name">অন্য ধর্মের অনুসারী যে কাওকে বিয়ে করতে রাজি হবেন যদি সে আপনার ধর্ম গ্রহণ করে?<span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বাধ্যতামূলক নয়)</span></label>
 							<input type="text" id="edit-name" name="agree_marriage_other_religion"   value="" class="form-text">
 						</div>
@@ -2761,7 +2796,7 @@ selects[k].selectedIndex = 0;
 				<div class="sb-biodata" id="religionDetails">
 					<div class="soshurbari-animation-icon">
                         <div class="sb-icon-laptop">
-                        <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
+                        <h3> <img src="images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
                         </div>
                     </div>
 
@@ -2817,7 +2852,7 @@ selects[k].selectedIndex = 0;
 				<div class="sb-biodata" id="expectedPartner">
 					<div class="soshurbari-animation-icon">
                         <div class="sb-icon-laptop">
-                        <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
+                        <h3> <img src="images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
                         </div>
                     </div>
 

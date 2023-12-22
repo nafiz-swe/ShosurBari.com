@@ -248,7 +248,7 @@ if(isloggedin()){
 				<div class="sb-biodata" id="educationalQualifications">
 					<div class="soshurbari-animation-icon">
                         <div class="sb-icon-laptop">
-                        <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
+                        <h3> <img src="images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
                         </div>
                     </div>
 
@@ -264,7 +264,7 @@ if(isloggedin()){
 								<option value="জেনারেল">জেনারেল</option>
 								<option value="আলিয়া মাদ্রাসা">আলিয়া মাদ্রাসা</option>
 								<option value="ভোকেশনাল">ভোকেশনাল</option>
-								<option value="কওমি মাদ্রাসা">কওমি মাদ্রাসা</option>
+								<option value="কওমী মাদ্রাসা">কওমী মাদ্রাসা</option>
 								<option value="মাধ্যমিক পড়িনাই">মাধ্যমিক পড়িনাই</option>
 								<option value="অন্যান্য">অন্যান্য</option>
 							</select>
@@ -347,13 +347,13 @@ if(isloggedin()){
 								<option></option>
 								<option value="জামাতে তাইসীর">জামাতে তাইসীর</option>
 								<option value="জামাতে মীযান">জামাতে মীযান</option>
-								<option value="জামাতে নাহবে মীর">জামাতে নাহবে মীর</option>
-								<option value="জামাতে হেদায়াতুন্নাহূ">জামাতে হেদায়াতুন্নাহূ</option>
+								<option value="জামাতে নাহবেমীর">জামাতে নাহবেমীর</option>
+								<option value="জামাতে হেদায়াতুন নাহু">জামাতে হেদায়াতুন নাহু</option>
 								<option value="জামাতে কাফিয়া">জামাতে কাফিয়া</option>
 								<option value="জামাতে শরহে জামী">জামাতে শরহে জামী</option>
 								<option value="জামাতে জালালাইন">জামাতে জালালাইন</option>
 								<option value="জামাতে মেশকাত">জামাতে মেশকাত</option>
-								<option value="দাওরায়ে হাদীস পরীক্ষার্থী">দাওরায়ে হাদীস পরীক্ষার্থী</option>
+								<option value="জামাতে তাকমিল">জামাতে তাকমিল</option>
 							</select>
 						</div>
 						<!--Kowmi Madrasa ending -->
@@ -858,10 +858,6 @@ var selects = maxeduQualification.getElementsByTagName("select");
 for (var k = 0; k < selects.length; k++) {
 selects[k].selectedIndex = 0; 
 }
-var textarea = maxeduQualification.getElementsByTagName("textarea");
-for (var l = 0; l < textarea.length; l++) {
-	textarea[l].value = ""; 
-}
 
 
 // 6
@@ -1068,7 +1064,7 @@ selects[k].selectedIndex = 0;
 }
 
 						// Show or hide sections based on the selected value
-						if (selectedValue === "কওমি মাদ্রাসা") {
+						if (selectedValue === "কওমী মাদ্রাসা") {
 							document.getElementById("hafez_field").style.display = "block";
 							document.getElementById("dawra_pass_field").style.display = "block";
 							document.getElementById("dawra_passing_year_field").style.display = "none";

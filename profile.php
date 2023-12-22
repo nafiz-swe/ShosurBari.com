@@ -813,6 +813,12 @@ require_once("includes/dbconn.php");
 												<td class="day_value"><?php echo $dob; ?></td>
 											</tr>
 											<?php endif; ?>
+											<?php if (!empty($Skin_tones)) : ?>
+											<tr class="opened">
+												<td class="day_label">গাত্র বর্ণ</td>
+												<td class="day_value closed"><span><?php echo $Skin_tones; ?></span></td>
+											</tr>
+											<?php endif; ?>
 											<?php if (!empty($height)) : ?>
 											<tr class="opened">
 												<td class="day_label">উচ্চতা</td>
@@ -825,22 +831,16 @@ require_once("includes/dbconn.php");
 												<td class="day_value"><?php echo $weight; ?></td>
 											</tr>
 											<?php endif; ?>
-											<?php if (!empty($physicalstatus)) : ?>
-											<tr class="opened">
-												<td class="day_label">শারীরিক সমস্যা আছে কি?</td>
-												<td class="day_value closed"><span><?php echo $physicalstatus; ?></span></td>
-											</tr>
-											<?php endif; ?>
-											<?php if (!empty($Skin_tones)) : ?>
-											<tr class="opened">
-												<td class="day_label">গাত্র বর্ণ</td>
-												<td class="day_value closed"><span><?php echo $Skin_tones; ?></span></td>
-											</tr>
-											<?php endif; ?>
 											<?php if (!empty($bloodgroup)) : ?>
 											<tr class="opened">
 												<td class="day_label">রক্তের গ্রুপ</td>
 												<td class="day_value closed"><span><?php echo $bloodgroup; ?></span></td>
+											</tr>
+											<?php endif; ?>
+											<?php if (!empty($physicalstatus)) : ?>
+											<tr class="opened">
+												<td class="day_label">শারীরিক-মানসিক কোনো সমস্যা/রোগ আছে কি?</td>
+												<td class="day_value closed"><span><?php echo $physicalstatus; ?></span></td>
 											</tr>
 											<?php endif; ?>
 										</tbody>
@@ -1571,7 +1571,7 @@ require_once("includes/dbconn.php");
 											<?php endif; ?>
 											<?php if (!empty($get_family_permission)) : ?>
 											<tr class="opened">
-												<td class="day_label">স্ত্রীর ও আপনার পরিবারের অনুমতি নিয়েছেন?</td>
+												<td class="day_label">স্ত্রীর পরিবার থেকে অনুমতি নিয়েছেন?</td>
 												<td class="day_value"><?php echo $get_family_permission; ?></td>
 											</tr>
 											<?php endif; ?>

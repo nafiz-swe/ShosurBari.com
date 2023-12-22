@@ -428,8 +428,8 @@
             <span class="search-options">সকল শিক্ষার্থী</span>
             <br>
             <!-- Students Sector-->
-            <input type="checkbox" name="student_occupation_level[]" value="কওমি মাদ্রাসার শিক্ষার্থী" class="SelectBox val student-option" onchange="handleStudentOptions(this)" />
-            <span class="search-options">শিক্ষার্থী-কওমি মাদ্রাসা</span>
+            <input type="checkbox" name="student_occupation_level[]" value="কওমী মাদ্রাসার শিক্ষার্থী" class="SelectBox val student-option" onchange="handleStudentOptions(this)" />
+            <span class="search-options">শিক্ষার্থী-কওমী মাদ্রাসা</span>
             <br>
             <!-- Students Sector-->
             <input type="checkbox" name="student_occupation_level[]" value="বি.এসসি. ইঞ্জিনিয়ারিং শিক্ষার্থী" class="SelectBox val student-option" onchange="handleStudentOptions(this)" />

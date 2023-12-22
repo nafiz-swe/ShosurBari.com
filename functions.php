@@ -1287,13 +1287,13 @@
                     session_start();
                     $_SESSION['updateMessage'] = '<i class="fa fa-check-circle" style="font-size: 30px; margin-bottom: 10px;"></i></br> ডেটা সফলভাবে আপডেট হয়েছে!';
                     $_SESSION['messageType'] = 'success';
-                    header("Location: religion-update.php");
+                    header("Location: update-religion.php");
                     exit();
                 } else {
                     session_start();
                     $_SESSION['updateMessage'] = '<i class="fa fa-times-circle" style="font-size: 30px; margin-bottom: 10px;"></i> </br>উফফ! সমস্যা দেখা দিয়েছে।';
                     $_SESSION['messageType'] = 'error';
-                    header("Location: religion-update.php");
+                    header("Location: update-religion.php");
                     exit();
                 }
             }

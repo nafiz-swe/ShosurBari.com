@@ -155,111 +155,107 @@ if(isloggedin()){
     ?>
 	<div class="shosurbari-biodata">
 		<form action="" method="POST" id="biodataForm">
-			<?php
-				include("includes/dbconn.php");
-				$sql="SELECT * FROM 5bd_family_information WHERE user_id = $id";
-				$result = mysqlexec($sql);
-				if($result){
-				$row=mysqli_fetch_assoc($result);
-				if($row){
-				$father_name=$row['father_name'];
-				}
-				if($row){
-				$father_alive=$row['father_alive'];
-				}
-				if($row){
-				$fatheroccupation=$row['fatheroccupation'];
-				}
-				if($row){
-				$mother_alive=$row['mother_alive'];
-				}
-				if($row){
-				$motheroccupation=$row['motheroccupation'];
-				}
-				if($row){
-				$brosis_number=$row['brosis_number'];
-				}
-				if($row){
-				$brosis_info=$row['brosis_info'];
-				}
-				if($row){
-				$uncle_profession=$row['uncle_profession'];
-				}
-				if($row){
-				$family_class=$row['family_class'];
-				}
-				if($row){
-				$financial_condition=$row['financial_condition'];
-				}
-				if($row){
-				$family_religious_condition=$row['family_religious_condition'];
-				}
-				}
+		<?php
+			include("includes/dbconn.php");
+			$sql = "SELECT * FROM 5bd_family_information WHERE user_id = $id";
+			$result = mysqlexec($sql);
+			if ($result) {
+				$row = mysqli_fetch_assoc($result);
+				// Check if data exists for each field and set variables accordingly
+				$family_major_guardian = isset($row['family_major_guardian']) ? $row['family_major_guardian'] : '';
+				$father_name = isset($row['father_name']) ? $row['father_name'] : '';
+				$father_alive = isset($row['father_alive']) ? $row['father_alive'] : '';
+				$fatheroccupation = isset($row['fatheroccupation']) ? $row['fatheroccupation'] : '';
+				$mother_alive = isset($row['mother_alive']) ? $row['mother_alive'] : '';
+				$motheroccupation = isset($row['motheroccupation']) ? $row['motheroccupation'] : '';
+				$brosis_number = isset($row['brosis_number']) ? $row['brosis_number'] : '';
+				$brosis_info = isset($row['brosis_info']) ? $row['brosis_info'] : '';
+				$uncle_profession = isset($row['uncle_profession']) ? $row['uncle_profession'] : '';
+				$family_class = isset($row['family_class']) ? $row['family_class'] : '';
+				$financial_condition = isset($row['financial_condition']) ? $row['financial_condition'] : '';
+				$family_religious_condition = isset($row['family_religious_condition']) ? $row['family_religious_condition'] : '';
+				$childhood = isset($row['childhood']) ? $row['childhood'] : '';
+			}
 			?>
 			<fieldset>
 				<div class="sb-biodata" id="familyInfo">
 					<div class="soshurbari-animation-icon">
                         <div class="sb-icon-laptop">
-                        <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
+                        <h3> <img src="images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
                         </div>
                     </div>
+
 					<div class="sb-biodata-field">
 						<h2>পারিবারিক ও সামাজিক তথ্য</h2>
 					</div>
+
 					<div class="sb-biodata-option">
 						<div class="shosurbari-biodata-field">
-							<label>বাবার নাম<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" name="father_name" value="<?php echo $father_name; ?>" size="100" maxlength="100" class="form-text" required>
+							<label>পরিবারের প্রধান অভিভাবক কে?<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text"  name="family_major_guardian" value="<?php echo $family_major_guardian; ?>" class="form-text" required>
+						</div>
+						<div class="shosurbari-biodata-field">
+							<label for="edit-name">বাবার নাম<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
+							<input type="text"  name="father_name" value="<?php echo $father_name; ?>" class="form-text" required>
 						</div>
 						<div class="shosurbari-biodata-field">
 							<label>বাবা বেঁচে আছেন?<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text"  name="father_alive" value="<?php echo $father_alive; ?>" size="100" maxlength="100" class="form-text" required>
+							<input type="text"  name="father_alive" value="<?php echo $father_alive; ?>" class="form-text" required>
 						</div>
+
 						<div class="shosurbari-biodata-field">
 							<label>বাবার পেশা<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text"  name="fatheroccupation" value="<?php echo $fatheroccupation; ?>" size="200" maxlength="200" class="form-text" required>
+							<input type="text"  name="fatheroccupation" value="<?php echo $fatheroccupation; ?>" class="form-text" required>
 						</div>
+
 						<div class="shosurbari-biodata-field">
 							<label>মা বেঁচে আছেন?<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text"  name="mother_alive"  value="<?php echo $mother_alive; ?>"  size="100" maxlength="100" class="form-text" required>
+							<input type="text"  name="mother_alive"  value="<?php echo $mother_alive; ?>" class="form-text" required>
 						</div>
+
 						<div class="shosurbari-biodata-field">
 							<label>মায়ের পেশা<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text"  name="motheroccupation"  value="<?php echo $motheroccupation; ?>"  size="200" maxlength="200" class="form-text" required>
+							<input type="text"  name="motheroccupation"  value="<?php echo $motheroccupation; ?>" class="form-text" required>
 						</div>
+
 						<div class="shosurbari-biodata-field">
 							<label>ভাইবোন কয়জন<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text"  name="brosis_number"  value="<?php echo $brosis_number; ?>"  size="100" maxlength="100" class="form-text" required>
+							<input type="text"  name="brosis_number"  value="<?php echo $brosis_number; ?>" class="form-text" required>
 						</div>
+
 						<div class="shosurbari-biodata-field">
 							<label>ভাইবোন সম্পর্কিত তথ্য<span class="form-required" title="This field is required.">*</span></label>
-							<textarea rows="8" name="brosis_info"  class="form-text-describe" required><?php echo $brosis_info; ?></textarea>
+							<textarea type="text" rows="8" name="brosis_info" class="form-text-describe" required><?php echo $brosis_info; ?></textarea>
 						</div>
+
 						<div class="shosurbari-biodata-field">
 							<label>মামা/চাচাদের পেশা<span class="form-required" title="This field is required.">*</span></label>
-							<textarea rows="8" name="uncle_profession" class="form-text-describe" required><?php echo $uncle_profession; ?></textarea>
+							<textarea type="text" rows="8" name="uncle_profession" class="form-text-describe" required><?php echo $uncle_profession; ?></textarea>
 						</div>
+
 						<div class="shosurbari-biodata-field">
-							<label>পারিবারিক শ্রেণী<span class="form-required" title="This field is required.">*</span></label>
+							<label>পারিবারিক অর্থনৈতিক অবস্থা<span class="form-required" title="This field is required.">*</span></label>
 							<select name="family_class" required>
 								<option hidden selected><?php echo $family_class; ?></option>
-								<option value="উচ্চ শ্রেণী">উচ্চ শ্রেণী</option>
-								<option value="উচ্চ মধ্যম শ্রেণী">উচ্চ মধ্যম শ্রেণী</option> 
-								<option value="মধ্যম শ্রেণী">মধ্যম শ্রেণী</option>
-								<option value="নিম্নমধ্যম শ্রেণী">নিম্নমধ্যম শ্রেণী</option>
-								<option value="নিম্ন শ্রেণী">নিম্ন শ্রেণী</option>  
+								<option value="উচ্চবিত্ত">উচ্চবিত্ত</option>
+								<option value="মধ্যবিত্ত">মধ্যবিত্ত</option>
+								<option value="নিম্ন মধ্যবিত্ত">নিম্ন মধ্যবিত্ত</option>  
+								<option value="নিম্নবিত্ত">নিম্নবিত্ত</option>  
 							</select>
 						</div>
+
 						<div class="shosurbari-biodata-field">
-							<label>পরিবারের অর্থনৈতিক অবস্থা কেমন?<span class="form-required" title="This field is required.">*</span></label>
-							<textarea rows="5" name="financial_condition" class="form-text-describe" required><?php echo $financial_condition; ?></textarea>
+							<label>পরিবারের অর্থনৈতিক অবস্থার বর্ণনা<span class="form-required" title="This field is required.">*</span></label>
+							<textarea type="text" rows="8" name="financial_condition"  class="form-text-describe" required><?php echo $financial_condition; ?></textarea>
 						</div>
+
 						<div class="shosurbari-biodata-field">
-							<label>পরিবারের ধর্মীয় ও সামাজিক অবস্থা কেমন?<span class="form-required" title="This field is required.">*</span></label>
-							<textarea rows="5" name="family_religious_condition" class="form-text-describe" required><?php echo $family_religious_condition; ?></textarea>
+							<label>পরিবারের সকলের সামাজিক এবং ধর্মীয় মূল্যবোধ কেমন? সামাজিক এবং ধর্মীয় বিধিনিষেধ কত টুকু মেনে চলে?<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বিস্তারিত লিখুন)</span></label>
+							<textarea type="text" rows="8" name="family_religious_condition" class="form-text-describe" required><?php echo $family_religious_condition; ?></textarea>
 						</div>
 					</div>
 				</div>
+
 				<button type="submit" id="edit-submit" name="op" class="biodata-submit"><span></span> আপডেট করুন</button>			
 			</fieldset>
 		</form>

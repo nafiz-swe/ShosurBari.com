@@ -677,8 +677,8 @@ $result=search();
                   <span class="search-options">সকল শিক্ষার্থী</span>
                   <br>
                   <!-- Students Sector-->
-                  <input type="checkbox" name="student_occupation_level[]" value="কওমি মাদ্রাসার শিক্ষার্থী" class="SelectBox val student-option" onchange="handleStudentOptions(this)" />
-                  <span class="search-options">শিক্ষার্থী-কওমি মাদ্রাসা</span>
+                  <input type="checkbox" name="student_occupation_level[]" value="কওমী মাদ্রাসার শিক্ষার্থী" class="SelectBox val student-option" onchange="handleStudentOptions(this)" />
+                  <span class="search-options">শিক্ষার্থী-কওমী মাদ্রাসা</span>
                   <br>
                   <!-- Students Sector-->
                   <input type="checkbox" name="student_occupation_level[]" value="বি.এসসি. ইঞ্জিনিয়ারিং শিক্ষার্থী" class="SelectBox val student-option" onchange="handleStudentOptions(this)" />
@@ -744,8 +744,8 @@ $result=search();
                   <input type="checkbox" name="scndry_edu_method[]" value="Any Education Method" class="SelectBox all" onchange="handleAllEducationMethods(this)" checked />
                   <span class="search-options">সকল মাধ্যম</span>
                   <br>
-                  <input type="checkbox" name="scndry_edu_method[]" value="কওমি মাদ্রাসা" class="SelectBox val" />
-                  <span class="search-options">কওমি মাদ্রাসা</span>
+                  <input type="checkbox" name="scndry_edu_method[]" value="কওমী মাদ্রাসা" class="SelectBox val" />
+                  <span class="search-options">কওমী মাদ্রাসা</span>
                   <br>
                   <input type="checkbox" name="scndry_edu_method[]" value="জেনারেল" class="SelectBox val" />
                   <span class="search-options">জেনারেল</span>
@@ -1403,8 +1403,8 @@ $result=search();
               <span class="search-options">সকল শিক্ষার্থী</span>
               <br>
               <!-- Students Sector-->
-              <input type="checkbox" name="student_occupation_level[]" value="কওমি মাদ্রাসার শিক্ষার্থী" class="SelectBox val student-option" onchange="handleStudentOptions(this)" />
-              <span class="search-options">শিক্ষার্থী-কওমি মাদ্রাসা</span>
+              <input type="checkbox" name="student_occupation_level[]" value="কওমী মাদ্রাসার শিক্ষার্থী" class="SelectBox val student-option" onchange="handleStudentOptions(this)" />
+              <span class="search-options">শিক্ষার্থী-কওমী মাদ্রাসা</span>
               <br>
               <!-- Students Sector-->
               <input type="checkbox" name="student_occupation_level[]" value="বি.এসসি. ইঞ্জিনিয়ারিং শিক্ষার্থী" class="SelectBox val student-option" onchange="handleStudentOptions(this)" />
@@ -1470,8 +1470,8 @@ $result=search();
               <input type="checkbox" name="scndry_edu_method[]" value="Any Education Method" class="SelectBox all" onchange="handleAllEducationMethods(this)" checked />
               <span class="search-options">সকল মাধ্যম</span>
               <br>
-              <input type="checkbox" name="scndry_edu_method[]" value="কওমি মাদ্রাসা" class="SelectBox val" />
-              <span class="search-options">কওমি মাদ্রাসা</span>
+              <input type="checkbox" name="scndry_edu_method[]" value="কওমী মাদ্রাসা" class="SelectBox val" />
+              <span class="search-options">কওমী মাদ্রাসা</span>
               <br>
               <input type="checkbox" name="scndry_edu_method[]" value="জেনারেল" class="SelectBox val" />
               <span class="search-options">জেনারেল</span>

@@ -190,7 +190,7 @@ if(isloggedin()){
 				<div class="sb-biodata" id="addressDetails">
 					<div class="soshurbari-animation-icon">
                         <div class="sb-icon-laptop">
-                        <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
+                        <h3> <img src="images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
                         </div>
                     </div>
 					<div class="sb-biodata-field">

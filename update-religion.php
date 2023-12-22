@@ -160,21 +160,19 @@ if(isloggedin()){
 				$result = mysqlexec($sql);
 				if($result){
 				$row=mysqli_fetch_assoc($result);
-				if($row){
-				$religion=$row['religion'];
-				}
-				if($row){
-				$yourreligion_condition=$row['yourreligion_condition'];
-				}
+				// Check if data exists for each field and set variables accordingly
+				$religion = isset($row['religion']) ? $row['religion'] : '';
+				$yourreligion_condition = isset($row['yourreligion_condition']) ? $row['yourreligion_condition'] : '';
 				}
 			?>
 			<fieldset>
 				<div class="sb-biodata" id="religionDetails">
 					<div class="soshurbari-animation-icon">
                         <div class="sb-icon-laptop">
-                        <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
+                        <h3> <img src="images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
                         </div>
                     </div>
+
 					<div class="sb-biodata-field">
 						<h2>ধর্মীয় বিষয়</h2>
 					</div>
@@ -191,8 +189,8 @@ if(isloggedin()){
 							</select>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label for="about me">ধর্মীয় বিধিনিষেধ কতটুকু অনুসরণ করেন?<span class="form-required" title="This field is required.">*</span></label>
-							<textarea rows="5" name="yourreligion_condition" placeholder="Describe Your Religious Condition" class="form-text-describe" required><?php echo $yourreligion_condition; ?></textarea>
+							<label for="about me">ধর্মীয় বিধিনিষেধ কতটুকু অনুসরণ করেন?<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বিস্তারিত লিখুন)</span></label>
+							<textarea type="text"  rows="8" name="yourreligion_condition" class="form-text-describe" required><?php echo $yourreligion_condition; ?></textarea>
 						</div>
 					</div>
 				</div>
