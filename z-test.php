@@ -730,3 +730,115 @@ if(isloggedin()){
 	<!--=======  Footer End  =========-->
 </body>
 </html>
+<!-- 
+
+//0
+						var inputs = maleAllowWifeJob.getElementsByTagName("input");
+						for (var j = 0; j < inputs.length; j++) {
+						inputs[j].value = ""; 
+						}
+						var inputs = femaleJobAfterMarriage.getElementsByTagName("input");
+						for (var j = 0; j < inputs.length; j++) {
+						inputs[j].value = ""; 
+						}
+						var inputs = maleAllowWifeStudy.getElementsByTagName("input");
+						for (var j = 0; j < inputs.length; j++) {
+						inputs[j].value = ""; 
+						}
+						var inputs = femaleStudyAfterMarriage.getElementsByTagName("input");
+						for (var j = 0; j < inputs.length; j++) {
+						inputs[j].value = ""; 
+						}
+						var inputs = maleLiveWithWife.getElementsByTagName("input");
+						for (var j = 0; j < inputs.length; j++) {
+						inputs[j].value = ""; 
+						}
+						var inputs = femaleAgreeMarriageStudent.getElementsByTagName("input");
+						for (var j = 0; j < inputs.length; j++) {
+						inputs[j].value = ""; 
+						}
+
+
+						//.11
+						// var inputs = howManySonHave.getElementsByTagName("input");
+						// for (var j = 0; j < inputs.length; j++) {
+						// inputs[j].value = ""; 
+						// }
+						// var selects = howManySonHave.getElementsByTagName("select");
+						// for (var k = 0; k < selects.length; k++) {
+						// selects[k].selectedIndex = 0; 
+						// }
+						// var textarea = howManySonHave.getElementsByTagName("textarea");
+						// for (var l = 0; l < textarea.length; l++) {
+						// 	textarea[l].value = ""; 
+						// }
+
+						//1
+						// var inputs = sonDetailsSection.getElementsByTagName("input");
+						// for (var j = 0; j < inputs.length; j++) {
+						// inputs[j].value = ""; 
+						// }
+						// var selects = sonDetailsSection.getElementsByTagName("select");
+						// for (var k = 0; k < selects.length; k++) {
+						// selects[k].selectedIndex = 0; 
+						// }
+						// var textarea = sonDetailsSection.getElementsByTagName("textarea");
+						// for (var l = 0; l < textarea.length; l++) {
+						// 	textarea[l].value = ""; 
+						// }
+
+						//2
+						// var inputs = divorceSection.getElementsByTagName("input");
+						// for (var j = 0; j < inputs.length; j++) {
+						// inputs[j].value = ""; 
+						// }
+						// var selects = divorceSection.getElementsByTagName("select");
+						// for (var k = 0; k < selects.length; k++) {
+						// selects[k].selectedIndex = 0; 
+						// }
+						// var textarea = divorceSection.getElementsByTagName("textarea");
+						// for (var l = 0; l < textarea.length; l++) {
+						// 	textarea[l].value = ""; 
+						// }
+
+						//3
+						// var inputs = widowSection.getElementsByTagName("input");
+						// for (var j = 0; j < inputs.length; j++) {
+						// inputs[j].value = ""; 
+						// }
+						// var selects = widowSection.getElementsByTagName("select");
+						// for (var k = 0; k < selects.length; k++) {
+						// selects[k].selectedIndex = 0; 
+						// }
+						// var textarea = widowSection.getElementsByTagName("textarea");
+						// for (var l = 0; l < textarea.length; l++) {
+						// 	textarea[l].value = ""; 
+						// }
+
+						//4
+						var inputs = widowerSection.getElementsByTagName("input");
+						for (var j = 0; j < inputs.length; j++) {
+						inputs[j].value = ""; 
+						}
+						var selects = widowerSection.getElementsByTagName("select");
+						for (var k = 0; k < selects.length; k++) {
+						selects[k].selectedIndex = 0; 
+						}
+						var textarea = widowerSection.getElementsByTagName("textarea");
+						for (var l = 0; l < textarea.length; l++) {
+							textarea[l].value = ""; 
+						}
+
+						//5
+						var inputs = marriedSection.getElementsByTagName("input");
+						for (var j = 0; j < inputs.length; j++) {
+						inputs[j].value = ""; 
+						}
+						var selects = marriedSection.getElementsByTagName("select");
+						for (var k = 0; k < selects.length; k++) {
+						selects[k].selectedIndex = 0; 
+						}
+						var textarea = marriedSection.getElementsByTagName("textarea");
+						for (var l = 0; l < textarea.length; l++) {
+							textarea[l].value = ""; 
+						} -->

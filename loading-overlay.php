@@ -55,6 +55,7 @@
         }
         .loading-message {
             margin-top: 10px;
+            color: #ff0080;
         }
     </style>
 </head>
@@ -63,7 +64,7 @@
         <div class="loader" id="loader">
             <img src="images/shosurbari-email-icon.png"/>
         </div>
-        <div class="loading-message" id="loading-message">Please wait...</div>
+        <div class="loading-message" id="loading-message">শ্বশুরবাড়ি ডট কম</div>
     </div>
     <script>
     var loaderContainer = document.getElementById('loader-container');

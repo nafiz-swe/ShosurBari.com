@@ -183,7 +183,6 @@ if(isloggedin()){
 				$groom_bride_number = isset($row['groom_bride_number']) ? $row['groom_bride_number'] : '';
 				$groom_bride_family_number = isset($row['groom_bride_family_number']) ? $row['groom_bride_family_number'] : '';
 				$family_member_name_relation = isset($row['family_member_name_relation']) ? $row['family_member_name_relation'] : '';
-
 				// Show or hide fields based on the existence of data
 				$occupationSector = $occupation_sector ? 'block' : 'none';
 				$otherOccupationSector = $other_occupation_sector ? 'block' : 'none';
@@ -208,11 +207,9 @@ if(isloggedin()){
                         <h3> <img src="images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
                         </div>
                     </div>
-
 					<div class="sb-biodata-field">
 						<h2>ব্যক্তিগত তথ্য</h2>
 					</div>
-
 					<div class="sb-biodata-option">
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">ধূমপান করা হয়?<span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বাধ্যতামূলক নয়)</span></label>
@@ -247,33 +244,32 @@ if(isloggedin()){
 							<label>পেশার নাম <span class="form-required" title="This field is required.">*</span></label>
 							<input type="text"  name="other_occupation_sector" value="<?php echo $other_occupation_sector;?>" class="form-text">
 						</div>
-
 						<div class="shosurbari-biodata-field section"  id="ব্যবসায়ী" style="display: <?php echo $businessOccupationLevel; ?>;">
-							<label>কিসের ব্যবসা করেন?<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size:14px;" class="form-required" title="This field is required."> (ব্যবসার নামটি লিখুন)</span></label>
+							<label>ব্যবসার নামটি লিখুন<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text"  name="business_occupation_level" value="<?php echo $business_occupation_level;?>" class="form-text">
 						</div>
-
 						<div class="shosurbari-biodata-field section" id="শিক্ষার্থী" style="display: <?php echo $studentOccupationLevel; ?>;">
 							<label >পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
 							<select name="student_occupation_level">
 								<option hidden selected><?php echo $student_occupation_level;?></option>
 								<option></option>
+								<!-- মাদ্রাসা -->
 								<option class="label-search-options" disabled>মাদ্রাসা</option>
 								<option value="কওমী মাদ্রাসার শিক্ষার্থী">কওমী মাদ্রাসার শিক্ষার্থী</option>
 								<option class="label-search-options" disabled></option>
-
+								<!-- মাধ্যমিক/সমমান -->
 								<option class="label-search-options" disabled>মাধ্যমিক/সমমান</option>
 								<option value="মাধ্যমিক শিক্ষার্থী-জেনারেল">মাধ্যমিক শিক্ষার্থী-জেনারেল</option>
 								<option value="মাধ্যমিক শিক্ষার্থী-ভোকেশনাল">মাধ্যমিক শিক্ষার্থী-ভোকেশনাল</option>
 								<option value="দাখিল শিক্ষার্থী-আলিয়া মাদ্রাসা">দাখিল শিক্ষার্থী-আলিয়া মাদ্রাসা</option>
 								<option class="label-search-options" disabled></option>
-
+								<!-- উচ্চমাধ্যমিক/সমমান -->
 								<option class="label-search-options" disabled>উচ্চমাধ্যমিক/সমমান</option>
 								<option value="উচ্চমাধ্যমিক শিক্ষার্থী-জেনারেল">উচ্চমাধ্যমিক শিক্ষার্থী-জেনারেল</option>
 								<option value="উচ্চমাধ্যমিক শিক্ষার্থী-ভোকেশনাল">উচ্চমাধ্যমিক শিক্ষার্থী-ভোকেশনাল</option>
 								<option value="আলিম শিক্ষার্থী-আলিয়া মাদ্রাসা">আলিম শিক্ষার্থী-আলিয়া মাদ্রাসা</option>
 								<option class="label-search-options" disabled></option>
-
+								<!-- ডিপ্লোমা-আন্ডারগ্রাজুয়েট/গ্রাজুয়েট -->
 								<option class="label-search-options" disabled>ডিপ্লোমা-আন্ডারগ্রাজুয়েট/গ্রাজুয়েট</option>
 								<option value="ইঞ্জিনিয়ারিং-ডিপ্লোমা শিক্ষার্থী">ইঞ্জিনিয়ারিং-ডিপ্লোমা শিক্ষার্থী</option>
 								<option value="কৃষি-ডিপ্লোমা শিক্ষার্থী">কৃষি-ডিপ্লোমা শিক্ষার্থী</option>
@@ -284,7 +280,7 @@ if(isloggedin()){
 								<option value="নার্সিং শিক্ষার্থী">নার্সিং শিক্ষার্থী</option>
 								<option value="মিডওয়াইফারি শিক্ষার্থী">মিডওয়াইফারি শিক্ষার্থী</option>
 								<option class="label-search-options" disabled></option>
-
+								<!-- স্নাতক/ব্যাচেলর -->
 								<option class="label-search-options" disabled>স্নাতক/ব্যাচেলর</option>
 								<option value="মেডিকেল শিক্ষার্থী">মেডিকেল শিক্ষার্থী</option>
 								<option value="ফার্মেসী শিক্ষার্থী">ফার্মেসী শিক্ষার্থী</option> 
@@ -297,7 +293,7 @@ if(isloggedin()){
 								<option value="এল.এল.বি. শিক্ষার্থী">এল.এল.বি. শিক্ষার্থী</option> 
 								<option value="ফাজিল শিক্ষার্থী-আলিয়া মাদ্রাসা">ফাজিল শিক্ষার্থী-আলিয়া মাদ্রাসা</option>
 								<option class="label-search-options" disabled></option>
-
+								<!-- স্নাতকোত্তর/মাস্টার্স -->
 								<option class="label-search-options" disabled>স্নাতকোত্তর/মাস্টার্স</option>
 								<option value="এম.এসসি. শিক্ষার্থী">এম.এসসি. শিক্ষার্থী</option>
 								<option value="এম.কম. শিক্ষার্থী">এম.কম. শিক্ষার্থী</option>
@@ -306,7 +302,7 @@ if(isloggedin()){
 								<option value="এল.এল.এম. শিক্ষার্থী">এল.এল.এম. শিক্ষার্থী</option> 
 								<option value="কামিল শিক্ষার্থী-আলিয়া মাদ্রাসা">কামিল শিক্ষার্থী-আলিয়া মাদ্রাসা</option>
 								<option class="label-search-options" disabled></option>
-
+								<!-- অথবা -->
 								<option class="label-search-options" disabled>অথবা</option>
 								<option value="মাধ্যমিক/সমমান শিক্ষার্থী">মাধ্যমিক/সমমান শিক্ষার্থী</option>
 								<option value="উচ্চমাধ্যমিক/সমমান শিক্ষার্থী">উচ্চমাধ্যমিক/সমমান শিক্ষার্থী</option>
@@ -315,7 +311,6 @@ if(isloggedin()){
 								<option value="স্নাতকোত্তর/মাস্টার্স শিক্ষার্থী">স্নাতকোত্তর/মাস্টার্স শিক্ষার্থী</option>   
 							</select>
 						</div>			
-
 						<div class="shosurbari-biodata-field section" id="ডাক্তার/চিকিৎসা/স্বাস্থ্য" style="display: <?php echo $healthOccupationLevel; ?>;">
 							<label>পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
 							<select name="health_occupation_level">
@@ -335,7 +330,6 @@ if(isloggedin()){
 								<option value="পল্লী চিকিৎসক">পল্লী চিকিৎসক</option>
 							</select>
 						</div>
-
 						<div class="shosurbari-biodata-field section" id="বি.এসসি. ইঞ্জিনিয়ার" style="display: <?php echo $engineerOccupationLevel; ?>;">
 							<label>পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
 							<select name="engineer_occupation_level">
@@ -357,7 +351,6 @@ if(isloggedin()){
 								<option value="এরোস্পেস ইঞ্জিনিয়ার">এরোস্পেস ইঞ্জিনিয়ার</option>
 							</select>
 						</div>
-
 						<div class="shosurbari-biodata-field section" id="শিক্ষক/প্রফেসর" style="display: <?php echo $teacherOccupationLevel; ?>;">
 							<label>পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
 							<select name="teacher_occupation_level">
@@ -372,7 +365,6 @@ if(isloggedin()){
 								<option value="প্রফেসর">প্রফেসর</option>
 							</select>
 						</div>
-
 						<div class="shosurbari-biodata-field section" id="গোয়েন্দা/প্রতিরক্ষা/সশস্ত্রবাহিনী" style="display: <?php echo $defenseOccupationLevel; ?>;">
 							<label>পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
 							<select name="defense_occupation_level">
@@ -392,7 +384,6 @@ if(isloggedin()){
 								<option value="নিরাপত্তারক্ষী">নিরাপত্তারক্ষী</option>
 							</select>
 						</div>
-
 						<div class="shosurbari-biodata-field section" id="প্রবাসী/বিদেশে" style="display: <?php echo $foreignerOccupationLevel; ?>;">
 							<label>পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
 							<select name="foreigner_occupation_level">
@@ -404,7 +395,6 @@ if(isloggedin()){
 								<option value="বিদেশে পড়াশোনা">বিদেশে পড়াশোনা</option>
 							</select>
 						</div>
-
 						<div class="shosurbari-biodata-field section" id="গার্মেন্টস সেক্টর" style="display: <?php echo $garmentsOccupationLevel; ?>;">
 							<label>পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
 							<select name="garments_occupation_level">
@@ -415,7 +405,6 @@ if(isloggedin()){
 								<option value="গার্মেন্টস শ্রমিক">গার্মেন্টস শ্রমিক</option> 
 							</select>
 						</div>
-
 						<div class="shosurbari-biodata-field section" id="ড্রাইভার/চালক" style="display: <?php echo $driverOccupationLevel; ?>;">
 							<label>পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
 							<select name="driver_occupation_level">
@@ -431,7 +420,6 @@ if(isloggedin()){
 								<option value="রিক্সা চালক">রিক্সা চালক</option>
 							</select>
 						</div>
-
 						<div class="shosurbari-biodata-field section" id="সার্ভিস/ব্যাংকার/ফ্রিল্যান্সার/উদ্যোক্তা" style="display: <?php echo $serviceAndcommonOccupationLevel; ?>;">
 							<label>পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
 							<select name="service_andcommon_occupation_level">
@@ -447,7 +435,6 @@ if(isloggedin()){
 								<option value="সেলস & মার্কেটিং(SR)">সেলস & মার্কেটিং(SR)</option>
 							</select>
 						</div>
-
 						<div class="shosurbari-biodata-field section" id="কারিগর/মিস্ত্রি" style="display: <?php echo $mistriOccupationLevel; ?>;">
 							<label>পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
 							<select name="mistri_occupation_level">
@@ -468,58 +455,47 @@ if(isloggedin()){
 							<option value="ওয়েলডিং/গ্রীল মিস্ত্রি">ওয়েলডিং / গ্রীল মিস্ত্রি</option>
 							</select>
 						</div>
-
 						<script>
-    function showOccupationSector(occupation) {
-      // Hide the occupation_describe_field by default
-      var occupationDescribeField = document.getElementById("occupation_describe_field");
-      occupationDescribeField.style.display = "none";
-
-      // Hide all occupation sections
-      var occupationSections = document.getElementsByClassName("shosurbari-biodata-field section");
-      for (var i = 0; i < occupationSections.length; i++) {
-        occupationSections[i].style.display = "none";
-
-        // Clear the value of input and select fields inside the hidden section
-        // var inputs = occupationSections[i].getElementsByTagName("input");
-        // for (var j = 0; j < inputs.length; j++) {
-        //   inputs[j].value = "";
-        // }
-        var selects = occupationSections[i].getElementsByTagName("select");
-        for (var k = 0; k < selects.length; k++) {
-          selects[k].selectedIndex = 0;
-        }
-      }
-
-      // Show the selected occupation section
-      var selectedOccupationSection = document.getElementById(occupation);
-      if (selectedOccupationSection) {
-        selectedOccupationSection.style.display = "block";
-        // Show the occupation_describe_field if occupation is not "No Profession"
-        if (occupation !== "No Profession") {
-          occupationDescribeField.style.display = "block";
-        }
-      }
-    }
-  </script>
-
-									
-
+							function showOccupationSector(occupation) {
+							// Hide the occupation_describe_field by default
+							var occupationDescribeField = document.getElementById("occupation_describe_field");
+							occupationDescribeField.style.display = "none";
+							// Hide all occupation sections
+							var occupationSections = document.getElementsByClassName("shosurbari-biodata-field section");
+							for (var i = 0; i < occupationSections.length; i++) {
+								occupationSections[i].style.display = "none";
+								var inputs = occupationSections[i].getElementsByTagName("input");
+								for (var j = 0; j < inputs.length; j++) {
+								inputs[j].value = "";
+								}
+								var selects = occupationSections[i].getElementsByTagName("select");
+								for (var k = 0; k < selects.length; k++) {
+								selects[k].selectedIndex = 0;
+								}
+							}
+							// Show the selected occupation section
+							var selectedOccupationSection = document.getElementById(occupation);
+							if (selectedOccupationSection) {
+								selectedOccupationSection.style.display = "block";
+								// Show the occupation_describe_field if occupation is not "No Profession"
+								if (occupation !== "No Profession") {
+								occupationDescribeField.style.display = "block";
+								}
+							}
+							}
+						</script>
 						<div class="shosurbari-biodata-field" id="occupation_describe_field" style="display: <?php echo $occupationDescribe; ?>;">
 							<label>পেশার বিস্তারিত তথ্য<span class="form-required" title="This field is required.">*</span></label>
 							<textarea type="text" rows="8" name="occupation_describe" id="edit-name" class="form-text-describe" required><?php echo $occupation_describe;?></textarea>
 						</div>
-
 						<div class="shosurbari-biodata-field">
 							<label>ঘরের বাহিরে সাধারণত কি ধরণের পোষাক পরেন?<span class="form-required" title="This field is required.">*</span></label>
 							<textarea type="text"  rows="8" name="dress_code"  class="form-text-describe" required><?php echo $dress_code;?></textarea>
 						</div>
-
 						<div class="shosurbari-biodata-field">
 							<label>ব্যক্তিগত ইচ্ছা, শখ, স্বপ্ন, পছন্দ-অপছন্দ, রুচিবোধ ইত্যাদি বিষয়ে লিখুন<span class="form-required" title="This field is required.">*</span></label>
 							<textarea type="text" rows="8" name="aboutme" class="form-text-describe" required><?php echo $aboutme;?></textarea>
 						</div><br>
-
 						<div class="shosurbari-biodata-field">
 							<p style="text-align: justify;"><i class="fa fa-bell" style="color: #0aa4ca; margin-right: 10px;"></i>নিচে অবশ্যই একটিভ মোবাইল নাম্বার এবং 
 								ই-মেইল লিখবেন। আগ্রহী ইউজার আপনার এই বায়োডাটাটি পছন্দ করার পর, তার পেমেন্ট তথ্য যাচাই-বাছাই করে শ্বশুরবাড়ি ডটকমের 
@@ -527,35 +503,28 @@ if(isloggedin()){
 								আগ্রহী ইউজারকে পাত্র-পাত্রীর মোবাইল নাম্বার প্রদান করা হয় না। তবে অভিভাবক অনুমতি দিলে আগ্রহী ইউজারকে পাত্র-পাত্রীর ই-মেইল প্রদান করা হবে।
 							</p>
 						</div>
-
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">পাত্র/পাত্রীর নাম<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
 							<input type="text" id="edit-name" name="groom_bride_name" value="<?php echo $groom_bride_name;?>" class="form-text" required>
 						</div>
-
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">পাত্র/পাত্রীর ই-মেইল<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
 							<input type="text" id="edit-name" name="groom_bride_email" value="<?php echo $groom_bride_email;?>" class="form-text" required>
 						</div>
-
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">পাত্র/পাত্রীর মোবাইল নাম্বার<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
 							<input type="text" id="edit-name" name="groom_bride_number" value="<?php echo $groom_bride_number;?>" class="form-text" required>
 						</div>
-
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">অভিভাবকের মোবাইল নাম্বার<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
 							<input type="text" id="edit-name" name="groom_bride_family_number" value="<?php echo $groom_bride_family_number;?>" class="form-text" required>
 						</div>
-
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">উক্ত মোবাইল নাম্বারটি যেই অভিভাবকের তার নাম লিখুন এবং অভিভাবক পাত্র/পাত্রীর কে হয়?<span class="form-required" title="This field is required.">*</span> <span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
 							<input type="text" id="edit-name" name="family_member_name_relation" value="<?php echo $family_member_name_relation;?>" class="form-text" required>
 						</div>
-
 					</div>
 				</div>
-
 				<button type="submit" id="edit-submit" name="op" class="biodata-submit"><span></span> আপডেট করুন</button>			
 			</fieldset>
 		</form>
@@ -609,7 +578,7 @@ if(isloggedin()){
 				if ($(this).val().trim() === "") {
 				$(this).addClass("error");
 				isValid = false;
-				var errorMessage = "<span class='error-message-empty'>This field is required.</span>";
+				var errorMessage = "<span class='error-message-empty'>অপশনটি অবশ্যই পূরণ করতে হবে!</span>";
 				$(this).after(errorMessage);
 				} else {
 				$(this).removeClass("error"); 

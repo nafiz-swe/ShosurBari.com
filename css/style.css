@@ -2471,7 +2471,7 @@ ol li{
 	text-align:left;
 	margin-top: 3px;
     border-radius: 4px;
-    color: red;
+    color: #ff0080;
     font-size: 15px;
 }
 .success {
@@ -3090,7 +3090,7 @@ i.icon_4{
     content: none;
 }
 .error-message-empty{
-    color: red;
+    color: #ff0080;
 }
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 --                    E   N   D                  --
@@ -3489,7 +3489,7 @@ input[type=submit]:hover {
     border-radius: 4px;
 }
 label span {
-    color: red;
+    color: #ff0080;
     font-size: 17px;
     font-weight: bold;
 }

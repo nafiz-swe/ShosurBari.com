@@ -177,7 +177,6 @@ if(isloggedin()){
 				$Skin_tones = isset($row['Skin_tones']) ? $row['Skin_tones'] : '';
 				$bloodgroup = isset($row['bloodgroup']) ? $row['bloodgroup'] : '';
 				$physicalstatus = isset($row['physicalstatus']) ? $row['physicalstatus'] : '';
-
 				$Displaybiodatagender = $biodatagender ? 'block' : 'none';
 
 				}
@@ -186,7 +185,7 @@ if(isloggedin()){
 				<div class="sb-biodata" id="personalPhysical">
 					<div class="soshurbari-animation-icon">
                         <div class="sb-icon-laptop">
-                        <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
+                        <h3> <img src="images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
                         </div>
                     </div>
 					<div class="sb-biodata-field">
@@ -196,7 +195,7 @@ if(isloggedin()){
 						<div class="shosurbari-biodata-field" style="display: <?php echo $Displaybiodatagender; ?>;">
 							<label for="edit-name">বায়োডাটার ধরণ<span class="form-required" title="This field is required.">*</span></label>
 							<select name="biodatagender" required onchange="toggleGenderSections(this.value)">
-								<option hidden selected><?php echo $biodatagender; ?></option>
+								<option hidden selected></option>
 								<option value="পাত্রের বায়োডাটা">পাত্রের বায়োডাটা</option>
 								<option value="পাত্রীর বায়োডাটা">পাত্রীর বায়োডাটা</option> 
 							</select>
@@ -371,7 +370,6 @@ if(isloggedin()){
 					$get_wife_permission = isset($row['get_wife_permission']) ? $row['get_wife_permission'] : '';
 					$get_family_permission = isset($row['get_family_permission']) ? $row['get_family_permission'] : '';
 					$why_again_married = isset($row['why_again_married']) ? $row['why_again_married'] : '';
-					
 					// Show or hide fields based on the existence of data
 					$displayMaritalstatus = $maritalstatus ? 'block' : 'none';
 					$divorceReason = $divorce_reason ? 'block' : 'none';
@@ -380,8 +378,6 @@ if(isloggedin()){
 					$howManySon = $how_many_son ? 'block' : 'none';
 					$DisplaysonDetails = $son_details ? 'block' : 'none';
 					$getWifePermission = $get_wife_permission ? 'block' : 'none';
-					$getFamilyPermission = $get_family_permission ? 'block' : 'none';
-					$whyAgainMarried = $why_again_married ? 'block' : 'none';
 				}
 				//6bd_marriage_related_qs_male;
 				$sql="SELECT * FROM 6bd_marriage_related_qs_male WHERE user_id = $id";
@@ -397,7 +393,6 @@ if(isloggedin()){
 					$allowjobAftermarriage = $allowjob_aftermarriage ? 'block' : 'none';
 					$livewifeAftermarriage = $livewife_aftermarriage ? 'block' : 'none';
 				}
-
 				//7bd_marriage_related_qs_female;
 				$sql="SELECT * FROM 7bd_marriage_related_qs_female WHERE user_id = $id";
 				$result = mysqlexec($sql);
@@ -417,7 +412,7 @@ if(isloggedin()){
 				<div class="sb-biodata" id="maleMarriageInfo">
 					<div class="soshurbari-animation-icon">
                         <div class="sb-icon-laptop">
-                        <h3> <img src="images/shosurbari-icon.png"> শশুরবাড়ি </h3>
+                        <h3> <img src="images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
                         </div>
                     </div>
 					<div class="sb-biodata-field">
@@ -466,12 +461,12 @@ if(isloggedin()){
 								<input type="text" id="edit-name" name="get_wife_permission"  value="<?php echo $get_wife_permission; ?>" class="form-text">
 							</div>
 
-							<div class="shosurbari-biodata-field" id="married-family-permission" style="display: <?php echo $getFamilyPermission; ?>;">
+							<div class="shosurbari-biodata-field">
 								<label for="edit-name">বর্তমান স্ত্রীর পরিবার থেকে অনুমতি নিয়েছেন?<span class="form-required" title="This field is required.">*</span></label>
 								<input type="text" id="edit-name" name="get_family_permission"  value="<?php echo $get_family_permission; ?>" class="form-text">
 							</div>
 
-							<div class="shosurbari-biodata-field" id="why-again-married" style="display: <?php echo $whyAgainMarried; ?>;">
+							<div class="shosurbari-biodata-field" >
 								<label for="edit-name">আবার বিয়ে করার কারণ<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বিস্তারিত লিখুন)</span></label>
 								<textarea rows="5" name="why_again_married" class="form-text-describe"><?php echo $why_again_married; ?></textarea>
 							</div>
@@ -554,7 +549,7 @@ if(isloggedin()){
 						</div>
 					</div>    
 				</div>
-				<input type="button" name="previous" class="previous action-button" value="Previous" />
+				<input type="button" name="previous" class="previous action-button" value="পূর্বের ধাপ" />
 				<button type="submit" id="edit-submit" name="op" class="biodata-submit"><span></span> আপডেট করুন</button>			
 				<script>
 					function toggleGenderSections(selectedGender) {
@@ -564,12 +559,10 @@ if(isloggedin()){
 						var femaleStudySection = document.getElementById('female-study-after-marriage');
 						var maleliveWithwife = document.getElementById('male-live-with-wife');
 						var femaleagreeMarriagestudent = document.getElementById('female-agree-marriage-student');
-
 						var maritalStatusSelect = document.getElementsByName('maritalstatus')[0];
 						var optionWidow = maritalStatusSelect.querySelector('option[value="বিধবা"]');
 						var optionWidower = maritalStatusSelect.querySelector('option[value="বিপত্নীক"]');
 						var optionMarriade = maritalStatusSelect.querySelector('option[value="বিবাহিত"]');
-
 						// Reset the display property for all options before toggling
 						optionWidow.style.display = 'block';
 						optionWidower.style.display = 'block';
@@ -581,8 +574,7 @@ if(isloggedin()){
 							femaleStudySection.style.display = 'none';
 							maleliveWithwife.style.display = 'block';
 							femaleagreeMarriagestudent.style.display = 'none';
-							// Hide বিধবা option
-							optionWidow.style.display = 'none';
+							optionWidow.style.display = 'none'; // Hide বিধবা option
 						} else if (selectedGender === 'পাত্রীর বায়োডাটা') {
 							maleallowJobwife.style.display = 'none';
 							femaleJobSection.style.display = 'block';
@@ -590,9 +582,8 @@ if(isloggedin()){
 							femaleStudySection.style.display = 'block';
 							maleliveWithwife.style.display = 'none';
 							femaleagreeMarriagestudent.style.display = 'block';
-							// Hide বিপত্নীক option
-							optionWidower.style.display = 'none';
-							optionMarriade.style.display = 'none';
+							optionWidower.style.display = 'none'; // Hide বিপত্নীক option
+							optionMarriade.style.display = 'none'; // Hide বিবাহিত option
 						} else {
 							maleallowJobwife.style.display = 'none';
 							femaleJobSection.style.display = 'none';
@@ -608,70 +599,13 @@ if(isloggedin()){
 							});
 						}
 					}
-					function toggleMaritalStatus(selectedStatus) { 
+					function toggleMaritalStatus(selectedStatus) {
 						var sonDetailsSection = document.getElementById('son-section');
-						var howManySonHave = document.getElementById('how-many-son');
 						var divorceSection = document.getElementById('divorce-section');
 						var widowSection = document.getElementById('widow-section');
 						var widowerSection = document.getElementById('widower-section');
 						var marriedSection = document.getElementById('married-section');
-						var marriedFamilyPermission = document.getElementById('married-family-permission');
-						var whyAgainIntarestMarried = document.getElementById('why-again-married');
-
-						var maleAllowWifeJob = document.getElementById('male-allow-wife-job');
-						var femaleJobAfterMarriage = document.getElementById('female-job-after-marriage');
-						var maleAllowWifeStudy = document.getElementById('male-allow-wife-study');
-						var femaleStudyAfterMarriage = document.getElementById('female-study-after-marriage');
-						var maleLiveWithWife = document.getElementById('male-live-with-wife');
-						var femaleAgreeMarriageStudent = document.getElementById('female-agree-marriage-student');
-
-
-						//0
-						var inputs = maleAllowWifeJob.getElementsByTagName("input");
-						for (var j = 0; j < inputs.length; j++) {
-						inputs[j].value = ""; 
-						}
-						var inputs = femaleJobAfterMarriage.getElementsByTagName("input");
-						for (var j = 0; j < inputs.length; j++) {
-						inputs[j].value = ""; 
-						}
-						var inputs = maleAllowWifeStudy.getElementsByTagName("input");
-						for (var j = 0; j < inputs.length; j++) {
-						inputs[j].value = ""; 
-						}
-						var inputs = femaleStudyAfterMarriage.getElementsByTagName("input");
-						for (var j = 0; j < inputs.length; j++) {
-						inputs[j].value = ""; 
-						}
-						var inputs = maleLiveWithWife.getElementsByTagName("input");
-						for (var j = 0; j < inputs.length; j++) {
-						inputs[j].value = ""; 
-						}
-						var inputs = femaleAgreeMarriageStudent.getElementsByTagName("input");
-						for (var j = 0; j < inputs.length; j++) {
-						inputs[j].value = ""; 
-						}
-
-
-						//.11
-						var inputs = howManySonHave.getElementsByTagName("input");
-						for (var j = 0; j < inputs.length; j++) {
-						inputs[j].value = ""; 
-						}
-						var selects = howManySonHave.getElementsByTagName("select");
-						for (var k = 0; k < selects.length; k++) {
-						selects[k].selectedIndex = 0; 
-						}
-						var textarea = howManySonHave.getElementsByTagName("textarea");
-						for (var l = 0; l < textarea.length; l++) {
-							textarea[l].value = ""; 
-						}
-
 						//1
-						var inputs = sonDetailsSection.getElementsByTagName("input");
-						for (var j = 0; j < inputs.length; j++) {
-						inputs[j].value = ""; 
-						}
 						var selects = sonDetailsSection.getElementsByTagName("select");
 						for (var k = 0; k < selects.length; k++) {
 						selects[k].selectedIndex = 0; 
@@ -680,75 +614,36 @@ if(isloggedin()){
 						for (var l = 0; l < textarea.length; l++) {
 							textarea[l].value = ""; 
 						}
-
 						//2
-						var inputs = divorceSection.getElementsByTagName("input");
-						for (var j = 0; j < inputs.length; j++) {
-						inputs[j].value = ""; 
-						}
-						var selects = divorceSection.getElementsByTagName("select");
-						for (var k = 0; k < selects.length; k++) {
-						selects[k].selectedIndex = 0; 
-						}
 						var textarea = divorceSection.getElementsByTagName("textarea");
 						for (var l = 0; l < textarea.length; l++) {
 							textarea[l].value = ""; 
 						}
-
 						//3
-						var inputs = widowSection.getElementsByTagName("input");
-						for (var j = 0; j < inputs.length; j++) {
-						inputs[j].value = ""; 
-						}
-						var selects = widowSection.getElementsByTagName("select");
-						for (var k = 0; k < selects.length; k++) {
-						selects[k].selectedIndex = 0; 
-						}
 						var textarea = widowSection.getElementsByTagName("textarea");
 						for (var l = 0; l < textarea.length; l++) {
 							textarea[l].value = ""; 
 						}
-
 						//4
-						var inputs = widowerSection.getElementsByTagName("input");
-						for (var j = 0; j < inputs.length; j++) {
-						inputs[j].value = ""; 
-						}
-						var selects = widowerSection.getElementsByTagName("select");
-						for (var k = 0; k < selects.length; k++) {
-						selects[k].selectedIndex = 0; 
-						}
 						var textarea = widowerSection.getElementsByTagName("textarea");
 						for (var l = 0; l < textarea.length; l++) {
 							textarea[l].value = ""; 
 						}
-
 						//5
 						var inputs = marriedSection.getElementsByTagName("input");
 						for (var j = 0; j < inputs.length; j++) {
 						inputs[j].value = ""; 
 						}
-						var selects = marriedSection.getElementsByTagName("select");
-						for (var k = 0; k < selects.length; k++) {
-						selects[k].selectedIndex = 0; 
-						}
 						var textarea = marriedSection.getElementsByTagName("textarea");
 						for (var l = 0; l < textarea.length; l++) {
 							textarea[l].value = ""; 
 						}
-
-
 						// Hide all sections initially
 						sonDetailsSection.style.display = 'none';
 						divorceSection.style.display = 'none';
 						widowSection.style.display = 'none';
 						widowerSection.style.display = 'none';
 						marriedSection.style.display = 'none';
-						marriedFamilyPermission.style.display = 'none';
-						whyAgainIntarestMarried.style.display = 'none';
-
-
-
 						if (selectedStatus === 'অবিবাহিত') {
 							sonDetailsSection.style.display = 'none';
 						} else if (selectedStatus === 'ডিভোর্স') {
@@ -762,13 +657,12 @@ if(isloggedin()){
 							sonDetailsSection.style.display = 'block';
 						} else if (selectedStatus === 'বিবাহিত') {
 							marriedSection.style.display = 'block';
-							marriedFamilyPermission.style.display = 'block';
-							whyAgainIntarestMarried.style.display = 'block';
 							sonDetailsSection.style.display = 'block';
 						}
 					}
 					function toggleSonDetails(selectedSonCount) {
 						var sonAboutSection = document.getElementById('son-details');
+
 						if (selectedSonCount !== 'কোনো সন্তান নেই') {
 							sonAboutSection.style.display = 'block';
 						} else {
@@ -842,7 +736,7 @@ if(isloggedin()){
 				if ($(this).val().trim() === "") {
 				$(this).addClass("error");
 				isValid = false;
-				var errorMessage = "<span class='error-message-empty'>This field is required.</span>";
+				var errorMessage = "<span class='error-message-empty'>অপশনটি অবশ্যই পূরণ করতে হবে!</span>";
 				$(this).after(errorMessage);
 				} else {
 				$(this).removeClass("error");

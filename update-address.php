@@ -496,7 +496,7 @@ if(isloggedin()){
 				if ($(this).val().trim() === "") {
 				$(this).addClass("error");
 				isValid = false;
-				var errorMessage = "<span class='error-message-empty'>This field is required.</span>";
+				var errorMessage = "<span class='error-message-empty'>অপশনটি অবশ্যই পূরণ করতে হবে!</span>";
 				$(this).after(errorMessage);
 				} else {
 				$(this).removeClass("error"); 

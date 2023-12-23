@@ -172,7 +172,6 @@ if(isloggedin()){
                         <h3> <img src="images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
                         </div>
                     </div>
-
 					<div class="sb-biodata-field">
 						<h2>ধর্মীয় বিষয়</h2>
 					</div>
@@ -247,7 +246,7 @@ if(isloggedin()){
 				if ($(this).val().trim() === "") {
 				$(this).addClass("error"); 
 				isValid = false;
-				var errorMessage = "<span class='error-message-empty'>This field is required.</span>";
+				var errorMessage = "<span class='error-message-empty'>অপশনটি অবশ্যই পূরণ করতে হবে!</span>";
 				$(this).after(errorMessage);
 				} else {
 				$(this).removeClass("error");

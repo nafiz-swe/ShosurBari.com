@@ -184,11 +184,9 @@ if(isloggedin()){
                         <h3> <img src="images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
                         </div>
                     </div>
-
 					<div class="sb-biodata-field">
 						<h2>পারিবারিক ও সামাজিক তথ্য</h2>
 					</div>
-
 					<div class="sb-biodata-option">
 						<div class="shosurbari-biodata-field">
 							<label>পরিবারের প্রধান অভিভাবক কে?<span class="form-required" title="This field is required.">*</span></label>
@@ -202,37 +200,30 @@ if(isloggedin()){
 							<label>বাবা বেঁচে আছেন?<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text"  name="father_alive" value="<?php echo $father_alive; ?>" class="form-text" required>
 						</div>
-
 						<div class="shosurbari-biodata-field">
 							<label>বাবার পেশা<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text"  name="fatheroccupation" value="<?php echo $fatheroccupation; ?>" class="form-text" required>
 						</div>
-
 						<div class="shosurbari-biodata-field">
 							<label>মা বেঁচে আছেন?<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text"  name="mother_alive"  value="<?php echo $mother_alive; ?>" class="form-text" required>
 						</div>
-
 						<div class="shosurbari-biodata-field">
 							<label>মায়ের পেশা<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text"  name="motheroccupation"  value="<?php echo $motheroccupation; ?>" class="form-text" required>
 						</div>
-
 						<div class="shosurbari-biodata-field">
 							<label>ভাইবোন কয়জন<span class="form-required" title="This field is required.">*</span></label>
 							<input type="text"  name="brosis_number"  value="<?php echo $brosis_number; ?>" class="form-text" required>
 						</div>
-
 						<div class="shosurbari-biodata-field">
 							<label>ভাইবোন সম্পর্কিত তথ্য<span class="form-required" title="This field is required.">*</span></label>
 							<textarea type="text" rows="8" name="brosis_info" class="form-text-describe" required><?php echo $brosis_info; ?></textarea>
 						</div>
-
 						<div class="shosurbari-biodata-field">
 							<label>মামা/চাচাদের পেশা<span class="form-required" title="This field is required.">*</span></label>
 							<textarea type="text" rows="8" name="uncle_profession" class="form-text-describe" required><?php echo $uncle_profession; ?></textarea>
 						</div>
-
 						<div class="shosurbari-biodata-field">
 							<label>পারিবারিক অর্থনৈতিক অবস্থা<span class="form-required" title="This field is required.">*</span></label>
 							<select name="family_class" required>
@@ -243,19 +234,16 @@ if(isloggedin()){
 								<option value="নিম্নবিত্ত">নিম্নবিত্ত</option>  
 							</select>
 						</div>
-
 						<div class="shosurbari-biodata-field">
 							<label>পরিবারের অর্থনৈতিক অবস্থার বর্ণনা<span class="form-required" title="This field is required.">*</span></label>
 							<textarea type="text" rows="8" name="financial_condition"  class="form-text-describe" required><?php echo $financial_condition; ?></textarea>
 						</div>
-
 						<div class="shosurbari-biodata-field">
 							<label>পরিবারের সকলের সামাজিক এবং ধর্মীয় মূল্যবোধ কেমন? সামাজিক এবং ধর্মীয় বিধিনিষেধ কত টুকু মেনে চলে?<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বিস্তারিত লিখুন)</span></label>
 							<textarea type="text" rows="8" name="family_religious_condition" class="form-text-describe" required><?php echo $family_religious_condition; ?></textarea>
 						</div>
 					</div>
 				</div>
-
 				<button type="submit" id="edit-submit" name="op" class="biodata-submit"><span></span> আপডেট করুন</button>			
 			</fieldset>
 		</form>
@@ -309,7 +297,7 @@ if(isloggedin()){
 				if ($(this).val().trim() === "") {
 				$(this).addClass("error"); 
 				isValid = false;
-				var errorMessage = "<span class='error-message-empty'>This field is required.</span>";
+				var errorMessage = "<span class='error-message-empty'>অপশনটি অবশ্যই পূরণ করতে হবে!</span>";
 				$(this).after(errorMessage);
 				} else {
 				$(this).removeClass("error");
