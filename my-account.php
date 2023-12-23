@@ -76,7 +76,7 @@ $conn->close();
   }
   .shosurbari-users-request {
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
   .shosurbari-users-request th {
     background-color: #f2f2f2;
@@ -192,10 +192,10 @@ $conn->close();
       </div>
       <div class="shosurbari-account-sidebar" id="bs-megadropdown-tabs">
         <ul class="shosurbari-my-account">
-        <li><a href="my-account.php"><i class="fa fa-dashboard"></i> ড্যাশবোর্ড</a></li>
-          <li><a href="profile.php?/Biodata=<?php echo $id;?>"><i class='fa fa-address-card-o'></i> সম্পূর্ণ বায়োডাটা</a></li>
-          <li><a href="profile-photo.php?id=<?php echo $id;?>"><i class="fa fa-image"></i> বায়োডাটার ছবি</a></li>
+          <li><a href="my-account.php"><i class="fa fa-dashboard"></i> ড্যাশবোর্ড</a></li>
           <li><a href="biodata-post.php"><i class='fa fa-file-text-o'></i> বায়োডাটা পোস্ট</a></li>
+          <li><a href="profile-photo.php?id=<?php echo $id;?>"><i class="fa fa-image"></i> বায়োডাটার ছবি</a></li>
+          <li><a href="profile.php?/Biodata=<?php echo $id;?>"><i class='fa fa-address-card-o'></i> সম্পূর্ণ বায়োডাটা</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-edit"></i> বায়োডাটা আপডেট<span class="caret"></span> </a>
             <ul class="dropdown-menu" role="menu">

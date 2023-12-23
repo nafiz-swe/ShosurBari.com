@@ -806,6 +806,7 @@
         $studies_aftermarriage=$_POST['studies_aftermarriage'];
         $agree_marriage_student=$_POST['agree_marriage_student'];
         require_once("includes/dbconn.php");
+        // 1bd_personal_physical
         $sql="SELECT user_id FROM 1bd_personal_physical WHERE user_id=$id";
         $result=mysqlexec($sql);
         if(mysqli_num_rows($result)>=1){
@@ -1007,14 +1008,10 @@
         $uvarsity_name=$_POST['uvarsity_name'];
         $others_edu_qualification=$_POST['others_edu_qualification'];
         $maxedu_qulfctn=$_POST['maxedu_qulfctn'];
-        
-        
         require_once("includes/dbconn.php");
-
         // Secondary Education
         $sql = "SELECT user_id FROM 3bd_secondaryedu_method WHERE user_id = $id";
         $result = mysqlexec($sql);
-        
         if (mysqli_num_rows($result) >= 1) {
             // User exists, perform update
             $sql = "UPDATE 3bd_secondaryedu_method SET 
@@ -1031,17 +1028,13 @@
             $sql = "INSERT INTO 3bd_secondaryedu_method (user_id, scndry_edu_method, maxedu_qulfctn, gnrl_mdrs_secondary_pass, gnrl_mdrs_secondary_pass_year, gnrl_mdrs_secondary_end_year, gnrlmdrs_secondary_running_std, profilecreationdate)
                 VALUES ('$id', '$scndry_edu_method', '$maxedu_qulfctn', '$gnrl_mdrs_secondary_pass', '$gnrl_mdrs_secondary_pass_year', '$gnrl_mdrs_secondary_end_year', '$gnrlmdrs_secondary_running_std', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
         }
-        
         $result = mysqlexec($sql);
-        
         if ($result) {
             echo "";
         }
-        
         // Kowmi Madrasa Education
         $sql = "SELECT user_id FROM 3bd_kowmi_madrasaedu_method WHERE user_id = $id";
         $result = mysqlexec($sql);
-        
         if (mysqli_num_rows($result) >= 1) {
             // User exists, perform update
             $sql = "UPDATE 3bd_kowmi_madrasaedu_method SET 
@@ -1056,17 +1049,13 @@
             $sql = "INSERT INTO 3bd_kowmi_madrasaedu_method (user_id, qawmi_madrasa_hafez, qawmimadrasa_dawrapass, kowmi_dawrapas_year, kowmi_current_edu_level, profilecreationdate)
                 VALUES ('$id', '$qawmi_madrasa_hafez', '$qawmimadrasa_dawrapass', '$kowmi_dawrapas_year', '$kowmi_current_edu_level', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
         }
-        
         $result = mysqlexec($sql);
-        
         if ($result) {
             echo "";
         }
-        
         // Higher Secondary Education
         $sql = "SELECT user_id FROM 3bd_higher_secondaryedu_method WHERE user_id = $id";
         $result = mysqlexec($sql);
-        
         if (mysqli_num_rows($result) >= 1) {
             // User exists, perform update
             $sql = "UPDATE 3bd_higher_secondaryedu_method SET 
@@ -1087,17 +1076,12 @@
             $sql = "INSERT INTO 3bd_higher_secondaryedu_method (user_id, higher_secondary_edu_method, gnrlmdrs_hrsecondary_pass, gnrlmdrs_hrsecondary_pass_year, gnrlmdrs_hrsecondary_exam_year, gnrlmdrs_hrsecondary_group, gnrlmdrs_hrsecondary_rningstd, diploma_hrsecondary_pass, diploma_hrsecondary_pass_year, diploma_hrsecondary_sub, diploma_hrsecondary_endingyear, profilecreationdate)
                 VALUES ('$id', '$higher_secondary_edu_method', '$gnrlmdrs_hrsecondary_pass', '$gnrlmdrs_hrsecondary_pass_year', '$gnrlmdrs_hrsecondary_exam_year', '$gnrlmdrs_hrsecondary_group', '$gnrlmdrs_hrsecondary_rningstd', '$diploma_hrsecondary_pass', '$diploma_hrsecondary_pass_year', '$diploma_hrsecondary_sub', '$diploma_hrsecondary_endingyear', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
         }
-        
         $result = mysqlexec($sql);
-        
         if ($result) {
             echo "";
         }        
-
-
         $sql = "SELECT user_id FROM 3bd_universityedu_method WHERE user_id=$id";
         $result = mysqlexec($sql);
-        
         if (mysqli_num_rows($result) >= 1) {
             // User exists, perform update
             $sql = "UPDATE 3bd_universityedu_method SET 
@@ -1113,11 +1097,9 @@
         } else {
             // User doesn't exist, perform insert
             $sql = "INSERT INTO 3bd_universityedu_method (user_id, varsity_edu_method, uvarsity_pass, varsity_passing_year, university_subject, varsity_ending_year, uvarsity_name, others_edu_qualification, profilecreationdate)
-                VALUES ('$id', '$varsity_edu_method', '$uvarsity_pass', '$varsity_passing_year', '$university_subject', '$varsity_ending_year', '$uvarsity_name', '$others_edu_qualification', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            VALUES ('$id', '$varsity_edu_method', '$uvarsity_pass', '$varsity_passing_year', '$university_subject', '$varsity_ending_year', '$uvarsity_name', '$others_edu_qualification', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
         }
-        
         $result = mysqlexec($sql);
-        
         session_start();
         if ($result) {
             $_SESSION['updateMessage'] = '<i class="fa fa-check-circle" style="font-size: 30px; margin-bottom: 10px;"></i></br> ডেটা সফলভাবে আপডেট হয়েছে!';
@@ -1126,7 +1108,6 @@
             $_SESSION['updateMessage'] = '<i class="fa fa-times-circle" style="font-size: 30px; margin-bottom: 10px;"></i> </br>উফফ! সমস্যা দেখা দিয়েছে।';
             $_SESSION['messageType'] = 'error';
         }
-        
         header("Location: update-education.php");
         exit();        
         }

@@ -13,7 +13,7 @@ if(isloggedin()){
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Biodata Post | ShosurBari</title>
+<title>Post Biodata | ShosurBari</title>
 <link rel="icon" href="images/shosurbari-icon.png" type="image/png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
