@@ -1087,9 +1087,12 @@ section::before {
     width: 100%;
     margin: 0px auto;
     padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 .sb-home-search h1 {
     text-align: center;
+    line-height: 45px;
 }
 .sb_newbiodata{
     width: 80%;
@@ -1223,6 +1226,35 @@ ul#flexiselDemo3 h3 a:hover{
     color:#06b6d4;
 }
 /*Home Featured Profiles End*/
+/*Home Package List Start*/
+.sb-package {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px;
+}
+.sb-package-list {
+    width: 200px;
+    margin: 10px;
+    padding: 8px 15px;
+    white-space: nowrap;
+    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+    border: 1px solid rgba(0,0,0,.05);
+    border-radius: 2px;
+}
+.sb-package-list h2 {
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: right;
+}
+.sb-package-list h3,
+.sb-package-list p {
+    font-size: 14px;
+    text-align: left;
+    margin: 5px 0;
+}
+/*Home Package List End*/
 .grid_1 h1, .grid_2 h2{
 	text-align: center;
     color: #000;

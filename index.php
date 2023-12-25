@@ -32,7 +32,7 @@
   .card-wrap{
     width: 230px;
     background: #fff;
-    border-radius: 20px;
+    border-radius: 5px;
     border: 5px solid #fff;
     overflow: hidden;
     color: var(--color-text);
@@ -971,101 +971,59 @@
     <div class="shosurbari-animation-form">
       <form action="" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
         <div class="sb-biodata-amount-list">
-          <p><i class="fa fa-bell" style="color: #0aa4ca; margin-right: 10px;"></i>শ্বশুরবাড়ি ডট কমের পাত্র-পাত্রীদের সাথে যোগাযোগ করতে চাইলে সামান্য সার্ভিস চার্জ প্রদান করতে হবে, যার বায়োডাটা তাদের থেকে কোনো টাকা নেয়া হয় না। আপনার পেমেন্ট সম্পন্ন হয়ে গেলে, পেমেন্ট তথ্যগুলো যাচাইবাচায়ের পর ২৪ ঘন্টার মধ্যে আপনাকে পাত্র/পাত্রীর অভিভাবকের নাম্বর পাঠিয়ে দেয়া হবে। <span style="color:#06b6d4;"> নিচের টাকা ব্যাতিত বিয়ের পর অথবা বিয়ের আগে আর কোনো টাকা নেয়া হয় না।</span> আপনি চাইলে এক বা একাধিক পাত্র/পাত্রীর সাথে যোগাযোগ করতে পারবেন। দেখেনিন ১ থেকে ১০টি বায়োডাটার মোট মূল্য সহ একাধিক বায়োডাটার এভারেজ মূল্য।</p>
+          <p><i class="fa fa-bell" style="color: #0aa4ca; margin-right: 10px;"></i>শ্বশুরবাড়ি ডট কমের পাত্র-পাত্রীদের সাথে যোগাযোগ করতে চাইলে সামান্য সার্ভিস চার্জ প্রদান করতে হবে, যার বায়োডাটা তাদের থেকে কোনো টাকা নেয়া হয় না। আপনার পেমেন্ট সম্পন্ন হয়ে গেলে, পেমেন্ট তথ্যগুলো যাচাইবাচায়ের পর ২৪ ঘন্টার মধ্যে আপনাকে পাত্র/পাত্রীর অভিভাবকের নাম্বর পাঠিয়ে দেয়া হবে। <span style="color:#06b6d4;"> নিচের টাকা ব্যাতিত বিয়ের পর অথবা বিয়ের আগে আর কোনো টাকা নেয়া হয় না।</span> আপনি চাইলে এক বা একাধিক পাত্র/পাত্রীর সাথে যোগাযোগ করতে পারবেন। দেখেনিন ১ থেকে ১০টি বায়োডাটার প্যাকেজ মূল্য সহ এভারেজ মূল্য।</p>
           </br><p><i class="fa fa-bell-slash" style="color: #ff0080; margin-right: 10px;"></i>যোগাযোগের জন্য পাত্র-পাত্রীর অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে। পাত্র-পাত্রীর মোবাইল নাম্বার প্রদান করা হয় না। তবে অভিভাবক অনুমতি দিলে পাত্র-পাত্রীর ই-মেইল প্রদান করা হবে।</p>
         </div>
-		    <div class="flex-container">
-          <div class="sb-register-login">
-            <div class="soshurbari-animation-icon">
-              <div class="sb-icon-laptop">
-                <h3> <img src="images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
-              </div>
-            </div>
-            <div class="sb-biodata-field">
-              <h2>১ থেকে ৫টি বায়োডাটার মূল্য</h2>
-            </div>
-            <table>
-              <thead>
-                <tr>
-                  <th>বায়োডাটার পরিমান</th>
-                  <th>প্যাকেজ মূল্য</th>
-                  <th>এভারেজ মূল্য</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>১</td>
-                  <td>১৪৫ ৳</td>
-                  <td>১৪৫ ৳</td>
-                </tr>
-                <tr>
-                  <td>২</td>
-                  <td>২৮০ ৳</td>
-                  <td>১৪০ ৳</td>
-                </tr>
-                <tr>
-                  <td>৩</td>
-                  <td>৩৯০ ৳</td>
-                  <td>১৩০ ৳</td>
-                </tr>
-                <tr>
-                  <td>৪</td>
-                  <td>৫০০ ৳</td>
-                  <td>১২৫ ৳</td>
-                </tr>
-                <tr>
-                  <td>৫</td>
-                  <td>৬০০ ৳</td>
-                  <td>১২০ ৳</td>
-                </tr>
-              </tbody>
-            </table>
+        <div class="sb-package">
+          <div class="sb-package-list" style="background: #c4b5fd;">
+            <h2>বায়োডাটা: ১টি</h2>
+            <h3>প্যাকেজ মূল্য: ১৪৫ ৳</h3>
+            <p>এভারেজ মূল্য: ১৪৫ ৳</p>
           </div>
-          <div class="sb-register-login">
-            <div class="soshurbari-animation-icon">
-              <div class="sb-icon-laptop">
-              <h3> <img src="images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
-              </div>
-            </div>
-            <div class="sb-biodata-field">
-              <h2>৬ থেকে ১০টি বায়োডাটার মূল্য</h2>
-            </div>
-            <table>
-              <thead>
-                <tr>
-                  <th>বায়োডাটার পরিমান</th>
-                  <th>প্যাকেজ মূল্য</th>
-                  <th>এভারেজ মূল্য</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>৬</td>
-                  <td>৬৯০ ৳</td>
-                  <td>১১৫ ৳</td>
-                </tr>
-                <tr>
-                  <td>৭</td>
-                  <td>৭৭০ ৳</td>
-                  <td>১১০ ৳</td>
-                </tr>
-                <tr>
-                  <td>৮</td>
-                  <td>৮৪০ ৳</td>
-                  <td>১০৫ ৳</td>
-                </tr>
-                <tr>
-                  <td>৯</td>
-                  <td>৯০০ ৳</td>
-                  <td>১০০ ৳</td>
-                </tr>
-                <tr>
-                  <td>১০</td>
-                  <td>৯৮০ ৳</td>
-                  <td>৯৮ ৳</td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="sb-package-list" style="background: #fed7aa;">
+            <h2>বায়োডাটা: ২টি</h2>
+            <h3>প্যাকেজ মূল্য: ২৮০ ৳</h3>
+            <p>এভারেজ মূল্য: ১৪০ ৳</p>
+          </div>
+          <div class="sb-package-list" style="background: #bae6fd;">
+            <h2>বায়োডাটা: ৩টি</h2>
+            <h3>প্যাকেজ মূল্য: ৩৯০ ৳</h3>
+            <p>এভারেজ মূল্য: ১৩০ ৳</p>
+          </div>
+          <div class="sb-package-list" style="background: #d9f99d;">
+            <h2>বায়োডাটা: ৪টি</h2>
+            <h3>প্যাকেজ মূল্য: ৫০০ ৳</h3>
+            <p>এভারেজ মূল্য: ১২৫ ৳</p>
+          </div>
+          <div class="sb-package-list" style="background: #a5f3fc;">
+            <h2>বায়োডাটা: ৫টি</h2>
+            <h3>প্যাকেজ মূল্য: ৬০০ ৳</h3>
+            <p>এভারেজ মূল্য: ১২০ ৳</p>
+          </div>
+          <div class="sb-package-list" style="background: #cbd5e1;">
+            <h2>বায়োডাটা: ৬টি</h2>
+            <h3>প্যাকেজ মূল্য: ৬৯০ ৳</h3>
+            <p>এভারেজ মূল্য: ১১৫ ৳</p>
+          </div>
+          <div class="sb-package-list" style="background: #fde68a;">
+            <h2>বায়োডাটা: ৭টি</h2>
+            <h3>প্যাকেজ মূল্য: ৭৭০ ৳</h3>
+            <p>এভারেজ মূল্য: ১১০ ৳</p>
+          </div>
+          <div class="sb-package-list" style="background: #fca5a5;">
+            <h2>বায়োডাটা: ৮টি</h2>
+            <h3>প্যাকেজ মূল্য: ৮৪০ ৳</h3>
+            <p>এভারেজ মূল্য: ১০৫ ৳</p>
+          </div>
+          <div class="sb-package-list" style="background: #f5d0fe;">
+            <h2>বায়োডাটা: ৯টি</h2>
+            <h3>প্যাকেজ মূল্য: ৯০০ ৳</h3>
+            <p>এভারেজ মূল্য: ১০০ ৳</p>
+          </div>
+          <div class="sb-package-list" style="background: #bbf7d0;">
+            <h2>বায়োডাটা: ১০টি</h2>
+            <h3>প্যাকেজ মূল্য: ৯৮০ ৳</h3>
+            <p>এভারেজ মূল্য: ৯৮ ৳</p>
           </div>
         </div>
 	    </form>
