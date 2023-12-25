@@ -328,10 +328,10 @@ if(isloggedin()){
 								<option value="ডাক্তার/চিকিৎসা/স্বাস্থ্য">ডাক্তার/চিকিৎসা/স্বাস্থ্য</option>
 								<option value="শিক্ষক/প্রফেসর">শিক্ষক/প্রফেসর</option>
 								<option value="গোয়েন্দা/প্রতিরক্ষা/সশস্ত্রবাহিনী">গোয়েন্দা/প্রতিরক্ষা/সশস্ত্রবাহিনী</option>
-								<option value="সার্ভিস/ব্যাংকার/ফ্রিল্যান্সার/উদ্যোক্তা">সার্ভিস/ব্যাংকার/ফ্রিল্যান্সার/উদ্যোক্তা</option>
-								<option value="প্রবাসী/বিদেশে">প্রবাসী/বিদেশে</option>
-								<option value="গার্মেন্টস সেক্টর">গার্মেন্টস সেক্টর</option>
-								<option value="কারিগর/মিস্ত্রি">কারিগর/মিস্ত্রি</option>
+								<option value="সার্ভিস/ফাইন্যান্স/ফ্রিল্যান্সার/উদ্যোক্তা">সার্ভিস/ফাইন্যান্স/ফ্রিল্যান্সার/উদ্যোক্তা</option>
+								<option value="প্রবাসী/বিদেশ">প্রবাসী/বিদেশ</option>
+								<option value="গার্মেন্টস/পোশাক">গার্মেন্টস/পোশাক</option>
+								<option value="টেকনিশিয়ান/মিস্ত্রি/কারিগর">টেকনিশিয়ান/মিস্ত্রি/কারিগর</option>
 								<option value="ড্রাইভার/চালক">ড্রাইভার/চালক</option>
 								<option value="অন্যান্য">অন্যান্য</option>
 								<option value="কিছু করিনা">কিছু করিনা</option>
@@ -423,6 +423,7 @@ if(isloggedin()){
 								<option value="মেডিকেল টেকনোলজিস্ট">মেডিকেল টেকনোলজিস্ট</option>
 								<option value="প্যারামেডিকেল">প্যারামেডিকেল</option>
 								<option value="নার্স">নার্স</option>
+								<option value="ওয়ার্ড বয়/ আয়া">ওয়ার্ড বয়/ আয়া</option>
 								<option value="মিডওয়াইফারি">মিডওয়াইফারি</option>
 								<option value="পল্লী চিকিৎসক">পল্লী চিকিৎসক</option>
 							</select>
@@ -432,6 +433,7 @@ if(isloggedin()){
 							<select name="engineer_occupation_level">
 								<option hidden selected></option>
 								<option></option>
+								<option value="সাপোর্ট ইঞ্জিনিয়ার">সাপোর্ট ইঞ্জিনিয়ার</option> 
 								<option value="সফটওয়্যার ইঞ্জিনিয়ার">সফটওয়্যার ইঞ্জিনিয়ার</option> 
 								<option value="টেক্সটাইল ইঞ্জিনিয়ার">টেক্সটাইল ইঞ্জিনিয়ার</option>
 								<option value="সিভিল ইঞ্জিনিয়ার">সিভিল ইঞ্জিনিয়ার</option>
@@ -481,7 +483,7 @@ if(isloggedin()){
 								<option value="নিরাপত্তারক্ষী">নিরাপত্তারক্ষী</option>
 							</select>
 						</div>
-						<div class="shosurbari-biodata-field section" id="প্রবাসী/বিদেশে" style="display: none;">
+						<div class="shosurbari-biodata-field section" id="প্রবাসী/বিদেশ" style="display: none;">
 							<label>পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
 							<select name="foreigner_occupation_level">
 								<option hidden selected></option>
@@ -492,14 +494,16 @@ if(isloggedin()){
 								<option value="বিদেশে পড়াশোনা">বিদেশে পড়াশোনা</option>
 							</select>
 						</div>
-						<div class="shosurbari-biodata-field section" id="গার্মেন্টস সেক্টর" style="display: none;">
+						<div class="shosurbari-biodata-field section" id="গার্মেন্টস/পোশাক" style="display: none;">
 							<label>পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
 							<select name="garments_occupation_level">
 								<option hidden selected></option>
 								<option></option>
 								<option value="গার্মেন্টস ম্যানেজার">গার্মেন্টস ম্যানেজার</option>
 								<option value="গার্মেন্টস বায়িং হাউস">গার্মেন্টস বায়িং হাউস</option>
-								<option value="গার্মেন্টস শ্রমিক">গার্মেন্টস শ্রমিক</option> 
+								<option value="গার্মেন্টস শ্রমিক">গার্মেন্টস শ্রমিক</option>
+								<option value="গার্মেন্টস টেকনিশিয়ান">গার্মেন্টস টেকনিশিয়ান</option>
+								<option value="টেইলার্স/দর্জি">টেইলার্স/দর্জি</option> 
 							</select>
 						</div>
 						<div class="shosurbari-biodata-field section" id="ড্রাইভার/চালক" style="display: none;">
@@ -510,46 +514,65 @@ if(isloggedin()){
 								<option value="পাঠাও/উবার রাইডার">পাঠাও/উবার রাইডার</option>
 								<option value="বাস ড্রাইভার">বাস ড্রাইভার</option> 
 								<option value="মাইক্রো বাস ড্রাইভার">মাইক্রো বাস ড্রাইভার</option> 
-								<option value="কার ড্রাইভার">কার ড্রাইভার</option> 
+								<option value="কার ড্রাইভার">কার ড্রাইভার</option>
+								<option value="পিকআপ ড্রাইভার">পিকআপ ড্রাইভার</option> 
 								<option value="ট্রাক ড্রাইভার">ট্রাক ড্রাইভার</option>
-								<option value="CNG চালক">CNG চালক</option> 
+								<option value="লেগুনা চালক">লেগুনা চালক</option>
+								<option value="CNG চালক">CNG চালক</option>  
 								<option value="অটো চালক">অটো চালক</option>
-								<option value="রিক্সা চালক">রিক্সা চালক</option>
+								<option value="রিক্সা/ভ্যান চালক">রিক্সা/ভ্যান চালক</option>
 							</select>
 						</div>
-						<div class="shosurbari-biodata-field section" id="সার্ভিস/ব্যাংকার/ফ্রিল্যান্সার/উদ্যোক্তা" style="display: none;">
+						<div class="shosurbari-biodata-field section" id="সার্ভিস/ফাইন্যান্স/ফ্রিল্যান্সার/উদ্যোক্তা" style="display: none;">
 							<label>পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
 							<select name="service_andcommon_occupation_level">
 								<option hidden selected></option>
 								<option></option>
 								<option value="HR">HR</option>
+								<option value="ম্যানেজার">ম্যানেজার</option>   
+								<option value="আইনজীবী">আইনজীবী</option>
 								<option value="ব্যাংকার">ব্যাংকার</option>
-								<option value="আইনজীবী">আইনজীবী</option> 
+								<option value="এডমিনিস্ট্রেটিভ অফিসার">এডমিনিস্ট্রেটিভ অফিসার</option>
 								<option value="উদ্যোক্তা">উদ্যোক্তা</option> 
 								<option value="ফ্রিল্যান্সার">ফ্রিল্যান্সার</option>
-								<option value="ইউটিউবার">ইউটিউবার</option>
+								<option value="কম্পিউটার অপারেটর">কম্পিউটার অপারেটর</option>
+								<option value="কন্টেন্ট ক্রিয়েটর">কন্টেন্ট ক্রিয়েটর</option>
 								<option value="গ্রাফিক্স ডিজাইনার">গ্রাফিক্স ডিজাইনার</option>
-								<option value="সেলস & মার্কেটিং(SR)">সেলস & মার্কেটিং(SR)</option>
+								<option value="ডিজিটাল মার্কেটিং">ডিজিটাল মার্কেটিং</option>
+								<option value="সেলস রিপ্রেজেন্টেটিভ(SR)">সেলস রিপ্রেজেন্টেটিভ(SR)</option>
+								<option value="শো-রুম সহকারী/সেলসম্যান">শো-রুম সহকারী/সেলসম্যান</option>
+								<option value="কাস্টমার সার্ভিস/কল সেন্টার">কাস্টমার সার্ভিস/কল সেন্টার</option>
+								<option value="কন্সাল্ট্যান্টস/কনসাল্টিং">কন্সাল্ট্যান্টস/কনসাল্টিং</option>
+								<option value="অফিস সহকারী">অফিস সহকারী</option>
+								<option value="মসজিদের ইমাম/কুরআন শিক্ষক">মসজিদের ইমাম/কুরআন শিক্ষক</option>
+								<option value="পুরোহিত">পুরোহিত</option>
+								<option value="ওয়েটার">ওয়েটার</option>
+								<option value="শেফ/বাবুর্চী">শেফ/বাবুর্চী</option>
+								<option value="ডেলিভারী ম্যান">ডেলিভারী ম্যান</option>
+								<option value="পিয়ন">পিয়ন</option>
 							</select>
 						</div>
-						<div class="shosurbari-biodata-field section" id="কারিগর/মিস্ত্রি" style="display: none;">
+						<div class="shosurbari-biodata-field section" id="টেকনিশিয়ান/মিস্ত্রি/কারিগর" style="display: none;">
 							<label>পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
 							<select name="mistri_occupation_level">
-							<option hidden selected></option>
-							<option></option>
-							<option value="রাজ মিস্ত্রি">রাজ মিস্ত্রি</option>
-							<option value="কাঠ মিস্ত্রি">কাঠ মিস্ত্রি</option>
-							<option value="ইলেকট্রিক মিস্ত্রি">ইলেকট্রিক মিস্ত্রি</option>
-							<option value="স্যানিটারি মিস্ত্রি">স্যানিটারি মিস্ত্রি</option>
-							<option value="রড মিস্ত্রি">রড মিস্ত্রি</option>
-							<option value="রং মিস্ত্রি">রং মিস্ত্রি</option>
-							<option value="ফ্রিজ মিস্ত্রি">ফ্রিজমিস্ত্রি</option>
-							<option value="গ্যাস মিস্ত্রি">গ্যাস মিস্ত্রি</option>
-							<option value="এসি মিস্ত্রি">এসি মিস্ত্রি</option>
-							<option value="সিসি ক্যামেরা মিস্ত্রি">সিসি ক্যামেরা মিস্ত্রি</option>
-							<option value="টাইলস ও মুজাইক মিস্ত্রি">টাইলস ও মুজাইক মিস্ত্রি</option>
-							<option value="থাই এলুমিনিয়াম ও গ্লাস মিস্ত্রি">থাই এলুমিনিয়াম ও গ্লাস মিস্ত্রি</option>
-							<option value="ওয়েলডিং/গ্রীল মিস্ত্রি">ওয়েলডিং / গ্রীল মিস্ত্রি</option>
+								<option hidden selected></option>
+								<option></option>
+								<option value="ইলেকট্রিশিয়ান">ইলেকট্রিশিয়ান</option>
+								<option value="ইলেকট্রনিক্স টেকনিশিয়ান">ইলেকট্রনিক্স টেকনিশিয়ান</option>
+								<option value="মটর টেকনিশিয়ান ">মটর টেকনিশিয়ান</option>
+								<option value="ফ্রিজ টেকনিশিয়ান">ফ্রিজ টেকনিশিয়ান</option>
+								<option value="এসি টেকনিশিয়ান">এসি টেকনিশিয়ান</option>
+								<option value="সিসি ক্যামেরা টেকনিশিয়ান">সিসি ক্যামেরা টেকনিশিয়ান</option>
+								<option value="ওয়েল্ডিং টেকনিশিয়ান">ওয়েল্ডিং টেকনিশিয়ান</option>
+								<option value="প্লাম্বার">প্লাম্বার</option>
+								<option value="স্যানিটারি মিস্ত্রি">স্যানিটারি মিস্ত্রি</option>
+								<option value="কাঠ মিস্ত্রি">কাঠ মিস্ত্রি</option>
+								<option value="রাজ মিস্ত্রি">রাজ মিস্ত্রি</option>
+								<option value="রড মিস্ত্রি">রড মিস্ত্রি</option>
+								<option value="রং মিস্ত্রি">রং মিস্ত্রি</option>
+								<option value="গ্যাস মিস্ত্রি">গ্যাস মিস্ত্রি</option>
+								<option value="টাইলস ও মুজাইক মিস্ত্রি">টাইলস ও মুজাইক মিস্ত্রি</option>
+								<option value="থাই অ্যালুমিনিয়াম ও গ্লাস মিস্ত্রি">থাই অ্যালুমিনিয়াম ও গ্লাস মিস্ত্রি</option>
 							</select>
 						</div>
 						<script>

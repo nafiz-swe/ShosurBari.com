@@ -705,16 +705,16 @@ $result=search();
                   <span class="search-options">গোয়েন্দা/প্রতিরক্ষা/সশস্ত্রবাহিনী</span>
                   <br>
                   <!-- Common Profession-->
-                  <input type="checkbox" name="occupation_sector[]" value="সার্ভিস/ব্যাংকার/ফ্রিল্যান্সার/উদ্যোক্তা" class="SelectBox val" />
-                  <span class="search-options">সার্ভিস/ব্যাংকার/ফ্রিল্যান্সার/উদ্যোক্তা</span>
+                  <input type="checkbox" name="occupation_sector[]" value="সার্ভিস/ফাইন্যান্স/ফ্রিল্যান্সার/উদ্যোক্তা" class="SelectBox val" />
+                  <span class="search-options">সার্ভিস/ফাইন্যান্স/ফ্রিল্যান্সার/উদ্যোক্তা</span>
                   <br>
                   <!-- Working Forign Sector-->                  
-                  <input type="checkbox" name="occupation_sector[]" value="প্রবাসী/বিদেশে" class="SelectBox val" />
-                  <span class="search-options">প্রবাসী/বিদেশে</span>
+                  <input type="checkbox" name="occupation_sector[]" value="প্রবাসী/বিদেশ" class="SelectBox val" />
+                  <span class="search-options">প্রবাসী/বিদেশ</span>
                   <br>
                   <!-- Garments Sector-->                  
-                  <input type="checkbox" name="occupation_sector[]" value="গার্মেন্টস সেক্টর" class="SelectBox val" />
-                  <span class="search-options">গার্মেন্টস সেক্টর</span>
+                  <input type="checkbox" name="occupation_sector[]" value="গার্মেন্টস/পোশাক" class="SelectBox val" />
+                  <span class="search-options">গার্মেন্টস/পোশাক</span>
                   <br>
                   <!--  Driver Profession -->                  
                   <input type="checkbox" name="occupation_sector[]" value="ড্রাইভার/চালক" class="SelectBox val" />
@@ -1431,16 +1431,16 @@ $result=search();
               <span class="search-options">গোয়েন্দা/প্রতিরক্ষা/সশস্ত্রবাহিনী</span>
               <br>
               <!-- Common Profession-->
-              <input type="checkbox" name="occupation_sector[]" value="সার্ভিস/ব্যাংকার/ফ্রিল্যান্সার/উদ্যোক্তা" class="SelectBox val" />
-              <span class="search-options">সার্ভিস/ব্যাংকার/ফ্রিল্যান্সার/উদ্যোক্তা</span>
+              <input type="checkbox" name="occupation_sector[]" value="সার্ভিস/ফাইন্যান্স/ফ্রিল্যান্সার/উদ্যোক্তা" class="SelectBox val" />
+              <span class="search-options">সার্ভিস/ফাইন্যান্স/ফ্রিল্যান্সার/উদ্যোক্তা</span>
               <br>
               <!-- Working Forign Sector-->                  
-              <input type="checkbox" name="occupation_sector[]" value="প্রবাসী/বিদেশে" class="SelectBox val" />
-              <span class="search-options">প্রবাসী/বিদেশে</span>
+              <input type="checkbox" name="occupation_sector[]" value="প্রবাসী/বিদেশ" class="SelectBox val" />
+              <span class="search-options">প্রবাসী/বিদেশ</span>
               <br>
               <!-- Garments Sector-->                  
-              <input type="checkbox" name="occupation_sector[]" value="গার্মেন্টস সেক্টর" class="SelectBox val" />
-              <span class="search-options">গার্মেন্টস সেক্টর</span>
+              <input type="checkbox" name="occupation_sector[]" value="গার্মেন্টস/পোশাক" class="SelectBox val" />
+              <span class="search-options">গার্মেন্টস/পোশাক</span>
               <br>
               <!--  Driver Profession -->                  
               <input type="checkbox" name="occupation_sector[]" value="ড্রাইভার/চালক" class="SelectBox val" />

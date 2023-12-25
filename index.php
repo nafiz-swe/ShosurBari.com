@@ -80,7 +80,7 @@
   .card-content p{
     font-size: 14px;
     margin-bottom: 25px;
-    margin-top: 0px;
+    margin-top: 20px;
     width: 200px;
     text-align: justify;
   }
@@ -122,7 +122,6 @@
     width: 1090px;
     margin: auto;
     margin-top: -54px;
-    border-radius: 15px;
     background: #fff;
     box-shadow: 0 10px 15px 0 rgb(0 0 0 / 16%);
     position: relative;
@@ -177,12 +176,12 @@
     border-collapse: collapse;
   }
   th, td {
-    padding: 10px;
+    padding: 10px 5px;
     text-align: center;
     border: 1px solid #ddd;
   }
   th {
-    background: linear-gradient(180deg, #00bbff61 0%,rgba(238,246,253,0) 100%);
+    background: #f0f0f0;
   }
   .sb-biodata-field{
     background: none;
@@ -456,16 +455,16 @@
             <span class="search-options">গোয়েন্দা/প্রতিরক্ষা/সশস্ত্রবাহিনী</span>
             <br>
             <!-- Common Profession-->
-            <input type="checkbox" name="occupation_sector[]" value="সার্ভিস/ব্যাংকার/ফ্রিল্যান্সার/উদ্যোক্তা" class="SelectBox val" />
-            <span class="search-options">সার্ভিস/ব্যাংকার/ফ্রিল্যান্সার/উদ্যোক্তা</span>
+            <input type="checkbox" name="occupation_sector[]" value="সার্ভিস/ফাইন্যান্স/ফ্রিল্যান্সার/উদ্যোক্তা" class="SelectBox val" />
+            <span class="search-options">সার্ভিস/ফাইন্যান্স/ফ্রিল্যান্সার/উদ্যোক্তা</span>
             <br>
             <!-- Working Forign Sector-->                  
-            <input type="checkbox" name="occupation_sector[]" value="প্রবাসী/বিদেশে" class="SelectBox val" />
-            <span class="search-options">প্রবাসী/বিদেশে</span>
+            <input type="checkbox" name="occupation_sector[]" value="প্রবাসী/বিদেশ" class="SelectBox val" />
+            <span class="search-options">প্রবাসী/বিদেশ</span>
             <br>
             <!-- Garments Sector-->                  
-            <input type="checkbox" name="occupation_sector[]" value="গার্মেন্টস সেক্টর" class="SelectBox val" />
-            <span class="search-options">গার্মেন্টস সেক্টর</span>
+            <input type="checkbox" name="occupation_sector[]" value="গার্মেন্টস/পোশাক" class="SelectBox val" />
+            <span class="search-options">গার্মেন্টস/পোশাক</span>
             <br>
             <!--  Driver Profession -->                  
             <input type="checkbox" name="occupation_sector[]" value="ড্রাইভার/চালক" class="SelectBox val" />
@@ -972,7 +971,7 @@
     <div class="shosurbari-animation-form">
       <form action="" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
         <div class="sb-biodata-amount-list">
-          <p><i class="fa fa-bell" style="color: #0aa4ca; margin-right: 10px;"></i>শ্বশুরবাড়ি ডট কমের পাত্র-পাত্রীদের সাথে যোগাযোগ করতে চাইলে সামান্য সার্ভিস চার্জ প্রদান করতে হবে, যার বায়োডাটা তাদের থেকে কোনো টাকা নেয়া হয় না। আপনি চাইলে এক বা একাধিক পাত্র/পাত্রীর সাথে যোগাযোগ করতে পারবেন। আপনার পেমেন্ট সম্পন্ন হয়ে গেলে, পেমেন্ট তথ্যগুলো যাচাইবাচায়ের পর ২৪ ঘন্টার মধ্যেই আপনাকে পাত্র/পাত্রীর অভিভাবকের নাম্বর পাঠিয়ে দেয়া হবে। <span style="color:#06b6d4;"> নিচের টাকা ব্যাতিত বিয়ের পর অথবা বিয়ের আগে আর কোনো টাকা নেয়া হয় না।</span> দেখেনিন ১ থেকে ১০টি বায়োডাটার মোট মূল্য সহ একাধিক বায়োডাটার এভারেজ মূল্য।</p>
+          <p><i class="fa fa-bell" style="color: #0aa4ca; margin-right: 10px;"></i>শ্বশুরবাড়ি ডট কমের পাত্র-পাত্রীদের সাথে যোগাযোগ করতে চাইলে সামান্য সার্ভিস চার্জ প্রদান করতে হবে, যার বায়োডাটা তাদের থেকে কোনো টাকা নেয়া হয় না। আপনার পেমেন্ট সম্পন্ন হয়ে গেলে, পেমেন্ট তথ্যগুলো যাচাইবাচায়ের পর ২৪ ঘন্টার মধ্যে আপনাকে পাত্র/পাত্রীর অভিভাবকের নাম্বর পাঠিয়ে দেয়া হবে। <span style="color:#06b6d4;"> নিচের টাকা ব্যাতিত বিয়ের পর অথবা বিয়ের আগে আর কোনো টাকা নেয়া হয় না।</span> আপনি চাইলে এক বা একাধিক পাত্র/পাত্রীর সাথে যোগাযোগ করতে পারবেন। দেখেনিন ১ থেকে ১০টি বায়োডাটার মোট মূল্য সহ একাধিক বায়োডাটার এভারেজ মূল্য।</p>
           </br><p><i class="fa fa-bell-slash" style="color: #ff0080; margin-right: 10px;"></i>যোগাযোগের জন্য পাত্র-পাত্রীর অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে। পাত্র-পাত্রীর মোবাইল নাম্বার প্রদান করা হয় না। তবে অভিভাবক অনুমতি দিলে পাত্র-পাত্রীর ই-মেইল প্রদান করা হবে।</p>
         </div>
 		    <div class="flex-container">
