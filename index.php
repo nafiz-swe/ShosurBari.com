@@ -829,7 +829,7 @@
         <span class="grey-line"></span>
       </div>
     <div class="sb-biodata-amount-list" style="margin: 0 auto;">
-    </br><p style="text-align: center;"><i class="fa fa-bell" style="color: #0aa4ca; margin-right: 10px;"></i>এখন পর্যন্ত যেই ২০ টি পাত্র-পাত্রীর বায়োডাটা সব থেকে বেশি দেখা হয়েছে।</p>
+    </br><p style="text-align: center;"><i id="bell" class="fa fa-bell"></i> এখন পর্যন্ত যেই ২০ টি পাত্র-পাত্রীর বায়োডাটা সব থেকে বেশি দেখা হয়েছে।</p>
   </div>
   <ul id="flexiselDemo3">
     <?php
@@ -971,8 +971,8 @@
     <div class="shosurbari-animation-form">
       <form action="" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
         <div class="sb-biodata-amount-list">
-          <p><i class="fa fa-bell" style="color: #0aa4ca; margin-right: 10px;"></i>শ্বশুরবাড়ি ডট কমের পাত্র-পাত্রীদের সাথে যোগাযোগ করতে চাইলে সামান্য সার্ভিস চার্জ প্রদান করতে হবে, যার বায়োডাটা তাদের থেকে কোনো টাকা নেয়া হয় না। আপনার পেমেন্ট সম্পন্ন হয়ে গেলে, পেমেন্ট তথ্যগুলো যাচাইবাচায়ের পর ২৪ ঘন্টার মধ্যে আপনাকে পাত্র/পাত্রীর অভিভাবকের নাম্বর পাঠিয়ে দেয়া হবে। <span style="color:#06b6d4;"> নিচের টাকা ব্যাতিত বিয়ের পর অথবা বিয়ের আগে আর কোনো টাকা নেয়া হয় না।</span> আপনি চাইলে এক বা একাধিক পাত্র/পাত্রীর সাথে যোগাযোগ করতে পারবেন। দেখেনিন ১ থেকে ১০টি বায়োডাটার প্যাকেজ মূল্য সহ এভারেজ মূল্য।</p>
-          </br><p><i class="fa fa-bell-slash" style="color: #ff0080; margin-right: 10px;"></i>যোগাযোগের জন্য পাত্র-পাত্রীর অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে। পাত্র-পাত্রীর মোবাইল নাম্বার প্রদান করা হয় না। তবে অভিভাবক অনুমতি দিলে পাত্র-পাত্রীর ই-মেইল প্রদান করা হবে।</p>
+          <p><i id="bell" class="fa fa-bell"></i> শ্বশুরবাড়ি ডট কমের পাত্র-পাত্রীদের সাথে যোগাযোগ করতে চাইলে সামান্য সার্ভিস চার্জ প্রদান করতে হবে, যার বায়োডাটা তাদের থেকে কোনো টাকা নেয়া হয় না। আপনার পেমেন্ট সম্পন্ন হয়ে গেলে, পেমেন্ট তথ্যগুলো যাচাইবাচায়ের পর ২৪ ঘন্টার মধ্যে আপনাকে পাত্র/পাত্রীর অভিভাবকের নাম্বর পাঠিয়ে দেয়া হবে। <span style="color:#06b6d4;"> নিচের টাকা ব্যাতিত বিয়ের পর অথবা বিয়ের আগে আর কোনো টাকা নেয়া হয় না।</span> আপনি চাইলে এক বা একাধিক পাত্র/পাত্রীর সাথে যোগাযোগ করতে পারবেন। দেখেনিন ১ থেকে ১০টি বায়োডাটার প্যাকেজ মূল্য সহ এভারেজ মূল্য।</p>
+          </br><p><i class="fa fa-bell-slash" style="color: #ff0080; margin-right: 10px; border-top: 1px solid #ccc;"></i>যোগাযোগের জন্য পাত্র-পাত্রীর অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে। পাত্র-পাত্রীর মোবাইল নাম্বার প্রদান করা হয় না। তবে অভিভাবক অনুমতি দিলে পাত্র-পাত্রীর ই-মেইল প্রদান করা হবে।</p>
         </div>
         <div class="sb-package">
           <div class="sb-package-list" style="background: #c4b5fd;">
@@ -1093,7 +1093,7 @@
     </div>
   </div>
   <div class="sb-home-search">
-    <h1><span class="shosurbari-heading-span"> শ্বশুরবাড়ির </span>সেবা গ্রহণ করুন</h1>
+    <h1><span class="shosurbari-heading-span"> শ্বশুরবাড়ির </span>সেবা</h1>
     <div class="sbhome-heart-divider">
       <span class="grey-line"></span>
       <i class="fa fa-heart pink-heart"></i>

@@ -237,7 +237,7 @@ $conn->close();
       $result2 = mysqlexec($sql2);
       ?>
       <h1>রিকোয়েস্ট বায়োডাটা পেমেন্ট তথ্য </h1>
-      <p style="margin-bottom: 20px;"><i class="fa fa-bell" style="color: #0aa4ca; margin-right: 10px;"></i>যেকোনো বায়োডাটার অভিভাবকের সাথে যোগাযোগ করতে আগ্রহ হইলে, সার্ভিস চার্জ প্রদান করার পর এখানে পেমেন্ট তথ্য দেখতে পাবেন।</p>
+      <p style="margin-bottom: 20px;"><i id="bell" class="fa fa-bell"></i> যেকোনো বায়োডাটার অভিভাবকের সাথে যোগাযোগ করতে আগ্রহ হইলে, সার্ভিস চার্জ প্রদান করার পর এখানে পেমেন্ট তথ্য দেখতে পাবেন।</p>
       <div class="shosurbari-order-dashboard">
         <table class="shosurbari-users-request">
           <tr>
@@ -414,7 +414,7 @@ $conn->close();
           ?>
         </table>
       </div>
-      <p><i class="fa fa-bell" style="color: #0aa4ca; margin-right: 10px;"></i>যেকোনো প্রয়োজনে আমাদের সাথে যোগাযোগ করতে <a href="contact-us.php" target="_blank"> Contact</a> পেজ অনুসরণ করুন। অথবা আমাদের <a href="https://www.facebook.com/ShosurBari.bd" target="_blank"> FaceBook</a> পেজ ফলো করুন।</p>
+      <p><i id="bell" class="fa fa-bell"></i> যেকোনো প্রয়োজনে আমাদের সাথে যোগাযোগ করতে <a href="contact-us.php" target="_blank"> Contact</a> পেজ অনুসরণ করুন। অথবা আমাদের <a href="https://www.facebook.com/ShosurBari.bd" target="_blank"> FaceBook</a> পেজ ফলো করুন।</p>
     </div>
   </div>
 	<!--=======================================

@@ -520,7 +520,7 @@ if(isloggedin()){
 							<textarea type="text" rows="8" name="aboutme" class="form-text-describe" required><?php echo $aboutme;?></textarea>
 						</div><br>
 						<div class="shosurbari-biodata-field">
-							<p style="text-align: justify;"><i class="fa fa-bell" style="color: #0aa4ca; margin-right: 10px;"></i>নিচে অবশ্যই একটিভ মোবাইল নাম্বার এবং 
+							<p style="text-align: justify;"><i id="bell" class="fa fa-bell"></i> নিচে অবশ্যই একটিভ মোবাইল নাম্বার এবং 
 								ই-মেইল লিখবেন। আগ্রহী ইউজার আপনার এই বায়োডাটাটি পছন্দ করার পর, তার পেমেন্ট তথ্য যাচাই-বাছাই করে শ্বশুরবাড়ি ডটকমের 
 								কাস্টমার সার্ভিস থেকে এই বায়োডাটার অভিভাবক কে কল করবে। অভিভাবক অনুমতি দিলে আগ্রহী ইউজারকে ২৪ ঘন্টার মধ্যে অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে।
 								আগ্রহী ইউজারকে পাত্র-পাত্রীর মোবাইল নাম্বার প্রদান করা হয় না। তবে অভিভাবক অনুমতি দিলে আগ্রহী ইউজারকে পাত্র-পাত্রীর ই-মেইল প্রদান করা হবে।
@@ -619,6 +619,7 @@ if(isloggedin()){
 			return isValid;
 		}
 	</script>
+
 	<!--=======  Footer Start ========-->
 	<?php include_once("footer.php");?>
 	<!--=======  Footer End  =========-->

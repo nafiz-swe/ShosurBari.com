@@ -148,7 +148,7 @@ form {
     font-size: 15px;
     padding:5px;
     display: block;
-    width: 50%;
+    width: 100%;
     color: black;
     outline: none;
     height: 33px;
@@ -174,6 +174,21 @@ form {
     -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
     -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+#bell {
+    color: #0aa4ca;
+    margin-right: 10px;
+    cursor: pointer;
+    animation: moveBell .5s infinite alternate;
+    border-top: 1px solid #ccc;
+}
+@keyframes moveBell {
+  from {
+    transform: translateX(0);
+}
+to {
+    transform: translateX(10px);
+}
 }
 label{
     display: inline-block;
