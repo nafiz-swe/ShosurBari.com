@@ -1253,7 +1253,7 @@ ul#flexiselDemo3 h3 a:hover{
     margin: 10px;
     padding: 8px 15px;
     white-space: nowrap;
-    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
     border: 1px solid rgba(0,0,0,.05);
     border-radius: 2px;
 }
@@ -2264,7 +2264,7 @@ small.testi-meta1{
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 /*Payment Form Start*/
 .payment-form {
-    margin: 20px auto;
+    margin: 50px auto;
     border-radius: 6px;
     width: 400px;
     gap: 1.5rem;
@@ -3695,14 +3695,6 @@ font-size: 14px;
         width: 160px;
         margin: 20px auto 10px auto;
     }
-    .payment-confirm{
-        width: 160px;
-        margin: 20px auto 10px auto;
-    }
-    .payment-choich-list{
-        width: 160px;
-        margin: 20px auto 10px auto;
-    }
     button.chatbtn,
     button.copylink {
         width: 100%;
@@ -4185,9 +4177,6 @@ font-size: 14px;
         font-size: 35px;
         width: 520px;
         border-radius: 10px;
-    }
-    .payment-form{
-        margin-top: 50px;
     }
     .banner{
         height: 450px;
@@ -6344,13 +6333,9 @@ font-size: 14px;
     }
     .payment-confirm {
         font-size: 13px;
-        margin-left: 10px;
-        margin-right: 10px;
     }
     .payment-choich-list {
         font-size: 13px;
-        margin-left: 10px;
-        margin-right: 10px;
     }
     .choice-list-options {
         width: 135px;

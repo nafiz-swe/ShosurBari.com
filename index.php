@@ -24,11 +24,88 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+  <div class="runtext-container" id="maintenanceNotice">
+    <div class="main-runtext">
+      <marquee direction="" onmouseover="this.stop();" onmouseout="this.start();">
+        <div class="holder">
+          <!-- 🛠️ মেনটেন্যান্স নোটিস: -->
+          <!-- <div class="text-container">
+            <a data-fancybox-group="gallery" class="fancybox" title="THE ELECTRIC LIGHTING ACT: section 35"><span style="font-weight: bold; color: red;">🛠️ মেনটেন্যান্স নোটিস:</span> আমরা ওয়েবসাইট আপডেট করতে চলেছি, যার কারণে ওয়েবসাইটে যেকোনো সময় অসুবিধার মুখোমুখি হতে পারেন। আমরা শীঘ্রই সমস্যাটি সমাধান করতে চেষ্টা করব, আমরা তার জন্য দুঃখিত এবং আপনার সহযোগিতার জন্য আমরা কৃতজ্ঞ।</a>
+          </div> -->
+          <!-- নোটিস: শ্বশুরবাড়ি ডট কমের যাত্রা ( use for space: &nbsp; &nbsp;)--> 
+          <div class="text-container">
+            <a data-fancybox-group="gallery" class="fancybox" title="THE ELECTRIC LIGHTING ACT: section 35"><span style="font-weight: bold; color: red;">জরুরি নোটিস:</span> শ্বশুরবাড়ি ডট কমের যাত্রা শুরু হয় ২০২২ থেকে। আমরা আপনাদের সুবিধার কথা চিন্তা করে আমাদের পূর্বের সকল নিয়মনীতি এবং ওয়েবসাইটের ফিচার পরিবর্তন করে ২০২৪ এর জানুয়ারি থেকে পুনরায় যাত্রা শুরু করেছি। কোনো সার্ভিস চার্জ ছাড়াই শ্বশুরবাড়ি ডটকমে একাউন্ট খুলুন এবং বায়োডাটা পোস্ট করুন ফ্রিতেই। পাত্র-পাত্রীর বায়োডাটা পোস্ট করে আমাদেরকে সহযোগিতা করুন। আপনার সহযোগিতার জন্য আমরা কৃতজ্ঞ।</a>
+          </div>
+        </div>
+      </marquee>
+    </div>
+    <button onclick="document.getElementById('maintenanceNotice').style.display = 'none'">Close</button>
+  </div>
 	<!-- ===========  Navigation Start =========== -->
 	<?php include_once("includes/navigation.php");?>
 	<!-- ===========  Navigation End ============= -->
   <style>
   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+  /* Notice Board Start */
+  marquee {
+    margin-top: 10px;
+    width: 100%;
+  }
+  .runtext-container {
+    color: #000;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 92%;
+    left: 4%;
+    right: 4%;
+    z-index: 10000;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    background-color:#ddddff;
+    background-image:linear-gradient(180deg, #00bbff61 0%,rgba(238,246,253,0) 100%);
+    background-repeat:repeat-x;
+    border: 4px solid #00bbff61;
+    box-shadow:0 5px 20px rgba(0, 0, 0, 0.9);
+    overflow-x: hidden;
+    overflow-y: visible;
+    padding: 0 0 0 10px ;
+  }
+  .main-runtext {
+    margin: 0 auto;
+    overflow: visible;
+    position: relative;
+    height: 40px;
+    flex-grow: 1;
+  }
+  .runtext-container .holder {
+    position: relative;
+    overflow: visible;
+    display: inline;
+    float: left;
+  }
+  .runtext-container .holder .text-container {
+    display: inline;
+  }
+  .runtext-container .holder a {
+    text-decoration: none;
+    color: #000;
+    line-height: -0.5em;
+    font-size: 16px;
+  }
+  .runtext-container .holder a:hover {
+    text-decoration: none;
+    color: #6600ff;
+  }
+  .runtext-container button {
+    background-color: red;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-weight: bold;
+  }
+  /* Notice Board End */
   .card-wrap{
     width: 230px;
     background: #fff;
@@ -39,7 +116,7 @@
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
     cursor: pointer;
     transition: all .2s ease-in-out;
-    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+    /* box-shadow: 0 0 13px 0 rgba(82,63,105,.05); */
     border: 1px solid rgba(0,0,0,.05);
   }
   .card-wrap:hover{
@@ -1108,7 +1185,7 @@
       </div>
       <div class="card-content">
         <h1 class="card-title">বায়োডাটা পোস্ট করুন</h1>
-        <p>শ্বশুরবাড়ি ডটকমে একাউন্ট খোলা এবং বায়োডাটা পোস্ট করতে কোনো সার্ভিস চার্জ নেওয়া হয় না। পাত্র-পাত্রী নিজেই অথবা তাদের অভিভাবক বায়োডাটা পোস্ট করতে পারবে খুব সহজেই।</p>
+        <p>কোনো সার্ভিস চার্জ ছাড়াই শ্বশুরবাড়ি ডটকমে একাউন্ট খুলুন এবং বায়োডাটা পোস্ট করুন ফ্রিতেই। পাত্র-পাত্রী নিজেই অথবা তাদের অভিভাবক বায়োডাটা পোস্ট করতে পারবে খুব সহজেই।</p>
       </div>
     </div>
     <div class="card-wrap">

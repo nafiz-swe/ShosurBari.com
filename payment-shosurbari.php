@@ -98,7 +98,7 @@ if (isset($_COOKIE[$cookieName])) {
     height: 26px;
     margin: 5px 5px 7px 10px;
     background-color: #fff;
-    border: 1px solid #06b6d4;
+    border: 1px solid #ccc;
     cursor: pointer;
     position: relative;
   }
@@ -110,7 +110,6 @@ if (isset($_COOKIE[$cookieName])) {
   input[type="radio"] + label {
     display: inline-block;
     line-height: 8px;
-    border: 1px solid;
     padding: 10px;
     border-radius: 2px;
     width: auto;
@@ -215,7 +214,6 @@ if (isset($_COOKIE[$cookieName])) {
     background: linear-gradient(#0aa4ca, #06b6d4);
   }
   .flex-container{
-    padding-top: 50px;
     padding-bottom: 50px;
   }
   @media (max-width: 1400px){
@@ -338,17 +336,36 @@ if (isset($_COOKIE[$cookieName])) {
         </div>
         <script>
           $('.next-btn').click(function(){
-          $('.payment-form').css('display', 'block');
-          $('html, body').animate({
-            scrollTop: $(".payment-form").offset().top - ($(window).height()/3)
-          }, 500);
+            $('.payment-form').css('display', 'block');
+            const windowHeight = $(window).height();
+            const paymentFormHeight = $(".payment-form").height();
+            let scrollPosition = $(".payment-form").offset().top - (windowHeight / 2) + (paymentFormHeight / 2);
+            // Apply different scroll behavior for screens with a width of 930px or below
+            if ($(window).width() <= 930) {
+            // Increase the multiplier to scroll further down
+            scrollPosition = $(".payment-form").offset().top - (windowHeight / 14) + (paymentFormHeight);
+            }
+            $('html, body').animate({
+            scrollTop: scrollPosition
+            }, 500);
           });
-        </script>
-        <script>
+          // 2nd part
           const nextBtn = document.querySelector('.next-btn');
           const paymentForm = document.querySelector('.payment-form');
           nextBtn.addEventListener('click', () => {
-          paymentForm.style.display = 'block';
+            paymentForm.style.display = 'block';
+            const windowHeight = window.innerHeight;
+            const paymentFormHeight = paymentForm.offsetHeight;
+            let scrollPosition = paymentForm.offsetTop - (windowHeight / 2) + (paymentFormHeight / 2);
+            // Apply different scroll behavior for screens with a width of 930px or below
+            if (window.innerWidth <= 930) {
+            // Increase the multiplier to scroll further down
+            scrollPosition = paymentForm.offsetTop - (windowHeight / 14) + (paymentFormHeight);
+            }
+            window.scrollTo({
+            top: scrollPosition,
+            behavior: 'smooth'
+            });
           });
         </script>
         <div class="payment-form" style="display: none;">
