@@ -366,68 +366,144 @@ function englishToBanglaNumber($number) {
             <span class="grey-line"></span>
         </div>
     </div>
-    <div class="shosurbari-biodata-form">
-    <div class="shosurbari-animation-form">
-        <form action="" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
-            <div class="sb-biodata-amount-list">
-                <p><i id="bell" class="fa fa-bell"></i> শ্বশুরবাড়ি ডট কমের পাত্র-পাত্রীদের সাথে যোগাযোগ করতে চাইলে সামান্য সার্ভিস চার্জ প্রদান করতে হবে, যার বায়োডাটা তাদের থেকে কোনো টাকা নেয়া হয় না। আপনার পেমেন্ট সম্পন্ন হয়ে গেলে, পেমেন্ট তথ্যগুলো যাচাইবাচায়ের পর ২৪ ঘন্টার মধ্যে আপনাকে পাত্র/পাত্রীর অভিভাবকের নাম্বর পাঠিয়ে দেয়া হবে। <span style="color:#06b6d4;"> নিচের টাকা ব্যাতিত বিয়ের পর অথবা বিয়ের আগে আর কোনো টাকা নেয়া হয় না।</span> আপনি চাইলে এক বা একাধিক পাত্র/পাত্রীর সাথে যোগাযোগ করতে পারবেন। দেখেনিন ১ থেকে ১০টি বায়োডাটার প্যাকেজ মূল্য সহ এভারেজ মূল্য।</p>
-                </br><p><i class="fa fa-bell-slash" style="color: #ff0080; margin-right: 10px; border-top: 1px solid #ccc;"></i>যোগাযোগের জন্য পাত্র-পাত্রীর অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে। পাত্র-পাত্রীর মোবাইল নাম্বার প্রদান করা হয় না। তবে অভিভাবক অনুমতি দিলে পাত্র-পাত্রীর ই-মেইল প্রদান করা হবে।</p>
+    <div class="shosurbari-user-info">
+        <div class="sb-biodata-amount-list">
+            <p><i id="bell" class="fa fa-bell"></i> বিয়ের জন্য শ্বশুরবাড়ি ডট কমের পাত্র-পাত্রীর সাথে যোগাযোগ করতে চাইলে সার্ভিস চার্জ প্রদান করতে হবে, যার বায়োডাটা তাদের থেকে কোনো সার্ভিস চার্জ নেয়া হয় না। সার্চ ফিল্টার ব্যবহার করে খুঁজেনিন স্বপ্নময় জীবনসঙ্গী। আপনার পেমেন্ট সম্পন্ন হবার পর ২৪ ঘন্টার মধ্যে যোগাযোগের জন্য কাঙ্ক্ষিত তথ্য আপনাকে পাঠিয়ে দেয়া হবে। <span style="color:#06b6d4;"> নিচের প্যাকেজ মূল্য ব্যাতিত বিয়ের পর অথবা বিয়ের আগে আর কোনো টাকা নেয়া হয় না।</span> বায়োডাটার সাথে যোগাযোগের জন্য আপনাকে অগ্রিম কোনো প্যাকেজ কিনতে হবেনা, আপনি যেই কয়টি বায়োডাটার সাথে সরাসরি যোগাযোগ করতে আগ্রহী শুধুমাত্র সেই কয়টি বায়োডাটার জন্য পেমেন্ট করলেই হবে। আপনি একই সাথে সর্বোচ্চ ১০টি বায়োডাটা পছন্দ করে পেমেন্ট করতে পারবেন। একই সাথে ১০টির অধিক বায়োডাটার সাথে যোগাযোগ করতে চাইলে আপনাকে ১০টি করে বায়োডাটা সিলেক্ট করে পেমেন্ট সম্পন্ন করতে হবে।</p>
+        </div>
+        <div class="shoshurbari-package-card">
+            <div class="card-header">
+                <h1>BRONZE</h1>
             </div>
-            <div class="sb-package">
-                <div class="sb-package-list" style="background: #c4b5fd;">
-                    <h2>বায়োডাটা: ১টি</h2>
-                    <h3>প্যাকেজ মূল্য: ১৪৫ ৳</h3>
-                    <p>এভারেজ মূল্য: ১৪৫ ৳</p>
-                </div>
-                <div class="sb-package-list" style="background: #fed7aa;">
-                    <h2>বায়োডাটা: ২টি</h2>
-                    <h3>প্যাকেজ মূল্য: ২৮০ ৳</h3>
-                    <p>এভারেজ মূল্য: ১৪০ ৳</p>
-                </div>
-                <div class="sb-package-list" style="background: #bae6fd;">
-                    <h2>বায়োডাটা: ৩টি</h2>
-                    <h3>প্যাকেজ মূল্য: ৩৯০ ৳</h3>
-                    <p>এভারেজ মূল্য: ১৩০ ৳</p>
-                </div>
-                <div class="sb-package-list" style="background: #d9f99d;">
-                    <h2>বায়োডাটা: ৪টি</h2>
-                    <h3>প্যাকেজ মূল্য: ৫০০ ৳</h3>
-                    <p>এভারেজ মূল্য: ১২৫ ৳</p>
-                </div>
-                <div class="sb-package-list" style="background: #a5f3fc;">
-                    <h2>বায়োডাটা: ৫টি</h2>
-                    <h3>প্যাকেজ মূল্য: ৬০০ ৳</h3>
-                    <p>এভারেজ মূল্য: ১২০ ৳</p>
-                </div>
-                <div class="sb-package-list" style="background: #cbd5e1;">
-                    <h2>বায়োডাটা: ৬টি</h2>
-                    <h3>প্যাকেজ মূল্য: ৬৯০ ৳</h3>
-                    <p>এভারেজ মূল্য: ১১৫ ৳</p>
-                </div>
-                <div class="sb-package-list" style="background: #fde68a;">
-                    <h2>বায়োডাটা: ৭টি</h2>
-                    <h3>প্যাকেজ মূল্য: ৭৭০ ৳</h3>
-                    <p>এভারেজ মূল্য: ১১০ ৳</p>
-                </div>
-                <div class="sb-package-list" style="background: #fca5a5;">
-                    <h2>বায়োডাটা: ৮টি</h2>
-                    <h3>প্যাকেজ মূল্য: ৮৪০ ৳</h3>
-                    <p>এভারেজ মূল্য: ১০৫ ৳</p>
-                </div>
-                <div class="sb-package-list" style="background: #f5d0fe;">
-                    <h2>বায়োডাটা: ৯টি</h2>
-                    <h3>প্যাকেজ মূল্য: ৯০০ ৳</h3>
-                    <p>এভারেজ মূল্য: ১০০ ৳</p>
-                </div>
-                <div class="sb-package-list" style="background: #bbf7d0;">
-                    <h2>বায়োডাটা: ১০টি</h2>
-                    <h3>প্যাকেজ মূল্য: ৯৮০ ৳</h3>
-                    <p>এভারেজ মূল্য: ৯৮ ৳</p>
-                </div>
+            <div class="card-package">
+                <h1>১৪৫ ৳</h1>
+                <p>বায়োডাটা: ১টি</p>
+                <p class="sb-package-avr-amount">এভারেজ মূল্য: ১৪৫ ৳</p>
+                <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
+                <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-close"></i></p>
+                <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
             </div>
-	    </form>
-    </div> 
-  </div>
+        </div>
+        <div class="shoshurbari-package-card">
+            <div class="card-header">
+                <h1>SILVER</h1>
+            </div>
+            <div class="card-package">
+                <h1>২৮০ ৳</h1>
+                <p>বায়োডাটা: ২টি</p>
+                <p class="sb-package-avr-amount">এভারেজ মূল্য: ১৪০ ৳</p>
+                <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
+                <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-close"></i></p>
+                <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
+            </div>
+        </div>
+        <div class="shoshurbari-package-card">
+            <div class="card-header">
+                <h1>GOLD</h1>
+            </div>
+            <div class="card-package">
+                <h1>৩৯০ ৳</h1>
+                <p>বায়োডাটা: ৩টি</p>
+                <p class="sb-package-avr-amount">এভারেজ মূল্য: ১৩০ ৳</p>
+                <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
+                <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-close"></i></p>
+                <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
+            </div>
+        </div>
+        <div class="shoshurbari-package-card">
+            <div class="card-header">
+                <h1>PLATINUM</h1>
+            </div>
+            <div class="card-package">
+                <h1>৫০০ ৳</h1>
+                <p>বায়োডাটা: ৪টি</p>
+                <p class="sb-package-avr-amount">এভারেজ মূল্য: ১২৫ ৳</p>
+                <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
+                <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-close"></i></p>
+                <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
+            </div>
+        </div>
+        <div class="shoshurbari-package-card">
+            <div class="sb-recommendation">
+                <h2>Our Recommendation</h2>
+            </div>
+            <div class="card-header">
+                <h1>DIAMOND</h1>
+            </div>
+            <div class="card-package">
+                <h1>৬০০ ৳</h1>
+                <p>বায়োডাটা: ৫টি</p>
+                <p class="sb-package-avr-amount">এভারেজ মূল্য: ১২০ ৳</p>
+                <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
+                <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-check"></i></p>
+                <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
+            </div>
+        </div>
+        <div class="shoshurbari-package-card">
+            <div class="card-header">
+                <h1>TITANIUM</h1>
+            </div>
+            <div class="card-package">
+                <h1>৬৯০ ৳</h1>
+                <p>বায়োডাটা: ৬টি</p>
+                <p class="sb-package-avr-amount">এভারেজ মূল্য: ১১৫ ৳</p>
+                <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
+                <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-check"></i></p>
+                <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
+            </div>
+        </div>
+        <div class="shoshurbari-package-card">
+            <div class="card-header">
+                <h1>RUBY</h1>
+            </div>
+            <div class="card-package">
+                <h1>৭৭০ ৳</h1>
+                <p>বায়োডাটা: ৭টি</p>
+                <p class="sb-package-avr-amount">এভারেজ মূল্য: ১১০ ৳</p>
+                <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
+                <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-check"></i></p>
+                <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
+            </div>
+        </div>
+        <div class="shoshurbari-package-card">
+            <div class="card-header">
+                <h1>EMERALD</h1>
+            </div>
+            <div class="card-package">
+                <h1>৮৪০ ৳</h1>
+                <p>বায়োডাটা: ৮টি</p>
+                <p class="sb-package-avr-amount">এভারেজ মূল্য: ১০৫ ৳</p>
+                <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
+                <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-check"></i></p>
+                <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
+            </div>
+        </div>
+        <div class="shoshurbari-package-card">
+            <div class="card-header">
+                <h1>SAPPHIRE</h1>
+            </div>
+            <div class="card-package">
+                <h1>৯০০ ৳</h1>
+                <p>বায়োডাটা: ৯টি</p>
+                <p class="sb-package-avr-amount">এভারেজ মূল্য: ১০০ ৳</p>
+                <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
+                <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-check"></i></p>
+                <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
+            </div>
+        </div>
+        <div class="shoshurbari-package-card">
+            <div class="card-header">
+                <h1>TOPAZ</h1>
+            </div>
+            <div class="card-package">
+                <h1>৯৮০ ৳</h1>
+                <p>বায়োডাটা: ১০টি</p>
+                <p class="sb-package-avr-amount">এভারেজ মূল্য: ৯৮ ৳</p>
+                <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
+                <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-check"></i></p>
+                <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-check"></i></p>
+            </div>
+        </div>
+    </div>
     <!--=======================================
     How Many Visitors View This Page.
     This Script Connected to get_view_count.php

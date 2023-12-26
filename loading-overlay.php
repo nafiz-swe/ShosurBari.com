@@ -55,7 +55,7 @@
         }
         .loading-message {
             margin-top: 10px;
-            color: #ff0080;
+            color: #000;
         }
     </style>
 </head>

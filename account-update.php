@@ -131,6 +131,46 @@ $conn->close();
         width: 37px;
         height: 35px;
     }
+    /* Gender Start */
+    .gender-radio-group input[type="radio"] {
+        display: none;
+    }
+    .gender-radio-group{
+        margin: 25px auto 15px auto;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        padding: 2px 5px;
+        background: #4cafe809;
+        display: flex;
+    }
+    .gender-radio-group label {
+        display: inline-block;
+        transition: all 0.5s;
+        font-weight: 500;
+        cursor: pointer;
+    }
+    .gender-radio-group input[type="radio"]:checked + label {
+        background: #0aa4ca;
+        border: 1px solid #ccc;
+        color: #fff;
+        border-radius: 3px;
+    }
+    .sb-gender-label{
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        background: white;
+        padding: 3px 5px;
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+    .sb-update-gender{
+        display: flex;
+        align-items: center;
+        float: inline-end;
+        margin: auto;
+        margin-right: 0;
+    }
+    /* Gender End */
     @media (max-width: 1280px){
         .shosurbari-biodata-form{
             width: auto;
@@ -187,7 +227,7 @@ $conn->close();
         border: 1px solid rgba(0,0,0,.05);
         border-radius: 2px;
         padding: 10px;
-        width: 262px;
+        width: 263px;
         text-align: center;
         z-index: 9999;
         '>$updateMessage
@@ -281,7 +321,7 @@ $conn->close();
             </div>
             <form action="" method="POST" name="myForm" onsubmit="return validateForm()">
                 <div class="form-group">
-                    <label>Full Name <span style="color: #ccc; font-size:12px;">(Changeable)</span></label>
+                    <label>Full Name <span style="color: #ccc; font-size:12px;"></span></label>
                     <input type="text" name="fullname" class="form-text" value="<?php echo $fullname; ?>" />
                 </div>
                 <div class="form-group">
@@ -296,22 +336,23 @@ $conn->close();
                     <label>Phone Number <span style="color: #ccc; font-size:12px;"> (Fixed)</span></label><br>
                     <input type="text" id="pnumber" name="pnumber" style="background: #ecfeff" value="<?php echo $pnumber; ?>" size="60" minlength="10" maxlength="15" class="form-text" disabled>
                 </div>
-                <div class="form-group">
-                <label>Gender<span style="color: #ccc; font-size:12px;"> (Changeable)</span> </label>
-                    <select name="gender">
-                        <option hidden selected><?php echo $gender; ?></option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option> 
-                    </select>
+                <div class="form-group gender-radio-group">
+                    <label style="font-weight: bold; margin-top: 6px;">Gender:<span style="color: #ccc; font-size:12px;"></span></label>
+                    <div class="sb-update-gender">
+                        <input type="radio" id="male" name="gender" value="Male" <?php echo ($gender === 'Male') ? 'checked' : ''; ?>>
+                        <label class="sb-gender-label" for="male"><i class="fa fa-male"></i> Male</label>
+                        <input type="radio" id="female" name="gender" value="Female" <?php echo ($gender === 'Female') ? 'checked' : ''; ?>>
+                        <label class="sb-gender-label" for="female"><i class="fa fa-female"></i> Female</label>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label>New Password <span style="color: #ccc; font-size:12px;">(Changeable)</span> </label>
+                    <label>New Password <span style="color: #ccc; font-size:12px;"></span> </label>
                     <input type="password" id="pass_1" name="pass_1" class="form-text" />
                     <span class="show-password" style="color:#0aa4ca;  font-size:15px; top:26px;"><i style="color:black;  font-size:15px;" class="fa fa-eye" aria-hidden="true"></i></span> 
                     <span  id="pass_1_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
                 </div>
                 <div class="form-group">
-                    <label>Confirm Password <span style="color: #ccc; font-size:12px;">(Changeable)</span> </label>
+                    <label>Confirm Password <span style="color: #ccc; font-size:12px;"></span> </label>
                     <input type="password" id="pass_2" name="pass_2" class="form-text" />
                     <span class="show-password" style="color:#0aa4ca;  font-size:15px; top:26px;"><i style="color:black;  font-size:15px;" class="fa fa-eye" aria-hidden="true"></i></span> 
                     <span  id="pass_2_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>

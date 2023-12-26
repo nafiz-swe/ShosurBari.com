@@ -74,7 +74,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
     font-size: 45px;
     font-weight: bold;
-    font-family: 'AdorshoLipi', Arial, sans-serif !important;
+    font-family: 'AdorshoLipi', Arial, sans-serif;
 }
 ul, ol {
     margin: 0;
@@ -1253,8 +1253,9 @@ ul#flexiselDemo3 h3 a:hover{
     margin: 10px;
     padding: 8px 15px;
     white-space: nowrap;
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    /* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; */
     border: 1px solid rgba(0,0,0,.05);
+    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
     border-radius: 2px;
 }
 .sb-package-list h2 {
@@ -1268,6 +1269,227 @@ ul#flexiselDemo3 h3 a:hover{
     font-size: 14px;
     text-align: left;
     margin: 5px 0;
+}
+/* Notice Board Start */
+marquee {
+    margin-top: 10px;
+    width: 100%;
+}
+.runtext-container {
+    color: #000;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 92%;
+    left: 4%;
+    right: 4%;
+    z-index: 10000;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    background-color:#ddddff;
+    background-image:linear-gradient(180deg, #00bbff61 0%,rgba(238,246,253,0) 100%);
+    background-repeat:repeat-x;
+    border: 2px solid #00bbff61;
+    box-shadow:0 5px 20px rgba(0, 0, 0, 0.9);
+    overflow-x: hidden;
+    overflow-y: visible;
+    padding: 0 0 0 10px ;
+}
+.main-runtext {
+    margin: 0 auto;
+    overflow: visible;
+    position: relative;
+    height: 40px;
+    flex-grow: 1;
+}
+.runtext-container .holder {
+    position: relative;
+    overflow: visible;
+    display: inline;
+    float: left;
+}
+.runtext-container .holder .text-container {
+    display: inline;
+}
+.runtext-container .holder a {
+    text-decoration: none;
+    color: #000;
+    line-height: -0.5em;
+    font-size: 16px;
+}
+.runtext-container .holder a:hover {
+    text-decoration: none;
+    color: red;
+}
+.runtext-container button {
+    background-color: red;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-weight: bold;
+    font-size: 13px;
+    border-radius: 3px;
+}
+/* Notice Board End */
+.card-wrap{
+    width: 230px;
+    background: #fff;
+    border-radius: 5px;
+    border: 5px solid #fff;
+    overflow: hidden;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+    border: 1px solid rgba(0,0,0,.05);
+}
+.card-wrap:hover{
+    transform: scale(1.05);
+}
+.card-header{
+    height: 100px;
+    width: 100%;
+    border-radius:100% 0% 100% 0% / 0% 50% 50% 100%;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(180deg, #00bbff61 0%,rgba(238,246,253,0) 100%);
+    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+}
+.card-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+}
+.card-package{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 0 20px 20px 20px;
+}
+.sb-recommendation{
+    text-align: center;
+    background: #0aa4ca;
+    display: flex;
+    flex-direction: column;
+}
+.sb-recommendation h2{
+    text-align: center;
+    background: #0aa4ca;
+    font-size: 18px;
+    color: #fff;
+    margin: 10px auto;
+}
+.card-package p{
+    font-size: 14px;
+    padding-bottom: 10px;
+    text-align: left;
+    font-weight: bold;
+}
+.card-content p{
+    font-size: 14px;
+    margin-bottom: 25px;
+    margin-top: 0px;
+    width: 200px;
+    text-align: justify;
+}
+.sb-package-avr-amount p{
+    font-size: 14px;
+    margin-bottom: 25px;
+    margin-top: 0px;
+    width: 200px;
+    text-align: justify;
+}
+.card-header h1{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 25px;
+    color: #06b6d4;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 200px;
+    font-family: 'Playfair Display', serif;
+}
+.card-package h1{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 22px;
+    color: black;
+    margin-top: -10px;
+    margin-bottom: 30px;
+    width: 200px;
+}
+.card-package h4{
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 200px;
+}
+.card-content h1{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 19px;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 200px;
+}
+.card-content h2{
+    font-size: 35px;
+    margin-bottom: 25px;
+    margin-top: -5px;
+    width: 200px;
+    text-align: center;
+}
+.card-content h3{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 200px;
+}
+.card-content h4{
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 200px;
+}
+.card-text{
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+.card-btn{
+    border: none;
+    border-radius: 100px;
+    padding: 5px 30px;
+    color: #fff;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+.shoshurbari-package-card{
+    width: 230px;
+    background: #fff;
+    border-radius: 5px;
+    border: 5px solid #fff;
+    overflow: hidden;
+    color: var(--color-text);
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    border: 1px solid rgba(0,0,0,.05);
+}
+.shoshurbari-package-card:hover{
+    transform: scale(1.05);
 }
 /*Home Package List End*/
 .grid_1 h1, .grid_2 h2{
@@ -1389,6 +1611,7 @@ span.m_3{
     flex-wrap: wrap;
     gap: 30px;
     width: 90%;
+    max-width: 1100px;
     margin: 25px auto 120px auto;
 }
 /*Body Section End*/
@@ -3654,14 +3877,10 @@ label{
     font-weight: bold;
     margin-bottom: 30px;
 }
-.sb-choice-list-notice{
-    width: 55%;
-    margin: 30px auto 0 auto;
-    text-align: justify;
-}
 .sb-biodata-amount-list p{
     font-weight: 500;
     text-align: justify;
+    line-height: 30px;
 }
 .choice-list-id,
 .choice-list-id a{
@@ -3670,7 +3889,7 @@ label{
 }
 .choice-list-date,
 .choice-list-id a span{
-font-size: 14px;
+    font-size: 14px;
 }
 .remove-button {
     background-color: #ff0080;
@@ -4506,6 +4725,9 @@ font-size: 14px;
         top: 60px;
         left: 50px;
     }
+    .sb-featured-profiles{
+        margin: 70px auto;
+    }
     .testi_grid .testi_grid_blockquote{
         padding: 0px;
         margin-bottom: 40px;
@@ -4556,9 +4778,6 @@ font-size: 14px;
     .login-navbar-icon a i{
         font-size: 18px;
         margin: auto;
-    }
-    .sb-featured-profiles {
-        margin: 90px auto 0px auto;
     }
     #biodataForm{
         margin: 5px auto 0px auto;
@@ -5243,9 +5462,6 @@ font-size: 14px;
         width: 400px;
         left: -7px;
         top: 100px;
-    }
-    .sb-featured-profiles{
-        margin: 50px auto 0px auto;
     }
     .banner{
         width: auto;

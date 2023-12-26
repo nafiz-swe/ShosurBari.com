@@ -34,7 +34,7 @@
           </div> -->
           <!-- নোটিস: শ্বশুরবাড়ি ডট কমের যাত্রা ( use for space: &nbsp; &nbsp;)--> 
           <div class="text-container">
-            <a data-fancybox-group="gallery" class="fancybox" title="THE ELECTRIC LIGHTING ACT: section 35"><span style="font-weight: bold; color: red;">জরুরি নোটিস:</span> শ্বশুরবাড়ি ডট কমের যাত্রা শুরু হয় ২০২২ থেকে। আমরা আপনাদের সুবিধার কথা চিন্তা করে আমাদের পূর্বের সকল নিয়মনীতি এবং ওয়েবসাইটের ফিচার পরিবর্তন করে ২০২৪ এর জানুয়ারি থেকে পুনরায় যাত্রা শুরু করেছি। কোনো সার্ভিস চার্জ ছাড়াই শ্বশুরবাড়ি ডটকমে একাউন্ট খুলুন এবং বায়োডাটা পোস্ট করুন ফ্রিতেই। পাত্র-পাত্রীর বায়োডাটা পোস্ট করে আমাদেরকে সহযোগিতা করুন। আপনার সহযোগিতার জন্য আমরা কৃতজ্ঞ।</a>
+            <a data-fancybox-group="gallery" class="fancybox" title="THE ELECTRIC LIGHTING ACT: section 35"><span style="font-weight: bold; color: red;">জরুরি নোটিস:</span> শ্বশুরবাড়ি ডট কমের যাত্রা শুরু হয় ২০২২ থেকে। আমরা আপনাদের সুবিধার কথা চিন্তা করে আমাদের পূর্বের সকল নীতিমালা এবং ওয়েবসাইটের ফিচার পরিবর্তন করে ২০২৪ এর জানুয়ারি থেকে পুনরায় যাত্রা শুরু করেছি। কোনো সার্ভিস চার্জ ছাড়াই শ্বশুরবাড়ি ডটকমে একাউন্ট খুলে বায়োডাটা পোস্ট করুন। বায়োডাটা পোস্ট করে খুঁজেনিন সপ্নময় জীবনসঙ্গী। আপনার সহযোগিতার জন্য আমরা কৃতজ্ঞ।</a>
           </div>
         </div>
       </marquee>
@@ -46,122 +46,33 @@
 	<!-- ===========  Navigation End ============= -->
   <style>
   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
-  /* Notice Board Start */
-  marquee {
-    margin-top: 10px;
-    width: 100%;
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+  .shosurbari-heading-span{
+    color: #06b6d4;
   }
-  .runtext-container {
-    color: #000;
-    text-align: center;
-    position: fixed;
-    top: 0;
-    width: 92%;
-    left: 4%;
-    right: 4%;
-    z-index: 10000;
-    overflow: hidden;
-    display: flex;
-    justify-content: space-between;
-    background-color:#ddddff;
-    background-image:linear-gradient(180deg, #00bbff61 0%,rgba(238,246,253,0) 100%);
-    background-repeat:repeat-x;
-    border: 4px solid #00bbff61;
-    box-shadow:0 5px 20px rgba(0, 0, 0, 0.9);
-    overflow-x: hidden;
-    overflow-y: visible;
-    padding: 0 0 0 10px ;
+  .form-control {
+    padding: 5px 6px;
   }
-  .main-runtext {
-    margin: 0 auto;
-    overflow: visible;
-    position: relative;
-    height: 40px;
-    flex-grow: 1;
-  }
-  .runtext-container .holder {
-    position: relative;
-    overflow: visible;
-    display: inline;
-    float: left;
-  }
-  .runtext-container .holder .text-container {
-    display: inline;
-  }
-  .runtext-container .holder a {
-    text-decoration: none;
-    color: #000;
-    line-height: -0.5em;
-    font-size: 16px;
-  }
-  .runtext-container .holder a:hover {
-    text-decoration: none;
-    color: #6600ff;
-  }
-  .runtext-container button {
-    background-color: red;
-    border: none;
-    cursor: pointer;
-    color: #fff;
-    font-weight: bold;
-  }
-  /* Notice Board End */
-  .card-wrap{
-    width: 230px;
-    background: #fff;
-    border-radius: 5px;
-    border: 5px solid #fff;
-    overflow: hidden;
-    color: var(--color-text);
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-    cursor: pointer;
-    transition: all .2s ease-in-out;
-    /* box-shadow: 0 0 13px 0 rgba(82,63,105,.05); */
-    border: 1px solid rgba(0,0,0,.05);
-  }
-  .card-wrap:hover{
-    transform: scale(1.05);
-  }
-  .card-header{
-    height: 120px;
-    width: 100%;
-    border-radius:100% 0% 100% 0% / 0% 50% 50% 100%;
-    display: grid;
-    place-items: center;
-    background: linear-gradient(180deg, #00bbff61 0%,rgba(238,246,253,0) 100%);
-    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
-  }
-  .card-content{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 60%;
-    margin: 0 auto;
-    }
-  .card-content h2{
-    font-size: 35px;
-    margin-bottom: 25px;
-    margin-top: -5px;
-    width: 200px;
-    text-align: center;
-  }
-  .card-content h3{
+  .card-header h1{
     text-align: center;
     text-transform: uppercase;
-    font-size: 14px;
-    color: black;
+    font-size: 25px;
+    color: #06b6d4;
     margin-top: 10px;
     margin-bottom: 20px;
     width: 200px;
-  }
-  .card-content p{
-    font-size: 14px;
-    margin-bottom: 25px;
-    margin-top: 20px;
+    font-family: 'Playfair Display', serif;
+}
+  .card-package h1{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 22px;
+    color: black;
+    margin-top: -10px;
+    margin-bottom: 30px;
     width: 200px;
-    text-align: justify;
-  }
-  .card-title{
+}
+  .card-content h1{
     text-align: center;
     text-transform: uppercase;
     font-size: 19px;
@@ -169,26 +80,7 @@
     margin-top: 10px;
     margin-bottom: 20px;
     width: 200px;
-  }
-  .card-text{
-    text-align: center;
-    font-size: 12px;
-    margin-bottom: 20px;
-  }
-  .card-btn{
-    border: none;
-    border-radius: 100px;
-    padding: 5px 30px;
-    color: #fff;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-  }
-  .shosurbari-heading-span{
-    color: #06b6d4;
-  }
-  .form-control {
-    padding: 5px 6px;
-  }
+}
   /* for the container of search options */
   .droop-down {
     display: flex;
@@ -1044,67 +936,143 @@
       <span class="grey-line"></span>
     </div>
   </div>
-  <div class="shosurbari-biodata-form">
-    <div class="shosurbari-animation-form">
-      <form action="" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
-        <div class="sb-biodata-amount-list">
-          <p><i id="bell" class="fa fa-bell"></i> শ্বশুরবাড়ি ডট কমের পাত্র-পাত্রীদের সাথে যোগাযোগ করতে চাইলে সামান্য সার্ভিস চার্জ প্রদান করতে হবে, যার বায়োডাটা তাদের থেকে কোনো টাকা নেয়া হয় না। আপনার পেমেন্ট সম্পন্ন হয়ে গেলে, পেমেন্ট তথ্যগুলো যাচাইবাচায়ের পর ২৪ ঘন্টার মধ্যে আপনাকে পাত্র/পাত্রীর অভিভাবকের নাম্বর পাঠিয়ে দেয়া হবে। <span style="color:#06b6d4;"> নিচের টাকা ব্যাতিত বিয়ের পর অথবা বিয়ের আগে আর কোনো টাকা নেয়া হয় না।</span> আপনি চাইলে এক বা একাধিক পাত্র/পাত্রীর সাথে যোগাযোগ করতে পারবেন। দেখেনিন ১ থেকে ১০টি বায়োডাটার প্যাকেজ মূল্য সহ এভারেজ মূল্য।</p>
-          </br><p><i class="fa fa-bell-slash" style="color: #ff0080; margin-right: 10px; border-top: 1px solid #ccc;"></i>যোগাযোগের জন্য পাত্র-পাত্রীর অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে। পাত্র-পাত্রীর মোবাইল নাম্বার প্রদান করা হয় না। তবে অভিভাবক অনুমতি দিলে পাত্র-পাত্রীর ই-মেইল প্রদান করা হবে।</p>
-        </div>
-        <div class="sb-package">
-          <div class="sb-package-list" style="background: #c4b5fd;">
-            <h2>বায়োডাটা: ১টি</h2>
-            <h3>প্যাকেজ মূল্য: ১৪৫ ৳</h3>
-            <p>এভারেজ মূল্য: ১৪৫ ৳</p>
-          </div>
-          <div class="sb-package-list" style="background: #fed7aa;">
-            <h2>বায়োডাটা: ২টি</h2>
-            <h3>প্যাকেজ মূল্য: ২৮০ ৳</h3>
-            <p>এভারেজ মূল্য: ১৪০ ৳</p>
-          </div>
-          <div class="sb-package-list" style="background: #bae6fd;">
-            <h2>বায়োডাটা: ৩টি</h2>
-            <h3>প্যাকেজ মূল্য: ৩৯০ ৳</h3>
-            <p>এভারেজ মূল্য: ১৩০ ৳</p>
-          </div>
-          <div class="sb-package-list" style="background: #d9f99d;">
-            <h2>বায়োডাটা: ৪টি</h2>
-            <h3>প্যাকেজ মূল্য: ৫০০ ৳</h3>
-            <p>এভারেজ মূল্য: ১২৫ ৳</p>
-          </div>
-          <div class="sb-package-list" style="background: #a5f3fc;">
-            <h2>বায়োডাটা: ৫টি</h2>
-            <h3>প্যাকেজ মূল্য: ৬০০ ৳</h3>
-            <p>এভারেজ মূল্য: ১২০ ৳</p>
-          </div>
-          <div class="sb-package-list" style="background: #cbd5e1;">
-            <h2>বায়োডাটা: ৬টি</h2>
-            <h3>প্যাকেজ মূল্য: ৬৯০ ৳</h3>
-            <p>এভারেজ মূল্য: ১১৫ ৳</p>
-          </div>
-          <div class="sb-package-list" style="background: #fde68a;">
-            <h2>বায়োডাটা: ৭টি</h2>
-            <h3>প্যাকেজ মূল্য: ৭৭০ ৳</h3>
-            <p>এভারেজ মূল্য: ১১০ ৳</p>
-          </div>
-          <div class="sb-package-list" style="background: #fca5a5;">
-            <h2>বায়োডাটা: ৮টি</h2>
-            <h3>প্যাকেজ মূল্য: ৮৪০ ৳</h3>
-            <p>এভারেজ মূল্য: ১০৫ ৳</p>
-          </div>
-          <div class="sb-package-list" style="background: #f5d0fe;">
-            <h2>বায়োডাটা: ৯টি</h2>
-            <h3>প্যাকেজ মূল্য: ৯০০ ৳</h3>
-            <p>এভারেজ মূল্য: ১০০ ৳</p>
-          </div>
-          <div class="sb-package-list" style="background: #bbf7d0;">
-            <h2>বায়োডাটা: ১০টি</h2>
-            <h3>প্যাকেজ মূল্য: ৯৮০ ৳</h3>
-            <p>এভারেজ মূল্য: ৯৮ ৳</p>
-          </div>
-        </div>
-	    </form>
-    </div> 
+  <div class="shosurbari-user-info">
+    <div class="sb-biodata-amount-list">
+      <p><i id="bell" class="fa fa-bell"></i> বিয়ের জন্য শ্বশুরবাড়ি ডট কমের পাত্র-পাত্রীর সাথে যোগাযোগ করতে চাইলে সার্ভিস চার্জ প্রদান করতে হবে, যার বায়োডাটা তাদের থেকে কোনো সার্ভিস চার্জ নেয়া হয় না। সার্চ ফিল্টার ব্যবহার করে খুঁজেনিন স্বপ্নময় জীবনসঙ্গী। আপনার পেমেন্ট সম্পন্ন হবার পর ২৪ ঘন্টার মধ্যে যোগাযোগের জন্য কাঙ্ক্ষিত তথ্য আপনাকে পাঠিয়ে দেয়া হবে। <span style="color:#06b6d4;"> নিচের প্যাকেজ মূল্য ব্যাতিত বিয়ের পর অথবা বিয়ের আগে আর কোনো টাকা নেয়া হয় না।</span> বায়োডাটার সাথে যোগাযোগের জন্য আপনাকে অগ্রিম কোনো প্যাকেজ কিনতে হবেনা, আপনি যেই কয়টি বায়োডাটার সাথে সরাসরি যোগাযোগ করতে আগ্রহী শুধুমাত্র সেই কয়টি বায়োডাটার জন্য পেমেন্ট করলেই হবে। আপনি একই সাথে সর্বোচ্চ ১০টি বায়োডাটা পছন্দ করে পেমেন্ট করতে পারবেন। একই সাথে ১০টির অধিক বায়োডাটার সাথে যোগাযোগ করতে চাইলে আপনাকে ১০টি করে বায়োডাটা সিলেক্ট করে পেমেন্ট সম্পন্ন করতে হবে। পছন্দের বায়োডাটা গুলো Choice List পেজে জমা করে রাখতে পারবেন।</p>
+    </div>
+    <div class="shoshurbari-package-card">
+      <div class="card-header">
+        <h1>BRONZE</h1>
+      </div>
+      <div class="card-package">
+        <h1>১৪৫ ৳</h1>
+        <p>বায়োডাটা: ১টি</p>
+        <p class="sb-package-avr-amount">এভারেজ মূল্য: ১৪৫ ৳</p>
+        <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
+        <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-close"></i></p>
+        <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
+      </div>
+    </div>
+    <div class="shoshurbari-package-card">
+      <div class="card-header">
+        <h1>SILVER</h1>
+      </div>
+      <div class="card-package">
+        <h1>২৮০ ৳</h1>
+        <p>বায়োডাটা: ২টি</p>
+        <p class="sb-package-avr-amount">এভারেজ মূল্য: ১৪০ ৳</p>
+        <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
+        <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-close"></i></p>
+        <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
+      </div>
+    </div>
+    <div class="shoshurbari-package-card">
+      <div class="card-header">
+        <h1>GOLD</h1>
+      </div>
+      <div class="card-package">
+        <h1>৩৯০ ৳</h1>
+        <p>বায়োডাটা: ৩টি</p>
+        <p class="sb-package-avr-amount">এভারেজ মূল্য: ১৩০ ৳</p>
+        <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
+        <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-close"></i></p>
+        <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
+      </div>
+    </div>
+    <div class="shoshurbari-package-card">
+      <div class="card-header">
+        <h1>PLATINUM</h1>
+      </div>
+      <div class="card-package">
+        <h1>৫০০ ৳</h1>
+        <p>বায়োডাটা: ৪টি</p>
+        <p class="sb-package-avr-amount">এভারেজ মূল্য: ১২৫ ৳</p>
+        <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
+        <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-close"></i></p>
+        <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
+      </div>
+    </div>
+    <div class="shoshurbari-package-card">
+      <div class="sb-recommendation">
+        <h2>Our Recommendation</h2>
+      </div>
+      <div class="card-header">
+        <h1>DIAMOND</h1>
+      </div>
+      <div class="card-package">
+        <h1>৬০০ ৳</h1>
+        <p>বায়োডাটা: ৫টি</p>
+        <p class="sb-package-avr-amount">এভারেজ মূল্য: ১২০ ৳</p>
+        <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
+        <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-check"></i></p>
+        <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
+      </div>
+    </div>
+    <div class="shoshurbari-package-card">
+      <div class="card-header">
+        <h1>TITANIUM</h1>
+      </div>
+      <div class="card-package">
+        <h1>৬৯০ ৳</h1>
+        <p>বায়োডাটা: ৬টি</p>
+        <p class="sb-package-avr-amount">এভারেজ মূল্য: ১১৫ ৳</p>
+        <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
+        <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-check"></i></p>
+        <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
+      </div>
+    </div>
+    <div class="shoshurbari-package-card">
+      <div class="card-header">
+        <h1>RUBY</h1>
+      </div>
+      <div class="card-package">
+        <h1>৭৭০ ৳</h1>
+        <p>বায়োডাটা: ৭টি</p>
+        <p class="sb-package-avr-amount">এভারেজ মূল্য: ১১০ ৳</p>
+        <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
+        <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-check"></i></p>
+        <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
+      </div>
+    </div>
+    <div class="shoshurbari-package-card">
+      <div class="card-header">
+        <h1>EMERALD</h1>
+      </div>
+      <div class="card-package">
+        <h1>৮৪০ ৳</h1>
+        <p>বায়োডাটা: ৮টি</p>
+        <p class="sb-package-avr-amount">এভারেজ মূল্য: ১০৫ ৳</p>
+        <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
+        <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-check"></i></p>
+        <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
+      </div>
+    </div>
+    <div class="shoshurbari-package-card">
+      <div class="card-header">
+        <h1>SAPPHIRE</h1>
+      </div>
+      <div class="card-package">
+        <h1>৯০০ ৳</h1>
+        <p>বায়োডাটা: ৯টি</p>
+        <p class="sb-package-avr-amount">এভারেজ মূল্য: ১০০ ৳</p>
+        <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
+        <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-check"></i></p>
+        <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
+      </div>
+    </div>
+    <div class="shoshurbari-package-card">
+      <div class="card-header">
+        <h1>TOPAZ</h1>
+      </div>
+      <div class="card-package">
+        <h1>৯৮০ ৳</h1>
+        <p>বায়োডাটা: ১০টি</p>
+        <p class="sb-package-avr-amount">এভারেজ মূল্য: ৯৮ ৳</p>
+        <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
+        <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-check"></i></p>
+        <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-check"></i></p>
+      </div>
+    </div>
   </div>
   <?php
     require_once("includes/dbconn.php");
@@ -1184,7 +1152,7 @@
         <img src="images/sb-home-createaccount.png" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
       </div>
       <div class="card-content">
-        <h1 class="card-title">বায়োডাটা পোস্ট করুন</h1>
+        <h1>বায়োডাটা পোস্ট করুন</h1>
         <p>কোনো সার্ভিস চার্জ ছাড়াই শ্বশুরবাড়ি ডটকমে একাউন্ট খুলুন এবং বায়োডাটা পোস্ট করুন ফ্রিতেই। পাত্র-পাত্রী নিজেই অথবা তাদের অভিভাবক বায়োডাটা পোস্ট করতে পারবে খুব সহজেই।</p>
       </div>
     </div>
@@ -1193,7 +1161,7 @@
         <img src="images/sb-home-search.jpg" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
       </div>
       <div class="card-content">
-        <h1 class="card-title">বায়োডাটা খুঁজুন</h1>
+        <h1>বায়োডাটা খুঁজুন</h1>
         <p>সকল ধর্ম, বর্ণ, জেলা, পেশা, দেশি ও প্রবাসী বাঙালি পাত্র পাত্রী খুঁজে পাওয়ার সহজ মাধ্যম শ্বশুরবাড়ি ডটকম। সার্চ ফিল্টার ব্যবহার করে স্বপ্নময় জীবনসঙ্গী খুঁজুন দ্রুততম সময়ে।</p>
       </div>
     </div>
@@ -1202,7 +1170,7 @@
         <img src="images/sb-home-contact.png" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
       </div>
       <div class="card-content">
-        <h1 class="card-title">যোগাযোগ করুন</h1>
+        <h1>যোগাযোগ করুন</h1>
         <p>শ্বশুরবাড়ি ডটকমে বায়োডাটা পছন্দ হবার পর অভিভাবকের সাথে যোগাযোগ করতে চাইলে সামান্য কিছু সার্ভিস চার্জ প্রদান করতে হবে। বায়োডাটা কতৃপক্ষের থেকে সার্ভিস চার্জ নেয়া হয় না।</p>
       </div>
     </div>
@@ -1211,7 +1179,7 @@
         <img src="images/sb-home-married.png" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
       </div>
       <div class="card-content">
-        <h1 class="card-title">বিবাহ সম্পন্ন করুন</h1>
+        <h1>বিবাহ সম্পন্ন করুন</h1>
         <p>পরিবার ও পাত্র-পাত্রীর সম্পর্কে নিজ দায়িত্বে ভালভাবে খোঁজ নিয়ে তবেই বিয়ের কথা পাকা করুন। বিয়ের পূর্বেই পাত্র-পাত্রীর পরিবারের সাথে টাকা লেনদেন করে প্রতারিত হবেন না।</p>
       </div>
     </div>
