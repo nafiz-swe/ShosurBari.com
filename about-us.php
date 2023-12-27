@@ -79,12 +79,12 @@
 			<div class="col-sm-6 testi_grid list-item-0">
 				<blockquote class="testi_grid_blockquote">
 					<figure class="featured-thumbnail">
-						<img src="images/nn.png"  class="img-responsive" alt=""/>
+						<img src="images/nafiz-noyon.jpg"  class="img-responsive" alt=""/>
 					</figure>
 					<div>
-						<h3>Engr. Nafizul Noyon</h3>
-						<h4>CEO and Software Engineer:</h4>
-						<p>Leading Shosurbari.com with tech expertise, Nafizul ensures a seamless user experience as CEO and developer.</p>
+						<h3>Nafiz Noyon</h3>
+						<h4>Engineer, Customer Support & CEO</h4>
+						<p>Manages website maintenance and provides customer support for shosurbari.com, a matrimony site for the Bengali community.</p>
 						<div class="clearfix"></div>
 					</div>
 				</blockquote>
@@ -92,12 +92,12 @@
 			<div class="col-sm-6 testi_grid list-item-1">
 				<blockquote class="testi_grid_blockquote">
 					<figure class="featured-thumbnail">
-						<img src="images/nafi.png" class="img-responsive" alt=""/>
+						<img src="images/nayem-nasimul.jpg" class="img-responsive" alt=""/>
 					</figure>
 					<div>
 						<h3>Dr. Nasimul Nayem</h3>
-						<h4>Security Consultant:</h4>
-						<p>Nasimul safeguards user data as our security consultant, ensuring privacy and trust on Shosurbari.com.</p>
+						<h4>Officer (Customer-Relationship)</h4>
+						<p>Manages customer relationships at shosurbari.com, ensuring a smooth experience for Bengali community members.</p>
 						<div class="clearfix"></div>
 					</div>
         		</blockquote>
@@ -108,12 +108,12 @@
 			<div class="col-sm-6 testi_grid list-item-0">
 				<blockquote class="testi_grid_blockquote">
 					<figure class="featured-thumbnail">
-						<img src="images/nafizn.png" class="img-responsive" alt=""/>
+						<img src="images/aive-rukaiya.png" class="img-responsive" alt=""/>
 					</figure>
 					<div>
-						<h3>Engr. Aive Rahman</h3>
-						<h4>Customer Support Specialist:</h4>
-						<p>Aive provides exceptional customer support, ensuring user satisfaction and prompt assistance on our platform.</p>
+						<h3>Aive Akter</h3>
+						<h4>Engineer & Admin Officer</h4>
+						<p>Handles customers and administrative duties for shosurbari.com, supporting the Bengali community.</p>
 						<div class="clearfix"></div>
 					</div>
 				</blockquote>
@@ -121,12 +121,12 @@
       		<div class="col-sm-6 testi_grid list-item-1">
         		<blockquote class="testi_grid_blockquote">
 					<figure class="featured-thumbnail">
-						<img src="images/naf.png" class="img-responsive" alt=""/>
+						<img src="images/aive-rukaiya.png" class="img-responsive" alt=""/>
 					</figure>
 					<div>
-						<h3>Nafizul Islam Noyon</h3>
-						<h4>Security Consultant:</h4>
-						<p>Leading Shosurbari.com with tech expertise, Nafizul ensures a seamless user experience as CEO and developer.</p>
+						<h3>Rukaiya Akter</h3>
+						<h4>Engineer & Admin Officer</h4>
+						<p>Manages projects and administrative responsibilities for shosurbari.com, supporting the Bengali community.</p>
 						<div class="clearfix"></div>
 					</div>
         		</blockquote>

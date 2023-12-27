@@ -1,5 +1,6 @@
 @import url('https://fonts.maateen.me/adorsho-lipi/font.css');
-
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
 @font-face {
 font-family: 'SolaimanLipi';
 src: url('font/SolaimanLipi.eot');
@@ -35,11 +36,12 @@ font-style: normal;
 --     SHOSUR BARI SOME OPTION USED ALL PAGE     --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 html, body{
-    font-family: 'Ubuntu', sans-serif;
 	font-size: 100%;
     background:#FFF;
     padding-top: 20px;
-    font-family: 'AdorshoLipi', Arial, sans-serif !important;
+    font-family: 'AdorshoLipi', 'Ubuntu', sans-serif !important;
+        /* font-family: 'Ubuntu', sans-serif; */
+    /* font-family: 'AdorshoLipi', Arial, sans-serif !important; */
 
 }
 element{
@@ -125,6 +127,7 @@ i.home_1{
 }
 .current-page h4{
     font-size: 23px;
+    font-family: 'AdorshoLipi', 'Ubuntu', sans-serif !important;
 }
 span.divider {
     padding: 0 5px;
@@ -2209,6 +2212,7 @@ td.day_value {
     margin-bottom: 0px;
     margin-left: auto;
     margin-right: auto;
+    font-family: 'Playfair Display', serif;
 }
 .shosurbari-details h2,
 .shosurbari-details h3,
@@ -2219,6 +2223,7 @@ td.day_value {
     margin-right: auto;
     text-align: left;
     font-size: 25px;
+    font-family: 'Playfair Display', serif;
 }
 .shosurbari-details p {
     margin: 15px auto 30px auto;
@@ -2235,7 +2240,7 @@ td.day_value {
 	text-align: center;
     color: black;
     font-size:2.5em;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Playfair Display', serif;
     margin-bottom: 1em;
 }
 .testi_grid:nth-child(2n+1) {
@@ -2327,7 +2332,7 @@ td.day_value {
     color: #fff;
     position: relative;
     z-index: 100;
-    font-size: 16px;
+    font-size: 15px;
     list-style: none;
 }
 .testi_grid .testi_grid_blockquote > div h3{
@@ -2336,14 +2341,16 @@ td.day_value {
     z-index: 100;
     font-size: 20px;
     list-style: none;
+    font-family: 'Playfair Display', serif;
 }
 .testi_grid .testi_grid_blockquote > div h4 {
     color: #fff;
     position: relative;
     z-index: 100;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: bold;
     list-style: none;
+    font-family: 'AdorshoLipi', 'Ubuntu', sans-serif !important;
 }
 .testi_grid:nth-child(2n+1) .testi_grid_blockquote .featured-thumbnail:before {
     border-width: 17px 17px 0 0;
@@ -2383,8 +2390,16 @@ td.day_value {
     color: #fff;
 }
 .testi_grid .testi_grid_blockquote .featured-thumbnail img {
-    border-radius:50%;
     overflow: hidden;
+    border: 5px solid #ecfeff;
+    height: 130px;
+    width: 130px;
+    max-width: 130px;
+    object-fit: cover;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    border: 4px solid #ecfeff;
 }
 figure.featured-thumbnail {
     float: left;
@@ -2569,6 +2584,7 @@ small.testi-meta1{
     margin-bottom: 0px;
     margin-left: auto;
     margin-right: auto;
+    font-family: 'AdorshoLipi', 'Ubuntu', sans-serif !important;
 }
 .shosurbari-security h2,
 .shosurbari-security h3,
@@ -2579,6 +2595,7 @@ small.testi-meta1{
     margin-left: auto;
     margin-right: auto;
     font-size: 25px;
+    font-family: 'AdorshoLipi', 'Ubuntu', sans-serif !important;
 }
 .shosurbari-security  p {
     margin: 15px auto;
@@ -3991,17 +4008,17 @@ label{
         font-size: 16px;
     }
     td.day_value {
-        font-size: 15px;
+        font-size: 16px;
     }
 }
 /* End & Start */
 @media (max-width:1600px){
     td.day_label {
-        font-size: 15px;
+        font-size: 16px;
     }
 
     td.day_value {
-        font-size: 15px;
+        font-size: 16px;
     }
 }
 /* End & Start */
@@ -4296,10 +4313,10 @@ label{
         margin-right: 0;
     }
     td.day_label {
-        font-size: 14px;
+        font-size: 15px;
     }
     td.day_value {
-        font-size: 14px;
+        font-size: 15px;
     }
     .hvr-shutter-out-horizontal {
         padding: 8px 25px;

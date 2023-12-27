@@ -68,7 +68,7 @@ $result=search();
           <div class="search-title">
             <h4>একটি পাত্রপাত্রীর বায়োডাটা খুঁজুন</h4>
           </div>
-          <input type="text"  id="profid" name="profid" placeholder="Enter Biodata Number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required>
+          <input type="text"  id="profid" name="profid" placeholder="Biodata Number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required>
           <button type="submit" onclick="viewprofile();"  value="search">বায়োডাটা খুঁজুন</button>
           <script type="text/javascript">
             function viewprofile(){
@@ -805,7 +805,7 @@ $result=search();
         <div class="search-title">
           <h4>একটি পাত্রপাত্রীর বায়োডাটা খুঁজুন</h4>
         </div>
-        <input type="text"  id="sbprofid" name="sbprofid" placeholder="Enter Biodata Number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required>
+        <input type="text"  id="sbprofid" name="sbprofid" placeholder="Biodata Number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required>
         <button type="submit" onclick="viewprofile2();"  value="search">বায়োডাটা খুঁজুন</button>
         <script type="text/javascript">
           function viewprofile2(){

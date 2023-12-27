@@ -45,8 +45,6 @@
 	<?php include_once("includes/navigation.php");?>
 	<!-- ===========  Navigation End ============= -->
   <style>
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
   .shosurbari-heading-span{
     color: #06b6d4;
   }
