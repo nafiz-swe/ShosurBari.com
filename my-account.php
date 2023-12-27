@@ -237,7 +237,7 @@ $conn->close();
       $result2 = mysqlexec($sql2);
       ?>
       <h1>রিকোয়েস্ট বায়োডাটা পেমেন্ট তথ্য </h1>
-      <p style="margin-bottom: 20px;"><i id="bell" class="fa fa-bell"></i> যেকোনো বায়োডাটার অভিভাবকের সাথে যোগাযোগ করতে আগ্রহ হইলে, সার্ভিস চার্জ প্রদান করার পর এখানে পেমেন্ট তথ্য দেখতে পাবেন।</p>
+      <p style="margin-bottom: 20px;"><i id="bell" class="fa fa-bell"></i> যেকোনো বায়োডাটার সাথে যোগাযোগ করতে আগ্রহ হইলে, সার্ভিস চার্জ প্রদান করার পর এখানে পেমেন্ট তথ্য দেখতে পাবেন।</p>
       <div class="shosurbari-order-dashboard">
         <table class="shosurbari-users-request">
           <tr>

@@ -24,61 +24,6 @@
 	<!-- ===========  Navigation Start =========== -->
 	<?php include_once("includes/navigation.php");?>
 	<!-- ===========  Navigation End ============= -->
-	<style>
-	.jb-accordion-button{
-		width: 100%;
-		background: #0aa4ca;
-		color: #fff;
-		border: 1px #ccc;
-		border-radius: 4px;
-		padding: 10px 45px 10px 55px;
-		text-align: left;
-		position: relative;
-		line-height: 22px;
-	}
-	.fa-plus-circle,
-	.fa-minus-circle {
-		position: absolute;
-		right: 15px;
-		top: 50%;
-		transform: translateY(-50%);
-		font-size: 20px;
-	}
-	.jb-accordion-wrapper {
-		margin-bottom: 10px;
-	}
-	.shosurbari-faq-point{			
-		transition: background-color 0.3s ease;
-		color: #06b6d4;
-		padding: 0;
-		text-decoration: none;
-		font-size: 14px;
-		background-color: #fff;
-		border-radius: 50%;
-		margin: 0 10px 0 0;
-		text-align: center;
-		display: inline-block;
-		border: 1px solid #faf9fb;
-		width: 27px;
-		height: 27px;
-		line-height: 27px;
-		box-shadow: 0px 2px 5px -4px #0ea5e9;
-		position: absolute;
-		left: 15px;
-		top: 50%;
-		transform: translateY(-50%);
-		font-size: 15px;
-	}
-	.fa-angle-down:before {
-		content: "\f107";
-		margin-left: 20px;
-	}
-	.img-responsive, .thumbnail>img, .thumbnail a>img, .carousel-inner>.item>img, .carousel-inner>.item>a>img {
-		display: block;
-		max-width: 100%;
-		height: 100%;
-	}
-	</style>
 	<div class="grid_3">
 		<div class="container">
 			<div class="breadcrumb1">

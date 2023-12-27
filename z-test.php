@@ -1382,3 +1382,211 @@
     --           Function For Upload Photo           --
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 ?>
+    <div class="sb-home-search">
+    <h1><span class="shosurbari-heading-span"> বায়োডাটার </span>মূল্য তালিকা</h1>
+        <div class="sbhome-heart-divider">
+            <span class="grey-line"></span>
+                <i class="fa fa-heart pink-heart"></i>
+                <i class="fa fa-heart grey-heart"></i>
+            <span class="grey-line"></span>
+        </div>
+    </div>
+    <div class="shosurbari-user-info">
+        <div class="sb-biodata-amount-list">
+            <p><i id="bell" class="fa fa-bell"></i> বিয়ের জন্য শ্বশুরবাড়ি ডট কমের পাত্র-পাত্রীর সাথে যোগাযোগ করতে চাইলে সার্ভিস চার্জ প্রদান করতে হবে, যার বায়োডাটা তাদের থেকে কোনো সার্ভিস চার্জ নেয়া হয় না। সার্চ ফিল্টার ব্যবহার করে খুঁজেনিন স্বপ্নময় জীবনসঙ্গী। আপনার পেমেন্ট সম্পন্ন হবার পর ২৪ ঘন্টার মধ্যে যোগাযোগের জন্য কাঙ্ক্ষিত তথ্য আপনাকে পাঠিয়ে দেয়া হবে। <span style="color:#06b6d4;"> নিচের প্যাকেজ মূল্য ব্যাতিত বিয়ের পর অথবা বিয়ের আগে আর কোনো টাকা নেয়া হয় না।</span> বায়োডাটার সাথে যোগাযোগের জন্য আপনাকে অগ্রিম কোনো প্যাকেজ কিনতে হবেনা, আপনি যেই কয়টি বায়োডাটার সাথে সরাসরি যোগাযোগ করতে আগ্রহী শুধুমাত্র সেই কয়টি বায়োডাটার জন্য পেমেন্ট করলেই হবে। আপনি একই সাথে সর্বোচ্চ ১০টি বায়োডাটা পছন্দ করে পেমেন্ট করতে পারবেন। একই সাথে ১০টির অধিক বায়োডাটার সাথে যোগাযোগ করতে চাইলে আপনাকে ১০টি করে বায়োডাটা সিলেক্ট করে পেমেন্ট সম্পন্ন করতে হবে।</p>
+        </div>
+        <div class="shoshurbari-package-card">
+            <div class="card-header">
+                <h1>BRONZE</h1>
+            </div>
+            <div class="card-package">
+                <h1>১৪৫ ৳</h1>
+                <p>বায়োডাটা: ১টি</p>
+                <p class="sb-package-avr-amount">এভারেজ মূল্য: ১৪৫ ৳</p>
+                <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
+                <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-close"></i></p>
+                <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
+            </div>
+        </div>
+        <div class="shoshurbari-package-card">
+            <div class="card-header">
+                <h1>SILVER</h1>
+            </div>
+            <div class="card-package">
+                <h1>২৮০ ৳</h1>
+                <p>বায়োডাটা: ২টি</p>
+                <p class="sb-package-avr-amount">এভারেজ মূল্য: ১৪০ ৳</p>
+                <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
+                <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-close"></i></p>
+                <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
+            </div>
+        </div>
+        <div class="shoshurbari-package-card">
+            <div class="card-header">
+                <h1>GOLD</h1>
+            </div>
+            <div class="card-package">
+                <h1>৩৯০ ৳</h1>
+                <p>বায়োডাটা: ৩টি</p>
+                <p class="sb-package-avr-amount">এভারেজ মূল্য: ১৩০ ৳</p>
+                <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
+                <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-close"></i></p>
+                <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
+            </div>
+        </div>
+        <div class="shoshurbari-package-card">
+            <div class="card-header">
+                <h1>PLATINUM</h1>
+            </div>
+            <div class="card-package">
+                <h1>৫০০ ৳</h1>
+                <p>বায়োডাটা: ৪টি</p>
+                <p class="sb-package-avr-amount">এভারেজ মূল্য: ১২৫ ৳</p>
+                <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
+                <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-close"></i></p>
+                <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
+            </div>
+        </div>
+        <div class="shoshurbari-package-card">
+            <div class="sb-recommendation">
+                <h2>Our Recommendation</h2>
+            </div>
+            <div class="card-header">
+                <h1>DIAMOND</h1>
+            </div>
+            <div class="card-package">
+                <h1>৬০০ ৳</h1>
+                <p>বায়োডাটা: ৫টি</p>
+                <p class="sb-package-avr-amount">এভারেজ মূল্য: ১২০ ৳</p>
+                <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
+                <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-check"></i></p>
+                <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
+            </div>
+        </div>
+        <div class="shoshurbari-package-card">
+            <div class="card-header">
+                <h1>TITANIUM</h1>
+            </div>
+            <div class="card-package">
+                <h1>৬৯০ ৳</h1>
+                <p>বায়োডাটা: ৬টি</p>
+                <p class="sb-package-avr-amount">এভারেজ মূল্য: ১১৫ ৳</p>
+                <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
+                <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-check"></i></p>
+                <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
+            </div>
+        </div>
+        <div class="shoshurbari-package-card">
+            <div class="card-header">
+                <h1>RUBY</h1>
+            </div>
+            <div class="card-package">
+                <h1>৭৭০ ৳</h1>
+                <p>বায়োডাটা: ৭টি</p>
+                <p class="sb-package-avr-amount">এভারেজ মূল্য: ১১০ ৳</p>
+                <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
+                <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-check"></i></p>
+                <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
+            </div>
+        </div>
+        <div class="shoshurbari-package-card">
+            <div class="card-header">
+                <h1>EMERALD</h1>
+            </div>
+            <div class="card-package">
+                <h1>৮৪০ ৳</h1>
+                <p>বায়োডাটা: ৮টি</p>
+                <p class="sb-package-avr-amount">এভারেজ মূল্য: ১০৫ ৳</p>
+                <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
+                <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-check"></i></p>
+                <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
+            </div>
+        </div>
+        <div class="shoshurbari-package-card">
+            <div class="card-header">
+                <h1>SAPPHIRE</h1>
+            </div>
+            <div class="card-package">
+                <h1>৯০০ ৳</h1>
+                <p>বায়োডাটা: ৯টি</p>
+                <p class="sb-package-avr-amount">এভারেজ মূল্য: ১০০ ৳</p>
+                <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
+                <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-check"></i></p>
+                <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
+            </div>
+        </div>
+        <div class="shoshurbari-package-card">
+            <div class="card-header">
+                <h1>TOPAZ</h1>
+            </div>
+            <div class="card-package">
+                <h1>৯৮০ ৳</h1>
+                <p>বায়োডাটা: ১০টি</p>
+                <p class="sb-package-avr-amount">এভারেজ মূল্য: ৯৮ ৳</p>
+                <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
+                <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-check"></i></p>
+                <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-check"></i></p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+<!-- END & START -->
+<div class="shosurbari-service">
+   		<div class="shosurbari-details">
+			<div class="page_header">
+				<h1>Our Services</h1>
+				<p>Welcome to ShosurBari.com, your trusted online matrimony service provider. We offer a wide range of services to help you find your perfect life partner. Our platform caters to individuals of all religions, professions, and Bengali communities worldwide. Here is an overview of the services we provide:</p>
+			</div>
+			<div class="services_top">
+				<div class="col-sm-4 item_content">
+					<i class="fa fa-user-plus icon_4"> </i>
+					<h4>1. Account Creation</h4>
+					<p>Creating an account on ShosurBari.com is easy and free. When you create a new account, you will be asked to provide all the necessary information, including your phone number and email address. However, please note that your phone number and email are always set to "hide" or "only me" mode, ensuring that other users cannot see them. We prioritize the privacy and confidentiality of our users' contact information.</p>
+				</div>
+				<div class="col-sm-4 item_content">
+					<i class="fa fa-address-card-o icon_4"> </i>
+					<h4>2. Biodata Posting</h4>
+					<p>Once you have created an account, you can post your biodata, which includes personal information, address, and family details. This information is essential for finding suitable matches based on compatibility and shared values. Your biodata serves as a comprehensive profile that other users can view to assess your suitability as a potential partner.</p>
+				</div>
+				<div class="col-sm-4 item_content">
+					<i class="fa fa-camera icon_4"> </i>
+					<h4>3. Profile Photo Upload</h4>
+					<p>You have the option to upload a profile photo to enhance your visibility and attract more potential matches. Your profile photo can be seen by all members of our website, allowing others to get a better sense of your appearance. You have the freedom to delete or modify your profile photo at any time, giving you full control over your visual representation on our platform.</p>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="services_top1">
+				<div class="col-sm-4 item_content">
+					<i class="fa fa-shield icon_4"> </i>
+					<h4>4. Account Security</h4>
+					<p>We prioritize the security of your account and personal information. You can change your password at any time to ensure the confidentiality of your account. Our platform implements robust security measures to protect your data and provide you with a safe and secure online experience.</p>
+				</div>
+				<div class="col-sm-4 item_content">
+					<i class="fa fa-phone icon_4"> </i>
+					<h4>5. Direct Contact</h4>
+					<p>Our platform enables direct contact between users who are interested in each other's biodata. If you find a potential match, you can express your interest by filling out a form and providing your details, along with the required payment. To access the contact details of other users, there will be a nominal fee. You can conveniently make the payment using Personal Bkash, Rocket, or Rocket Mobile Banking.</p>
+				</div>
+				<div class="col-sm-4 item_content">
+					<i class="fa fa-money icon_4"> </i>
+					<i class="fa-solid fa-bangladeshi-taka-sign"></i>
+					<h4>6. Money Transaction Policy</h4>
+					<p>If you decide to request contact details of another user, you will need to fill out a form and provide your details, along with the necessary transaction details. Please note that there will be charges associated with obtaining the contact details. In the event that a profile you requested turns out to be already married, please inform us within 48 hours. After verifying the correct information, we will refund 90% to 100% of the money you paid</p>
+				</div>
+				<div class="clearfix"> </div>
+			</div>	
+			<div class="services_top1">
+				<div class="col-sm-4 item_content">
+					<i class="fa fa-headphones icon_4"> </i>
+					<h4>7. Customer Support</h4>
+					<p>At ShosurBari.com, we are committed to providing excellent customer support throughout your journey. Our dedicated team is available to assist you with any queries, concerns, or technical issues you may encounter. We strive to ensure a seamless and enjoyable experience on our platform.</p>
+					<p>Join ShosurBari.com today and let us assist you in finding your ideal life partner. We are dedicated to helping you make meaningful connections and embark on a journey of love and companionship.</p>
+				</div>
+				<div class="clearfix"> </div>
+			</div>	
+   		</div>
+	</div>

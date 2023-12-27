@@ -721,8 +721,8 @@ $result=search();
                   <span class="search-options">ড্রাইভার/চালক</span>
                   <br>
                   <!-- Mistri Sector-->                  
-                  <input type="checkbox" name="occupation_sector[]" value="কারিগর/মিস্ত্রি" class="SelectBox val" />
-                  <span class="search-options">কারিগর/মিস্ত্রি</span>
+                  <input type="checkbox" name="occupation_sector[]" value="টেকনিশিয়ান/মিস্ত্রি/কারিগর" class="SelectBox val" />
+                  <span class="search-options">টেকনিশিয়ান/মিস্ত্রি/কারিগর</span>
                   <br>
                   <!-- Other Sector-->                  
                   <input type="checkbox" name="occupation_sector[]" value="অন্যান্য" class="SelectBox val" />
@@ -1447,8 +1447,8 @@ $result=search();
               <span class="search-options">ড্রাইভার/চালক</span>
               <br>
               <!-- Mistri Sector-->                  
-              <input type="checkbox" name="occupation_sector[]" value="কারিগর/মিস্ত্রি" class="SelectBox val" />
-              <span class="search-options">কারিগর/মিস্ত্রি</span>
+              <input type="checkbox" name="occupation_sector[]" value="টেকনিশিয়ান/মিস্ত্রি/কারিগর" class="SelectBox val" />
+              <span class="search-options">টেকনিশিয়ান/মিস্ত্রি/কারিগর</span>
               <br>
               <!-- Other Sector-->                  
               <input type="checkbox" name="occupation_sector[]" value="অন্যান্য" class="SelectBox val" />

@@ -40,7 +40,7 @@ include_once("functions.php");
 	<div class="shosurbari-trmcnd-prvplcy">
 		<div class="shosurbari-security">
 			<h1>ShosurBari Terms & Conditions</h1>
-			<p>These Terms of Use govern your use of the ShosurBari.com website. By accessing or using our website, you agree to be bound by these terms and conditions. Please read them carefully.</p>
+			<p>These Terms of Use govern your use of the ShosurBari.com website. By accessing or using our website, you agree to be bound by these terms and conditions. Please read carefully.</p>
 			<h3>1. Acceptance of Terms of Use Agreement</h3>
 			<p>By accessing and using ShosurBari.com, you acknowledge that you have read, understood, and agree to be bound by the terms and conditions outlined in this agreement.</p>
 			<h3>2. Eligibility</h3>
@@ -114,7 +114,7 @@ include_once("functions.php");
 			</ul>
 			<h3>19. Dispute Resolution</h3>
 			<p>Any disputes or claims arising out of or relating to the upload or usage of photos on ShosurBari.com shall be resolved in accordance with the dispute resolution provisions outlined in our Terms and Conditions or as required by applicable laws.</p>
-			<p>If you have any questions or concerns regarding the photo upload terms and conditions, please <a href="contact.php">Contact Us</a>.</p>
+			<p>If you have any questions or concerns regarding the photo upload terms and conditions, please <a href="contact-us.php">Contact Us</a>.</p>
 			<p>Please note that these terms and conditions are subject to change without prior notice. It is your responsibility to review and comply with the most up-to-date version of these terms and conditions.</p>
 		</div>
 	</div>

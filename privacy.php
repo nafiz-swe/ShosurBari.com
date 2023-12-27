@@ -74,11 +74,11 @@ include_once("functions.php");
 					Service Enhancement: Your feedback and usage patterns may be used to improve our platform, features, and user experience.
 				</li>
 			</ol>
-			<h3> 3. Sharing of Personal Information </h3>
-			<p> At ShosurBari.com, we respect your privacy and do not share your personal information with third parties for marketing purposes. However, we may share certain information in the following cases: </p>
+			<h3> 3. Privacy and Data Sharing</h3>
+			<p> At ShosurBari.com, your privacy is paramount, and we refrain from sharing your personal information for marketing purposes. However, in specific instances, we may disclose information as outlined below: </p>
 			<ol>
 				<li>
-					Matchmaking and Communication: To facilitate matchmaking and communication, we may share relevant information with potential matches who meet your preferences.
+					Matchmaking and Communication: For an enriched matchmaking experience, we may disclose specific details to potential matches, aligning with your preferences. This disclosure encompasses sharing the groom/bride's mobile number, email, and guardian's mobile number to facilitate seamless connections.
 				</li>
 
 				<li>
@@ -87,7 +87,7 @@ include_once("functions.php");
 			</ol>
 			<h3> 4. Control and Access to Your Information </h3>
 			<p> 
-				You can access, update, or delete your personal information by logging into your account on ShosurBari.com.
+				You can access, update, or deactivate your biodata by logging into your account on ShosurBari.com.
 				You have the flexibility to manage your profile information, including your profile photo, at any time. 
 				Additionally, you can change your password to maintain account security.
 			</p>
@@ -112,7 +112,7 @@ include_once("functions.php");
 			</p>
 			<h4> 9. Contact Us </h5>
 			<p>
-				If you have any questions, concerns, or feedback regarding our Privacy Policy or the handling of your personal information, please <a href="contact.php"> contact us </a> using the provided contact details on our website.
+				If you have any questions, concerns, or feedback regarding our Privacy Policy or the handling of your personal information, please <a href="contact-us.php"> contact us </a> using the provided contact details on our website.
 				We will strive to address your inquiries promptly and resolve any issues to your satisfaction.
 			</p>
 			<p>

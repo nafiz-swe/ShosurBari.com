@@ -358,7 +358,7 @@ function englishToBanglaNumber($number) {
         </div> 
     </div>
     <div class="sb-home-search">
-    <h1><span class="shosurbari-heading-span"> বায়োডাটার </span>মূল্য তালিকা</h1>
+    <h1><span class="shosurbari-heading-span"> আপনার </span>প্ল্যান</h1>
         <div class="sbhome-heart-divider">
             <span class="grey-line"></span>
                 <i class="fa fa-heart pink-heart"></i>

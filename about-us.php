@@ -38,8 +38,9 @@
 	<div class="shosurbari-about-contact">
 		<div class="shosurbari-details">
 			<h1>What is ShosurBari? </h1>
-			<p> Easy way to find Bangladeshi Bengali matchmakers of all professions, religions, 
-				districts, natives and expatriates. Find your perfect life partner today.
+			<p> ShoshurBari.com, a Bangladeshi matrimonial platform since 2022, offers free account creation 
+				to post biodata. Connect directly with preferred matches' parents. Find Bengali brides and grooms
+				effortlessly, spanning professions, religions, districts, and both local and expatriate communities.
 			</p>
 			<h2>Our Mission </h2>
 			<p> ShosurBari.com is on a mission to unite hearts across diverse backgrounds, fostering love 
