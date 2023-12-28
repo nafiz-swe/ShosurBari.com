@@ -43,6 +43,7 @@ if (!isset($_SESSION['admin_id'])) {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow-x: auto;
+    max-height: 90vh;
   }
   table {
     border-collapse: collapse;
@@ -184,7 +185,7 @@ if (!isset($_SESSION['admin_id'])) {
     }
     // Get search query, per_page, and page number from URL parameters
     $search = isset($_GET['search']) ? sanitize($_GET['search']) : '';
-    $per_page = isset($_GET['per_page']) ? intval($_GET['per_page']) : 5; // Default to 50 profiles per page
+    $per_page = isset($_GET['per_page']) ? intval($_GET['per_page']) : 25; // Default to 50 profiles per page
     $page = isset($_GET['page']) ? intval($_GET['page']) : 1; // Get the current page number
     // Check if the trash folder exists
     if (!is_dir("../profile")) {
@@ -223,17 +224,17 @@ if (!isset($_SESSION['admin_id'])) {
     echo '<table>';
       echo '<div id="search-form">
         <form method="GET" action="">
-          <input type="text" name="search" id="search" value="' . (isset($_GET['search']) ? htmlspecialchars($_GET['search'], ENT_QUOTES, 'UTF-8') : '') . '" placeholder="Search User ID"  />
+          <input type="text" name="search" id="search" value="' . (isset($_GET['search']) ? htmlspecialchars($_GET['search'], ENT_QUOTES, 'UTF-8') : '') . '" placeholder="বায়োডাটা নং"  />
           <button class="search-admin" type="submit">Search</button>
           <button class="search-clear-admin"  type="button" onclick="clearSearch()">Clear Search</button><br>
           <label for="per-page">Profiles Show</label>
           <select name="per_page" id="per_page">
-            <option value="10" ' . ($per_page == 10 ? 'selected' : '') . '>10</option>
             <option value="50" ' . ($per_page == 50 ? 'selected' : '') . '>50</option>
             <option value="100" ' . ($per_page == 100 ? 'selected' : '') . '>100</option>
             <option value="500" ' . ($per_page == 500 ? 'selected' : '') . '>500</option>
             <option value="1000" ' . ($per_page == 1000 ? 'selected' : '') . '>1000</option>
             <option value="10000" ' . ($per_page == 10000 ? 'selected' : '') . '>10000</option>
+            <option value="20000" ' . ($per_page == 20000 ? 'selected' : '') . '>20000</option>
           </select>
         </form>
       </div>';

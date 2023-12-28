@@ -71,6 +71,7 @@ if (!isset($_SESSION['admin_id'])) {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow-x: auto;
+    max-height: 90vh;
   }
   .table-wrapper {
     overflow: hidden;
@@ -133,6 +134,10 @@ if (!isset($_SESSION['admin_id'])) {
     color: #fff;
   }
   tr.cancel {
+    background-color: gray;
+    color: #fff;
+  }
+  tr.invalid{
     background-color: #ff0080;
     color: #fff;
   }
@@ -142,7 +147,7 @@ if (!isset($_SESSION['admin_id'])) {
   </style>';
   require_once("includes/dbconn.php");
   // Number of profiles to display per page
-  $profilesPerPage = isset($_GET['per_page']) ? intval($_GET['per_page']) : 5;
+  $profilesPerPage = isset($_GET['per_page']) ? intval($_GET['per_page']) : 25;
   $limit = ($profilesPerPage == 'all') ? '' : "LIMIT $profilesPerPage";
   // Pagination variables
   $page = isset($_GET['page']) ? $_GET['page'] : 1;
@@ -162,14 +167,16 @@ if (!isset($_SESSION['admin_id'])) {
       echo "<h3>Total number of user profiles: " . $userCount . "</h3>";
       echo '<div id="search-form">
       <form method="POST">
-        <input type="text" id="search-user-id" name="search-user-id" placeholder="Request ID">
+        <input type="text" id="search-user-id" name="search-user-id" placeholder="বায়োডাটা নং">
         <button class="search-admin" type="submit" name="search">Search</button>
         <select style="margin-top: 20px;" name="search-criteria" id="search-criteria">
-          <option value="cust_email">User Email</option>
-          <option value="cust_name">Name</option>
-          <option value="cust_number">Phone Number</option>
+        <option>.....??</option>
+        <option value="id_customer">রিকোয়েস্ট আইডি</option>
+          <option value="cust_email">ই-মেইল</option>
+          <option value="cust_name">নাম</option>
+          <option value="cust_number">ফোন নাম্বার</option>
         </select>
-        <input type="text" id="search-keyword" name="search-keyword" placeholder="Email / Name / Number">
+        <input type="text" id="search-keyword" name="search-keyword" placeholder="রিকো. আইডি/ই-মেইল/নাম/ নাম্বার">
         <button class="search-admin" type="submit" name="search">Search</button>
         <button class="search-clear-admin" type="submit" name="clear">Clear Search</button></br>
       </form>
@@ -183,6 +190,7 @@ if (!isset($_SESSION['admin_id'])) {
           <option value="500" ' . ($profilesPerPage == 500 ? 'selected' : '') . '>500</option>
           <option value="1000" ' . ($profilesPerPage == 1000 ? 'selected' : '') . '>1000</option>
           <option value="10000" ' . ($profilesPerPage == 10000 ? 'selected' : '') . '>10000</option>
+          <option value="20000" ' . ($profilesPerPage == 20000 ? 'selected' : '') . '>20000</option>
         </select>
       </form>
       </div>';
@@ -192,7 +200,9 @@ if (!isset($_SESSION['admin_id'])) {
       if (!empty($searchKeyword)) {
       if ($searchCriteria == 'cust_email') {
         $sql = "SELECT * FROM customer WHERE cust_email LIKE '%$searchKeyword%' $limit";
-        } elseif ($searchCriteria == 'cust_name') {
+        } elseif ($searchCriteria == 'id_customer') {
+          $sql = "SELECT * FROM customer WHERE id_customer LIKE '%$searchKeyword%' $limit";
+          } elseif ($searchCriteria == 'cust_name') {
           $sql = "SELECT * FROM customer WHERE cust_name LIKE '%$searchKeyword%' $limit";
           } elseif ($searchCriteria == 'cust_number') {
           // Remove non-numeric characters from the search keyword
@@ -201,7 +211,7 @@ if (!isset($_SESSION['admin_id'])) {
         }
       } elseif (!empty($searchUserId)) {
         $searchUserId = mysqli_real_escape_string($conn, $searchUserId);
-        $sql = "SELECT * FROM customer WHERE id_customer = $searchUserId $limit";
+        $sql = "SELECT * FROM customer WHERE user_id = $searchUserId $limit";
       } else {
         $sql = "SELECT * FROM customer ORDER BY id_customer DESC $limit OFFSET $start";
       }
@@ -212,7 +222,7 @@ if (!isset($_SESSION['admin_id'])) {
           <th>রিকোয়েস্ট আইডি</th>
           <th>রেজিস্টার ইউজার /</br> বায়োডাটা নং</th>
           <th>কাস্টমার নাম</th>
-          <th>কাস্টমার মোবাইল নম্বর</th>
+          <th>কাস্টমার মোবাইল নাম্বার</th>
           <th>কাস্টমার ইমেইল</th>
           <th>কাস্টমার স্থায়ী ঠিকানা</th>
           <th>রিকোয়েস্ট বায়োডাটা /</br> পছন্দের বায়োডাটা</th>
@@ -237,6 +247,8 @@ if (!isset($_SESSION['admin_id'])) {
             $statusClass = 'sent';
           } elseif ($row['cancel'] == 1) {
             $statusClass = 'cancel';
+          } elseif ($row['invalid'] == 1) {
+            $statusClass = 'invalid';
           } else {
             $statusClass = 'unknown';
           }
@@ -261,9 +273,11 @@ if (!isset($_SESSION['admin_id'])) {
           echo '<form action="update_status.php" method="post">'; // Specify the correct action and method
           echo '<input type="hidden" name="customer_id" value="' . $row['id_customer'] . '">'; // Include a hidden input for the customer ID
           echo '<select name="new_status">';
+          echo '<option>...??</option>';
           echo '<option value="processing">Processing</option>';
           echo '<option value="sent">Sent</option>';
           echo '<option value="cancel">Cancel</option>';
+          echo '<option value="invalid">Invalid</option>';
           echo '</select>';
           echo '<input type="submit" value="Update">';
           echo '</form>';
@@ -275,6 +289,8 @@ if (!isset($_SESSION['admin_id'])) {
             echo 'Sent';
           } elseif ($row['cancel'] == 1) {
             echo 'Cancel';
+          } elseif ($row['invalid'] == 1) {
+            echo 'Invalid';
           } else {
             echo 'Unknown Status';
           }

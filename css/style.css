@@ -77,12 +77,18 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 45px;
     font-weight: bold;
     font-family: 'AdorshoLipi', Arial, sans-serif;
+    line-height: 50px;
 }
-ul, ol {
+ul {
     margin: 0;
+}
+ol {
+    margin: 0;
+    line-height: 27px;
 }
 p {
     margin: 0;
+    line-height: 27px;
 }
 button{
     transition: background-color 0.3s, color 0.3s;
@@ -682,7 +688,7 @@ ul.nav_1 li.last{
     margin-top: 70px;
     margin-bottom: 50px;
     flex-wrap: wrap;
-    width: 210px;;
+    width: 210px;
     margin-left: 0;
 }
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
@@ -1901,6 +1907,7 @@ span.m_3{
     outline: none;
     transition: 0.3s ease-in-out;
 }
+
 .choice-list-options {
     padding: 0px;
     width: 160px;
@@ -2198,44 +2205,30 @@ td.day_value {
 --                  S  T  A  R  T                --
 --            SHOSUR BARI - ABOUT PAGE           --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-.shosurbari-about-contact {
-    width: 90%;
-    margin: 10px auto;
-}
-.shosurbari-details {
-    width: 100%;
-    margin: 0px auto 120px auto;
-    padding: 10px
-}
 .shosurbari-details h1 {
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
     margin-left: auto;
     margin-right: auto;
-    font-family: 'Playfair Display', serif;
+    text-align: left;
+    font-family: 'AdorshoLipi', 'Ubuntu', sans-serif !important;
+}
+.shosurbari-details p,
+.shosurbari-security p {
+    font-size: 16px;
+    text-align: justify;
 }
 .shosurbari-details h2,
 .shosurbari-details h3,
 .shosurbari-details h4 {
-    margin-top: 0px;
+    margin-top: 50px;
     margin-bottom: 0px;
     margin-left: auto;
     margin-right: auto;
     text-align: left;
     font-size: 25px;
-    font-family: 'Playfair Display', serif;
-}
-.shosurbari-details p {
-    margin: 15px auto 30px auto;
-    font-size: 16px;
-    text-align: justify;
+    font-family: 'AdorshoLipi', 'Ubuntu', sans-serif !important;
 }
 /*Our Team Start*/
-.about_middle{
-    padding: 0 25px;
-    margin-top: 100px;
-    margin-bottom: 100px;
-}
 .about_middle h2{
 	text-align: center;
     color: black;
@@ -2334,23 +2327,23 @@ td.day_value {
     z-index: 100;
     font-size: 15px;
     list-style: none;
+    line-height: 22px;
 }
-.testi_grid .testi_grid_blockquote > div h3{
+.testi_grid .testi_grid_blockquote > div h3,
+.testi_grid .testi_grid_blockquote > div h4{
     color: #fff;
     position: relative;
+    margin-bottom: 10px;
     z-index: 100;
-    font-size: 20px;
     list-style: none;
     font-family: 'Playfair Display', serif;
+    line-height: 25px;
 }
-.testi_grid .testi_grid_blockquote > div h4 {
-    color: #fff;
-    position: relative;
-    z-index: 100;
+.testi_grid .testi_grid_blockquote > div h3{
+    font-size: 20px;
+}
+.testi_grid .testi_grid_blockquote > div h4{
     font-size: 16px;
-    font-weight: bold;
-    list-style: none;
-    font-family: 'AdorshoLipi', 'Ubuntu', sans-serif !important;
 }
 .testi_grid:nth-child(2n+1) .testi_grid_blockquote .featured-thumbnail:before {
     border-width: 17px 17px 0 0;
@@ -2571,17 +2564,9 @@ small.testi-meta1{
 --                  S  T  A  R  T                --
 --SHOSUR BARI-TERMS & CONDITION PRIVACY & POLICY --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-.shosurbari-trmcnd-prvplcy{
-    width: 90%;
-    margin: 10px auto;
-}
-.shosurbari-security {
-    width: 100%;
-    margin: 0px auto 80px auto;
-    padding: 10px
-}
 .shosurbari-security h1 {
-    margin-bottom: 0px;
+    margin-bottom: 10px;
+    text-align: left;
     margin-left: auto;
     margin-right: auto;
     font-family: 'AdorshoLipi', 'Ubuntu', sans-serif !important;
@@ -2594,13 +2579,9 @@ small.testi-meta1{
     margin-bottom: 0px;
     margin-left: auto;
     margin-right: auto;
+    text-align: left;
     font-size: 25px;
     font-family: 'AdorshoLipi', 'Ubuntu', sans-serif !important;
-}
-.shosurbari-security  p {
-    margin: 15px auto;
-    font-size: 16px;
-    text-align: justify;
 }
 ol li{
     list-style-type: upper-roman;
@@ -2670,6 +2651,7 @@ ol li{
 .shosurbari-faq {
     width: 70%;
     margin: auto;
+    margin-bottom: 120px;
 }
 .shosurbari-faq h1{
 	color: #000;
@@ -3012,13 +2994,13 @@ ol li{
     padding: 20px;
     background: white;
     box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05);
-    border: 1px solid rgba(0, 0, 0, .05);
     margin-bottom: auto;
     overflow-x: auto;
     margin-top: 20px;
     margin-bottom: 20px;
     margin-right: 0;
     margin-left: 30px;
+    border: 1px solid #0aa4ca;
 }
 .shosurbari-dashboard p {
     text-align: justify;
@@ -3209,10 +3191,6 @@ input[type=submit] {
 --                  S  T  A  R  T                --
 --            SHOSUR BARI - SERVICE PAGE         --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-.shosurbari-service{
-    width: 90%;
-    margin: auto;
-}
 .page_header{
 	text-align:left;
 	margin-bottom: 2em;
@@ -4186,6 +4164,26 @@ label{
     .banner {
         width: 700px;
     }
+    .about_middle{
+        width: 1170px;
+        margin: 0px auto 120px auto;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .sb-choice-list-notice {
+        width: 1170px;
+        margin: 30px auto;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .shosurbari-about-contact,
+    .shosurbari-trmcnd-prvplcy,
+    .shosurbari-service {
+        width: 1170px;
+        margin: 30px auto 120px auto;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 }
 /* End & Start */
 @media(max-width: 1200px){
@@ -4196,18 +4194,35 @@ label{
     .banner {
         width: 700px;
     }
-}
-/* End & Start */
-@media (min-width:1280px){
+    .sb-choice-list-notice {
+        width: 970px;
+        margin: 30px auto;
+        padding-left: 15px;
+        padding-right: 15px;
+        text-align: justify;
+    }
+    .about_middle{
+        width: 970px;
+        margin: 0px auto 120px auto;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
     .shosurbari-about-contact,
     .shosurbari-trmcnd-prvplcy,
     .shosurbari-service {
-        width: 1170px;
-        margin: auto;
+        width: 970px;
+        margin: 30px auto 120px auto;
+        padding-left: 15px;
+        padding-right: 15px;
+        text-align: justify;
     }
+}
+/* End & Start */
+@media (min-width:1280px){
     .shosurbari-faq {
         width: 800px;
         margin: auto;
+        margin-bottom: 120px;
     }
     .nbs-flexisel-item {
         float: left;
@@ -4443,6 +4458,21 @@ label{
     .col_2 h6 {
         text-align: right;
     }
+    .sb-choice-list-notice,
+    .shosurbari-about-contact,
+    .shosurbari-trmcnd-prvplcy,
+    .shosurbari-service,
+    .about_middle {
+        width: 750px;
+    }
+    .testi_grid .testi_grid_blockquote .featured-thumbnail img{
+        height: 100px;
+        width: 100px;
+    }
+    .testi_grid .testi_grid_blockquote .featured-thumbnail {
+        width: 95px;
+        height: 95px;
+    }
 }
 @media only screen and (min-width: 930px) {
     .sbbiodata_profile_recentview-mobile{
@@ -4459,9 +4489,6 @@ label{
     .heart-divider {
         margin-top: 100px;
         margin-bottom: 100px;
-    }
-    .sb-choice-list-notice{
-        width: 90%;
     }
     .slide p{
         font-size: 35px;
@@ -4757,6 +4784,20 @@ label{
 --          max-width:768px / S T A R T          --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width: 768px){
+    .sb-choice-list-notice,
+    .shosurbari-about-contact,
+    .shosurbari-trmcnd-prvplcy,
+    .shosurbari-service {
+        width: 90%;
+    }
+    .about_middle{
+        width: 90%;
+        padding: 0 15px;
+    }
+    .testi_grid .testi_grid_blockquote > div h3,
+    .testi_grid .testi_grid_blockquote > div h4 {
+        text-align: left;
+    }
     .slide h1 {
         font-size: clamp(2.3em, 5vmax, 3em);
         top: 20px;
@@ -4903,8 +4944,7 @@ label{
         padding: 0px 8px;
         font-size: 14px;
     }
-    .grid_3, .about_middle{
-        margin-bottom: 40x;
+    .grid_3{
         margin-top: 45px;
     }
     .about_bottom {
@@ -5483,6 +5523,10 @@ label{
         font-size: 22px;
         line-height: 30px;
     }
+    .shosurbari-details p,
+    .shosurbari-security p {
+        margin-top:5px;
+    }
     .shosurbari-sidebar {
         margin-top: 10px;
         padding-top: 30px;
@@ -5568,6 +5612,7 @@ label{
     }
     h1, h2, h3, h4, h5, h6 {
         font-size: 30px;
+        line-height: 40px;
     }
     .sb_featured_profile_head {
         width: 94%;
@@ -5964,10 +6009,6 @@ label{
     }
     .testi-meta1 {
         padding: 5px 177px 0 0;
-    }
-    .testi_grid .testi_grid_blockquote .featured-thumbnail {
-        width: 80px;
-        height: 80px;
     }
     .login-navbar-img .img-responsive,
     .login-navbar-icon a i{
@@ -6634,6 +6675,7 @@ label{
     }
     h1, h2, h3, h4, h5, h6 {
         font-size: 25px;
+        line-height: 35px;
     }
     .message-footer p {
         font-size: 15px;

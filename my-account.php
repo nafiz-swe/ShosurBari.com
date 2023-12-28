@@ -74,6 +74,11 @@ $conn->close();
     max-width: 170px;
     min-width: 170px;
   }
+  .shosurbari-users-request tbody {
+      display: block;
+      max-height: 350px;
+      overflow-y: auto;
+  }
   .shosurbari-users-request {
     width: 100%;
     margin-bottom: 20px;
@@ -274,9 +279,11 @@ $conn->close();
               } elseif ($row['sent'] == 1) {
               echo "background-color: #22c55e;'>Sent";
               } elseif ($row['cancel'] == 1) {
+              echo "background-color: gray;'>Cancel";
+              } elseif ($row['invalid'] == 1) {
               echo "background-color: #ff0080;'>Invalid";
               } else {
-              echo "background-color: gray;'>Unknown";
+              echo "background: linear-gradient(#06b6d4, #0aa4ca);'>Unknown";
               }
               echo "</td>";
               echo "<td>SB$id_customer</td>";
@@ -321,7 +328,7 @@ $conn->close();
           ?>
         </table>
       </div>
-      <h1>অভিভাবকের সাথে যোগাযোগের তথ্য </h1>
+      <h1>বায়োডাটার সাথে যোগাযোগের তথ্য </h1>
       <div class="shosurbari-receive-dashboard">
         <table class="shosurbari-users-request">
           <tr>

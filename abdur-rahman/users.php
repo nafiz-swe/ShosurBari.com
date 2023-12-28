@@ -71,6 +71,7 @@ if (!isset($_SESSION['admin_id'])) {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow-x: auto;
+    max-height: 90vh;
   }
   .table-wrapper {
     overflow: hidden;
@@ -135,7 +136,7 @@ if (!isset($_SESSION['admin_id'])) {
   <?php
   require_once("includes/dbconn.php");
   // Number of profiles to display per page
-  $profilesPerPage = isset($_GET['per_page']) ? intval($_GET['per_page']) : 5;
+  $profilesPerPage = isset($_GET['per_page']) ? intval($_GET['per_page']) : 25;
   $limit = ($profilesPerPage == 'all') ? '' : "LIMIT $profilesPerPage";
   // Pagination variables
   $page = isset($_GET['page']) ? $_GET['page'] : 1;
@@ -165,7 +166,7 @@ if (!isset($_SESSION['admin_id'])) {
         echo "<h3>Total number of user profiles: " . $userCount . "</h3>";
         echo '<div id="search-form">
           <form method="POST">
-            <input type="text" id="search-user-id" name="search-user-id" placeholder="Search User ID" required>
+            <input type="text" id="search-user-id" name="search-user-id" placeholder="User ID" required>
             <button class="search-admin" type="submit" name="search">Search</button>
             <button class="search-clear-admin" type="submit" name="clear">Clear Search</button></br>
           </form>
@@ -173,12 +174,12 @@ if (!isset($_SESSION['admin_id'])) {
             <label for="per-page">Profiles Show</label>
             <select id="per-page" name="per_page" onchange="updateProfilesPerPage()">
               <option value=""> </option>
-              <option value="10" ' . ($profilesPerPage == 10 ? 'selected' : '') . '>10</option>
               <option value="50" ' . ($profilesPerPage == 50 ? 'selected' : '') . '>50</option>
               <option value="100" ' . ($profilesPerPage == 100 ? 'selected' : '') . '>100</option>
               <option value="500" ' . ($profilesPerPage == 500 ? 'selected' : '') . '>500</option>
               <option value="1000" ' . ($profilesPerPage == 1000 ? 'selected' : '') . '>1000</option>
               <option value="10000" ' . ($profilesPerPage == 10000 ? 'selected' : '') . '>10000</option>
+              <option value="20000" ' . ($profilesPerPage == 20000 ? 'selected' : '') . '>20000</option>
             </select>
           </form>
         </div>';

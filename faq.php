@@ -43,11 +43,11 @@
 				<div class="jb-accordion-wrapper">
 					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion1"><span class="shosurbari-faq-point">১</span> শ্বশুরবাড়ি ডটকম কী? এটি কাদের জন্য? <i class="fa fa-minus-circle"> </i></button>
 					<div id="accordion1" class="jb-accordion-content collapse in">
-					<p>শ্বশুরবাড়ি ডটকম একটি বাংলাদেশী ম্যাট্রিমনি ওয়েবসাইট। প্রাথমিক পর্যায়ে এটির যাত্রা শুরু হয় ২০২২ সাল থেকে।
-						পাত্র-পাত্রী অথবা অভিভাবক চাইলে ওয়েবসাইটে বায়োডাটা পোস্ট করতে পারে ফ্রিতেই। 
-						সকল পেশা, ধর্ম, বর্ণ, জেলা, দেশি ও প্রবাসী বাংলাদেশী বাঙ্গালী পাত্রপাত্রী খুঁজে পাওয়ার সহজ মাধ্যম। একই সাথে পছন্দের পাত্র-পাত্রীর অভিভাবকের সাথে সরাসরি যোগাযোগ করা যায়।
-					</p>
-				</div>  
+						<p>শ্বশুরবাড়ি ডটকম একটি বাংলাদেশী ম্যাট্রিমনি ওয়েবসাইট। প্রাথমিক পর্যায়ে এটির যাত্রা শুরু হয় ২০২২ সাল থেকে।
+						কোনো সার্ভিস চার্জ ছাড়াই একাউন্ট খুলে বায়োডাটা পোস্ট করতে পারবেন। পাত্র-পাত্রী নিজেই অথবা অভিভাবক বায়োডাটা পোস্ট করতে পারবে সহজেই।
+						একই সাথে পছন্দের পাত্র-পাত্রীর অভিভাবকের সাথে সরাসরি যোগাযোগ করা যায়। সকল পেশা, ধর্ম, বর্ণ, জেলা, দেশি ও প্রবাসী বাংলাদেশী বাঙ্গালী পাত্রপাত্রী খুঁজে পাওয়ার সহজ মাধ্যম।
+						</p>
+					</div>  
 				</div>
 				<div class="jb-accordion-wrapper">
 					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion2"><span class="shosurbari-faq-point">২</span> বায়োডাটা পোস্ট করতে কত টাকা লাগে? <i class="fa fa-plus-circle"> </i></button>
@@ -58,85 +58,99 @@
 				<div class="jb-accordion-wrapper">
 					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion3"><span class="shosurbari-faq-point">৩</span> অভিভাবকের অনুমতি ছাড়া বায়োডাটা পোস্ট করতে পারবো? <i class="fa fa-plus-circle"> </i></button>
 					<div id="accordion3" class="jb-accordion-content collapse">
-						<p>না! অবশ্যই শ্বশুরবাড়ি ডটকমে পাত্র-পাত্রীর বায়োডাটার বিষয়টি নিজ নিজ অভিভাবকে জানা থাকতে হবে। পাত্র-পাত্রীর তথ্য যাচাই বাছাইয়ের পর যদি প্রমাণিত হয় অভিভাবক বিষয়টি জানেন না, পরবর্তী যেকোনো সময় অনুমতি ছাড়াই শ্বশুরবাড়ি ডটকম থেকে বায়োডাটা ডিলিট করে দেয়া হবে।</p>
+						<p>না! অবশ্যই শ্বশুরবাড়ি ডটকমে পাত্র-পাত্রীর বায়োডাটার বিষয়টি নিজ নিজ অভিভাবকে জানা থাকতে হবে। পাত্র-পাত্রীর তথ্য যাচাই বাছাইয়ের পর যদি প্রমাণিত হয় অভিভাবক বিষয়টি জানেন না। বায়োডাটার বিষয়টি অভিভাবকের অজানা থাকার কারণে যেকোনো সময় বিনা নোটিশে শ্বশুরবাড়ি ডটকম থেকে বায়োডাটা ডিলিট করে দেয়া হবে।</p>
 					</div>
 				</div>
-				<div class="jb-accordion-wrapper">
-					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion4"><span class="shosurbari-faq-point">৪</span> কিভাবে বায়োডাটা পোস্ট করবো? <i class="fa fa-plus-circle"> </i></button>
+        		<div class="jb-accordion-wrapper">
+					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion4"><span class="shosurbari-faq-point">৪</span> প্রোফাইলে ছবি আপলোড করা কি বাধ্যতামূলক? <i class="fa fa-plus-circle"> </i></button>
 					<div id="accordion4" class="jb-accordion-content collapse">
-						<p>পাত্র-পাত্রী নিজেই অথবা তাদের অভিভাবক বায়োডাটা পোস্ট করতে পারবে খুব সহজেই। Register পেজে প্রবেশ করে প্রথমে বায়োডাটা পোস্ট কারীর নাম, ইমেইল, মোবাইল নাম্বার ইত্যাদি অপশন পূরণ করে নতুন একাউন্ট খুলতে হবে।
-						<br><br>একাউন্ট সফল ভাবে রেজিস্ট্রার হবার পর, ইউজার হোম পেজ থেকে “বায়োডাটা/ছবি পোস্ট” সেকশনে ক্লিক করার পর ড্রপডাউন ২টা অপশন আসবে। তারপর “বায়োডাটা পোস্ট” অপশনে ক্লিক করে সহজেই পাত্র-পাত্রীর বায়োডাটা পোস্ট করুন। কোনো সার্ভিস চার্জ প্রয়োজন নেই। ছবি আপলোড করা বাধ্যতা মূলক নয়।</p>
-					</div>
-				</div>
-				<div class="jb-accordion-wrapper">
-					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion5"><span class="shosurbari-faq-point">৫</span> শ্বশুরবাড়ি ডটকমে বায়োডাটা পোস্ট করলে আমার তথ্য কতটুকু গোপন থাকবে? কতটুকু প্রকাশিত হবে? <i class="fa fa-plus-circle"> </i></button>
-					<div id="accordion5" class="jb-accordion-content collapse">
-						<p>বায়োডাটা পোস্ট করা হলে পাত্র-পাত্রীর ও অভিভাবকের নাম, মোবাইল নাম্বার এবং ইমেইল এড্রেস গোপন থাকবে, বায়োডাটার বাকি সকল তথ্য সাধারণ ইউজাররা দেখতে পারবে।
-						<br> <br>যদি কেউ বিয়ের জন্য বায়োডাটার অভিভাবকের সাথে সরাসরি যোগাযোগ করতে আগ্রহী হয় তাহলে, আগ্রহী ইউজারকে সামান্য কিছু 
-						সার্ভিস চার্জ প্রদান করতে হবে। পরবর্তী সময় শ্বশুরবাড়ি ডটকমের এডমিন সেই বায়োডাটার অভিভাবক কে কল করে বিষয়টা জানাবে, অভিভাবক অনুমতি দিলে আগ্রহী ইউজারকে 
-						পাত্র-পাত্রীর ইমেইল এবং অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে। ব্যক্তিগত কোনো কারণে অভিভাবক অনুমতি না দিলে আগ্রহী ইউজারকে যোগাযোগের তথ্য প্রদান না করে টাকা ফেরত দেয়া হবে।
+						<p>না! শ্বশুরবাড়ি ডটকমে একাউন্ট খোলার পর প্রোফাইলে পাত্র-পাত্রীর ছবি আপলোড করা বাধ্যতা মূলক নয়। তবে পাত্র-পাত্রীর ছবি ছাড়া অন্য যেকোনো কিছুর ছবি আপলোড করলে বিনা নোটিশে সম্পূর্ণ বায়োডাটা ডিলিট করে দেয়া হবে। প্রোফাইলে ছবি আপলোড করার পর যেকোনো সময় ছবি ডিলিট করতে পারবেন।
+						<br> <br> বায়োডাটার সাথে যোগাযোগের জন্য শ্বশুরবাড়ি ডটকমের পাত্র-পাত্রীদের ছবি কোনো তৃতীয় পক্ষকে (ইউজারকে) প্রদান করা হয়না। পাত্র-পাত্রীদের নিজ নিজ বায়োডাটার প্রোফাইলে যেই ছবি দেখতে পাবেন সেই ছবি অনুযায়ী তাদেরকে পছন্দ-অপছন্দ করার বিষয়টা একান্তই আপনার উপর নির্ভর করছে।
 						</p>
 					</div>
 				</div>
 				<div class="jb-accordion-wrapper">
-					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion6"><span class="shosurbari-faq-point">৬</span> অভিভাবক পাত্র-পাত্রীর বায়োডাটা জমা দিতে পারবে?  <i class="fa fa-plus-circle"> </i></button>
+					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion5"><span class="shosurbari-faq-point">৫</span> কিভাবে বায়োডাটা পোস্ট করবো? <i class="fa fa-plus-circle"> </i></button>
+					<div id="accordion5" class="jb-accordion-content collapse">
+            			<p>পাত্র-পাত্রী নিজেই অথবা অভিভাবক বায়োডাটা পোস্ট করতে পারবেন সহজেই। প্রথমে <a href="register.php">Register</a> পেজ থেকে বায়োডাটা পোস্ট কারীর Name, Username, Email, Number, Gender, Password অপশন পূরণ করে নতুন একটি একাউন্ট খুলতে হবে। তারপর পাত্র-পাত্রীর বায়োডাটা পোস্ট করতে পারবেন সহজেই।
+						<br><br>একাউন্ট সফল ভাবে রেজিস্ট্রার হবার পর, My Account পেজ থেকে “বায়োডাটা পোস্ট” সেকশনে ক্লিক করে হাতে যথেষ্ট সময় নিয়ে পাত্র-পাত্রীর বায়োডাটা পোস্ট করুন। প্রোফাইলে পাত্র-পাত্রীর ছবি আপলোড করা বাধ্যতা মূলক নয়।</p>
+					</div>
+				</div>
+				<div class="jb-accordion-wrapper">
+					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion6"><span class="shosurbari-faq-point">৬</span> শ্বশুরবাড়ি ডটকমে বায়োডাটা পোস্ট করলে আমার তথ্য কতটুকু গোপন থাকবে? কতটুকু প্রকাশিত হবে? <i class="fa fa-plus-circle"> </i></button>
 					<div id="accordion6" class="jb-accordion-content collapse">
-						<p>হ্যাঁ! অভিভাবক কে প্রথমে নিজের নাম, ইমেইল, মোবাইল নাম্বার ইত্যাদি অপশন পূরণ করে নতুন একটি একাউন্ট খুলতে হবে। তারপর পাত্র-পাত্রীর বায়োডাটা পোস্ট করতে পারবেন সহজেই। কোনো সার্ভিস চার্জ প্রয়োজন নেই।</p>
+						<p>বায়োডাটা পোস্ট করা হলে পাত্র-পাত্রীর ও অভিভাবকের নাম, মোবাইল নাম্বার এবং ইমেইল গোপন থাকবে, বায়োডাটার বাকি সকল তথ্য সাধারণ ইউজাররা দেখতে পারবে।
+						<br> <br>যদি কেউ বিয়ের জন্য বায়োডাটার সাথে সরাসরি যোগাযোগ করতে আগ্রহী হয় তাহলে, আগ্রহী ইউজারকে সার্ভিস চার্জ প্রদান করতে হবে। দেখেনিন কোন কোন আগ্রহী ইউজারকে আমরা পাত্রপাত্রীর মোবাইল নাম্বার ইমেইল এবং অভিভাবকের নাম্বার প্রদান করি।
+						<br> <br> ১ থেকে ৪টি বায়োডাটার সাথে যোগাযোগ করতে চাওয়া আগ্রহী ইউজারকে শুধুমাত্র অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে।
+						<br> ৫ থেকে ৯টি বায়োডাটার সাথে যোগাযোগ করতে চাওয়া আগ্রহী ইউজারকে পাত্রপাত্রীর ই-মেইল এবং অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে।
+						<br> TOPAZ প্লান বা ১০টি বায়োডাটার সাথে যোগাযোগ করতে চাওয়া আগ্রহী ইউজারকে পাত্রপাত্রীর মোবাইল নাম্বার, ই-মেইল এবং অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে।
+						</p>
 					</div>
 				</div>
 				<div class="jb-accordion-wrapper">
-					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion7"><span class="shosurbari-faq-point">৭</span> প্রোফাইলে ছবি আপলোড করা কি বাধ্যতামূলক? <i class="fa fa-plus-circle"> </i></button>
+					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion7"><span class="shosurbari-faq-point">৭</span> অভিভাবক পাত্র-পাত্রীর বায়োডাটা জমা দিতে পারবে?  <i class="fa fa-plus-circle"> </i></button>
 					<div id="accordion7" class="jb-accordion-content collapse">
-						<p>না! শ্বশুরবাড়ি ডটকমে একাউন্ট খোলার পর প্রোফাইলে পাত্র-পাত্রীর ছবি আপলোড করা বাধ্যতা মূলক নয়। তবে প্রোফাইলে ছবি আপলোড করার পর চাইলেই যেকোনো সময় ছবি ডিলিট করতে পারবেন।</p>
+						<p>হ্যাঁ! অভিভাবক কে প্রথমে <a href="register.php">Register</a> পেজ থেকে নিজের Name, Username, Email, Number, Gender, Password অপশন পূরণ করে নতুন একটি একাউন্ট খুলতে হবে। তারপর পাত্র-পাত্রীর বায়োডাটা পোস্ট করতে পারবেন সহজেই। কোনো সার্ভিস চার্জ প্রয়োজন নেই।</p>
 					</div>
 				</div>
 				<div class="jb-accordion-wrapper">
-					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion8"><span class="shosurbari-faq-point">৮</span> বায়োডাটা এডিট করবো কিভাবে? <i class="fa fa-plus-circle"> </i></button>
+					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion8"><span class="shosurbari-faq-point">৮</span> বায়োডাটা এডিট/আপডেট করবো কিভাবে? <i class="fa fa-plus-circle"> </i></button>
 					<div id="accordion8" class="jb-accordion-content collapse">
-						<p>প্রথমে আপনার একাউন্টটি লগইন করেনিন। তারপর “বায়োডাটা আপডেট” সেকশনে ক্লিক করলেই ড্রপডাউন ৭টি অপশন পেয়ে যাবে। বায়োডাটার যেই অপশনটি আপডেট করতে চান সেই অপশনে ক্লিক করে সহজেই আপনার তথ্য পরিবর্তন করুন।</p>
+						<p>আপনার একাউন্ট লগইন করে My Account পেজ থেকে “বায়োডাটা আপডেট” সেকশনে ক্লিক করুন ড্রপডাউন ৭টি অপশন পেয়ে যাবে। বায়োডাটার যেই অপশনটি আপডেট করতে চান সেই অপশনে ক্লিক করে সহজেই আপনার তথ্য পরিবর্তন করুন।</p>
 					</div>  
 				</div>
 				<div class="jb-accordion-wrapper">
 					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion9"><span class="shosurbari-faq-point">৯</span> বায়োডাটা যেকোনো সময় গোপন/ডিলিট করতে পারবো? <i class="fa fa-plus-circle"> </i></button>
 					<div id="accordion9" class="jb-accordion-content collapse">
-						<p>হ্যাঁ! আপনার একাউন্ট লগইন করে যেকোনো সময় আপনি নিজে নিজেই বায়োডাটাটি গোপন করে রাখতে পারবেন। পরবর্তীতে আবার যেকোনো সময় আপনার একাউন্ট নিজে নিজেই একটিভ করতে পারবেন। User Home পেজে আপনার একাউন্ট অবস্থা যদি <span style="color:green;">“একটিভ”</span> থাকে তাহলে “ডিএক্টিভেট করুন” বাটনে ক্লিক করে আপনার একাউন্ট গোপন করে রাখতে পারবেন। আপনার একাউন্ট অবস্থা যদি <span style="color:red;">“ডিএক্টিভ”</span> দেখায় তবেই আপনার একাউন্ট সফল ভাবে গোপন হয়ে যাবে। যে কেউ চাইলেই আপনার বায়োডাটাটি আর দেখতে পাবে না।
-						<br> <br>আপনার একাউন্ট সহজেই ডিএক্টিভ/গোপন করতে পারবেন তবে সহজেই ডিলিট করতে পারবেন না। একাউন্ট ডিলিট করতে চাইলে সরাসরি শ্বশুরবাড়ি ডটকমের এডমিনের সাথে যোগাযোগ করতে হবে। এডমিনের সাথে যোগাযোগ করতে আমাদের <a target="_blank" href="https://www.facebook.com/ShosurBari.bd">FaceBook</a> পেজ অনুসরণ করুন অথবা <a href="contact.php">Contacts</a> পেজে প্রবেশ করে আপনার সমস্যার কথা জানিয়ে Contact Us ফর্ম টি পূরণ করে Submit করুন। পরবর্তীতে আপনার সাথে এডমিন যোগাযোগ করে একাউন্ট ডিলিট করে দেবে।
+						<p>আপনার একাউন্ট লগইন করে My Account পেজ থেকে যেকোনো সময় বায়োডাটাটি গোপন করে রাখতে পারবেন। পরবর্তীতে আবার যেকোনো সময় আপনার একাউন্ট একটিভ করতে পারবেন।
+						<br> <br>আপনার একাউন্ট সহজেই ডিএক্টিভ/গোপন করতে পারবেন তবে সহজেই ডিলিট করতে পারবেন না। একাউন্ট ডিলিট করতে চাইলে সরাসরি শ্বশুরবাড়ি ডটকমের এডমিনের সাথে যোগাযোগ করতে হবে। এডমিনের সাথে যোগাযোগ করতে আমাদের <a target="_blank" href="https://www.facebook.com/ShosurBari.bd">FaceBook</a> পেজ অনুসরণ করুন অথবা <a href="contact-us.php">Contacts</a> পেজে প্রবেশ করে আপনার সমস্যার কথা জানিয়ে Contact Us ফর্ম টি পূরণ করে Submit করুন। পরবর্তীতে আপনার সাথে এডমিন যোগাযোগ করে একাউন্ট ডিলিট করে দেবে।
 						</p>
 					</div>  
 				</div>
-				<div class="jb-accordion-wrapper">
-					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion10"><span class="shosurbari-faq-point">১০</span> যেকোনো বায়োডাটা পছন্দ হবার পর পাত্র-পাত্রীর সাথে কিভাবে যোগাযোগ করবো? <i class="fa fa-plus-circle"> </i></button>
+        		<div class="jb-accordion-wrapper">
+					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion10"><span class="shosurbari-faq-point">১০</span> পেমেন্ট, বায়োডাটার লিমিটেশন এবং পছন্দের তালিকা<i class="fa fa-plus-circle"> </i></button>
 					<div id="accordion10" class="jb-accordion-content collapse">
-						<p>শ্বশুরবাড়ি ডটকমে পাত্র-পাত্রীর বায়োডাটা পছন্দ হবার পর, অভিভাবকের সাথে সরাসরি যোগাযোগ করতে চাইলে আগ্রহী ইউজারকে সামান্য কিছু সার্ভিস চার্জ প্রদান করতে হবে। বায়োডাটা কতৃপক্ষের থেকে সার্ভিস চার্জ নেয়া হয় না। আপনি চাইলে একই সাথে এক বা একাধিক বায়োডাটার অভিভাবকের সাথে সরাসরি যোগাযোগ করতে পারবেন। তবে একই সাথে ১০টির বেশি বায়োডাটা পছন্দ করে যোগাযোগের জন্য পেমেন্ট করতে পারবেন না। অভিভাবকের সাথে যোগাযোগের জন্য কোনো একাউন্ট খোলার প্রয়োজন নেই।
-							<br> <br>আগ্রহী ইউজারের পেমেন্ট তথ্য যাচাই বাছাইয়ের পর শ্বশুরবাড়ি ডটকমের এডমিন সেই বায়োডাটার অভিভাবক কে কল করে বিষয়টা জানাবে, অভিভাবক অনুমতি দিলে আগ্রহী ইউজারকে SMS বা ইমেইলের মাধ্যমে ২৪ ঘন্টার মধ্যে পাত্র-পাত্রীর ইমেইল এবং অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে। ব্যক্তিগত কোনো কারণে অভিভাবক অনুমতি না দিলে আগ্রহী ইউজারকে যোগাযোগের তথ্য প্রদান না করে টাকা ফেরত দেয়া হবে।
-							<br> <br>পরিবার ও পাত্র-পাত্রীর সম্পর্কে নিজ দায়িত্বে ভালভাবে খোঁজ নিয়ে তবেই বিয়ের কথা পাকা করুন। বিয়ের পূর্বেই পাত্র বা পাত্রীর পরিবারের সাথে টাকা লেনদেন করে প্রতারিত হবেন না। কোনো কিছু লেনদেন করে প্রতারিত হইলে কোনো ভাবেই শ্বশুরবাড়ি ডটকম কর্তৃপক্ষ দায়ী থাকিবে না।
+						<p>আপনি যেই কয়টি বায়োডাটার সাথে সরাসরি যোগাযোগ করতে আগ্রহী শুধুমাত্র সেই কয়টি বায়োডাটার জন্য পেমেন্ট করতে হবে। আপনি একই সাথে সর্বোচ্চ ১০টি বায়োডাটা পছন্দ করে পেমেন্ট করতে পারবেন। একই সাথে ১০টির অধিক বায়োডাটার সাথে যোগাযোগ করতে আগ্রহী হইলে আপনাকে ১০টি করে বায়োডাটা সিলেক্ট করে পেমেন্ট সম্পন্ন করতে হবে।
+						<br><br>শ্বশুরবাড়ি ডট কমে কোনো একাউন্ট ছাড়া পছন্দের তালিকায় কোনো বায়োডাটা যুক্ত করে রাখতে পারবেন না। এক সাথে একের অধিক বায়োডাটার সাথে যোগাযোগের জন্য এবং পছন্দের তালিকায় পছন্দের বায়োডাটা গুলো যুক্ত করতে অবশ্যয় শ্বশুরবাড়ি ডট কমে আপনার একাউন্ট লগইন থাকতে হবে।
 						</p>
 					</div>
 				</div>
 				<div class="jb-accordion-wrapper">
-					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion11"><span class="shosurbari-faq-point">১১</span> পাত্র-পাত্রীর সাথে যোগাযোগের জন্য পাত্র-পাত্রীর মোবাইল নাম্বার দেয়া হয়? <i class="fa fa-plus-circle"> </i></button>
+					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion11"><span class="shosurbari-faq-point">১১</span> যেকোনো বায়োডাটা পছন্দ হবার পর পাত্র-পাত্রীর সাথে কিভাবে যোগাযোগ করবো? <i class="fa fa-plus-circle"> </i></button>
 					<div id="accordion11" class="jb-accordion-content collapse">
-						<p>না! যোগাযোগের জন্য শুধুমাত্র পাত্র-পাত্রীর ইমেইল এবং অভিভাবকের মোবাইল নাম্বার প্রদান করা হয়। পাত্র-পাত্রীর মোবাইল নাম্বার দেয়া হয় না। পাত্র-পাত্রীর ইমেইল এবং অভিভাবকের মোবাইল নাম্বারের মাধ্যমে যোগাযোগ করে নিজেরাই বিষয়ের বিষয়টা পাকা করবেন।</p>
-					</div>
-				</div>
-				<div class="jb-accordion-wrapper">
-					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion12"><span class="shosurbari-faq-point">১২</span> পাত্র-পাত্রীর সাথে যোগাযোগের জন্য প্রদান কৃত সার্ভিস চার্জ কি ফেরত যোগ্য? <i class="fa fa-plus-circle"> </i></button>
-					<div id="accordion12" class="jb-accordion-content collapse">
-						<p>হ্যাঁ ফেরত যোগ্য! আগ্রহী ইউজার যেই পাত্র-পাত্রীর সাথে যোগাযোগ করার জন্য পেমেন্ট করবে, আগ্রহী ইউজারের পেমেন্ট তথ্য যাচাই বাছাইয়ের পর শ্বশুরবাড়ি ডটকমের এডমিন সেই বায়োডাটার অভিভাবক কে কল করে বিষয়টা জানাবে। ব্যক্তিগত কোনো কারণে অভিভাবক অনুমতি না দিলে আগ্রহী ইউজারকে যোগাযোগের তথ্য প্রদান না করে টাকা ফেরত দেয়া হবে।
-							<br><br> অভিভাবকের সাথে যোগাযোগ করতে চাওয়া আগ্রহী ইউজারের ব্যক্তিগত কোনো কারণে টাকা ফেরত দেয়া হবে না।
+						<p> বিয়ের জন্য শ্বশুরবাড়ি ডট কমের পাত্র-পাত্রীর সাথে যোগাযোগ করতে আগ্রহী হইলে সার্ভিস চার্জ প্রদান করতে হবে, বায়োডাটা কতৃপক্ষের থেকে কোনো সার্ভিস চার্জ নেয়া হয় না। আপনার পেমেন্ট সম্পন্ন হবার পর ২৪ ঘন্টার মধ্যে যোগাযোগের জন্য কাঙ্ক্ষিত তথ্য আপনাকে SMS বা ই-মেইলের মাধ্যমে পাঠিয়ে দেয়া হবে।
+						<br> <br>ব্যক্তিগত কোনো কারণে অভিভাবক অনুমতি না দিলে আগ্রহী ইউজারকে যোগাযোগের তথ্য প্রদান না করে টাকা ফেরত দেয়া হবে।
+						<br> <br>পরিবার ও পাত্র-পাত্রীর সম্পর্কে নিজ দায়িত্বে ভালভাবে খোঁজ নিয়ে তবেই বিয়ের কথা পাকা করুন। বিয়ের পূর্বেই পাত্র বা পাত্রীর পরিবারের সাথে টাকা লেনদেন করে প্রতারিত হবেন না। কোনো কিছু লেনদেন করে প্রতারিত হইলে কোনো ভাবেই শ্বশুরবাড়ি ডটকম কর্তৃপক্ষ দায়ী থাকিবে না। শ্বশুরবাড়ি ডটকম শুধুমাত্র দুইটি পরিবারের মধ্যে যোগাযোগের মাধ্যম হিসাবে পরিচালিত।
 						</p>
 					</div>
 				</div>
 				<div class="jb-accordion-wrapper">
-					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion13"><span class="shosurbari-faq-point">১৩</span> শ্বশুরবাড়ি ডটকমের মাধ্যমে বিয়ে করলে বিবাহ পরবর্তীতে কোনো সার্ভিস চার্জ দিতে হবে? <i class="fa fa-plus-circle"> </i></button>
-					<div id="accordion13" class="jb-accordion-content collapse">
-						<p>না! বিয়ের পর কোনো টাকা নেয়া হয় না। আমাদের মাধ্যমে বিয়ে হলে বিয়ের পরবর্তীতে শ্বশুরবাড়ি ডটকম কতৃপক্ষ পাত্র-পাত্রীর কোনো পক্ষ থেকেই কোনো টাকা নেয় না।</p>
+					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion12"><span class="shosurbari-faq-point">১২</span> পাত্র-পাত্রীর সাথে যোগাযোগের জন্য পাত্র-পাত্রীর মোবাইল নাম্বার দেয়া হয়? <i class="fa fa-plus-circle"> </i></button>
+					<div id="accordion12" class="jb-accordion-content collapse">
+						<p>১ থেকে ৪টি বায়োডাটার সাথে যোগাযোগ করতে চাওয়া আগ্রহী ইউজারকে শুধুমাত্র অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে।
+						<br> <br>৫ থেকে ৯টি বায়োডাটার সাথে যোগাযোগ করতে চাওয়া আগ্রহী ইউজারকে পাত্রপাত্রীর ই-মেইল এবং অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে।
+						<br> <br>TOPAZ প্লান বা ১০টি বায়োডাটার সাথে যোগাযোগ করতে চাওয়া আগ্রহী ইউজারকে পাত্রপাত্রীর মোবাইল নাম্বার, ই-মেইল এবং অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে।
+						</p>
 					</div>
 				</div>
 				<div class="jb-accordion-wrapper">
-					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion14"><span class="shosurbari-faq-point">১৪</span> যেকোনো প্রয়োজনে শ্বশুরবাড়ি ডটকমের এডমিনের সাথে কিভাবে যোগাযোগ করবো? <i class="fa fa-plus-circle"> </i></button>
+					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion13"><span class="shosurbari-faq-point">১৩</span> পাত্র-পাত্রীর সাথে যোগাযোগের জন্য প্রদান কৃত সার্ভিস চার্জ কি ফেরত যোগ্য? <i class="fa fa-plus-circle"> </i></button>
+					<div id="accordion13" class="jb-accordion-content collapse">
+						<p>হ্যাঁ ফেরত যোগ্য! আগ্রহী ইউজার যেই বায়োডাটার সাথে যোগাযোগ করার জন্য পেমেন্ট করবে, শ্বশুরবাড়ি ডটকমের এডমিন সেই বায়োডাটার অভিভাবক কে কল করে বিষয়টা জানাবে। ব্যক্তিগত কোনো কারণে অভিভাবক অনুমতি না দিলে আগ্রহী ইউজারকে যোগাযোগের তথ্য প্রদান না করে টাকা ফেরত দেয়া হবে।
+						<br><br> অভিভাবকের সাথে যোগাযোগ করতে চাওয়া আগ্রহী ইউজারের ব্যক্তিগত কোনো কারণে টাকা ফেরত দেয়া হবে না।
+						</p>
+					</div>
+				</div>
+				<div class="jb-accordion-wrapper">
+					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion14"><span class="shosurbari-faq-point">১৪</span> শ্বশুরবাড়ি ডটকমের মাধ্যমে বিয়ে হইলে বিবাহ পরবর্তীতে কোনো সার্ভিস চার্জ দিতে হবে? <i class="fa fa-plus-circle"> </i></button>
 					<div id="accordion14" class="jb-accordion-content collapse">
-						<p>এডমিনের সাথে যোগাযোগ করতে আমাদের <a target="_blank" href="https://www.facebook.com/ShosurBari.bd">FaceBook</a> পেজ অনুসরণ করুন অথবা <a href="contact.php">Contacts</a> পেজে প্রবেশ করে আপনার সমস্যার কথা জানিয়ে Contact Us ফর্ম টি পূরণ করে Submit করুন। পরবর্তী যেকোনো সময় আপনার সাথে এডমিন যোগাযোগ করবে।</p>
+						<p>না! বিয়ের পর কোনো সার্ভিস চার্জ দিতে হবে না। আমাদের মাধ্যমে বিবাহ সম্পন্ন হইলে বিয়ের পরবর্তীতে শ্বশুরবাড়ি ডটকমের কতৃপক্ষকে পাত্র-পাত্রীর কোনো পক্ষ থেকেই কোনো সার্ভিস চার্জ দিতে হবে না।</p>
+					</div>
+				</div>
+				<div class="jb-accordion-wrapper">
+					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion15"><span class="shosurbari-faq-point">১৫</span> যেকোনো প্রয়োজনে শ্বশুরবাড়ি ডটকমের এডমিনের সাথে কিভাবে যোগাযোগ করবো? <i class="fa fa-plus-circle"> </i></button>
+					<div id="accordion15" class="jb-accordion-content collapse">
+						<p>এডমিনের সাথে যোগাযোগ করতে আমাদের <a target="_blank" href="https://www.facebook.com/ShosurBari.bd">FaceBook</a> পেজ অনুসরণ করুন অথবা <a href="contact-us.php">Contacts</a> পেজে প্রবেশ করে আপনার সমস্যার কথা জানিয়ে Contact Us ফর্ম টি পূরণ করে Submit করুন। পরবর্তী যেকোনো সময় আপনার সাথে এডমিন যোগাযোগ করবে।</p>
 					</div>
 				</div>
 			</div>

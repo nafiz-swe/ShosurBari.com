@@ -71,6 +71,7 @@ if (!isset($_SESSION['admin_id'])) {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow-x: auto;
+    max-height: 90vh;
   }
   .table-wrapper {
     overflow: hidden;
@@ -146,7 +147,7 @@ if (!isset($_SESSION['admin_id'])) {
   </style>';
   require_once("includes/dbconn.php");
   // Number of profiles to display per page
-  $profilesPerPage = isset($_GET['per_page']) ? intval($_GET['per_page']) : 5;
+  $profilesPerPage = isset($_GET['per_page']) ? intval($_GET['per_page']) : 25;
   $limit = ($profilesPerPage == 'all') ? '' : "LIMIT $profilesPerPage";
   // Pagination variables
   $page = isset($_GET['page']) ? $_GET['page'] : 1;
@@ -166,14 +167,16 @@ if (!isset($_SESSION['admin_id'])) {
       echo "<h3>ম্যাসেজ করেছে মোট: " . $userCount . "</h3>";
       echo '<div id="search-form">
       <form method="POST">
-        <input type="text" id="search-user-id" name="search-user-id" placeholder="Search User ID">
+        <input type="text" id="search-user-id" name="search-user-id" placeholder="বায়োডাটা নং">
+        <button class="search-admin" type="submit" name="search">Search</button>
         <select style="margin-top: 20px;" name="search-criteria" id="search-criteria">
+        <option>.....??</option>
           <option value="contact_id">আইডি নং</option>
-          <option value="user_email">User Email</option>
-          <option value="name_contactus">Name</option>
-          <option value="number_contactus">Phone Number</option>
+          <option value="user_email">ই-মেইল</option>
+          <option value="name_contactus">নাম</option>
+          <option value="number_contactus">ফোন নাম্বার</option>
         </select>
-        <input type="text" id="search-keyword" name="search-keyword" placeholder="Email / Name / Number" >
+        <input type="text" id="search-keyword" name="search-keyword" placeholder="আইডি নং/ই-মেইল/নাম/ নাম্বার" >
         <button class="search-admin" type="submit" name="search">Search</button>
         <button class="search-clear-admin" type="submit" name="clear" style="margin-left: 10px;">Clear Search</button>
       </form>
@@ -181,12 +184,12 @@ if (!isset($_SESSION['admin_id'])) {
         <label for="per-page" style="margin-top: 20px;">Profiles Show</label>
         <select name="per_page" id="per-page" onchange="this.form.submit()">
           <option value=""> </option>
-          <option value="10" ' . ($profilesPerPage == 10 ? 'selected' : '') . '>10</option>
           <option value="50" ' . ($profilesPerPage == 50 ? 'selected' : '') . '>50</option>
           <option value="100" ' . ($profilesPerPage == 100 ? 'selected' : '') . '>100</option>
           <option value="500" ' . ($profilesPerPage == 500 ? 'selected' : '') . '>500</option>
           <option value="1000" ' . ($profilesPerPage == 1000 ? 'selected' : '') . '>1000</option>
           <option value="10000" ' . ($profilesPerPage == 10000 ? 'selected' : '') . '>10000</option>
+          <option value="20000" ' . ($profilesPerPage == 20000 ? 'selected' : '') . '>20000</option>
         </select>
       </form>
       </div>';
@@ -218,7 +221,7 @@ if (!isset($_SESSION['admin_id'])) {
           <th>আইডি নং</th>
           <th>রেজিস্টার ইউজার /</br> বায়োডাটা নং</th>
           <th>নাম</th>
-          <th>মোবাইল নম্বর</th>
+          <th>মোবাইল নাম্বার</th>
           <th>ইমেইল</th>
           <th>সাবজেক্ট</th>
           <th>মেসেজ</th>

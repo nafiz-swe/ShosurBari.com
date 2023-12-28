@@ -104,18 +104,18 @@ include_once("functions.php");
         We're here to help you! If you have any questions, feedback, or inquiries, please feel free to get
         in touch with us using the contact form below. Simply provide us with your details and message, and 
         we'll get back to you as soon as possible.
-      </p>
+      </p><br>
       <p>
         Please ensure that you provide accurate contact information so that we can 
         reach you effectively. We value your privacy and assure you that your personal 
         details will be handled with utmost confidentiality.
-      </p>
+      </p><br>
       <p>
         Our dedicated team is committed to providing excellent customer service, 
         and we strive to respond to all inquiries promptly. Whether you have a 
         question about our services, need assistance with your account, or have 
         any other concerns, we're here to assist you.
-      </p>
+      </p><br>
       <p>
         Thank you for choosing shosurbari.com as your trusted matrimonial service 
         provider. We look forward to serving you and helping you find your perfect match.
