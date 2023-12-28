@@ -15,7 +15,8 @@ if (!isset($_SESSION['admin_id'])) {
 <!doctype html>
 <html class="no-js" lang="">
 <head>
-  <title>Edit PysicalMarital-Admin | ShosurBari</title>
+	<link rel="icon" href="../images/shosurbari-icon-admin.png" type="image/png">
+	<title>Edit PysicalMarital-Admin | ShosurBari</title>
 </head>
 <body>
 <!-- ====== Admin Panel Navigation Bar ====== -->
@@ -81,7 +82,6 @@ if (!isset($_SESSION['admin_id'])) {
 				$result = mysqlexec($sql);
 				if($result){
 				$row=mysqli_fetch_assoc($result);
-				$user_id = isset($row['user_id']) ? $row['user_id'] : '';
 				$biodatagender = isset($row['biodatagender']) ? $row['biodatagender'] : '';
 				$day = isset($row['dateofbirth']) ? $row['dateofbirth'] : '';
 				$month = isset($row['dateofbirth']) ? $row['dateofbirth'] : '';
@@ -104,7 +104,7 @@ if (!isset($_SESSION['admin_id'])) {
                     </div>
 					<div class="sb-biodata-field">
 						<h2>শারীরিক অবস্থা</h2>
-						<h2>বায়োডাটা নং: <?php echo $user_id;?></h2>
+						<h2>বায়োডাটা নং: <?php echo $id;?></h2>
 					</div>
 					<div class="sb-biodata-option">
 						<div class="shosurbari-biodata-field" style="display: <?php echo $Displaybiodatagender; ?>;">
@@ -291,7 +291,6 @@ if (!isset($_SESSION['admin_id'])) {
 				$result = mysqlexec($sql);
 				if($result){
 					$row=mysqli_fetch_assoc($result);
-					$user_id = isset($row['user_id']) ? $row['user_id'] : '';
 					$maritalstatus = isset($row['maritalstatus']) ? $row['maritalstatus'] : '';
 					$agree_marriage_other_religion = isset($row['agree_marriage_other_religion']) ? $row['agree_marriage_other_religion'] : '';
 					$divorce_reason = isset($row['divorce_reason']) ? $row['divorce_reason'] : '';
@@ -349,7 +348,7 @@ if (!isset($_SESSION['admin_id'])) {
                     </div>
 					<div class="sb-biodata-field">
 						<h2>বিবাহ সম্পর্কিত তথ্য</h2>
-						<h2>বায়োডাটা নং: <?php echo $user_id;?></h2>
+						<h2>বায়োডাটা নং: <?php echo $id;?></h2>
 					</div>
 					<div class="sb-biodata-option">
 						<div class="shosurbari-biodata-field" style="display: <?php echo $displayMaritalstatus; ?>;">

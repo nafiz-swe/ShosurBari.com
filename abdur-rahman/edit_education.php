@@ -15,7 +15,8 @@ if (!isset($_SESSION['admin_id'])) {
 <!doctype html>
 <html class="no-js" lang="">
 <head>
-  <title>Edit Education-Admin | ShosurBari</title>
+	<link rel="icon" href="../images/shosurbari-icon-admin.png" type="image/png">
+	<title>Edit Education-Admin | ShosurBari</title>
 </head>
 <body>
 <!-- ====== Admin Panel Navigation Bar ====== -->
@@ -74,7 +75,6 @@ if (!isset($_SESSION['admin_id'])) {
                 if ($result) {
                     $row = mysqli_fetch_assoc($result);
                     // Check if data exists for each field and set variables accordingly
-					$user_id = isset($row['user_id']) ? $row['user_id'] : '';
                     $scndry_edu_method = isset($row['scndry_edu_method']) ? $row['scndry_edu_method'] : '';
                     $maxedu_qulfctn = isset($row['maxedu_qulfctn']) ? $row['maxedu_qulfctn'] : '';
                     $gnrl_mdrs_secondary_pass = isset($row['gnrl_mdrs_secondary_pass']) ? $row['gnrl_mdrs_secondary_pass'] : '';
@@ -161,7 +161,7 @@ if (!isset($_SESSION['admin_id'])) {
                     </div>
 					<div class="sb-biodata-field">
 						<h2>শিক্ষাগত যোগ্যতা</h2>
-                        <h2>বায়োডাটা নং: <?php echo $user_id;?></h2>
+                        <h2>বায়োডাটা নং: <?php echo $id;?></h2>
 					</div>
 					<div class="sb-biodata-option">
                         <div class="shosurbari-biodata-field" style="display: <?php echo $scndryEduMethod; ?>;">

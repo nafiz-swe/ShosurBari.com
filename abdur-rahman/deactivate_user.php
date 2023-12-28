@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" href="../images/shosurbari-icon-admin.png" type="image/png">
   <title>Deactivated | ShosurBari</title>
   <link rel="stylesheet" href="style.css">
 </head>

@@ -13,6 +13,7 @@ if (isset($_SESSION['admin_id'])) {
 <!doctype html>
 <html class="no-js" lang="">
 <head>
+  <link rel="icon" href="../images/shosurbari-icon-admin.png" type="image/png">
   <title>Login-Admin | ShosurBari</title>
 </head>
 <body>

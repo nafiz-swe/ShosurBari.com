@@ -5,7 +5,7 @@ include_once("edit-biodata-update.php");
 include_once("functions.php");
 $id=$_SESSION['id'];
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	personal_info_update($id);
+	personal_info_update();
 }
 error_reporting(0);
 if (!isset($_SESSION['admin_id'])) {
@@ -16,7 +16,8 @@ if (!isset($_SESSION['admin_id'])) {
 <!doctype html>
 <html class="no-js" lang="">
 <head>
-  <title>Edit Personal-Admin | ShosurBari</title>
+	<link rel="icon" href="../images/shosurbari-icon-admin.png" type="image/png">
+	<title>Edit Personal-Admin | ShosurBari</title>
 </head>
 <body>
 <!-- ====== Admin Panel Navigation Bar ====== -->
@@ -69,6 +70,7 @@ if (!isset($_SESSION['admin_id'])) {
 		<form action="" method="POST" id="biodataForm">
 		<?php
 			include("includes/dbconn.php");
+			$id = $_GET['id'];
 			$sql = "SELECT * FROM 2bd_personal_lifestyle WHERE user_id = $id";
 			$result = mysqlexec($sql);
 			if ($result) {

@@ -15,7 +15,8 @@ if (!isset($_SESSION['admin_id'])) {
 <!doctype html>
 <html class="no-js" lang="">
 <head>
-  <title>Edit Address-Admin | ShosurBari</title>
+	<link rel="icon" href="../images/shosurbari-icon-admin.png" type="image/png">
+	<title>Edit Address-Admin | ShosurBari</title>
 </head>
 <body>
 <!-- ====== Admin Panel Navigation Bar ====== -->
@@ -73,7 +74,6 @@ if (!isset($_SESSION['admin_id'])) {
 			$result = mysqlexec($sql);
 			if ($result) {
 				$row = mysqli_fetch_assoc($result);
-				$user_id = isset($row['user_id']) ? $row['user_id'] : '';
 				$permanent_division = isset($row['permanent_division']) ? $row['permanent_division'] : '';
 				$home_district_under_barishal = isset($row['home_district_under_barishal']) ? $row['home_district_under_barishal'] : '';
 				$home_district_under_chattogram = isset($row['home_district_under_chattogram']) ? $row['home_district_under_chattogram'] : '';
@@ -108,7 +108,7 @@ if (!isset($_SESSION['admin_id'])) {
                     </div>
 					<div class="sb-biodata-field">
 						<h2>বর্তমান এবং স্থায়ী ঠিকানা</h2>		
-						<h2>বায়োডাটা নং: <?php echo $user_id;?></h2>
+						<h2>বায়োডাটা নং: <?php echo $id;?></h2>
 					</div>
 					<div class="sb-biodata-option">
 						<div class="shosurbari-biodata-field">

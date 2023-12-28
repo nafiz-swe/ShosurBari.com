@@ -15,7 +15,8 @@ if (!isset($_SESSION['admin_id'])) {
 <!doctype html>
 <html class="no-js" lang="">
 <head>
-  <title>Edit Partner-Admin | ShosurBari</title>
+	<link rel="icon" href="../images/shosurbari-icon-admin.png" type="image/png">
+	<title>Edit Partner-Admin | ShosurBari</title>
 </head>
 <body>
 <!-- ====== Admin Panel Navigation Bar ====== -->
@@ -89,16 +90,16 @@ if (!isset($_SESSION['admin_id'])) {
 				$authorities_no_responsible = isset($row['authorities_no_responsible']) ? $row['authorities_no_responsible'] : '';
 			}
 			?>
-				<fieldset>
+			<fieldset>
 				<div class="sb-biodata" id="expectedPartner">
 					<div class="soshurbari-animation-icon">
-            <div class="sb-icon-laptop">
-            <h3> <img src="../images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
-            </div>
-          </div>
+						<div class="sb-icon-laptop">
+						<h3> <img src="../images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
+						</div>
+					</div>
 					<div class="sb-biodata-field">
 						<h2>প্রত্যাশিত জীবনসঙ্গীর বিবরণ</h2>
-            <h2>বায়োডাটা নং: <?php echo $id;?></h2>
+            			<h2>বায়োডাটা নং: <?php echo $id;?></h2>
 					</div>
 					<div class="sb-biodata-option">
 						<div class="shosurbari-biodata-field">

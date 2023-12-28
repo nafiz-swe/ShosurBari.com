@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" href="../images/shosurbari-icon-admin.png" type="image/png">
   <title>Delete Users| ShosurBari</title>
   <script>
 	function confirmDelete(id) {

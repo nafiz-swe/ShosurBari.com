@@ -7,7 +7,7 @@ echo "Successfully logged out";
 <html>
 <head>
 	<title>Logout | ShosurBari</title>
-	<link rel="icon" href="images/shosurbari-icon.png" type="image/png">
+	<link rel="icon" href="../images/shosurbari-icon-admin.png" type="image/png">
 </head>
 <body>
 <a href="../abdur-rahman/admin_login.php">Back to Admin Login Page</a>
