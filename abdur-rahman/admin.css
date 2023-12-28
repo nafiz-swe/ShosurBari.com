@@ -1,3 +1,40 @@
+@import url('https://fonts.maateen.me/adorsho-lipi/font.css');
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+@font-face {
+font-family: 'SolaimanLipi';
+src: url('font/SolaimanLipi.eot');
+src: url('font/SolaimanLipi.woff') format('woff'),
+    url('font/SolaimanLipi.ttf') format('truetype'),
+    url('font/SolaimanLipi.svg#SolaimanLipiNormal') format('svg'),
+    url('font/SolaimanLipi.eot?#iefix') format('embedded-opentype');
+font-weight: normal;
+font-style: normal;
+}
+@font-face {
+font-family: 'AdorshoLipi';
+src: url('font/AdorshoLipi.eot');
+src: url('font/AdorshoLipi.woff') format('woff'),
+    url('font/AdorshoLipi.ttf') format('truetype'),
+    url('font/AdorshoLipi.svg#AdorshoLipi') format('svg'),
+    url('font/AdorshoLipi.eot?#iefix') format('embedded-opentype');
+font-weight: normal;
+font-style: normal;
+}
+@font-face {
+font-family: 'Mukti';
+src: url('font/Mukti.eot');
+src: url('font/Mukti.woff') format('woff'),
+    url('font/Mukti.ttf') format('truetype'),
+    url('font/Mukti.svg#Mukti') format('svg'),
+    url('font/Mukti.eot?#iefix') format('embedded-opentype');
+font-weight: normal;
+font-style: normal;
+}
+html, body{
+    background:#FFF;
+    font-family: 'AdorshoLipi', 'Ubuntu', sans-serif !important;
+}
 .header{
 	background:#999;
 	padding:2em 0;
@@ -89,15 +126,19 @@ form {
     border-radius: 4px;
 }
 input[type=submit] {
-    width: 82px;
-    margin-top: 5px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    float: left;
-    color: #fff;
-    background: linear-gradient(#06b6d4, #0aa4ca);
-    font-size: 15px;
-    height: 28px;
+    width: 47%;
+    color: white;
+    background: #00c292;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 0;
+    margin: 10px 0px;
+    text-transform: uppercase;
+    font-size: 18px;
+    line-height: 28px;
+    height: 40px;
+    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+    border: 1px solid rgba(0,0,0,.05);
 }
 .input-group input[type="text"], select{
     border-radius: 4px;
@@ -122,7 +163,7 @@ input[type=submit] {
 .form-text-describe {
     display: block;
     width: 100%;
-    height: 100px;
+    height: 150px;
     padding: 6px 12px;
     font-size: 16px;
     line-height: 1.5;
@@ -141,6 +182,13 @@ label{
     margin-bottom: 2px;
     font-weight: 700;
     margin-top: 2px;
+    color: #0aa4ca;
+    font-size: 15px;
+}
+label span {
+    color: #ff0080;
+    font-size: 17px;
+    font-weight: bold;
 }
 .form-text-describe:focus{
     border-color: #0aa4ca;
@@ -150,7 +198,7 @@ label{
 .form-text, .form-select, .form-textarea {
     display: block;
     width: 100%;
-    height: 38px;
+    height: 40px;
     padding: 6px 12px;
     font-size: 16px;
     line-height: 1.5;
@@ -433,19 +481,31 @@ input#submit-btn {
     box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
     border: 1px solid rgba(0,0,0,.05);
 }
+.soshurbari-animation-icon {
+    flex-basis: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.soshurbari-animation-icon img{
+    justify-content: flex-end;
+    margin: auto;
+    width: 37px;
+    height: 35px;
+}
 .sb-biodata-field{
     padding: 10px 5px;
     width: 100%;
     margin-bottom: 25px;
     margin-top: 0px;
-    background: linear-gradient(#06b6d4, #0aa4ca);
+    background: #00c292;
     border-radius: 4px;
 }
 .sb-biodata-field h2{
     text-align: center;
     color: #fff;
-    margin: 20px auto;
-    font-size: 28px;
+    margin: 15px auto;
+    font-size: 25px;
 }
 .sb-biodata-field h2 span{
     color: white;
@@ -479,8 +539,15 @@ input#submit-btn {
     font-size: 30px;
 }
 .shosurbari-biodata-field{
-    padding: 10px 0px;
+    padding: 0px;
+    margin-top: 32px;
     text-align: left;
+}
+.soshurbari-animation-icon h3 {
+    font-size: 23px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-top: 15px;
 }
 #progressbar {
     margin: auto;
@@ -550,6 +617,9 @@ input#submit-btn {
     padding-top: 50px;
     padding-bottom: 50px;
 }
+fieldset {
+	margin-bottom: 100px;
+}
 #biodataForm fieldset {
     border: 0 none;
     border-radius: 3px;
@@ -564,24 +634,25 @@ input#submit-btn {
 /*buttons*/
 #biodataForm .action-button,
 #biodataForm .biodata-submit {
-    width: 120px;
+    width: 47%;
     color: white;
-    background: #06b6d4;
-    border-radius: 2px;
-    border: 1px solid #f0f0f0;
+    background: #00c292;
+    border-radius: 3px;
     cursor: pointer;
-    padding: 7px;
-    margin: 10px 5px;
+    padding: 0;
+    margin: 10px 0px;
     text-transform: uppercase;
-    font-size: 20px;
-    transition: transform 0.3s;
-    box-shadow: 1px 1px 4px #888;
+    font-size: 18px;
+    line-height: 28px;
+    height: 40px;
+    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+    border: 1px solid rgba(0,0,0,.05);
 }
 #biodataForm .action-button:hover,
-#biodataForm .biodata-submit:hover {
+#biodataForm .biodata-submit:hover,
+input[type=submit]:hover {
     background: linear-gradient(#0aa4ca, #0acef1);
     color: #fff;
-    transform: scale(1.1);
 }
 #progressbar li:first-child:after {
     /*connector not needed before the first step*/
@@ -610,7 +681,8 @@ input#submit-btn {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .input-group input[type="text"], select{
-    height: 30px;
+    height: 35px;
+    width: 100%;
 }
 .search-admin{
     border: 2px solid #00c292;
@@ -902,9 +974,6 @@ i .fa{
 }
 .btn_1 {
     font-size: 15px;
-}
-.sb-biodata-field h2{
-    font-size: 25px;
 }
 .current-page h4 {
     font-size: 21px;

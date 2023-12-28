@@ -144,6 +144,17 @@ if (!isset($_SESSION['admin_id'])) {
   tr.unknown {
     background-color: lightgray;
   }
+  input[type=submit] {
+    width: 82px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    float: left;
+    color: #fff;
+    background: linear-gradient(#06b6d4, #0aa4ca);
+    font-size: 15px;
+    height: 28px;
+}
   </style>';
   require_once("includes/dbconn.php");
   // Number of profiles to display per page

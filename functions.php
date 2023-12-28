@@ -377,7 +377,7 @@
             } else {
                 $user_id = 0;
             }
-            // Insert customer data into the database
+            // Insert customer data into the database 
             $sql = "INSERT INTO customer (user_id, cust_name, cust_email, cust_number, cust_permanent_address, request_biodata_number, biodata_quantities, total_fee, payment_method, bkash_number, bkash_transaction_id, nagad_number, nagad_transaction_id, roket_number, roket_transaction_id, processing, sent, cancel, invalid, request_date) 
                 VALUES ('$user_id', '$cust_name', '$cust_email', '$cust_number', '$cust_permanent_address', '$request_biodata_number', '$idCount', '$fee', '$payment_method', '$bkash_number', '$bkash_transaction_id', '$nagad_number', '$nagad_transaction_id', '$roket_number', '$roket_transaction_id', 1, 0, 0, 0, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
             if (mysqli_query($conn, $sql)) {

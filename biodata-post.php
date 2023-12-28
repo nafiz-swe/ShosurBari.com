@@ -244,6 +244,21 @@ if(isloggedin()){
 								<option value="১৯৭৭">১৯৭৭</option>
 								<option value="১৯৭৬">১৯৭৬</option>
 								<option value="১৯৭৫">১৯৭৫</option>
+								<option value="১৯৭৪">১৯৭৪</option>
+								<option value="১৯৭৩">১৯৭৩</option>
+								<option value="১৯৭২">১৯৭২</option>
+								<option value="১৯৭১">১৯৭১</option>
+								<option value="১৯৭০">১৯৭০</option>
+								<option value="১৯৬৯">১৯৬৯</option>
+								<option value="১৯৬৮">১৯৬৮</option>
+								<option value="১৯৬৭">১৯৬৭</option>
+								<option value="১৯৬৬">১৯৬৬</option>
+								<option value="১৯৬৫">১৯৬৫</option>
+								<option value="১৯৬৪">১৯৬৪</option>
+								<option value="১৯৬৩">১৯৬৩</option>
+								<option value="১৯৬২">১৯৬২</option>
+								<option value="১৯৬১">১৯৬১</option>
+								<option value="১৯৬০">১৯৬০</option>
 							</select>
 						</div>
 						<div class="shosurbari-biodata-field">

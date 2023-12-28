@@ -40,9 +40,8 @@ html, body{
     background:#FFF;
     padding-top: 20px;
     font-family: 'AdorshoLipi', 'Ubuntu', sans-serif !important;
-        /* font-family: 'Ubuntu', sans-serif; */
+    /* font-family: 'Ubuntu', sans-serif; */
     /* font-family: 'AdorshoLipi', Arial, sans-serif !important; */
-
 }
 element{
     --main-web-color:  #06b6d4;
@@ -160,7 +159,7 @@ form {
     width: 100%;
     color: black;
     outline: none;
-    height: 33px;
+    height: 35px;
     background-color: #fff;
     background: linear-gradient(#fff 20%,#f6f6f6 50%,#eee 52%,#f4f4f4 100%);
     background-clip: padding-box;
@@ -213,7 +212,7 @@ label{
 .form-text, .form-select, .form-textarea {
     display: block;
     width: 100%;
-    height: 38px;
+    height: 40px;
     padding: 6px 12px;
     font-size: 16px;
     line-height: 1.5;
