@@ -181,7 +181,7 @@ if (!isset($_SESSION['admin_id'])) {
       <form method="POST">
         <input type="text" id="search-user-id" name="search-user-id" placeholder="বায়োডাটা নং">
         <button class="search-admin" type="submit" name="search">Search</button>
-        <select style="margin-top: 20px;" name="search-criteria" id="search-criteria">
+        <select style="margin-top: 20px; width: 200px;" name="search-criteria" id="search-criteria">
         <option>.....??</option>
         <option value="id_customer">রিকোয়েস্ট আইডি</option>
           <option value="cust_email">ই-মেইল</option>

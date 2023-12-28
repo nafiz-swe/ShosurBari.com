@@ -230,6 +230,7 @@ if (!isset($_SESSION['admin_id'])) {
           <button class="search-clear-admin"  type="button" onclick="clearSearch()">Clear Search</button><br>
           <label for="per-page">Profiles Show</label>
           <select name="per_page" id="per_page">
+            <option value=""> </option>
             <option value="50" ' . ($per_page == 50 ? 'selected' : '') . '>50</option>
             <option value="100" ' . ($per_page == 100 ? 'selected' : '') . '>100</option>
             <option value="500" ' . ($per_page == 500 ? 'selected' : '') . '>500</option>
