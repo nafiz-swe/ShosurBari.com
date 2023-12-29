@@ -241,7 +241,7 @@ if (!isset($_SESSION['admin_id'])) {
           <th>রকেট ট্রানজেকশন আইডি</th>
           <th>আপডেট স্ট্যাটাস</th>
           <th>একটিভ স্ট্যাটাস</th>
-          <th>তারিখ সময়</th>
+          <th>পেমেন্ট তারিখ</th>
         </tr>';
         while ($row = mysqli_fetch_assoc($result)) {
           $statusClass = '';

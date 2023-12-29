@@ -230,52 +230,62 @@
             $to = $payment_cust_email;
             $subject = "Contact Details";
             ob_start();
-            include('BiodataInfoEmailBody-sent.php'); // Update with the actual file name
+            include('../abdur-rahman/BiodataInfoEmailBody-sent.php'); // Update with the actual file name
             $email_body = ob_get_clean();
             // Plain text version of the email body
             $plain_text_message = "
-            Contact Details
+            যোগাযোগের তথ্য
             আমাদের সাথে থাকার জন্য আপনাকে ধন্যবাদ! শ্বশুরবাড়ি ডট কম শুধুমাত্র দুইটি পরিবারের মধ্যে যোগাযোগের মাধ্যম হিসাবে পরিচালিত। নিচে বায়োডাটা নং এ ক্লিক করে দেখে নিতেন পারেন সম্পূর্ণ প্রফাইলটি।
             পেমেন্ট অর্ডার আইডি: $payment_order_id
             পেমেন্ট তারিখ: $payment_biodata_quantity
             মোট বায়োডাটা: $payment_biodata_quantity
             // Biodata Info 1
+            https://shosurbari.com/profile.php?/Biodata=$biodata_number_1
             বায়োডাটা নং: $biodata_number_1
             বায়োডাটার অভিভাবক: $biodata_guardian_1
             পাত্র/পাত্রী: $biodata_patropatri_1
             // Biodata Info 2
+            https://shosurbari.com/profile.php?/Biodata=$biodata_number_2
             বায়োডাটা নং: $biodata_number_2
             বায়োডাটার অভিভাবক: $biodata_guardian_2
             পাত্র/পাত্রী: $biodata_patropatri_2
             // Biodata Info 3
+            https://shosurbari.com/profile.php?/Biodata=$biodata_number_3
             বায়োডাটা নং: $biodata_number_3
             বায়োডাটার অভিভাবক: $biodata_guardian_3
             পাত্র/পাত্রী: $biodata_patropatri_3
             // Biodata Info 4
+            https://shosurbari.com/profile.php?/Biodata=$biodata_number_4
             বায়োডাটা নং: $biodata_number_4
             বায়োডাটার অভিভাবক: $biodata_guardian_4
             পাত্র/পাত্রী: $biodata_patropatri_4
             // Biodata Info 5
+            https://shosurbari.com/profile.php?/Biodata=$biodata_number_5
             বায়োডাটা নং: $biodata_number_5
             বায়োডাটার অভিভাবক: $biodata_guardian_5
             পাত্র/পাত্রী: $biodata_patropatri_5
             // Biodata Info 6
+            https://shosurbari.com/profile.php?/Biodata=$biodata_number_6
             বায়োডাটা নং: $biodata_number_6
             বায়োডাটার অভিভাবক: $biodata_guardian_6
             পাত্র/পাত্রী: $biodata_patropatri_6
             // Biodata Info 7
+            https://shosurbari.com/profile.php?/Biodata=$biodata_number_7
             বায়োডাটা নং: $biodata_number_7
             বায়োডাটার অভিভাবক: $biodata_guardian_7
             পাত্র/পাত্রী: $biodata_patropatri_7
             // Biodata Info 8
+            https://shosurbari.com/profile.php?/Biodata=$biodata_number_8
             বায়োডাটা নং: $biodata_number_8
             বায়োডাটার অভিভাবক: $biodata_guardian_8
             পাত্র/পাত্রী: $biodata_patropatri_8
             // Biodata Info 9
+            https://shosurbari.com/profile.php?/Biodata=$biodata_number_9
             বায়োডাটা নং: $biodata_number_9
             বায়োডাটার অভিভাবক: $biodata_guardian_9
             পাত্র/পাত্রী: $biodata_patropatri_9
             // Biodata Info 10
+            https://shosurbari.com/profile.php?/Biodata=$biodata_number_10
             বায়োডাটা নং: $biodata_number_10
             বায়োডাটার অভিভাবক: $biodata_guardian_10
             পাত্র/পাত্রী: $biodata_patropatri_10

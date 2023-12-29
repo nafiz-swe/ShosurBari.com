@@ -14,12 +14,10 @@ if ($result && mysqli_num_rows($result) > 0) {
 <html>
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
 <style>
     body {
+        font-family: Arial, sans-serif;
         font-family: 'AdorshoLipi', Arial, sans-serif !important;
-        background-color: #2ecc71; /* Updated background color */
         margin: 0;
         padding: 0;
     }
@@ -171,6 +169,8 @@ if ($result && mysqli_num_rows($result) > 0) {
         margin-top: 15px;
     }
     </style>
+</head>
+<body>
     <div class='container'>
         <div class='header'>
             <h1>যোগাযোগের তথ্য</h1>
@@ -179,19 +179,23 @@ if ($result && mysqli_num_rows($result) > 0) {
             <h3>আমাদের সাথে থাকার জন্য আপনাকে ধন্যবাদ! শ্বশুরবাড়ি ডট কম শুধুমাত্র দুইটি পরিবারের মধ্যে যোগাযোগের মাধ্যম হিসাবে পরিচালিত। নিচে বায়োডাটা নং এ ক্লিক করে দেখে নিতেন পারেন সম্পূর্ণ প্রফাইলটি।</h3>
             <div class="sb-reg-info">
                 <h2>রিসিভ আইডি: <?php echo "SB$sbo_id";?></h2>
-                <div class="sb-biodata">
-                    <div class="shosurbari-biodata-field">
-                        <label for="edit-name">রিকোয়েস্ট আইডি</label>
-                        <p> <?php echo $payment_order_id;?> </p>
+                <div class="sb-biodata" id="religionDetails">
+                    <div class="sb-biodata-info-sent">
+                        <div class="shosurbari-biodata-field">
+                            <label for="edit-name">রিকোয়েস্ট আইডি</label>
+                            <p> <?php echo $payment_order_id;?> </p>
+                        </div>
+                        <div class="shosurbari-biodata-field">
+                            <label for="edit-name">পেমেন্ট তারিখ</label>
+                            <p> <?php echo $cust_payment_date;?> </p>
+                        </div>
+                        <div class="shosurbari-biodata-field">
+                            <label for="edit-name">মোট বায়োডাটা</label>
+                            <p> <?php echo $payment_biodata_quantity;?> </p>
+                        </div>
                     </div>
-                    <div class="shosurbari-biodata-field">
-                        <label for="edit-name">পেমেন্ট তারিখ</label>
-                        <p> <?php echo $cust_payment_date;?> </p>
-                    </div>
-                    <div class="shosurbari-biodata-field">
-                        <label for="edit-name">মোট বায়োডাটা</label>
-                        <p> <?php echo $payment_biodata_quantity;?> </p>
-                    </div>
+
+
                     <?php if (!empty($biodata_number_1) || !empty($biodata_guardian_1) || !empty($biodata_patropatri_1)): ?>
                     <div class="sb-biodata-info-sent">
                         <h2>পছন্দের বায়োডাটার তথ্য ১</h2>
