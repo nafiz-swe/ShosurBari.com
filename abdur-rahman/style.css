@@ -426,15 +426,16 @@ ul.notika-menu-wrap li a{
 	display:inline-block;
 }
 .custom-menu-content ul.notika-main-menu-dropdown li a {
-    padding: 15px;
+    padding: 10px;
     display: block;
-	font-size:14px;
+	font-size:15px;
 	color:#333;
+    border-radius: 2px;
 }
 .custom-menu-content ul.notika-main-menu-dropdown li a i{
     border: 2px solid #00c292;
     border-radius: 50%;
-    padding: 8px;
+    padding: 6px;
 }
 .custom-menu-content ul.notika-main-menu-dropdown li a i:hover {
     background: #00c292;

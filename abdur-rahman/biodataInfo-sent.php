@@ -30,20 +30,13 @@ if (!isset($_SESSION['admin_id'])) {
     font-size: 25px;
     margin-top: 15px;
   }
+  .sb-biodata-info-sent h3 {
+    font-size: 18px;
+    margin-top: 10px;
+  }
   .sb-biodata-field h2{
     font-size: 25px;
     margin-top: 15px;
-  }
-  input[type=submit] {
-    cursor: pointer;
-    height: 35px;
-    width: 400px;
-    margin-top: 10px;
-    background: linear-gradient(#06b6d4, #0ea5e9);
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    color: #fff;
-    box-shadow: 1px 1px 4px #888;
   }
   html, body { 
     padding-top: 0px; /*Monitor Navigation Bar top*/
@@ -84,190 +77,202 @@ if (!isset($_SESSION['admin_id'])) {
           <div class="sb-biodata-field">
             <h2>কাস্টমারকে বায়োডাটার তথ্য প্রদান</h2>
           </div>
-          <div class="shosurbari-biodata-field">
-            <label for="edit-name">রিকোয়েস্ট আইডি<span class="form-required" title="This field is required.">*</span></label>
-            <input type="text" name="payment_order_id" value="SB" class="form-text" required>
-          </div>
-          <div class="shosurbari-biodata-field">
-            <label for="edit-name">ইউজার আইডি<span class="form-required" title="This field is required.">*</span></label>
-            <input type="number" name="user_id" value="" placeholder="রেজিস্টার ইউজার/বায়োডাটা নং" class="form-text" required>
-          </div>
-          <div class="shosurbari-biodata-field">
-            <label for="edit-name">কাস্টমার নাম<span class="form-required" title="This field is required.">*</span></label>
-            <input type="text" name="payment_cust_name" value="" placeholder="কাস্টমার নাম" class="form-text" required>
-          </div>
-          <div class="shosurbari-biodata-field">
-            <label for="edit-name">কাস্টমার মোবাইল নাম্বার<span class="form-required" title="This field is required.">*</span></label>
-            <input type="number" name="payment_cust_number" value="" placeholder="কাস্টমার মোবাইল নাম্বার" class="form-text" required>
-          </div>
-          <div class="shosurbari-biodata-field">
-            <label for="edit-name">কাস্টমার ই-মেইল<span class="form-required" title="This field is required.">*</span></label>
-            <input type="email" name="payment_cust_email" value="" placeholder="কাস্টমার ই-মেইল" class="form-text" required>
-          </div>
-          <div class="shosurbari-biodata-field">
-            <label for="edit-name">পেমেন্ট তারিখ<span class="form-required" title="This field is required.">*</span></label>
-            <input type="text" name="cust_payment_date" value="" placeholder="পেমেন্ট তারিখ/রিকোয়েস্ট তারিখ" class="form-text" required>
-          </div>
-          <div class="shosurbari-biodata-field">
-            <label for="edit-name">মোট বায়োডাটা<span class="form-required" title="This field is required.">*</span></label>
-            <input type="text" name="payment_biodata_quantity" value="১,২,৩,৪,৫,৬,৭,৮,৯,১০ টি" class="form-text" required>
+          <div class="sb-biodata-info-sent">
+            <div class="shosurbari-biodata-field">
+              <label for="edit-name">রিকোয়েস্ট আইডি<span class="form-required" title="This field is required.">*</span></label>
+              <input type="text" name="payment_order_id" value="SB" class="form-text" required>
+            </div>
+            <div class="shosurbari-biodata-field">
+              <label for="edit-name">রেজিস্টার ইউজার/বায়োডাটা নং<span class="form-required" title="This field is required.">***</span> <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (কাস্টমার পেজের "রেজিস্টার ইউজার/বায়োডাটা নং" কলামে যেই নাম্বার থাকবে সেই নাম্বার লিখতে হবে। যদি "0" থাকে তাহলে বুঝে নিতে হবে এই কাস্টমার রেজিস্টার ইউজার না। সেক্ষেত্রেও এই অপশনে "0" লিখতে হবে। যাদের "0" থাকবে না তখন বুঝে নিতে হবে আমাদের ওয়েবসাইট এই কাস্টোমারের একটি একাউন্ট আছে এবং সেই নাম্বারটি হচ্ছে বায়োডাটা নাম্বার। সেক্ষেত্রে এই অপশনে "বায়োডাটা নাম্বারটি" লিখতে হবে, তাহলে সেই ইউজার তার একাউন্ট থেকেও এই তথ্য গুলো দেখতে পাবে।)</span></label>
+              <input type="number" name="user_id" value="" placeholder="রেজিস্টার ইউজার/বায়োডাটা নং" class="form-text" required>
+            </div>
+            <div class="shosurbari-biodata-field">
+              <label for="edit-name">কাস্টমার নাম<span class="form-required" title="This field is required.">*</span></label>
+              <input type="text" name="payment_cust_name" value="" placeholder="কাস্টমার নাম" class="form-text" required>
+            </div>
+            <div class="shosurbari-biodata-field">
+              <label for="edit-name">কাস্টমার মোবাইল নাম্বার<span class="form-required" title="This field is required.">*</span></label>
+              <input type="number" name="payment_cust_number" value="" placeholder="কাস্টমার মোবাইল নাম্বার" class="form-text" required>
+            </div>
+            <div class="shosurbari-biodata-field">
+              <label for="edit-name">কাস্টমার ই-মেইল<span class="form-required" title="This field is required.">***</span> <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (এখানে কাস্টমারের যেই ই-মেইলটি লিখা হবে, সেই ই-মেইলে এই তথ্য গুলো অটোমেটিক চলে যাবে।)</span></label>
+              <input type="email" name="payment_cust_email" value="" placeholder="কাস্টমার ই-মেইল" class="form-text" required>
+            </div>
+            <div class="shosurbari-biodata-field">
+              <label for="edit-name">পেমেন্ট তারিখ<span class="form-required" title="This field is required.">*</span></label>
+              <input type="text" name="cust_payment_date" value="" placeholder="পেমেন্ট তারিখ/রিকোয়েস্ট তারিখ" class="form-text" required>
+            </div>
+            <div class="shosurbari-biodata-field">
+              <label for="edit-name">মোট বায়োডাটা<span class="form-required" title="This field is required.">*</span></label>
+              <input type="text" name="payment_biodata_quantity" value="১টি-২টি-৩টি-৪টি-৫টি-৬টি-৭টি-৮টি-৯টি-১০টি" class="form-text" required>
+            </div>
           </div>
           <div class="sb-biodata-info-sent">
             <h2>পছন্দের বায়োডাটার তথ্য ১</h2>
+            <h3>BRONZE - ১৪৫ ৳</h3>
             <div class="shosurbari-biodata-field">
-              <label for="about me">বায়োডাটা নং<span class="form-required" title="This field is required.">*</span></label>
+              <label>রিকোয়েস্ট বায়োডাটা/পছন্দের বায়োডাটা<span class="form-required" title="This field is required.">*</span> <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (যেমন: 987)</span></label>
               <input type="text" name="biodata_number_1" value=""  placeholder="পছন্দের বায়োডাটা নং" class="form-text" required>
             </div>
             <div class="shosurbari-biodata-field">
-              <label for="about me">বায়োডাটার অভিভাবক<span class="form-required" title="This field is required.">*</span></label>
+              <label>বায়োডাটার অভিভাবক<span class="form-required" title="This field is required.">*</span> <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (যেমন: বাবা, আব্দুর রহিম, 01737-226404)</span></label>
               <textarea rows="4" type="text" name="biodata_guardian_1" value="" placeholder="অভিভাবক:, নাম:, মোবাইল-নাম্বার:" class="form-text" required></textarea>
             </div>
             <div class="shosurbari-biodata-field">
-              <label for="about me">পাত্র-পাত্রীর<span class="form-required" title="This field is required.">*</span></label>
+              <label>পাত্র-পাত্রীর<span class="form-required" title="This field is required.">*</span> <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (যেমন: খালিদ/সুমাইয়া, grrom-bride@gmail.com)</span></label>
               <input type="text" name="biodata_patropatri_1" value="" placeholder="নাম:,  ই-মেইল:" class="form-text" required>
             </div>
           </div>
           <!-- পছন্দের বায়োডাটার তথ্য ১ End-->
           <div class="sb-biodata-info-sent">
             <h2>পছন্দের বায়োডাটার তথ্য ২</h2>
+            <h3>SILVER - ২৮০ ৳</h3>
             <div class="shosurbari-biodata-field">
-              <label for="about me">বায়োডাটা নং</label>
+              <label>রিকোয়েস্ট বায়োডাটা/পছন্দের বায়োডাটা <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (যেমন: 987)</span></label>
               <input type="text" name="biodata_number_2" value="" placeholder="পছন্দের বায়োডাটা নং" class="form-text">
             </div>
             <div class="shosurbari-biodata-field">
-              <label for="about me">বায়োডাটার অভিভাবক</label>
+              <label>বায়োডাটার অভিভাবক <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (যেমন: বাবা, আব্দুর রহিম, 01737-226404)</span></label>
               <textarea rows="4" type="text" name="biodata_guardian_2" value="" placeholder="অভিভাবক:, নাম:, মোবাইল-নাম্বার:"  class="form-text"></textarea>
             </div>
             <div class="shosurbari-biodata-field">
-              <label for="about me">পাত্র-পাত্রীর</label>
+                <label>পাত্র-পাত্রীর <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (যেমন: খালিদ/সুমাইয়া, grrom-bride@gmail.com)</span></label>
               <input type="text" name="biodata_patropatri_2" value="" placeholder="নাম:,  ই-মেইল:" class="form-text">
             </div>
           </div>
           <!-- পছন্দের বায়োডাটার তথ্য ২ End-->
           <div class="sb-biodata-info-sent">
             <h2>পছন্দের বায়োডাটার তথ্য ৩</h2>
+            <h3>GOLD - ৩৯০ ৳</h3>
             <div class="shosurbari-biodata-field">
-              <label for="about me">বায়োডাটা নং</label>
+              <label>রিকোয়েস্ট বায়োডাটা/পছন্দের বায়োডাটা <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (যেমন: 987)</span></label>
               <input type="text" name="biodata_number_3" value="" placeholder="পছন্দের বায়োডাটা নং" class="form-text">
             </div>
             <div class="shosurbari-biodata-field">
-              <label for="about me">বায়োডাটার অভিভাবক</label>
+              <label>বায়োডাটার অভিভাবক <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (যেমন: বাবা, আব্দুর রহিম, 01737-226404)</span></label>
               <textarea rows="4" type="text" name="biodata_guardian_3" value="" placeholder="অভিভাবক:, নাম:, মোবাইল-নাম্বার:"  class="form-text"></textarea>
             </div>
             <div class="shosurbari-biodata-field">
-              <label for="about me">পাত্র-পাত্রীর</label>
+                <label>পাত্র-পাত্রীর <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (যেমন: খালিদ/সুমাইয়া, grrom-bride@gmail.com)</span></label>
               <input type="text" name="biodata_patropatri_3" value="" placeholder="নাম:,  ই-মেইল:" class="form-text">
             </div>
           </div>
           <!-- পছন্দের বায়োডাটার তথ্য ৩ End-->
           <div class="sb-biodata-info-sent">
             <h2>পছন্দের বায়োডাটার তথ্য ৪</h2>
+            <h3>PLATINUM - ৫০০ ৳</h3>
             <div class="shosurbari-biodata-field">
-              <label for="about me">বায়োডাটা নং</label>
+              <label>রিকোয়েস্ট বায়োডাটা/পছন্দের বায়োডাটা <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (যেমন: 987)</span></label>
               <input type="text" name="biodata_number_4" value="" placeholder="পছন্দের বায়োডাটা নং" class="form-text">
             </div>
             <div class="shosurbari-biodata-field">
-              <label for="about me">বায়োডাটার অভিভাবক</label>
+              <label>বায়োডাটার অভিভাবক <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (যেমন: বাবা, আব্দুর রহিম, 01737-226404)</span></label>
               <textarea rows="4" type="text" name="biodata_guardian_4" value="" placeholder="অভিভাবক:, নাম:, মোবাইল-নাম্বার:"  class="form-text"></textarea>
             </div>
             <div class="shosurbari-biodata-field">
-              <label for="about me">পাত্র-পাত্রীর</label>
+                <label>পাত্র-পাত্রীর <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (যেমন: খালিদ/সুমাইয়া, grrom-bride@gmail.com)</span></label>
               <input type="text" name="biodata_patropatri_4" value="" placeholder="নাম:,  ই-মেইল:" class="form-text">
             </div>
           </div>
           <!-- পছন্দের বায়োডাটার তথ্য ৪ End-->
           <div class="sb-biodata-info-sent">
             <h2>পছন্দের বায়োডাটার তথ্য ৫</h2>
+            <h3>DIAMOND - ৬০০ ৳</h3>
             <div class="shosurbari-biodata-field">
-              <label for="about me">বায়োডাটা নং</label>
+              <label>রিকোয়েস্ট বায়োডাটা/পছন্দের বায়োডাটা <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (যেমন: 987)</span></label>
               <input type="text" name="biodata_number_5" value="" placeholder="পছন্দের বায়োডাটা নং" class="form-text">
             </div>
             <div class="shosurbari-biodata-field">
-              <label for="about me">বায়োডাটার অভিভাবক</label>
+              <label>বায়োডাটার অভিভাবক <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (যেমন: বাবা, আব্দুর রহিম, 01737-226404)</span></label>
               <textarea rows="4" type="text" name="biodata_guardian_5" value="" placeholder="অভিভাবক:, নাম:, মোবাইল-নাম্বার:"  class="form-text"></textarea>
             </div>
             <div class="shosurbari-biodata-field">
-              <label for="about me">পাত্র-পাত্রীর</label>
+                <label>পাত্র-পাত্রীর <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (যেমন: খালিদ/সুমাইয়া, grrom-bride@gmail.com)</span></label>
               <input type="text" name="biodata_patropatri_5" value="" placeholder="নাম:,  ই-মেইল:" class="form-text">
             </div>
           </div>
           <!-- পছন্দের বায়োডাটার তথ্য ৫ End-->
           <div class="sb-biodata-info-sent">
             <h2>পছন্দের বায়োডাটার তথ্য ৬</h2>
+            <h3>TITANIUM - ৬৯০ ৳</h3>
             <div class="shosurbari-biodata-field">
-              <label for="about me">বায়োডাটা নং</label>
+              <label>রিকোয়েস্ট বায়োডাটা/পছন্দের বায়োডাটা <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (যেমন: 987)</span></label>
               <input type="text" name="biodata_number_6" value="" placeholder="পছন্দের বায়োডাটা নং" class="form-text">
             </div>
             <div class="shosurbari-biodata-field">
-              <label for="about me">বায়োডাটার অভিভাবক</label>
+              <label>বায়োডাটার অভিভাবক <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (যেমন: বাবা, আব্দুর রহিম, 01737-226404)</span></label>
               <textarea rows="4" type="text" name="biodata_guardian_6" value="" placeholder="অভিভাবক:, নাম:, মোবাইল-নাম্বার:"  class="form-text"></textarea>
             </div>
             <div class="shosurbari-biodata-field">
-              <label for="about me">পাত্র-পাত্রীর</label>
+                <label>পাত্র-পাত্রীর <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (যেমন: খালিদ/সুমাইয়া, grrom-bride@gmail.com)</span></label>
               <input type="text" name="biodata_patropatri_6" value="" placeholder="নাম:,  ই-মেইল:" class="form-text">
             </div>
           </div>
           <!-- পছন্দের বায়োডাটার তথ্য ৬ End-->
           <div class="sb-biodata-info-sent">
             <h2>পছন্দের বায়োডাটার তথ্য ৭</h2>
+            <h3>RUBY - ৭৭০ ৳</h3>
             <div class="shosurbari-biodata-field">
-              <label for="about me">বায়োডাটা নং</label>
+              <label>রিকোয়েস্ট বায়োডাটা/পছন্দের বায়োডাটা <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (যেমন: 987)</span></label>
               <input type="text" name="biodata_number_7" value="" placeholder="পছন্দের বায়োডাটা নং" class="form-text">
             </div>
             <div class="shosurbari-biodata-field">
-              <label for="about me">বায়োডাটার অভিভাবক</label>
+              <label>বায়োডাটার অভিভাবক <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (যেমন: বাবা, আব্দুর রহিম, 01737-226404)</span></label>
               <textarea rows="4" type="text" name="biodata_guardian_7" value="" placeholder="অভিভাবক:, নাম:, মোবাইল-নাম্বার:"  class="form-text"></textarea>
             </div>
             <div class="shosurbari-biodata-field">
-              <label for="about me">পাত্র-পাত্রীর</label>
+                <label>পাত্র-পাত্রীর <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (যেমন: খালিদ/সুমাইয়া, grrom-bride@gmail.com)</span></label>
               <input type="text" name="biodata_patropatri_7" value="" placeholder="নাম:,  ই-মেইল:" class="form-text">
             </div>
           </div>
           <!-- পছন্দের বায়োডাটার তথ্য ৭ End-->
           <div class="sb-biodata-info-sent">
             <h2>পছন্দের বায়োডাটার তথ্য ৮</h2>
+            <h3>EMERALD - ৮৪০ ৳</h3>
             <div class="shosurbari-biodata-field">
-              <label for="about me">বায়োডাটা নং</label>
+              <label>রিকোয়েস্ট বায়োডাটা/পছন্দের বায়োডাটা <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (যেমন: 987)</span></label>
               <input type="text" name="biodata_number_8" value="" placeholder="পছন্দের বায়োডাটা নং" class="form-text">
             </div>
             <div class="shosurbari-biodata-field">
-              <label for="about me">বায়োডাটার অভিভাবক</label>
+              <label>বায়োডাটার অভিভাবক <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (যেমন: বাবা, আব্দুর রহিম, 01737-226404)</span></label>
               <textarea rows="4" type="text" name="biodata_guardian_8" value="" placeholder="অভিভাবক:, নাম:, মোবাইল-নাম্বার:"  class="form-text"></textarea>
             </div>
             <div class="shosurbari-biodata-field">
-              <label for="about me">পাত্র-পাত্রীর</label>
+                <label>পাত্র-পাত্রীর <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (যেমন: খালিদ/সুমাইয়া, grrom-bride@gmail.com)</span></label>
               <input type="text" name="biodata_patropatri_8" value="" placeholder="নাম:,  ই-মেইল:" class="form-text">
             </div>
           </div>
           <!-- পছন্দের বায়োডাটার তথ্য ৮ End-->
           <div class="sb-biodata-info-sent">
             <h2>পছন্দের বায়োডাটার তথ্য ৯</h2>
+            <h3>SAPPHIRE - ৯০০ ৳</h3>
             <div class="shosurbari-biodata-field">
-              <label for="about me">বায়োডাটা নং</label>
+              <label>রিকোয়েস্ট বায়োডাটা/পছন্দের বায়োডাটা <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (যেমন: 987)</span></label>
               <input type="text" name="biodata_number_9" value="" placeholder="পছন্দের বায়োডাটা নং" class="form-text">
             </div>
             <div class="shosurbari-biodata-field">
-              <label for="about me">বায়োডাটার অভিভাবক</label>
+              <label>বায়োডাটার অভিভাবক <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (যেমন: বাবা, আব্দুর রহিম, 01737-226404)</span></label>
               <textarea rows="4" type="text" name="biodata_guardian_9" value="" placeholder="অভিভাবক:, নাম:, মোবাইল-নাম্বার:"  class="form-text"></textarea>
             </div>
             <div class="shosurbari-biodata-field">
-              <label for="about me">পাত্র-পাত্রীর</label>
+                <label>পাত্র-পাত্রীর <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (যেমন: খালিদ/সুমাইয়া, grrom-bride@gmail.com)</span></label>
               <input type="text" name="biodata_patropatri_9" value="" placeholder="নাম:,  ই-মেইল:" class="form-text">
             </div>
           </div>
           <!-- পছন্দের বায়োডাটার তথ্য ৯ End-->
           <div class="sb-biodata-info-sent">
             <h2>পছন্দের বায়োডাটার তথ্য ১০</h2>
+            <h3>TOPAZ - ৯৮০ ৳</h3>
             <div class="shosurbari-biodata-field">
-              <label for="about me">বায়োডাটা নং</label>
+              <label>রিকোয়েস্ট বায়োডাটা/পছন্দের বায়োডাটা <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (যেমন: 987)</span></label>
               <input type="text" name="biodata_number_10" value="" placeholder="পছন্দের বায়োডাটা নং" class="form-text">
             </div>
             <div class="shosurbari-biodata-field">
-              <label for="about me">বায়োডাটার অভিভাবক</label>
+              <label>বায়োডাটার অভিভাবক <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (যেমন: বাবা, আব্দুর রহিম, 01737-226404)</span></label>
               <textarea rows="4" type="text" name="biodata_guardian_10" value="" placeholder="অভিভাবক:, নাম:, মোবাইল-নাম্বার:"  class="form-text"></textarea>
             </div>
             <div class="shosurbari-biodata-field">
-              <label for="about me">পাত্র-পাত্রীর</label>
+                <label>পাত্র-পাত্রীর <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (যেমন: খালিদ/সুমাইয়া, grrom-bride@gmail.com)</span></label>
               <input type="text" name="biodata_patropatri_10" value="" placeholder="নাম:,  ই-মেইল:" class="form-text">
             </div>
           </div>

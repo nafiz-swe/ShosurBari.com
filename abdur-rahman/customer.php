@@ -109,15 +109,6 @@ if (!isset($_SESSION['admin_id'])) {
     align-items: center;
     justify-content:center;
   }
-  .page-link{
-    color: #000;
-    padding: 8px 12px;
-    text-decoration: none;
-    font-size: 14px;
-    background-color: #eee;
-    border-radius: 50%;
-    margin: 0 3px;
-  }  
   .page-link:hover{
     background: #00c292;
     color: #fff;
@@ -149,12 +140,14 @@ if (!isset($_SESSION['admin_id'])) {
     width: 82px;
     margin-top: 5px;
     border-radius: 4px;
-    border: 1px solid #ccc;
     float: left;
     color: #fff;
     background: linear-gradient(#06b6d4, #0aa4ca);
-    font-size: 15px;
-    height: 28px;
+    font-size: 14px;
+    height: 30px;
+    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+    border: 1px solid rgba(0,0,0,.05);
+    line-height: 29px;
 }
   </style>';
   require_once("includes/dbconn.php");
@@ -176,12 +169,12 @@ if (!isset($_SESSION['admin_id'])) {
   echo '<div class="table-container">';
     echo "<h1>কাস্টমার ও পেমেন্ট</h1>";
     echo '<div class="table-wrapper">';
-      echo "<h3>Total number of user profiles: " . $userCount . "</h3>";
+      echo "<h3>মোট কাস্টমার: " . $userCount . "</h3>";
       echo '<div id="search-form">
       <form method="POST">
         <input type="text" id="search-user-id" name="search-user-id" placeholder="বায়োডাটা নং">
         <button class="search-admin" type="submit" name="search">Search</button>
-        <select style="margin-top: 20px; width: 200px;" name="search-criteria" id="search-criteria">
+        <select style="margin-top: 20px; width: 200px; margin-bottom: 5px;" name="search-criteria" id="search-criteria">
         <option>.....??</option>
         <option value="id_customer">রিকোয়েস্ট আইডি</option>
           <option value="cust_email">ই-মেইল</option>
@@ -193,10 +186,9 @@ if (!isset($_SESSION['admin_id'])) {
         <button class="search-clear-admin" type="submit" name="clear">Clear Search</button></br>
       </form>
       <form method="GET">
-        <label for="per-page" style="margin-top: 20px;">Profiles Show</label>
+        <label for="per-page" style="margin-top: 20px;">প্রতি পেজে কয়টি প্রোফাইল দেখতে চান</label>
         <select name="per_page" id="per-page" onchange="this.form.submit()">
-          <option value=""> </option>
-          <option value="10" ' . ($profilesPerPage == 10 ? 'selected' : '') . '>10</option>
+          <option value="">.....??</option>
           <option value="50" ' . ($profilesPerPage == 50 ? 'selected' : '') . '>50</option>
           <option value="100" ' . ($profilesPerPage == 100 ? 'selected' : '') . '>100</option>
           <option value="500" ' . ($profilesPerPage == 500 ? 'selected' : '') . '>500</option>
@@ -322,7 +314,7 @@ if (!isset($_SESSION['admin_id'])) {
       echo "<div class='pagination'>";
       if ($total_pages > 1) {
         if ($page > 1) {
-          echo "<a href='?page=" . ($page - 1) . "&per_page=$profilesPerPage' class='page-link'>Previous</a>";
+          echo "<a href='?page=" . ($page - 1) . "&per_page=$profilesPerPage' class='page-link'><i class='fa fa-angle-double-left'></i></a>";
         }
         for ($i = 1; $i <= $total_pages; $i++) {
           if ($i == 1 || $i == $total_pages || ($i >= $page - $pages_to_show && $i <= $page + $pages_to_show)) {
@@ -334,7 +326,7 @@ if (!isset($_SESSION['admin_id'])) {
           }
         }
         if ($page < $total_pages) {
-          echo "<a href='?page=" . ($page + 1) . "&per_page=$profilesPerPage' class='page-link'>Next</a>";
+          echo "<a href='?page=" . ($page + 1) . "&per_page=$profilesPerPage' class='page-link'><i class='fa fa-angle-double-right'></i></a>";
         }
       }
       echo "</div>";

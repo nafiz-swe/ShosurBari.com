@@ -236,9 +236,9 @@ $conn->close();
       <?php
       include("includes/dbconn.php");
       $id = isset($_SESSION['id']) ? $_SESSION['id'] : 0;
-      $sql = "SELECT * FROM customer WHERE user_id = $id";
+      $sql = "SELECT * FROM customer WHERE user_id = $id ORDER BY STR_TO_DATE(request_date, '%e %M %Y, %h:%i:%s %p') DESC";
       $result = mysqlexec($sql);
-      $sql2 = "SELECT * FROM customer_sent_info_complete WHERE user_id = $id";
+      $sql2 = "SELECT * FROM customer_sent_info_complete WHERE user_id = $id  ORDER BY STR_TO_DATE(info_sent_time, '%e %M %Y, %h:%i:%s %p') DESC";
       $result2 = mysqlexec($sql2);
       ?>
       <h1>রিকোয়েস্ট বায়োডাটা পেমেন্ট তথ্য </h1>
@@ -407,7 +407,7 @@ $conn->close();
             $biodata_guardian = ${"biodata_guardian_" . $i};
             $biodata_patropatri = ${"biodata_patropatri_" . $i};
             if (!empty($biodata_number) || !empty($biodata_guardian) || !empty($biodata_patropatri)) {
-              echo "<a class='biodata-button' target=\"_blank\" href=\"http://localhost:8000/profile.php?/Biodata=$biodata_number\">";
+              echo "<a class='biodata-button' target=\"_blank\" href=\"https://shosurbari.com/profile.php?/Biodata=$biodata_number\">";
               echo "<span style='color: #000;'>বায়োডাটা নং:  $biodata_number </span>";
               echo "<p style='color: #0aa4ca;'>অভিভাবক: $biodata_guardian</p>";
               echo "<span style='color: #000;'>পাত্র-পাত্রী: $biodata_patropatri</span>";

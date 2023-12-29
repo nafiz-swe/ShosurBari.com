@@ -41,7 +41,7 @@ html, body{
 }
 ::selection {
     color: #fff;
-    background: #0aa4ca;
+    background: #00c292;
 }
 #progress-bar {
     --progress: 0;
@@ -113,6 +113,25 @@ span.divider {
     padding: 0 5px;
     color: #ccc;
 }
+/* Pagination Start */
+.page-link {
+    transition: background-color 0.3s ease;
+    color: #000;
+    padding: 0;
+    text-decoration: none;
+    font-size: 14px;
+    background-color: #f1f1f1;
+    border-radius: 50%;
+    margin: 6px 3px 9px 3px;
+    text-align: center;
+    display: inline-block;
+    border: 1px solid #faf9fb;
+    width: 40px;
+    height: 40px;
+    line-height: 37px;
+    box-shadow: 0px 2px 5px -4px #0ea5e9;
+}
+/* Pagination End */
 /*Form Type Start*/
 .table-container,
 .sbbiodata_profile_recentview {
@@ -135,7 +154,7 @@ input[type=submit] {
     margin: 10px 0px;
     text-transform: uppercase;
     font-size: 18px;
-    line-height: 28px;
+    line-height: 42px;
     height: 40px;
     box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
     border: 1px solid rgba(0,0,0,.05);
@@ -182,7 +201,7 @@ label{
     margin-bottom: 2px;
     font-weight: 700;
     margin-top: 2px;
-    color: #0aa4ca;
+    color: #00c292;
     font-size: 15px;
 }
 label span {
@@ -191,7 +210,7 @@ label span {
     font-weight: bold;
 }
 .form-text-describe:focus{
-    border-color: #0aa4ca;
+    border-color: #00c292;
     outline: 0;
     box-shadow: none !important;
 }
@@ -212,8 +231,13 @@ label span {
     -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
-.form-control:focus, .form-text:focus, .form-textarea:focus, .form-select:focus{
-    border-color: #0aa4ca;
+.form-control:focus,
+.form-text:focus,
+.form-textarea:focus,
+.form-select:focus,
+#search-user-id:focus,
+#search-keyword:focus{
+    border-color: #079f79;
     outline: 0;
     box-shadow: none !important;
 }
@@ -276,7 +300,7 @@ input#submit-btn {
 }
 /* FORM SUBMIT BUTTON START */
 .btn_1{
-    background: linear-gradient(#06b6d4, #0aa4ca);
+    background: #00c292;
     border-radius: 4px;
     width: 100%;
     padding: 5px;
@@ -290,7 +314,7 @@ input#submit-btn {
     transition: background-color 0.3s, color 0.3s;
 }
 .btn_1:hover {
-    background: linear-gradient(#0aa4ca, #0acef1);
+    background: #079f79;
     color: #fff;
 }
 .form-actions p{
@@ -305,7 +329,7 @@ input#submit-btn {
 }
 .form-actions a:hover{
     background: none;
-    color: #0aa4ca;
+    color: #079f79;
 }
 /* FORM SUBMIT BUTTON END */
 .mx-min-wd {
@@ -359,7 +383,7 @@ input#submit-btn {
     cursor: pointer;
 }
 .form-group:hover .fa-eye {
-    color: #0aa4ca;
+    color: #079f79;
 }
 .form-group:hover .fa-eye:before {
     content: 'Show Password';
@@ -380,7 +404,7 @@ input#submit-btn {
     content: "";
     width: 100%;
     height: 1px;
-    background: #0aa4ca;
+    background: #00c292;
     left: 0;
     right: 0;
     top: 50%;
@@ -422,7 +446,7 @@ input#submit-btn {
 .remember-forgot a {
     font-size: 14px;
     white-space: nowrap;
-    color: #0aa4ca;
+    color: #00c292;
     font-weight: 400;
 }
 /*Remember Check Box End*/
@@ -442,8 +466,8 @@ input#submit-btn {
     margin-bottom: -3px;
 }
 #edit-remember:checked {
-    background-color: #0aa4ca;
-    border-color: #0aa4ca;
+    background-color: #00c292;
+    border-color: #00c292;
     color: #fff;
 }
 #edit-remember:checked::after {
@@ -521,8 +545,7 @@ input#submit-btn {
     color: #fff;
     font-size: 28px;
     width: 100%;
-    margin-top: 0px;
-    background: linear-gradient(#06b6d4, #0aa4ca);
+    margin-top: 12px;
     border-radius: 4px;
 }
 .flex-container{
@@ -651,7 +674,7 @@ fieldset {
 #biodataForm .action-button:hover,
 #biodataForm .biodata-submit:hover,
 input[type=submit]:hover {
-    background: linear-gradient(#0aa4ca, #0acef1);
+    background: #079f79;
     color: #fff;
 }
 #progressbar li:first-child:after {
@@ -673,10 +696,10 @@ input[type=submit]:hover {
 #search-user-id,
 #search-keyword,
 #search { /*admin page search input field design */
-    border: 2px solid #00c292;
+    border: 1px solid #00c292;
     border-radius: 3px;
     height: 40px;
-    font-size: 18px;
+    font-size: 16px;
     padding: 0 10px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
@@ -685,17 +708,17 @@ input[type=submit]:hover {
     width: 100%;
 }
 .search-admin{
-    border: 2px solid #00c292;
+    border: 1px solid #00c292;
     border-radius: 3px;
     height: 40px;
     font-size: 18px;
     padding: 0 10px;
-    margin-left: -10px;
+    margin-left: -6px;
     background: white;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .search-clear-admin{
-    border: 2px solid #00c292;
+    border: 1px solid #00c292;
     border-radius: 3px;
     height: 40px;
     font-size: 18px;
@@ -706,7 +729,7 @@ input[type=submit]:hover {
 }
 .search-admin:hover,
 .search-clear-admin:hover{
-    background: #00c292;
+    background: #079f79;
     color: white;
 }
 

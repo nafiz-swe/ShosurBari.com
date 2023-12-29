@@ -228,13 +228,13 @@
             $_SESSION['id'] = $sbo_id;
             // SMTP email sending code
             $to = $payment_cust_email;
-            $subject = "Guardian Contact Details";
+            $subject = "Contact Details";
             ob_start();
             include('BiodataInfoEmailBody-sent.php'); // Update with the actual file name
             $email_body = ob_get_clean();
             // Plain text version of the email body
             $plain_text_message = "
-            Guardian Contact Details
+            Contact Details
             আমাদের সাথে থাকার জন্য আপনাকে ধন্যবাদ! শ্বশুরবাড়ি ডট কম শুধুমাত্র দুইটি পরিবারের মধ্যে যোগাযোগের মাধ্যম হিসাবে পরিচালিত। নিচে বায়োডাটা নং এ ক্লিক করে দেখে নিতেন পারেন সম্পূর্ণ প্রফাইলটি।
             পেমেন্ট অর্ডার আইডি: $payment_order_id
             পেমেন্ট তারিখ: $payment_biodata_quantity
@@ -311,18 +311,18 @@
             if ($mail->send()) {
                 echo '<script>';
                 echo 'document.addEventListener("DOMContentLoaded", function() {';
-                echo 'showMessage("success", "Successfully Sent Email.!");';
+                echo 'showMessage("success", "Successfully Sent Email!");';
                 echo '});';
                 echo '</script>';
             } else {
                 echo '<script>';
                 echo 'document.addEventListener("DOMContentLoaded", function() {';
-                echo 'showMessage("error", "Oops.! Email Sent Failed");';
+                echo 'showMessage("error", "Oops! Email Sent Failed");';
                 echo '});';
                 echo '</script>';
             }
         } else {
-        echo "Error Found.! Email Sent Failed.";
+        echo "Error Found! Email Sent Failed.";
         }
         }
     }

@@ -1,5 +1,4 @@
 <?php
-// Include necessary files and initialize the session
 include_once("includes/basic_includes.php");
 include_once("functions.php");
 require_once("includes/dbconn.php");
