@@ -19,26 +19,49 @@
     --                S  T  A  R  T                  --
     --           New Admin Register Function         --
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-    function admin_register(){
+    function admin_register() {
         global $conn;
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $fullname = $_POST['fullname'];
-        $username = $_POST['username'];
-        $email = $_POST['email'];
-        $password = $_POST['password_1'];
-        // Hash the password before storing it in the database
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-        require_once("includes/dbconn.php");
-        $sql = "INSERT INTO admin 
-        (fullname, username, email, password, active, deactivated, register_date) 
-        VALUES ('$fullname', '$username', '$email', '$hashed_password', 1, 0, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
-        if (mysqli_query($conn, $sql)) {
-            $admin_id = mysqli_insert_id($conn);
-            $_SESSION['admin_id'] = $admin_id;
-            header("location: ../abdur-rahman/index.php?id=$admin_id");
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
+            $fullname = $_POST['fullname'];
+            $username = $_POST['username'];
+            $email = $_POST['email'];
+            $password_1 = $_POST['password_1'];
+            $password_2 = $_POST['password_2'];
+            // Check if passwords match
+            if ($password_1 !== $password_2) {
+                echo "Passwords do not match. Please enter matching passwords.";
+                return; // Exit the function if passwords don't match
+            }
+            // Hash the password before storing it in the database
+            $hashed_password = password_hash($password_1, PASSWORD_DEFAULT);
+            require_once("includes/dbconn.php");
+            // Check if the username is already taken
+            $username_check_sql = "SELECT COUNT(*) FROM admin WHERE username = '$username'";
+            $username_result = mysqli_query($conn, $username_check_sql);
+            $username_exists = mysqli_fetch_array($username_result)[0];
+            // Check if the email is already taken
+            $email_check_sql = "SELECT COUNT(*) FROM admin WHERE email = '$email'";
+            $email_result = mysqli_query($conn, $email_check_sql);
+            $email_exists = mysqli_fetch_array($email_result)[0];
+            if ($username_exists > 0) {
+                // Username already exists
+                echo "Username already exists. Choose a different username.";
+            } elseif ($email_exists > 0) {
+                // Email already exists
+                echo "Email already exists. Choose a different email.";
+            } else {
+                // Insert the new admin record
+                $sql = "INSERT INTO admin 
+                    (fullname, username, email, password, active, deactivated, register_date) 
+                    VALUES ('$fullname', '$username', '$email', '$hashed_password', 1, 0, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+                if (mysqli_query($conn, $sql)) {
+                    $admin_id = mysqli_insert_id($conn);
+                    $_SESSION['admin_id'] = $admin_id;
+                    header("location: ../abdur-rahman/index.php?id=$admin_id");
+                } else {
+                    echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+            }
         }
     }
     /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --

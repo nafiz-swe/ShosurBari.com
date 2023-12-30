@@ -139,7 +139,7 @@ $conn->close();
         margin: 25px auto 15px auto;
         border: 1px solid #ccc;
         border-radius: 3px;
-        padding: 2px 5px;
+        padding: 3px 10px;
         background: #4cafe809;
         display: flex;
     }
@@ -159,7 +159,7 @@ $conn->close();
         border: 1px solid #ccc;
         border-radius: 3px;
         background: white;
-        padding: 3px 5px;
+        padding: 3px;
         margin-right: 5px;
         margin-left: 5px;
     }
@@ -185,6 +185,10 @@ $conn->close();
     .shosurbari-userhome-status h3,
     .shosurbari-userhome-status h4 {
         text-align: left;
+    }
+    .sb-gender-label{
+        margin-right: 5px;
+        margin-left: 5px;
     }
     }
     </style>

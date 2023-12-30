@@ -201,7 +201,9 @@
             $gender = $_POST['gender'];
             $pnumber = $_POST['pnumber'];
             $email = $_POST['email'];
-            $hashed_password = hash('sha256', $_POST['pass_1']);
+            $pass_1 = $_POST['pass_1'];
+            // Hash the password before storing it in the database
+            $hashed_password = password_hash($pass_1, PASSWORD_DEFAULT);
             require_once("includes/dbconn.php");
             $email_check_sql = "SELECT COUNT(*) FROM users WHERE email = '$email'";
             $username_check_sql = "SELECT COUNT(*) FROM users WHERE username = '$uname'";
@@ -306,8 +308,9 @@
     // Password updated From User Account
     function updateAccount($userId, $newPassword, $newFullName, $newGender) {
         require_once("includes/dbconn.php");
-        $hashedPassword = hash('sha256', $newPassword);
-        $update_query = "UPDATE users SET password = '$hashedPassword', fullname = '$newFullName', gender = '$newGender' WHERE id = $userId";
+        $hashed_password = password_hash($newPassword, PASSWORD_DEFAULT);
+
+        $update_query = "UPDATE users SET password = '$hashed_password', fullname = '$newFullName', gender = '$newGender' WHERE id = $userId";
         $update_result = mysqli_query($conn, $update_query);
         if ($update_result) {
             return true; // Account updated successfully

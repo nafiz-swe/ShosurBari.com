@@ -8,7 +8,7 @@ if (isset($_SESSION['id'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Generate Password | ShosurBari</title>
+<title>New Password | ShosurBari</title>
 <link rel="icon" href="images/shosurbari-icon.png" type="image/png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -120,45 +120,9 @@ if (isset($_SESSION['id'])) {
     <div class="popup-content">
       <p id="popup-message"></p>
       <div id="countdown">Please Wait <span id="countdown-value">15</span> seconds...</div>
+      <button id="close-button">ঠিক আছে</button>
     </div>
   </div>
-  <?php
-  include('includes/dbconn.php');
-  $email = "";
-  $popupMessage = "";
-  if ($_SERVER['REQUEST_METHOD'] == "POST") {
-  $newPassword = $_POST['new_password'];
-  $confirmPassword = $_POST['confirm_password'];
-  $email = $_POST['email'];
-  if ($newPassword === $confirmPassword) {
-  $hashedPassword = hash('sha256', $newPassword);
-  $sql = "UPDATE users SET password = '$hashedPassword' WHERE email = '$email'";
-  $result = mysqli_query($conn, $sql);
-  if ($result) {
-  $sql_login = "SELECT * FROM users WHERE email = '$email'";
-  $result_login = mysqli_query($conn, $sql_login);
-  if ($result_login && mysqli_num_rows($result_login) == 1) {
-  $row_login = mysqli_fetch_assoc($result_login);
-  $popupMessage = "ওয়াও! পাসওয়ার্ড সফলভাবে আপডেট হয়েছে৷ লগইন পেজ থেকে আপনার একাউন্ট লগইন করুন৷";
-  echo "<script>showPopup('$popupMessage', 15);</script>"; // Countdown duration is 5 seconds
-  echo '<meta http-equiv="refresh" content="15; url=login.php">'; // Redirect after 5 seconds
-  exit();
-  } else {
-  $popupMessage = " দুঃখিত! ই-মেইলটি রেজিস্টারকৃত ই-মেইল না, অনুগ্রহ করে রেজিস্টারকৃত ই-মেইল প্রবেশ করুন।";
-  echo "<script>showPopup('$popupMessage', 15);</script>"; // Countdown duration is 5 seconds
-  }
-  } else {
-  $popupMessage = "উফ দুঃখিত! পাসওয়ার্ড আপডেট করার সময় একটি ত্রুটি ছিল৷ অনুগ্রহ করে আবার চেষ্টা করুন।" . mysqli_error($conn);
-  echo "<script>showPopup('$popupMessage', 15);</script>"; // Countdown duration is 5 seconds
-  }
-  } else {
-  $popupMessage = "উফ দুঃখিত! নিউ পাসওয়ার্ড এবং কনফার্ম পাসওয়ার্ড মিলছে না।";
-  echo "<script>showPopup('$popupMessage', 15);</script>"; // Countdown duration is 5 seconds
-  }
-  // Output the popup message with error
-  echo "<script>showPopup('$popupMessage');</script>";
-  }
-  ?>
   <script>
     // Function to show the popup with a message
     function showPopup(message, countdownDuration) {
@@ -169,25 +133,64 @@ if (isset($_SESSION['id'])) {
       popupMessage.innerHTML = message;
       popup.style.display = "block";
       if (countdownDuration) {
-      var countdown = countdownDuration;
-      countdownValue.textContent = countdown;
-      var countdownInterval = setInterval(function () {
-      countdown--;
-      countdownValue.textContent = countdown;
-      if (countdown <= 0) {
-      clearInterval(countdownInterval);
-      popup.style.display = "none";
-      // Redirect logic here
-      }
-      }, 1000);
+        var countdown = countdownDuration;
+        countdownValue.textContent = countdown;
+        var countdownInterval = setInterval(function () {
+          countdown--;
+          countdownValue.textContent = countdown;
+          if (countdown <= 0) {
+            clearInterval(countdownInterval);
+            popup.style.display = "none";
+            // Redirect logic here
+          }
+        }, 1000);
       }
       closeButton.addEventListener("click", function () {
-      if (countdownInterval) {
-      clearInterval(countdownInterval);
-      }
-      popup.style.display = "none";
+        if (countdownInterval) {
+          clearInterval(countdownInterval);
+        }
+        popup.style.display = "none";
       });
     }
+  </script>
+  <?php
+    include('includes/dbconn.php');
+    $email = "";
+    $popupMessage = "";
+    if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    $email = $_POST['email'];
+    $newPassword = $_POST['new_password'];
+    $confirmPassword = $_POST['confirm_password'];
+    if ($newPassword === $confirmPassword) {
+    // Hash the password securely
+    $hashed_password = password_hash($newPassword, PASSWORD_DEFAULT);
+    $sql = "UPDATE users SET password = ? WHERE email = ?";
+    $stmt = $conn->prepare($sql);
+    if ($stmt) {
+    $stmt->bind_param("ss", $hashed_password, $email);
+    $stmt->execute();
+    if ($stmt->affected_rows > 0) {
+    $popupMessage = "ওয়াও! পাসওয়ার্ড সফলভাবে আপডেট হয়েছে৷ লগইন পেজ থেকে আপনার একাউন্ট লগইন করুন৷";
+    echo "<script>showPopup('$popupMessage', 15);</script>";
+    echo '<meta http-equiv="refresh" content="15; url=login.php">';
+    exit();
+    } else {
+    $popupMessage = "উফ দুঃখিত! ই-মেইলটি রেজিস্টারকৃত ই-মেইল না, অনুগ্রহ করে রেজিস্টারকৃত ই-মেইল দিয়ে আবার চেষ্টা করুন।";
+    echo "<script>showPopup('$popupMessage', 15);</script>";
+    }
+    } else {
+    $popupMessage = "উফ দুঃখিত! পাসওয়ার্ড আপডেট করার সময় একটি ত্রুটি ছিল৷ অনুগ্রহ করে আবার চেষ্টা করুন।" . mysqli_error($conn);
+    echo "<script>showPopup('$popupMessage', 15);</script>";
+    }
+    } else {
+    $popupMessage = "উফ দুঃখিত! নিউ পাসওয়ার্ড এবং কনফার্ম পাসওয়ার্ড মিলছে না।";
+    echo "<script>showPopup('$popupMessage', 15);</script>";
+    }
+    // Output the popup message with error
+    echo "<script>showPopup('$popupMessage');</script>";
+    }
+  ?>
+  <script>
     // Password Slash
     let showPass = document.querySelectorAll('.show-password');
     showPass.forEach(function(el) {
@@ -219,15 +222,15 @@ if (isset($_SESSION['id'])) {
     }
     // Password validation
     if (pass_1.trim() === "") {
-      displayError('pass_1', 'Please Enter Your New Password !', 'red');
+      displayError('pass_1', 'Please Enter Your New Password!', 'red');
       return false;
     }
     // Confirm Password validation
     if (pass_2.trim() === "") {
-      displayError('pass_2', 'Please Enter Your Confirm Password !', 'red');
+      displayError('pass_2', 'Please Enter Your Confirm Password!', 'red');
       return false;
     } else if (pass_2 !== pass_1) {
-      displayError('pass_2', 'Your Passwords Do Not Match !', 'red');
+      displayError('pass_2', 'Your Passwords Do Not Match!', 'red');
       return false;
     }
     return true;

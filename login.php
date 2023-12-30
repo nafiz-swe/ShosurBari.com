@@ -129,11 +129,11 @@ if (isset($_SESSION['id'])) {
               <h2>Login your account</h2>
             </div>
             <div class="form-group">
-              <input type="text" id="username_email" placeholder="Your Email or Username" name="username" value="" size="60" maxlength="60" class="form-text required">
+              <input type="text" id="username_email" placeholder="Email or Username" name="username" value="" size="60" maxlength="60" class="form-text required">
               <span id="uname_email_error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
             </div>
             <div class="form-group">
-              <input type="password" id="sb_log_pass" placeholder="Your Password" name="password" value="" size="60" maxlength="128" class="form-text required">
+              <input type="password" id="sb_log_pass" placeholder="Password" name="password" value="" size="60" maxlength="128" class="form-text required">
               <span class="show-password" style="color:#0aa4ca;  font-size:15px; top: 2px;"><i style="color:black;  font-size:15px;" class="fa fa-eye" aria-hidden="true"></i></span> 
               <span id="password_error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
             </div>
