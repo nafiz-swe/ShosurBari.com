@@ -615,10 +615,9 @@ ul.nav_1 li.last{
     margin-top: 20px;
     width:  210px;
 }
-.shosurbari-userhome-status h3,
-.shosurbari-userhome-status h4{
+.shosurbari-userhome-status p{
    font-size: 17px;
-   font-weight: 450;
+   margin-bottom: 10px;
 }
 .shosurbari-userhome-status form {
     border: 1px solid #ccc;
@@ -1102,8 +1101,7 @@ section::before {
 /*Home Featured Profiles Start*/
 .sb-featured-profiles {
     width: 100%;
-    margin: 100px auto 70px auto;
-    padding-bottom: 30px;
+    margin: 120px auto;
     padding-top: 50px;
 }
 .sb-home-search {
@@ -4836,8 +4834,11 @@ label{
         top: 60px;
         left: 50px;
     }
-    .sb-featured-profiles{
-        margin: 70px auto;
+    .sb-featured-profiles {
+        margin: 100px auto;
+    }
+    .sb-home-search {
+        margin-top: 15px;
     }
     .testi_grid .testi_grid_blockquote{
         padding: 0px;
@@ -4892,12 +4893,11 @@ label{
     .shosurbari-sidebar .dropdown{
         margin: 5px;
     }
-    .shosurbari-userhome-status h3, .shosurbari-userhome-status h4 {
-        text-align: left;
-    }
     .shosurbari-faq {
         width: 80%;
-        margin: auto;
+    }
+    .sbhome-heart-divider {
+        margin-top: 15px;
     }
     .biodatarecent_viewlist {
         width: 45%;

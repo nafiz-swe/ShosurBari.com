@@ -30,8 +30,8 @@
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
         require_once("includes/dbconn.php");
         $sql = "INSERT INTO admin 
-        (fullname, username, email, password, active) 
-        VALUES ('$fullname', '$username', '$email', '$hashed_password', 1)";
+        (fullname, username, email, password, active, deactivated, register_date) 
+        VALUES ('$fullname', '$username', '$email', '$hashed_password', 1, 0, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
         if (mysqli_query($conn, $sql)) {
             $admin_id = mysqli_insert_id($conn);
             $_SESSION['admin_id'] = $admin_id;

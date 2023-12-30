@@ -78,9 +78,10 @@ if (!isset($_SESSION['admin_id'])) {
             <h2>কাস্টমারকে বায়োডাটার তথ্য প্রদান</h2>
           </div>
           <div class="sb-biodata-info-sent">
+            <h2>কাস্টমার তথ্য</h2>
             <div class="shosurbari-biodata-field">
-              <label for="edit-name">রিকোয়েস্ট আইডি<span class="form-required" title="This field is required.">*</span></label>
-              <input type="text" name="payment_order_id" value="SB" class="form-text" required>
+              <label for="edit-name">রিকোয়েস্ট আইডি<span class="form-required" title="This field is required.">*</span> <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (SBBR: ShosurBari Biodata Request)</span> </label>
+              <input type="text" name="payment_order_id" value="SBBR" class="form-text" required>
             </div>
             <div class="shosurbari-biodata-field">
               <label for="edit-name">রেজিস্টার ইউজার/বায়োডাটা নং<span class="form-required" title="This field is required.">***</span> <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (কাস্টমার পেজের "রেজিস্টার ইউজার/বায়োডাটা নং" কলামে যেই নাম্বার থাকবে সেই নাম্বার লিখতে হবে। যদি "0" থাকে তাহলে বুঝে নিতে হবে এই কাস্টমার রেজিস্টার ইউজার না। সেক্ষেত্রেও এই অপশনে "0" লিখতে হবে। যাদের "0" থাকবে না তখন বুঝে নিতে হবে আমাদের ওয়েবসাইট এই কাস্টোমারের একটি একাউন্ট আছে এবং সেই নাম্বারটি হচ্ছে বায়োডাটা নাম্বার। সেক্ষেত্রে এই অপশনে "বায়োডাটা নাম্বারটি" লিখতে হবে, তাহলে সেই ইউজার তার একাউন্ট থেকেও এই তথ্য গুলো দেখতে পাবে।)</span></label>

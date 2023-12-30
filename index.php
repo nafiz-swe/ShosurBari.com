@@ -220,7 +220,7 @@
     height: auto;
     padding: 40px 42px;
     width: 550px;
-    margin-top: -100px;
+    margin-top: 150px;
   }
   .droop-down h2 {
     margin: 0px auto 20px auto;
@@ -265,7 +265,7 @@
     line-height: 32px;
   }
   .droop-down{
-    margin-top: 30px;
+    margin-top: -30px;
   }
   }
   /* Max Width 600px  */

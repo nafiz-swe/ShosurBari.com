@@ -176,7 +176,7 @@ if (!isset($_SESSION['admin_id'])) {
         <button class="search-admin" type="submit" name="search">Search</button>
         <select style="margin-top: 20px; width: 200px; margin-bottom: 5px;" name="search-criteria" id="search-criteria">
         <option>.....??</option>
-        <option value="id_customer">রিকোয়েস্ট আইডি</option>
+        <option value="id_customer">রিকোয়েস্ট আইডি (SBBR)</option>
           <option value="cust_email">ই-মেইল</option>
           <option value="cust_name">নাম</option>
           <option value="cust_number">ফোন নাম্বার</option>
@@ -223,7 +223,7 @@ if (!isset($_SESSION['admin_id'])) {
       if (mysqli_num_rows($result) > 0) {
         echo "<table>";
         echo '<tr>
-          <th>রিকোয়েস্ট আইডি</th>
+          <th>রিকোয়েস্ট আইডি (SBBR)</th>
           <th>রেজিস্টার ইউজার /</br> বায়োডাটা নং</th>
           <th>কাস্টমার নাম</th>
           <th>কাস্টমার মোবাইল নাম্বার</th>

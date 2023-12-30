@@ -72,6 +72,10 @@ if ($result && mysqli_num_rows($result) > 0) {
         background-color: #4cafe809;
         border-radius: 4px;
         margin-top: -5px;
+    }
+    .shosurbari-biodata-field a, a {
+        font-size: 16px;
+        color: #0aa4ca;
     } 
     p {
         display: block;
@@ -94,24 +98,10 @@ if ($result && mysqli_num_rows($result) > 0) {
         margin-bottom: 0px;
         text-align: left;
     }
-    .content p span{
-        font-size: 10px;
-        color: #000;
-    }
-    .content span{
-        text-decoration: none;
-        color: #0aa4ca;
-        font-size: 12px;
-    }
     .ii a[href] {
         text-decoration: none;
         color: #0aa4ca;
-        font-size: 12px;
-    }
-    span a {
-        text-decoration: none;
-        color: black;
-        font-size: 12px;
+        font-size: 16px;
     }
     h2 {
         margin-top: 0px;
@@ -178,7 +168,7 @@ if ($result && mysqli_num_rows($result) > 0) {
         <div class='content'>
             <h3>আমাদের সাথে থাকার জন্য আপনাকে ধন্যবাদ! শ্বশুরবাড়ি ডট কম শুধুমাত্র দুইটি পরিবারের মধ্যে যোগাযোগের মাধ্যম হিসাবে পরিচালিত। নিচে বায়োডাটা নং এ ক্লিক করে দেখে নিতেন পারেন সম্পূর্ণ প্রফাইলটি।</h3>
             <div class="sb-reg-info">
-                <h2>রিসিভ আইডি: <?php echo "SB$sbo_id";?></h2>
+                <h2>রিসিভ আইডি: <?php echo "SBCR$sbo_id";?></h2>
                 <div class="sb-biodata" id="religionDetails">
                     <div class="sb-biodata-info-sent">
                         <div class="shosurbari-biodata-field">

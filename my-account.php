@@ -177,16 +177,16 @@ $conn->close();
   <div class="shosurbari-sidebar">
     <div class="leftarea-sidebar">
       <div class="shosurbari-userhome-status">
-        <h3><?php echo "Welcome: $username"; ?></h3>
+        <p><?php echo "Welcome: $username"; ?></p>
         <!-- Display the account status -->
-        <h4 >Account Status:
+        <p >Account Status:
             <?php if ($deactivated == 0) {
             echo '<span style="color: green;">Active</span>';
             } else {
             echo '<span style="color: red;">Deactivate</span>';
             }
             ?>
-        </h4>
+        </p>
         <form action="deactivate_account.php" method="post">
           <?php if ($deactivated == 1) { ?>
           <button type="submit" name="action" value="activate">Activation</button>
@@ -286,7 +286,7 @@ $conn->close();
               echo "background: linear-gradient(#06b6d4, #0aa4ca);'>Unknown";
               }
               echo "</td>";
-              echo "<td>SB$id_customer</td>";
+              echo "<td>SBBR$id_customer</td>";
               echo "<td>$cust_email</td>";
               echo "<td>$cust_number</td>";
               echo "<td>$payment_method</td>";
@@ -396,7 +396,7 @@ $conn->close();
             $biodata_guardian_10 = $row2['biodata_guardian_10'];
             $biodata_patropatri_10 = $row2['biodata_patropatri_10'];
             echo "<tr>";
-            echo "<td style='background: #22c55e; color: #fff;'>SB$id</td>";
+            echo "<td style='background: #22c55e; color: #fff;'>SBCR$id</td>";
             echo "<td>$payment_order_id</td>";
             echo "<td>$payment_biodata_quantity</td>";
             echo "<td>$cust_payment_date</td>";
@@ -421,7 +421,7 @@ $conn->close();
           ?>
         </table>
       </div>
-      <p><i id="bell" class="fa fa-bell"></i> যেকোনো প্রয়োজনে আমাদের সাথে যোগাযোগ করতে <a href="contact-us.php" target="_blank"> Contact</a> পেজ অনুসরণ করুন। অথবা আমাদের <a href="https://www.facebook.com/ShosurBari.bd" target="_blank"> FaceBook</a> পেজ ফলো করুন।</p>
+      <p><i id="bell" class="fa fa-bell"></i> যেকোনো প্রয়োজনে আমাদের সাথে যোগাযোগ করতে <a href="contact-us.php" target="_blank"> Contact</a> পেজ অনুসরণ করুন। অথবা আমাদের <a href="https://www.facebook.com/ShosurBari.bd" target="_blank"> FaceBook</a> পেজ ফলো করে সাথেই থাকুন</p>
     </div>
   </div>
 	<!--=======================================

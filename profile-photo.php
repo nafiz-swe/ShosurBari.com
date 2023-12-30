@@ -201,15 +201,15 @@
     <div class="shosurbari-sidebar">
         <div class="leftarea-sidebar">
             <div class="shosurbari-userhome-status">
-                <h3><?php echo "Welcome: $username"; ?></h3>
-                <h4 >Account Status:
+                <p><?php echo "Welcome: $username"; ?></p>
+                <p >Account Status:
                     <?php if ($deactivated == 0) {
                     echo '<span style="color: green;">Active</span>';
                     } else {
                     echo '<span style="color: red;">Deactivate</span>';
                     }
                     ?>
-                </h4>
+                </p>
                 <form action="deactivate_account.php" method="post">
                     <?php if ($deactivated == 1) { ?>
                     <button type="submit" name="action" value="activate">Activation</button>
