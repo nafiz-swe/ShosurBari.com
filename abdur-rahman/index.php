@@ -20,6 +20,70 @@ if (!isset($_SESSION['admin_id'])) {
     <?php include("admin_navigation.php"); ?>
     <!-- ========================================= -->
     <style>
+    .sb-admin-info{
+        margin: auto;
+        overflow-y: hidden;
+        background: #fff;
+    }
+    .recent-post-wrapper {
+        margin: auto;
+        overflow-y: hidden;
+    }
+    .sb-admin-title{
+        text-align: left;
+        font-size: 20px;
+        color: #333;
+        margin: 0px auto 0px auto;
+        background: #fff;
+    }
+   .recent-post-title h2,
+   .realtime-title h2 {
+        color: #fff;
+        background: #00c292;
+        text-align: left;
+        font-size: 25px;
+        margin: 0px auto 0px auto;
+        padding: 20px;
+        padding-bottom: 10px;
+        padding: 10px;
+    }
+    .realtime-ctn {
+        color: #fff;
+        background: #00c292;
+        text-align: left;
+        font-size: 25px;
+        margin: 0px auto 0px auto;
+        padding: 20px;
+        padding-bottom: 10px;
+        padding: 10px;
+    }
+    .sb-all-page-view {
+        text-align: left;
+        font-size: 25px;
+        margin: 0px auto 0px auto;
+        padding: 20px;
+        padding-bottom: 10px;
+        color: #fff;
+        padding: 10px;
+    }
+
+    table {
+    border: none;
+    margin: auto;
+    text-align: center;
+    width: auto;
+    min-width: 500px;
+    max-height: 400px;
+    overflow-y: scroll; /* Always show scrollbar */
+}
+
+tbody {
+    display: block;
+    overflow-y: scroll;
+    max-height: inherit;
+}
+
+
     th{
         background: #00c292;
         color: #fff;
@@ -27,8 +91,8 @@ if (!isset($_SESSION['admin_id'])) {
         text-align: center;
     }
     td{
-        border: 1px solid #00c292;
-        padding: 4px;
+        border: 1px solid #ccc;
+        padding: 6px;
     }
     .row .col-lg-4 {
         margin-bottom: 30px;
@@ -46,12 +110,10 @@ if (!isset($_SESSION['admin_id'])) {
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <div class="recent-post-title">
+                        <h2 class='sb-all-page-view'>Web Visitors Page View</h2>
+                    </div>
                     <div class="recent-post-wrapper notika-shadow sm-res-mg-t-30 tb-res-ds-n dk-res-ds">
-                        <div class="recent-post-ctn">
-                            <div class="recent-post-title">
-                                <h2>All Page Views</h2>
-                            </div>
-                        </div>
                         <?php
                             require_once("includes/dbconn.php");
                             $totalViewCount = 0;
@@ -282,18 +344,19 @@ if (!isset($_SESSION['admin_id'])) {
                             }
                             // Call the function to get the request_date for the last customer ID
                             $lastRequestDate = getRequestDateForLastCustomerId($conn);
+                            // Your existing code for displaying admins
+                            $admins_query = "SELECT * FROM admin";
+                            $admins_result = mysqli_query($conn, $admins_query);
                             // Last Time Show, Sale Biodata END
                             $conn->close(); 
                         ?>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <div class="recent-post-title">
+                        <h2 class="sb-all-page-view">Realtime Visitors</h2>
+                    </div>
                     <div class="realtime-wrap notika-shadow mg-t-30">
-                        <div class="realtime-ctn">
-                            <div class="realtime-title">
-                                <h2>Realtime Visitors</h2>
-                            </div>
-                        </div>
                         <div class="realtime-visitor-ctn">
                             <div class="realtime-vst-sg">
                                 <h4><span class="counter"><?php echo $last_1_hour_count; ?></span></h4>
@@ -307,107 +370,48 @@ if (!isset($_SESSION['admin_id'])) {
                         <div class="realtime-map">
                             <div class="vectorjsmarp" id="world-map"></div>
                         </div>
-                        <div class="realtime-country-ctn realtime-ltd-mg">
-                            <h5>September 4, 21:44:02 (2 Mins 56 Seconds)</h5>
-                            <div class="realtime-ctn-bw">
-                                <div class="realtime-ctn-st">
-                                    <span><img src="img/country/1.png" alt="" /></span> <span>United States</span>
-                                </div>
-                                <div class="realtime-bw">
-                                    <span>Firefox</span>
-                                </div>
-                                <div class="realtime-bw">
-                                    <span>Mac OSX</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="realtime-country-ctn">
-                            <h5>September 7, 20:44:02 (5 Mins 56 Seconds)</h5>
-                            <div class="realtime-ctn-bw">
-                                <div class="realtime-ctn-st">
-                                    <span><img src="img/country/2.png" alt="" /></span> <span>Australia</span>
-                                </div>
-                                <div class="realtime-bw">
-                                    <span>Firefox</span>
-                                </div>
-                                <div class="realtime-bw">
-                                    <span>Mac OSX</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="realtime-country-ctn">
-                            <h5>September 9, 19:44:02 (10 Mins 56 Seconds)</h5>
-                            <div class="realtime-ctn-bw">
-                                <div class="realtime-ctn-st">
-                                    <span><img src="img/country/3.png" alt="" /></span> <span>Brazil</span>
-                                </div>
-                                <div class="realtime-bw">
-                                    <span>Firefox</span>
-                                </div>
-                                <div class="realtime-bw">
-                                    <span>Mac OSX</span>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
+
+
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <div class="recent-post-title">
+                        <h2 class="sb-all-page-view">Admins</h2>
+                    </div>
                     <div class="email-statis-inner notika-shadow">
-                        <div class="email-ctn-round">
-                            <div class="email-rdn-hd">
-								<h2>Email Statistics</h2>
-							</div>
-                            <div class="email-statis-wrap">
-                                <div class="email-round-nock">
-                                    <input type="text" class="knob" value="0" data-rel="55" data-linecap="round" data-width="130" data-bgcolor="#E4E4E4" data-fgcolor="#00c292" data-thickness=".10" data-readonly="true">
-                                </div>
-                                <div class="email-ctn-nock">
-                                    <p>Total Emails Sent</p>
-                                </div>
-                            </div>
-                            <div class="email-round-gp">
-                                <div class="email-round-pro">
-                                    <div class="email-signle-gp">
-                                        <input type="text" class="knob" value="0" data-rel="75" data-linecap="round" data-width="90" data-bgcolor="#E4E4E4" data-fgcolor="#00c292" data-thickness=".10" data-readonly="true" disabled>
-                                    </div>
-                                    <div class="email-ctn-nock">
-                                        <p>Bounce Rate</p>
-                                    </div>
-                                </div>
-                                <div class="email-round-pro">
-                                    <div class="email-signle-gp">
-                                        <input type="text" class="knob" value="0" data-rel="35" data-linecap="round" data-width="90" data-bgcolor="#E4E4E4" data-fgcolor="#00c292" data-thickness=".10" data-readonly="true" disabled>
-                                    </div>
-                                    <div class="email-ctn-nock">
-                                        <p>Total Opened</p>
-                                    </div>
-                                </div>
-                                <div class="email-round-pro sm-res-ds-n lg-res-mg-bl">
-                                    <div class="email-signle-gp">
-                                        <input type="text" class="knob" value="0" data-rel="45" data-linecap="round" data-width="90" data-bgcolor="#E4E4E4" data-fgcolor="#00c292" data-thickness=".10" data-readonly="true" disabled>
-                                    </div>
-                                    <div class="email-ctn-nock">
-                                        <p>Total Ignored</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="statistic-right-area notika-shadow mg-tb-30 sm-res-mg-t-0">
-                            <div class="past-day-statis">
-                                <h2>For The All Page Total Views</h2>
-                            </div>
-                            <div class="past-statistic-an">
-                                <div class="past-statistic-ctn">
-                                    <h3><span class="counter"><?php echo $totalViewCount; ?></span></h3>
-                                    <p>Total Page Views</p>
-                                </div>
-                                <div class="past-statistic-graph">
-                                    <div class="stats-bar"></div>
-                                </div>
-                            </div>
-                        </div>
+                    <?php
+if ($admins_result) {
+    echo "<div class='sb-admin-info'>";
+    echo "<table border='1'>";
+    echo "<tr><th>Full Name</th><th>Username</th><th>Email</th><th>Register Date</th><th>Last Login</th><th>Status</th><th>Action</th></tr>";
+
+    while ($admin_row = mysqli_fetch_assoc($admins_result)) {
+        $admin_id = $admin_row['admin_id'];
+        $fullname = $admin_row['fullname'];
+        $username = $admin_row['username'];
+        $email = $admin_row['email'];
+        $register_date = $admin_row['register_date'];
+        $last_login = $admin_row['last_login'];
+        $status = $admin_row['active']; // Assuming 'active' is the column name for the active/deactivate status
+    
+        // Set the background color based on the status
+        $bgColor = ($status == '1') ? '' : '#ff0080';
+    
+        echo "<tr style='background-color: $bgColor;'><td>$fullname</td><td>$username</td><td>$email</td><td>$register_date</td><td>$last_login</td><td id='status_$admin_id'>$status</td>";
+        echo "<td><button onclick='confirmToggleStatus($admin_id)'>A/D</button></td></tr>";
+    }
+    
+
+    echo "</table>";
+    echo "</div>";
+
+}
+?>
+
                     </div>
                 </div>
+                
+
             </div>
         </div>
     </div>
@@ -731,6 +735,32 @@ if (!isset($_SESSION['admin_id'])) {
             </div>
         </div>
     </div>
+    <script>
+function confirmToggleStatus(adminId) {
+    var statusElement = document.getElementById('status_' + adminId);
+    var currentStatus = statusElement.textContent.trim();
+
+    // Calculate the new status
+    var newStatus = (currentStatus == '1') ? '0' : '1';
+
+    // Show a confirmation dialog
+    var confirmMessage = (currentStatus == '1') ? "Are you sure you want to deactivate this account?" : "Are you sure you want to activate this account?";
+    var userConfirmed = confirm(confirmMessage);
+
+    if (userConfirmed) {
+        // Send an asynchronous request to update the status
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // Update the displayed status dynamically
+                statusElement.textContent = newStatus;
+            }
+        };
+        xhttp.open('GET', 'admin_status.php?admin_id=' + adminId + '&new_status=' + newStatus, true);
+        xhttp.send();
+    }
+}
+</script>
     <!-- End Sale Statistic area-->
     <!-- ===== Admin Panel Footer Area ===== -->
     <?php include("admin_footer.php"); ?>

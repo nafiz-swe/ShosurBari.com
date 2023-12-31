@@ -21,81 +21,121 @@
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
     function admin_register() {
         global $conn;
+    
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $fullname = $_POST['fullname'];
             $username = $_POST['username'];
             $email = $_POST['email'];
             $password_1 = $_POST['password_1'];
             $password_2 = $_POST['password_2'];
+    
             // Check if passwords match
             if ($password_1 !== $password_2) {
                 echo "Passwords do not match. Please enter matching passwords.";
                 return; // Exit the function if passwords don't match
             }
+    
             // Hash the password before storing it in the database
             $hashed_password = password_hash($password_1, PASSWORD_DEFAULT);
+    
             require_once("includes/dbconn.php");
+    
+            // Use prepared statements to prevent SQL injection
+            $stmt = $conn->prepare("SELECT COUNT(*) FROM admin WHERE username = ?");
+            $stmt->bind_param("s", $username);
+            $stmt->execute();
+            $stmt->bind_result($username_exists);
+            $stmt->fetch();
+            $stmt->close();
+    
             // Check if the username is already taken
-            $username_check_sql = "SELECT COUNT(*) FROM admin WHERE username = '$username'";
-            $username_result = mysqli_query($conn, $username_check_sql);
-            $username_exists = mysqli_fetch_array($username_result)[0];
-            // Check if the email is already taken
-            $email_check_sql = "SELECT COUNT(*) FROM admin WHERE email = '$email'";
-            $email_result = mysqli_query($conn, $email_check_sql);
-            $email_exists = mysqli_fetch_array($email_result)[0];
             if ($username_exists > 0) {
-                // Username already exists
                 echo "Username already exists. Choose a different username.";
-            } elseif ($email_exists > 0) {
-                // Email already exists
-                echo "Email already exists. Choose a different email.";
             } else {
-                // Insert the new admin record
-                $sql = "INSERT INTO admin 
-                    (fullname, username, email, password, active, deactivated, register_date) 
-                    VALUES ('$fullname', '$username', '$email', '$hashed_password', 1, 0, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
-                if (mysqli_query($conn, $sql)) {
-                    $admin_id = mysqli_insert_id($conn);
-                    $_SESSION['admin_id'] = $admin_id;
-                    header("location: ../abdur-rahman/index.php?id=$admin_id");
+                // Use prepared statements to prevent SQL injection
+                $stmt = $conn->prepare("SELECT COUNT(*) FROM admin WHERE email = ?");
+                $stmt->bind_param("s", $email);
+                $stmt->execute();
+                $stmt->bind_result($email_exists);
+                $stmt->fetch();
+                $stmt->close();
+    
+                // Check if the email is already taken
+                if ($email_exists > 0) {
+                    echo "Email already exists. Choose a different email.";
                 } else {
-                    echo "Error: " . $sql . "<br>" . $conn->error;
+                    // Insert the new admin record using prepared statements
+                    $stmt = $conn->prepare("INSERT INTO admin 
+                        (fullname, username, email, password, active, deactivated, register_date, last_login) 
+                        VALUES (?, ?, ?, ?, 1, 0, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'), DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))");
+                    $stmt->bind_param("ssss", $fullname, $username, $email, $hashed_password);
+    
+                    if ($stmt->execute()) {
+                        $admin_id = $stmt->insert_id;
+                        $_SESSION['admin_id'] = $admin_id;
+                        header("location: ../abdur-rahman/index.php?id=$admin_id");
+                    } else {
+                        echo "Error: " . $stmt->error;
+                    }
+    
+                    $stmt->close();
                 }
             }
         }
     }
+    
     /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
     --                S  T  A  R  T                  --
     --            Admin Login Function               --
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-    function admin_login(){
-    global $conn;
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        // Retrieve the hashed password from the database
-        $sql = "SELECT admin_id, password FROM admin WHERE (username = ? OR email = ?)";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ss", $username, $username);
-        $stmt->execute();
-        $stmt->store_result();
-        if ($stmt->num_rows > 0) {
-        $stmt->bind_result($admin_id, $stored_password);
-        $stmt->fetch();
-        // Verify the hashed input password with the stored hashed password
-        if (password_verify($password, $stored_password)) {
-        $_SESSION['admin_id'] = $admin_id;
-        // Redirect the user to the userhome.php page with the user ID as a parameter in the URL
-        header("location: ../abdur-rahman/index.php?id=$admin_id");
-        } else {
-        echo "Invalid password";
-        }
-        } else {
-        echo "Invalid username or email";
-        }
-        $stmt->close();
+    function admin_login() {
+        global $conn;
+    
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+    
+            // Retrieve the hashed password, admin_id, and active status from the database
+            $sql = "SELECT admin_id, password, active FROM admin WHERE (username = ? OR email = ?)";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("ss", $username, $username);
+            $stmt->execute();
+            $stmt->store_result();
+    
+            if ($stmt->num_rows > 0) {
+                $stmt->bind_result($admin_id, $stored_password, $active);
+                $stmt->fetch();
+    
+                // Check if the admin account is active
+                if ($active == 1) {
+                    // Verify the hashed input password with the stored hashed password
+                    if (password_verify($password, $stored_password)) {
+                        // Update last_login column with the current timestamp
+                        $update_last_login_sql = "UPDATE admin SET last_login = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p') WHERE admin_id = ?";
+                        $update_stmt = $conn->prepare($update_last_login_sql);
+                        $update_stmt->bind_param("i", $admin_id);
+                        $update_stmt->execute();
+                        $update_stmt->close();
+    
+                        $_SESSION['admin_id'] = $admin_id;
+    
+                        // Redirect the user to the home.php page with the user ID as a parameter in the URL
+                        header("location: ../abdur-rahman/index.php?id=$admin_id");
+                    } else {
+                        echo "Invalid password";
+                    }
+                } else {
+                    echo "Your account is currently deactivated. Please contact the administrator.";
+                }
+            } else {
+                echo "Invalid username or email";
+            }
+    
+            $stmt->close();
         }
     }
+    
+    
     /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
     --                S  T  A  R  T                  --
     --           Admin Logout Function               --

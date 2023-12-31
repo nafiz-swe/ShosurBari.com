@@ -188,6 +188,68 @@
     --                   E   N   D                   --
     --    User / Biodata Profile Search Function     --
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+    function saveUniqueVisitorCount($conn, $count) {
+        $update_count_sql = "INSERT INTO visitor_counts (count) VALUES (?)";
+        $update_count_stmt = $conn->prepare($update_count_sql);
+        
+        if (!$update_count_stmt) {
+            die("Error preparing statement: " . $conn->error);
+        }
+    
+        $update_count_stmt->bind_param("i", $count);
+        
+        if (!$update_count_stmt) {
+            die("Error binding parameters: " . $update_count_stmt->error);
+        }
+    
+        $update_count_stmt->execute();
+        
+        if (!$update_count_stmt) {
+            die("Error executing statement: " . $update_count_stmt->error);
+        }
+    
+        $update_count_stmt->close();
+    }
+    
+    function getCurrentUniqueVisitorCount($conn) {
+        $get_count_sql = "SELECT count FROM visitor_counts ORDER BY timestamp DESC LIMIT 1";
+        $result = $conn->query($get_count_sql);
+    
+        if (!$result) {
+            die("Error retrieving count: " . $conn->error);
+        }
+    
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            return $row['count'];
+        } else {
+            return 0; // Default value if no record is found
+        }
+    }
+    
+    function saveUniqueVisitor($conn, $ip_address) {
+        $save_visitor_sql = "INSERT INTO unique_visitors (ip_address, visit_time) VALUES (?, NOW())";
+        $save_visitor_stmt = $conn->prepare($save_visitor_sql);
+    
+        if (!$save_visitor_stmt) {
+            die("Error preparing statement: " . $conn->error);
+        }
+    
+        $save_visitor_stmt->bind_param("s", $ip_address);
+    
+        if (!$save_visitor_stmt) {
+            die("Error binding parameters: " . $save_visitor_stmt->error);
+        }
+    
+        $save_visitor_stmt->execute();
+    
+        if (!$save_visitor_stmt) {
+            die("Error executing statement: " . $save_visitor_stmt->error);
+        }
+    
+        $save_visitor_stmt->close();
+    }
+
     // End & Start
     /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
     --                S  T  A  R  T                  --

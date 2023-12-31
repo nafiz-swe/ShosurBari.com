@@ -77,16 +77,10 @@ include_once("functions.php");
 			<p>These Terms of Use shall be governed by and construed in accordance with the laws of [your jurisdiction]. Any disputes arising under or in connection with these terms shall be subject to the exclusive jurisdiction of the courts of [your jurisdiction].</p>
 			<h3>13. Entire Agreement</h3>
 			<p>These Terms of Use constitute the entire agreement between you and ShosurBari.com regarding the use of the website and supersede any prior agreements or understandings.</p>
-			<h3>14. Severability</h3>
-			<p>If any provision of these Terms of Use is found to be invalid or unenforceable, the remaining provisions shall remain in full force and effect.</p>
-			<h3>15. Waiver</h3>
-			<p>The failure of ShosurBari.com to enforce any right or provision of these Terms of Use shall not be deemed as a waiver of such right or provision.</p>
-			<h3>16. Contact Information</h3>
-			<p>If you have any questions or concerns regarding these Terms of Use, please contact us at [contact information].</p>
-			<h3>17. Security Act Compliance</h3>
+			<h3>14. Security Act Compliance</h3>
 			<p>ShosurBari.com complies with all applicable security regulations and standards to protect user data and ensure a secure browsing experience.</p>
-			<h3>18. Photo</h3>
-			<p>These terms and conditions govern the upload and usage of user photos on ShosurBari.com. By uploading a photo on our website, you agree to comply with these terms and conditions. Please read them carefully.</p>
+			<h3>15. Photo</h3>
+			<p>These terms and conditions govern the upload and usage of user photos on ShosurBari.com. By uploading a photo on our website, you agree to comply with these terms and conditions. Please read carefully.</p>
 			<ul>
 				<h4>A. Ownership of Photos</h4>
 				<p>By uploading a photo on ShosurBari.com, you affirm that you are the owner of the photo or have obtained the necessary permissions to upload and use the photo on our website. You retain ownership of the photo, but you grant ShosurBari.com a non-exclusive, royalty-free, worldwide license to use, display, and distribute the photo for the purpose of providing our services.</p>
@@ -112,7 +106,7 @@ include_once("functions.php");
 					</Ol>
 				</p>
 			</ul>
-			<h3>19. Dispute Resolution</h3>
+			<h3>16. Dispute Resolution</h3>
 			<p>Any disputes or claims arising out of or relating to the upload or usage of photos on ShosurBari.com shall be resolved in accordance with the dispute resolution provisions outlined in our Terms and Conditions or as required by applicable laws.</p>
 			<p>If you have any questions or concerns regarding the photo upload terms and conditions, please <a href="contact-us.php">Contact Us</a>.</p>
 			<p>Please note that these terms and conditions are subject to change without prior notice. It is your responsibility to review and comply with the most up-to-date version of these terms and conditions.</p>

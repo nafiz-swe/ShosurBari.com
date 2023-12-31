@@ -64,9 +64,14 @@ p {
 }
 button{
     transition: background-color 0.3s, color 0.3s;
+    background: #00c292;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #fff;
 }
 button:hover {
     color: #fff;
+    background: #079f79;
 }
 .selectsearch{
     color: black;

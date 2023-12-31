@@ -1,5 +1,10 @@
 <?php include_once("includes/basic_includes.php");?>
-<?php include_once("functions.php"); ?>
+<?php include_once("functions.php");
+require_once("includes/dbconn.php");
+// Increment the unique visitor count
+$ip_address = $_SERVER['REMOTE_ADDR'];
+saveUniqueVisitor($conn, $ip_address);
+?>
 <!DOCTYPE HTML>
 <html>
 <head>
