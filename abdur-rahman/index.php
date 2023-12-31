@@ -202,7 +202,7 @@ tbody {
                             $last_1_hour_count = $conn->query($last_1_hour_sql)->fetch_row()[0];
                             //Unique Visitor Activity List END
                             // Customers Activity and Sale Biodata Result START
-                            $sql = "SELECT COUNT(*) as totalCustomers FROM customer";
+                            $sql = "SELECT COUNT(*) as totalCustomers FROM customer_sent_info_complete";
                             $result = mysqli_query($conn, $sql);
                             $row = mysqli_fetch_assoc($result);
                             $totalCustomers = $row['totalCustomers'];
@@ -211,59 +211,122 @@ tbody {
                             $nagadTotal = mysqli_query($conn, "SELECT COUNT(*) as count FROM customer WHERE payment_method = 'নগদ'")->fetch_assoc()['count'];
                             $roketTotal = mysqli_query($conn, "SELECT COUNT(*) as count FROM customer WHERE payment_method = 'রকেট'")->fetch_assoc()['count'];
                             // Query to get the total number of distinct user_ids in the 'customer' table
-                            $sql = "SELECT COUNT(DISTINCT user_id) as totalUsers FROM customer";
+                           
+                            $sql = "SELECT COUNT(DISTINCT user_id) as totalUsers FROM customer_sent_info_complete WHERE user_id != 0 AND user_id IS NOT NULL";
                             $result = mysqli_query($conn, $sql);
                             $row = mysqli_fetch_assoc($result);
                             $totalUsers = $row['totalUsers'];
                             // Customers Activity and Sale Biodata Result END
+
+
                             // Which Package Howmany Sale START
-                            // Value 1: Biodata 145 Tk
-                            $sqlValue1 = "SELECT COUNT(*) as countValue1 FROM customer WHERE biodata_quantities = '1 Biodata 145 Tk'";
+                            // Biodata 1
+                            $sqlValue1 = "SELECT COUNT(*) as countValue1 FROM customer_sent_info_complete WHERE payment_biodata_quantity REGEXP '১[[:space:]]*টি*'";
                             $resultValue1 = mysqli_query($conn, $sqlValue1);
                             $rowValue1 = mysqli_fetch_assoc($resultValue1);
                             $countValue1 = $rowValue1['countValue1'];
-                            // Value 2: Biodata 270 Tk
-                            $sqlValue2 = "SELECT COUNT(*) as countValue2 FROM customer WHERE biodata_quantities = '2 Biodata 270 Tk'";
+                            // Biodata 2
+                            $sqlValue2 = "SELECT COUNT(*) as countValue2 FROM customer_sent_info_complete WHERE payment_biodata_quantity REGEXP '২[[:space:]]*টি*'";
                             $resultValue2 = mysqli_query($conn, $sqlValue2);
                             $rowValue2 = mysqli_fetch_assoc($resultValue2);
                             $countValue2 = $rowValue2['countValue2'];
-                            // Value 3: Biodata 375 Tk
-                            $sqlValue3 = "SELECT COUNT(*) as countValue3 FROM customer WHERE biodata_quantities = '3 Biodata 375 Tk'";
+                            // Biodata 3
+                            $sqlValue3 = "SELECT COUNT(*) as countValue3 FROM customer_sent_info_complete WHERE payment_biodata_quantity REGEXP '৩[[:space:]]*টি*'";
                             $resultValue3 = mysqli_query($conn, $sqlValue3);
                             $rowValue3 = mysqli_fetch_assoc($resultValue3);
                             $countValue3 = $rowValue3['countValue3'];
-                            // Value 4: Biodata 460 Tk
-                            $sqlValue4 = "SELECT COUNT(*) as countValue4 FROM customer WHERE biodata_quantities = '4 Biodata 460 Tk'";
+                            // Biodata 4
+                            $sqlValue4 = "SELECT COUNT(*) as countValue4 FROM customer_sent_info_complete WHERE payment_biodata_quantity REGEXP '৪[[:space:]]*টি*'";
                             $resultValue4 = mysqli_query($conn, $sqlValue4);
                             $rowValue4 = mysqli_fetch_assoc($resultValue4);
                             $countValue4 = $rowValue4['countValue4'];
-                            // Value 5: Biodata 525 Tk
-                            $sqlValue5 = "SELECT COUNT(*) as countValue5 FROM customer WHERE biodata_quantities = '5 Biodata 525 Tk'";
+                            // Biodata 5
+                            $sqlValue5 = "SELECT COUNT(*) as countValue5 FROM customer_sent_info_complete WHERE payment_biodata_quantity REGEXP '৫[[:space:]]*টি*'";
                             $resultValue5 = mysqli_query($conn, $sqlValue5);
                             $rowValue5 = mysqli_fetch_assoc($resultValue5);
                             $countValue5 = $rowValue5['countValue5'];
-                            // Value 10: Biodata 990 Tk
-                            $sqlValue10 = "SELECT COUNT(*) as countValue10 FROM customer WHERE biodata_quantities = '10 Biodata 990 Tk'";
+                            // Biodata 6
+                            $sqlValue6 = "SELECT COUNT(*) as countValue6 FROM customer_sent_info_complete WHERE payment_biodata_quantity REGEXP '৬[[:space:]]*টি*'";
+                            $resultValue6 = mysqli_query($conn, $sqlValue6);
+                            $rowValue6 = mysqli_fetch_assoc($resultValue6);
+                            $countValue6 = $rowValue6['countValue6'];
+                            // Biodata 7
+                            $sqlValue7 = "SELECT COUNT(*) as countValue7 FROM customer_sent_info_complete WHERE payment_biodata_quantity REGEXP '৭[[:space:]]*টি*'";
+                            $resultValue7 = mysqli_query($conn, $sqlValue7);
+                            $rowValue7 = mysqli_fetch_assoc($resultValue7);
+                            $countValue7 = $rowValue7['countValue7'];
+                            // Biodata 8
+                            $sqlValue8 = "SELECT COUNT(*) as countValue8 FROM customer_sent_info_complete WHERE payment_biodata_quantity REGEXP '৮[[:space:]]*টি*'";
+                            $resultValue8 = mysqli_query($conn, $sqlValue8);
+                            $rowValue8 = mysqli_fetch_assoc($resultValue8);
+                            $countValue8 = $rowValue8['countValue8'];
+                            // Biodata 9
+                            $sqlValue9 = "SELECT COUNT(*) as countValue9 FROM customer_sent_info_complete WHERE payment_biodata_quantity REGEXP '৯[[:space:]]*টি*'";
+                            $resultValue9 = mysqli_query($conn, $sqlValue9);
+                            $rowValue9 = mysqli_fetch_assoc($resultValue9);
+                            $countValue9 = $rowValue9['countValue9'];
+                            // Biodata 10
+                            $sqlValue10 = "SELECT COUNT(*) as countValue10 FROM customer_sent_info_complete WHERE payment_biodata_quantity REGEXP '১০[[:space:]]*টি*'";
                             $resultValue10 = mysqli_query($conn, $sqlValue10);
                             $rowValue10 = mysqli_fetch_assoc($resultValue10);
                             $countValue10 = $rowValue10['countValue10'];
                             // Which Package Howmany Sale END
-                            // Total Biodata Sale Count START
-                            $totalSeparateDataCount = 0;
-                            $sql = "SELECT request_biodata_number FROM customer";
-                            $result = mysqli_query($conn, $sql);
-                            if ($result) {
-                                while ($row = mysqli_fetch_assoc($result)) {
-                                    $request_biodata_number = $row['request_biodata_number'];
-                                    // Use regular expression to split the data using any special characters or spaces
-                                    $dataPoints = preg_split('/[ ,\-\_&:\.]+/', $request_biodata_number);
-                                    // Count the number of separate data points and add it to the total count
-                                    $totalSeparateDataCount += count($dataPoints);
-                                }
-                                mysqli_free_result($result);
-                            } else {
-                                echo "Error in SQL query: " . mysqli_error($conn);
+
+
+
+                            function banglaNumberToInteger($banglaNumber)
+                            {
+                                $numberMap = [
+                                    '১' => 1,
+                                    '২' => 2,
+                                    '৩' => 3,
+                                    '৪' => 4,
+                                    '৫' => 5,
+                                    '৬' => 6,
+                                    '৭' => 7,
+                                    '৮' => 8,
+                                    '৯' => 9,
+                                    '১০' => 10,
+                                ];
+                            
+                                // Remove 'টি' and spaces
+                                $cleanedNumber = str_replace(['টি', ' '], '', $banglaNumber);
+                            
+                                // Convert to integer using the mapping
+                                $integerValue = $numberMap[$cleanedNumber];
+                            
+                                return $integerValue;
                             }
+                            
+                            function calculateBanglaNumberSumFromDatabase($conn)
+                            {
+                                $sql = "SELECT payment_biodata_quantity FROM customer_sent_info_complete";
+                                $result = $conn->query($sql);
+                            
+                                if ($result->num_rows > 0) {
+                                    $sum = 0;
+                            
+                                    while ($row = $result->fetch_assoc()) {
+                                        $banglaNumber = $row['payment_biodata_quantity'];
+                                        $sum += banglaNumberToInteger($banglaNumber);
+                                    }
+                            
+                                    return $sum;
+                                } else {
+                                    return 0; // No rows found
+                                }
+                            }
+                            
+                            // Example usage
+                            $totalBiodata = calculateBanglaNumberSumFromDatabase($conn);
+
+
+
+
+
+
+                            
+
                             // Total Biodata Sale Count End
                             // Total Profit Amount START
                             $valuesToFind = [145, 280, 390, 500, 600, 690, 770, 840, 900, 980];
@@ -419,16 +482,10 @@ if ($admins_result) {
     <!-- Start Status area -->
     <div class="notika-status-area">
         <div class="container">
+            <div class="recent-post-title">
+                <h2 class="sb-all-page-view">Website Traffics</h2>
+            </div>
             <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div style="background: #0dabe229;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
-                        <div class="website-traffic-ctn">
-                            <h2><span class="counter"><?php echo $total_visitor_count; ?></span></h2>
-                            <p>Total Website Traffics</p>
-                        </div>
-                        <div class="sparkline-bar-stats1">9,4,8,6,5,6,4,8,3,5,9,5</div>
-                    </div>
-                </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                     <div style="background: #0dabe229;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
                         <div class="website-traffic-ctn">
@@ -456,6 +513,15 @@ if ($admins_result) {
                         <div class="sparkline-bar-stats4">2,4,8,4,5,7,4,7,3,5,7,5</div>
                     </div>
                 </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div style="background: #0dabe229;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            <h2><span class="counter"><?php echo $total_visitor_count; ?></span></h2>
+                            <p>Total Visitors</p>
+                        </div>
+                        <div class="sparkline-bar-stats1">9,4,8,6,5,6,4,8,3,5,9,5</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -463,12 +529,15 @@ if ($admins_result) {
     <!-- Start Status area -->
     <div class="notika-status-area">
         <div class="container">
+            <div class="recent-post-title">
+                <h2 class="sb-all-page-view">Customers & Registered Biodata</h2>
+            </div>
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                     <div style="background: #0a11c526;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
                         <div class="website-traffic-ctn">
                             <h2><span class="counter"><?php echo $totalCustomers; ?></span></h2>
-                            <p>Total Customers</p>
+                            <p>How Many Times sold</p>
                         </div>
                         <div class="sparkline-bar-stats4">2,4,8,4,5,7,4,7,3,5,7,5</div>
                     </div>
@@ -485,7 +554,7 @@ if ($admins_result) {
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                     <div style="background: #0a11c526;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
                         <div class="website-traffic-ctn">
-                            <h2><span class="counter"><?php echo $totalSeparateDataCount; ?></span></h2>
+                            <h2><span class="counter"><?php echo $totalBiodata; ?></span></h2>
                             <p>Total Biodata Sales</p>
                         </div>
                         <div class="sparkline-bar-stats2">1,4,8,3,5,6,4,8,3,3,9,5</div>
@@ -494,8 +563,8 @@ if ($admins_result) {
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                     <div style="background: #0a11c526;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
                         <div class="website-traffic-ctn">
-                        <h2 style="font-size: 15px; margin-top: 4px; margin-bottom: 0px; line-height: 24px;"><?php echo $lastRequestDate; ?></h2>
-                            <p>Last Biodata Sales Time</p>
+                        <h2 style="font-size: 15px; margin-top: -10px; margin-bottom: 0px; line-height: 24px;"><?php echo $lastRequestDate; ?></h2>
+                            <p>Last Biodata Request</p>
                         </div>
                         <div class="sparkline-bar-stats3">3,5,8,4,7,9,4,8,9,5,9,5</div>
                     </div>
@@ -507,6 +576,9 @@ if ($admins_result) {
     <!-- Start Status area -->
     <div class="notika-status-area">
         <div class="container">
+            <div class="recent-post-title">
+                <h2 class="sb-all-page-view">Payment & Net Income</h2>
+            </div>
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                     <div style="background: #e2470e1c;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
@@ -626,12 +698,15 @@ if ($admins_result) {
     </div>
     <div class="notika-status-area">
         <div class="container">
+            <div class="recent-post-title">
+                <h2 class="sb-all-page-view">Popular Package</h2>
+            </div>
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                     <div style="background: #07e27e2b;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
                         <div class="website-traffic-ctn">
                         <h2><span class="counter"><?php echo $countValue1; ?></span></h2>
-                        <p>Package [1 SbBd 145 Tk]</p>
+                        <p>BRONZE | ১টি | ১৪৫ ৳</p>
                         </div>
                         <div class="sparkline-bar-stats3">3,5,8,4,7,9,4,8,9,5,9,5</div>
                     </div>
@@ -640,7 +715,7 @@ if ($admins_result) {
                     <div style="background: #07e27e2b;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
                         <div class="website-traffic-ctn">
                         <h2><span class="counter"><?php echo $countValue2; ?></span></h2>
-                        <p>Package [2 SbBd 270 Tk]</p>
+                        <p>SILVER | ২টি | ২৮০ ৳</p>
                         </div>
                         <div class="sparkline-bar-stats3">3,5,8,4,7,9,4,8,9,5,9,5</div>
                     </div>
@@ -649,7 +724,7 @@ if ($admins_result) {
                     <div style="background: #07e27e2b;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
                         <div class="website-traffic-ctn">
                             <h2><span class="counter"><?php echo $countValue3; ?></span></h2>
-                            <p>Package [3 SbBd 375 Tk]</p>
+                            <p>GOLD | ৩টি | ৩৯০ ৳</p>
                         </div>
                         <div class="sparkline-bar-stats1">9,4,8,6,5,6,4,8,3,5,9,5</div>
                     </div>
@@ -658,7 +733,7 @@ if ($admins_result) {
                     <div style="background: #07e27e2b;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
                         <div class="website-traffic-ctn">
                             <h2><span class="counter"><?php echo $countValue4; ?></span></h2>
-                            <p>Package [4 SbBd 460 Tk]</p>
+                            <p>PLATINUM | ৪টি | ৫০০ ৳</p>
                         </div>
                         <div class="sparkline-bar-stats2">1,4,8,3,5,6,4,8,3,3,9,5</div>
                     </div>
@@ -673,7 +748,48 @@ if ($admins_result) {
                     <div style="background: #07e27e2b;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
                         <div class="website-traffic-ctn">
                             <h2><span class="counter"><?php echo $countValue5; ?></span></h2>
-                            <p>Package [5 SbBd 525 Tk]</p>
+                            <p>DIAMOND | ৫টি | ৬০০ ৳</p>
+                        </div>
+                        <div class="sparkline-bar-stats3">4,2,8,2,5,6,3,8,3,5,9,5</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div style="background: #07e27e2b;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                        <h2><span class="counter"><?php echo $countValue6; ?></span></h2>
+                        <p>TITANIUM | ৬টি | ৬৯০ ৳</p>
+                        </div>
+                        <div class="sparkline-bar-stats4">2,4,8,4,5,7,4,7,3,5,7,5</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div style="background: #07e27e2b;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            <h2><span class="counter"><?php echo $countValue7; ?></span></h2>
+                            <p>RUBY | ৭টি | ৭৭০ ৳</p>
+                        </div>
+                        <div class="sparkline-bar-stats3">4,2,8,2,5,6,3,8,3,5,9,5</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div style="background: #07e27e2b;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                        <h2><span class="counter"><?php echo $countValue8; ?></span></h2>
+                        <p>EMERALD | ৮টি | ৮৪০ ৳</p>
+                        </div>
+                        <div class="sparkline-bar-stats4">2,4,8,4,5,7,4,7,3,5,7,5</div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="notika-status-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div style="background: #07e27e2b;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            <h2><span class="counter"><?php echo $countValue9; ?></span></h2>
+                            <p>SAPPHIRE | ৯টি | ৯০০ ৳</p>
                         </div>
                         <div class="sparkline-bar-stats3">4,2,8,2,5,6,3,8,3,5,9,5</div>
                     </div>
@@ -682,7 +798,7 @@ if ($admins_result) {
                     <div style="background: #07e27e2b;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
                         <div class="website-traffic-ctn">
                         <h2><span class="counter"><?php echo $countValue10; ?></span></h2>
-                        <p>Package [10 SbBd 990 Tk]</p>
+                        <p>TOPAZ | ১০টি | ৯৮০ ৳</p>
                         </div>
                         <div class="sparkline-bar-stats4">2,4,8,4,5,7,4,7,3,5,7,5</div>
                     </div>

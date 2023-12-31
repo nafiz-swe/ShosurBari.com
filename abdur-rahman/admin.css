@@ -41,7 +41,7 @@ html, body{
 }
 ::selection {
     color: #fff;
-    background: #00c292;
+    background: #079f79;
 }
 #progress-bar {
     --progress: 0;
