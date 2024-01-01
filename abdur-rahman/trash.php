@@ -19,47 +19,14 @@ if (!isset($_SESSION['admin_id'])) {
   <?php include("admin_navigation.php"); ?>
   <!-- ========================================= -->
   <style>
-  #search-form{
-    width: 100%;
-    padding-top: 10px;
-  }
-  h1 {
-    padding: 10px 0;
-    margin: 150px auto 0px auto;
-    text-align: center;
-    font-size: 35px;
-    color: #00c292;
-  }
-  .sbbiodata_profile_recentview  h3{
-    margin: 20px auto 0px auto;
-    padding: 10px 0;
-    font-size: 25px;
-    color: #00c292;
-    text-align: left;
-  }
-  .sbbiodata_profile_recentview {
-    margin: 0px auto; 
-    padding: 0 20px;
-    border: 10px solid #00c292;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow-x: auto;
-    max-height: 90vh;
-  }
-  table {
-    border-collapse: collapse;
-    margin-bottom: 20px;
-  }
-  tr{
-    border: 2px solid #00c292;
-  }
-  th {
+
+th {
     background-color: #00c292;
     color: white;
     border: 2px solid #ccc;
     text-align: center;
     white-space: nowrap;
-    padding: 10px;
+    padding: 10px; /* Add padding to the table headers for spacing */
   }
   td {
     border: 2px solid #00c292;
@@ -73,11 +40,6 @@ if (!isset($_SESSION['admin_id'])) {
     font-size: 14px;
     color: #00c292;
     margin: -5px auto 10px auto;
-  }
-  label {
-    font-size: 16px;
-    color: #00c292;
-    margin-top: 20px;
   }
   .input-group input[type="text"], select {
     border-radius: 4px;
@@ -127,47 +89,94 @@ if (!isset($_SESSION['admin_id'])) {
     text-align: center;
     cursor: pointer;
     width: 75px;
-    height: 30px;
-    background: green;
+    height: 35px;
+    line-height: 35px;
+    background: #22c55e;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-shadow: 1px 1px 4px #888;
-    font-size: 14px;
+    font-size: 13px;
     color: #fff;
     font-weight: 400;
   }
-  td form input[type="submit"]:hover{
+  td form input[type="submit"]:hover,
+  td form a:hover {
     color: white;
-    background: linear-gradient(#0aa4ca, #0acef1);
+    background: #079f79;
   }
-  .progress-container {
-    height: 8px;
-    background-color: #00c292;
+
+
+
+
+
+
+
+
+  h1{
+    padding: 10px 0;
+    padding-top:120px;
+    text-align: center;
+    font-size: 35px;
+    color: #00c292;
   }
-  .progress-bar {
-    height: 100%;
+  h3{
+    padding: 10px 0;
+    margin: 20px auto 0px auto;
+    font-size: 25px;
+    color: #00c292;
+  }
+  table {
+    border-collapse: collapse;
+    min-width: 2500px;
+    padding: 20px;
+    border: 2px solid #f0f0f0;
+    margin-bottom: 20px;
+  } 
+  form{
+    margin-left: 0px;
+    margin-top: 0px;
+    padding: 10px 0px;
+  }
+  label {
+    font-size: 16px;
+    color: #00c292;
+    margin-top: 20px;
+  } 
+  .input-group input[type="text"], select {
+    font-size: 17px;
+    width: 110px;
+  }
+  .table-container {
+    padding: 0 20px;
+    border: 10px solid #00c292;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+    max-height: 90vh;
+    width: 90%;
+    margin: auto;
+  }
+  .table-wrapper {
+    overflow: hidden;
+    margin: 20px auto 0px auto;
+    width: 90%;
+  }
+  .table-wrapper table {
+    border-collapse: collapse;
     width: 100%;
-    background-color: #00c292;
+    padding: 20px;
+    border: 2px solid #00c292;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-top: -30px;
   }
+  /* Progress bar styling */
   .pagination{
-    display: inline-block;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    margin-left:  auto;
-    margin-right: auto;
+    display: block;
     padding: 0;
     list-style: none;
-    align-items: center;
-    justify-content:center;
-  }
-  .page-link{
-    color: #000;
-    padding: 8px 12px;
-    text-decoration: none;
-    font-size: 14px;
-    background-color: #eee;
-    border-radius: 50%;
-    margin: 0 3px;
+    width: 90%;
+    margin: 50px auto 120px auto;
   }
   .page-link:hover{
     background: #00c292;
@@ -178,7 +187,6 @@ if (!isset($_SESSION['admin_id'])) {
     color: #fff;
   }
   </style>
-  <div class="sbbiodata_profile_recentview">
     <h1>পাত্রপাত্রীদের ডিলিট হওয়া ছবি</h1>
     <?php
     function sanitize($input) {
@@ -219,18 +227,16 @@ if (!isset($_SESSION['admin_id'])) {
       $page = $total_pages;
     }
     $offset = ($page - 1) * $per_page;
-    // Display the total number of user profiles found in this page/file at the top
+    echo '<div class="table-wrapper">';
     echo '<h3>Total number of user profiles in this page: ' . $totalUserIDsInTrash . '</h3>';
-    // Start the main table
-    echo '<table>';
       echo '<div id="search-form">
         <form method="GET" action="">
           <input type="text" name="search" id="search" value="' . (isset($_GET['search']) ? htmlspecialchars($_GET['search'], ENT_QUOTES, 'UTF-8') : '') . '" placeholder="বায়োডাটা নং"  />
           <button class="search-admin" type="submit">Search</button>
           <button class="search-clear-admin"  type="button" onclick="clearSearch()">Clear Search</button><br>
-          <label for="per-page">Profiles Show</label>
+          <label for="per-page" style="margin-top: 20px;">প্রতি পেজে কয়টি প্রোফাইল দেখতে চান</label>
           <select name="per_page" id="per_page">
-            <option value=""> </option>
+            <option>.....??</option>
             <option value="50" ' . ($per_page == 50 ? 'selected' : '') . '>50</option>
             <option value="100" ' . ($per_page == 100 ? 'selected' : '') . '>100</option>
             <option value="500" ' . ($per_page == 500 ? 'selected' : '') . '>500</option>
@@ -240,6 +246,10 @@ if (!isset($_SESSION['admin_id'])) {
           </select>
         </form>
       </div>';
+      echo '</div>'; // Close the table-wrapper div
+
+      echo '<div class="table-container">';
+      echo '<table>';
       echo "<tr>";
       echo "<th>বায়োডাটা নং</th>"; // Left heading
       for ($i = 1; $i <= 20; $i++) {
@@ -297,17 +307,14 @@ if (!isset($_SESSION['admin_id'])) {
         }
       }}}}
     echo '</table>';
-    // Progress bar at the bottom
-    echo '<div class="progress-container">
-      <div class="progress-bar"></div>
-    </div>';
+    echo '</div>'; // Close the table-container div
     // Calculate the total number of pages
     $pages_to_show = 1;
     // Pagination links
     echo "<div class='pagination'>";
       if ($total_pages > 1) {
       if ($page > 1) {
-        echo "<a href='trash.php?page=" . ($page - 1) . "&per_page=$per_page&search=$search' class='page-link'>Previous</a>";
+        echo "<a href='trash.php?page=" . ($page - 1) . "&per_page=$per_page&search=$search' class='page-link'><i class='fa fa-angle-double-left'></i></a>";
       }
       for ($i = 1; $i <= $total_pages; $i++) {
       if ($i == 1 || $i == $total_pages || ($i >= $page - 2 && $i <= $page + 2)) {
@@ -319,13 +326,12 @@ if (!isset($_SESSION['admin_id'])) {
       }
       }
       if ($page < $total_pages) {
-        echo "<a href='trash.php?page=" . ($page + 1) . "&per_page=$per_page&search=$search' class='page-link'>Next</a>";
+        echo "<a href='trash.php?page=" . ($page + 1) . "&per_page=$per_page&search=$search' class='page-link'><i class='fa fa-angle-double-right'></i></a>";
       }
       }
     echo "</div>";
     }
     ?>
-  </div>
   <script>
   // JavaScript function to clear the search query
   function clearSearch() {

@@ -106,12 +106,12 @@ if (!isset($_SESSION['admin_id'])) {
     background: red;
   }
   td form a {
-    background: green;
+    background: #22c55e;
   }
   td form input[type="submit"]:hover,
   td form a:hover {
     color: white;
-    background: linear-gradient(#0aa4ca, #0acef1);
+    background: #079f79;
   }
 
 
