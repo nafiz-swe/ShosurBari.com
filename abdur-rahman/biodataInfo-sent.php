@@ -104,6 +104,14 @@ if (!isset($_SESSION['admin_id'])) {
               <input type="text" name="cust_payment_date" value="" placeholder="পেমেন্ট তারিখ/রিকোয়েস্ট তারিখ" class="form-text" required>
             </div>
             <div class="shosurbari-biodata-field">
+              <label for="edit-name">পেমেন্ট মেথড<span class="form-required" title="This field is required.">*</span> <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (পেমেন্ট মেথড অবশ্যয় বাংলায় হইতে হবে, কাস্টমারস পেজ থেকে কপি করে বসাতে হবে।)</span></label>
+              <input type="text" name="real_payment_method" value="" placeholder="পেমেন্ট মেথড" class="form-text" required>
+            </div>
+            <div class="shosurbari-biodata-field">
+              <label for="edit-name">মোট টাকা<span class="form-required" title="This field is required.">*</span> <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (মোট টাকা ইংরেজি নাম্বার হইতে হবে, কাস্টমারস পেজ থেকে কপি করে বসাতে হবে।)</span></label>
+              <input type="text" name="payment_amount" value="" placeholder="মোট টাকা" class="form-text" required>
+            </div>
+            <div class="shosurbari-biodata-field">
               <label for="edit-name">মোট বায়োডাটা<span class="form-required" title="This field is required.">*</span></label>
               <input type="text" name="payment_biodata_quantity" value="১টি-২টি-৩টি-৪টি-৫টি-৬টি-৭টি-৮টি-৯টি-১০টি" class="form-text" required>
             </div>

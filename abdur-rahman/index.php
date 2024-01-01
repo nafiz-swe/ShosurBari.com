@@ -207,9 +207,24 @@ tbody {
                             $row = mysqli_fetch_assoc($result);
                             $totalCustomers = $row['totalCustomers'];
                             // Calculate the totals for each payment method
-                            $bkashTotal = mysqli_query($conn, "SELECT COUNT(*) as count FROM customer WHERE payment_method = 'বিকাশ'")->fetch_assoc()['count'];
-                            $nagadTotal = mysqli_query($conn, "SELECT COUNT(*) as count FROM customer WHERE payment_method = 'নগদ'")->fetch_assoc()['count'];
-                            $roketTotal = mysqli_query($conn, "SELECT COUNT(*) as count FROM customer WHERE payment_method = 'রকেট'")->fetch_assoc()['count'];
+// Function to get the count of records for a specific payment method
+function getPaymentMethodCount($conn, $paymentMethod)
+{
+    $sql = "SELECT COUNT(*) as count FROM customer_sent_info_complete WHERE real_payment_method LIKE '%$paymentMethod%'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $count = $result->fetch_assoc()['count'];
+        return $count;
+    } else {
+        return 0; // No rows found
+    }
+}
+
+// Example usage
+$bkashTotal = getPaymentMethodCount($conn, 'বিকাশ');
+$nagadTotal = getPaymentMethodCount($conn, 'নগদ');
+$roketTotal = getPaymentMethodCount($conn, 'রকেট');
                             // Query to get the total number of distinct user_ids in the 'customer' table
                            
                             $sql = "SELECT COUNT(DISTINCT user_id) as totalUsers FROM customer_sent_info_complete WHERE user_id != 0 AND user_id IS NOT NULL";
@@ -325,66 +340,102 @@ tbody {
 
 
 
-                            
+// Initialize variables to store sums for different time periods
+$valuesToFind = [145, 280, 390, 500, 600, 690, 770, 840, 900, 980];
+$totalSum = 0;
+$todaySum = 0;
+$thisWeekSum = 0;
+$lastWeekSum = 0;
+$thisMonthSum = 0;
+$lastMonthSum = 0;
+$thisYearSum = 0;
+$lastYearSum = 0;
 
-                            // Total Biodata Sale Count End
-                            // Total Profit Amount START
-                            $valuesToFind = [145, 280, 390, 500, 600, 690, 770, 840, 900, 980];
-                            // Initialize variables to store sums for different time periods
-                            $totalSum = 0;
-                            $todaySum = 0;
-                            $thisWeekSum = 0;
-                            $lastWeekSum = 0;
-                            $thisMonthSum = 0;
-                            $lastMonthSum = 0;
-                            $thisYearSum = 0;
-                            $lastYearSum = 0;
-                            $currentDateTime = date("Y-m-d H:i:s");
-                            $oneWeekAgo = date("Y-m-d H:i:s", strtotime("-1 week"));
-                            $firstDayOfThisMonth = date("Y-m-01 00:00:00");
-                            $firstDayOfLastMonth = date("Y-m-01 00:00:00", strtotime("-1 month"));
-                            $firstDayOfThisYear = date("Y-01-01 00:00:00");
-                            $firstDayOfLastYear = date("Y-01-01 00:00:00", strtotime("-1 year"));
-                            $query = "SELECT biodata_quantities, request_date FROM customer";
-                            $result = mysqli_query($conn, $query);
-                            if ($result) {
-                            while ($row = mysqli_fetch_assoc($result)) {
-                                $data = $row['biodata_quantities'];
-                                $requestDate = strtotime($row['request_date']);
-                                // Use a regular expression to extract numbers from the text
-                                preg_match_all('/\d+/', $data, $matches);
-                                $quantities = $matches[0];
-                                foreach ($quantities as $quantity) {
-                                $quantity = (int) $quantity;
-                                if (in_array($quantity, $valuesToFind)) {
-                                $totalSum += $quantity;
-                                if ($requestDate >= strtotime($oneWeekAgo)) {
-                                    $lastWeekSum += $quantity;
-                                }
-                                if (date("Y-m-d", $requestDate) == date("Y-m-d")) {
-                                    $todaySum += $quantity;
-                                }
-                                if (date("W", $requestDate) == date("W")) {
-                                    $thisWeekSum += $quantity;
-                                }
-                                if ($requestDate >= strtotime($firstDayOfThisMonth)) {
-                                    $thisMonthSum += $quantity;
-                                }
-                                if ($requestDate >= strtotime($firstDayOfLastMonth) && $requestDate < strtotime($firstDayOfThisMonth)) {
-                                    $lastMonthSum += $quantity;
-                                }
-                                if ($requestDate >= strtotime($firstDayOfThisYear)) {
-                                    $thisYearSum += $quantity;
-                                }
-                                if ($requestDate >= strtotime($firstDayOfLastYear) && $requestDate < strtotime($firstDayOfThisYear)) {
-                                    $lastYearSum += $quantity;
-                                }
-                                }
-                                }
-                            }
-                            } else {
-                                echo "Error in SQL query: " . mysqli_error($conn);
-                            }
+$query = "SELECT payment_amount, cust_payment_date FROM customer_sent_info_complete";
+$result = mysqli_query($conn, $query);
+
+if ($result) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $data = $row['payment_amount'];
+        $requestDate = DateTime::createFromFormat('D d F Y, g:i A', $row['cust_payment_date']);
+
+        // Use a regular expression to extract numbers from the text
+        preg_match_all('/\d+/', $data, $matches);
+        $quantities = $matches[0];
+
+        foreach ($quantities as $quantity) {
+            $quantity = (int) $quantity;
+
+            if (in_array($quantity, $valuesToFind)) {
+                $totalSum += $quantity;
+
+                $startOfDay = new DateTime('today');
+                $endOfDay = new DateTime('tomorrow');
+
+                if ($requestDate >= $startOfDay && $requestDate < $endOfDay) {
+                    $todaySum += $quantity;
+                }
+
+                $startOfThisWeek = new DateTime('last Saturday');
+                $endOfThisWeek = new DateTime('next Saturday');
+
+                // Adjust the end of the week to be on Friday
+                $endOfThisWeek->modify('-1 day');
+
+                if ($requestDate >= $startOfThisWeek && $requestDate < $endOfThisWeek) {
+                    $thisWeekSum += $quantity;
+                }
+
+                $startOfLastWeek = new DateTime('2 Saturdays ago');
+                $endOfLastWeek = new DateTime('last Friday');
+
+                if ($requestDate >= $startOfLastWeek && $requestDate <= $endOfLastWeek) {
+                    $lastWeekSum += $quantity;
+                }
+
+                $startOfMonth = new DateTime('first day of this month');
+                $endOfMonth = new DateTime('first day of next month');
+
+                if ($requestDate >= $startOfMonth && $requestDate < $endOfMonth) {
+                    $thisMonthSum += $quantity;
+                }
+
+                $startOfLastMonth = new DateTime('first day of last month');
+                $endOfLastMonth = new DateTime('first day of this month');
+
+                if ($requestDate >= $startOfLastMonth && $requestDate < $endOfLastMonth) {
+                    $lastMonthSum += $quantity;
+                }
+
+                $startOfYear = new DateTime('first day of this year');
+                $endOfYear = new DateTime('first day of next year');
+
+                if ($requestDate >= $startOfYear && $requestDate < $endOfYear) {
+                    $thisYearSum += $quantity;
+                }
+
+                $startOfLastYear = new DateTime('first day of last year');
+                $endOfLastYear = new DateTime('first day of this year');
+
+                if ($requestDate >= $startOfLastYear && $requestDate < $endOfLastYear) {
+                    $lastYearSum += $quantity;
+                }
+            }
+        }
+    }
+} else {
+    echo "Error in SQL query: " . mysqli_error($conn);
+}
+
+// Now you have $totalSum, $todaySum, $thisWeekSum, $lastWeekSum, $thisMonthSum, $lastMonthSum, $thisYearSum, $lastYearSum for different time periods.
+
+
+// Now you have $totalSum, $todaySum, $thisWeekSum, $lastWeekSum, $thisMonthSum, $lastMonthSum, $thisYearSum, $lastYearSum for different time periods.
+
+
+// Now you have $totalSum, $todaySum, $thisWeekSum, $lastWeekSum, $thisMonthSum, $lastMonthSum, $thisYearSum, $lastYearSum for different time periods.
+
+
                             // Total Profit of Last time END
                             // Last Time Show, Sale Biodata START
                             function getRequestDateForLastCustomerId($conn) {
@@ -577,7 +628,7 @@ if ($admins_result) {
     <div class="notika-status-area">
         <div class="container">
             <div class="recent-post-title">
-                <h2 class="sb-all-page-view">Payment & Net Income</h2>
+                <h2 class="sb-all-page-view">Payment Method & Revenue</h2>
             </div>
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
@@ -611,7 +662,7 @@ if ($admins_result) {
                     <div style="background: #e2470e1c;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
                         <div class="website-traffic-ctn">
                         <h2><span class="counter"><?php echo $totalSum; ?></span> ৳</h2>
-                            <p>Net Income</p>
+                            <p>Total Revenue</p>
                         </div>
                         <div class="sparkline-bar-stats4">2,4,8,4,5,7,4,7,3,5,7,5</div>
                     </div>
@@ -628,7 +679,7 @@ if ($admins_result) {
                     <div style="background: #e2470e1c;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
                         <div class="website-traffic-ctn">
                             <h2><span class="counter"><?php echo $todaySum; ?> </span> ৳</h2>
-                            <p>Today's sale</p>
+                            <p>Today's Revenue</p>
                         </div>
                         <div class="sparkline-bar-stats4">2,4,8,4,5,7,4,7,3,5,7,5</div>
                     </div>
@@ -637,27 +688,27 @@ if ($admins_result) {
                     <div style="background: #e2470e1c;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
                         <div class="website-traffic-ctn">
                             <h2><span class="counter"> <?php echo $thisWeekSum; ?></span> ৳</h2>
-                            <p>This week's sale</p>
+                            <p>This Week's Revenue</p>
                         </div>
                         <div class="sparkline-bar-stats1">9,4,8,6,5,6,4,8,3,5,9,5</div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div style="background: #e2470e1c;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
-                        <div class="website-traffic-ctn">
-                            <h2><span class="counter"><?php echo $lastWeekSum; ?></span> ৳</h2>
-                            <p>Last week's sale</p>
-                        </div>
-                        <div class="sparkline-bar-stats2">1,4,8,3,5,6,4,8,3,3,9,5</div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                     <div style="background: #e2470e1c;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
                         <div class="website-traffic-ctn">
                         <h2><span class="counter"><?php echo $thisMonthSum; ?></span> ৳</h2>
-                        <p>This month's sale</p>
+                        <p>This Month's Revenue</p>
                         </div>
                         <div class="sparkline-bar-stats3">3,5,8,4,7,9,4,8,9,5,9,5</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div style="background: #e2470e1c;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            <h2><span class="counter"> <?php echo $thisYearSum; ?></span> ৳</h2>
+                            <p>This Year's Revenue</p>
+                        </div>
+                        <div class="sparkline-bar-stats1">9,4,8,6,5,6,4,8,3,5,9,5</div>
                     </div>
                 </div>
             </div>
@@ -666,11 +717,20 @@ if ($admins_result) {
     <div class="notika-status-area">
         <div class="container">
             <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div style="background: #e2470e1c;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            <h2><span class="counter"><?php echo $lastWeekSum; ?></span> ৳</h2>
+                            <p>Last Week's Revenue</p>
+                        </div>
+                        <div class="sparkline-bar-stats2">1,4,8,3,5,6,4,8,3,3,9,5</div>
+                    </div>
+                </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                     <div style="background: #e2470e1c;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
                         <div class="website-traffic-ctn">
                             <h2><span class="counter"><?php echo $lastMonthSum; ?> </span> ৳</h2>
-                            <p>Last month's sale</p>
+                            <p>Last Month's Revenue</p>
                         </div>
                         <div class="sparkline-bar-stats4">2,4,8,4,5,7,4,7,3,5,7,5</div>
                     </div>
@@ -678,17 +738,8 @@ if ($admins_result) {
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                     <div style="background: #e2470e1c;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
                         <div class="website-traffic-ctn">
-                            <h2><span class="counter"> <?php echo $thisYearSum; ?></span> ৳</h2>
-                            <p>This year's sale</p>
-                        </div>
-                        <div class="sparkline-bar-stats1">9,4,8,6,5,6,4,8,3,5,9,5</div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div style="background: #e2470e1c;" class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
-                        <div class="website-traffic-ctn">
                             <h2><span class="counter"><?php echo $lastYearSum; ?></span> ৳</h2>
-                            <p>Last year's sale</p>
+                            <p>Last Year's Revenue</p>
                         </div>
                         <div class="sparkline-bar-stats2">1,4,8,3,5,6,4,8,3,3,9,5</div>
                     </div>
@@ -812,10 +863,10 @@ if ($admins_result) {
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
-                    <div class="statistic-right-area notika-shadow mg-tb-30 sm-res-mg-t-0">
-                        <div class="past-day-statis">
-                            <h2>For All Page Total Views</h2>
-                        </div>
+                    <div class="recent-post-title">
+                        <h2 class="sb-all-page-view">Total Page Views</h2>
+                    </div>
+                    <div class="statistic-right-area notika-shadow mg-tb-0 sm-res-mg-t-0">
 						<div class="dash-widget-visits"></div>
                         <div class="past-statistic-an">
                             <div class="past-statistic-ctn">
@@ -824,15 +875,6 @@ if ($admins_result) {
                             </div>
                             <div class="past-statistic-graph">
                                 <div class="stats-bar"></div>
-                            </div>
-                        </div>
-                        <div class="past-statistic-an">
-                            <div class="past-statistic-ctn">
-                                <h3><span class="counter"><?php echo $visitorCount; ?></span></h3>
-                                <p>Unique Visitors</p>
-                            </div>
-                            <div class="past-statistic-graph">
-                                <div class="stats-bar-2"></div>
                             </div>
                         </div>
                     </div>

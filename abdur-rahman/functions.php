@@ -167,6 +167,8 @@
             $payment_cust_name = $_POST['payment_cust_name'];
             $payment_cust_email = $_POST['payment_cust_email'];
             $payment_cust_number = $_POST['payment_cust_number'];
+            $real_payment_method = $_POST['real_payment_method'];
+            $payment_amount = $_POST['payment_amount'];
             $payment_biodata_quantity = $_POST['payment_biodata_quantity'];
             // Biodata Info 1
             $biodata_number_1 = $_POST['biodata_number_1'];
@@ -215,7 +217,9 @@
             user_id,
             payment_cust_name,
             payment_cust_email, 
-            payment_cust_number, 
+            payment_cust_number,
+            real_payment_method,
+            payment_amount,
             payment_biodata_quantity,
             biodata_number_1,
             biodata_guardian_1,
@@ -253,7 +257,9 @@
             '$user_id', 
             '$payment_cust_name', 
             '$payment_cust_email', 
-            '$payment_cust_number', 
+            '$payment_cust_number',
+            '$real_payment_method', 
+            '$payment_amount',  
             '$payment_biodata_quantity',
             '$biodata_number_1',
             '$biodata_guardian_1',
