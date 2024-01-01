@@ -284,7 +284,7 @@
             } else {
                 $sql = "INSERT INTO users 
                 (fullname, username, gender, number, email, password, active, register_date) 
-                VALUES ('$fname', '$uname', '$gender', '$pnumber', '$email', '$hashed_password', 1, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+                VALUES ('$fname', '$uname', '$gender', '$pnumber', '$email', '$hashed_password', 1, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
                 if (mysqli_query($conn, $sql)) {
                 $id = mysqli_insert_id($conn);
                 $_SESSION['id'] = $id;
@@ -534,7 +534,7 @@
                 $user_id = 0; // Default value for non-logged-in users
             }
             $sql = "INSERT INTO contact_us (user_id, name_contactus, number_contactus, email_contactus, subject, message_contactus, unread_message, read_message, message_sendingdate) 
-                VALUES ('$user_id', '$name_contactus', '$number_contactus', '$email_contactus', '$subject', '$message_contactus', 1, 0, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+                VALUES ('$user_id', '$name_contactus', '$number_contactus', '$email_contactus', '$subject', '$message_contactus', 1, 0, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             if (mysqli_query($conn, $sql)) {
                 header("location: index.php");
             } else {
@@ -688,79 +688,79 @@
             --      Personal & Physical  / sb-biodata-1      --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
             $sql1 = "INSERT INTO 1bd_personal_physical (user_id, biodatagender, dateofbirth, height, weight, physicalstatus, Skin_tones, bloodgroup, profilecreationdate) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             $stmt1 = mysqli_prepare($conn, $sql1);
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --     Personal & Life Style  / sb-biodata-2     --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
             $sql2 = "INSERT INTO 2bd_personal_lifestyle (user_id, smoke, occupation_sector, other_occupation_sector, business_occupation_level, student_occupation_level, health_occupation_level, engineer_occupation_level, teacher_occupation_level, defense_occupation_level, foreigner_occupation_level, garments_occupation_level, driver_occupation_level, service_andcommon_occupation_level, mistri_occupation_level, occupation_describe, dress_code, aboutme, groom_bride_name, groom_bride_email, groom_bride_number, groom_bride_family_number, family_member_name_relation, profilecreationdate) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             $stmt2 = mysqli_prepare($conn, $sql2);
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --  Educational Qualifications  / sb-biodata-3   --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --*/
             $sql31 = "INSERT INTO 3bd_secondaryedu_method (user_id, scndry_edu_method, maxedu_qulfctn, gnrl_mdrs_secondary_pass, gnrl_mdrs_secondary_pass_year, gnrl_mdrs_secondary_end_year, gnrlmdrs_secondary_running_std, profilecreationdate) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            VALUES (?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             $stmt31 = mysqli_prepare($conn, $sql31);
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --  Educational Qualifications  / sb-biodata-3   --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --*/
             $sql32 = "INSERT INTO 3bd_kowmi_madrasaedu_method (user_id, qawmi_madrasa_hafez, qawmimadrasa_dawrapass, kowmi_dawrapas_year, kowmi_current_edu_level, profilecreationdate) 
-            VALUES (?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            VALUES (?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             $stmt32 = mysqli_prepare($conn, $sql32);    
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --  Educational Qualifications  / sb-biodata-3   --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --*/
             $sql33 = "INSERT INTO 3bd_higher_secondaryedu_method (user_id, higher_secondary_edu_method, gnrlmdrs_hrsecondary_pass, gnrlmdrs_hrsecondary_pass_year, gnrlmdrs_hrsecondary_exam_year, gnrlmdrs_hrsecondary_group, gnrlmdrs_hrsecondary_rningstd, diploma_hrsecondary_pass, diploma_hrsecondary_pass_year, diploma_hrsecondary_sub, diploma_hrsecondary_endingyear, profilecreationdate) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             $stmt33 = mysqli_prepare($conn, $sql33);
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --  Educational Qualifications  / sb-biodata-3   --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --*/
             $sql34 = "INSERT INTO 3bd_universityedu_method (user_id, varsity_edu_method, uvarsity_pass, varsity_passing_year, university_subject, varsity_ending_year, uvarsity_name, others_edu_qualification, profilecreationdate) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             $stmt34 = mysqli_prepare($conn, $sql34);
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --       Address Details  /  sb-biodata-4        --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
             $sql4 = "INSERT INTO 4bd_address_details (user_id, permanent_division, home_district_under_barishal, home_district_under_chattogram, home_district_under_dhaka, home_district_under_khulna, home_district_under_mymensingh, home_district_under_rajshahi, home_district_under_rangpur, home_district_under_sylhet, country_present_address, present_address_location, present_address_living_purpose, childhood, profilecreationdate) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             $stmt4 = mysqli_prepare($conn, $sql4);
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --     Family Information  / sb-biodata-5        --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
             $sql5 = "INSERT INTO 5bd_family_information (user_id, family_major_guardian, father_name, father_alive, fatheroccupation, mother_alive, motheroccupation, brosis_number, brosis_info, uncle_profession, family_class, financial_condition, family_religious_condition, profilecreationdate) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             $stmt5 = mysqli_prepare($conn, $sql5);
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --  Marriage related Info /Marital Status 6 & 7  --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
             $sql61 = "INSERT INTO 6bd_7bd_marital_status (user_id, maritalstatus, divorce_reason, how_widow, how_widower, get_wife_permission, get_family_permission, why_again_married, how_many_son, son_details, agree_marriage_other_religion, profilecreationdate) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             $stmt61 = mysqli_prepare($conn, $sql61);
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --   Male Marriage related Info / sb-biodata-6   --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
             $sql62 = "INSERT INTO 6bd_marriage_related_qs_male (user_id, allowstudy_aftermarriage, allowjob_aftermarriage, livewife_aftermarriage, profileby, profilecreationdate) 
-            VALUES (?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            VALUES (?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             $stmt62 = mysqli_prepare($conn, $sql62);
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --  Female Marriage related Info / sb-biodata-7  --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
             $sql7 = "INSERT INTO 7bd_marriage_related_qs_female (user_id, anyjob_aftermarriage, studies_aftermarriage, agree_marriage_student, profileby, profilecreationdate) 
-            VALUES (?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            VALUES (?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             $stmt7 = mysqli_prepare($conn, $sql7);
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --        Religion Details / sb-biodata-8        --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
             $sql8 = "INSERT INTO 8bd_religion_details (user_id, religion, yourreligion_condition, profilecreationdate) 
-            VALUES (?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            VALUES (?, ?, ?, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             $stmt8 = mysqli_prepare($conn, $sql8);
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --     Expected Life Partner / sb-biodata-9      --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
             $sql9 = "INSERT INTO 9bd_expected_life_partner (user_id, partner_citizen, partner_district, partner_maritialstatus, partner_age, partner_skintones, partner_height, partner_education, partner_profession, partner_financial, partner_attributes, parents_permission, real_info_commited, authorities_no_responsible, profilecreationdate) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             $stmt9 = mysqli_prepare($conn, $sql9);
             // Personal & Physical
             mysqli_stmt_bind_param($stmt1, "sssssssss", $id, $biodatagender, $dob, $height, $weight, $physicalstatus, $Skin_tones, $bloodgroup);
@@ -883,7 +883,7 @@
             physicalstatus = '$physicalstatus',
             Skin_tones = '$Skin_tones',
             bloodgroup = '$bloodgroup',
-            profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
+            profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
         WHERE user_id = '$id'";
         $result=mysqlexec($sql);
         if ($result)
@@ -903,7 +903,7 @@
             agree_marriage_other_religion = '$agree_marriage_other_religion',
             how_many_son = '$how_many_son',
             son_details = '$son_details',
-            profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
+            profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
         WHERE user_id = '$id'";
         $result=mysqlexec($sql);
         if ($result)
@@ -917,7 +917,7 @@
             allowjob_aftermarriage = '$allowjob_aftermarriage',
             livewife_aftermarriage = '$livewife_aftermarriage',
             profileby = '$profileby',
-            profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
+            profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
         WHERE user_id = '$id'";
         $result=mysqlexec($sql);
         if ($result)
@@ -931,7 +931,7 @@
             anyjob_aftermarriage = '$anyjob_aftermarriage',
             agree_marriage_student = '$agree_marriage_student',
             profileby = '$profileby',
-            profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
+            profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
         WHERE user_id = '$id'";
         $result=mysqlexec($sql);
         if ($result) {
@@ -1013,7 +1013,7 @@
             groom_bride_number = '$groom_bride_number',
             groom_bride_family_number = '$groom_bride_family_number',
             family_member_name_relation = '$family_member_name_relation',
-            profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
+            profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
         WHERE user_id = '$id'";
         $result=mysqlexec($sql);
         if ($result) {
@@ -1086,12 +1086,12 @@
                 gnrl_mdrs_secondary_pass_year = '$gnrl_mdrs_secondary_pass_year',
                 gnrl_mdrs_secondary_end_year = '$gnrl_mdrs_secondary_end_year',
                 gnrlmdrs_secondary_running_std = '$gnrlmdrs_secondary_running_std',
-                profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
+                profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
                 WHERE user_id = '$id'";
         } else {
             // User doesn't exist, perform insert
             $sql = "INSERT INTO 3bd_secondaryedu_method (user_id, scndry_edu_method, maxedu_qulfctn, gnrl_mdrs_secondary_pass, gnrl_mdrs_secondary_pass_year, gnrl_mdrs_secondary_end_year, gnrlmdrs_secondary_running_std, profilecreationdate)
-                VALUES ('$id', '$scndry_edu_method', '$maxedu_qulfctn', '$gnrl_mdrs_secondary_pass', '$gnrl_mdrs_secondary_pass_year', '$gnrl_mdrs_secondary_end_year', '$gnrlmdrs_secondary_running_std', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+                VALUES ('$id', '$scndry_edu_method', '$maxedu_qulfctn', '$gnrl_mdrs_secondary_pass', '$gnrl_mdrs_secondary_pass_year', '$gnrl_mdrs_secondary_end_year', '$gnrlmdrs_secondary_running_std', DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
         }
         $result = mysqlexec($sql);
         if ($result) {
@@ -1107,12 +1107,12 @@
                 qawmimadrasa_dawrapass = '$qawmimadrasa_dawrapass',
                 kowmi_dawrapas_year = '$kowmi_dawrapas_year',
                 kowmi_current_edu_level = '$kowmi_current_edu_level',
-                profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
+                profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
                 WHERE user_id = '$id'";
         } else {
             // User doesn't exist, perform insert
             $sql = "INSERT INTO 3bd_kowmi_madrasaedu_method (user_id, qawmi_madrasa_hafez, qawmimadrasa_dawrapass, kowmi_dawrapas_year, kowmi_current_edu_level, profilecreationdate)
-                VALUES ('$id', '$qawmi_madrasa_hafez', '$qawmimadrasa_dawrapass', '$kowmi_dawrapas_year', '$kowmi_current_edu_level', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+                VALUES ('$id', '$qawmi_madrasa_hafez', '$qawmimadrasa_dawrapass', '$kowmi_dawrapas_year', '$kowmi_current_edu_level', DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
         }
         $result = mysqlexec($sql);
         if ($result) {
@@ -1134,12 +1134,12 @@
                 diploma_hrsecondary_pass_year = '$diploma_hrsecondary_pass_year',
                 diploma_hrsecondary_sub = '$diploma_hrsecondary_sub',
                 diploma_hrsecondary_endingyear = '$diploma_hrsecondary_endingyear',
-                profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
+                profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
                 WHERE user_id = '$id'";
         } else {
             // User doesn't exist, perform insert
             $sql = "INSERT INTO 3bd_higher_secondaryedu_method (user_id, higher_secondary_edu_method, gnrlmdrs_hrsecondary_pass, gnrlmdrs_hrsecondary_pass_year, gnrlmdrs_hrsecondary_exam_year, gnrlmdrs_hrsecondary_group, gnrlmdrs_hrsecondary_rningstd, diploma_hrsecondary_pass, diploma_hrsecondary_pass_year, diploma_hrsecondary_sub, diploma_hrsecondary_endingyear, profilecreationdate)
-                VALUES ('$id', '$higher_secondary_edu_method', '$gnrlmdrs_hrsecondary_pass', '$gnrlmdrs_hrsecondary_pass_year', '$gnrlmdrs_hrsecondary_exam_year', '$gnrlmdrs_hrsecondary_group', '$gnrlmdrs_hrsecondary_rningstd', '$diploma_hrsecondary_pass', '$diploma_hrsecondary_pass_year', '$diploma_hrsecondary_sub', '$diploma_hrsecondary_endingyear', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+                VALUES ('$id', '$higher_secondary_edu_method', '$gnrlmdrs_hrsecondary_pass', '$gnrlmdrs_hrsecondary_pass_year', '$gnrlmdrs_hrsecondary_exam_year', '$gnrlmdrs_hrsecondary_group', '$gnrlmdrs_hrsecondary_rningstd', '$diploma_hrsecondary_pass', '$diploma_hrsecondary_pass_year', '$diploma_hrsecondary_sub', '$diploma_hrsecondary_endingyear', DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
         }
         $result = mysqlexec($sql);
         if ($result) {
@@ -1157,12 +1157,12 @@
                 varsity_ending_year = '$varsity_ending_year',
                 uvarsity_name = '$uvarsity_name',
                 others_edu_qualification = '$others_edu_qualification',
-                profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
+                profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
                 WHERE user_id = '$id'";
         } else {
             // User doesn't exist, perform insert
             $sql = "INSERT INTO 3bd_universityedu_method (user_id, varsity_edu_method, uvarsity_pass, varsity_passing_year, university_subject, varsity_ending_year, uvarsity_name, others_edu_qualification, profilecreationdate)
-            VALUES ('$id', '$varsity_edu_method', '$uvarsity_pass', '$varsity_passing_year', '$university_subject', '$varsity_ending_year', '$uvarsity_name', '$others_edu_qualification', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            VALUES ('$id', '$varsity_edu_method', '$uvarsity_pass', '$varsity_passing_year', '$university_subject', '$varsity_ending_year', '$uvarsity_name', '$others_edu_qualification', DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
         }
         $result = mysqlexec($sql);
         session_start();
@@ -1222,7 +1222,7 @@
             present_address_location = '$present_address_location',
             present_address_living_purpose = '$present_address_living_purpose',
             childhood = '$childhood',
-            profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
+            profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
         WHERE user_id = '$id'";
         $result=mysqlexec($sql);
         if ($result) {
@@ -1284,7 +1284,7 @@
             family_class = '$family_class',
             financial_condition = '$financial_condition',
             family_religious_condition = '$family_religious_condition',
-            profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
+            profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
         WHERE user_id = '$id'";
         $result=mysqlexec($sql);
         if ($result) {
@@ -1326,7 +1326,7 @@
                 $sql = "UPDATE 8bd_religion_details SET 
                     religion = '$religion',
                     yourreligion_condition = '$yourreligion_condition',
-                    profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
+                    profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
                 WHERE user_id = '$id'";
                 $result = mysqlexec($sql);
                 if ($result) {
@@ -1390,7 +1390,7 @@
             parents_permission = '$parents_permission',
             real_info_commited = '$real_info_commited',
             authorities_no_responsible = '$authorities_no_responsible',
-            profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
+            profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
         WHERE user_id = '$id'";
         $result=mysqlexec($sql);
         if ($result) {

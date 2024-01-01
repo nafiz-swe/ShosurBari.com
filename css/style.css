@@ -612,7 +612,7 @@ ul.nav_1 li.last{
     display: flex;
 }
 .shosurbari-userhome-status{
-    margin-top: 20px;
+    margin-top: 15px;
     width:  210px;
 }
 .shosurbari-userhome-status p{
@@ -2994,7 +2994,6 @@ ol li{
     margin-bottom: auto;
     overflow-x: auto;
     margin-top: 20px;
-    margin-bottom: 20px;
     margin-right: 0;
     margin-left: 30px;
     border: 1px solid #0aa4ca;
@@ -3002,15 +3001,24 @@ ol li{
 .shosurbari-dashboard p {
     text-align: justify;
 }
-.shosurbari-order-dashboard {
+.shosurbari-order-dashboard,
+.shosurbari-receive-dashboard  {
     margin: auto;
-    margin-bottom: 100px;
+    margin-bottom: 120px;
     overflow-y: hidden;
 }
-.shosurbari-receive-dashboard {
+.shosurbari-contactme-dashboard{
     margin: auto;
     overflow-y: hidden;
     margin-bottom: 25px;
+}
+.shosurbari-contactme-dashboard h1 {
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    max-width: 100%;
+    line-height: 35px;
 }
 .shosurbari-dashboard h1 {
     font-size: 25px;
@@ -3022,9 +3030,11 @@ ol li{
 }
 .shosurbari-order-dashboard p,
 .shosurbari-receive-dashboard p{
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     text-align: left;
+    line-height: 22px;
+    font-size: 15px;
 }
 .shosurbari-user-account form{   /* Both Page*/
     background: white;

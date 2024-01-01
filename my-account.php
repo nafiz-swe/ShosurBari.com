@@ -84,7 +84,8 @@ $conn->close();
     margin-bottom: 20px;
   }
   .shosurbari-users-request th {
-    background-color: #f2f2f2;
+    background: linear-gradient(#06b6d4, #0aa4ca);
+    color: #fff;
     text-align: center;
     padding: 8px;
   }
@@ -92,7 +93,8 @@ $conn->close();
     border: 1px solid #ccc;
   }
   .shosurbari-users-request td {
-    padding: 12px 10px;
+    padding: 8px;
+    font-size: 15px;
   }
   td a, td a:hover{
     text-decoration: none;
@@ -240,9 +242,16 @@ $conn->close();
       $result = mysqlexec($sql);
       $sql2 = "SELECT * FROM customer_sent_info_complete WHERE user_id = $id  ORDER BY STR_TO_DATE(info_sent_time, '%e %M %Y, %h:%i:%s %p') DESC";
       $result2 = mysqlexec($sql2);
+
+      $sql3 = "SELECT * FROM customer_sent_info_complete
+         WHERE biodata_number_1 = $id OR biodata_number_2 = $id OR biodata_number_3 = $id OR biodata_number_4 = $id
+            OR biodata_number_5 = $id OR biodata_number_6 = $id OR biodata_number_7 = $id OR biodata_number_8 = $id
+            OR biodata_number_9 = $id OR biodata_number_10 = $id
+         ORDER BY STR_TO_DATE(info_sent_time, '%e %M %Y, %h:%i:%s %p') DESC";
+      $result3 = mysqlexec($sql3);
       ?>
       <h1>রিকোয়েস্ট বায়োডাটা পেমেন্ট তথ্য </h1>
-      <p style="margin-bottom: 20px;"><i id="bell" class="fa fa-bell"></i> যেকোনো বায়োডাটার সাথে যোগাযোগ করতে আগ্রহ হইলে, সার্ভিস চার্জ প্রদান করার পর এখানে পেমেন্ট তথ্য দেখতে পাবেন।</p>
+      <p style="margin-bottom: 20px;"><i id="bell" class="fa fa-bell"></i> আপনি যেকোনো বায়োডাটার সাথে যোগাযোগ করতে আগ্রহ হইলে, সার্ভিস চার্জ প্রদান করার পর এখানে পেমেন্ট তথ্য দেখতে পাবেন।</p>
       <div class="shosurbari-order-dashboard">
         <table class="shosurbari-users-request">
           <tr>
@@ -329,6 +338,7 @@ $conn->close();
         </table>
       </div>
       <h1>বায়োডাটার সাথে যোগাযোগের তথ্য </h1>
+      <p style="margin-bottom: 20px;"><i id="bell" class="fa fa-bell"></i> আপনার পেমেন্ট সম্পন্ন হবার পর ২৪ ঘন্টার মধ্যে যোগাযোগের জন্য কাঙ্ক্ষিত তথ্য আপনাকে SMS বা ই-মেইলের মাধ্যমে পাঠিয়ে দেয়া হবে এবং এখানেও দেখতে পাবেন।</p>
       <div class="shosurbari-receive-dashboard">
         <table class="shosurbari-users-request">
           <tr>
@@ -420,6 +430,44 @@ $conn->close();
           }
           ?>
         </table>
+      </div>
+
+      <h1> আপনার বায়োডাটা পছন্দ করেছে</h1>
+      <p style="margin-bottom: 20px;"><i id="bell" class="fa fa-bell"></i> বিয়ের জন্য আগ্রহী ইউজার আপনার বায়োডাটা পছন্দ করার পর, তার পেমেন্ট তথ্য যাচাই বাছাই করে শ্বশুরবাড়ির কাস্টমার সার্ভিস থেকে আপনার অভিভাবককে কল করবে, অভিভাবক অনুমতি দিলে আগ্রহী ইউজারকে আপনাদের যোগাযোগের তথ্য প্রদান করা হবে। অভিভাবক অনুমতি দিয়ার পর তবেই এখানে সেই আগ্রহী ইউজারের নাম, ইমেইল দেখতে পাবেন।</p>
+      <div class="shosurbari-contactme-dashboard">
+        <?php
+echo "<table class='shosurbari-users-request'>
+        <tr>
+            <th>নাম</th>
+            <th>ই-মেইল</th>
+            <th>তারিখ</th>
+        </tr>";
+
+$currentID = null;
+
+while ($row = mysqli_fetch_assoc($result3)) {
+    if ($currentID !== $row['id']) {
+        // If a new ID is encountered, start a new row
+        if ($currentID !== null) {
+            echo "</tr>";
+        }
+        echo "<tr>";
+        // echo "<td>" . $row['id'] . "</td>";
+        $currentID = $row['id'];
+    }
+
+    // Display other columns in the same row
+    echo "<td>" . $row['payment_cust_name'] . "</td>"; // Display payment_cust_name
+    echo "<td>" . $row['payment_cust_email'] . "</td>"; // Display payment_cust_email
+    echo "<td>" . $row['info_sent_time'] . "</td>";
+}
+
+if ($currentID !== null) {
+    echo "</tr>";
+}
+
+echo "</table>";
+?>
       </div>
       <p><i id="bell" class="fa fa-bell"></i> যেকোনো প্রয়োজনে আমাদের সাথে যোগাযোগ করতে <a href="contact-us.php" target="_blank"> Contact</a> পেজ অনুসরণ করুন। অথবা আমাদের <a href="https://www.facebook.com/ShosurBari.bd" target="_blank"> FaceBook</a> পেজ ফলো করে সাথেই থাকুন</p>
     </div>
