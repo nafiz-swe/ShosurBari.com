@@ -714,12 +714,12 @@ input[type=submit]:hover {
 }
 .search-admin{
     border: 1px solid #00c292;
-    border-radius: 3px;
+    border-radius: 0 3px 3px 0;
     height: 40px;
     font-size: 18px;
     padding: 0 10px;
-    margin-left: -6px;
-    background: white;
+    margin-left: -8px;
+    margin-top: 10px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .search-clear-admin{
@@ -729,7 +729,7 @@ input[type=submit]:hover {
     font-size: 18px;
     padding: 0 10px;
     margin-left: 10px;
-    background: white;
+    margin-top: 10px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .search-admin:hover,

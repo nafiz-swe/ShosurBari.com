@@ -67,7 +67,7 @@
                     // Insert the new admin record using prepared statements
                     $stmt = $conn->prepare("INSERT INTO admin 
                         (fullname, username, email, password, active, deactivated, register_date, last_login) 
-                        VALUES (?, ?, ?, ?, 1, 0, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'), DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))");
+                        VALUES (?, ?, ?, ?, 1, 0, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'), DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))");
                     $stmt->bind_param("ssss", $fullname, $username, $email, $hashed_password);
     
                     if ($stmt->execute()) {
@@ -111,7 +111,7 @@
                     // Verify the hashed input password with the stored hashed password
                     if (password_verify($password, $stored_password)) {
                         // Update last_login column with the current timestamp
-                        $update_last_login_sql = "UPDATE admin SET last_login = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p') WHERE admin_id = ?";
+                        $update_last_login_sql = "UPDATE admin SET last_login = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p') WHERE admin_id = ?";
                         $update_stmt = $conn->prepare($update_last_login_sql);
                         $update_stmt->bind_param("i", $admin_id);
                         $update_stmt->execute();
@@ -291,7 +291,7 @@
             '$biodata_number_10',
             '$biodata_guardian_10',
             '$biodata_patropatri_10',
-            '$cust_payment_date', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            '$cust_payment_date', DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             if (mysqli_query($conn, $sql)) {
             $sbo_id = mysqli_insert_id($conn);
             $_SESSION['id'] = $sbo_id;

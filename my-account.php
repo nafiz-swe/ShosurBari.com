@@ -75,9 +75,9 @@ $conn->close();
     min-width: 170px;
   }
   .shosurbari-users-request tbody {
-      display: block;
-      max-height: 350px;
-      overflow-y: auto;
+    display: block;
+    max-height: 350px;
+    overflow-y: auto;
   }
   .shosurbari-users-request {
     width: 100%;

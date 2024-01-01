@@ -22,7 +22,7 @@ if (!isset($_SESSION['admin_id'])) {
   echo '<style>
   h1{
     padding: 10px 0;
-    margin: 150px auto 0px auto;
+    padding-top:120px;
     text-align: center;
     font-size: 35px;
     color: #00c292;
@@ -35,11 +35,11 @@ if (!isset($_SESSION['admin_id'])) {
   }
   table {
     border-collapse: collapse;
-    width: 100%;
+    min-width: 2500px;
     padding: 20px;
     border: 2px solid #f0f0f0;
     margin-bottom: 20px;
-  }
+  }  
   th, td {
     border: 2px solid #f0f0f0;
     padding: 8px;
@@ -49,9 +49,6 @@ if (!isset($_SESSION['admin_id'])) {
     background-color: #00c292;
     color: white;
     border: 2px solid #ccc;
-  }
-  #search-form {
-    margin-bottom: 20px;
   }
   form{
     margin-left: 0px;
@@ -73,51 +70,30 @@ if (!isset($_SESSION['admin_id'])) {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow-x: auto;
     max-height: 90vh;
+    width: 90%;
+    margin: auto;
   }
   .table-wrapper {
     overflow: hidden;
-    width: 3080px;
-    margin: auto;
+    margin: 20px auto 0px auto;
+    width: 90%;
   }
   .table-wrapper table {
     border-collapse: collapse;
     width: 100%;
     padding: 20px;
-    border: 2px solid #f0f0f0;
+    border: 2px solid #00c292;
     border-radius: 10px;
     margin-bottom: 20px;
     margin-top: -30px;
   }
-
-  /* Progress bar styling Start*/
-  .progress-container {
-    height: 8px;
-    background-color: #ddd;
-  }
-  .progress-bar {
-    height: 100%;
-    width: 100%;
-    background-color: #00c292;
-  }
+  /* Progress bar styling */
   .pagination{
-    display: inline-block;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    margin-left:  auto;
-    margin-right: auto;
+    display: block;
     padding: 0;
     list-style: none;
-    align-items: center;
-    justify-content:center;
-  }
-  .page-link{
-    color: #000;
-    padding: 8px 12px;
-    text-decoration: none;
-    font-size: 14px;
-    background-color: #eee;
-    border-radius: 50%;
-    margin: 0 3px;
+    width: 90%;
+    margin: 50px auto 120px auto;
   }
   .page-link:hover{
     background: #00c292;
@@ -127,16 +103,7 @@ if (!isset($_SESSION['admin_id'])) {
     background: #00c292;
     color: #fff;
   }
-  button {
-    background: #fff;
-    color: black;
-    border: 1px solid #ccc;
-    border-radius: 2px;
-  }
-  button:hover {
-    background: #0aa4ca;
-    color: #fff;
-  }
+
   .read-row {
     background-color: #22c55e;
     color: #fff;
@@ -162,7 +129,6 @@ if (!isset($_SESSION['admin_id'])) {
   } else {
       echo "Error: " . mysqli_error($conn);
   }
-  echo '<div class="table-container">';
     echo "<h1>রিপোর্ট এবং সাপোর্ট ম্যাসেজ</h1>";
     echo '<div class="table-wrapper">';
       echo "<h3>ম্যাসেজ করেছে মোট: " . $userCount . "</h3>";
@@ -182,9 +148,9 @@ if (!isset($_SESSION['admin_id'])) {
         <button class="search-clear-admin" type="submit" name="clear" style="margin-left: 10px;">Clear Search</button>
       </form>
       <form method="GET">
-        <label for="per-page" style="margin-top: 20px;">Profiles Show</label>
+        <label for="per-page" style="margin-top: 20px;">প্রতি পেজে কয়টি প্রোফাইল দেখতে চান</label>
         <select name="per_page" id="per-page" onchange="this.form.submit()">
-          <option value=""> </option>
+          <option value="">.....??</option>
           <option value="50" ' . ($profilesPerPage == 50 ? 'selected' : '') . '>50</option>
           <option value="100" ' . ($profilesPerPage == 100 ? 'selected' : '') . '>100</option>
           <option value="500" ' . ($profilesPerPage == 500 ? 'selected' : '') . '>500</option>
@@ -194,6 +160,7 @@ if (!isset($_SESSION['admin_id'])) {
         </select>
       </form>
       </div>';
+      echo '</div>'; // Close the table-wrapper div
       $searchUserId = isset($_POST['search-user-id']) ? $_POST['search-user-id'] : '';
       $searchCriteria = isset($_POST['search-criteria']) ? $_POST['search-criteria'] : '';
       $searchKeyword = isset($_POST['search-keyword']) ? mysqli_real_escape_string($conn, $_POST['search-keyword']) : '';
@@ -217,6 +184,7 @@ if (!isset($_SESSION['admin_id'])) {
       }
       $result = mysqli_query($conn, $sql);
       if (mysqli_num_rows($result) > 0) {
+        echo '<div class="table-container">';
         echo "<table>";
         echo '<tr>
           <th>আইডি নং</th>
@@ -253,10 +221,7 @@ if (!isset($_SESSION['admin_id'])) {
         echo '</tr>';
       }
       echo '</table>';
-      // Progress bar at the bottom
-      echo '<div class="progress-container">
-        <div class="progress-bar"></div>
-      </div>';
+      echo '</div>'; // Close the table-container div
       // Calculate the total number of pages
       $total_pages = ceil($userCount / $profilesPerPage);
       // Define how many pages to show before and after the current page
@@ -265,7 +230,7 @@ if (!isset($_SESSION['admin_id'])) {
       echo "<div class='pagination'>";
         if ($total_pages > 1) {
         if ($page > 1) {
-          echo "<a href='?page=" . ($page - 1) . "&per_page=$profilesPerPage' class='page-link'>Previous</a>";
+          echo "<a href='?page=" . ($page - 1) . "&per_page=$profilesPerPage' class='page-link'><i class='fa fa-angle-double-left'></i></a>";
         }
         for ($i = 1; $i <= $total_pages; $i++) {
           if ($i == 1 || $i == $total_pages || ($i >= $page - $pages_to_show && $i <= $page + $pages_to_show)) {
@@ -277,15 +242,13 @@ if (!isset($_SESSION['admin_id'])) {
           }
         }
         if ($page < $total_pages) {
-            echo "<a href='?page=" . ($page + 1) . "&per_page=$profilesPerPage' class='page-link'>Next</a>";
+            echo "<a href='?page=" . ($page + 1) . "&per_page=$profilesPerPage' class='page-link'><i class='fa fa-angle-double-right'></i></a>";
         }
         }
       echo "</div>";
       } else {
         echo 'No users found.';
       }
-    echo '</div>'; // Close the table-wrapper div
-  echo '</div>'; // Close the table-container div
   mysqli_close($conn);
   ?>
   <script>

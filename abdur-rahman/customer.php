@@ -22,7 +22,7 @@ if (!isset($_SESSION['admin_id'])) {
   echo '<style>
   h1{
     padding: 10px 0;
-    margin: 150px auto 0px auto;
+    padding-top:120px;
     text-align: center;
     font-size: 35px;
     color: #00c292;
@@ -35,7 +35,7 @@ if (!isset($_SESSION['admin_id'])) {
   }
   table {
     border-collapse: collapse;
-    width: 100%;
+    min-width: 2500px;
     padding: 20px;
     border: 2px solid #f0f0f0;
     margin-bottom: 20px;
@@ -49,9 +49,6 @@ if (!isset($_SESSION['admin_id'])) {
     background-color: #00c292;
     color: white;
     border: 2px solid #ccc;
-  }
-  #search-form {
-    margin-bottom: 20px;
   }
   form{
     margin-left: 0px;
@@ -73,11 +70,13 @@ if (!isset($_SESSION['admin_id'])) {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow-x: auto;
     max-height: 90vh;
+    width: 90%;
+    margin: auto;
   }
   .table-wrapper {
     overflow: hidden;
-    width: 3080px;
-    margin: auto;
+    margin: 20px auto 0px auto;
+    width: 90%;
   }
   .table-wrapper table {
     border-collapse: collapse;
@@ -89,25 +88,12 @@ if (!isset($_SESSION['admin_id'])) {
     margin-top: -30px;
   }
   /* Progress bar styling */
-  .progress-container {
-    height: 8px;
-    background-color: #ddd;
-  }
-  .progress-bar {
-    height: 100%;
-    width: 100%;
-    background-color: #00c292;
-  }
   .pagination{
-    display: inline-block;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    margin-left:  auto;
-    margin-right: auto;
+    display: block;
     padding: 0;
     list-style: none;
-    align-items: center;
-    justify-content:center;
+    width: 90%;
+    margin: 50px auto 120px auto;
   }
   .page-link:hover{
     background: #00c292;
@@ -166,7 +152,6 @@ if (!isset($_SESSION['admin_id'])) {
   } else {
       echo "Error: " . mysqli_error($conn);
   }
-  echo '<div class="table-container">';
     echo "<h1>কাস্টমার ও পেমেন্ট</h1>";
     echo '<div class="table-wrapper">';
       echo "<h3>মোট কাস্টমার: " . $userCount . "</h3>";
@@ -174,7 +159,7 @@ if (!isset($_SESSION['admin_id'])) {
       <form method="POST">
         <input type="text" id="search-user-id" name="search-user-id" placeholder="বায়োডাটা নং">
         <button class="search-admin" type="submit" name="search">Search</button>
-        <select style="margin-top: 20px; width: 200px; margin-bottom: 5px;" name="search-criteria" id="search-criteria">
+        <select style="margin-top: 20px; width: 200px;" name="search-criteria" id="search-criteria">
         <option>.....??</option>
         <option value="id_customer">রিকোয়েস্ট আইডি (SBBR)</option>
           <option value="cust_email">ই-মেইল</option>
@@ -198,6 +183,8 @@ if (!isset($_SESSION['admin_id'])) {
         </select>
       </form>
       </div>';
+      echo '</div>'; // Close the table-wrapper div
+
       $searchUserId = isset($_POST['search-user-id']) ? $_POST['search-user-id'] : '';
       $searchCriteria = isset($_POST['search-criteria']) ? $_POST['search-criteria'] : '';
       $searchKeyword = isset($_POST['search-keyword']) ? mysqli_real_escape_string($conn, $_POST['search-keyword']) : '';
@@ -221,6 +208,8 @@ if (!isset($_SESSION['admin_id'])) {
       }
       $result = mysqli_query($conn, $sql);
       if (mysqli_num_rows($result) > 0) {
+        echo '<div class="table-container">';
+
         echo "<table>";
         echo '<tr>
           <th>রিকোয়েস্ট আইডি (SBBR)</th>
@@ -303,9 +292,7 @@ if (!isset($_SESSION['admin_id'])) {
           echo '</tr>';
         }
         echo '</table>';
-      echo '<div class="progress-container">
-        <div class="progress-bar"></div>
-      </div>';
+      echo '</div>'; // Close the table-container div
       // Calculate the total number of pages
       $total_pages = ceil($userCount / $profilesPerPage);
       // Define how many pages to show before and after the current page
@@ -333,8 +320,6 @@ if (!isset($_SESSION['admin_id'])) {
       } else {
         echo 'No users found.';
       }
-    echo '</div>'; // Close the table-wrapper div
-  echo '</div>'; // Close the table-container div
   mysqli_close($conn);
   ?>
   <script>

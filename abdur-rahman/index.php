@@ -497,7 +497,7 @@ if ($result) {
 if ($admins_result) {
     echo "<div class='sb-admin-info'>";
     echo "<table border='1'>";
-    echo "<tr><th>Full Name</th><th>Username</th><th>Email</th><th>Register Date</th><th>Last Login</th><th>Status</th><th>Action</th></tr>";
+    echo "<tr><th>Full Name</th><th>Username</th><th>Email</th><th>Register Date</th><th>Last_Login</th><th>Status</th><th>Action</th></tr>";
 
     while ($admin_row = mysqli_fetch_assoc($admins_result)) {
         $admin_id = $admin_row['admin_id'];
