@@ -19,41 +19,7 @@ if (!isset($_SESSION['admin_id'])) {
   <?php include("admin_navigation.php"); ?>
   <!-- ========================================= -->
   <style>
-  h1 {
-    padding: 10px 0;
-    margin: 150px auto 0px auto;
-    text-align: center;
-    font-size: 35px;
-    color: #00c292;
-  }
-  .sbbiodata_profile_recentview  h3{
-    margin: 20px auto 0px auto;
-    padding: 10px 0;
-    font-size: 25px;
-    color: #00c292;
-    text-align: left;
-  }
-  form {
-    margin-left: 0px;
-    margin-top: 0px;
-    padding: 5px 0px;
-  }
-  .sbbiodata_profile_recentview {
-    margin: 0px auto; 
-    padding: 0 20px;
-    border: 10px solid #00c292;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow-x: auto;
-    max-height: 90vh;
-  }
-  table {
-    border-collapse: collapse;
-    margin-bottom: 20px;
-  }
-  tr{
-    border: 2px solid #00c292;
-  }
+
   th {
     background-color: #00c292;
     color: white;
@@ -74,11 +40,6 @@ if (!isset($_SESSION['admin_id'])) {
     font-size: 14px;
     color: #00c292;
     margin: -5px auto 10px auto;
-  }
-  label {
-    font-size: 16px;
-    color: #00c292;
-    margin-top: 20px;
   }
   .input-group input[type="text"], select {
     border-radius: 4px;
@@ -124,15 +85,16 @@ if (!isset($_SESSION['admin_id'])) {
     gap: 15px;
   }
   /* Optionally, you can style the buttons for better visibility */
+  td form a,
   td form input[type="submit"] {
     border: none;
     cursor: pointer;
     text-align: center;
     cursor: pointer;
     width: 90px;
-    height: 30px;
+    height: 40px;
+    line-height: 25px;
     margin: 15px auto;
-    background: red;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-shadow: 1px 1px 4px #888;
@@ -140,54 +102,90 @@ if (!isset($_SESSION['admin_id'])) {
     color: #fff;
     font-weight: 400;
   }
+  td form input[type="submit"] {
+    background: red;
+  }
   td form a {
-    border: none;
-    cursor: pointer;
-    cursor: pointer;
-    width: 90px;
-    height: 30px;
-    margin: 15px auto;
     background: green;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 1px 1px 4px #888;
-    font-size: 14px;
-    color: #fff;
-    font-weight: 400;
   }
   td form input[type="submit"]:hover,
   td form a:hover {
     color: white;
     background: linear-gradient(#0aa4ca, #0acef1);
   }
-  .progress-container {
-    height: 8px;
-    background-color: #ddd;
+
+
+
+
+
+
+
+
+  h1{
+    padding: 10px 0;
+    padding-top:120px;
+    text-align: center;
+    font-size: 35px;
+    color: #00c292;
   }
-    .progress-bar {
-    height: 100%;
+  h3{
+    padding: 10px 0;
+    margin: 20px auto 0px auto;
+    font-size: 25px;
+    color: #00c292;
+  }
+  table {
+    border-collapse: collapse;
+    min-width: 2500px;
+    padding: 20px;
+    border: 2px solid #f0f0f0;
+    margin-bottom: 20px;
+  } 
+  form{
+    margin-left: 0px;
+    margin-top: 0px;
+    padding: 10px 0px;
+  }
+  label {
+    font-size: 16px;
+    color: #00c292;
+    margin-top: 20px;
+  } 
+  .input-group input[type="text"], select {
+    font-size: 17px;
+    width: 110px;
+  }
+  .table-container {
+    padding: 0 20px;
+    border: 10px solid #00c292;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+    max-height: 90vh;
+    width: 90%;
+    margin: auto;
+  }
+  .table-wrapper {
+    overflow: hidden;
+    margin: 20px auto 0px auto;
+    width: 90%;
+  }
+  .table-wrapper table {
+    border-collapse: collapse;
     width: 100%;
-    background-color: #00c292;
+    padding: 20px;
+    border: 2px solid #00c292;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-top: -30px;
   }
+  /* Progress bar styling */
   .pagination{
-    display: inline-block;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    margin-left:  auto;
-    margin-right: auto;
+    display: block;
     padding: 0;
     list-style: none;
-    align-items: center;
-    justify-content:center;
-  }
-  .page-link{
-    color: #000;
-    padding: 8px 12px;
-    text-decoration: none;
-    font-size: 14px;
-    background-color: #eee;
-    border-radius: 50%;
-    margin: 0 3px;
+    width: 90%;
+    margin: 50px auto 120px auto;
   }
   .page-link:hover{
     background: #00c292;
@@ -198,7 +196,6 @@ if (!isset($_SESSION['admin_id'])) {
     color: #fff;
   }
   </style>
-  <div class="sbbiodata_profile_recentview">
     <h1>পাত্রপাত্রীদের প্রোফাইল ছবি</h1>
     <?php
     require_once("includes/dbconn.php");
@@ -219,9 +216,8 @@ if (!isset($_SESSION['admin_id'])) {
     $offset = ($currentPage - 1) * $profilesPerPage;
     $sql = "SELECT DISTINCT user_id FROM photos LIMIT $profilesPerPage OFFSET $offset";
     $result = mysqlexec($sql);
-    echo "<h3>Total number of user profiles: " . $userCount . "</h3>";
     echo '<div class="table-wrapper">';
-      echo "<table>";
+      echo "<h3>Total number of user profiles: " . $userCount . "</h3>";
         echo '<div id="search-form">
           <form method="POST">
             <input type="text" id="search-user-id" name="search-user-id" placeholder="বায়োডাটা নং" required>
@@ -229,9 +225,9 @@ if (!isset($_SESSION['admin_id'])) {
             <button class="search-clear-admin" type="submit" name="clear">Clear Search</button></br>
           </form>
           <form method="GET">
-            <label for="per-page">Profiles Show</label>
-            <select id="per-page" name="per_page" onchange="updateProfilesPerPage()">
-              <option value=""> </option>
+          <label for="per-page" style="margin-top: 20px;">প্রতি পেজে কয়টি প্রোফাইল দেখতে চান</label>
+          <select id="per-page" name="per_page" onchange="updateProfilesPerPage()">
+              <option>.....??</option>
               <option value="50" ' . ($profilesPerPage == 50 ? 'selected' : '') . '>50</option>
               <option value="100" ' . ($profilesPerPage == 100 ? 'selected' : '') . '>100</option>
               <option value="500" ' . ($profilesPerPage == 500 ? 'selected' : '') . '>500</option>
@@ -241,6 +237,10 @@ if (!isset($_SESSION['admin_id'])) {
             </select>
           </form>
         </div>';
+        echo '</div>'; // Close the table-wrapper div
+
+        echo '<div class="table-container">';
+        echo "<table>";
         if (isset($_POST['search'])) {
           $searchUserId = mysqli_real_escape_string($conn, $_POST['search-user-id']);
           $sql = "SELECT * FROM photos WHERE user_id = $searchUserId";
@@ -314,10 +314,7 @@ if (!isset($_SESSION['admin_id'])) {
         }
       }
       echo "</table>";
-      // Progress bar at the bottom
-      echo '<div class="progress-container">
-        <div class="progress-bar"></div>
-      </div>';
+      echo '</div>'; // Close the table-container div
       // Calculate the total number of pages
       $total_pages = ceil($userCount / $profilesPerPage);
       $pages_to_show = 1;
@@ -325,7 +322,7 @@ if (!isset($_SESSION['admin_id'])) {
       echo "<div class='pagination'>";
         if ($total_pages > 1) {
           if ($currentPage > 1) {
-          echo "<a href='photos.php?page=" . ($currentPage - 1) . "&per_page=$profilesPerPage' class='page-link'>Previous</a>";
+          echo "<a href='photos.php?page=" . ($currentPage - 1) . "&per_page=$profilesPerPage' class='page-link'><i class='fa fa-angle-double-left'></i></a>";
           }
         for ($i = 1; $i <= $total_pages; $i++) {
         if ($i == 1 || $i == $total_pages || ($i >= $currentPage - $pages_to_show && $i <= $currentPage + $pages_to_show)) {
@@ -337,13 +334,11 @@ if (!isset($_SESSION['admin_id'])) {
         }
         }
         if ($currentPage < $total_pages) {
-          echo "<a href='photos.php?page=" . ($currentPage + 1) . "&per_page=$profilesPerPage' class='page-link'>Next</a>";
+          echo "<a href='photos.php?page=" . ($currentPage + 1) . "&per_page=$profilesPerPage' class='page-link'><i class='fa fa-angle-double-right'></i></a>";
         }
         }
       echo "</div>";
-    echo '</div>'; // Close the table-wrapper div
     ?>
-  </div>
   <script>
   function updateProfilesPerPage() {
     const perPageSelect = document.getElementById('per-page');
