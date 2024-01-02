@@ -1761,8 +1761,8 @@ $result=search();
         </br><span id="profiles-info"></span>
       </div>
       <script>
-      // After Search Number of ShosurBari Users Profiles Show Per Page.
-      const profilesPerPage = 5;
+      // After Search Users Profiles Show Per Page
+      const profilesPerPage = 1;
       // Total number of profiles found
       const totalProfiles = <?php echo $c_count ?>;
       // Calculate the total number of pages
@@ -1773,35 +1773,41 @@ $result=search();
       const pagesToShowBeforeAndAfter = 2;
       // Function to generate page numbers with "dot dot" nodes
       function generatePageNumbers() {
-        // Clear the page numbers
-        const pageNumbersContainer = document.getElementById("page-numbers");
-        pageNumbersContainer.innerHTML = "";
-        // Define how many pages to show before and after the current page
-        const pagesToShowBeforeAndAfter = 1;
-        // Loop through all pages and generate page numbers
+      // Clear the page numbers
+      const pageNumbersContainer = document.getElementById("page-numbers");
+      pageNumbersContainer.innerHTML = "";
+      // Define how many pages to show before and after the current page
+      const pagesToShowBeforeAndAfter = 1;
+      // Loop through all pages and generate page numbers
         for (let i = 1; i <= totalPages; i++) {
-          if (i === 1 || i === totalPages || (i >= currentPage - pagesToShowBeforeAndAfter && i <= currentPage + pagesToShowBeforeAndAfter)) {
-            const pageNumberElem = document.createElement("a");
-            pageNumberElem.href = "#";
-            pageNumberElem.innerText = convertToBanglaNumber(i); // Use the Bangla page number
-            pageNumberElem.classList.add("page-link");
-            if (i === currentPage) {
-              pageNumberElem.classList.add("active");
-            }
-            // Add a click event listener to switch pages
-            pageNumberElem.addEventListener("click", () => {
-              currentPage = i;
-              showProfiles();
-            });
-            // Append the page number element to the page numbers container
-            pageNumbersContainer.appendChild(pageNumberElem);
+        if (i === 1 || i === totalPages || (i >= currentPage - pagesToShowBeforeAndAfter && i <= currentPage + pagesToShowBeforeAndAfter)) {
+          const pageNumberElem = document.createElement("a");
+          pageNumberElem.href = "#";
+          pageNumberElem.innerText = convertToBanglaNumber(i); // Use the Bangla page number
+          pageNumberElem.classList.add("page-link");
+          if (i === currentPage) {
+          pageNumberElem.classList.add("active");
+          }
+          // Add a click event listener to switch pages
+          pageNumberElem.addEventListener("click", (event) => {
+          event.preventDefault(); // Prevent default behavior
+          currentPage = i;
+          showProfiles();
+          // Scroll to the top with smooth behavior
+          window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+          });
+          });
+          // Append the page number element to the page numbers container
+          pageNumbersContainer.appendChild(pageNumberElem);
           } else if (i === currentPage - pagesToShowBeforeAndAfter - 1 || i === currentPage + pagesToShowBeforeAndAfter + 1) {
-            // Create a "dot dot" node
-            const dotDotNode = document.createElement("span");
-            dotDotNode.innerText = "...";
-            dotDotNode.classList.add("page-link");
-            // Append the "dot dot" node to the page numbers container
-            pageNumbersContainer.appendChild(dotDotNode);
+          // Create a "dot dot" node
+          const dotDotNode = document.createElement("span");
+          dotDotNode.innerText = "...";
+          dotDotNode.classList.add("page-link");
+          // Append the "dot dot" node to the page numbers container
+          pageNumbersContainer.appendChild(dotDotNode);
           }
         }
       }
@@ -1872,17 +1878,29 @@ $result=search();
       // Show the profiles for the first page
       showProfiles();
       // add click event listeners to the previous page and next page buttons
-      document.getElementById("prev-page-btn").addEventListener("click", () => {
-        if (currentPage > 1) {
-          currentPage--;
-          showProfiles();
-        }
+      document.getElementById("prev-page-btn").addEventListener("click", (event) => {
+      event.preventDefault(); // Prevent default behavior
+      if (currentPage > 1) {
+      currentPage--;
+      showProfiles();
+      // Scroll to the top with smooth behavior
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
       });
-      document.getElementById("next-page-btn").addEventListener("click", () => {
-        if (currentPage < totalPages) {
-        currentPage++;
-        showProfiles();
-        }
+      }
+      });
+      document.getElementById("next-page-btn").addEventListener("click", (event) => {
+      event.preventDefault(); // Prevent default behavior
+      if (currentPage < totalPages) {
+      currentPage++;
+      showProfiles();
+      // Scroll to the top with smooth behavior
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+      }
       });
       </script>
     </div>
