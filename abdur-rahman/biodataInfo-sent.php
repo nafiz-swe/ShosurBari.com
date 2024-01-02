@@ -84,7 +84,7 @@ if (!isset($_SESSION['admin_id'])) {
               <input type="text" name="payment_order_id" value="SBBR" class="form-text" required>
             </div>
             <div class="shosurbari-biodata-field">
-              <label for="edit-name">রেজিস্টার ইউজার/বায়োডাটা নং<span class="form-required" title="This field is required.">***</span> <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (কাস্টমার পেজের "রেজিস্টার ইউজার/বায়োডাটা নং" কলামে যেই নাম্বার থাকবে সেই নাম্বার লিখতে হবে। যদি "0" থাকে তাহলে বুঝে নিতে হবে এই কাস্টমার রেজিস্টার ইউজার না। সেক্ষেত্রেও এই অপশনে "0" লিখতে হবে। যাদের "0" থাকবে না তখন বুঝে নিতে হবে আমাদের ওয়েবসাইট এই কাস্টোমারের একটি একাউন্ট আছে এবং সেই নাম্বারটি হচ্ছে বায়োডাটা নাম্বার। সেক্ষেত্রে এই অপশনে "বায়োডাটা নাম্বারটি" লিখতে হবে, তাহলে সেই ইউজার তার একাউন্ট থেকেও এই তথ্য গুলো দেখতে পাবে।)</span></label>
+              <label for="edit-name">রেজিস্টার ইউজার/বায়োডাটা নং<span class="form-required" title="This field is required.">***</span> <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (রিকোয়েস্ট বায়োডাটা পেজের "রেজিস্টার ইউজার/বায়োডাটা নং" কলামে যেই নাম্বার থাকবে সেই নাম্বার লিখতে হবে। যদি "0" থাকে তাহলে বুঝে নিতে হবে এই কাস্টমার রেজিস্টার ইউজার না। সেক্ষেত্রেও এই অপশনে "0" লিখতে হবে। যাদের "0" থাকবে না তখন বুঝে নিতে হবে আমাদের ওয়েবসাইট এই কাস্টোমারের একটি একাউন্ট আছে এবং সেই নাম্বারটি হচ্ছে বায়োডাটা নাম্বার। সেক্ষেত্রে এই অপশনে "বায়োডাটা নাম্বারটি" লিখতে হবে, তাহলে সেই ইউজার তার একাউন্ট থেকেও এই তথ্য গুলো দেখতে পাবে।)</span></label>
               <input type="number" name="user_id" value="" placeholder="রেজিস্টার ইউজার/বায়োডাটা নং" class="form-text" required>
             </div>
             <div class="shosurbari-biodata-field">
@@ -100,15 +100,19 @@ if (!isset($_SESSION['admin_id'])) {
               <input type="email" name="payment_cust_email" value="" placeholder="কাস্টমার ই-মেইল" class="form-text" required>
             </div>
             <div class="shosurbari-biodata-field">
+              <label for="edit-name">কাস্টমার স্থায়ী ঠিকানা<span class="form-required" title="This field is required.">*</span></label>
+              <input type="email" name="payment_cust_address" value="" placeholder="কাস্টমার স্থায়ী ঠিকানা" class="form-text" required>
+            </div>
+            <div class="shosurbari-biodata-field">
               <label for="edit-name">পেমেন্ট তারিখ<span class="form-required" title="This field is required.">*</span></label>
               <input type="text" name="cust_payment_date" value="" placeholder="পেমেন্ট তারিখ/রিকোয়েস্ট তারিখ" class="form-text" required>
             </div>
             <div class="shosurbari-biodata-field">
-              <label for="edit-name">পেমেন্ট মেথড<span class="form-required" title="This field is required.">*</span> <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (পেমেন্ট মেথড অবশ্যয় বাংলায় হইতে হবে, কাস্টমারস পেজ থেকে কপি করে বসাতে হবে।)</span></label>
+              <label for="edit-name">পেমেন্ট মেথড<span class="form-required" title="This field is required.">*</span> <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (পেমেন্ট মেথড অবশ্যয় বাংলায় হইতে হবে, রিকোয়েস্ট বায়োডাটা পেজ থেকে কপি করে বসাতে হবে।)</span></label>
               <input type="text" name="real_payment_method" value="" placeholder="পেমেন্ট মেথড" class="form-text" required>
             </div>
             <div class="shosurbari-biodata-field">
-              <label for="edit-name">মোট টাকা<span class="form-required" title="This field is required.">*</span> <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (মোট টাকা ইংরেজি নাম্বার হইতে হবে, কাস্টমারস পেজ থেকে কপি করে বসাতে হবে।)</span></label>
+              <label for="edit-name">মোট টাকা<span class="form-required" title="This field is required.">*</span> <span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (মোট টাকা ইংরেজি নাম্বার হইতে হবে, রিকোয়েস্ট বায়োডাটা পেজ থেকে কপি করে বসাতে হবে।)</span></label>
               <input type="text" name="payment_amount" value="" placeholder="মোট টাকা" class="form-text" required>
             </div>
             <div class="shosurbari-biodata-field">

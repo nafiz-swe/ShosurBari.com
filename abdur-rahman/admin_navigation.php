@@ -81,8 +81,9 @@
                             </li>
                             <li><a data-toggle="collapse" data-target="#Pagemob" href="#">Pages</a>
                                 <ul class="notika-main-menu-dropdown">
-                                    <li><a href="customer.php">কাস্টমার</a></li>
+                                    <li><a href="customer.php">রিকোয়েস্ট বায়োডাটা</a></li>
                                     <li><a href="biodataInfo-sent.php">তথ্য প্রদান</a></li>
+                                    <li><a href="customer_real.php">অথেন্টিক কাস্টমার</a></li>
                                     <li><a href="contact_us.php">হেল্প</a></li>
                                     <li><a href="photos.php">ছবি</a></li>
                                     <li><a href="trash.php">ডিলিট ছবি</a></li>
@@ -131,8 +132,9 @@
                     </div>
                     <div id="Page" class="tab-pane notika-tab-menu-bg animated flipInX">
                         <ul class="notika-main-menu-dropdown">
-                            <li><a href="customer.php">কাস্টমার</a></li>
+                            <li><a href="customer.php">রিকোয়েস্ট বায়োডাটা</a></li>
                             <li><a href="biodataInfo-sent.php">তথ্য প্রদান</a></li>
+                            <li><a href="customer_real.php">অথেন্টিক কাস্টমার</a></li>
                             <li><a href="contact_us.php">হেল্প</a></li>
                             <li><a href="photos.php">ছবি</a></li>
                             <li><a href="trash.php">ডিলিট ছবি</a></li>

@@ -75,8 +75,6 @@ $conn->close();
     min-width: 170px;
   }
   .shosurbari-users-request tbody {
-    display: block;
-    max-height: 350px;
     overflow-y: auto;
   }
   .shosurbari-users-request {
@@ -433,14 +431,16 @@ $conn->close();
       </div>
 
       <h1> আপনার বায়োডাটা পছন্দ করেছে</h1>
-      <p style="margin-bottom: 20px;"><i id="bell" class="fa fa-bell"></i> বিয়ের জন্য আগ্রহী ইউজার আপনার বায়োডাটা পছন্দ করার পর, তার পেমেন্ট তথ্য যাচাই বাছাই করে শ্বশুরবাড়ির কাস্টমার সার্ভিস থেকে আপনার অভিভাবককে কল করবে, অভিভাবক অনুমতি দিলে আগ্রহী ইউজারকে আপনাদের যোগাযোগের তথ্য প্রদান করা হবে। অভিভাবক অনুমতি দিয়ার পর তবেই এখানে সেই আগ্রহী ইউজারের নাম, ইমেইল দেখতে পাবেন।</p>
+      <p style="margin-bottom: 20px;"><i id="bell" class="fa fa-bell"></i> বিয়ের জন্য আগ্রহী ইউজার আপনার বায়োডাটা পছন্দ করার পর, তার পেমেন্ট তথ্য যাচাই বাছাই করে শ্বশুরবাড়ির কাস্টমার সার্ভিস থেকে আপনার অভিভাবককে কল করবে। অভিভাবক অনুমতি দেয়ার পর আগ্রহী ইউজারকে আপনাদের যোগাযোগের তথ্য প্রদান করা হবে, তারপর এখানে সেই আগ্রহী ইউজারের বায়োডাটা (যদি থাকে), নাম, ইমেইল এবং স্থায়ী ঠিকানা দেখতে পাবেন।</p>
       <div class="shosurbari-contactme-dashboard">
         <?php
 echo "<table class='shosurbari-users-request'>
-        <tr>
-            <th>নাম</th>
-            <th>ই-মেইল</th>
-            <th>তারিখ</th>
+        <tr> 
+          <th>বায়োডাটা</th>
+          <th>নাম</th>
+          <th>ই-মেইল</th>
+          <th>স্থায়ী ঠিকানা</th>
+          <th>তারিখ</th>
         </tr>";
 
 $currentID = null;
@@ -457,8 +457,17 @@ while ($row = mysqli_fetch_assoc($result3)) {
     }
 
     // Display other columns in the same row
-    echo "<td>" . $row['payment_cust_name'] . "</td>"; // Display payment_cust_name
-    echo "<td>" . $row['payment_cust_email'] . "</td>"; // Display payment_cust_email
+    echo "<td style='color: white; text-align: center;";
+    if ($row['user_id'] == 0) {
+        echo " background-color:#ff0080;'>বায়োডাটা নেই";
+    } elseif ($row['user_id'] == " ") {
+      echo "background:#22c55e;'><a style='color: white;' target='_blank' href='../profile.php?/Biodata=" . $row['user_id'] . "'>" . $row['user_id'] . " View</a></td>";
+    } else {
+      echo "background:#22c55e;'><a style='color: white;' target='_blank' href='../profile.php?/Biodata=" . $row['user_id'] . "'>" . $row['user_id'] . " View</a></td>";
+    }
+    echo "<td>" . $row['payment_cust_name'] . "</td>";
+    echo "<td>" . $row['payment_cust_email'] . "</td>";
+    echo "<td>" . $row['payment_cust_address'] . "</td>";
     echo "<td>" . $row['info_sent_time'] . "</td>";
 }
 
