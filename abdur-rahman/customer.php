@@ -134,7 +134,7 @@ if (!isset($_SESSION['admin_id'])) {
     box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
     border: 1px solid rgba(0,0,0,.05);
     line-height: 29px;
-}
+  }
   </style>';
   require_once("includes/dbconn.php");
   // Number of profiles to display per page
@@ -154,7 +154,7 @@ if (!isset($_SESSION['admin_id'])) {
   }
     echo "<h1>কাস্টমার ও পেমেন্ট</h1>";
     echo '<div class="table-wrapper">';
-      echo "<h3>মোট কাস্টমার: " . $userCount . "</h3>";
+      echo "<h3>সর্বমোট কাস্টমার: " . $userCount . "</h3>";
       echo '<div id="search-form">
       <form method="POST">
         <input type="text" id="search-user-id" name="search-user-id" placeholder="বায়োডাটা নং">

@@ -21,7 +21,7 @@ if (!isset($_SESSION['admin_id'])) {
   <style>
   h1{
     padding: 10px 0;
-    margin: 150px auto 0px auto;
+    padding-top:120px;
     text-align: center;
     font-size: 35px;
     color: #00c292;
@@ -34,23 +34,27 @@ if (!isset($_SESSION['admin_id'])) {
   }
   table {
     border-collapse: collapse;
-    width: 100%;
+    min-width: 2500px;
     padding: 20px;
-    border: 2px solid #00c292;
+    border: 2px solid #f0f0f0;
     margin-bottom: 20px;
-  }
+  }  
   th, td {
-    border: 2px solid #00c292;
+    border: 2px solid #f0f0f0;
     padding: 8px;
-    text-align: left;
+    text-align: center;
   }
   th {
     background-color: #00c292;
     color: white;
     border: 2px solid #ccc;
   }
-  #search-form {
-    margin-bottom: 20px;
+  tr.inactive {
+    background: #ff0080;
+    color: #fff;
+  }
+  tr:hover {
+    background-color: #ddd;
   }
   form{
     margin-left: 0px;
@@ -60,7 +64,6 @@ if (!isset($_SESSION['admin_id'])) {
   label {
     font-size: 16px;
     color: #00c292;
-    margin-top: 20px;
   }
   .input-group input[type="text"], select {
     font-size: 17px;
@@ -73,11 +76,13 @@ if (!isset($_SESSION['admin_id'])) {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow-x: auto;
     max-height: 90vh;
+    width: 90%;
+    margin: auto;
   }
   .table-wrapper {
     overflow: hidden;
-    width: 2080px;
-    margin: auto;
+    margin: 20px auto 0px auto;
+    width: 90%;
   }
   .table-wrapper table {
     border-collapse: collapse;
@@ -88,42 +93,12 @@ if (!isset($_SESSION['admin_id'])) {
     margin-bottom: 20px;
     margin-top: -30px;
   }
-  tr.inactive {
-    background: #ff0080;
-    color: #fff;
-  }
-  tr:hover {
-    background-color: #ddd;
-  }
-  /* Progress bar styling */
-  .progress-container {
-    height: 8px;
-    background-color: #ddd;
-  }
-  .progress-bar {
-    height: 100%;
-    width: 100%;
-    background-color: #00c292;
-  }
   .pagination{
-    display: inline-block;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    margin-left:  auto;
-    margin-right: auto;
+    display: block;
     padding: 0;
     list-style: none;
-    align-items: center;
-    justify-content:center;
-  }
-  .page-link{
-    color: #000;
-    padding: 8px 12px;
-    text-decoration: none;
-    font-size: 14px;
-    background-color: #eee;
-    border-radius: 50%;
-    margin: 0 3px;
+    width: 90%;
+    margin: 50px auto 120px auto;
   }
   .page-link:hover{
     background: #00c292;
@@ -161,10 +136,9 @@ if (!isset($_SESSION['admin_id'])) {
     $result = mysqli_query($conn, $sql);
   }
   if (mysqli_num_rows($result) > 0) {
-    echo "<div class='table-container'>";
-      echo "<h1>রেজিস্ট্রার পাত্রপাত্রীদের বায়োডাটা</h1>";
+      echo "<h1>রেজিস্টার-বায়োডাটার একাউন্ট</h1>";
       echo '<div class="table-wrapper">';
-        echo "<h3>Total number of user profiles: " . $userCount . "</h3>";
+        echo "<h3>সর্বমোট রেজিস্টার একাউন্ট: " . $userCount . "</h3>";
         echo '<div id="search-form">
           <form method="POST">
             <input type="text" id="search-user-id" name="search-user-id" placeholder="User ID" required>
@@ -172,9 +146,9 @@ if (!isset($_SESSION['admin_id'])) {
             <button class="search-clear-admin" type="submit" name="clear">Clear Search</button></br>
           </form>
           <form method="GET">
-            <label for="per-page">Profiles Show</label>
+            <label for="per-page" style="margin-top: 20px;">প্রতি পেজে কয়টি প্রোফাইল দেখতে চান</label>
             <select id="per-page" name="per_page" onchange="updateProfilesPerPage()">
-              <option value=""> </option>
+              <option value="">.....??</option>
               <option value="50" ' . ($profilesPerPage == 50 ? 'selected' : '') . '>50</option>
               <option value="100" ' . ($profilesPerPage == 100 ? 'selected' : '') . '>100</option>
               <option value="500" ' . ($profilesPerPage == 500 ? 'selected' : '') . '>500</option>
@@ -184,6 +158,8 @@ if (!isset($_SESSION['admin_id'])) {
             </select>
           </form>
         </div>';
+        echo '</div>'; // Close the table-wrapper div
+        echo "<div class='table-container'>";
         echo '<table>';
           echo '<tr>
           <th>User ID</th>
@@ -207,7 +183,7 @@ if (!isset($_SESSION['admin_id'])) {
           $id = $row['id'];
           $class = $row['active'] == 1 ? "active" : "inactive";
           echo '<tr class="' . $class . '">';
-          echo '<td>' . $row['id'] . '</td>';
+          echo '<td><a target="_blank" href="../profile.php?/Biodata=' . $row['id'] . '">' . $row['id'] .  " " . "View" . '</a></td>';
           echo '<td>' . $row['fullname'] . '</td>';
           echo '<td>' . $row['username'] . '</td>';
           echo '<td>' . $row['gender'] . '</td>';
@@ -224,10 +200,7 @@ if (!isset($_SESSION['admin_id'])) {
           echo '</td></tr>';
           }
         echo '</table>';
-        // Progress bar at the bottom
-        echo '<div class="progress-container">
-          <div class="progress-bar"></div>
-        </div>';
+        echo '</div>'; // Close the table-container div
         // Calculate the total number of pages
         $total_pages = ceil($userCount / $profilesPerPage);
         // Define how many pages to show before and after the current page
@@ -236,7 +209,7 @@ if (!isset($_SESSION['admin_id'])) {
         echo "<div class='pagination'>";
           if ($total_pages > 1) {
           if ($page > 1) {
-            echo "<a href='?page=" . ($page - 1) . "&per_page=$profilesPerPage' class='page-link'>Previous</a>";
+            echo "<a href='?page=" . ($page - 1) . "&per_page=$profilesPerPage' class='page-link'><i class='fa fa-angle-double-left'></i></a>";
           }
           for ($i = 1; $i <= $total_pages; $i++) {
           if ($i == 1 || $i == $total_pages || ($i >= $page - $pages_to_show && $i <= $page + $pages_to_show)) {
@@ -248,15 +221,13 @@ if (!isset($_SESSION['admin_id'])) {
           }
           }
           if ($page < $total_pages) {
-            echo "<a href='?page=" . ($page + 1) . "&per_page=$profilesPerPage' class='page-link'>Next</a>";
+            echo "<a href='?page=" . ($page + 1) . "&per_page=$profilesPerPage' class='page-link'><i class='fa fa-angle-double-right'></i></a>";
           }
           }
         echo "</div>";
         } else {
         echo 'No users found.';
         }
-      echo '</div>'; // Close the table-wrapper div
-    echo '</div>'; // Close the table-container div
     mysqli_close($conn);
   ?>
   <script>

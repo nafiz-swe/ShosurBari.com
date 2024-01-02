@@ -624,7 +624,7 @@ if(isloggedin()){
 							<textarea type="text" rows="8" name="occupation_describe"  value="" id="edit-name" class="form-text-describe"></textarea>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label>ঘরের বাহিরে সাধারণত কি ধরণের পোষাক পরেন?<span class="form-required" title="This field is required.">*</span></label>
+							<label>ঘরের বাহিরে সাধারণত কি ধরণের পোশাক পরেন?<span class="form-required" title="This field is required.">*</span></label>
 							<textarea type="text"  rows="8" name="dress_code"  value="" class="form-text-describe" required></textarea>
 						</div>
 						<div class="shosurbari-biodata-field">
@@ -2134,7 +2134,7 @@ if(isloggedin()){
 							</select>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label>পরিবারের অর্থনৈতিক অবস্থার বর্ণনা<span class="form-required" title="This field is required.">*</span></label>
+							<label>পারিবারিক অর্থনৈতিক অবস্থার বর্ণনা<span class="form-required" title="This field is required.">*</span></label>
 							<textarea type="text" rows="8" name="financial_condition" value="" class="form-text-describe" required></textarea>
 						</div>
 						<div class="shosurbari-biodata-field">
@@ -2518,8 +2518,8 @@ if(isloggedin()){
 							<label for="edit-name">জীবনসঙ্গীর যেসব <span style="color: black; font-size: 15px;">বৈশিষ্ঠ বা গুণাবলী </span>প্রত্যাশা করেন<span class="form-required" title="This field is required.">*</span></label>
 							<textarea type="text" rows="8" id="edit-name" name="partner_attributes" value="" class="form-text-describe" required></textarea>
 						</div> </br>
-						<div class="sb-biodata-field" style="margin-top: 15px;">
-							<h2>প্রতিশ্রুতি গ্রহণ</h2>
+						<div class="sb-biodata-field" style="margin-top: 15px; background: #06b6d4;">
+							<h2 style="text-align: center; color: #fff;">প্রতিশ্রুতি গ্রহণ</h2>
 						</div>
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">পরিবারের অনুমতি নিয়ে বায়োডাটা জমা দিচ্ছেন?<span class="form-required" title="This field is required.">*</span></label>

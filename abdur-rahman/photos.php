@@ -217,7 +217,7 @@ if (!isset($_SESSION['admin_id'])) {
     $sql = "SELECT DISTINCT user_id FROM photos LIMIT $profilesPerPage OFFSET $offset";
     $result = mysqlexec($sql);
     echo '<div class="table-wrapper">';
-      echo "<h3>Total number of user profiles: " . $userCount . "</h3>";
+      echo "<h3>সর্বমোট বায়োডাটা ছবি আপলোড করেছে: " . $userCount . "</h3>";
         echo '<div id="search-form">
           <form method="POST">
             <input type="text" id="search-user-id" name="search-user-id" placeholder="বায়োডাটা নং" required>
@@ -225,8 +225,8 @@ if (!isset($_SESSION['admin_id'])) {
             <button class="search-clear-admin" type="submit" name="clear">Clear Search</button></br>
           </form>
           <form method="GET">
-          <label for="per-page" style="margin-top: 20px;">প্রতি পেজে কয়টি প্রোফাইল দেখতে চান</label>
-          <select id="per-page" name="per_page" onchange="updateProfilesPerPage()">
+            <label for="per-page" style="margin-top: 20px;">প্রতি পেজে কয়টি প্রোফাইল দেখতে চান</label>
+            <select id="per-page" name="per_page" onchange="updateProfilesPerPage()">
               <option>.....??</option>
               <option value="50" ' . ($profilesPerPage == 50 ? 'selected' : '') . '>50</option>
               <option value="100" ' . ($profilesPerPage == 100 ? 'selected' : '') . '>100</option>

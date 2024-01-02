@@ -428,7 +428,7 @@ if (!isset($_SESSION['admin_id'])) {
 							<textarea type="text" rows="8" name="occupation_describe" id="edit-name" class="form-text-describe" required><?php echo $occupation_describe;?></textarea>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label>ঘরের বাহিরে সাধারণত কি ধরণের পোষাক পরেন?<span class="form-required" title="This field is required.">*</span></label>
+							<label>ঘরের বাহিরে সাধারণত কি ধরণের পোশাক পরেন?<span class="form-required" title="This field is required.">*</span></label>
 							<textarea type="text"  rows="8" name="dress_code"  class="form-text-describe" required><?php echo $dress_code;?></textarea>
 						</div>
 						<div class="shosurbari-biodata-field">

@@ -227,8 +227,8 @@ if(isloggedin()){
 							<label for="edit-name">জীবনসঙ্গীর যেসব <span style="color: black; font-size: 15px;">বৈশিষ্ঠ বা গুণাবলী </span>প্রত্যাশা করেন<span class="form-required" title="This field is required.">*</span></label>
 							<textarea type="text" rows="8" id="edit-name" name="partner_attributes" class="form-text-describe" required><?php echo $partner_attributes; ?></textarea>
 						</div> </br>
-						<div class="sb-biodata-field" style="margin-top: 15px;">
-							<h2>প্রতিশ্রুতি গ্রহণ</h2>
+						<div class="sb-biodata-field" style="margin-top: 15px; background: #06b6d4;">
+							<h2 style="text-align: center; color: #fff;">প্রতিশ্রুতি গ্রহণ</h2>
 						</div>
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">পরিবারের অনুমতি নিয়ে বায়োডাটা জমা দিচ্ছেন?<span class="form-required" title="This field is required.">*</span></label>

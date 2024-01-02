@@ -228,7 +228,7 @@ th {
     }
     $offset = ($page - 1) * $per_page;
     echo '<div class="table-wrapper">';
-    echo '<h3>Total number of user profiles in this page: ' . $totalUserIDsInTrash . '</h3>';
+    echo '<h3>ডিলিট ছবির সর্বমোট বায়োডাটা: ' . $totalUserIDsInTrash . '</h3>';
       echo '<div id="search-form">
         <form method="GET" action="">
           <input type="text" name="search" id="search" value="' . (isset($_GET['search']) ? htmlspecialchars($_GET['search'], ENT_QUOTES, 'UTF-8') : '') . '" placeholder="বায়োডাটা নং"  />

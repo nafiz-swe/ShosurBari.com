@@ -22,7 +22,7 @@ if (!isset($_SESSION['admin_id'])) {
   echo '<style>
   h1{
     padding: 10px 0;
-    margin: 150px auto 0px auto;
+    padding-top:120px;
     text-align: center;
     font-size: 35px;
     color: #00c292;
@@ -35,23 +35,23 @@ if (!isset($_SESSION['admin_id'])) {
   }
   table {
     border-collapse: collapse;
-    width: 100%;
+    min-width: 2500px;
     padding: 20px;
-    border: 2px solid #00c292;
+    border: 2px solid #f0f0f0;
     margin-bottom: 20px;
-  }
+  }  
   th, td {
-    border: 2px solid #00c292;
+    border: 2px solid #f0f0f0;
     padding: 8px;
-    text-align: left;
+    text-align: center;
   }
   th {
     background-color: #00c292;
     color: white;
     border: 2px solid #ccc;
   }
-  #search-form {
-    margin-bottom: 20px;
+  tr:hover {
+    background-color: #ddd;
   }
   form{
     margin-left: 0px;
@@ -61,7 +61,6 @@ if (!isset($_SESSION['admin_id'])) {
   label {
     font-size: 16px;
     color: #00c292;
-    margin-top: 20px;
   }
   .input-group input[type="text"], select {
     font-size: 17px;
@@ -73,11 +72,14 @@ if (!isset($_SESSION['admin_id'])) {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow-x: auto;
+    max-height: 90vh;
+    width: 90%;
+    margin: auto;
   }
   .table-wrapper {
     overflow: hidden;
-    width: 3080px;
-    margin: auto;
+    margin: 20px auto 0px auto;
+    width: 90%;
   }
   .table-wrapper table {
     border-collapse: collapse;
@@ -88,41 +90,12 @@ if (!isset($_SESSION['admin_id'])) {
     margin-bottom: 20px;
     margin-top: -30px;
   }
-  tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  tr:hover {
-    background-color: #ddd;
-  }
-  /* Progress bar styling */
-  .progress-container {
-    height: 8px;
-    background-color: #ddd;
-  }
-  .progress-bar {
-    height: 100%;
-    width: 100%;
-    background-color: #00c292;
-  }
   .pagination{
-    display: inline-block;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    margin-left:  auto;
-    margin-right: auto;
+    display: block;
     padding: 0;
     list-style: none;
-    align-items: center;
-    justify-content:center;
-  }
-  .page-link{
-    color: #000;
-    padding: 8px 12px;
-    text-decoration: none;
-    font-size: 14px;
-    background-color: #eee;
-    border-radius: 50%;
-    margin: 0 3px;
+    width: 90%;
+    margin: 50px auto 120px auto;
   }
   .page-link:hover{
     background: #00c292;
@@ -183,10 +156,9 @@ if (!isset($_SESSION['admin_id'])) {
   LEFT JOIN 7bd_marriage_related_qs_female AS f ON p.user_id = f.user_id
   $limit OFFSET $start";
   $result = $conn->query($sql);
-  echo '<div class="table-container">';
     echo "<h1>শারীরিক এবং বৈবাহিক তথ্য</h1>";
     echo '<div class="table-wrapper">';
-      echo "<h3>Total number of user profiles: " . $userCount . "</h3>";
+      echo "<h3>সর্বমোট পোস্ট করেছে: " . $userCount . "</h3>";
       echo '<div id="search-form">
         <form method="POST">
           <input type="text" id="search-user-id" name="search-user-id" placeholder="বায়োডাটা নং" required>
@@ -194,9 +166,9 @@ if (!isset($_SESSION['admin_id'])) {
           <button class="search-clear-admin" type="submit" name="clear">Clear Search</button></br>
         </form>
         <form method="GET">
-          <label for="per-page">Profiles Show</label>
+          <label for="per-page" style="margin-top: 20px;">প্রতি পেজে কয়টি প্রোফাইল দেখতে চান</label>
           <select id="per-page" name="per_page" onchange="updateProfilesPerPage()">
-            <option value=""> </option>
+            <option value="">.....??</option>
             <option value="50" ' . ($profilesPerPage == 50 ? 'selected' : '') . '>50</option>
             <option value="100" ' . ($profilesPerPage == 100 ? 'selected' : '') . '>100</option>
             <option value="500" ' . ($profilesPerPage == 500 ? 'selected' : '') . '>500</option>
@@ -206,6 +178,7 @@ if (!isset($_SESSION['admin_id'])) {
           </select>
         </form>
       </div>';
+      echo '</div>'; // Close the table-wrapper div
       if (isset($_POST['search'])) {
         $searchUserId = mysqli_real_escape_string($conn, $_POST['search-user-id']);
         $sql = "SELECT
@@ -277,36 +250,43 @@ if (!isset($_SESSION['admin_id'])) {
       }
       $result = mysqli_query($conn, $sql);
       if (mysqli_num_rows($result) > 0) {
+        echo '<div class="table-container">';
       echo '<table>';
         echo '<tr>
         <th>বায়োডাটা নং</th>
         <th>বায়োডাটার ধরণ</th>
-        <th>জন্ম তারিখ মাস সন</th>
+        <th>জন্ম তারিখ-মাস-সাল</th>
+        <th>গাত্র বর্ণ</th>
         <th>উচ্চতা</th>
         <th>ওজন </th>
-        <th>শারীরিক সমস্যা আছে কি?</th>
-        <th>শারীরিক বর্ণ</th>
         <th>রক্তের গ্রুপ</th>
-        <th style="color: #ad0000;">বৈবাহিক অবস্থা</th>
-        <th style="color: #ad0000;">ডিভোর্সের কারণ এবং কতদিন সংসার করেছেন?</th>
-        <th style="color: #ad0000;">স্বামী যেভাবে মারা গেছেন এবং কতদিন সংসার</th>
-        <th style="color: #ad0000;">স্ত্রী যেভাবে মারা গেছেন এবং কতদিন সংসার</th>
-        <th style="color: #ad0000;">বর্তমান স্ত্রীর অনুমতি নিয়েছেন?</th>
-        <th style="color: #ad0000;">স্ত্রীর ও পরিবার থেকে অনুমতি নিয়েছেন?</th>
-        <th style="color: #ad0000;">আবার বিয়ে করার কারণ</th>
-        <th style="color: #ad0000;">কয়টি সন্তান আছে</th>
-        <th style="color: #ad0000;">সন্তান সম্পর্কিত তথ্য</th>
-        <th style="color: blue;">স্ত্রীকে চাকরি করতে দিতে ইচ্ছুক?</th>
+        <th>শারীরিক-মানসিক সমস্যা/রোগ</th>
+        <th style="color: #9817a3;">বৈবাহিক অবস্থা</th>
+        <th style="color: #9817a3;">ডিভোর্সের কারণ এবং কতদিন সংসার করেছেন?</th>
+        <th style="color: #9817a3;">কয়টি সন্তান আছে</th>
+        <th style="color: #9817a3;">সন্তান সম্পর্কিত তথ্য</th>
+        <th style="color: #9817a3;;">বায়োডাটা টি যার, তার আপনি কে হন?</th>
+        <th style="color: blue;">স্ত্রী যেভাবে মারা গেছেন এবং কতদিন সংসার</th>
+        <th style="color: blue;">বর্তমান স্ত্রীর অনুমতি নিয়েছেন?</th>
+        <th style="color: blue;">বর্তমান স্ত্রীর পরিবার থেকে অনুমতি নিয়েছেন?</th>
+        <th style="color: blue;">আবার বিয়ে করার কারণ</th>        <th style="color: blue;">স্ত্রীকে চাকরি করতে দিতে ইচ্ছুক?</th>
         <th style="color: blue;">প্রাতিষ্ঠানিক পড়ালেখা করতে দিতে ইচ্ছুক?</th>
         <th style="color: blue;">বিয়ের পর স্ত্রীকে নিয়ে কোথায় থাকবেন?</th>
-        <th style="color: blue;">বায়োডাটা টি যার, তার আপনি কে হন?</th>
-        <th style="color: #b206a9;">বিয়ের পর চাকরি করতে চান?</th>
-        <th style="color: #b206a9;">বিয়ের পর পড়াশোনা চালিয়ে যেতে চান?</th>
-        <th style="color: #b206a9;">শিক্ষার্থী বিয়ে করতে রাজি আছেন?</th>
-        <th style="color: #b206a9;">বায়োডাটা টি যার, তার আপনি কে হন?</th>
+        <th style="color: #057e22;">স্বামী যেভাবে মারা গেছেন এবং কতদিন সংসার</th>
+        <th style="color: #057e22;">বিয়ের পর চাকরি করতে চান?</th>
+        <th style="color: #057e22;">বিয়ের পর পড়াশোনা চালিয়ে যেতে চান?</th>
+        <th style="color: #057e22;">শিক্ষার্থী বিয়ে করতে রাজি আছেন?</th>
         <th>তারিখ সময়</th>
         <th>ডাটা ইডিট</th>
         </tr>';
+        $query = "SELECT * FROM users";
+        $deactivatedResult = mysqli_query($conn, $query);
+        $deactivatedUsers = array();
+        while ($deactivatedRow = mysqli_fetch_assoc($deactivatedResult)) {
+            if ($deactivatedRow['deactivated'] == 1) {
+                $deactivatedUsers[] = $deactivatedRow['id'];
+            }
+        }
         $count = 0;
         while ($row = mysqli_fetch_assoc($result)) {
         $count++;
@@ -314,8 +294,12 @@ if (!isset($_SESSION['admin_id'])) {
           // Hide profiles beyond the selected per page limit
           continue;
         }
-        echo '<tr>';
-        echo '<td>' . $row['user_id'] . '</td>';
+        echo '<tr';
+        if (in_array($row['user_id'], $deactivatedUsers)) {
+            echo ' style="background: #ff0080; color: #fff;"';
+        }
+        echo '>';
+        echo '<td><a target="_blank" href="../profile.php?/Biodata=' . $row['user_id'] . '">' . $row['user_id'] .  " " . "View" . '</a></td>';
         echo '<td>' . $row['biodatagender'] . '</td>';
         echo '<td>' . $row['dateofbirth'] . '</td>';
         echo '<td>' . $row['height'] . '</td>';
@@ -323,32 +307,28 @@ if (!isset($_SESSION['admin_id'])) {
         echo '<td>' . $row['physicalstatus'] . '</td>';
         echo '<td>' . $row['Skin_tones'] . '</td>';
         echo '<td>' . $row['bloodgroup'] . '</td>';
-        echo '<td style="color: #ad0000;">' . $row['maritalstatus'] . '</td>';
-        echo '<td style="color: #ad0000;">' . $row['divorce_reason'] . '</td>';
-        echo '<td style="color: #ad0000;">' . $row['how_widow'] . '</td>';
-        echo '<td style="color: #ad0000;">' . $row['how_widower'] . '</td>';
-        echo '<td style="color: #ad0000;">' . $row['get_wife_permission'] . '</td>';
-        echo '<td style="color: #ad0000;">' . $row['get_family_permission'] . '</td>';
-        echo '<td style="color: #ad0000;">' . $row['why_again_married'] . '</td>';
-        echo '<td style="color: #ad0000;">' . $row['how_many_son'] . '</td>';
-        echo '<td style="color: #ad0000;">' . $row['son_details'] . '</td>';
+        echo '<td style="color: #9817a3;">' . $row['maritalstatus'] . '</td>';
+        echo '<td style="color: #9817a3;">' . $row['divorce_reason'] . '</td>';
+        echo '<td style="color: #9817a3;">' . $row['how_many_son'] . '</td>';
+        echo '<td style="color: #9817a3;">' . $row['son_details'] . '</td>';
+        echo '<td style="color: #9817a3;">' . $row['profileby'] . '</td>';
+        echo '<td style="color: blue;">' . $row['how_widower'] . '</td>';
+        echo '<td style="color: blue;">' . $row['get_wife_permission'] . '</td>';
+        echo '<td style="color: blue;">' . $row['get_family_permission'] . '</td>';
+        echo '<td style="color: blue;">' . $row['why_again_married'] . '</td>';
         echo '<td style="color: blue;">' . $row['allowjob_aftermarriage'] . '</td>';
         echo '<td style="color: blue;">' . $row['allowstudy_aftermarriage'] . '</td>';
         echo '<td style="color: blue;">' . $row['livewife_aftermarriage'] . '</td>';
-        echo '<td style="color: blue;">' . $row['profileby'] . '</td>';
-        echo '<td style="color: #b206a9;">' . $row['anyjob_aftermarriage'] . '</td>';
-        echo '<td style="color: #b206a9;">' . $row['studies_aftermarriage'] . '</td>';
-        echo '<td style="color: #b206a9;">' . $row['agree_marriage_student'] . '</td>';
-        echo '<td style="color: #b206a9;">' . $row['profileby'] . '</td>';
+        echo '<td style="color: #057e22;">' . $row['how_widow'] . '</td>';
+        echo '<td style="color: #057e22;">' . $row['anyjob_aftermarriage'] . '</td>';
+        echo '<td style="color: #057e22;">' . $row['studies_aftermarriage'] . '</td>';
+        echo '<td style="color: #057e22;">' . $row['agree_marriage_student'] . '</td>';
         echo '<td>' . $row['profilecreationdate'] . '</td>';
         echo '<td><a target="_blank" href="edit_physical_marital.php?id=' . $row['user_id'] . '">Edit</a></td>';
         echo '</tr>';
         }
       echo '</table>';
-      // Progress bar at the bottom
-      echo '<div class="progress-container">
-        <div class="progress-bar"></div>
-      </div>';
+      echo '</div>'; // Close the table-container div
       // Calculate the total number of pages
       $total_pages = ceil($userCount / $profilesPerPage);
       // Define how many pages to show before and after the current page
@@ -357,7 +337,7 @@ if (!isset($_SESSION['admin_id'])) {
       echo "<div class='pagination'>";
         if ($total_pages > 1) {
         if ($page > 1) {
-        echo "<a href='?page=" . ($page - 1) . "&per_page=$profilesPerPage' class='page-link'>Previous</a>";
+        echo "<a href='?page=" . ($page - 1) . "&per_page=$profilesPerPage' class='page-link'><i class='fa fa-angle-double-left'></i></a>";
         }
         for ($i = 1; $i <= $total_pages; $i++) {
         if ($i == 1 || $i == $total_pages || ($i >= $page - $pages_to_show && $i <= $page + $pages_to_show)) {
@@ -369,15 +349,13 @@ if (!isset($_SESSION['admin_id'])) {
         }
         }
         if ($page < $total_pages) {
-          echo "<a href='?page=" . ($page + 1) . "&per_page=$profilesPerPage' class='page-link'>Next</a>";
+          echo "<a href='?page=" . ($page + 1) . "&per_page=$profilesPerPage' class='page-link'><i class='fa fa-angle-double-right'></i></a>";
         }
       }
       echo "</div>";
       } else {
       echo 'No users found.';
       }
-    echo '</div>'; // Close the table-wrapper div
-  echo '</div>'; // Close the table-container div
   mysqli_close($conn);
   ?>
   <script>

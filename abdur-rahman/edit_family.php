@@ -87,7 +87,6 @@ if (!isset($_SESSION['admin_id'])) {
 				$family_class = isset($row['family_class']) ? $row['family_class'] : '';
 				$financial_condition = isset($row['financial_condition']) ? $row['financial_condition'] : '';
 				$family_religious_condition = isset($row['family_religious_condition']) ? $row['family_religious_condition'] : '';
-				$childhood = isset($row['childhood']) ? $row['childhood'] : '';
 			}
 			?>
 			<fieldset>
@@ -149,7 +148,7 @@ if (!isset($_SESSION['admin_id'])) {
 							</select>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label>পরিবারের অর্থনৈতিক অবস্থার বর্ণনা<span class="form-required" title="This field is required.">*</span></label>
+							<label>পারিবারিক অর্থনৈতিক অবস্থার বর্ণনা<span class="form-required" title="This field is required.">*</span></label>
 							<textarea type="text" rows="8" name="financial_condition"  class="form-text-describe" required><?php echo $financial_condition; ?></textarea>
 						</div>
 						<div class="shosurbari-biodata-field">

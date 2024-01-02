@@ -131,7 +131,7 @@ if (!isset($_SESSION['admin_id'])) {
   }
     echo "<h1>রিপোর্ট এবং সাপোর্ট ম্যাসেজ</h1>";
     echo '<div class="table-wrapper">';
-      echo "<h3>ম্যাসেজ করেছে মোট: " . $userCount . "</h3>";
+      echo "<h3>সর্বমোট ম্যাসেজ করেছে: " . $userCount . "</h3>";
       echo '<div id="search-form">
       <form method="POST">
         <input type="text" id="search-user-id" name="search-user-id" placeholder="বায়োডাটা নং">

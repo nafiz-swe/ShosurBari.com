@@ -235,7 +235,7 @@ if(isloggedin()){
 							</select>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label>পরিবারের অর্থনৈতিক অবস্থার বর্ণনা<span class="form-required" title="This field is required.">*</span></label>
+							<label>পারিবারিক অর্থনৈতিক অবস্থার বর্ণনা<span class="form-required" title="This field is required.">*</span></label>
 							<textarea type="text" rows="8" name="financial_condition"  class="form-text-describe" required><?php echo $financial_condition; ?></textarea>
 						</div>
 						<div class="shosurbari-biodata-field">
