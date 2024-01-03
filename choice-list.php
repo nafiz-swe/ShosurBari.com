@@ -170,6 +170,15 @@ function englishToBanglaNumber($number) {
     th {
         background: #f0f0f0;
     }
+    .card-package h1 {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 22px;
+        color: black;
+        margin-top: -80px;
+        margin-bottom: 15px;
+        width: 200px;
+    }
     .sb-biodata-field{
         background: none;
     }
