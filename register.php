@@ -165,28 +165,28 @@ if (isset($_SESSION['id'])) {
             <h2>Create new account</h2>
           </div>
           <div class="form-group">
-            <input type="text" id="fname" placeholder="Full Name" name="fname" value="" size="60" maxlength="60" class="form-text required">
+            <input type="text" id="fname" placeholder="Full Name" name="fname" value="" maxlength="60" class="form-text required">
             <span id="fname_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
           </div>
           <div class="form-group">
-            <input type="text" id="uname" placeholder="Username" name="uname" value="" size="60" maxlength="60" class="form-text required">
+            <input type="text" id="uname" placeholder="Username" name="uname" value="" maxlength="60" class="form-text required">
             <span id="uname_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
           </div>
           <div class="form-group">
-            <input type="text" id="email" placeholder="Email" name="email" value="" size="60" maxlength="60" class="form-text required">
+            <input type="text" id="email" placeholder="Email" name="email" value="" maxlength="60" class="form-text required">
             <span id="email_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
           </div>
           <div class="form-group">
-            <input type="pnumber" id="pnumber" placeholder="Phone Number" name="pnumber" value="" size="60" minlength="10" maxlength="15" class="form-text required">
+            <input type="pnumber" id="pnumber" placeholder="Phone Number" name="pnumber" value="" size="50" maxlength="15" class="form-text required">
             <span id="pnumber_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
           </div>
           <div class="form-group">
-            <input type="password" id="pass_1" placeholder="New Password" name="pass_1" size="60" maxlength="128" class="form-text required">
+            <input type="password" id="pass_1" placeholder="New Password" name="pass_1" maxlength="128" class="form-text required">
             <span class="show-password" style="color:#0aa4ca;  font-size:15px; top:2px;"> <i style="color:black;  font-size:15px;" class="fa fa-eye" aria-hidden="true"></i></span> 
             <span  id="pass_1_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
           </div>
           <div class="form-group">
-            <input type="password" id="pass_2" placeholder="Confirm Password" name="pass_2" size="60" maxlength="128" class="form-text required">
+            <input type="password" id="pass_2" placeholder="Confirm Password" name="pass_2" maxlength="128" class="form-text required">
             <span class="show-password" style="color:#0aa4ca;  font-size:15px; top:2px;"> <i style="color:black;  font-size:15px;" class="fa fa-eye" aria-hidden="true"></i></span> 
             <span  id="pass_2_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
           </div>
@@ -201,8 +201,8 @@ if (isset($_SESSION['id'])) {
               <label for="female"><i class="fa fa-female"></i> Female</label><br>
 		        </div>
           </div>
-	        <div class="gender-error">
-		        <span style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;" id="gender-error" class="error"></span>
+          <div class="gender-error">
+            <span style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;" id="gender-error" class="error"></span>
           </div>
           <div class="form-actions">
             <?php if(isset($_COOKIE['username'])) { ?>
@@ -274,53 +274,6 @@ if (isset($_SESSION['id'])) {
       }
       });
     });
-    // Gender Select Start
-    const form = document.querySelector('form');
-    const maleRadio = document.querySelector('#male');
-    const femaleRadio = document.querySelector('#female');
-    const genderError = document.querySelector('#gender-error');
-    const genderSelectReg = document.querySelector('#gender-select-reg');
-    form.addEventListener('submit', (e) => {
-    let errors = 0;
-    if (!maleRadio.checked && !femaleRadio.checked) {
-      document.getElementById('gender-select-reg').style.borderColor = "red";
-      genderError.innerHTML = 'Please Select Your Gender!';
-      genderError.style.display = 'block';
-      document.querySelectorAll('input[name=gender]').forEach(r => {
-      r.classList.add('error');
-      });
-      let colorIndex = 0;
-      const colors = ['green', 'blue', 'red'];
-      const animationInterval = setInterval(() => {
-      genderError.style.color = colors[colorIndex];
-      colorIndex = (colorIndex + 1) % colors.length;
-      }, 500);
-      errors++;
-    }
-    if (maleRadio.checked || femaleRadio.checked) {
-      genderError.innerHTML = '';
-      genderError.style.display = 'none';
-      document.querySelectorAll('input[name=gender]').forEach(r => {
-      r.classList.remove('error');
-      });
-    }
-    if (errors > 0) {
-      e.preventDefault();
-      window.scrollTo(0, 0);
-    }
-    });
-    function genderSelected(radio) {
-      genderError.style.display = 'none';
-      document.querySelectorAll('input[name=gender]').forEach(r => {
-      r.classList.remove('error');
-      });
-      if (radio.value === 'Male') {
-      genderSelectReg.style.borderColor = 'green';
-      } else if (radio.value === 'Female') {
-      genderSelectReg.style.borderColor = 'green';
-      }
-    }
-    // Gender Select End
     //Register Input Field Error Start
     function validateForm(){
     var fname = document.forms["myForm"]["fname"].value;
@@ -448,7 +401,7 @@ if (isset($_SESSION['id'])) {
       colorIndex = (colorIndex + 1) % colors.length;
       }, 500);
       return false;
-    } else if (!/^[0-9]{10,13}$/.test(pnumber)) {
+    } else if (!/^[0-9]{9,15}$/.test(pnumber)) {
       var pnumberElement = document.getElementById('pnumber');
       pnumberElement.style.borderColor = "red";
       pnumberElement.scrollIntoView({
@@ -456,7 +409,7 @@ if (isset($_SESSION['id'])) {
       block: 'center',
       });
       var errorDiv = document.getElementById('pnumber_error');
-      errorDiv.innerHTML = "Phone Number Must Be Between 10 To 14 Digits. Don't Used Space & Plus Symbol!";
+      errorDiv.innerHTML = "Phone Number Must Be Between 9 To 15 Digits. Don't Used Space & Plus Symbol!";
       errorDiv.style.display = 'block';
       errorDiv.classList.add('fade-in');
       var colors = ['green', 'blue', 'red'];
@@ -530,7 +483,39 @@ if (isset($_SESSION['id'])) {
     }else{
     document.getElementById('pass_2').style.borderColor = "green";
     document.getElementById('pass_2_error').innerHTML = "";
-    }    
+    } 
+    // Gender Select Start
+    // Gender validation
+    const maleRadio = document.querySelector('#male');
+    const femaleRadio = document.querySelector('#female');
+    const genderSelectReg = document.querySelector('#gender-select-reg');
+    const genderError = document.querySelector('#gender-error');
+    if (!maleRadio.checked && !femaleRadio.checked) {
+    genderSelectReg.style.borderColor = "red";
+    genderError.innerHTML = 'Please Select Your Gender!';
+    genderError.style.display = 'block';
+    genderError.classList.add('fade-in');
+    var colors = ['green', 'blue', 'red'];
+    var colorIndex = 0;
+    setInterval(function() {
+    genderError.style.color = colors[colorIndex];
+    colorIndex = (colorIndex + 1) % colors.length;
+    }, 500);
+    // Smooth scroll to the middle of the gender error
+    genderError.scrollIntoView({
+    behavior: 'smooth',
+    block: 'center',
+    });
+    // Additional styling for visibility
+    genderError.style.position = 'relative';
+    return false;
+    } else {
+    genderError.innerHTML = '';
+    genderError.style.display = 'none';
+    genderSelectReg.style.borderColor = 'green';
+    }
+    // Gender Select End
+    return true;
     }
     //Form Input field when error then show border red and scroll - JS End
     // Agree with Term & Conditions + Privacy & Policy Check Box

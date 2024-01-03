@@ -297,7 +297,7 @@
                 $email_body = ob_get_clean();
                 $plain_text_message = "
                 Welcome to ShosurBari
-                Thank you for registering at ShosurBari. Here are your registration details:
+                Thank you for choosing ShosurBari.com! Your registration details have been received. We look forward to serving you.
                 Biodata Number: $id
                 Full Name: $fname
                 Username: $uname
@@ -305,12 +305,12 @@
                 Phone Number: $pnumber
                 Gender: $gender
                 Passwors: ********* (For security reasons, do not display the password)
-                Login to your account: https://www.shoshurbari.rf.gd/login.php
+                Post your biodata: https://www.shoshurbari.com/biodata-post.php
                 Note: Please remember to keep your passwords secure. Do not share them with anyone.
                 Connect with us:
                 - Website: https://www.shoshurbari.com
                 - Facebook: https://www.facebook.com/ShoshurBari.bd
-                - Email: support@shoshurbari.com
+                - Email: info@shoshurbari.com
                 - YouTube: https://www.youtube.com/c/ShoshurBari
                 (c) 2022-23 ShosurBari.com | All Rights Reserved
                 ";
@@ -473,7 +473,7 @@
             Connect with us:
             - Website: https://www.shoshurbari.com
             - Facebook: https://www.facebook.com/ShoshurBari.bd
-            - Email: support@shoshurbari.com
+            - Email: info@shoshurbari.com
             - YouTube: https://www.youtube.com/c/ShoshurBari
             (c) 2022-23 ShosurBari.com | All Rights Reserved
             ";

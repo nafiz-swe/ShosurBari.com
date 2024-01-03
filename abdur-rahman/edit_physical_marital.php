@@ -103,7 +103,7 @@ if (!isset($_SESSION['admin_id'])) {
                         </div>
                     </div>
 					<div class="sb-biodata-field">
-						<h2>শারীরিক অবস্থা</h2>
+						<h2>শারীরিক বিষয়াবলি</h2>
 						<h2>বায়োডাটা নং: <?php echo $id;?></h2>
 					</div>
 					<div class="sb-biodata-option">

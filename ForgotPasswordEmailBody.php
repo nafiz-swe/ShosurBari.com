@@ -97,13 +97,13 @@ span a {
         <div class='content'>
         <!-- A request has been made to retrieve the password for logging into your account. -->
             <h3>আপনার একাউন্ট লগইন করার জন্য পাসওয়ার্ড পুনরুদ্ধারের একটি অনুরোধ করা হয়েছে।</h3>
-            <p>পাসওয়ার্ড: <a style="text-decoration:underline; color: #0aa4ca;" href='https://www.shoshurbari.com/new-password.php' target='_blank'>পাসওয়ার্ড পরিবর্তন করুন <span>(ক্লিক করুন)</span></a></p>
+            <p>পাসওয়ার্ড: <a style="text-decoration:underline; color: #0aa4ca;" href='https://www.shosurbari.com/new-password.php'>পাসওয়ার্ড পরিবর্তন করুন <span>(ক্লিক করুন)</span></a></p>
             <p>ই-মেইল: <span style="text-decoration: none; color: #0ea5e9; font-size: 12px;"> <?php echo $email; ?> </span></p>
             <h5 class="note" style="font-weight: none;"> <strong style="color: #696262; font-weight: bold;">বি:দ্র: </strong> আপনার পাসওয়ার্ড সুরক্ষিত রাখতে অনুগ্রহ করে মনে রাখবেন। পাসওয়ার্ড কারো সাথে শেয়ার করবেন না।</h5>
         </div>
         <div class='footer'>
             <p>&copy; 2022-23 ShosurBari.com | All Rights Reserved</p>
-            <a href="http://www.shoshurbari.rf.gd/login.php"> <img src="https://i.ibb.co/xqxgyDZ/shosurbari-email-icon.png" style=" border-radius: 4px; padding: 2px; background: #fff; margin: auto 10px; outline:none;text-decoration:none;height:24px;width:24px;vertical-align:middle" width="24" height="24" class="CToWUd" data-bit="iit"></a>
+            <a href="https://www.shosurbari.com"> <img src="https://i.ibb.co/xqxgyDZ/shosurbari-email-icon.png" style=" border-radius: 4px; padding: 2px; background: #fff; margin: auto 10px; outline:none;text-decoration:none;height:24px;width:24px;vertical-align:middle" width="24" height="24" class="CToWUd" data-bit="iit"></a>
             <a href="https://www.facebook.com/ShosurBari.bd/"> <img src="https://i.postimg.cc/fytRD9ZK/shosurbari-facebook.png" style="border-radius: 4px; padding: 2px; background: #fff; margin: auto 10px; outline:none;text-decoration:none;height:24px;width:24px;vertical-align:middle" width="24" height="24" class="CToWUd" data-bit="iit"></a>
             <a href="mailto:info@shosurbari.com"> <img src="https://i.postimg.cc/FsVx0d0z/shosurbari-email.png" style="border-radius: 4px; padding: 2px; background: #fff; margin: auto 10px; outline:none;text-decoration:none;height:24px;width:24px;vertical-align:middle" width="24" height="24" class="CToWUd" data-bit="iit"></a>
             <a href="https://www.youtube.com/"> <img src="https://i.postimg.cc/T1zYw33X/shosurbari-youtube.png" style="border-radius: 4px; padding: 2px; background: #fff; margin: auto 10px; outline:none;text-decoration:none;height:24px;width:24px;vertical-align:middle" width="24" height="24" class="CToWUd" data-bit="iit"></a>

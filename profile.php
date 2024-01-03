@@ -1887,7 +1887,7 @@ require_once("includes/dbconn.php");
 										<tbody>
 											<?php if (!empty($partner_citizen)) : ?>
 											<tr class="opened">
-												<td class="day_label">স্থায়ী নাগরিক/সিটিজেন (দেশ)</td>
+												<td class="day_label">দেশ (স্থায়ী নাগরিক/সিটিজেন)</td>
 												<td class="day_value"><?php echo $partner_citizen; ?></td>
 											</tr>
 											<?php endif; ?>

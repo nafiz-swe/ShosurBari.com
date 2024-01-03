@@ -56,34 +56,15 @@ saveUniqueVisitor($conn, $ip_address);
   .form-control {
     padding: 5px 6px;
   }
-  .card-header h1{
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 25px;
-    color: #06b6d4;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    width: 200px;
-    font-family: 'Playfair Display', serif;
-}
-  .card-package h1{
+  .card-package h1 {
     text-align: center;
     text-transform: uppercase;
     font-size: 22px;
     color: black;
-    margin-top: -10px;
-    margin-bottom: 30px;
+    margin-top: -80px;
+    margin-bottom: 15px;
     width: 200px;
-}
-  .card-content h1{
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 19px;
-    color: black;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    width: 200px;
-}
+  }
   /* for the container of search options */
   .droop-down {
     display: flex;
@@ -800,127 +781,96 @@ saveUniqueVisitor($conn, $ip_address);
           <i class="fa fa-heart grey-heart"></i>
         <span class="grey-line"></span>
       </div>
-    <div class="sb-biodata-amount-list" style="margin: 0 auto;">
-    </br><p style="text-align: center;"><i id="bell" class="fa fa-bell"></i> এখন পর্যন্ত যেই ২০ টি পাত্র-পাত্রীর বায়োডাটা সব থেকে বেশি দেখা হয়েছে।</p>
-  </div>
-  <ul id="flexiselDemo3">
-    <?php
-      // Modify the SQL query to join users and 1bd_personal_physical tables and check for activation status
-      $sql = "SELECT p.*, u.active
-      FROM 1bd_personal_physical p
-      INNER JOIN users u ON p.user_id = u.id
-      WHERE u.active = 1
-      ORDER BY p.view_count DESC LIMIT 20"; // Top 10 profiles by view_count of active users
-      $result = mysqlexec($sql);
-      if ($result) {
-        while ($row = mysqli_fetch_assoc($result)) {
-          // Check if the user is active
-          if ($row['active'] == 1) {
-          $profid = $row['user_id'];
-          $biodatagender = $row['biodatagender'];
-          $dateofbirth = $row['dateofbirth'];
-          $sql5 = "SELECT * FROM 8bd_religion_details WHERE user_id=$profid";
-          $result5 = mysqlexec($sql5);
-          if ($result5) {
-          while ($row5 = mysqli_fetch_assoc($result5)) {
-          $religion = $row5['religion'];
-          }
-          }
-          $sql2 = "SELECT * FROM photos WHERE user_id = $profid";
-          $result2 = mysqlexec($sql2);
-          $row2 = mysqli_fetch_assoc($result2);
-          $pic1 = $row2['pic1'];
-          $defaultImages = [
-          'পাত্রের বায়োডাটা' => "shosurbari-male-icon.jpg",
-          'পাত্রীর বায়োডাটা' => "shosurbari-female-icon.png",
-          ];
-          $defaultImage = "shosurbari-default-icon.png";
-          if (isset($row['biodatagender']) && isset($defaultImages[$row['biodatagender']])) {
-          $defaultImage = $defaultImages[$row['biodatagender']];
-          }
-          $sql3 = "SELECT * FROM 2bd_personal_lifestyle WHERE user_id=$profid";
-          $result3 = mysqlexec($sql3);
-          if ($result3 && mysqli_num_rows($result3) > 0) {
-          $row3 = mysqli_fetch_assoc($result3);
-          $other_occupation_sector = $row3['other_occupation_sector'];
-          $occupation_levels = array(
-          'business_occupation_level' => $row3['business_occupation_level'],
-          'student_occupation_level' => $row3['student_occupation_level'],
-          'health_occupation_level' => $row3['health_occupation_level'],
-          'engineer_occupation_level' => $row3['engineer_occupation_level'],
-          'teacher_occupation_level' => $row3['teacher_occupation_level'],
-          'defense_occupation_level' => $row3['defense_occupation_level'],
-          'foreigner_occupation_level' => $row3['foreigner_occupation_level'],
-          'garments_occupation_level' => $row3['garments_occupation_level'],
-          'driver_occupation_level' => $row3['driver_occupation_level'],
-          'service_andcommon_occupation_level' => $row3['service_andcommon_occupation_level'],
-          'mistri_occupation_level' => $row3['mistri_occupation_level'],
-          );
-          $occupation_levels = array_filter($occupation_levels); // Remove empty values
-          $occupation_count = count($occupation_levels);
-          if ($occupation_count > 0) 
-          $occupation_label = array_keys($occupation_levels)[0];
-          $occupation_value = $occupation_levels[$occupation_label];
-          //PRINTING THE PROFILE
-          echo "<li class=\"sb_newbiodata\">";
-          echo "<div class=\"sb_featured_profile_head\">";
-          echo "<div class=\"sbbio_header_recent_view\">";
-          // Start of Default Photo Show
-          echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\">";
-          if (!empty($pic1)) {
-          echo "<img class=\"img-responsive\" src=\"profile/{$profid}/{$pic1}\"/>";
-          } else {
-          echo "<img class=\"img-responsive\" src=\"images/{$defaultImage}\"/>";
-          }
-          echo "</a>";
-          // End of Default photo Show
-          echo "<div class=\"sbbio_number_recentview\"><span class=\"sb_biodatanumber_recentview\"> {$profid} <br> বায়োডাটা নং </span> </div>";
-          echo "</div>";
-          echo "<div class=\"sb_user_recentview\">";
-          echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> বায়োডাটা </span>  <span class=\"sb_data_recentview\">{$biodatagender}</span></span>";
-          echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> ধর্ম </span>  <span class=\"sb_data_recentview\">{$religion}</span></span>";
-          echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> পেশা </span>  <span class=\"sb_data_recentview\">{$occupation_value}</span></span>";
-          echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> জন্ম সন</span>        <span class=\"sb_data_recentview\"> {$dateofbirth}</span></span>";
-          echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\"><button class=\"view_sb_profile_recentview\">সম্পূর্ণ বায়োডাটা</button> </a>";
-          echo "</div></div>";
-          echo "</li>";
-          }
+    </div>
+    <ul id="flexiselDemo3">
+      <?php
+        // Modify the SQL query to join users and 1bd_personal_physical tables and check for activation status
+        $sql = "SELECT p.*, u.active
+        FROM 1bd_personal_physical p
+        INNER JOIN users u ON p.user_id = u.id
+        WHERE u.active = 1
+        ORDER BY p.view_count DESC LIMIT 20"; // Top 10 profiles by view_count of active users
+        $result = mysqlexec($sql);
+        if ($result) {
+          while ($row = mysqli_fetch_assoc($result)) {
+            // Check if the user is active
+            if ($row['active'] == 1) {
+            $profid = $row['user_id'];
+            $biodatagender = $row['biodatagender'];
+            $dateofbirth = $row['dateofbirth'];
+            $sql5 = "SELECT * FROM 8bd_religion_details WHERE user_id=$profid";
+            $result5 = mysqlexec($sql5);
+            if ($result5) {
+            while ($row5 = mysqli_fetch_assoc($result5)) {
+            $religion = $row5['religion'];
+            }
+            }
+            $sql2 = "SELECT * FROM photos WHERE user_id = $profid";
+            $result2 = mysqlexec($sql2);
+            $row2 = mysqli_fetch_assoc($result2);
+            $pic1 = $row2['pic1'];
+            $defaultImages = [
+            'পাত্রের বায়োডাটা' => "shosurbari-male-icon.jpg",
+            'পাত্রীর বায়োডাটা' => "shosurbari-female-icon.png",
+            ];
+            $defaultImage = "shosurbari-default-icon.png";
+            if (isset($row['biodatagender']) && isset($defaultImages[$row['biodatagender']])) {
+            $defaultImage = $defaultImages[$row['biodatagender']];
+            }
+            $sql3 = "SELECT * FROM 2bd_personal_lifestyle WHERE user_id=$profid";
+            $result3 = mysqlexec($sql3);
+            if ($result3 && mysqli_num_rows($result3) > 0) {
+            $row3 = mysqli_fetch_assoc($result3);
+            $other_occupation_sector = $row3['other_occupation_sector'];
+            $occupation_levels = array(
+            'business_occupation_level' => $row3['business_occupation_level'],
+            'student_occupation_level' => $row3['student_occupation_level'],
+            'health_occupation_level' => $row3['health_occupation_level'],
+            'engineer_occupation_level' => $row3['engineer_occupation_level'],
+            'teacher_occupation_level' => $row3['teacher_occupation_level'],
+            'defense_occupation_level' => $row3['defense_occupation_level'],
+            'foreigner_occupation_level' => $row3['foreigner_occupation_level'],
+            'garments_occupation_level' => $row3['garments_occupation_level'],
+            'driver_occupation_level' => $row3['driver_occupation_level'],
+            'service_andcommon_occupation_level' => $row3['service_andcommon_occupation_level'],
+            'mistri_occupation_level' => $row3['mistri_occupation_level'],
+            );
+            $occupation_levels = array_filter($occupation_levels); // Remove empty values
+            $occupation_count = count($occupation_levels);
+            if ($occupation_count > 0) 
+            $occupation_label = array_keys($occupation_levels)[0];
+            $occupation_value = $occupation_levels[$occupation_label];
+            //PRINTING THE PROFILE
+            echo "<li class=\"sb_newbiodata\">";
+            echo "<div class=\"sb_featured_profile_head\">";
+            echo "<div class=\"sbbio_header_recent_view\">";
+            // Start of Default Photo Show
+            echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\">";
+            if (!empty($pic1)) {
+            echo "<img class=\"img-responsive\" src=\"profile/{$profid}/{$pic1}\"/>";
+            } else {
+            echo "<img class=\"img-responsive\" src=\"images/{$defaultImage}\"/>";
+            }
+            echo "</a>";
+            // End of Default photo Show
+            echo "<div class=\"sbbio_number_recentview\"><span class=\"sb_biodatanumber_recentview\"> {$profid} <br> বায়োডাটা নং </span> </div>";
+            echo "</div>";
+            echo "<div class=\"sb_user_recentview\">";
+            echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> বায়োডাটা </span>  <span class=\"sb_data_recentview\">{$biodatagender}</span></span>";
+            echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> ধর্ম </span>  <span class=\"sb_data_recentview\">{$religion}</span></span>";
+            echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> পেশা </span>  <span class=\"sb_data_recentview\">{$occupation_value}</span></span>";
+            echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> জন্ম সন</span>        <span class=\"sb_data_recentview\"> {$dateofbirth}</span></span>";
+            echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\"><button class=\"view_sb_profile_recentview\">সম্পূর্ণ বায়োডাটা</button> </a>";
+            echo "</div></div>";
+            echo "</li>";
+            }
+            }
           }
         }
-      }
-    ?>
-  </ul>
-  <!-- START FOR PROFILES ANIMATION SLIDE SHOW -->
-  <script type="text/javascript">
-    $(window).load(function() {
-    $("#flexiselDemo3").flexisel({
-    visibleItems: 4,
-    animationSpeed: 700,
-    autoPlay: true,
-    autoPlaySpeed: 9000,    		
-    pauseOnHover: true,
-    enableResponsiveBreakpoints: true,
-    responsiveBreakpoints: { 
-    portrait: { 
-    changePoint:480,
-    visibleItems: 1
-    }, 
-    landscape: { 
-    changePoint:601,
-    visibleItems: 2
-    },
-    tablet: { 
-    changePoint:769,
-    visibleItems: 3
-    }
-    }
-    });   
-    });
-  </script>
-  <!-- ENDT FOR PROFILES ANIMATION SLIDE SHOW -->
-  <script type="text/javascript" src="js/jquery.flexisel.js"></script>
-  <!-- Extra Dive cilo </div> -->
+      ?>
+    </ul>
   </div>
+  <script type="text/javascript" src="js/jquery.flexisel.js"></script>
   <!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
   --                     E   N   D                 --
   --    SHOSURBARI HOME PAGE / FEATURED PROFILES   --
@@ -1101,7 +1051,7 @@ saveUniqueVisitor($conn, $ip_address);
 				<div class="jb-accordion-wrapper">
 					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion2"><span class="shosurbari-faq-point">২</span> বায়োডাটা পোস্ট করতে কত টাকা লাগে? <i class="fa fa-plus-circle"> </i></button>
 					<div id="accordion2" class="jb-accordion-content collapse">
-						<p>শ্বশুরবাড়ি ডটকমে বায়োডাটা পোস্ট করতে কোনো সার্ভিস চার্জ নেওয়া হয় না। </p>
+            <p>শ্বশুরবাড়ি ডটকমে বায়োডাটা পোস্ট করার জন্য সার্ভিস চার্জ প্রযোজ্য নয় (ফ্রি)।</p>
 					</div>
 				</div>
 				<div class="jb-accordion-wrapper">
@@ -1128,7 +1078,7 @@ saveUniqueVisitor($conn, $ip_address);
 				<div class="jb-accordion-wrapper">
 					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion6"><span class="shosurbari-faq-point">৬</span> শ্বশুরবাড়ি ডটকমে বায়োডাটা পোস্ট করলে আমার তথ্য কতটুকু গোপন থাকবে? কতটুকু প্রকাশিত হবে? <i class="fa fa-plus-circle"> </i></button>
 					<div id="accordion6" class="jb-accordion-content collapse">
-						<p>বায়োডাটা পোস্ট করা হলে পাত্র-পাত্রীর ও অভিভাবকের নাম, মোবাইল নাম্বার এবং ইমেইল গোপন থাকবে, বায়োডাটার বাকি সকল তথ্য সাধারণ ইউজাররা দেখতে পারবে।
+						<p>পাত্র-পাত্রীর ও অভিভাবকের নাম, মোবাইল নাম্বার এবং ইমেইল গোপন থাকবে, বায়োডাটার বাকি সকল তথ্য সাধারণ ইউজাররা দেখতে পারবে।
 						<br> <br>যদি কেউ বিয়ের জন্য বায়োডাটার সাথে সরাসরি যোগাযোগ করতে আগ্রহী হয় তাহলে, আগ্রহী ইউজারকে সার্ভিস চার্জ প্রদান করতে হবে। দেখেনিন কোন কোন আগ্রহী ইউজারকে আমরা পাত্রপাত্রীর মোবাইল নাম্বার ইমেইল এবং অভিভাবকের নাম্বার প্রদান করি।
             <br> <br> ১ থেকে ৪টি বায়োডাটার সাথে যোগাযোগ করতে চাওয়া আগ্রহী ইউজারকে শুধুমাত্র অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে।
             <br> ৫ থেকে ৯টি বায়োডাটার সাথে যোগাযোগ করতে চাওয়া আগ্রহী ইউজারকে পাত্রপাত্রীর ই-মেইল এবং অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে।
@@ -1159,8 +1109,8 @@ saveUniqueVisitor($conn, $ip_address);
         <div class="jb-accordion-wrapper">
 					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion10"><span class="shosurbari-faq-point">১০</span> পেমেন্ট, বায়োডাটার লিমিটেশন এবং পছন্দের তালিকা<i class="fa fa-plus-circle"> </i></button>
 					<div id="accordion10" class="jb-accordion-content collapse">
-						<p>আপনি যেই কয়টি বায়োডাটার সাথে সরাসরি যোগাযোগ করতে আগ্রহী শুধুমাত্র সেই কয়টি বায়োডাটার জন্য পেমেন্ট করতে হবে। আপনি একই সাথে সর্বোচ্চ ১০টি বায়োডাটা পছন্দ করে পেমেন্ট করতে পারবেন। একই সাথে ১০টির অধিক বায়োডাটার সাথে যোগাযোগ করতে আগ্রহী হইলে আপনাকে ১০টি করে বায়োডাটা সিলেক্ট করে পেমেন্ট সম্পন্ন করতে হবে।
-            <br><br>শ্বশুরবাড়ি ডট কমে কোনো একাউন্ট ছাড়া পছন্দের তালিকায় কোনো বায়োডাটা যুক্ত করে রাখতে পারবেন না। এক সাথে একের অধিক বায়োডাটার সাথে যোগাযোগের জন্য এবং পছন্দের তালিকায় পছন্দের বায়োডাটা গুলো যুক্ত করতে অবশ্যয় শ্বশুরবাড়ি ডট কমে আপনার একাউন্ট লগইন থাকতে হবে।
+						<p>আপনি যেই কয়টি বায়োডাটার সাথে সরাসরি যোগাযোগ করতে আগ্রহী শুধুমাত্র সেই কয়টি বায়োডাটার জন্য পেমেন্ট করতে হবে। আপনি একই সাথে সর্বোচ্চ ১০টি বায়োডাটা পছন্দ করে পেমেন্ট করতে পারবেন। একই সাথে ১০টির অধিক বায়োডাটার সাথে যোগাযোগ করতে আগ্রহী হইলে আপনাকে ১০টি করে বায়োডাটা পছন্দের তালিকায় যুক্ত করে পেমেন্ট সম্পন্ন করতে হবে।
+            <br><br>শ্বশুরবাড়ি ডট কমে কোনো একাউন্ট ছাড়া পছন্দের তালিকায় কোনো বায়োডাটা যুক্ত করে রাখতে পারবেন না। এক সাথে একের অধিক বায়োডাটার সাথে যোগাযোগের জন্য এবং পছন্দের তালিকায় পছন্দের বায়োডাটা গুলো যুক্ত করতে অবশ্যই শ্বশুরবাড়ি ডট কমে আপনার একাউন্ট লগইন থাকতে হবে।
             </p>
 					</div>
 				</div>
@@ -1168,7 +1118,6 @@ saveUniqueVisitor($conn, $ip_address);
 					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion11"><span class="shosurbari-faq-point">১১</span> যেকোনো বায়োডাটা পছন্দ হবার পর পাত্র-পাত্রীর সাথে কিভাবে যোগাযোগ করবো? <i class="fa fa-plus-circle"> </i></button>
 					<div id="accordion11" class="jb-accordion-content collapse">
 						<p> বিয়ের জন্য শ্বশুরবাড়ি ডট কমের পাত্র-পাত্রীর সাথে যোগাযোগ করতে আগ্রহী হইলে সার্ভিস চার্জ প্রদান করতে হবে, বায়োডাটা কতৃপক্ষের থেকে কোনো সার্ভিস চার্জ নেয়া হয় না। আপনার পেমেন্ট সম্পন্ন হবার পর ২৪ ঘন্টার মধ্যে যোগাযোগের জন্য কাঙ্ক্ষিত তথ্য আপনাকে SMS বা ই-মেইলের মাধ্যমে পাঠিয়ে দেয়া হবে।
-						<br> <br>ব্যক্তিগত কোনো কারণে অভিভাবক অনুমতি না দিলে আগ্রহী ইউজারকে যোগাযোগের তথ্য প্রদান না করে টাকা ফেরত দেয়া হবে।
 						<br> <br>পরিবার ও পাত্র-পাত্রীর সম্পর্কে নিজ দায়িত্বে ভালভাবে খোঁজ নিয়ে তবেই বিয়ের কথা পাকা করুন। বিয়ের পূর্বেই পাত্র বা পাত্রীর পরিবারের সাথে টাকা লেনদেন করে প্রতারিত হবেন না। কোনো কিছু লেনদেন করে প্রতারিত হইলে কোনো ভাবেই শ্বশুরবাড়ি ডটকম কর্তৃপক্ষ দায়ী থাকিবে না। শ্বশুরবাড়ি ডটকম শুধুমাত্র দুইটি পরিবারের মধ্যে যোগাযোগের মাধ্যম হিসাবে পরিচালিত।
 						</p>
 					</div>
@@ -1185,8 +1134,8 @@ saveUniqueVisitor($conn, $ip_address);
 				<div class="jb-accordion-wrapper">
 					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion13"><span class="shosurbari-faq-point">১৩</span> পাত্র-পাত্রীর সাথে যোগাযোগের জন্য প্রদান কৃত সার্ভিস চার্জ কি ফেরত যোগ্য? <i class="fa fa-plus-circle"> </i></button>
 					<div id="accordion13" class="jb-accordion-content collapse">
-						<p>হ্যাঁ ফেরত যোগ্য! আগ্রহী ইউজার যেই বায়োডাটার সাথে যোগাযোগ করার জন্য পেমেন্ট করবে, শ্বশুরবাড়ি ডটকমের এডমিন সেই বায়োডাটার অভিভাবক কে কল করে বিষয়টা জানাবে। ব্যক্তিগত কোনো কারণে অভিভাবক অনুমতি না দিলে আগ্রহী ইউজারকে যোগাযোগের তথ্য প্রদান না করে টাকা ফেরত দেয়া হবে।
-							<br><br> অভিভাবকের সাথে যোগাযোগ করতে চাওয়া আগ্রহী ইউজারের ব্যক্তিগত কোনো কারণে টাকা ফেরত দেয়া হবে না।
+						<p>হ্যাঁ ফেরত যোগ্য! সার্ভিস চার্জ ফেরত দেয়ার পূর্বে শ্বশুরবাড়ি ডটকমের কাস্টমার সার্ভিস থেকে বিষয়টা নিয়ে তদন্ত করবে। বায়োডাটার (পাত্র-পাত্রীর) যদি বিয়ে ঠিক হয়ে যায় সেক্ষেত্রে আগ্রহী ইউজারকে সার্ভিস চার্জ ফেরত দেয়া হবে।
+							<br><br> আগ্রহী ইউজারের ব্যক্তিগত কোনো কারণে সার্ভিস চার্জ ফেরত যোগ্য নয়।
 						</p>
 					</div>
 				</div>
@@ -1264,7 +1213,7 @@ saveUniqueVisitor($conn, $ip_address);
       </div>
       <div class="card-content">
         <h3>সফল বিবাহ</h3>
-        <h2>100</h2>
+        <h2 style="font-size: 18px;">আপনার অপেক্ষায়</h2>
       </div>
     </div>
   </div>
@@ -1340,6 +1289,34 @@ saveUniqueVisitor($conn, $ip_address);
   }
   });
   </script>
+    <!-- START FOR PROFILES ANIMATION SLIDE SHOW -->
+    <script type="text/javascript">
+    $(window).load(function() {
+    $("#flexiselDemo3").flexisel({
+    visibleItems: 4,
+    animationSpeed: 700,
+    autoPlay: true,
+    autoPlaySpeed: 9000,    		
+    pauseOnHover: true,
+    enableResponsiveBreakpoints: true,
+    responsiveBreakpoints: { 
+    portrait: { 
+    changePoint:480,
+    visibleItems: 1
+    }, 
+    landscape: { 
+    changePoint:601,
+    visibleItems: 2
+    },
+    tablet: { 
+    changePoint:769,
+    visibleItems: 3
+    }
+    }
+    });   
+    });
+  </script>
+  <!-- ENDT FOR PROFILES ANIMATION SLIDE SHOW -->
   <script>
     // Search Options Gender Error Show
     function validateForm() {

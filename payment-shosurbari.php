@@ -270,24 +270,37 @@ if (isset($_COOKIE[$cookieName])) {
             <h2>কাস্টমার তথ্য</h2>
           </div>
           <?php
-          session_start();
-          include("includes/basic_includes.php");
-          if(isset($_SESSION['id'])){
-          $id = $_SESSION['id'];
-          include("includes/dbconn.php");
-          $sql = "SELECT * FROM users WHERE id = $id";
-          $result = mysqlexec($sql);
-          if ($result && mysqli_num_rows($result) > 0) {
-          $row = mysqli_fetch_assoc($result);
-          $fullname = $row['fullname'];
-          $email = $row['email'];
-          $pnumber = $row['number'];
-          }
-          } else {
-          $fullname = '';
-          $email = '';
-          $pnumber = '';
-          }
+            session_start();
+            include("includes/basic_includes.php");
+            // Check if user is logged in
+            if(isset($_SESSION['id'])){
+            $id = $_SESSION['id'];
+            // Include database connection file
+            include("includes/dbconn.php");
+            // Retrieve user data from 'users' table
+            $userSql = "SELECT * FROM users WHERE id = $id";
+            $userResult = mysqlexec($userSql);
+            if ($userResult && mysqli_num_rows($userResult) > 0) {
+            $userRow = mysqli_fetch_assoc($userResult);
+            $fullname = $userRow['fullname'];
+            $email = $userRow['email'];
+            $pnumber = $userRow['number'];
+            // Retrieve permanent_address from 'sb_adddress' table
+            $addressSql = "SELECT childhood FROM 4bd_address_details WHERE user_id = $id";
+            $addressResult = mysqlexec($addressSql);
+            if ($addressResult && mysqli_num_rows($addressResult) > 0) {
+            $addressRow = mysqli_fetch_assoc($addressResult);
+            $permanent_address = $addressRow['childhood'];
+            } else {
+            $permanent_address = ''; // No address found
+            }
+            }
+            } else {
+            $fullname = '';
+            $email = '';
+            $pnumber = '';
+            $permanent_address = '';
+            }
           ?>
           <div class="form-group">
             <label>নাম<span class="form-required" title="This field is required.">*</span></label>
@@ -314,8 +327,8 @@ if (isset($_COOKIE[$cookieName])) {
           });
           </script>
           <div class="form-group">
-            <label>ঠিকানা<span class="form-required" title="This field is required.">*</span></label>
-            <input type="text" id="permanent_address" name="cust_permanent_address" placeholder="আপনার স্থায়ী ঠিকানা" value="" size="100" maxlength="100" class="form-text required">
+            <label>স্থায়ী ঠিকানা<span class="form-required" title="This field is required.">*</span></label>
+            <input type="text" id="permanent_address" name="cust_permanent_address" placeholder="আপনার স্থায়ী ঠিকানা" value="<?php echo $permanent_address; ?>" size="100" maxlength="100" class="form-text required">
             <span id="address-error" class="shosurbari-form-error"></span>
           </div>
           <div class="form-group">

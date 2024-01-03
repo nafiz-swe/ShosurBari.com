@@ -20,7 +20,7 @@ body {
     color: white;
     text-align: center;
     padding: 2px 20px;
-    font-size: 12px;
+    font-size: 15px;
     line-height: 30px;
     height: 60px;
 }
@@ -53,7 +53,7 @@ table {
     border: 1px solid #ccc;
     border-style: groove;
 }
-.sb-reg-info-data{
+.sb-reg-info-data, .sb-reg-info-data a{
     font-size: 15px;
     color: #0aa4ca;
     padding: 5px;
@@ -131,13 +131,13 @@ span a {
         <h1>Welcome to ShosurBari</h1>
     </div>
     <div class='content'>
-        <h3>Thank you for registering at ShosurBari. Here are your registration details:</h3>
+        <h3>Thank you for choosing ShosurBari.com! Your registration details have been received. We look forward to serving you.</h3>
         <div class="sb-reg-info">
             <table>
                 <tbody>
                     <tr>
                         <td class="sb-reg-info-heading">Biodata Number</td>
-                        <td class="sb-reg-info-data"> <?php echo $id; ?> </td>
+                        <td class="sb-reg-info-data"><a href="https://www.shosurbari.com/my-account.php"><?php echo $id; ?></a></td>
                     </tr>
                     <tr>
                         <td class="sb-reg-info-heading">Full Name</td>
@@ -166,12 +166,12 @@ span a {
                 </tbody>
             </table>
         </div>
-        <h4>Login to your account: <a style="text-decoration:underline; color:#0aa4ca;" href='https://www.shoshurbari.rf.gd/login.php' target='_blank'>ShosurBari Login </a></h4>
+        <h4>Post your biodata: <a style="text-decoration:underline; color:#0aa4ca;" href='https://www.shosurbari.com/biodata-post.php'>Biodata Post </a></h4>
         <h5 class="note" style="font-weight: none;"> <strong style="color: red; font-weight: bold;">Note: </strong> Please remember to keep your passwords secure. Do not share them with anyone.</h5>
     </div>
     <div class='footer'>
         <p>&copy; 2022-23 ShosurBari.com | All Rights Reserved</p>
-        <a href="http://www.shoshurbari.rf.gd/login.php"> <img src="https://i.ibb.co/xqxgyDZ/shosurbari-email-icon.png" style=" border-radius: 4px; padding: 2px; background: #fff; margin: auto 10px; outline:none;text-decoration:none;height:24px;width:24px;vertical-align:middle" width="24" height="24" class="CToWUd" data-bit="iit"></a>
+        <a href="https://www.shosurbari.com"> <img src="https://i.ibb.co/xqxgyDZ/shosurbari-email-icon.png" style=" border-radius: 4px; padding: 2px; background: #fff; margin: auto 10px; outline:none;text-decoration:none;height:24px;width:24px;vertical-align:middle" width="24" height="24" class="CToWUd" data-bit="iit"></a>
         <a href="https://www.facebook.com/ShosurBari.bd/"> <img src="https://i.postimg.cc/fytRD9ZK/shosurbari-facebook.png" style="border-radius: 4px; padding: 2px; background: #fff; margin: auto 10px; outline:none;text-decoration:none;height:24px;width:24px;vertical-align:middle" width="24" height="24" class="CToWUd" data-bit="iit"></a>
         <a href="mailto:info@shosurbari.com"> <img src="https://i.postimg.cc/FsVx0d0z/shosurbari-email.png" style="border-radius: 4px; padding: 2px; background: #fff; margin: auto 10px; outline:none;text-decoration:none;height:24px;width:24px;vertical-align:middle" width="24" height="24" class="CToWUd" data-bit="iit"></a>
         <a href="https://www.youtube.com/"> <img src="https://i.postimg.cc/T1zYw33X/shosurbari-youtube.png" style="border-radius: 4px; padding: 2px; background: #fff; margin: auto 10px; outline:none;text-decoration:none;height:24px;width:24px;vertical-align:middle" width="24" height="24" class="CToWUd" data-bit="iit"></a>

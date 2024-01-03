@@ -133,7 +133,7 @@ if(isloggedin()){
                         </div>
                     </div>
 					<div class="sb-biodata-field">
-						<h2>শারীরিক অবস্থা</h2>
+						<h2>শারীরিক বিষয়াবলি</h2>
 					</div>
 					<div class="sb-biodata-option">
 						<div class="shosurbari-biodata-field">
@@ -632,9 +632,8 @@ if(isloggedin()){
 							<textarea type="text" rows="8" name="aboutme" value="" class="form-text-describe" required></textarea>
 						</div><br>
 						<div class="shosurbari-biodata-field">
-							<p style="text-align: justify; line-height: 28px;"><i id="bell" class="fa fa-bell" style="color: #0aa4ca; margin-right: 10px;"></i> নিচে অবশ্যই একটিভ মোবাইল নাম্বার এবং 
-								ই-মেইল লিখবেন। আগ্রহী ইউজার আপনার এই বায়োডাটাটি পছন্দ করার পর, তার পেমেন্ট তথ্য যাচাই-বাছাই করে শ্বশুরবাড়ি ডটকমের 
-								কাস্টমার সার্ভিস থেকে এই বায়োডাটার অভিভাবক কে কল করবে। আগ্রহী ইউজারকে আপনাদের যোগাযোগের তথ্য প্রদান করার ক্ষেত্রে অভিভাবক শ্বশুরবাড়ি ডটকমের কাস্টমার সার্ভিস কে অনুমতি দিলে আগ্রহী ইউজারকে ২৪ ঘন্টার মধ্যে যোগাযোগের তথ্য প্রদান করা হবে।
+							<p style="text-align: justify; line-height: 28px;"><i id="bell" class="fa fa-bell" style="color: #0aa4ca; margin-right: 10px;"></i> নিচে অবশ্যই একটিভ মোবাইল নাম্বার এবং ই-মেইল লিখবেন। 
+							বিয়ের জন্য আগ্রহী ইউজার আপনার বায়োডাটা পছন্দ করার পর, তার পেমেন্ট তথ্য যাচাই বাছাই করে শ্বশুরবাড়ির কাস্টমার সার্ভিস থেকে আপনার অভিভাবককে কল করবে। যদি আপনার (পাত্র-পাত্রীর) বিয়ে ঠিক না হয়ে থাকে তবেই আপনাদের যোগাযোগের তথ্য আগ্রহী ইউজারকে প্রদান করা হবে।
 							</p>
 						</div>
 						<div class="shosurbari-biodata-field">
@@ -655,7 +654,7 @@ if(isloggedin()){
 						</div>
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">উক্ত মোবাইল নাম্বারটি যেই অভিভাবকের তার নাম লিখুন এবং অভিভাবক পাত্র/পাত্রীর কে হয়?<span class="form-required" title="This field is required.">*</span> <span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
-							<input type="text" id="edit-name" name="family_member_name_relation" value="" class="form-text" required>
+							<input type="text" id="edit-name" name="family_member_name_relation" placeholder="যেমন:- রকিবুল ইসলাম, বাবা" value="" class="form-text" required>
 						</div>
 					</div>
 				</div>

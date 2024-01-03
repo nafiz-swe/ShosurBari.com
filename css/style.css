@@ -231,6 +231,19 @@ label{
     outline: 0;
     box-shadow: none !important;
 }
+.sb_singlebio_mobilesearch input{
+    width: 100%;
+    padding-left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 35px;
+}
+#sbprofid:focus, .sb_singlebio_mobilesearch input:focus {
+    border-color: #0aa4ca;
+    outline: 0;
+    box-shadow: none !important;
+    border: 1px solid #0aa4ca;
+}
 select option:checked{
     background: #06b6d4;
     color: #fff;
@@ -1101,8 +1114,11 @@ section::before {
 /*Home Featured Profiles Start*/
 .sb-featured-profiles {
     width: 100%;
-    margin: 120px auto;
+    margin: 120px auto 0 auto;
     padding-top: 50px;
+}
+.nbs-flexisel-container{
+    margin-bottom: 120px;
 }
 .sb-home-search {
     width: 100%;
@@ -1353,14 +1369,17 @@ marquee {
 .card-wrap:hover{
     transform: scale(1.05);
 }
-.card-header{
-    height: 100px;
+.card-header {
+    height: 165px;
     width: 100%;
-    border-radius:100% 0% 100% 0% / 0% 50% 50% 100%;
+    border-radius: 100% 0% 100% 0% / 0% 50% 50% 100%;
     display: grid;
     place-items: center;
     background: linear-gradient(180deg, #00bbff61 0%,rgba(238,246,253,0) 100%);
     box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+}
+.card-header img {
+    margin-top: -55px;
 }
 .card-content{
     display: flex;
@@ -1389,7 +1408,7 @@ marquee {
 }
 .card-package p{
     font-size: 14px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     text-align: left;
     font-weight: bold;
 }
@@ -1413,8 +1432,7 @@ marquee {
     text-transform: uppercase;
     font-size: 25px;
     color: #06b6d4;
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin-top: -55px;
     width: 200px;
     font-family: 'Playfair Display', serif;
 }
@@ -1441,14 +1459,13 @@ marquee {
     text-transform: uppercase;
     font-size: 19px;
     color: black;
-    margin-top: 10px;
-    margin-bottom: 20px;
     width: 200px;
+    margin-top: -70px;
 }
 .card-content h2{
-    font-size: 35px;
-    margin-bottom: 25px;
-    margin-top: -5px;
+    font-size: 25px;
+    margin-bottom: 15px;
+    margin-top: -15px;
     width: 200px;
     text-align: center;
 }
@@ -1457,9 +1474,8 @@ marquee {
     text-transform: uppercase;
     font-size: 14px;
     color: black;
-    margin-top: 10px;
-    margin-bottom: 20px;
     width: 200px;
+    margin-top: -60px;
 }
 .card-content h4{
     text-align: left;
@@ -2789,7 +2805,7 @@ ol li{
 }
 .error {
 	text-align:left;
-	margin-top: 3px;
+	margin-bottom: 5px;
     border-radius: 4px;
     color: #ff0080;
     font-size: 15px;
@@ -4269,6 +4285,7 @@ label{
         width: 920px;
         margin-left: auto;
         margin-right: auto;
+        margin-bottom: 120px;
     }
 }
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
@@ -4415,6 +4432,7 @@ label{
         position: relative;
         margin-left: auto;
         margin-right: auto;
+        margin-bottom: 120px;
     }
     .navbar-nav > li > a {
         padding: 3px 8px;
@@ -4843,9 +4861,6 @@ label{
         top: 60px;
         left: 50px;
     }
-    .sb-featured-profiles {
-        margin: 100px auto;
-    }
     .sb-home-search {
         margin-top: 15px;
     }
@@ -5022,9 +5037,6 @@ label{
         border: 1px solid #ccc;
         border-radius: 4px;
         height: 35px;
-    }
-    .sb_singlebio_mobilesearch input:focus {
-        border: 1px solid #0aa4ca !important;
     }
     .sb_singlebio_mobilesearch button{
         cursor: pointer;

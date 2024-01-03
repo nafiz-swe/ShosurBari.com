@@ -189,7 +189,7 @@ if(isloggedin()){
                         </div>
                     </div>
 					<div class="sb-biodata-field">
-						<h2>শারীরিক অবস্থা</h2>
+						<h2>শারীরিক বিষয়াবলি</h2>
 					</div>
 					<div class="sb-biodata-option">
 						<div class="shosurbari-biodata-field" style="display: <?php echo $Displaybiodatagender; ?>;">

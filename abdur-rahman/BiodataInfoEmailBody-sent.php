@@ -191,7 +191,7 @@ if ($result && mysqli_num_rows($result) > 0) {
                         <h2>পছন্দের বায়োডাটার তথ্য ১</h2>
                         <div class="shosurbari-biodata-field">
                             <label>বায়োডাটা নং</label>
-                            <p><a href="https://shosurbari.com/profile.php?/Biodata=<?php echo $biodata_number_1; ?>"><?php echo $biodata_number_1; ?></a></p>
+                            <p><a href="https://www.shosurbari.com/profile.php?/Biodata=<?php echo $biodata_number_1; ?>"><?php echo $biodata_number_1; ?></a></p>
                         </div>
                         <div class="shosurbari-biodata-field">
                             <label>বায়োডাটার অভিভাবক</label>
@@ -210,7 +210,7 @@ if ($result && mysqli_num_rows($result) > 0) {
                         <h2>পছন্দের বায়োডাটার তথ্য ২</h2>
                         <div class="shosurbari-biodata-field">
                             <label>বায়োডাটা নং</label>
-                            <p><a href="https://shosurbari.com/profile.php?/Biodata=<?php echo $biodata_number_2; ?>"><?php echo $biodata_number_2; ?></a></p>
+                            <p><a href="https://www.shosurbari.com/profile.php?/Biodata=<?php echo $biodata_number_2; ?>"><?php echo $biodata_number_2; ?></a></p>
                         </div>
                         <div class="shosurbari-biodata-field">
                             <label>বায়োডাটার অভিভাবক</label>
@@ -228,7 +228,7 @@ if ($result && mysqli_num_rows($result) > 0) {
                         <h2>পছন্দের বায়োডাটার তথ্য ৩</h2>
                         <div class="shosurbari-biodata-field">
                             <label>বায়োডাটা নং</label>
-                            <p><a href="https://shosurbari.com/profile.php?/Biodata=<?php echo $biodata_number_3; ?>"><?php echo $biodata_number_3; ?></a></p>
+                            <p><a href="https://www.shosurbari.com/profile.php?/Biodata=<?php echo $biodata_number_3; ?>"><?php echo $biodata_number_3; ?></a></p>
                         </div>
                         <div class="shosurbari-biodata-field">
                             <label>বায়োডাটার অভিভাবক</label>
@@ -246,7 +246,7 @@ if ($result && mysqli_num_rows($result) > 0) {
                         <h2>পছন্দের বায়োডাটার তথ্য ৪</h2>
                         <div class="shosurbari-biodata-field">
                             <label>বায়োডাটা নং</label>
-                            <p><a href="https://shosurbari.com/profile.php?/Biodata=<?php echo $biodata_number_4; ?>"><?php echo $biodata_number_4; ?></a></p>
+                            <p><a href="https://www.shosurbari.com/profile.php?/Biodata=<?php echo $biodata_number_4; ?>"><?php echo $biodata_number_4; ?></a></p>
                         </div>
                         <div class="shosurbari-biodata-field">
                             <label>বায়োডাটার অভিভাবক</label>
@@ -264,7 +264,7 @@ if ($result && mysqli_num_rows($result) > 0) {
                         <h2>পছন্দের বায়োডাটার তথ্য ৫</h2>
                         <div class="shosurbari-biodata-field">
                             <label>বায়োডাটা নং</label>
-                            <p><a href="https://shosurbari.com/profile.php?/Biodata=<?php echo $biodata_number_5; ?>"><?php echo $biodata_number_5; ?></a></p>
+                            <p><a href="https://www.shosurbari.com/profile.php?/Biodata=<?php echo $biodata_number_5; ?>"><?php echo $biodata_number_5; ?></a></p>
                         </div>
                         <div class="shosurbari-biodata-field">
                             <label>বায়োডাটার অভিভাবক</label>
@@ -282,7 +282,7 @@ if ($result && mysqli_num_rows($result) > 0) {
                         <h2>পছন্দের বায়োডাটার তথ্য ৬</h2>
                         <div class="shosurbari-biodata-field">
                             <label>বায়োডাটা নং</label>
-                            <p><a href="https://shosurbari.com/profile.php?/Biodata=<?php echo $biodata_number_5; ?>"><?php echo $biodata_number_5; ?></a></p>
+                            <p><a href="https://www.shosurbari.com/profile.php?/Biodata=<?php echo $biodata_number_5; ?>"><?php echo $biodata_number_5; ?></a></p>
                         </div>
                         <div class="shosurbari-biodata-field">
                             <label>বায়োডাটার অভিভাবক</label>
@@ -300,7 +300,7 @@ if ($result && mysqli_num_rows($result) > 0) {
                         <h2>পছন্দের বায়োডাটার তথ্য ৭</h2>
                         <div class="shosurbari-biodata-field">
                             <label>বায়োডাটা নং</label>
-                            <p><a href="https://shosurbari.com/profile.php?/Biodata=<?php echo $biodata_number_7; ?>"><?php echo $biodata_number_7; ?></a></p>
+                            <p><a href="https://www.shosurbari.com/profile.php?/Biodata=<?php echo $biodata_number_7; ?>"><?php echo $biodata_number_7; ?></a></p>
                         </div>
                         <div class="shosurbari-biodata-field">
                             <label>বায়োডাটার অভিভাবক</label>
@@ -318,7 +318,7 @@ if ($result && mysqli_num_rows($result) > 0) {
                         <h2>পছন্দের বায়োডাটার তথ্য ৮</h2>
                         <div class="shosurbari-biodata-field">
                             <label>বায়োডাটা নং</label>
-                            <p><a href="https://shosurbari.com/profile.php?/Biodata=<?php echo $biodata_number_8; ?>"><?php echo $biodata_number_8; ?></a></p>
+                            <p><a href="https://www.shosurbari.com/profile.php?/Biodata=<?php echo $biodata_number_8; ?>"><?php echo $biodata_number_8; ?></a></p>
                         </div>
                         <div class="shosurbari-biodata-field">
                             <label>বায়োডাটার অভিভাবক</label>
@@ -336,7 +336,7 @@ if ($result && mysqli_num_rows($result) > 0) {
                         <h2>পছন্দের বায়োডাটার তথ্য ৯</h2>
                         <div class="shosurbari-biodata-field">
                             <label>বায়োডাটা নং</label>
-                            <p><a href="https://shosurbari.com/profile.php?/Biodata=<?php echo $biodata_number_9; ?>"><?php echo $biodata_number_9; ?></a></p>
+                            <p><a href="https://www.shosurbari.com/profile.php?/Biodata=<?php echo $biodata_number_9; ?>"><?php echo $biodata_number_9; ?></a></p>
                         </div>
                         <div class="shosurbari-biodata-field">
                             <label>বায়োডাটার অভিভাবক</label>
@@ -354,7 +354,7 @@ if ($result && mysqli_num_rows($result) > 0) {
                         <h2>পছন্দের বায়োডাটার তথ্য ১০</h2>
                         <div class="shosurbari-biodata-field">
                             <label>বায়োডাটা নং</label>
-                            <p><a href="https://shosurbari.com/profile.php?/Biodata=<?php echo $biodata_number_10; ?>"><?php echo $biodata_number_10; ?></a></p>
+                            <p><a href="https://www.shosurbari.com/profile.php?/Biodata=<?php echo $biodata_number_10; ?>"><?php echo $biodata_number_10; ?></a></p>
                         </div>
                         <div class="shosurbari-biodata-field">
                             <label>বায়োডাটার অভিভাবক</label>
@@ -373,7 +373,7 @@ if ($result && mysqli_num_rows($result) > 0) {
         </div>
         <div class='footer'>
             <p>&copy; 2022-23 ShosurBari.com | All Rights Reserved</p>
-            <a href="http://www.shoshurbari.rf.gd/login.php"> <img src="https://i.ibb.co/xqxgyDZ/shosurbari-email-icon.png" style=" border-radius: 4px; padding: 2px; background: #fff; margin: auto 10px; outline:none;text-decoration:none;height:24px;width:24px;vertical-align:middle" width="24" height="24" class="CToWUd" data-bit="iit"></a>
+            <a href="https://www.shosurbari.com"> <img src="https://i.ibb.co/xqxgyDZ/shosurbari-email-icon.png" style=" border-radius: 4px; padding: 2px; background: #fff; margin: auto 10px; outline:none;text-decoration:none;height:24px;width:24px;vertical-align:middle" width="24" height="24" class="CToWUd" data-bit="iit"></a>
             <a href="https://www.facebook.com/ShosurBari.bd/"> <img src="https://i.postimg.cc/fytRD9ZK/shosurbari-facebook.png" style="border-radius: 4px; padding: 2px; background: #fff; margin: auto 10px; outline:none;text-decoration:none;height:24px;width:24px;vertical-align:middle" width="24" height="24" class="CToWUd" data-bit="iit"></a>
             <a href="mailto:info@shosurbari.com"> <img src="https://i.postimg.cc/FsVx0d0z/shosurbari-email.png" style="border-radius: 4px; padding: 2px; background: #fff; margin: auto 10px; outline:none;text-decoration:none;height:24px;width:24px;vertical-align:middle" width="24" height="24" class="CToWUd" data-bit="iit"></a>
             <a href="https://www.youtube.com/"> <img src="https://i.postimg.cc/T1zYw33X/shosurbari-youtube.png" style="border-radius: 4px; padding: 2px; background: #fff; margin: auto 10px; outline:none;text-decoration:none;height:24px;width:24px;vertical-align:middle" width="24" height="24" class="CToWUd" data-bit="iit"></a>
