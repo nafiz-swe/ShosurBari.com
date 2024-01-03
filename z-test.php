@@ -188,6 +188,68 @@
     --                   E   N   D                   --
     --    User / Biodata Profile Search Function     --
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+    function saveUniqueVisitorCount($conn, $count) {
+        $update_count_sql = "INSERT INTO visitor_counts (count) VALUES (?)";
+        $update_count_stmt = $conn->prepare($update_count_sql);
+        
+        if (!$update_count_stmt) {
+            die("Error preparing statement: " . $conn->error);
+        }
+    
+        $update_count_stmt->bind_param("i", $count);
+        
+        if (!$update_count_stmt) {
+            die("Error binding parameters: " . $update_count_stmt->error);
+        }
+    
+        $update_count_stmt->execute();
+        
+        if (!$update_count_stmt) {
+            die("Error executing statement: " . $update_count_stmt->error);
+        }
+    
+        $update_count_stmt->close();
+    }
+    
+    function getCurrentUniqueVisitorCount($conn) {
+        $get_count_sql = "SELECT count FROM visitor_counts ORDER BY timestamp DESC LIMIT 1";
+        $result = $conn->query($get_count_sql);
+    
+        if (!$result) {
+            die("Error retrieving count: " . $conn->error);
+        }
+    
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            return $row['count'];
+        } else {
+            return 0; // Default value if no record is found
+        }
+    }
+    
+    function saveUniqueVisitor($conn, $ip_address) {
+        $save_visitor_sql = "INSERT INTO unique_visitors (ip_address, visit_time) VALUES (?, NOW())";
+        $save_visitor_stmt = $conn->prepare($save_visitor_sql);
+    
+        if (!$save_visitor_stmt) {
+            die("Error preparing statement: " . $conn->error);
+        }
+    
+        $save_visitor_stmt->bind_param("s", $ip_address);
+    
+        if (!$save_visitor_stmt) {
+            die("Error binding parameters: " . $save_visitor_stmt->error);
+        }
+    
+        $save_visitor_stmt->execute();
+    
+        if (!$save_visitor_stmt) {
+            die("Error executing statement: " . $save_visitor_stmt->error);
+        }
+    
+        $save_visitor_stmt->close();
+    }
+
     // End & Start
     /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
     --                S  T  A  R  T                  --
@@ -201,7 +263,9 @@
             $gender = $_POST['gender'];
             $pnumber = $_POST['pnumber'];
             $email = $_POST['email'];
-            $hashed_password = hash('sha256', $_POST['pass_1']);
+            $pass_1 = $_POST['pass_1'];
+            // Hash the password before storing it in the database
+            $hashed_password = password_hash($pass_1, PASSWORD_DEFAULT);
             require_once("includes/dbconn.php");
             $email_check_sql = "SELECT COUNT(*) FROM users WHERE email = '$email'";
             $username_check_sql = "SELECT COUNT(*) FROM users WHERE username = '$uname'";
@@ -220,7 +284,7 @@
             } else {
                 $sql = "INSERT INTO users 
                 (fullname, username, gender, number, email, password, active, register_date) 
-                VALUES ('$fname', '$uname', '$gender', '$pnumber', '$email', '$hashed_password', 1, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+                VALUES ('$fname', '$uname', '$gender', '$pnumber', '$email', '$hashed_password', 1, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
                 if (mysqli_query($conn, $sql)) {
                 $id = mysqli_insert_id($conn);
                 $_SESSION['id'] = $id;
@@ -233,7 +297,7 @@
                 $email_body = ob_get_clean();
                 $plain_text_message = "
                 Welcome to ShosurBari
-                Thank you for registering at ShosurBari. Here are your registration details:
+                Thank you for choosing ShosurBari.com! Your registration details have been received. We look forward to serving you.
                 Biodata Number: $id
                 Full Name: $fname
                 Username: $uname
@@ -241,12 +305,12 @@
                 Phone Number: $pnumber
                 Gender: $gender
                 Passwors: ********* (For security reasons, do not display the password)
-                Login to your account: https://www.shoshurbari.rf.gd/login.php
+                Post your biodata: https://www.shoshurbari.com/biodata-post.php
                 Note: Please remember to keep your passwords secure. Do not share them with anyone.
                 Connect with us:
                 - Website: https://www.shoshurbari.com
                 - Facebook: https://www.facebook.com/ShoshurBari.bd
-                - Email: support@shoshurbari.com
+                - Email: info@shoshurbari.com
                 - YouTube: https://www.youtube.com/c/ShoshurBari
                 (c) 2022-23 ShosurBari.com | All Rights Reserved
                 ";
@@ -306,8 +370,9 @@
     // Password updated From User Account
     function updateAccount($userId, $newPassword, $newFullName, $newGender) {
         require_once("includes/dbconn.php");
-        $hashedPassword = hash('sha256', $newPassword);
-        $update_query = "UPDATE users SET password = '$hashedPassword', fullname = '$newFullName', gender = '$newGender' WHERE id = $userId";
+        $hashed_password = password_hash($newPassword, PASSWORD_DEFAULT);
+
+        $update_query = "UPDATE users SET password = '$hashed_password', fullname = '$newFullName', gender = '$newGender' WHERE id = $userId";
         $update_result = mysqli_query($conn, $update_query);
         if ($update_result) {
             return true; // Account updated successfully
@@ -377,9 +442,9 @@
             } else {
                 $user_id = 0;
             }
-            // Insert customer data into the database
-            $sql = "INSERT INTO customer (user_id, cust_name, cust_email, cust_number, cust_permanent_address, request_biodata_number, biodata_quantities, total_fee, payment_method, bkash_number, bkash_transaction_id, nagad_number, nagad_transaction_id, roket_number, roket_transaction_id, processing, sent, cancel, request_date) 
-                VALUES ('$user_id', '$cust_name', '$cust_email', '$cust_number', '$cust_permanent_address', '$request_biodata_number', '$idCount', '$fee', '$payment_method', '$bkash_number', '$bkash_transaction_id', '$nagad_number', '$nagad_transaction_id', '$roket_number', '$roket_transaction_id', 1, 0, 0, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            // Insert customer data into the database 
+            $sql = "INSERT INTO customer (user_id, cust_name, cust_email, cust_number, cust_permanent_address, request_biodata_number, biodata_quantities, total_fee, payment_method, bkash_number, bkash_transaction_id, nagad_number, nagad_transaction_id, roket_number, roket_transaction_id, processing, sent, cancel, invalid, request_date) 
+                VALUES ('$user_id', '$cust_name', '$cust_email', '$cust_number', '$cust_permanent_address', '$request_biodata_number', '$idCount', '$fee', '$payment_method', '$bkash_number', '$bkash_transaction_id', '$nagad_number', '$nagad_transaction_id', '$roket_number', '$roket_transaction_id', 1, 0, 0, 0, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             if (mysqli_query($conn, $sql)) {
             $id_customer = mysqli_insert_id($conn);
             $_SESSION['id_customer'] = $id_customer;
@@ -408,7 +473,7 @@
             Connect with us:
             - Website: https://www.shoshurbari.com
             - Facebook: https://www.facebook.com/ShoshurBari.bd
-            - Email: support@shoshurbari.com
+            - Email: info@shoshurbari.com
             - YouTube: https://www.youtube.com/c/ShoshurBari
             (c) 2022-23 ShosurBari.com | All Rights Reserved
             ";
@@ -469,7 +534,7 @@
                 $user_id = 0; // Default value for non-logged-in users
             }
             $sql = "INSERT INTO contact_us (user_id, name_contactus, number_contactus, email_contactus, subject, message_contactus, unread_message, read_message, message_sendingdate) 
-                VALUES ('$user_id', '$name_contactus', '$number_contactus', '$email_contactus', '$subject', '$message_contactus', 1, 0, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+                VALUES ('$user_id', '$name_contactus', '$number_contactus', '$email_contactus', '$subject', '$message_contactus', 1, 0, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             if (mysqli_query($conn, $sql)) {
                 header("location: index.php");
             } else {
@@ -619,107 +684,140 @@
             $real_info_commited=$_POST['real_info_commited'];
             $authorities_no_responsible=$_POST['authorities_no_responsible'];
             require_once("includes/dbconn.php");
+            $tables = [
+                "1bd_personal_physical",
+                "2bd_personal_lifestyle",
+                "3bd_secondaryedu_method",
+                "3bd_kowmi_madrasaedu_method",
+                "3bd_higher_secondaryedu_method",
+                "3bd_universityedu_method",
+                "4bd_address_details",
+                "5bd_family_information",
+                "6bd_7bd_marital_status",
+                "6bd_marriage_related_qs_male",
+                "7bd_marriage_related_qs_female",
+                "8bd_religion_details",
+                "9bd_expected_life_partner",
+            ];
+            $exists = false; // Flag to track if the user ID exists in any table
+            $errors = [];   // Array to store error messages
+            foreach ($tables as $table) {
+                $checkSql = "SELECT user_id FROM $table WHERE user_id = ?";
+                $checkStmt = mysqli_prepare($conn, $checkSql);
+                mysqli_stmt_bind_param($checkStmt, "s", $id);
+                mysqli_stmt_execute($checkStmt);
+                mysqli_stmt_store_result($checkStmt);
+                if (mysqli_stmt_num_rows($checkStmt) > 0) {
+                    // User ID already exists in at least one table
+                    $exists = true;
+                    $_SESSION['error_message'] = "উফফ! আপনার একাউন্টে সমস্যা দেখা দিয়েছে, অনুগ্রহ করে এডমিনের সাথে যোগাযোগ করুন।";
+                    // Break the loop here, as there's no need to check for other tables
+                    break;
+                }
+                mysqli_stmt_close($checkStmt);
+            }
+            if (!$exists) {
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --      Personal & Physical  / sb-biodata-1      --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
             $sql1 = "INSERT INTO 1bd_personal_physical (user_id, biodatagender, dateofbirth, height, weight, physicalstatus, Skin_tones, bloodgroup, profilecreationdate) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             $stmt1 = mysqli_prepare($conn, $sql1);
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --     Personal & Life Style  / sb-biodata-2     --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
             $sql2 = "INSERT INTO 2bd_personal_lifestyle (user_id, smoke, occupation_sector, other_occupation_sector, business_occupation_level, student_occupation_level, health_occupation_level, engineer_occupation_level, teacher_occupation_level, defense_occupation_level, foreigner_occupation_level, garments_occupation_level, driver_occupation_level, service_andcommon_occupation_level, mistri_occupation_level, occupation_describe, dress_code, aboutme, groom_bride_name, groom_bride_email, groom_bride_number, groom_bride_family_number, family_member_name_relation, profilecreationdate) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             $stmt2 = mysqli_prepare($conn, $sql2);
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --  Educational Qualifications  / sb-biodata-3   --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --*/
             $sql31 = "INSERT INTO 3bd_secondaryedu_method (user_id, scndry_edu_method, maxedu_qulfctn, gnrl_mdrs_secondary_pass, gnrl_mdrs_secondary_pass_year, gnrl_mdrs_secondary_end_year, gnrlmdrs_secondary_running_std, profilecreationdate) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            VALUES (?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             $stmt31 = mysqli_prepare($conn, $sql31);
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --  Educational Qualifications  / sb-biodata-3   --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --*/
             $sql32 = "INSERT INTO 3bd_kowmi_madrasaedu_method (user_id, qawmi_madrasa_hafez, qawmimadrasa_dawrapass, kowmi_dawrapas_year, kowmi_current_edu_level, profilecreationdate) 
-            VALUES (?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            VALUES (?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             $stmt32 = mysqli_prepare($conn, $sql32);    
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --  Educational Qualifications  / sb-biodata-3   --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --*/
             $sql33 = "INSERT INTO 3bd_higher_secondaryedu_method (user_id, higher_secondary_edu_method, gnrlmdrs_hrsecondary_pass, gnrlmdrs_hrsecondary_pass_year, gnrlmdrs_hrsecondary_exam_year, gnrlmdrs_hrsecondary_group, gnrlmdrs_hrsecondary_rningstd, diploma_hrsecondary_pass, diploma_hrsecondary_pass_year, diploma_hrsecondary_sub, diploma_hrsecondary_endingyear, profilecreationdate) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             $stmt33 = mysqli_prepare($conn, $sql33);
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --  Educational Qualifications  / sb-biodata-3   --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --*/
             $sql34 = "INSERT INTO 3bd_universityedu_method (user_id, varsity_edu_method, uvarsity_pass, varsity_passing_year, university_subject, varsity_ending_year, uvarsity_name, others_edu_qualification, profilecreationdate) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             $stmt34 = mysqli_prepare($conn, $sql34);
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --       Address Details  /  sb-biodata-4        --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
             $sql4 = "INSERT INTO 4bd_address_details (user_id, permanent_division, home_district_under_barishal, home_district_under_chattogram, home_district_under_dhaka, home_district_under_khulna, home_district_under_mymensingh, home_district_under_rajshahi, home_district_under_rangpur, home_district_under_sylhet, country_present_address, present_address_location, present_address_living_purpose, childhood, profilecreationdate) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             $stmt4 = mysqli_prepare($conn, $sql4);
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --     Family Information  / sb-biodata-5        --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
             $sql5 = "INSERT INTO 5bd_family_information (user_id, family_major_guardian, father_name, father_alive, fatheroccupation, mother_alive, motheroccupation, brosis_number, brosis_info, uncle_profession, family_class, financial_condition, family_religious_condition, profilecreationdate) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             $stmt5 = mysqli_prepare($conn, $sql5);
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --  Marriage related Info /Marital Status 6 & 7  --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
             $sql61 = "INSERT INTO 6bd_7bd_marital_status (user_id, maritalstatus, divorce_reason, how_widow, how_widower, get_wife_permission, get_family_permission, why_again_married, how_many_son, son_details, agree_marriage_other_religion, profilecreationdate) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             $stmt61 = mysqli_prepare($conn, $sql61);
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --   Male Marriage related Info / sb-biodata-6   --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
             $sql62 = "INSERT INTO 6bd_marriage_related_qs_male (user_id, allowstudy_aftermarriage, allowjob_aftermarriage, livewife_aftermarriage, profileby, profilecreationdate) 
-            VALUES (?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            VALUES (?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             $stmt62 = mysqli_prepare($conn, $sql62);
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --  Female Marriage related Info / sb-biodata-7  --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
             $sql7 = "INSERT INTO 7bd_marriage_related_qs_female (user_id, anyjob_aftermarriage, studies_aftermarriage, agree_marriage_student, profileby, profilecreationdate) 
-            VALUES (?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            VALUES (?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             $stmt7 = mysqli_prepare($conn, $sql7);
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --        Religion Details / sb-biodata-8        --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
             $sql8 = "INSERT INTO 8bd_religion_details (user_id, religion, yourreligion_condition, profilecreationdate) 
-            VALUES (?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            VALUES (?, ?, ?, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             $stmt8 = mysqli_prepare($conn, $sql8);
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --     Expected Life Partner / sb-biodata-9      --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
             $sql9 = "INSERT INTO 9bd_expected_life_partner (user_id, partner_citizen, partner_district, partner_maritialstatus, partner_age, partner_skintones, partner_height, partner_education, partner_profession, partner_financial, partner_attributes, parents_permission, real_info_commited, authorities_no_responsible, profilecreationdate) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             $stmt9 = mysqli_prepare($conn, $sql9);
             // Personal & Physical
-            mysqli_stmt_bind_param($stmt1, "sssssssss", $id, $biodatagender, $dob, $height, $weight, $physicalstatus, $Skin_tones, $bloodgroup);
+            mysqli_stmt_bind_param($stmt1, "ssssssss", $id, $biodatagender, $dob, $height, $weight, $physicalstatus, $Skin_tones, $bloodgroup);
             mysqli_stmt_execute($stmt1);
             // Personal & Life Style
-            mysqli_stmt_bind_param($stmt2, "ssssssssssssssssssssssssssssssss", $id, $smoke, $occupation_sector, $other_occupation_sector, $business_occupation_level, $student_occupation_level, $health_occupation_level, $engineer_occupation_level, $teacher_occupation_level, $defense_occupation_level, $foreigner_occupation_level, $garments_occupation_level, $driver_occupation_level, $service_andcommon_occupation_level, $mistri_occupation_level, $occupation_describe, $dress_code, $aboutme, $groom_bride_name, $groom_bride_email, $groom_bride_number, $groom_bride_family_number, $family_member_name_relation);
+            mysqli_stmt_bind_param($stmt2, "sssssssssssssssssssssss", $id, $smoke, $occupation_sector, $other_occupation_sector, $business_occupation_level, $student_occupation_level, $health_occupation_level, $engineer_occupation_level, $teacher_occupation_level, $defense_occupation_level, $foreigner_occupation_level, $garments_occupation_level, $driver_occupation_level, $service_andcommon_occupation_level, $mistri_occupation_level, $occupation_describe, $dress_code, $aboutme, $groom_bride_name, $groom_bride_email, $groom_bride_number, $groom_bride_family_number, $family_member_name_relation);
             mysqli_stmt_execute($stmt2);
             // Educational Qualifications (sb-biodata-3)
-            mysqli_stmt_bind_param($stmt31, "ssssssss", $id, $scndry_edu_method, $maxedu_qulfctn, $gnrl_mdrs_secondary_pass, $gnrl_mdrs_secondary_pass_year, $gnrl_mdrs_secondary_end_year, $gnrlmdrs_secondary_running_std);
+            mysqli_stmt_bind_param($stmt31, "sssssss", $id, $scndry_edu_method, $maxedu_qulfctn, $gnrl_mdrs_secondary_pass, $gnrl_mdrs_secondary_pass_year, $gnrl_mdrs_secondary_end_year, $gnrlmdrs_secondary_running_std);
             mysqli_stmt_execute($stmt31);
             // Educational Qualifications (sb-biodata-3)
             mysqli_stmt_bind_param($stmt32, "sssss", $id, $qawmi_madrasa_hafez, $qawmimadrasa_dawrapass, $kowmi_dawrapas_year, $kowmi_current_edu_level);
             mysqli_stmt_execute($stmt32);
             // Educational Qualifications (sb-biodata-3)
-            mysqli_stmt_bind_param($stmt33, "ssssssssssss", $id, $higher_secondary_edu_method, $gnrlmdrs_hrsecondary_pass, $gnrlmdrs_hrsecondary_pass_year, $gnrlmdrs_hrsecondary_exam_year, $gnrlmdrs_hrsecondary_group, $gnrlmdrs_hrsecondary_rningstd, $diploma_hrsecondary_pass, $diploma_hrsecondary_pass_year, $diploma_hrsecondary_sub, $diploma_hrsecondary_endingyear);
+            mysqli_stmt_bind_param($stmt33, "sssssssssss", $id, $higher_secondary_edu_method, $gnrlmdrs_hrsecondary_pass, $gnrlmdrs_hrsecondary_pass_year, $gnrlmdrs_hrsecondary_exam_year, $gnrlmdrs_hrsecondary_group, $gnrlmdrs_hrsecondary_rningstd, $diploma_hrsecondary_pass, $diploma_hrsecondary_pass_year, $diploma_hrsecondary_sub, $diploma_hrsecondary_endingyear);
             mysqli_stmt_execute($stmt33);
             // Educational Qualifications (sb-biodata-3)
             mysqli_stmt_bind_param($stmt34, "ssssssss", $id, $varsity_edu_method, $uvarsity_pass, $varsity_passing_year, $university_subject, $varsity_ending_year, $uvarsity_name, $others_edu_qualification);
             mysqli_stmt_execute($stmt34);
             // Address Details (sb-biodata-4)
-            mysqli_stmt_bind_param($stmt4, "ssssssssssssssssssssss", $id, $permanent_division, $home_district_under_barishal, $home_district_under_chattogram, $home_district_under_dhaka, $home_district_under_khulna, $home_district_under_mymensingh, $home_district_under_rajshahi, $home_district_under_rangpur, $home_district_under_sylhet, $country_present_address, $present_address_location, $present_address_living_purpose, $childhood);
+            mysqli_stmt_bind_param($stmt4, "ssssssssssssss", $id, $permanent_division, $home_district_under_barishal, $home_district_under_chattogram, $home_district_under_dhaka, $home_district_under_khulna, $home_district_under_mymensingh, $home_district_under_rajshahi, $home_district_under_rangpur, $home_district_under_sylhet, $country_present_address, $present_address_location, $present_address_living_purpose, $childhood);
             mysqli_stmt_execute($stmt4);
             // Family Information (sb-biodata-5)
-            mysqli_stmt_bind_param($stmt5, "sssssssssssssss", $id, $family_major_guardian, $father_name, $father_alive, $fatheroccupation, $mother_alive, $motheroccupation, $brosis_number, $brosis_info, $uncle_profession, $family_class, $financial_condition, $family_religious_condition);
+            mysqli_stmt_bind_param($stmt5, "sssssssssssss", $id, $family_major_guardian, $father_name, $father_alive, $fatheroccupation, $mother_alive, $motheroccupation, $brosis_number, $brosis_info, $uncle_profession, $family_class, $financial_condition, $family_religious_condition);
             mysqli_stmt_execute($stmt5);
             // Marriage related Info/Marital Status 6 & 7
             mysqli_stmt_bind_param($stmt61, "sssssssssss", $id, $maritalstatus, $divorce_reason, $how_widow, $how_widower, $get_wife_permission, $get_family_permission, $why_again_married, $how_many_son, $son_details, $agree_marriage_other_religion);
@@ -734,30 +832,35 @@
             mysqli_stmt_bind_param($stmt8, "sss", $id, $religion, $yourreligion_condition);
             mysqli_stmt_execute($stmt8);
             // Expected Life Partner (sb-biodata-9)
-            mysqli_stmt_bind_param($stmt9, "sssssssssssssss", $id, $partner_citizen, $partner_district, $partner_maritialstatus, $partner_age, $partner_skintones, $partner_height, $partner_education, $partner_profession, $partner_financial, $partner_attributes, $parents_permission, $real_info_commited, $authorities_no_responsible);
+            mysqli_stmt_bind_param($stmt9, "ssssssssssssss", $id, $partner_citizen, $partner_district, $partner_maritialstatus, $partner_age, $partner_skintones, $partner_height, $partner_education, $partner_profession, $partner_financial, $partner_attributes, $parents_permission, $real_info_commited, $authorities_no_responsible);
             mysqli_stmt_execute($stmt9);
             // Execute the statement
-            if (mysqli_stmt_execute($conn, $stmt1) && mysqli_stmt_execute($conn, $stmt2) && mysqli_stmt_execute($conn, $stmt31) && mysqli_stmt_execute($conn, $stmt32) && mysqli_stmt_execute($conn, $stmt33) && mysqli_stmt_execute($conn, $stmt34) && mysqli_stmt_execute($conn, $stmt4) && mysqli_stmt_execute($conn, $stmt5) && mysqli_stmt_execute($conn, $stmt61) && mysqli_stmt_execute($conn, $stmt62) && mysqli_stmt_execute($conn, $stmt7) && mysqli_stmt_execute($conn, $stmt8) && mysqli_stmt_execute($conn, $stmt9) ) {
-                echo "Thanks! Successfully Uploaded New Biodata!";
+            if (
+                mysqli_stmt_execute($stmt1) &&
+                mysqli_stmt_execute($stmt2) &&
+                mysqli_stmt_execute($stmt31) &&
+                mysqli_stmt_execute($stmt32) &&
+                mysqli_stmt_execute($stmt33) &&
+                mysqli_stmt_execute($stmt34) &&
+                mysqli_stmt_execute($stmt4) &&
+                mysqli_stmt_execute($stmt5) &&
+                mysqli_stmt_execute($stmt61) &&
+                mysqli_stmt_execute($stmt62) &&
+                mysqli_stmt_execute($stmt7) &&
+                mysqli_stmt_execute($stmt8) &&
+                mysqli_stmt_execute($stmt9)
+            ) {
                 header("Location: profile.php?/Biodata={$id}");
             } else {
-                echo "Error: " . mysqli_stmt_error($conn,);
+                $errors[] = "Something went wrong. Please contact the admin for assistance.";
             }
-            // Close prepared statements
-            mysqli_stmt_close($stmt1);
-            mysqli_stmt_close($stmt2);
-            mysqli_stmt_close($stmt31);
-            mysqli_stmt_close($stmt32);
-            mysqli_stmt_close($stmt33);
-            mysqli_stmt_close($stmt34);
-            mysqli_stmt_close($stmt4);
-            mysqli_stmt_close($stmt5);
-            mysqli_stmt_close($stmt61);
-            mysqli_stmt_close($stmt62);
-            mysqli_stmt_close($stmt7);
-            mysqli_stmt_close($stmt8);
-            mysqli_stmt_close($stmt9);
-            mysqli_close($conn);
+            }  
+            // Display consolidated error message
+            if (!empty($errors)) {
+            foreach ($errors as $error) {
+                echo $error . "<br>";
+            }
+            }
         }
     }
     /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
@@ -817,7 +920,7 @@
             physicalstatus = '$physicalstatus',
             Skin_tones = '$Skin_tones',
             bloodgroup = '$bloodgroup',
-            profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
+            profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
         WHERE user_id = '$id'";
         $result=mysqlexec($sql);
         if ($result)
@@ -837,7 +940,7 @@
             agree_marriage_other_religion = '$agree_marriage_other_religion',
             how_many_son = '$how_many_son',
             son_details = '$son_details',
-            profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
+            profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
         WHERE user_id = '$id'";
         $result=mysqlexec($sql);
         if ($result)
@@ -851,7 +954,7 @@
             allowjob_aftermarriage = '$allowjob_aftermarriage',
             livewife_aftermarriage = '$livewife_aftermarriage',
             profileby = '$profileby',
-            profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
+            profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
         WHERE user_id = '$id'";
         $result=mysqlexec($sql);
         if ($result)
@@ -865,7 +968,7 @@
             anyjob_aftermarriage = '$anyjob_aftermarriage',
             agree_marriage_student = '$agree_marriage_student',
             profileby = '$profileby',
-            profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
+            profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
         WHERE user_id = '$id'";
         $result=mysqlexec($sql);
         if ($result) {
@@ -947,7 +1050,7 @@
             groom_bride_number = '$groom_bride_number',
             groom_bride_family_number = '$groom_bride_family_number',
             family_member_name_relation = '$family_member_name_relation',
-            profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
+            profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
         WHERE user_id = '$id'";
         $result=mysqlexec($sql);
         if ($result) {
@@ -1020,12 +1123,12 @@
                 gnrl_mdrs_secondary_pass_year = '$gnrl_mdrs_secondary_pass_year',
                 gnrl_mdrs_secondary_end_year = '$gnrl_mdrs_secondary_end_year',
                 gnrlmdrs_secondary_running_std = '$gnrlmdrs_secondary_running_std',
-                profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
+                profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
                 WHERE user_id = '$id'";
         } else {
             // User doesn't exist, perform insert
             $sql = "INSERT INTO 3bd_secondaryedu_method (user_id, scndry_edu_method, maxedu_qulfctn, gnrl_mdrs_secondary_pass, gnrl_mdrs_secondary_pass_year, gnrl_mdrs_secondary_end_year, gnrlmdrs_secondary_running_std, profilecreationdate)
-                VALUES ('$id', '$scndry_edu_method', '$maxedu_qulfctn', '$gnrl_mdrs_secondary_pass', '$gnrl_mdrs_secondary_pass_year', '$gnrl_mdrs_secondary_end_year', '$gnrlmdrs_secondary_running_std', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+                VALUES ('$id', '$scndry_edu_method', '$maxedu_qulfctn', '$gnrl_mdrs_secondary_pass', '$gnrl_mdrs_secondary_pass_year', '$gnrl_mdrs_secondary_end_year', '$gnrlmdrs_secondary_running_std', DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
         }
         $result = mysqlexec($sql);
         if ($result) {
@@ -1041,12 +1144,12 @@
                 qawmimadrasa_dawrapass = '$qawmimadrasa_dawrapass',
                 kowmi_dawrapas_year = '$kowmi_dawrapas_year',
                 kowmi_current_edu_level = '$kowmi_current_edu_level',
-                profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
+                profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
                 WHERE user_id = '$id'";
         } else {
             // User doesn't exist, perform insert
             $sql = "INSERT INTO 3bd_kowmi_madrasaedu_method (user_id, qawmi_madrasa_hafez, qawmimadrasa_dawrapass, kowmi_dawrapas_year, kowmi_current_edu_level, profilecreationdate)
-                VALUES ('$id', '$qawmi_madrasa_hafez', '$qawmimadrasa_dawrapass', '$kowmi_dawrapas_year', '$kowmi_current_edu_level', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+                VALUES ('$id', '$qawmi_madrasa_hafez', '$qawmimadrasa_dawrapass', '$kowmi_dawrapas_year', '$kowmi_current_edu_level', DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
         }
         $result = mysqlexec($sql);
         if ($result) {
@@ -1068,12 +1171,12 @@
                 diploma_hrsecondary_pass_year = '$diploma_hrsecondary_pass_year',
                 diploma_hrsecondary_sub = '$diploma_hrsecondary_sub',
                 diploma_hrsecondary_endingyear = '$diploma_hrsecondary_endingyear',
-                profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
+                profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
                 WHERE user_id = '$id'";
         } else {
             // User doesn't exist, perform insert
             $sql = "INSERT INTO 3bd_higher_secondaryedu_method (user_id, higher_secondary_edu_method, gnrlmdrs_hrsecondary_pass, gnrlmdrs_hrsecondary_pass_year, gnrlmdrs_hrsecondary_exam_year, gnrlmdrs_hrsecondary_group, gnrlmdrs_hrsecondary_rningstd, diploma_hrsecondary_pass, diploma_hrsecondary_pass_year, diploma_hrsecondary_sub, diploma_hrsecondary_endingyear, profilecreationdate)
-                VALUES ('$id', '$higher_secondary_edu_method', '$gnrlmdrs_hrsecondary_pass', '$gnrlmdrs_hrsecondary_pass_year', '$gnrlmdrs_hrsecondary_exam_year', '$gnrlmdrs_hrsecondary_group', '$gnrlmdrs_hrsecondary_rningstd', '$diploma_hrsecondary_pass', '$diploma_hrsecondary_pass_year', '$diploma_hrsecondary_sub', '$diploma_hrsecondary_endingyear', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+                VALUES ('$id', '$higher_secondary_edu_method', '$gnrlmdrs_hrsecondary_pass', '$gnrlmdrs_hrsecondary_pass_year', '$gnrlmdrs_hrsecondary_exam_year', '$gnrlmdrs_hrsecondary_group', '$gnrlmdrs_hrsecondary_rningstd', '$diploma_hrsecondary_pass', '$diploma_hrsecondary_pass_year', '$diploma_hrsecondary_sub', '$diploma_hrsecondary_endingyear', DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
         }
         $result = mysqlexec($sql);
         if ($result) {
@@ -1091,12 +1194,12 @@
                 varsity_ending_year = '$varsity_ending_year',
                 uvarsity_name = '$uvarsity_name',
                 others_edu_qualification = '$others_edu_qualification',
-                profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
+                profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
                 WHERE user_id = '$id'";
         } else {
             // User doesn't exist, perform insert
             $sql = "INSERT INTO 3bd_universityedu_method (user_id, varsity_edu_method, uvarsity_pass, varsity_passing_year, university_subject, varsity_ending_year, uvarsity_name, others_edu_qualification, profilecreationdate)
-            VALUES ('$id', '$varsity_edu_method', '$uvarsity_pass', '$varsity_passing_year', '$university_subject', '$varsity_ending_year', '$uvarsity_name', '$others_edu_qualification', DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p'))";
+            VALUES ('$id', '$varsity_edu_method', '$uvarsity_pass', '$varsity_passing_year', '$university_subject', '$varsity_ending_year', '$uvarsity_name', '$others_edu_qualification', DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
         }
         $result = mysqlexec($sql);
         session_start();
@@ -1156,7 +1259,7 @@
             present_address_location = '$present_address_location',
             present_address_living_purpose = '$present_address_living_purpose',
             childhood = '$childhood',
-            profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
+            profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
         WHERE user_id = '$id'";
         $result=mysqlexec($sql);
         if ($result) {
@@ -1218,7 +1321,7 @@
             family_class = '$family_class',
             financial_condition = '$financial_condition',
             family_religious_condition = '$family_religious_condition',
-            profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
+            profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
         WHERE user_id = '$id'";
         $result=mysqlexec($sql);
         if ($result) {
@@ -1260,7 +1363,7 @@
                 $sql = "UPDATE 8bd_religion_details SET 
                     religion = '$religion',
                     yourreligion_condition = '$yourreligion_condition',
-                    profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
+                    profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
                 WHERE user_id = '$id'";
                 $result = mysqlexec($sql);
                 if ($result) {
@@ -1324,7 +1427,7 @@
             parents_permission = '$parents_permission',
             real_info_commited = '$real_info_commited',
             authorities_no_responsible = '$authorities_no_responsible',
-            profilecreationdate = DATE_FORMAT(NOW(), '%e %M %Y, %h:%i:%s %p')
+            profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
         WHERE user_id = '$id'";
         $result=mysqlexec($sql);
         if ($result) {
@@ -1382,523 +1485,3 @@
     --           Function For Upload Photo           --
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 ?>
-    <div class="sb-home-search">
-    <h1><span class="shosurbari-heading-span"> বায়োডাটার </span>মূল্য তালিকা</h1>
-        <div class="sbhome-heart-divider">
-            <span class="grey-line"></span>
-                <i class="fa fa-heart pink-heart"></i>
-                <i class="fa fa-heart grey-heart"></i>
-            <span class="grey-line"></span>
-        </div>
-    </div>
-    <div class="shosurbari-user-info">
-        <div class="sb-biodata-amount-list">
-            <p><i id="bell" class="fa fa-bell"></i> বিয়ের জন্য শ্বশুরবাড়ি ডট কমের পাত্র-পাত্রীর সাথে যোগাযোগ করতে চাইলে সার্ভিস চার্জ প্রদান করতে হবে, যার বায়োডাটা তাদের থেকে কোনো সার্ভিস চার্জ নেয়া হয় না। সার্চ ফিল্টার ব্যবহার করে খুঁজেনিন স্বপ্নময় জীবনসঙ্গী। আপনার পেমেন্ট সম্পন্ন হবার পর ২৪ ঘন্টার মধ্যে যোগাযোগের জন্য কাঙ্ক্ষিত তথ্য আপনাকে পাঠিয়ে দেয়া হবে। <span style="color:#06b6d4;"> নিচের প্যাকেজ মূল্য ব্যাতিত বিয়ের পর অথবা বিয়ের আগে আর কোনো টাকা নেয়া হয় না।</span> বায়োডাটার সাথে যোগাযোগের জন্য আপনাকে অগ্রিম কোনো প্যাকেজ কিনতে হবেনা, আপনি যেই কয়টি বায়োডাটার সাথে সরাসরি যোগাযোগ করতে আগ্রহী শুধুমাত্র সেই কয়টি বায়োডাটার জন্য পেমেন্ট করলেই হবে। আপনি একই সাথে সর্বোচ্চ ১০টি বায়োডাটা পছন্দ করে পেমেন্ট করতে পারবেন। একই সাথে ১০টির অধিক বায়োডাটার সাথে যোগাযোগ করতে চাইলে আপনাকে ১০টি করে বায়োডাটা সিলেক্ট করে পেমেন্ট সম্পন্ন করতে হবে।</p>
-        </div>
-        <div class="shoshurbari-package-card">
-            <div class="card-header">
-                <h1>BRONZE</h1>
-            </div>
-            <div class="card-package">
-                <h1>১৪৫ ৳</h1>
-                <p>বায়োডাটা: ১টি</p>
-                <p class="sb-package-avr-amount">এভারেজ মূল্য: ১৪৫ ৳</p>
-                <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
-                <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-close"></i></p>
-                <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
-            </div>
-        </div>
-        <div class="shoshurbari-package-card">
-            <div class="card-header">
-                <h1>SILVER</h1>
-            </div>
-            <div class="card-package">
-                <h1>২৮০ ৳</h1>
-                <p>বায়োডাটা: ২টি</p>
-                <p class="sb-package-avr-amount">এভারেজ মূল্য: ১৪০ ৳</p>
-                <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
-                <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-close"></i></p>
-                <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
-            </div>
-        </div>
-        <div class="shoshurbari-package-card">
-            <div class="card-header">
-                <h1>GOLD</h1>
-            </div>
-            <div class="card-package">
-                <h1>৩৯০ ৳</h1>
-                <p>বায়োডাটা: ৩টি</p>
-                <p class="sb-package-avr-amount">এভারেজ মূল্য: ১৩০ ৳</p>
-                <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
-                <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-close"></i></p>
-                <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
-            </div>
-        </div>
-        <div class="shoshurbari-package-card">
-            <div class="card-header">
-                <h1>PLATINUM</h1>
-            </div>
-            <div class="card-package">
-                <h1>৫০০ ৳</h1>
-                <p>বায়োডাটা: ৪টি</p>
-                <p class="sb-package-avr-amount">এভারেজ মূল্য: ১২৫ ৳</p>
-                <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
-                <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-close"></i></p>
-                <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
-            </div>
-        </div>
-        <div class="shoshurbari-package-card">
-            <div class="sb-recommendation">
-                <h2>Our Recommendation</h2>
-            </div>
-            <div class="card-header">
-                <h1>DIAMOND</h1>
-            </div>
-            <div class="card-package">
-                <h1>৬০০ ৳</h1>
-                <p>বায়োডাটা: ৫টি</p>
-                <p class="sb-package-avr-amount">এভারেজ মূল্য: ১২০ ৳</p>
-                <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
-                <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-check"></i></p>
-                <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
-            </div>
-        </div>
-        <div class="shoshurbari-package-card">
-            <div class="card-header">
-                <h1>TITANIUM</h1>
-            </div>
-            <div class="card-package">
-                <h1>৬৯০ ৳</h1>
-                <p>বায়োডাটা: ৬টি</p>
-                <p class="sb-package-avr-amount">এভারেজ মূল্য: ১১৫ ৳</p>
-                <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
-                <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-check"></i></p>
-                <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
-            </div>
-        </div>
-        <div class="shoshurbari-package-card">
-            <div class="card-header">
-                <h1>RUBY</h1>
-            </div>
-            <div class="card-package">
-                <h1>৭৭০ ৳</h1>
-                <p>বায়োডাটা: ৭টি</p>
-                <p class="sb-package-avr-amount">এভারেজ মূল্য: ১১০ ৳</p>
-                <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
-                <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-check"></i></p>
-                <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
-            </div>
-        </div>
-        <div class="shoshurbari-package-card">
-            <div class="card-header">
-                <h1>EMERALD</h1>
-            </div>
-            <div class="card-package">
-                <h1>৮৪০ ৳</h1>
-                <p>বায়োডাটা: ৮টি</p>
-                <p class="sb-package-avr-amount">এভারেজ মূল্য: ১০৫ ৳</p>
-                <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
-                <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-check"></i></p>
-                <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
-            </div>
-        </div>
-        <div class="shoshurbari-package-card">
-            <div class="card-header">
-                <h1>SAPPHIRE</h1>
-            </div>
-            <div class="card-package">
-                <h1>৯০০ ৳</h1>
-                <p>বায়োডাটা: ৯টি</p>
-                <p class="sb-package-avr-amount">এভারেজ মূল্য: ১০০ ৳</p>
-                <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
-                <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-check"></i></p>
-                <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
-            </div>
-        </div>
-        <div class="shoshurbari-package-card">
-            <div class="card-header">
-                <h1>TOPAZ</h1>
-            </div>
-            <div class="card-package">
-                <h1>৯৮০ ৳</h1>
-                <p>বায়োডাটা: ১০টি</p>
-                <p class="sb-package-avr-amount">এভারেজ মূল্য: ৯৮ ৳</p>
-                <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
-                <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-check"></i></p>
-                <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-check"></i></p>
-            </div>
-        </div>
-    </div>
-
-
-
-<!-- END & START ok -->
-<div class="shosurbari-service">
-   		<div class="shosurbari-details">
-			<div class="page_header">
-				<h1>Our Services</h1>
-				<p>Welcome to ShosurBari.com, your trusted online matrimony service provider. We offer a wide range of services to help you find your perfect life partner. Our platform caters to individuals of all religions, professions, and Bengali communities worldwide. Here is an overview of the services we provide:</p>
-			</div>
-			<div class="services_top">
-				<div class="col-sm-4 item_content">
-					<i class="fa fa-user-plus icon_4"> </i>
-					<h4>1. Account Creation</h4>
-					<p>Creating an account on ShosurBari.com is easy and free. When you create a new account, you will be asked to provide all the necessary information, including your phone number and email address. However, please note that your phone number and email are always set to "hide" or "only me" mode, ensuring that other users cannot see them. We prioritize the privacy and confidentiality of our users' contact information.</p>
-				</div>
-				<div class="col-sm-4 item_content">
-					<i class="fa fa-address-card-o icon_4"> </i>
-					<h4>2. Biodata Posting</h4>
-					<p>Once you have created an account, you can post your biodata, which includes personal information, address, and family details. This information is essential for finding suitable matches based on compatibility and shared values. Your biodata serves as a comprehensive profile that other users can view to assess your suitability as a potential partner.</p>
-				</div>
-				<div class="col-sm-4 item_content">
-					<i class="fa fa-camera icon_4"> </i>
-					<h4>3. Profile Photo Upload</h4>
-					<p>You have the option to upload a profile photo to enhance your visibility and attract more potential matches. Your profile photo can be seen by all members of our website, allowing others to get a better sense of your appearance. You have the freedom to delete or modify your profile photo at any time, giving you full control over your visual representation on our platform.</p>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-			<div class="services_top1">
-				<div class="col-sm-4 item_content">
-					<i class="fa fa-shield icon_4"> </i>
-					<h4>4. Account Security</h4>
-					<p>We prioritize the security of your account and personal information. You can change your password at any time to ensure the confidentiality of your account. Our platform implements robust security measures to protect your data and provide you with a safe and secure online experience.</p>
-				</div>
-				<div class="col-sm-4 item_content">
-					<i class="fa fa-phone icon_4"> </i>
-					<h4>5. Direct Contact</h4>
-					<p>Our platform enables direct contact between users who are interested in each other's biodata. If you find a potential match, you can express your interest by filling out a form and providing your details, along with the required payment. To access the contact details of other users, there will be a nominal fee. You can conveniently make the payment using Personal Bkash, Rocket, or Rocket Mobile Banking.</p>
-				</div>
-				<div class="col-sm-4 item_content">
-					<i class="fa fa-money icon_4"> </i>
-					<i class="fa-solid fa-bangladeshi-taka-sign"></i>
-					<h4>6. Money Transaction Policy</h4>
-					<p>If you decide to request contact details of another user, you will need to fill out a form and provide your details, along with the necessary transaction details. Please note that there will be charges associated with obtaining the contact details. In the event that a profile you requested turns out to be already married, please inform us within 48 hours. After verifying the correct information, we will refund 90% to 100% of the money you paid</p>
-				</div>
-				<div class="clearfix"> </div>
-			</div>	
-			<div class="services_top1">
-				<div class="col-sm-4 item_content">
-					<i class="fa fa-headphones icon_4"> </i>
-					<h4>7. Customer Support</h4>
-					<p>At ShosurBari.com, we are committed to providing excellent customer support throughout your journey. Our dedicated team is available to assist you with any queries, concerns, or technical issues you may encounter. We strive to ensure a seamless and enjoyable experience on our platform.</p>
-					<p>Join ShosurBari.com today and let us assist you in finding your ideal life partner. We are dedicated to helping you make meaningful connections and embark on a journey of love and companionship.</p>
-				</div>
-				<div class="clearfix"> </div>
-			</div>	
-   		</div>
-	</div>
-
-
-
-
-
-
-
-
-
-
-    <!-- endt & start -->
-
-    <?php include_once("functions.php");
-session_start();
-if (isset($_SESSION['id'])) {
-  header("location: my-account.php");
-  exit;
-}
-?>
-<!DOCTYPE HTML>
-<html>
-<head>
-<title>New Password | ShosurBari</title>
-<link rel="icon" href="images/shosurbari-icon.png" type="image/png">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" /><!-- eye icon password show -->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-<script src="js/optionsearch.js"></script>
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<!-- Custom Theme files -->
-<link href="css/style.css" rel='stylesheet' type='text/css' />
-<link href='//fonts.googleapis.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
-<!--font-Awesome-->
-<link href="css/font-awesome.css" rel="stylesheet"> 
-<!--font-Awesome-->
-<!-- Facebook Icon Link -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!-- Facebook Icon Link -->
-</head>
-<body>
-	<!-- ===========  Navigation Start =========== -->
-	<?php include_once("includes/navigation.php");?>
-	<!-- ===========  Navigation End ============= -->
-  <style>
-  .sb-biodata-field{
-    background: none;
-  }
-  .sb-biodata-field{
-    background: none;
-  }
-  .sb-register-login h2{
-    color: #000;
-    font-size: 23px;
-    font-weight: bold;
-    background: none;
-    text-align: left;
-  }
-  .soshurbari-animation-icon {
-    flex-basis: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .soshurbari-animation-icon h3 {
-    font-size: 23px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    margin-top: 15px;
-  }
-  .soshurbari-animation-icon img {
-    justify-content: flex-end;
-    margin: auto;
-    width: 37px;
-    height: 35px;
-  }
-  #popup-message{
-    font-size: 16px;
-    text-align: justify;
-    color: #fff;
-    margin-top: 10px;
-  }
-  </style>
-  <div class="grid_3">
-    <div class="container">
-      <div class="breadcrumb1">
-        <ul>
-          <a href="index.php"><i class="fa fa-home home_1"></i></a>
-          <span class="divider">&nbsp;|&nbsp;</span>
-          <li class="current-page"><h4>New Password </h4></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="shosurbari-biodata">
-    <form action="new-password.php" method="post" name="setPassword" onsubmit="return setPasswordForm()">
-	    <div class="flex-container">
-        <div class="sb-register-login">
-          <div class="soshurbari-animation-icon">
-            <div class="sb-icon-laptop">
-              <h3> <img src="images/shosurbari-icon.png"> ShosurBari </h3>
-            </div>
-          </div>
-          <h2 style="text-align:left; margin-bottom:25px; padding: 10px 5px;">Set new password</h2>
-          <div class="form-group">
-            <input type="text" id="email" placeholder="Account Email" name="email" value="" size="60" maxlength="60" class="form-text required">
-            <span id="email_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
-          </div>
-          <div class="form-group">
-            <input type="password" id="pass_1" placeholder="New Password" name="new_password" size="60" maxlength="60" class="form-text required">
-            <span class="show-password" style="color:#0aa4ca;  font-size:15px; top:2px;"> <i style="color:black;  font-size:15px;" class="fa fa-eye" aria-hidden="true"></i></span> 
-            <span  id="pass_1_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
-          </div>
-          <div class="form-group">
-          <input type="password" id="pass_2" placeholder="Confirm Password" name="confirm_password" size="60" maxlength="60" class="form-text required">
-            <span class="show-password" style="color:#0aa4ca;  font-size:15px; top:2px;"> <i style="color:black;  font-size:15px;" class="fa fa-eye" aria-hidden="true"></i></span> 
-            <span  id="pass_2_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
-          </div>
-          <div class="form-actions">
-            <button  type="submit" id="edit-submit" name="op"  class="btn_1 submit"  style="width: 50%;"> <span> </span>Send to Email</button>
-          </div>
-        </div>
-      </div>
-	  </form>
-  </div>
-  <div id="popup" class="popup">
-    <div class="popup-content">
-      <p id="popup-message"></p>
-      <div id="countdown">Please Wait <span id="countdown-value">15</span> seconds...</div>
-    </div>
-  </div>
-  <?php
-include('includes/dbconn.php');
-$email = "";
-$popupMessage = "";
-
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $email = $_POST['email'];
-    $newPassword = $_POST['new_password'];
-    $confirmPassword = $_POST['confirm_password'];
-
-    if ($newPassword === $confirmPassword) {
-        // Validate password complexity if needed
-
-        // Hash the password securely
-        $hashed_password = password_hash($newPassword, PASSWORD_DEFAULT);
-
-        $sql = "UPDATE users SET password = ? WHERE email = ?";
-        $stmt = $conn->prepare($sql);
-
-        if ($stmt) {
-            $stmt->bind_param("ss", $hashed_password, $email);
-            $stmt->execute();
-
-            if ($stmt->affected_rows > 0) {
-                $popupMessage = "ওয়াও! পাসওয়ার্ড সফলভাবে আপডেট হয়েছে। লগইন পেজ থেকে আপনার একাউন্ট লগইন করুন।";
-                echo "<script>showPopup('$popupMessage', 15);</script>"; // Countdown duration is 15 seconds
-                echo '<meta http-equiv="refresh" content="15; url=login.php">'; // Redirect after 15 seconds
-                exit();
-            } else {
-                $popupMessage = "উফ দুঃখিত! পাসওয়ার্ড আপডেট করার সময় একটি ত্রুটি ছিল: " . $stmt->error;
-            }
-
-            $stmt->close();
-        } else {
-            $popupMessage = "উফ দুঃখিত! স্টেটমেন্ট তৈরি করতে অসমর্থ হয়েছে: " . $conn->error;
-        }
-    } else {
-        $popupMessage = "উফ দুঃখিত! নিউ পাসওয়ার্ড এবং কনফার্ম পাসওয়ার্ড মিলছে না।";
-    }
-
-    // Output the popup message with error or success
-    echo "<script>showPopup('$popupMessage', 15);</script>"; // Countdown duration is 15 seconds
-}
-?>
-
-  <script>
-    // Function to show the popup with a message
-    function showPopup(message, countdownDuration) {
-      var popup = document.getElementById("popup");
-      var popupMessage = document.getElementById("popup-message");
-      var countdownValue = document.getElementById("countdown-value");
-      var closeButton = document.getElementById("close-button");
-      popupMessage.innerHTML = message;
-      popup.style.display = "block";
-      if (countdownDuration) {
-      var countdown = countdownDuration;
-      countdownValue.textContent = countdown;
-      var countdownInterval = setInterval(function () {
-      countdown--;
-      countdownValue.textContent = countdown;
-      if (countdown <= 0) {
-      clearInterval(countdownInterval);
-      popup.style.display = "none";
-      // Redirect logic here
-      }
-      }, 1000);
-      }
-      closeButton.addEventListener("click", function () {
-      if (countdownInterval) {
-      clearInterval(countdownInterval);
-      }
-      popup.style.display = "none";
-      });
-    }
-    // Password Slash
-    let showPass = document.querySelectorAll('.show-password');
-    showPass.forEach(function(el) {
-    el.addEventListener('click', function(){
-      let input = this.previousElementSibling;
-      if (input.type === "password") {
-      input.type = "text";
-      this.innerHTML = "<i class='fa fa-eye-slash'></i>";
-      } else {
-      input.type = "password";
-      this.innerHTML = "<i class='fa fa-eye'></i>";
-      }
-    });
-    });
-    // Form Input Error Start / Check Error
-    function setPasswordForm() {
-    var email = document.forms["setPassword"]["email"].value;
-    var pass_1 = document.forms["setPassword"]["pass_1"].value;
-    var pass_2 = document.forms["setPassword"]["pass_2"].value;
-    // Reset error messages and borders
-    resetErrors();
-    // Email validation
-    if (email.trim() === "") {
-      displayError('email', 'Please Enter Your Email !', 'red');
-      return false;
-    } else if (!/^[a-zA-Z0-9._-]+@(gmail|outlook|hotmail|yahoo).com$/.test(email)) {
-      displayError('email', 'Please Enter a Valid Email. Only Used: (@gmail or @outlook or @hotmail or @yahoo).com', 'red');
-      return false;
-    }
-    // Password validation
-    if (pass_1.trim() === "") {
-      displayError('pass_1', 'Please Enter Your New Password!', 'red');
-      return false;
-    }
-    // Confirm Password validation
-    if (pass_2.trim() === "") {
-      displayError('pass_2', 'Please Enter Your Confirm Password!', 'red');
-      return false;
-    } else if (pass_2 !== pass_1) {
-      displayError('pass_2', 'Your Passwords Do Not Match!', 'red');
-      return false;
-    }
-    return true;
-    }
-    function displayError(elementId, errorMessage, color) {
-      var element = document.getElementById(elementId);
-      element.style.borderColor = color;
-      var errorDiv = document.getElementById(elementId + '_error');
-      errorDiv.innerHTML = errorMessage;
-      errorDiv.style.display = 'block';
-      errorDiv.scrollIntoView({
-      behavior: 'smooth',
-      block: 'center',
-      });
-      animateColor(errorDiv, color);
-    }
-    function resetErrors() {
-      var elements = ['email', 'pass_1', 'pass_2'];
-      elements.forEach(function (elementId) {
-      var element = document.getElementById(elementId);
-      element.style.borderColor = "initial";
-      var errorDiv = document.getElementById(elementId + '_error');
-      errorDiv.innerHTML = "";
-      errorDiv.style.display = 'none';
-      });
-    }
-    function animateColor(element, color) {
-      var colors = ['red', 'green', 'blue'];
-      var currentIndex = colors.indexOf(color);
-      if (currentIndex === -1) {
-      return;
-      }
-      var nextIndex = (currentIndex + 1) % colors.length;
-      var nextColor = colors[nextIndex];
-      setTimeout(function () {
-      element.style.color = nextColor;
-      animateColor(element, nextColor);
-      }, 500); // Change color every 500 milliseconds
-    }
-  </script>
-  <!--=======================================
-  How Many Visitors View This Page.
-  This Script Connected to get_view_count.php
-  and page_views Database Table
-  ========================================-->
-  <script>
-  $(document).ready(function() {
-  var pages = ["new-password"];
-  for (var i = 0; i < pages.length; i++) {
-    var page = pages[i];
-    $.ajax({
-    url: 'get_view_count.php?page=' + page,
-    type: 'GET',
-    success: function(data) {
-    $('#viewCount' + page.replace("_", "")).html(data);
-    }
-    });
-  }
-  });
-  </script>
-	<!--=======  Footer Start ========-->
-	<?php include_once("footer.php");?>
-	<!--=======  Footer End  =========-->
-</body>
-</html>	

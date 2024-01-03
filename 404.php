@@ -92,7 +92,7 @@ body {
     <p>Please check the URL, refresh your browser, or explore other content on our site.</p>
     <div class="button-container">
       <a href="index.php" class="btn">Home Page</a>
-      <a href="contact.php" class="btn error-btn-mg">Problem Report</a>
+      <a href="contact-us.php" class="btn error-btn-mg">Problem Report</a>
     </div>
   </div>
 </div>

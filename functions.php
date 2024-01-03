@@ -684,6 +684,39 @@
             $real_info_commited=$_POST['real_info_commited'];
             $authorities_no_responsible=$_POST['authorities_no_responsible'];
             require_once("includes/dbconn.php");
+            $tables = [
+                "1bd_personal_physical",
+                "2bd_personal_lifestyle",
+                "3bd_secondaryedu_method",
+                "3bd_kowmi_madrasaedu_method",
+                "3bd_higher_secondaryedu_method",
+                "3bd_universityedu_method",
+                "4bd_address_details",
+                "5bd_family_information",
+                "6bd_7bd_marital_status",
+                "6bd_marriage_related_qs_male",
+                "7bd_marriage_related_qs_female",
+                "8bd_religion_details",
+                "9bd_expected_life_partner",
+            ];
+            $exists = false; // Flag to track if the user ID exists in any table
+            $errors = [];   // Array to store error messages
+            foreach ($tables as $table) {
+                $checkSql = "SELECT user_id FROM $table WHERE user_id = ?";
+                $checkStmt = mysqli_prepare($conn, $checkSql);
+                mysqli_stmt_bind_param($checkStmt, "s", $id);
+                mysqli_stmt_execute($checkStmt);
+                mysqli_stmt_store_result($checkStmt);
+                if (mysqli_stmt_num_rows($checkStmt) > 0) {
+                    // User ID already exists in at least one table
+                    $exists = true;
+                    $_SESSION['error_message'] = "উফফ! সমস্যা দেখা দিয়েছে, অনুগ্রহ করে এডমিনের সাথে যোগাযোগ করুন।";
+                    // Break the loop here, as there's no need to check for other tables
+                    break;
+                }
+                mysqli_stmt_close($checkStmt);
+            }
+            if (!$exists) {
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --      Personal & Physical  / sb-biodata-1      --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
@@ -764,43 +797,30 @@
             $stmt9 = mysqli_prepare($conn, $sql9);
             // Personal & Physical
             mysqli_stmt_bind_param($stmt1, "ssssssss", $id, $biodatagender, $dob, $height, $weight, $physicalstatus, $Skin_tones, $bloodgroup);
-            mysqli_stmt_execute($stmt1);
             // Personal & Life Style
             mysqli_stmt_bind_param($stmt2, "sssssssssssssssssssssss", $id, $smoke, $occupation_sector, $other_occupation_sector, $business_occupation_level, $student_occupation_level, $health_occupation_level, $engineer_occupation_level, $teacher_occupation_level, $defense_occupation_level, $foreigner_occupation_level, $garments_occupation_level, $driver_occupation_level, $service_andcommon_occupation_level, $mistri_occupation_level, $occupation_describe, $dress_code, $aboutme, $groom_bride_name, $groom_bride_email, $groom_bride_number, $groom_bride_family_number, $family_member_name_relation);
-            mysqli_stmt_execute($stmt2);
             // Educational Qualifications (sb-biodata-3)
             mysqli_stmt_bind_param($stmt31, "sssssss", $id, $scndry_edu_method, $maxedu_qulfctn, $gnrl_mdrs_secondary_pass, $gnrl_mdrs_secondary_pass_year, $gnrl_mdrs_secondary_end_year, $gnrlmdrs_secondary_running_std);
-            mysqli_stmt_execute($stmt31);
             // Educational Qualifications (sb-biodata-3)
             mysqli_stmt_bind_param($stmt32, "sssss", $id, $qawmi_madrasa_hafez, $qawmimadrasa_dawrapass, $kowmi_dawrapas_year, $kowmi_current_edu_level);
-            mysqli_stmt_execute($stmt32);
             // Educational Qualifications (sb-biodata-3)
             mysqli_stmt_bind_param($stmt33, "sssssssssss", $id, $higher_secondary_edu_method, $gnrlmdrs_hrsecondary_pass, $gnrlmdrs_hrsecondary_pass_year, $gnrlmdrs_hrsecondary_exam_year, $gnrlmdrs_hrsecondary_group, $gnrlmdrs_hrsecondary_rningstd, $diploma_hrsecondary_pass, $diploma_hrsecondary_pass_year, $diploma_hrsecondary_sub, $diploma_hrsecondary_endingyear);
-            mysqli_stmt_execute($stmt33);
             // Educational Qualifications (sb-biodata-3)
             mysqli_stmt_bind_param($stmt34, "ssssssss", $id, $varsity_edu_method, $uvarsity_pass, $varsity_passing_year, $university_subject, $varsity_ending_year, $uvarsity_name, $others_edu_qualification);
-            mysqli_stmt_execute($stmt34);
             // Address Details (sb-biodata-4)
             mysqli_stmt_bind_param($stmt4, "ssssssssssssss", $id, $permanent_division, $home_district_under_barishal, $home_district_under_chattogram, $home_district_under_dhaka, $home_district_under_khulna, $home_district_under_mymensingh, $home_district_under_rajshahi, $home_district_under_rangpur, $home_district_under_sylhet, $country_present_address, $present_address_location, $present_address_living_purpose, $childhood);
-            mysqli_stmt_execute($stmt4);
             // Family Information (sb-biodata-5)
             mysqli_stmt_bind_param($stmt5, "sssssssssssss", $id, $family_major_guardian, $father_name, $father_alive, $fatheroccupation, $mother_alive, $motheroccupation, $brosis_number, $brosis_info, $uncle_profession, $family_class, $financial_condition, $family_religious_condition);
-            mysqli_stmt_execute($stmt5);
             // Marriage related Info/Marital Status 6 & 7
             mysqli_stmt_bind_param($stmt61, "sssssssssss", $id, $maritalstatus, $divorce_reason, $how_widow, $how_widower, $get_wife_permission, $get_family_permission, $why_again_married, $how_many_son, $son_details, $agree_marriage_other_religion);
-            mysqli_stmt_execute($stmt61);
             // Male Marriage related Info (sb-biodata-6)
             mysqli_stmt_bind_param($stmt62, "sssss", $id, $allowstudy_aftermarriage, $allowjob_aftermarriage, $livewife_aftermarriage, $profileby);
-            mysqli_stmt_execute($stmt62);
             // Female Marriage related Info (sb-biodata-7)
             mysqli_stmt_bind_param($stmt7, "sssss", $id, $anyjob_aftermarriage, $studies_aftermarriage, $agree_marriage_student, $profileby);
-            mysqli_stmt_execute($stmt7);
             // Religion Details (sb-biodata-8)
             mysqli_stmt_bind_param($stmt8, "sss", $id, $religion, $yourreligion_condition);
-            mysqli_stmt_execute($stmt8);
             // Expected Life Partner (sb-biodata-9)
             mysqli_stmt_bind_param($stmt9, "ssssssssssssss", $id, $partner_citizen, $partner_district, $partner_maritialstatus, $partner_age, $partner_skintones, $partner_height, $partner_education, $partner_profession, $partner_financial, $partner_attributes, $parents_permission, $real_info_commited, $authorities_no_responsible);
-            mysqli_stmt_execute($stmt9);
             // Execute the statement
             if (
                 mysqli_stmt_execute($stmt1) &&
@@ -817,26 +837,17 @@
                 mysqli_stmt_execute($stmt8) &&
                 mysqli_stmt_execute($stmt9)
             ) {
-                echo "Thanks! Successfully Uploaded New Biodata!";
                 header("Location: profile.php?/Biodata={$id}");
             } else {
-                echo "Error: " . mysqli_stmt_error($conn);
+                $errors[] = "Something went wrong. Please contact the admin for assistance.";
             }
-            // Close prepared statements
-            mysqli_stmt_close($stmt1);
-            mysqli_stmt_close($stmt2);
-            mysqli_stmt_close($stmt31);
-            mysqli_stmt_close($stmt32);
-            mysqli_stmt_close($stmt33);
-            mysqli_stmt_close($stmt34);
-            mysqli_stmt_close($stmt4);
-            mysqli_stmt_close($stmt5);
-            mysqli_stmt_close($stmt61);
-            mysqli_stmt_close($stmt62);
-            mysqli_stmt_close($stmt7);
-            mysqli_stmt_close($stmt8);
-            mysqli_stmt_close($stmt9);
-            mysqli_close($conn);
+            }  
+            // Display consolidated error message
+            if (!empty($errors)) {
+            foreach ($errors as $error) {
+                echo $error . "<br>";
+            }
+            }
         }
     }
     /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --

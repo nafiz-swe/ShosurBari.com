@@ -90,7 +90,7 @@ $result=search();
       <p> আপনি যেই বায়োডাটাটি খুঁজচ্ছেন বর্তমানে সেই একাউন্টটি ডিএক্টিভেট রয়েছে। অথবা সঠিক বায়োডাটা নাম্বার দিয়ে পুনরায় চেষ্টা করুন।</p>
       <div class="button-container">
         <a href="index.php" class="btn">হোম পেজ</a>
-        <a href="contact.php" class="btn error-btn-mg">রিপোর্ট করুন</a>
+        <a href="contact-us.php" class="btn error-btn-mg">রিপোর্ট করুন</a>
       </div>
     </div>
   </div>

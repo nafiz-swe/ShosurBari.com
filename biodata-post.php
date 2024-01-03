@@ -2551,6 +2551,52 @@ if(isloggedin()){
 			--     Expected Life Partner / sb-biodata-9      --
 			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 		</form>
+		<?php
+		function showMessage($message, $messageType) {
+		$popupStyle = "
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background: #ff0080; /* Always red for errors */
+		color: #fff;
+		box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05);
+		border: 1px solid rgba(0, 0, 0, .05);
+		border-radius: 2px;
+		padding: 10px;
+		width: 262px;
+		text-align: center;
+		z-index: 9999;
+		";
+		$buttonStyle = "
+		position: absolute;
+		cursor: pointer;
+		right: 3px;
+		margin-right: -20px;
+		margin-top: -73px;
+		margin-bottom: 15px;
+		padding-bottom: 5px;
+		line-height: 5px;
+		width: 32px;
+		height: 32px;
+		border-radius: 50%;
+		border: 1px solid #ccc;
+		font-size: 20px;
+		font-weight: 600;
+		color: white;
+		background: #0aa4ca;
+		";
+		echo "<div style='$popupStyle'>$message
+		<button class='cancel-button' style='$buttonStyle' onclick='this.parentNode.style.display = \"none\";'>x</button>
+		</div>";
+		}
+		// Check for error message
+		if (isset($_SESSION['error_message'])) {
+		$error_message = $_SESSION['error_message'];
+		unset($_SESSION['error_message']); // Clear the error message after displaying
+		showMessage($error_message, 'error');
+		}
+		?>
 	</div>
 	<!--=======================================
 	How Many Visitors View This Page.

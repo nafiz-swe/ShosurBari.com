@@ -1762,7 +1762,7 @@ $result=search();
       </div>
       <script>
       // After Search Users Profiles Show Per Page
-      const profilesPerPage = 1;
+      const profilesPerPage = 15;
       // Total number of profiles found
       const totalProfiles = <?php echo $c_count ?>;
       // Calculate the total number of pages

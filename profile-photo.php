@@ -262,7 +262,7 @@
             </div>
             <div class="sb-biodata-field">
                 <h2>পাত্র-পাত্রীর প্রোফাইল ছবি</h2>
-                <br><i id="bell" class="fa fa-bell"></i> Image Size H:168px & W:168px </p>
+                <p>Image Size H:168px & W:168px </p>
                 <br><p><i class="fa fa-exclamation-triangle" style="color: #ff0080; margin-right: 10px;"></i>প্রোফাইলে ছবি আপলোড করা বাধ্যতা মূলক নয়। তবে পাত্র-পাত্রীর ছবি ছাড়া অন্য যেকোনো কিছুর ছবি আপলোড করলে বিনা নোটিশে সম্পূর্ণ বায়োডাটা যেকোনো সময় ডিলিট করে দেয়া হবে।</p>
             </div>
             <div class="shosurbari-user-img">

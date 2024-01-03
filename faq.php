@@ -37,6 +37,8 @@
 	</div>
 	<div class="shosurbari-faq">
 		<div class="shosurbari-details">
+			<h1>Frequent Ask Questions</h1>
+			<h3>প্রশ্ন ও উত্তর</h3>
 			<div class="accordation">
 				<div class="jb-accordion-wrapper">
 					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion1"><span class="shosurbari-faq-point">১</span> শ্বশুরবাড়ি ডটকম কী? এটি কাদের জন্য? <i class="fa fa-minus-circle"> </i></button>
@@ -151,7 +153,7 @@
 				</div>
 			</div>
 		</div>
-  </div>
+ 	</div>
    	<div class="clearfix"> </div>
 	<script>
 	$(document).ready(function () {
