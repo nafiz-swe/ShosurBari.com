@@ -268,6 +268,7 @@ $conn->close();
             while ($row = mysqli_fetch_assoc($result)) {
               $id_customer = $row['id_customer'];
               $cust_email = $row['cust_email'];
+              $country_code = $row['country_code'];
               $cust_number = $row['cust_number'];
               $request_biodata_number = $row['request_biodata_number'];
               $total_fee = $row['total_fee'];
@@ -295,7 +296,7 @@ $conn->close();
               echo "</td>";
               echo "<td>SBBR$id_customer</td>";
               echo "<td>$cust_email</td>";
-              echo "<td>$cust_number</td>";
+              echo "<td>$country_code $cust_number</td>";
               echo "<td>$payment_method</td>";
               echo "<td>$total_fee</td>";
               echo "<td>$request_biodata_number</td>";

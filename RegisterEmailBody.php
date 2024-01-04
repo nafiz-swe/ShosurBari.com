@@ -153,7 +153,7 @@ span a {
                     </tr>
                     <tr>
                         <td class="sb-reg-info-heading">Number</td>
-                        <td class="sb-reg-info-data"> <?php echo $pnumber; ?> </td>
+                        <td class="sb-reg-info-data"> <?php echo "$selectedCountryCode $pnumber"; ?> </td>
                     </tr>
                     <tr>
                         <td class="sb-reg-info-heading">Gender</td>

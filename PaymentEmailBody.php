@@ -150,7 +150,7 @@ h2 {
             <h1>Your Order is Processing!</h1>
         </div>
         <div class='content'>
-            <h3>ধন্যবাদ! আপনার পেমেন্ট তথ্য সফল ভাবেই জমা হয়েছে। আপনার পেমেন্ট তথ্য যাচাই বাছাইয়ের পর ২৪ ঘন্টার মধ্যে আপনাকে SMS বা ই-মেইলের মাধ্যমে অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে।</h3>
+            <h3>ধন্যবাদ! আপনার পেমেন্ট তথ্য সফল ভাবেই জমা হয়েছে। আপনার পেমেন্ট তথ্য যাচাই বাছাইয়ের পর ২৪ ঘন্টার মধ্যে যোগাযোগের জন্য কাঙ্ক্ষিত তথ্য আপনাকে পাঠিয়ে দেয়া হবে।</h3>
             <div class="sb-reg-info">
                 <h2>রিকোয়েস্ট আইডি: <?php echo "SBBR$id_customer";?></h2>
                 <table>
@@ -165,7 +165,7 @@ h2 {
                         </tr>
                         <tr>
                             <td class="sb-reg-info-heading">মোবাইল নাম্বার</td>
-                            <td class="sb-reg-info-data"> <?php echo $cust_number; ?> </td>
+                            <td class="sb-reg-info-data"> <?php echo "$selectedCountryCode $cust_number"; ?> </td>
                         </tr>
                         <tr>
                             <td class="sb-reg-info-heading">ঠিকানা</td>

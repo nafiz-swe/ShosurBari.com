@@ -215,6 +215,8 @@ if (!isset($_SESSION['admin_id'])) {
           <th>রিকোয়েস্ট আইডি (SBBR)</th>
           <th>রেজিস্টার ইউজার /</br> বায়োডাটা নং</th>
           <th>কাস্টমার নাম</th>
+          <th>কাস্টমার দেশ</th>
+          <th>কাস্টমার মোবাইল কোড</th>
           <th>কাস্টমার মোবাইল নাম্বার</th>
           <th>কাস্টমার ইমেইল</th>
           <th>কাস্টমার স্থায়ী ঠিকানা</th>
@@ -249,6 +251,8 @@ if (!isset($_SESSION['admin_id'])) {
           echo '<td>' . $row['id_customer'] . '</td>';
           echo '<td>' . $row['user_id'] . '</td>';
           echo '<td>' . $row['cust_name'] . '</td>';
+          echo '<td>' . $row['country_name'] . '</td>';
+          echo '<td>' . $row['country_code'] . '</td>';
           echo '<td>' . $row['cust_number'] . '</td>';
           echo '<td>' . $row['cust_email'] . '</td>';
           echo '<td>' . $row['cust_permanent_address'] . '</td>';
