@@ -140,86 +140,92 @@ if (isset($_SESSION['id'])) {
     unset($_SESSION['error_message']);
   }
   ?>
-<div class="shosurbari-biodata-form">
-  <div class="shosurbari-animation-form">
-    <form action="" method="POST" name="myForm" onsubmit="return validateForm()">
-      <div class="flex-container">
-        <div class="sb-register-login">
-          <div class="soshurbari-animation-icon">
-            <div class="sb-icon-laptop">
-              <h3> <img src="images/shosurbari-icon.png"> ShosurBari </h3>
-            </div>
-          </div>
-          <div class="sb-biodata-field">
-            <h2>Create new account</h2>
-          </div>
-          <div class="form-group">
-            <input type="text" id="fname" placeholder="Full Name" name="fname" value="" maxlength="60" class="form-text required">
-            <span id="fname_error"  class="shosurbari-form-error"></span>
-          </div>
-          <div class="form-group">
-            <input type="text" id="uname" placeholder="Username" name="uname" value="" maxlength="60" class="form-text required">
-            <span id="uname_error" class="shosurbari-form-error"></span>
-          </div>
-          <div class="form-group">
-            <input type="text" id="email" placeholder="Email" name="email" value="" maxlength="60" class="form-text required">
-            <span id="email_error" class="shosurbari-form-error"></span>
-          </div>
-          <div class="form-group">
-            <input type="text" id="pnumber" placeholder="Phone Number" name="pnumber" value="" size="50" maxlength="15" class="form-text required">
-            <input type="hidden" id="selectedCountryCode" name="selectedCountryCode">
-            <input type="hidden" id="selectedCountryName" name="selectedCountryName">
-            <span id="pnumber_error" class="shosurbari-form-error"></span>
-          </div>
-          <div class="form-group">
-            <input type="password" id="pass_1" placeholder="New Password" name="pass_1" maxlength="128" class="form-text required">
-            <span class="show-password" style="color:#0aa4ca;  font-size:15px; top:2px;"> <i style="color:black;  font-size:15px;" class="fa fa-eye" aria-hidden="true"></i></span> 
-            <span  id="pass_1_error" class="shosurbari-form-error"></span>
-          </div>
-          <div class="form-group">
-            <input type="password" id="pass_2" placeholder="Confirm Password" name="pass_2" maxlength="128" class="form-text required">
-            <span class="show-password" style="color:#0aa4ca;  font-size:15px; top:2px;"> <i style="color:black;  font-size:15px;" class="fa fa-eye" aria-hidden="true"></i></span> 
-            <span  id="pass_2_error" class="shosurbari-form-error"></span>
-          </div>
-          <div class="gender-select-reg" id="gender-select-reg">
-            <label class="sb-profile-gender" for="sex">Your Gender<span class="form-required" title="This field is required."></span></label>
-            <div class="gender-option">
-              <input type="radio" name="gender" id="male" value="Male" onclick="genderSelected(this);"/>
-              <label for="male"><i class="fa fa-male"></i> Male</label>
-            </div>
-            <div class="gender-option">
-              <input type="radio" name="gender" id="female" value="Female" onclick="genderSelected(this);"/>
-              <label for="female"><i class="fa fa-female"></i> Female</label><br>
-		        </div>
-          </div>
-          <div class="gender-error">
-            <span class="shosurbari-form-error" id="gender-error"></span>
-          </div>
-          <div class="form-actions">
-            <?php if(isset($_COOKIE['username'])) { ?>
-              <input type="hidden" id="edit-remember" name="remember" value="1">
-              <?php } else { ?>
-
-              <div class="form-group" style="display: none;">
-                <label><input type="checkbox" id="edit-remember" name="remember" value="1" checked> Remember me</label>
+  <div class="shosurbari-biodata-form">
+    <div class="shosurbari-animation-form">
+      <form action="" method="POST" name="myForm" onsubmit="return validateForm()">
+        <div class="flex-container">
+          <div class="sb-register-login">
+            <div class="soshurbari-animation-icon">
+              <div class="sb-icon-laptop">
+                <h3> <img src="images/shosurbari-icon.png"> ShosurBari </h3>
               </div>
-            <?php } ?>
-            <div class="sb-terms-privacy-checkbox">
-              <input type="checkbox" id="terms-checkbox" name="terms" value="1" onclick="toggleSubmitButton(this.checked);" required>
-              <label class="checkbox-label" for="terms-checkbox">I agree to the <a target="_blank" href="terms.php">Terms and Conditions</a> and have read the <a target="_blank" href="privacy.php">Privacy Policy.</a></label>
             </div>
-            <button type="submit" id="edit-submit" name="op" class="btn_1 submit"><span></span> Create Account</button>
+            <div class="sb-biodata-field">
+              <h2>Create new account</h2>
+            </div>
+            <div class="form-group">
+              <input type="text" id="fname" placeholder="Full Name" name="fname" value="" maxlength="60" class="form-text required">
+              <span id="fname_error"  class="shosurbari-form-error"></span>
+            </div>
+            <div class="form-group">
+              <input type="text" id="uname" placeholder="Username" name="uname" value="" maxlength="60" class="form-text required">
+              <span id="uname_error" class="shosurbari-form-error"></span>
+            </div>
+            <div class="form-group">
+              <input type="text" id="email" placeholder="Email" name="email" value="" maxlength="60" class="form-text required">
+              <span id="email_error" class="shosurbari-form-error"></span>
+            </div>
+            <div class="form-group">
+              <input type="text" id="pnumber" placeholder="Phone Number" name="pnumber" value="" size="50" maxlength="15" class="form-text required">
+              <input type="hidden" id="selectedCountryCode" name="selectedCountryCode">
+              <input type="hidden" id="selectedCountryName" name="selectedCountryName">
+              <span id="pnumber_error" class="shosurbari-form-error"></span>
+            </div>
+            <div class="form-group">
+              <input type="password" id="pass_1" placeholder="New Password" name="pass_1" maxlength="128" class="form-text required">
+              <span class="show-password" style="color:#0aa4ca;  font-size:15px; top:2px;"> <i style="color:black;  font-size:15px;" class="fa fa-eye" aria-hidden="true"></i></span> 
+              <span  id="pass_1_error" class="shosurbari-form-error"></span>
+            </div>
+            <div class="form-group">
+              <input type="password" id="pass_2" placeholder="Confirm Password" name="pass_2" maxlength="128" class="form-text required">
+              <span class="show-password" style="color:#0aa4ca;  font-size:15px; top:2px;"> <i style="color:black;  font-size:15px;" class="fa fa-eye" aria-hidden="true"></i></span> 
+              <span  id="pass_2_error" class="shosurbari-form-error"></span>
+            </div>
+            <div class="gender-select-reg" id="gender-select-reg">
+              <label class="sb-profile-gender" for="sex">Your Gender<span class="form-required" title="This field is required."></span></label>
+              <div class="gender-option">
+                <input type="radio" name="gender" id="male" value="Male" onclick="genderSelected(this);"/>
+                <label for="male"><i class="fa fa-male"></i> Male</label>
+              </div>
+              <div class="gender-option">
+                <input type="radio" name="gender" id="female" value="Female" onclick="genderSelected(this);"/>
+                <label for="female"><i class="fa fa-female"></i> Female</label><br>
+              </div>
+            </div>
+            <div class="gender-error">
+              <span class="shosurbari-form-error" id="gender-error"></span>
+            </div>
+            <div class="form-actions">
+              <?php if(isset($_COOKIE['username'])) { ?>
+                <input type="hidden" id="edit-remember" name="remember" value="1">
+                <?php } else { ?>
+
+                <div class="form-group" style="display: none;">
+                  <label><input type="checkbox" id="edit-remember" name="remember" value="1" checked> Remember me</label>
+                </div>
+              <?php } ?>
+              <div class="sb-terms-privacy-checkbox">
+                <input type="checkbox" id="terms-checkbox" name="terms" value="1" onclick="toggleSubmitButton(this.checked);" required>
+                <label class="checkbox-label" for="terms-checkbox">I agree to the <a target="_blank" href="terms.php">Terms and Conditions</a> and have read the <a target="_blank" href="privacy.php">Privacy Policy.</a></label>
+              </div>
+              <button type="submit" id="edit-submit" name="op" class="btn_1 submit"><span></span> Create Account</button>
+            </div>
+            <div class="or">
+              <p><span class="sb-or">OR</span></p>
+            </div>
+            <div class="form-actions" style="text-align: center;">
+              <p>Do you have an account?</p>
+              <a href="login.php"> Login Your Account</a>
+            </div>
+            <!-- Popup message -->
+            <div class="popup-message">
+            <h3></h3>
+            <p></p>
+            </div>
+            <div class="overlay"></div>
           </div>
-			    <div class="or">
-		        <p><span class="sb-or">OR</span></p>
-          </div>
-	  	    <div class="form-actions" style="text-align: center;">
-			      <p>Do you have an account?</p>
-			      <a href="login.php"> Login Your Account</a>
-	        </div>
         </div>
-      </div>
-	  </form>
+      </form>
     </div>
   </div>
   <!--=======================================
@@ -555,6 +561,53 @@ if (isset($_SESSION['id'])) {
       var submitButton = document.getElementById("edit-submit");
       submitButton.style.display = checked ? "block" : "none";
     }
+    // Show the loading message
+    function showLoadingMessage() {
+      document.querySelector('.overlay').style.display = 'block';
+      var popup = document.querySelector('.popup-message');
+      popup.style.display = 'block';
+      popup.querySelector('h3').innerHTML = 'অপেক্ষা করুন...';
+      popup.querySelector('p').innerHTML = 'আপনার তথ্য যাচাইকরণ চলছে।';
+      // Auto-hide the popup after 3000 milliseconds (adjust the time as needed)
+      setTimeout(function () {
+        hideLoadingMessage();
+      }, 3000);
+    }
+    // Hide the loading message
+    function hideLoadingMessage() {
+      document.querySelector('.overlay').style.display = 'none';
+      var popup = document.querySelector('.popup-message');
+      popup.style.display = 'none';
+      // Reload the page after hiding the popup
+      location.reload();
+    }
+    // Change the form submission code to the following
+    $('form[name="myForm"]').submit(function (e) {
+      e.preventDefault();
+      if (validateForm()) {
+        showLoadingMessage();
+        $.ajax({
+          url: 'register.php',
+          type: 'POST',
+          data: $(this).serialize(),
+          success: function (data) {
+            // Check if the registration was successful
+            if (data.trim() === '') {
+              // The success callback already hides the popup and reloads the page
+            } else {
+              // Handle the case when registration fails
+              console.error('Registration failed:', data);
+              // You can display an error message or take other actions here
+            }
+          },
+          error: function (jqXHR, textStatus, errorThrown) {
+            // Handle AJAX request errors here
+            console.error('AJAX request failed:', textStatus, errorThrown);
+            // You can display an error message or take other actions here
+          },
+        });
+      }
+    });
   </script>
 	<!--=======  Footer Start ========-->
 	<?php include_once("footer.php");?>

@@ -5224,7 +5224,8 @@ label{
     .login-navbar-icon a i{
         margin: 10px auto;
     }
-    .shosurbari-user-account {
+    .shosurbari-user-account,
+    .payment-form {
         width: 350px;
     }
     .navbar-inner_1{
@@ -5728,8 +5729,7 @@ label{
         margin-bottom: auto;
     }
     .sb-register-login,
-    .shosurbari-register-error,
-    .payment-form{
+    .shosurbari-register-error {
         width: 350px;
     }
     .nbs-flexisel-container{
@@ -5737,9 +5737,6 @@ label{
         position: relative;
         margin-left: auto;
         margin-right: auto;
-    }
-    .payment-form {
-        width: 380px;
     }
     #biodataForm fieldset {
         width: 470px;
@@ -5982,12 +5979,11 @@ label{
     .sb_featured_profile_head {
         width: 90%;
     }
-    .shosurbari-user-account {
+    .shosurbari-user-account,
+    .payment-form {
         width: 320px;
     }
-    .payment-form {
-        width: 300px;
-    }
+
     .hvr-shutter-out-horizontal {
         font-size: 13px;
     }
@@ -6147,10 +6143,6 @@ label{
     .shosurbari-register-error {
         width: 300px;
         padding: 10px;
-    }
-    .payment-form{
-        width: 360px;
-        padding: 15px;
     }
     .nbs-flexisel-container{
         width: 245px;
@@ -6457,11 +6449,9 @@ label{
     .nav-tabs1>li.active>a, .nav-tabs1>li.active>a:focus, .nav-tabs1>li.active>a:hover {
         margin: 3px;
     }
-    .shosurbari-user-account {
-        width: 290px;
-    }
+    .shosurbari-user-account,
     .payment-form {
-        width: 310px;
+        width: 290px;
     }
     .wrap_1 {
         width: 350px;
@@ -7038,14 +7028,12 @@ label{
         margin-left: 5px;
         margin-right: 6px;
     }
-    .shosurbari-user-account {
+    .shosurbari-user-account,
+    .payment-form {
         width: 263px;
     }
     .sb-register-login,
     .shosurbari-register-error {
-        width: 263px;
-    }
-    .payment-form {
         width: 263px;
     }
     #biodataForm fieldset {

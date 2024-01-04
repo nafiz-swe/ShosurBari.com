@@ -43,6 +43,9 @@ $conn->close();
     $email=$row['email'];
     }
     if($row){
+    $country_code=$row['country_code'];
+    }
+    if($row){
     $pnumber=$row['number'];
     }
     if($row){
@@ -338,7 +341,7 @@ $conn->close();
                 </div>
                 <div class="form-group">
                     <label>Phone Number <span style="color: #ccc; font-size:12px;"> (Fixed)</span></label><br>
-                    <input type="text" id="pnumber" name="pnumber" style="background: #ecfeff" value="<?php echo $pnumber; ?>" size="60" minlength="10" maxlength="15" class="form-text" disabled>
+                    <input type="text" id="pnumber" name="pnumber" style="background: #ecfeff" value="<?php echo "$country_code $pnumber"; ?>" size="60" minlength="10" maxlength="15" class="form-text" disabled>
                 </div>
                 <div class="form-group gender-radio-group">
                     <label style="font-weight: bold; margin-top: 6px;">Gender:<span style="color: #ccc; font-size:12px;"></span></label>
