@@ -284,7 +284,6 @@
             } else {
                 $selectedCountryCode = $_POST['selectedCountryCode'];
                 $selectedCountryName = $_POST['selectedCountryName'];
-
                 $sql = "INSERT INTO users 
                 (fullname, username, gender, number, country_code, country_name, email, password, active, register_date) 
                 VALUES ('$fname', '$uname', '$gender', '$pnumber', '$selectedCountryCode', '$selectedCountryName', '$email', '$hashed_password', 1, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
@@ -445,9 +444,11 @@
             } else {
                 $user_id = 0;
             }
-            // Insert customer data into the database 
-            $sql = "INSERT INTO customer (user_id, cust_name, cust_email, cust_number, cust_permanent_address, request_biodata_number, biodata_quantities, total_fee, payment_method, bkash_number, bkash_transaction_id, nagad_number, nagad_transaction_id, roket_number, roket_transaction_id, processing, sent, cancel, invalid, request_date) 
-                VALUES ('$user_id', '$cust_name', '$cust_email', '$cust_number', '$cust_permanent_address', '$request_biodata_number', '$idCount', '$fee', '$payment_method', '$bkash_number', '$bkash_transaction_id', '$nagad_number', '$nagad_transaction_id', '$roket_number', '$roket_transaction_id', 1, 0, 0, 0, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
+            // Insert customer data into the database
+            $selectedCountryCode = $_POST['selectedCountryCode'];
+            $selectedCountryName = $_POST['selectedCountryName']; 
+            $sql = "INSERT INTO customer (user_id, cust_name, cust_email, cust_number, country_code, country_name, cust_permanent_address, request_biodata_number, biodata_quantities, total_fee, payment_method, bkash_number, bkash_transaction_id, nagad_number, nagad_transaction_id, roket_number, roket_transaction_id, processing, sent, cancel, invalid, request_date) 
+                VALUES ('$user_id', '$cust_name', '$cust_email', '$cust_number', '$selectedCountryCode', '$selectedCountryName', '$cust_permanent_address', '$request_biodata_number', '$idCount', '$fee', '$payment_method', '$bkash_number', '$bkash_transaction_id', '$nagad_number', '$nagad_transaction_id', '$roket_number', '$roket_transaction_id', 1, 0, 0, 0, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             if (mysqli_query($conn, $sql)) {
             $id_customer = mysqli_insert_id($conn);
             $_SESSION['id_customer'] = $id_customer;

@@ -71,7 +71,8 @@ if (isset($_COOKIE[$cookieName])) {
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- Add icon library end -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!-- Country Code with Flag for Number input field -->
+<!-- Country Code with Flag for Number input field below 2 link-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/intlTelInput.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.8/js/intlTelInput.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.8/css/intlTelInput.css" />
@@ -315,15 +316,27 @@ if (isset($_COOKIE[$cookieName])) {
           <div class="form-group">
             <label>মোবাইল নাম্বার<span class="form-required" title="This field is required.">*</span></label>
             <input type="tel" id="pnumber" placeholder="আপনার ফোন নাম্বার" name="cust_number" value="<?php echo $pnumber; ?>" size="60" minlength="10" maxlength="14" class="form-text required">
+            <input type="hidden" id="selectedCountryCode" name="selectedCountryCode">
+            <input type="hidden" id="selectedCountryName" name="selectedCountryName">
             <span id="phone-error" class="shosurbari-form-error"></span>
           </div>
           <script>
-          $(document).ready(function() {
+          // Phone Number Country Code With Country Flag
+          $(document).ready(function () {
           var input = document.querySelector("#pnumber");
-          window.intlTelInput(input, {
-            separateDialCode: true,
-            preferredCountries: ["bd"]
+          var iti = window.intlTelInput(input, {
+          separateDialCode: true,
+          preferredCountries: ["bd"]
           });
+          input.addEventListener("countrychange", function () {
+          var selectedCountry = iti.getSelectedCountryData();
+          $("#selectedCountryCode").val(selectedCountry.dialCode);
+          $("#selectedCountryName").val(selectedCountry.name);
+          });
+          // Set default country code and name if no country is selected
+          var defaultCountry = iti.getSelectedCountryData();
+          $("#selectedCountryCode").val(defaultCountry.dialCode);
+          $("#selectedCountryName").val(defaultCountry.name);
           });
           </script>
           <div class="form-group">
