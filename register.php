@@ -30,6 +30,7 @@ if (isset($_SESSION['id'])) {
 <link href='//fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
 <!-- Country Code with Flag for Number input field -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/intlTelInput.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.8/js/intlTelInput.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.8/css/intlTelInput.css" />
 <!--font-Awesome-->
@@ -165,7 +166,9 @@ if (isset($_SESSION['id'])) {
             <span id="email_error" class="shosurbari-form-error"></span>
           </div>
           <div class="form-group">
-            <input type="pnumber" id="pnumber" placeholder="Phone Number" name="pnumber" value="" size="50" maxlength="15" class="form-text required">
+            <input type="text" id="pnumber" placeholder="Phone Number" name="pnumber" value="" size="50" maxlength="15" class="form-text required">
+            <input type="hidden" id="selectedCountryCode" name="selectedCountryCode">
+            <input type="hidden" id="selectedCountryName" name="selectedCountryName">
             <span id="pnumber_error" class="shosurbari-form-error"></span>
           </div>
           <div class="form-group">
@@ -241,12 +244,21 @@ if (isset($_SESSION['id'])) {
   </script>
   <script>
     // Phone Number Country Code With Country Flag
-    $(document).ready(function() {
-      var input = document.querySelector("#pnumber");
-      window.intlTelInput(input, {
-      separateDialCode: true,
-      preferredCountries: ["bd"]
-      });
+    $(document).ready(function () {
+    var input = document.querySelector("#pnumber");
+    var iti = window.intlTelInput(input, {
+    separateDialCode: true,
+    preferredCountries: ["bd"]
+    });
+    input.addEventListener("countrychange", function () {
+    var selectedCountry = iti.getSelectedCountryData();
+    $("#selectedCountryCode").val(selectedCountry.dialCode);
+    $("#selectedCountryName").val(selectedCountry.name);
+    });
+    // Set default country code and name if no country is selected
+    var defaultCountry = iti.getSelectedCountryData();
+    $("#selectedCountryCode").val(defaultCountry.dialCode);
+    $("#selectedCountryName").val(defaultCountry.name);
     });
     // Password Slash Start
     let showPass = document.querySelectorAll('.show-password');

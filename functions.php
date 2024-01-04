@@ -282,9 +282,12 @@
                 header("location: register.php");
                 exit();
             } else {
+                $selectedCountryCode = $_POST['selectedCountryCode'];
+                $selectedCountryName = $_POST['selectedCountryName'];
+
                 $sql = "INSERT INTO users 
-                (fullname, username, gender, number, email, password, active, register_date) 
-                VALUES ('$fname', '$uname', '$gender', '$pnumber', '$email', '$hashed_password', 1, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
+                (fullname, username, gender, number, country_code, country_name, email, password, active, register_date) 
+                VALUES ('$fname', '$uname', '$gender', '$pnumber', '$selectedCountryCode', '$selectedCountryName', '$email', '$hashed_password', 1, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
                 if (mysqli_query($conn, $sql)) {
                 $id = mysqli_insert_id($conn);
                 $_SESSION['id'] = $id;
