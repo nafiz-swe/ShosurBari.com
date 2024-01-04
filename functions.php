@@ -274,7 +274,7 @@
             $email_exists = mysqli_fetch_array($email_result)[0];
             $username_exists = mysqli_fetch_array($username_result)[0];
             if ($email_exists > 0) {
-                $_SESSION['error_message'] = "উফফ! এই Email দিয়ে ইতিমধ্যে একটি একাউন্ট রয়েছে। অনুগ্রহ করে Email পরিবর্তন করে আবার চেষ্টা করুন।";
+                $_SESSION['error_message'] = "উফফ! এই Email দিয়ে ইতিমধ্যে একটি একাউন্ট রয়েছে। অনুগ্রহ করে আপনার একাউন্ট লগইন করুন।";
                 header("location: register.php");
                 exit();
             } elseif ($username_exists > 0) {

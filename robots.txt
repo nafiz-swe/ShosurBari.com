@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /about-us.php
+Disallow: /contact-us.php
+Disallow: /payment-shosurbari.php
+Disallow: /privacy-policy
+Disallow: /terms.php
+Disallow: /register.php
+Disallow: /biodata-post.php
+Disallow: /my-account.php
+Allow: /search.php

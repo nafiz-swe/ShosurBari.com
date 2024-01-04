@@ -90,6 +90,14 @@ if (isset($_SESSION['id'])) {
     width: 37px;
     height: 35px;
   }
+  .shosurbari-form-error{
+    font-size: 16px;
+    margin-top: 0px;
+    background: rgb(255, 221, 238);
+    border-radius: 2px 2px 4px 4px;
+    text-align: center;
+    display: none;
+  }
   @media (max-width: 1400px){
   .shosurbari-biodata-form{
     width: auto;
@@ -124,26 +132,6 @@ if (isset($_SESSION['id'])) {
   .popup-buttons {
     margin-top: 10px;
   }
-  #close-button{
-    background: linear-gradient(#06b6d4, #0ea5e9);
-    color: white;
-    border: none;
-    border-radius: 3px;
-  }
-  #close-button:hover {
-    background: linear-gradient(#0ea5e9, #06b6d4);
-    color: white;
-  }
-  .error-message {
-    text-align: justify;
-    padding: 10px;
-    border: 1px solid #ccc;
-    background: #ffcccc;
-    width: 300px;
-    color: #ff0000;
-    font-weight: bold;
-    margin: 50px auto 0 auto;
-  }
   </style>
   <?php
   if (isset($_SESSION['error_message'])) {
@@ -166,29 +154,29 @@ if (isset($_SESSION['id'])) {
           </div>
           <div class="form-group">
             <input type="text" id="fname" placeholder="Full Name" name="fname" value="" maxlength="60" class="form-text required">
-            <span id="fname_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+            <span id="fname_error"  class="shosurbari-form-error"></span>
           </div>
           <div class="form-group">
             <input type="text" id="uname" placeholder="Username" name="uname" value="" maxlength="60" class="form-text required">
-            <span id="uname_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+            <span id="uname_error" class="shosurbari-form-error"></span>
           </div>
           <div class="form-group">
             <input type="text" id="email" placeholder="Email" name="email" value="" maxlength="60" class="form-text required">
-            <span id="email_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+            <span id="email_error" class="shosurbari-form-error"></span>
           </div>
           <div class="form-group">
             <input type="pnumber" id="pnumber" placeholder="Phone Number" name="pnumber" value="" size="50" maxlength="15" class="form-text required">
-            <span id="pnumber_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+            <span id="pnumber_error" class="shosurbari-form-error"></span>
           </div>
           <div class="form-group">
             <input type="password" id="pass_1" placeholder="New Password" name="pass_1" maxlength="128" class="form-text required">
             <span class="show-password" style="color:#0aa4ca;  font-size:15px; top:2px;"> <i style="color:black;  font-size:15px;" class="fa fa-eye" aria-hidden="true"></i></span> 
-            <span  id="pass_1_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+            <span  id="pass_1_error" class="shosurbari-form-error"></span>
           </div>
           <div class="form-group">
             <input type="password" id="pass_2" placeholder="Confirm Password" name="pass_2" maxlength="128" class="form-text required">
             <span class="show-password" style="color:#0aa4ca;  font-size:15px; top:2px;"> <i style="color:black;  font-size:15px;" class="fa fa-eye" aria-hidden="true"></i></span> 
-            <span  id="pass_2_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+            <span  id="pass_2_error" class="shosurbari-form-error"></span>
           </div>
           <div class="gender-select-reg" id="gender-select-reg">
             <label class="sb-profile-gender" for="sex">Your Gender<span class="form-required" title="This field is required."></span></label>
@@ -202,7 +190,7 @@ if (isset($_SESSION['id'])) {
 		        </div>
           </div>
           <div class="gender-error">
-            <span style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;" id="gender-error" class="error"></span>
+            <span class="shosurbari-form-error" id="gender-error"></span>
           </div>
           <div class="form-actions">
             <?php if(isset($_COOKIE['username'])) { ?>
@@ -282,105 +270,122 @@ if (isset($_SESSION['id'])) {
     var pnumber = document.forms["myForm"]["pnumber"].value;
     var pass_1 = document.forms["myForm"]["pass_1"].value;
     var pass_2 = document.forms["myForm"]["pass_2"].value;
-    //Full Name validation
+    // Full Name validation
     if (fname == "") {
+      var errorDiv = document.getElementById('fname_error');
+      // Apply styles for error display
       document.getElementById('fname').style.borderColor = "red";
       document.getElementById('fname').scrollIntoView({
       behavior: 'smooth',
       block: 'center',
       });
+      errorDiv.innerHTML = "উফফ! আপনার সম্পূর্ণ নাম লিখুন।";
+      errorDiv.style.display = 'block';
+      errorDiv.classList.add('fade-in');
+      errorDiv.style.padding = '5px';
+      var colors = ['green', 'blue', 'red'];
+      var colorIndex = 0;
+      setInterval(function () {
+      errorDiv.style.color = colors[colorIndex];
+      colorIndex = (colorIndex + 1) % colors.length;
+      }, 500);
+      return false;
+    } else {
+      // Reset styles for a valid input
+      document.getElementById('fname').style.borderColor = "green";
       var errorDiv = document.getElementById('fname_error');
-      errorDiv.innerHTML = "Please Enter Your Full Name!";
-      errorDiv.style.display = 'block';
-      errorDiv.classList.add('fade-in');
-      var colors = ['green', 'blue', 'red'];
-      var colorIndex = 0;
-      setInterval(function() {
-      errorDiv.style.color = colors[colorIndex];
-      colorIndex = (colorIndex + 1) % colors.length;
-      }, 500);
-    return false;
-    }else{
-    document.getElementById('fname').style.borderColor = "green";
-    document.getElementById('fname_error').innerHTML = "";
+      // Remove error message and hide padding
+      errorDiv.innerHTML = "";
+      errorDiv.style.display = 'none';
+      errorDiv.style.padding = '0';
     }
-    //Username validation
+    // Username validation
     if (uname == "") {
+      var errorDiv = document.getElementById('uname_error');
       document.getElementById('uname').style.borderColor = "red";
       document.getElementById('uname').scrollIntoView({
       behavior: 'smooth',
       block: 'center',
       });
-      var errorDiv = document.getElementById('uname_error');
-      errorDiv.innerHTML = "Please Enter Your Username!";
+      errorDiv.innerHTML = "উফফ! আপনার ডাকনাম লিখুন।";
       errorDiv.style.display = 'block';
       errorDiv.classList.add('fade-in');
+      errorDiv.style.padding = '5px';
       var colors = ['green', 'blue', 'red'];
       var colorIndex = 0;
-      setInterval(function() {
+      setInterval(function () {
       errorDiv.style.color = colors[colorIndex];
       colorIndex = (colorIndex + 1) % colors.length;
       }, 500);
       return false;
-    }else if (! /^[A-Za-z0-9]+$/.test(uname)){
+    } else if (!/^[A-Za-z0-9]+$/.test(uname)) {
+      var errorDiv = document.getElementById('uname_error');
       document.getElementById('uname').style.borderColor = "red";
       document.getElementById('uname').scrollIntoView({
       behavior: 'smooth',
       block: 'center',
       });
-      var errorDiv = document.getElementById('uname_error');
-      errorDiv.innerHTML = "Please use only letters and numbers. No symbols and spaces can be used!";
+      errorDiv.innerHTML = "উফফ! নামের মধ্যে কোন চিহ্ন, বাংলা বা স্পেস গ্রহণ যোগ্য নয়। নাম্বার গ্রহণ যোগ্য।";
       errorDiv.style.display = 'block';
       errorDiv.classList.add('fade-in');
+      errorDiv.style.padding = '5px';
       var colors = ['green', 'blue', 'red'];
       var colorIndex = 0;
-      setInterval(function() {
+      setInterval(function () {
       errorDiv.style.color = colors[colorIndex];
       colorIndex = (colorIndex + 1) % colors.length;
       }, 500);
       return false;
-    }else{
-    document.getElementById('uname').style.borderColor = "green";
-    document.getElementById('uname_error').innerHTML = "";
+    } else {
+      document.getElementById('uname').style.borderColor = "green";
+      var errorDiv = document.getElementById('uname_error');
+      errorDiv.innerHTML = "";
+      errorDiv.style.display = 'none';
+      errorDiv.style.padding = '0';
     }
-    //Email validation
+    // Email validation
     if (email == "") {
+      var errorDiv = document.getElementById('email_error');
       document.getElementById('email').style.borderColor = "red";
       document.getElementById('email').scrollIntoView({
       behavior: 'smooth',
       block: 'center',
       });
-      var errorDiv = document.getElementById('email_error');
-      errorDiv.innerHTML = "Please Enter Your Email!";
+      errorDiv.innerHTML = "উফফ! আপনার ই-মেইল লিখুন।";
       errorDiv.style.display = 'block';
       errorDiv.classList.add('fade-in');
+      errorDiv.style.padding = '5px';
       var colors = ['green', 'blue', 'red'];
       var colorIndex = 0;
-      setInterval(function() {
+      setInterval(function () {
       errorDiv.style.color = colors[colorIndex];
       colorIndex = (colorIndex + 1) % colors.length;
       }, 500);
       return false;
-    }else if(! /^[a-zA-Z0-9._-]+@(gmail|outlook|hotmail|yahoo).com$/.test(email)){
+    } else if (!/^[a-zA-Z0-9._-]+@(gmail|outlook|hotmail|yahoo)\.com$/.test(email)) {
+      var errorDiv = document.getElementById('email_error');
       document.getElementById('email').style.borderColor = "red";
       document.getElementById('email').scrollIntoView({
       behavior: 'smooth',
       block: 'center',
       });
-      var errorDiv = document.getElementById('email_error');
-      errorDiv.innerHTML = "Please Enter a Valid Email. Only Used: (@gmail or @outlook or @hotmail or @yahoo).com";
+      errorDiv.innerHTML = "উফফ! ই-মেইল হিসাবে শুধুমাত্র ব্যবহার করা যাবে: '@' gmail, outlook, hotmail, yahoo '.com'";
       errorDiv.style.display = 'block';
       errorDiv.classList.add('fade-in');
+      errorDiv.style.padding = '5px';
       var colors = ['green', 'blue', 'red'];
       var colorIndex = 0;
-      setInterval(function() {
+      setInterval(function () {
       errorDiv.style.color = colors[colorIndex];
       colorIndex = (colorIndex + 1) % colors.length;
       }, 500);
       return false;
-    }else{
-    document.getElementById('email').style.borderColor = "green";
-    document.getElementById('email_error').innerHTML = "";
+    } else {
+      document.getElementById('email').style.borderColor = "green";
+      var errorDiv = document.getElementById('email_error');
+      errorDiv.innerHTML = "";
+      errorDiv.style.display = 'none';
+      errorDiv.style.padding = '0';
     }
     // Phone number validation
     if (pnumber == "") {
@@ -391,12 +396,13 @@ if (isset($_SESSION['id'])) {
       block: 'center',
       });
       var errorDiv = document.getElementById('pnumber_error');
-      errorDiv.innerHTML = "Please Enter Your Phone Number!";
+      errorDiv.innerHTML = "উফফ! আপনার মোবাইল নাম্বার লিখুন।";
       errorDiv.style.display = 'block';
       errorDiv.classList.add('fade-in');
+      errorDiv.style.padding = '5px';
       var colors = ['green', 'blue', 'red'];
       var colorIndex = 0;
-      setInterval(function() {
+      setInterval(function () {
       errorDiv.style.color = colors[colorIndex];
       colorIndex = (colorIndex + 1) % colors.length;
       }, 500);
@@ -409,115 +415,129 @@ if (isset($_SESSION['id'])) {
       block: 'center',
       });
       var errorDiv = document.getElementById('pnumber_error');
-      errorDiv.innerHTML = "Phone Number Must Be Between 9 To 15 Digits. Don't Used Space & Plus Symbol!";
+      errorDiv.innerHTML = "উফফ! নাম্বারের মধ্যে কোন চিহ্ন বা স্পেস গ্রহণ যোগ্য নয় এবং এর সীমা ৯ থেকে ১৫ ডিজিট।";
       errorDiv.style.display = 'block';
       errorDiv.classList.add('fade-in');
+      errorDiv.style.padding = '5px';
       var colors = ['green', 'blue', 'red'];
       var colorIndex = 0;
-      setInterval(function() {
+      setInterval(function () {
       errorDiv.style.color = colors[colorIndex];
       colorIndex = (colorIndex + 1) % colors.length;
       }, 500);
       return false;
     } else {
-    document.getElementById('pnumber').style.borderColor = "green";
-    document.getElementById('pnumber_error').innerHTML = "";
+      document.getElementById('pnumber').style.borderColor = "green";
+      var errorDiv = document.getElementById('pnumber_error');
+      errorDiv.innerHTML = "";
+      errorDiv.style.display = 'none';
+      errorDiv.style.padding = '0';
     }
-    //Password validation
+    // Password validation
     if (pass_1 == "") {
-      document.getElementById('pass_1').style.borderColor = "red";
-      document.getElementById('pass_1').scrollIntoView({
+      var passElement = document.getElementById('pass_1');
+      passElement.style.borderColor = "red";
+      passElement.scrollIntoView({
       behavior: 'smooth',
       block: 'center',
       });
       var errorDiv = document.getElementById('pass_1_error');
-      errorDiv.innerHTML = "Please Enter Your New Password!";
+      errorDiv.innerHTML = "উফফ! আপনার নতুন পাসওয়ার্ড লিখুন।";
       errorDiv.style.display = 'block';
       errorDiv.classList.add('fade-in');
+      errorDiv.style.padding = '5px';
       var colors = ['green', 'blue', 'red'];
       var colorIndex = 0;
-      setInterval(function() {
+      setInterval(function () {
       errorDiv.style.color = colors[colorIndex];
       colorIndex = (colorIndex + 1) % colors.length;
       }, 500);
       return false;
-    }else{
-    document.getElementById('pass_1').style.borderColor = "green";
-    document.getElementById('pass_1_error').innerHTML = "";
+    } else {
+      document.getElementById('pass_1').style.borderColor = "green";
+      var errorDiv = document.getElementById('pass_1_error');
+      errorDiv.innerHTML = "";
+      errorDiv.style.display = 'none';
+      errorDiv.style.padding = '0';
     }
-    //Confirm Password validation
+    // Confirm Password validation
     if (pass_2 == "") {
-      document.getElementById('pass_2').style.borderColor = "red";
-      document.getElementById('pass_2').scrollIntoView({
+      var passElement = document.getElementById('pass_2');
+      passElement.style.borderColor = "red";
+      passElement.scrollIntoView({
       behavior: 'smooth',
       block: 'center',
       });
       var errorDiv = document.getElementById('pass_2_error');
-      errorDiv.innerHTML = "Please Enter Your Confirm Password!";
+      errorDiv.innerHTML = "উফফ! আপনার উক্ত পাসওয়ার্ডটি পুনরায় লিখুন।";
       errorDiv.style.display = 'block';
       errorDiv.classList.add('fade-in');
+      errorDiv.style.padding = '5px';
       var colors = ['green', 'blue', 'red'];
       var colorIndex = 0;
-      setInterval(function() {
+      setInterval(function () {
       errorDiv.style.color = colors[colorIndex];
       colorIndex = (colorIndex + 1) % colors.length;
       }, 500);
       return false;
-    }else if(pass_2 != pass_1){
-      document.getElementById('pass_2').style.borderColor = "red";
-      document.getElementById('pass_2').scrollIntoView({
+    } else if (pass_2 != pass_1) {
+      var passElement = document.getElementById('pass_2');
+      passElement.style.borderColor = "red";
+      passElement.scrollIntoView({
       behavior: 'smooth',
       block: 'center',
       });
       var errorDiv = document.getElementById('pass_2_error');
-      errorDiv.innerHTML = "Your Password Do Not Match!";
+      errorDiv.innerHTML = "উফফ! আপনার উক্ত পাসওয়ার্ডটির সাথে মিলছে না।";
       errorDiv.style.display = 'block';
       errorDiv.classList.add('fade-in');
+      errorDiv.style.padding = '5px';
       var colors = ['green', 'blue', 'red'];
       var colorIndex = 0;
-      setInterval(function() {
+      setInterval(function () {
       errorDiv.style.color = colors[colorIndex];
       colorIndex = (colorIndex + 1) % colors.length;
       }, 500);
       return false;
-    }else{
-    document.getElementById('pass_2').style.borderColor = "green";
-    document.getElementById('pass_2_error').innerHTML = "";
-    } 
-    // Gender Select Start
+    } else {
+      document.getElementById('pass_2').style.borderColor = "green";
+      var errorDiv = document.getElementById('pass_2_error');
+      errorDiv.innerHTML = "";
+      errorDiv.style.display = 'none';
+      errorDiv.style.padding = '0';
+    }
     // Gender validation
     const maleRadio = document.querySelector('#male');
     const femaleRadio = document.querySelector('#female');
     const genderSelectReg = document.querySelector('#gender-select-reg');
     const genderError = document.querySelector('#gender-error');
     if (!maleRadio.checked && !femaleRadio.checked) {
-    genderSelectReg.style.borderColor = "red";
-    genderError.innerHTML = 'Please Select Your Gender!';
-    genderError.style.display = 'block';
-    genderError.classList.add('fade-in');
-    var colors = ['green', 'blue', 'red'];
-    var colorIndex = 0;
-    setInterval(function() {
-    genderError.style.color = colors[colorIndex];
-    colorIndex = (colorIndex + 1) % colors.length;
-    }, 500);
-    // Smooth scroll to the middle of the gender error
-    genderError.scrollIntoView({
-    behavior: 'smooth',
-    block: 'center',
-    });
-    // Additional styling for visibility
-    genderError.style.position = 'relative';
-    return false;
+      genderSelectReg.style.borderColor = "red";
+      genderError.innerHTML = 'উফফ! আপনার লিঙ্গ নির্বাচন করুন।';
+      genderError.style.display = 'block';
+      genderError.classList.add('fade-in');
+      genderError.style.padding = '5px';
+      var colors = ['green', 'blue', 'red'];
+      var colorIndex = 0;
+      setInterval(function () {
+      genderError.style.color = colors[colorIndex];
+      colorIndex = (colorIndex + 1) % colors.length;
+      }, 500);
+      genderError.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center',
+      });
+      genderError.style.position = 'relative';
+      return false;
     } else {
-    genderError.innerHTML = '';
-    genderError.style.display = 'none';
-    genderSelectReg.style.borderColor = 'green';
+      genderError.innerHTML = '';
+      genderError.style.display = 'none';
+      genderError.style.padding = '0';
+      genderSelectReg.style.borderColor = 'green';
     }
     // Gender Select End
     return true;
     }
-    //Form Input field when error then show border red and scroll - JS End
     // Agree with Term & Conditions + Privacy & Policy Check Box
     function toggleSubmitButton(checked) {
       var submitButton = document.getElementById("edit-submit");

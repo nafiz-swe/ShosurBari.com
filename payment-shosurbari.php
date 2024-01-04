@@ -551,7 +551,7 @@ if (isset($_COOKIE[$cookieName])) {
     behavior: 'smooth',
     block: 'center',
     });
-    nameError.innerHTML = "উফফ! আপনার পুরো নাম লিখুন।";
+    nameError.innerHTML = "উফফ! আপনার সম্পূর্ণ নাম লিখুন।";
     nameError.style.display = 'block';
     nameError.classList.add('fade-in');
     nameError.style.padding = '5px';
@@ -592,7 +592,7 @@ if (isset($_COOKIE[$cookieName])) {
     behavior: 'smooth',
     block: 'center',
     });
-    emailError.innerHTML = "উফফ! একটি সঠিক ই-মেইল প্রবেশ করুন। শুধুমাত্র ব্যবহার করতে পারবেন: @gmail, @outlook, @hotmail, @yahoo (.com)";
+    emailError.innerHTML = "উফফ! ই-মেইল হিসাবে শুধুমাত্র ব্যবহার করা যাবে: '@' gmail, outlook, hotmail, yahoo '.com'";
     emailError.style.display = 'block';
     emailError.classList.add('fade-in');
     emailError.style.padding = '5px';
@@ -630,7 +630,7 @@ if (isset($_COOKIE[$cookieName])) {
     } else if (phone.length < 10 || phone.length > 14) {
     var pnumber = document.getElementById('pnumber');
     pnumber.style.borderColor = "red";
-    document.getElementById('phone-error').innerHTML = "মোবাইল নাম্বার ১০ থেকে ১৪ ডিজিটের মধ্যে হতে হবে। যেকোনো চিহ্ন ব্যবহার করা থেকে বিরত থাকুন।";
+    document.getElementById('phone-error').innerHTML = "উফফ! নাম্বারের মধ্যে কোন চিহ্ন বা স্পেস গ্রহণ যোগ্য নয় এবং এর সীমা ৯ থেকে ১৫ ডিজিট।";
     pnumber.scrollIntoView({
     behavior: 'smooth',
     block: 'center',
@@ -656,7 +656,7 @@ if (isset($_COOKIE[$cookieName])) {
     behavior: 'smooth',
     block: 'center',
     });
-    addressError.innerHTML = "উফফ! আপনার জেলা সহ স্থায়ী ঠিকানা লিখুন।";
+    addressError.innerHTML = "উফফ! আপনার স্থায়ী ঠিকানা লিখুন।";
     addressError.style.display = 'block';
     addressError.classList.add('fade-in');
     addressError.style.padding = '5px';
@@ -681,7 +681,7 @@ if (isset($_COOKIE[$cookieName])) {
     behavior: 'smooth',
     block: 'center',
     });
-    biodataError.innerHTML = "উফফ! আপনার পছন্দের বায়োডাটার সাথে যোগাযোগ করতে বায়োডাটার প্রোফাইলে প্রবেশ করুন।";
+    biodataError.innerHTML = "উফফ! আপনার পছন্দের বায়োডাটা নং যুক্ত করতে বায়োডাটার প্রোফাইলে প্রবেশ করুন।";
     biodataError.style.display = 'block';
     biodataError.classList.add('fade-in');
     biodataError.style.padding = '5px';
