@@ -132,14 +132,14 @@ if (isset($_SESSION['id'])) {
         $password = $row['password'];
         // Set up SMTP configuration for Gmail Start
         $to = $email;
-        $subject = "Password change request at ShosurBari.com";
+        $subject = "Password change request";
         // HTML version of the email body
         ob_start();
         include('ForgotPasswordEmailBody.php');
         $email_body = ob_get_clean();
         // Plain text version of the email body
         $plain_text_message = "
-        Password change request at ShosurBari.com
+        Password change request
         পাসওয়ার্ড পরিবর্তন করুন
         A request has been made to retrieve the password for logging into your account.
         Password: https://www.shoshurbari.com/new-password.php
@@ -149,7 +149,7 @@ if (isset($_SESSION['id'])) {
         Connect with us:
         - Website: https://www.shoshurbari.com
         - Facebook: https://www.facebook.com/ShoshurBari.bd
-        - Email: support@shoshurbari.com
+        - Email: info@shoshurbari.com
         - YouTube: https://www.youtube.com/c/ShoshurBari
         ";
         // Headers

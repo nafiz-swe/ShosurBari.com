@@ -1101,8 +1101,8 @@ saveUniqueVisitor($conn, $ip_address);
 				<div class="jb-accordion-wrapper">
 					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion9"><span class="shosurbari-faq-point">৯</span> বায়োডাটা যেকোনো সময় গোপন/ডিলিট করতে পারবো? <i class="fa fa-plus-circle"> </i></button>
 					<div id="accordion9" class="jb-accordion-content collapse">
-						<p>আপনার একাউন্ট লগইন করে My Account পেজ থেকে যেকোনো সময় বায়োডাটাটি গোপন করে রাখতে পারবেন। পরবর্তীতে আবার যেকোনো সময় আপনার একাউন্ট একটিভ করতে পারবেন।
-						<br> <br>আপনার একাউন্ট সহজেই ডিএক্টিভ/গোপন করতে পারবেন তবে সহজেই ডিলিট করতে পারবেন না। একাউন্ট ডিলিট করতে চাইলে সরাসরি শ্বশুরবাড়ি ডটকমের এডমিনের সাথে যোগাযোগ করতে হবে। এডমিনের সাথে যোগাযোগ করতে আমাদের <a target="_blank" href="https://www.facebook.com/ShosurBari.bd">FaceBook</a> পেজ অনুসরণ করুন অথবা <a href="contact-us.php">Contacts</a> পেজে প্রবেশ করে আপনার সমস্যার কথা জানিয়ে Contact Us ফর্ম টি পূরণ করে Submit করুন। পরবর্তীতে আপনার সাথে এডমিন যোগাযোগ করে একাউন্ট ডিলিট করে দেবে।
+						<p>আপনার একাউন্ট সহজেই ডিএক্টিভেশন/গোপন করে রাখতে পারবেন তবে সহজেই ডিলিট করতে পারবেন না। আপনার একাউন্ট লগইন করে My Account পেজ থেকে যেকোনো সময় বায়োডাটাটি ডিএক্টিভেশন/গোপন করে রাখতে পারবেন। পরবর্তীতে আবার যেকোনো সময় আপনার একাউন্ট একটিভ করতে পারবেন।
+						<br> <br> একাউন্ট ডিলিট করতে চাইলে সরাসরি শ্বশুরবাড়ি ডটকমের এডমিনের সাথে যোগাযোগ করতে হবে। এডমিনের সাথে যোগাযোগ করতে আমাদের <a target="_blank" href="https://www.facebook.com/ShosurBari.bd">FaceBook</a> পেজ অনুসরণ করুন অথবা <a href="contact-us.php">Contacts</a> পেজে প্রবেশ করে আপনার সমস্যার কথা জানিয়ে Contact Us ফর্ম টি পূরণ করে Submit করুন। পরবর্তীতে আপনার সাথে এডমিন যোগাযোগ করে একাউন্ট ডিলিট করে দেবে।
 						</p>
 					</div>  
 				</div>

@@ -15,9 +15,21 @@ if ($result && mysqli_num_rows($result) > 0) {
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
+    @import url('https://fonts.maateen.me/adorsho-lipi/font.css');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+    @font-face {
+    font-family: 'AdorshoLipi';
+    src: url('font/AdorshoLipi.eot');
+    src: url('font/AdorshoLipi.woff') format('woff'),
+    url('font/AdorshoLipi.ttf') format('truetype'),
+    url('font/AdorshoLipi.svg#AdorshoLipi') format('svg'),
+    url('font/AdorshoLipi.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+    }
     body {
-        font-family: Arial, sans-serif;
-        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-family: 'AdorshoLipi', 'Ubuntu', sans-serif !important;
         margin: 0;
         padding: 0;
     }
@@ -44,105 +56,75 @@ if ($result && mysqli_num_rows($result) > 0) {
     .content {
         text-align: center;
     }
-    .sb-reg-info{
-        text-align: left;
-    }
-    .sb-reg-info h2{
-        text-align: center;
-        padding-bottom: 0px;
-    }
-    .shosurbari-biodata-field{
-        margin-top: 15px;
-        margin-bottom: 5px;
-    }
-    .sb-reg-info  .shosurbari-biodata-field label {
-        color: #000;
-        font-weight: bold;
-        font-size: 16px;
-    }
-    .sb-reg-info  .shosurbari-biodata-field p{
-        width: auto;
-        height: auto;
-        line-height: 30px;
-        padding: 6px 12px;
-        font-size: 16px;
-        font-weight: 500;
-        text-align: left;
-        color: black;
-        background-color: #4cafe809;
-        border-radius: 4px;
-        margin-top: -5px;
-    }
-    .shosurbari-biodata-field a, a {
-        font-size: 16px;
-        color: #0aa4ca;
-    } 
-    p {
-        display: block;
-        margin-block-start: 1em;
-        margin-block-end: 1em;
-        margin-inline-start: 0px;
-        margin-inline-end: 0px;
-    }
-    .note{
-        border: 1.5px solid #ccc;
-        margin-top: 5px;
-        padding: 10px;
-    }
-    .content p {
-        font-size: 12px;
-        color: #000;
-        font-weight: bold;
-        padding: 2px;
-        margin-top: 0px;
-        margin-bottom: 0px;
-        text-align: left;
-    }
-    .ii a[href] {
-        text-decoration: none;
-        color: #0aa4ca;
-        font-size: 16px;
-    }
-    h2 {
-        margin-top: 0px;
-        color: #0aa4ca;
-        margin-bottom: 10px;
-        font-size: 25px;
-    }
     .content h3 {
-        font-size: 15px;
+        font-size: 16px;
         font-weight: 500;
         color: black;
+        margin-top: 22px;
         margin-bottom: 22px;
-        text-align: center;
-        line-height: 27px;
+        text-align: left;
+        line-height: 22px;
     }
     .content h5 {
         text-align: justify;
         color: #696262;
         font-size: 12px;
         margin-top: 15px;
-        line-height: 27px;
+        line-height: 20px;
     }
-    .footer {
-        background: #0aa4ca;
-        color: white;
+    .sb-reg-info{
+        text-align: left;
+        padding: 20px;
+        background: #fff;
+        margin-bottom: 22px;
+        box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+        border: 1px solid rgba(0,0,0,.05);
+    }
+    .sb-reg-info h2{
         text-align: center;
-        padding: 5px 10px 25px 10px;
+        padding-bottom: 0px;
         margin-top: 0px;
-        display: block;
+        color: #0aa4ca;
+        margin-bottom: 10px;
+        font-size: 25px;
     }
-    .footer img{
-        padding:10px;
-        margin: auto;
-        align-items: center;
+    .sb-reg-info  .shosurbari-biodata-field label {
+        color: #000;
+        font-weight: bold;
+        font-size: 14px;
+    }
+    .sb-reg-info  .shosurbari-biodata-field p{
+        width: auto;
+        height: auto;
+        padding: 2px 12px;
+        line-height: 22px;
+        font-size: 14px;
+        font-weight: 500;
+        text-align: left;
+        color: #696262;
+        background-color: #4cafe809;
+        border-radius: 4px;
+    }
+    div p {
+        display: ;
+        margin-block-start: -3px;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+    }
+    .shosurbari-biodata-field a {
+        font-size: 14px;
+        color: #696262;
+    } 
+    .ii a[href] {
+        text-decoration: none;
+        color: #0aa4ca;
+        font-size: 16px;
     }
     .sb-biodata-info-sent{
         background: #fff;
-        border-radius: 15px;
         padding: 15px;
-        margin: 40px auto;
-        margin-bottom: 5px;
+        margin-top: 15px;
         box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
         border: 1px solid rgba(0,0,0,.05);
     }
@@ -158,6 +140,24 @@ if ($result && mysqli_num_rows($result) > 0) {
         font-size: 25px;
         margin-top: 15px;
     }
+    .note{
+        border: 1px solid #ccc;
+        margin-top: 5px;
+        padding: 13px;
+    }
+    .footer {
+        background: #0aa4ca;
+        color: white;
+        text-align: center;
+        padding: 5px 10px 25px 10px;
+        margin-top: 0px;
+        display: block;
+    }
+    .footer img{
+        padding:10px;
+        margin: auto;
+        align-items: center;
+    }
     </style>
 </head>
 <body>
@@ -168,8 +168,8 @@ if ($result && mysqli_num_rows($result) > 0) {
         <div class='content'>
             <h3>আমাদের সাথে থাকার জন্য আপনাকে ধন্যবাদ! শ্বশুরবাড়ি ডট কম শুধুমাত্র দুইটি পরিবারের মধ্যে যোগাযোগের মাধ্যম হিসাবে পরিচালিত। নিচে বায়োডাটা নং এ ক্লিক করে দেখে নিতেন পারেন সম্পূর্ণ প্রফাইলটি।</h3>
             <div class="sb-reg-info">
-                <h2>রিসিভ আইডি: <?php echo "SBCR$sbo_id";?></h2>
                 <div class="sb-biodata" id="religionDetails">
+                    <h2>রিসিভ আইডি: <?php echo "SBCR$sbo_id";?></h2>
                     <div class="sb-biodata-info-sent">
                         <div class="shosurbari-biodata-field">
                             <label for="edit-name">রিকোয়েস্ট আইডি</label>

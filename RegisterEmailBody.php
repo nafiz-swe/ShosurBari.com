@@ -2,17 +2,29 @@
 <head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
+@import url('https://fonts.maateen.me/adorsho-lipi/font.css');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+@font-face {
+font-family: 'AdorshoLipi';
+src: url('font/AdorshoLipi.eot');
+src: url('font/AdorshoLipi.woff') format('woff'),
+url('font/AdorshoLipi.ttf') format('truetype'),
+url('font/AdorshoLipi.svg#AdorshoLipi') format('svg'),
+url('font/AdorshoLipi.eot?#iefix') format('embedded-opentype');
+font-weight: normal;
+font-style: normal;
+}
 body {
-    font-family: Arial, sans-serif;
-    background-color: #2ecc71;
+    font-family: 'AdorshoLipi', 'Ubuntu', sans-serif !important;
     margin: 0;
     padding: 0;
 }
 .container {
     max-width: 600px;
     margin: 0 auto;
-    padding: 10px;
-    background: #ffffff;
+    padding: 30px;
+    background: #ddf4ff66;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .header {
@@ -20,56 +32,32 @@ body {
     color: white;
     text-align: center;
     padding: 2px 20px;
-    font-size: 15px;
+    font-size: 12px;
     line-height: 30px;
-    height: 60px;
+    height: 80px;
+}
+.header h1 {
+    font-size: 30px;
+    line-height: 40px;
 }
 .content {
-    padding: 10px 15px;
-    border-right: 20px solid #0aa4ca;
-    border-left: 20px solid #0aa4ca;
     text-align: center;
 }
-table {
-    border: 1px #ccc;
-    border-collapse: collapse;
-    border-spacing: 0;
-    margin: auto;
-    width: 100%;
-}
-.sb-reg-info{
-    border: 2px solid #0aa4ca;
-    padding: 25px;
-}
-.sb-reg-info-heading{
-    font-size: 15px;
-    color: #000000;
-    padding: 5px;
-    padding-left: 10px;
-    font-weight: 450;
-    width: 33%;
-    position: inherit;
+.content h3 {
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+    margin-top: 22px;
+    margin-bottom: 22px;
     text-align: left;
-    border: 1px solid #ccc;
-    border-style: groove;
+    line-height: 22px;
 }
-.sb-reg-info-data, .sb-reg-info-data a{
-    font-size: 15px;
-    color: #0aa4ca;
-    padding: 5px;
-    padding-left: 10px;
-    font-weight: 450;
-    width: 67%;
-    position: inherit;
-    text-align: left;
-    text-decoration: none;
-    border: 1px solid #ccc;
-    border-style: groove;
-}
-.note{
-    border: 1.5px solid #ccc;
-    margin-top: 5px;
-    padding: 13px;
+.content h5 {
+    text-align: justify;
+    color: #696262;
+    font-size: 12px;
+    margin-top: 15px;
+    line-height: 20px;
 }
 .content p {
     font-size: 12px;
@@ -89,28 +77,63 @@ table {
     color: #0aa4ca;
     font-size: 12px;
 }
-.ii a[href] {
-    text-decoration: none;
-    color: #0aa4ca;
-    font-size: 12px;
-}
 span a {
     text-decoration: none;
     color: black;
     font-size: 12px;
 }
-.content h3 {
-    font-size: 15px;
-    font-weight: none;
-    color: black;
-    margin-bottom: 22px;
-    text-align: left;
+table {
+    border: 1px #ccc;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: auto;
+    width: 100%;
 }
-.content h5 {
-    text-align: justify;
-    color: #696262;
+.sb-reg-info{
+    padding: 20px;
+    background: #fff;
+    margin-bottom: 22px;
+    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+    border: 1px solid rgba(0,0,0,.05);
+}
+.sb-reg-info-heading{
     font-size: 12px;
-    margin-top: 15px;
+    color: #000000;
+    padding: 5px;
+    padding-right: 10px;
+    font-weight: 450;
+    width: 35%;
+    position: inherit;
+    text-align: right;
+    border: 1px solid #ccc;
+    border-style: groove;
+}
+.sb-reg-info-data {
+    font-size: 12px;
+    color: #0aa4ca;
+    padding: 5px;
+    padding-left: 10px;
+    font-weight: 450;
+    width: 65%;
+    position: inherit;
+    text-align: left;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    border-style: groove;
+}
+.sb-reg-info-data a {
+    font-size: 12px;
+    color: #0aa4ca;
+}
+.ii a[href] {
+    text-decoration: none;
+    color: #0aa4ca;
+    font-size: 12px;
+}
+.note{
+    border: 1px solid #ccc;
+    margin-top: 5px;
+    padding: 13px;
 }
 .footer {
     background: #0aa4ca;

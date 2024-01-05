@@ -53,23 +53,21 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
                 $_SESSION['id'] = $id;
                 header("location: ../my-account.php");
             } else {
-                $_SESSION['error_message'] = "উফফ! আপনার Password এ সমস্যা দেখা দিয়েছে। আপনার Password টি সঠিক নয়।";
-                // Redirect to login page with error message
+                $_SESSION['error_message'] = "উফফ! আপনার Password এ সমস্যা দেখা দিয়েছে। '$password' এটি সঠিক নয়।";
                 header("location: ../login.php");
-                exit(); // Ensure script stops execution
+                exit();
             }
         } else {
-            $_SESSION['error_message'] = "উফফ! আপনার Email or Username এ সমস্যা দেখা দিয়েছে। আপনার Email or Username টি সঠিক নয়।";
-            // Redirect to login page with error message
+            $_SESSION['error_message'] = "উফফ! আপনার Email or Username এ সমস্যা দেখা দিয়েছে। '$username' এটি সঠিক নয়।";
             header("location: ../login.php");
-            exit(); // Ensure script stops execution
+            exit();
         }
         $stmt->close();
     } else {
         // Error in prepared statement
         $_SESSION['error_message'] = "Error in login: " . $conn->error;
         header("location: ../login.php");
-        exit(); // Ensure script stops execution
+        exit(); //stops execution
     }
     $conn->close();    
 }

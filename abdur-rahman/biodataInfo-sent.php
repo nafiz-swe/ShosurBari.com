@@ -101,7 +101,7 @@ if (!isset($_SESSION['admin_id'])) {
             </div>
             <div class="shosurbari-biodata-field">
               <label for="edit-name">কাস্টমার স্থায়ী ঠিকানা<span class="form-required" title="This field is required.">*</span></label>
-              <input type="email" name="payment_cust_address" value="" placeholder="কাস্টমার স্থায়ী ঠিকানা" class="form-text" required>
+              <input type="text" name="payment_cust_address" value="" placeholder="কাস্টমার স্থায়ী ঠিকানা" class="form-text" required>
             </div>
             <div class="shosurbari-biodata-field">
               <label for="edit-name">পেমেন্ট তারিখ<span class="form-required" title="This field is required.">*</span></label>

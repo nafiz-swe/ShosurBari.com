@@ -236,20 +236,20 @@ $conn->close();
       <?php
       include("includes/dbconn.php");
       $id = isset($_SESSION['id']) ? $_SESSION['id'] : 0;
-      $sql = "SELECT * FROM customer WHERE user_id = $id ORDER BY STR_TO_DATE(request_date, '%e %M %Y, %h:%i:%s %p') DESC";
+      $sql = "SELECT * FROM customer WHERE user_id = $id ORDER BY STR_TO_DATE(request_date, '%a %d %M %Y, %h:%i %p') DESC";
       $result = mysqlexec($sql);
-      $sql2 = "SELECT * FROM customer_sent_info_complete WHERE user_id = $id  ORDER BY STR_TO_DATE(info_sent_time, '%e %M %Y, %h:%i:%s %p') DESC";
+      $sql2 = "SELECT * FROM customer_sent_info_complete WHERE user_id = $id  ORDER BY STR_TO_DATE(info_sent_time, '%a %d %M %Y, %h:%i %p') DESC";
       $result2 = mysqlexec($sql2);
 
       $sql3 = "SELECT * FROM customer_sent_info_complete
          WHERE biodata_number_1 = $id OR biodata_number_2 = $id OR biodata_number_3 = $id OR biodata_number_4 = $id
             OR biodata_number_5 = $id OR biodata_number_6 = $id OR biodata_number_7 = $id OR biodata_number_8 = $id
             OR biodata_number_9 = $id OR biodata_number_10 = $id
-         ORDER BY STR_TO_DATE(info_sent_time, '%e %M %Y, %h:%i:%s %p') DESC";
+         ORDER BY STR_TO_DATE(info_sent_time, '%a %d %M %Y, %h:%i %p') DESC";
       $result3 = mysqlexec($sql3);
       ?>
       <h1>রিকোয়েস্ট বায়োডাটা পেমেন্ট তথ্য </h1>
-      <p style="margin-bottom: 20px;"><i id="bell" class="fa fa-bell"></i> আপনি যেকোনো বায়োডাটার সাথে যোগাযোগ করতে আগ্রহ হইলে, সার্ভিস চার্জ প্রদান করার পর এখানে পেমেন্ট তথ্য দেখতে পাবেন।</p>
+      <p style="margin-bottom: 20px;"><i id="bell" class="fa fa-bell"></i> আপনি যেকোনো বায়োডাটার সাথে যোগাযোগের জন্য সার্ভিস চার্জ প্রদান করার পর এখানে আপনার পেমেন্ট তথ্য দেখতে পাবেন।</p>
       <div class="shosurbari-order-dashboard">
         <table class="shosurbari-users-request">
           <tr>
@@ -432,7 +432,7 @@ $conn->close();
       </div>
 
       <h1> আপনার বায়োডাটা পছন্দ করেছে</h1>
-      <p style="margin-bottom: 20px;"><i id="bell" class="fa fa-bell"></i> বিয়ের জন্য আগ্রহী ইউজার আপনার বায়োডাটা পছন্দ করার পর, তার পেমেন্ট তথ্য যাচাই বাছাই করে শ্বশুরবাড়ির কাস্টমার সার্ভিস থেকে আপনার অভিভাবককে কল করবে। যদি আপনার (পাত্র-পাত্রীর) বিয়ে ঠিক না হয়ে থাকে তবেই আপনাদের যোগাযোগের তথ্য আগ্রহী ইউজারকে প্রদান করা হবে, তারপর এখানে সেই আগ্রহী ইউজারের বায়োডাটা (যদি থাকে), নাম, ইমেইল এবং স্থায়ী ঠিকানা দেখতে পাবেন।</p>
+      <p style="margin-bottom: 20px;"><i id="bell" class="fa fa-bell"></i> বিয়ের জন্য আগ্রহী ইউজার আপনার বায়োডাটা পছন্দ করার পর, তার পেমেন্ট তথ্য যাচাই বাছাই করে শ্বশুরবাড়ির কাস্টমার সার্ভিস থেকে আপনার (বায়োডাটার) অভিভাবককে কল করবে। যদি আপনার (পাত্র-পাত্রীর) বিয়ে ঠিক না হয়ে থাকে তবেই আপনাদের যোগাযোগের তথ্য আগ্রহী ইউজারকে প্রদান করা হবে, তারপর এখানে সেই আগ্রহী ইউজারের বায়োডাটা (যদি থাকে), নাম, ইমেইল এবং স্থায়ী ঠিকানা দেখতে পাবেন।</p>
       <div class="shosurbari-contactme-dashboard">
         <?php
 echo "<table class='shosurbari-users-request'>

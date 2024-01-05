@@ -274,10 +274,10 @@
             $email_exists = mysqli_fetch_array($email_result)[0];
             $username_exists = mysqli_fetch_array($username_result)[0];
             if ($username_exists > 0) {
-                $_SESSION['error_message'] = "উফফ! এই Username দিয়ে ইতিমধ্যে একটি একাউন্ট রয়েছে। অনুগ্রহ করে Username পরিবর্তন করে আবার চেষ্টা করুন।";
+                $_SESSION['error_message'] = "উফফ! '$uname' এই Username দিয়ে ইতিমধ্যে একটি একাউন্ট রয়েছে। অনুগ্রহ করে Username পরিবর্তন করে আবার চেষ্টা করুন।";
                 exit();
             } elseif ($email_exists > 0) {
-                $_SESSION['error_message'] = "উফফ! এই Email দিয়ে ইতিমধ্যে একটি একাউন্ট রয়েছে। অনুগ্রহ করে আপনার একাউন্ট লগইন করুন।";
+                $_SESSION['error_message'] = "উফফ! '$email' এই Email দিয়ে ইতিমধ্যে একটি একাউন্ট রয়েছে। অনুগ্রহ করে আপনার একাউন্ট লগইন করুন।";
                 exit();
             } else {
                 $selectedCountryCode = $_POST['selectedCountryCode'];

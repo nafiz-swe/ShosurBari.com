@@ -2,17 +2,29 @@
 <head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
+@import url('https://fonts.maateen.me/adorsho-lipi/font.css');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+@font-face {
+    font-family: 'AdorshoLipi';
+    src: url('font/AdorshoLipi.eot');
+    src: url('font/AdorshoLipi.woff') format('woff'),
+    url('font/AdorshoLipi.ttf') format('truetype'),
+    url('font/AdorshoLipi.svg#AdorshoLipi') format('svg'),
+    url('font/AdorshoLipi.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+}
 body {
-    font-family: Arial, sans-serif;
-    background-color: #2ecc71; /* Updated background color */
+    font-family: 'AdorshoLipi', 'Ubuntu', sans-serif !important;
     margin: 0;
     padding: 0;
 }
 .container {
     max-width: 600px;
     margin: 0 auto;
-    padding: 10px;
-    background: #ffffff;
+    padding: 30px;
+    background: #ddf4ff66;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .header {
@@ -22,18 +34,30 @@ body {
     padding: 2px 20px;
     font-size: 12px;
     line-height: 30px;
-    height: 60px;
+    height: 80px;
+}
+.header h1 {
+    font-size: 30px;
+    line-height: 40px;
 }
 .content {
-    padding: 10px 15px;
-    border-right: 20px solid #0aa4ca;
-    border-left: 20px solid #0aa4ca;
     text-align: center;
 }
-.note{
-    border: 1.5px solid #ccc;
-    margin-top: 5px;
-    padding: 13px;
+.content h3 {
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+    margin-top: 22px;
+    margin-bottom: 22px;
+    text-align: left;
+    line-height: 22px;
+}
+.content h5 {
+    text-align: justify;
+    color: #696262;
+    font-size: 12px;
+    margin-top: 15px;
+    line-height: 20px;
 }
 .content p {
     font-size: 12px;
@@ -63,24 +87,18 @@ span a {
     color: black;
     font-size: 12px;
 }
-.content h3 {
-    font-size: 15px;
-    font-weight: none;
-    color: black;
-    margin-bottom: 22px;
-    text-align: left;
-}
-.content h5 {
-    text-align: justify;
-    color: #696262;
-    font-size: 12px;
-    margin-top: 15px;
+.note{
+    border: 1px solid #ccc;
+    margin-top: 5px;
+    padding: 10px;
 }
 .footer {
     background: #0aa4ca;
     color: white;
     text-align: center;
-    padding: 5px 10px 20px 10px;
+    padding: 5px 10px 25px 10px;
+    margin-top: 0px;
+    display: block;
 }
 .footer img{
     padding:10px;
@@ -99,7 +117,7 @@ span a {
             <h3>আপনার একাউন্ট লগইন করার জন্য পাসওয়ার্ড পুনরুদ্ধারের একটি অনুরোধ করা হয়েছে।</h3>
             <p>পাসওয়ার্ড: <a style="text-decoration:underline; color: #0aa4ca;" href='https://www.shosurbari.com/new-password.php'>পাসওয়ার্ড পরিবর্তন করুন <span>(ক্লিক করুন)</span></a></p>
             <p>ই-মেইল: <span style="text-decoration: none; color: #0ea5e9; font-size: 12px;"> <?php echo $email; ?> </span></p>
-            <h5 class="note" style="font-weight: none;"> <strong style="color: #696262; font-weight: bold;">বি:দ্র: </strong> আপনার পাসওয়ার্ড সুরক্ষিত রাখতে অনুগ্রহ করে মনে রাখবেন। পাসওয়ার্ড কারো সাথে শেয়ার করবেন না।</h5>
+            <h5 class="note" style="font-weight: none;"> <strong style="color: red; font-weight: bold;">বি:দ্র: </strong> আপনার পাসওয়ার্ড সুরক্ষিত রাখতে অনুগ্রহ করে মনে রাখবেন। পাসওয়ার্ড কারো সাথে শেয়ার করবেন না।</h5>
         </div>
         <div class='footer'>
             <p>&copy; 2022-23 ShosurBari.com | All Rights Reserved</p>
