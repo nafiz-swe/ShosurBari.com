@@ -365,7 +365,7 @@
             Connect with us:
             - Website: https://www.shoshurbari.com
             - Facebook: https://www.facebook.com/ShoshurBari.bd
-            - Email: support@shoshurbari.com
+            - Email: info@shoshurbari.com
             - YouTube: https://www.youtube.com/c/ShoshurBari
             (c) 2022-23 ShosurBari.com | All Rights Reserved
             ";

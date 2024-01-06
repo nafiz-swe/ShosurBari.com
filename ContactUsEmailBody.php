@@ -43,7 +43,7 @@ h2 {
     margin-top: 22px;
     margin-bottom: 22px;
     text-align: left;
-    line-height: 22px;
+    line-height: 25px;
 }
 .content h5 {
     text-align: justify;
@@ -144,38 +144,38 @@ table {
 <body>
 <div class='container'>
     <div class='header'>
-        <h1>Contact Message</h1>
+        <h1>যোগাযোগ বার্তা</h1>
     </div>
     <div class='content'>
-        <h3>Thank you for choosing ShosurBari.com! You will be contacted soon In Sha Allah. We look forward to serving you.</h3>
+        <h3>শ্বশুরবাড়ি ডট কমে আপনাকে স্বাগতম। আপনার তথ্য সফল ভাবেই জমা হয়েছে। শীঘ্রই আপনার সাথে যোগাযোগ করা হবে ইনশাআল্লাহ। আপনাকে সেবা দিতে আমারা আগ্রহী।</h3>
         <div class="sb-reg-info">
-            <h2>Contact ID: <?php echo "SBCM$contact_id";?></h2>
+            <h2>মেসেজ আইডি: <?php echo "SBCM$contact_id";?></h2>
             <table>
                 <tbody>
                     <tr>
-                        <td class="sb-reg-info-heading">Full Name</td>
+                        <td class="sb-reg-info-heading">নাম</td>
                         <td class="sb-reg-info-data"> <?php echo $name_contactus; ?> </td>
                     </tr>
                     </tr>
                     <tr>
-                        <td class="sb-reg-info-heading">Number</td>
+                        <td class="sb-reg-info-heading">নাম্বার</td>
                         <td class="sb-reg-info-data"> <?php echo "$selectedCountryCode $number_contactus"; ?> </td>
                     </tr>
                     <tr>
-                        <td class="sb-reg-info-heading">Email</td>
+                        <td class="sb-reg-info-heading">ই-মেইল</td>
                         <td class="sb-reg-info-data"> <?php echo $email_contactus; ?> </td>
                     <tr>
-                        <td class="sb-reg-info-heading">Subject</td>
-                        <td class="sb-reg-info-data"> <?php echo $subject; ?> </td>
+                        <td class="sb-reg-info-heading">বিষয়</td>
+                        <td class="sb-reg-info-data"> <?php echo $message_subject; ?> </td>
                     </tr>
                     <tr>
-                        <td class="sb-reg-info-heading">Message</td>
+                        <td class="sb-reg-info-heading">মেসেজ</td>
                         <td class="sb-reg-info-data"> <?php echo $message_contactus; ?> </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <h5 class="note" style="font-weight: none;"> <strong style="color: red; font-weight: bold;">Note: </strong> If you do not receive a response from us, leave a message on our Facebook page.</h5>
+        <h5 class="note" style="font-weight: none;"> <strong style="color: red; font-weight: bold;">বি:দ্র: </strong> আপনি যদি আমাদের কাছ থেকে ৭২ ঘন্টার মধ্যে কোনো প্রতিক্রিয়া না পান তবে আমাদের ফেসবুক পেজে একটি মেসেজ দিন।</h5>
     </div>
     <div class='footer'>
         <p>&copy; 2022-23 ShosurBari.com | All Rights Reserved</p>

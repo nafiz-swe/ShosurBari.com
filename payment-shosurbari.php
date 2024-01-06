@@ -315,7 +315,7 @@ if (isset($_COOKIE[$cookieName])) {
           </div>
           <div class="form-group">
             <label>মোবাইল নাম্বার<span class="form-required" title="This field is required.">*</span></label>
-            <input type="tel" id="pnumber" placeholder="আপনার ফোন নাম্বার" name="cust_number" value="<?php echo $pnumber; ?>" size="60" minlength="10" maxlength="14" class="form-text required">
+            <input type="tel" id="pnumber" placeholder="আপনার ফোন নাম্বার" name="cust_number" value="<?php echo $pnumber; ?>" size="50" maxlength="15" class="form-text required">
             <input type="hidden" id="selectedCountryCode" name="selectedCountryCode">
             <input type="hidden" id="selectedCountryName" name="selectedCountryName">
             <span id="phone-error" class="shosurbari-form-error"></span>
@@ -622,14 +622,14 @@ if (isset($_COOKIE[$cookieName])) {
     emailError.style.display = 'none';
     }
     // Phone number validation
-    if (phone == "") {
+    if (phone.trim() === "") {
     var pnumber = document.getElementById('pnumber');
     pnumber.style.borderColor = "red";
     pnumber.scrollIntoView({
     behavior: 'smooth',
     block: 'center',
     });
-    phoneError.innerHTML = "উফফ! আপনার মোবাইল নাম্বার লিখুন।";
+    document.getElementById('phone-error').innerHTML = "উফফ! আপনার মোবাইল নাম্বার লিখুন।";
     phoneError.style.display = 'block';
     phoneError.classList.add('fade-in');
     phoneError.style.padding = '5px';
@@ -640,10 +640,10 @@ if (isset($_COOKIE[$cookieName])) {
     colorIndex = (colorIndex + 1) % colors.length;
     }, 500);
     return false;
-    } else if (phone.length < 10 || phone.length > 14) {
+    } else if (!/^\d+$/.test(phone) || phone.length < 9 || phone.length > 15) {
     var pnumber = document.getElementById('pnumber');
     pnumber.style.borderColor = "red";
-    document.getElementById('phone-error').innerHTML = "উফফ! নাম্বারের মধ্যে কোন চিহ্ন বা স্পেস গ্রহণ যোগ্য নয় এবং এর সীমা ৯ থেকে ১৫ ডিজিট।";
+    document.getElementById('phone-error').innerHTML = "উফফ! নাম্বারের মধ্যে কোন চিহ্ন, বাংলা বা স্পেস গ্রহণ যোগ্য নয় এবং এর সীমা ৯ থেকে ১৫ ডিজিট।";
     pnumber.scrollIntoView({
     behavior: 'smooth',
     block: 'center',
@@ -654,12 +654,13 @@ if (isset($_COOKIE[$cookieName])) {
     phoneError.style.color = colors[colorIndex];
     colorIndex = (colorIndex + 1) % colors.length;
     }, 500);
+    phoneError.style.display = 'block'; // Display the error message
     return false;
     } else {
     var pnumber = document.getElementById('pnumber');
     pnumber.style.borderColor = "green";
     phoneError.innerHTML = "";
-    phoneError.style.display = 'none'; 
+    phoneError.style.display = 'none';
     }
     // Validate address
     if (address == "") {

@@ -145,30 +145,55 @@ include_once("functions.php");
               <div class="sb-biodata-field">
                 <h2>Contact Us</h2>
               </div>
+              <?php
+              session_start();
+              include("includes/basic_includes.php");
+              if(isset($_SESSION['id'])){
+              $id = $_SESSION['id'];
+              include("includes/dbconn.php");
+              $sql = "SELECT * FROM users WHERE id = $id";
+              $result = mysqlexec($sql);
+              if ($result && mysqli_num_rows($result) > 0) {
+              $row = mysqli_fetch_assoc($result);
+              $fullname = $row['fullname'];
+              $email = $row['email'];
+              $pnumber = $row['number'];
+              }
+              } else {
+              $fullname = '';
+              $email = '';
+              $pnumber = '';
+              }
+              ?>
               <div class="form-group">
-                <input type="text" id="name_contactus" placeholder="Full Name" name="name_contactus" value="" size="60" maxlength="60" class="form-text required">
+                <input type="text" id="name_contactus" placeholder="আপনার পুরো নাম" name="name_contactus" value="<?php echo $fullname; ?>" size="60" maxlength="60" class="form-text required">
                 <span id="name-error" class="shosurbari-form-error"></span>
               </div>
               <div class="form-group">
-                <input type="email" id="email_contactus" placeholder="Email" name="email_contactus" value="" size="60" maxlength="60" class="form-text">
+                <input type="email" id="email_contactus" placeholder="আপনার ই-মেইল" name="email_contactus" value="<?php echo $email; ?>" size="60" maxlength="60" class="form-text">
                 <span id="email-error" class="shosurbari-form-error"></span>
               </div>
               <div class="form-group">
-                <input type="tel" id="number_contactus" placeholder="Phone Number" name="number_contactus" value="" size="60" minlength="10" maxlength="15" class="form-text required">
+                <input type="tel" id="number_contactus" placeholder="আপনার ফোন নাম্বার" name="number_contactus" value="<?php echo $pnumber; ?>" size="50" maxlength="15" class="form-text required">
                 <input type="hidden" id="selectedCountryCode" name="selectedCountryCode">
                 <input type="hidden" id="selectedCountryName" name="selectedCountryName">
                 <span id="phone-error" class="shosurbari-form-error"></span>
               </div>
               <div class="form-group">
-                <input type="text" id="subject" placeholder="Subject :" name="subject" value=""   class="form-text required">
+                <input type="text" id="subject" placeholder="বিষয়" name="subject" value="" class="form-text required">
                 <span id="subject-error" class="shosurbari-form-error"></span>
               </div>
               <div class="form-group">
-                <textarea rows="6" id="message_contactus" name="message_contactus" placeholder="Type Your Message..." class="form-text-describe required" maxlength="2000"></textarea>
+                <textarea rows="6" id="message_contactus" name="message_contactus" placeholder=" ৫০০ অক্ষরের মধ্যে আপনার বার্তা লিখুন..." class="form-text-describe required" maxlength="500"></textarea>
                 <span id="message-error" class="shosurbari-form-error"></span>
               </div>
               <div class="form-actions">
                 <button type="submit" id="edit-submit" name="op" class="btn_1 submit">Submit</button>
+              </div>
+              <!-- Popup message -->
+              <div class="popup-message">
+                <h3></h3>
+                <p></p>
               </div>
               <div class="overlay"></div>
             </div>
@@ -176,11 +201,6 @@ include_once("functions.php");
         </form>
       </div>
     </div>
-  </div>
-  <!-- Popup message -->
-  <div class="popup-message">
-    <h3></h3>
-    <p></p>
   </div>
   <!--=======================================
   How Many Visitors View This Page.
@@ -243,161 +263,185 @@ include_once("functions.php");
       var nameError = document.getElementById("name-error");
       var emailError = document.getElementById("email-error");
       var phoneError = document.getElementById("phone-error");
-      var messageError = document.getElementById("subject-error");
+      var subjectError = document.getElementById("subject-error");
       var messageError = document.getElementById("message-error");
       var valid = true;
-      //Full Name validation
-      if (name == "") {
-        document.getElementById('name_contactus').style.borderColor = "red";
-        document.getElementById('name_contactus').scrollIntoView({
+    // Full Name validation
+    if (name == "") {
+      var nameElement = document.getElementById('name_contactus');
+      nameElement.style.borderColor = "red";
+      nameElement.scrollIntoView({
         behavior: 'smooth',
         block: 'center',
-        });
-        var errorDiv = document.getElementById('name-error');
-        errorDiv.innerHTML = "Please enter your Full Name!";
-        errorDiv.style.display = 'block';
-        errorDiv.classList.add('fade-in');
-        var colors = ['green', 'blue', 'red'];
-        var colorIndex = 0;
-        setInterval(function() {
+      });
+      var errorDiv = document.getElementById('name-error');
+      errorDiv.innerHTML = "উফফ! আপনার সম্পূর্ণ নাম লিখুন।";
+      errorDiv.style.display = 'block';
+      errorDiv.classList.add('fade-in');
+      errorDiv.style.padding = '5px';
+      var colors = ['green', 'blue', 'red'];
+      var colorIndex = 0;
+      setInterval(function () {
         errorDiv.style.color = colors[colorIndex];
         colorIndex = (colorIndex + 1) % colors.length;
-        }, 500);
+      }, 500);
       return false;
-      }else{
+    } else {
+      // Reset styles for a valid input
       document.getElementById('name_contactus').style.borderColor = "green";
-      document.getElementById('name-error').innerHTML = "";
-      }
-      //Email validation Start
-      if (email == "") {
-        document.getElementById('email_contactus').style.borderColor = "red";
-        document.getElementById('email_contactus').scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-        });
-        var errorDiv = document.getElementById('email-error');
-        errorDiv.innerHTML = "Please enter your Email!";
-        errorDiv.style.display = 'block';
-        errorDiv.classList.add('fade-in');
-        var colors = ['green', 'blue', 'red'];
-        var colorIndex = 0;
-        setInterval(function() {
-        errorDiv.style.color = colors[colorIndex];
-        colorIndex = (colorIndex + 1) % colors.length;
-        }, 500);
-      return false;
-      }else if(! /^[a-zA-Z0-9._-]+@(gmail|outlook|hotmail|yahoo).com$/.test(email)){
-        document.getElementById('email_contactus').style.borderColor = "red";
-        document.getElementById('email_contactus').scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-        });
-        var errorDiv = document.getElementById('email-error');
-        errorDiv.innerHTML = "Please Enter a Valid Email. You can Use: '@' gmail, outlook, hotmail, yahoo '.com'";
-        errorDiv.style.display = 'block';
-        errorDiv.classList.add('fade-in');
-        var colors = ['green', 'blue', 'red'];
-        var colorIndex = 0;
-        setInterval(function() {
-        errorDiv.style.color = colors[colorIndex];
-        colorIndex = (colorIndex + 1) % colors.length;
-        }, 500);
-      return false;
-      }else{
-      document.getElementById('email_contactus').style.borderColor = "green";
-      document.getElementById('email-error').innerHTML = "";
-      }
-      //Phone number validation Start
-      var phoneInput = document.getElementById("number_contactus");
-      var phone = phoneInput.value.replace(/[^\d]/g, ''); // Remove any non-digit characters from the input
-      if (phone.length === 0) {
-        phoneInput.style.borderColor = "red";
-        phoneInput.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-        });
-        var errorDiv = document.getElementById('phone-error');
-        errorDiv.innerHTML = "Please enter your phone number!";
-        errorDiv.style.display = 'block';
-        errorDiv.classList.add('fade-in');
-        var colors = ['green', 'blue', 'red'];
-        var colorIndex = 0;
-        setInterval(function() {
-        errorDiv.style.color = colors[colorIndex];
-        colorIndex = (colorIndex + 1) % colors.length;
-        }, 500);
-      return false;
-      } else if (phone.length < 10 || phone.length > 15) {
-        phoneInput.style.borderColor = "red";
-        phoneInput.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-        });
-        var errorDiv = document.getElementById('phone-error');
-        errorDiv.innerHTML = "Phone number must be between 10 and 15 digits, Remove any non-digit characters & space from the input.";
-        errorDiv.style.display = 'block';
-        errorDiv.classList.add('fade-in');
-        var colors = ['green', 'blue', 'red'];
-        var colorIndex = 0;
-        setInterval(function() {
-        errorDiv.style.color = colors[colorIndex];
-        colorIndex = (colorIndex + 1) % colors.length;
-        }, 500);
-      return false;
-      } else {
-      phoneInput.style.borderColor = "green";
-      document.getElementById('phone-error').innerHTML = "";
-      }
-      // Subject Message Start
-      if (subject == "") {
-        document.getElementById('subject').style.borderColor = "red";
-        document.getElementById('subject').scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-        });
-        var errorDiv = document.getElementById('subject-error');
-        errorDiv.innerHTML = "Please enter your subject!";
-        errorDiv.style.display = 'block';
-        errorDiv.classList.add('fade-in');
-        var colors = ['green', 'blue', 'red'];
-        var colorIndex = 0;
-        setInterval(function() {
-        errorDiv.style.color = colors[colorIndex];
-        colorIndex = (colorIndex + 1) % colors.length;
-        }, 500);
-      return false;
-      }else{
-      document.getElementById('subject').style.borderColor = "green";
-      document.getElementById('subject-error').innerHTML = "";
-      }
-      // Validate Message Start
-      if (message === "") {
-        messageInput.style.borderColor = "red";
-        messageInput.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-        });
-        var errorDiv = document.getElementById('message-error');
-        errorDiv.innerHTML = "Please type your message !";
-        errorDiv.style.display = 'block';
-        errorDiv.classList.add('fade-in');
-        // Change color multiple times
-        var colors = ['green', 'blue', 'red'];
-        var colorIndex = 0;
-        setInterval(function() {
-        errorDiv.style.color = colors[colorIndex];
-        colorIndex = (colorIndex + 1) % colors.length;
-        }, 500);
-      return false;
-      } else {
-      messageInput.style.borderColor = "green";
-      document.getElementById('message-error').innerHTML = "";
-      }
-    return valid;
+      var errorDiv = document.getElementById('name-error');
+      errorDiv.innerHTML = "";
+      errorDiv.style.display = 'none';
+      errorDiv.style.padding = '0';
     }
+    // Email validation Start
+    if (email == "") {
+      var emailElement = document.getElementById('email_contactus');
+      emailElement.style.borderColor = "red";
+      emailElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+      });
+      var errorDiv = document.getElementById('email-error');
+      errorDiv.innerHTML = "উফফ! আপনার ই-মেইল লিখুন।";
+      errorDiv.style.display = 'block';
+      errorDiv.classList.add('fade-in');
+      errorDiv.style.padding = '5px';
+      var colors = ['green', 'blue', 'red'];
+      var colorIndex = 0;
+      setInterval(function () {
+        errorDiv.style.color = colors[colorIndex];
+        colorIndex = (colorIndex + 1) % colors.length;
+      }, 500);
+      return false;
+    } else if (!/^[a-zA-Z0-9._-]+@(gmail|outlook|hotmail|yahoo).com$/.test(email)) {
+      var emailElement = document.getElementById('email_contactus');
+      emailElement.style.borderColor = "red";
+      emailElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+      });
+      var errorDiv = document.getElementById('email-error');
+      errorDiv.innerHTML = "উফফ! ই-মেইল হিসাবে শুধুমাত্র ব্যবহার করা যাবে: '@' gmail, outlook, hotmail, yahoo '.com'";
+      errorDiv.style.display = 'block';
+      errorDiv.classList.add('fade-in');
+      errorDiv.style.padding = '5px';
+      var colors = ['green', 'blue', 'red'];
+      var colorIndex = 0;
+      setInterval(function () {
+        errorDiv.style.color = colors[colorIndex];
+        colorIndex = (colorIndex + 1) % colors.length;
+      }, 500);
+      return false;
+    } else {
+      document.getElementById('email_contactus').style.borderColor = "green";
+      var errorDiv = document.getElementById('email-error');
+      errorDiv.innerHTML = "";
+      errorDiv.style.display = 'none';
+      errorDiv.style.padding = '0';
+    }
+    // Phone number validation Start
+    if (phone.trim().length === 0) {
+      document.getElementById('number_contactus').style.borderColor = "red";
+      document.getElementById('number_contactus').scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+      });
+      phoneError.innerHTML = "উফফ! আপনার মোবাইল নাম্বার লিখুন।";
+      phoneError.style.display = 'block';
+      phoneError.classList.add('fade-in');
+      phoneError.style.padding = '5px';
+      var colors = ['green', 'blue', 'red'];
+      var colorIndex = 0;
+      setInterval(function () {
+        phoneError.style.color = colors[colorIndex];
+        colorIndex = (colorIndex + 1) % colors.length;
+      }, 500);
+      return false;
+    } else if (!/^\d+$/.test(phone) || phone.length < 9 || phone.length > 15) {
+      document.getElementById('number_contactus').style.borderColor = "red";
+      document.getElementById('number_contactus').scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+      });
+      phoneError.innerHTML = "উফফ! নাম্বারের মধ্যে কোন চিহ্ন, বাংলা বা স্পেস গ্রহণ যোগ্য নয় এবং এর সীমা ৯ থেকে ১৫ ডিজিট।";
+      phoneError.style.display = 'block';
+      phoneError.classList.add('fade-in');
+      phoneError.style.padding = '5px';
+      var colors = ['green', 'blue', 'red'];
+      var colorIndex = 0;
+      setInterval(function () {
+        phoneError.style.color = colors[colorIndex];
+        colorIndex = (colorIndex + 1) % colors.length;
+      }, 500);
+      return false;
+    } else {
+      document.getElementById('number_contactus').style.borderColor = "green";
+      phoneError.innerHTML = "";
+      phoneError.style.display = 'none';
+      phoneError.style.padding = '0';
+    }
+    // Subject Message Start
+    if (subject == "") {
+      document.getElementById('subject').style.borderColor = "red";
+      document.getElementById('subject').scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+      });
+      subjectError.innerHTML = "উফফ! আপনার মেসেজের বিষয় লিখুন।";
+      subjectError.style.display = 'block';
+      subjectError.classList.add('fade-in');
+      subjectError.style.padding = '5px';
+      var colors = ['green', 'blue', 'red'];
+      var colorIndex = 0;
+      setInterval(function () {
+        subjectError.style.color = colors[colorIndex];
+        colorIndex = (colorIndex + 1) % colors.length;
+      }, 500);
+      return false;
+    } else {
+      document.getElementById('subject').style.borderColor = "green";
+      subjectError.innerHTML = "";
+      subjectError.style.display = 'none';
+      subjectError.style.padding = '0';
+    }
+    // Validate Message Start
+    if (message === "") {
+      messageInput.style.borderColor = "red";
+      messageInput.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+      });
+      messageError.innerHTML = "উফফ! আপনার মেসেজ লিখুন।";
+      messageError.style.display = 'block';
+      messageError.classList.add('fade-in');
+      messageError.style.padding = '5px';
+      var colors = ['green', 'blue', 'red'];
+      var colorIndex = 0;
+      setInterval(function () {
+        messageError.style.color = colors[colorIndex];
+        colorIndex = (colorIndex + 1) % colors.length;
+      }, 500);
+      return false;
+    } else {
+      messageInput.style.borderColor = "green";
+      messageError.innerHTML = "";
+      messageError.style.display = 'none';
+      messageError.style.padding = '0';
+    }
+    return valid;
+  }
   </script>
   <!-- After Submit the FeedBack then Show PoP Up Message -->
   <script> 
+    // Show the loading message
+    function showLoadingMessage() {
+      document.querySelector('.overlay').style.display = 'block';
+      var popup = document.querySelector('.popup-message');
+      popup.style.display = 'block';
+      popup.querySelector('h3').innerHTML = 'অপেক্ষা করুন...';
+      popup.querySelector('p').innerHTML = 'আপনার তথ্য যাচাইকরণ চলছে।';
+    }
     function showSuccessMessage() {
       document.querySelector('.overlay').style.display = 'block';
       var popup = document.querySelector('.popup-message');
@@ -413,20 +457,23 @@ include_once("functions.php");
       document.querySelector('.overlay').style.display = 'none';
       });
     }
+    // Change the form submission code to the following
     $('form[name="myForm"]').submit(function(e) {
       e.preventDefault();
       if (validateForm()) {
-        $.ajax({
-          url: 'contact-us.php',
-          type: 'POST',
-          data: $(this).serialize(),
-          success: function(response) {
-          showSuccessMessage();
-          $('form[name="myForm"]')[0].reset();
-          },
-          error: function(jqXHR, textStatus, errorThrown) {
-          }
-        });
+      showLoadingMessage();
+      $.ajax({
+        url: 'contact-us.php',
+      type: 'POST',
+      data: $(this).serialize(),
+      success: function(response) {
+      $('.overlay').hide();
+      showSuccessMessage();
+      $('form[name="myForm"]')[0].reset();
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+      }
+      });
       }
     });
   </script>

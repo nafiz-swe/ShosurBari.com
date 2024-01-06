@@ -483,7 +483,7 @@
             $name_contactus = $_POST['name_contactus'];
             $number_contactus = $_POST['number_contactus'];
             $email_contactus = $_POST['email_contactus'];
-            $subject = $_POST['subject'];
+            $message_subject = $_POST['subject'];
             $message_contactus = $_POST['message_contactus'];
             require_once("includes/dbconn.php");
             if (isset($_SESSION['id'])) {
@@ -494,7 +494,7 @@
             $selectedCountryCode = $_POST['selectedCountryCode'];
             $selectedCountryName = $_POST['selectedCountryName'];
             $sql = "INSERT INTO contact_us (user_id, name_contactus, number_contactus, country_code, country_name, email_contactus, subject, message_contactus, unread_message, read_message, message_sendingdate) 
-                VALUES ('$user_id', '$name_contactus', '$number_contactus', '$selectedCountryCode', '$selectedCountryName', '$email_contactus', '$subject', '$message_contactus', 1, 0, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
+                VALUES ('$user_id', '$name_contactus', '$number_contactus', '$selectedCountryCode', '$selectedCountryName', '$email_contactus', '$message_subject', '$message_contactus', 1, 0, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             if (mysqli_query($conn, $sql)) {
                 $contact_id = mysqli_insert_id($conn);
                 $_SESSION['contact_id'] = $contact_id;
@@ -507,14 +507,15 @@
                 include('ContactUsEmailBody.php');
                 $email_body = ob_get_clean();
                 $plain_text_message = "
-                Contact Message
-                Thank you for choosing ShosurBari.com! You will be contacted soon In Sha Allah. We look forward to serving you.                Contact Id: $contact_id
-                Full Name: $name_contactus
-                Phone Number: $number_contactus
-                Email: $email_contactus
-                Subject: $subject
-                Message: $message_contactus
-                Note: If you do not receive a response from us, leave a message on our Facebook page.
+                যোগাযোগ বার্তা
+                শ্বশুরবাড়ি ডট কমে আপনাকে স্বাগতম। আপনার তথ্য সফল ভাবেই জমা হয়েছে। শীঘ্রই আপনার সাথে যোগাযোগ করা হবে ইনশাআল্লাহ। আপনাকে সেবা দিতে আমারা আগ্রহী।
+                মেসেজ আইডি: $contact_id
+                নাম: $name_contactus
+                নাম্বার: $number_contactus
+                ই-মেইল: $email_contactus
+                বিষয়: $subject
+                মেসেজ: $message_contactus
+                বি:দ্র: আপনি যদি আমাদের কাছ থেকে প্রতিক্রিয়া না পান তবে আমাদের ফেসবুক পেজে একটি মেসেজ দিন।
                 Connect with us:
                 - Website: https://www.shoshurbari.com
                 - Facebook: https://www.facebook.com/ShoshurBari.bd
