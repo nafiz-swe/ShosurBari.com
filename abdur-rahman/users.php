@@ -167,9 +167,10 @@ if (!isset($_SESSION['admin_id'])) {
           <th>UserName</th>
           <th>Gender</th>
           <th>Email</th>
-          <th>Phone</th>
+          <th>Country</th>
+          <th>Phone Code</th>
+          <th>Number</th>
           <th>Reg.Date</th>
-          <th>Edit</th>
           <th>Delete</th>
           <th>Deactivate/Activate</th>
           </tr>';
@@ -188,9 +189,10 @@ if (!isset($_SESSION['admin_id'])) {
           echo '<td>' . $row['username'] . '</td>';
           echo '<td>' . $row['gender'] . '</td>';
           echo '<td>' . $row['email'] . '</td>';
+          echo '<td>' . $row['country_name'] . '</td>';
+          echo '<td>' . $row['country_code'] . '</td>';
           echo '<td>' . $row['number'] . '</td>';
           echo '<td>' . $row['register_date'] . '</td>';
-          echo '<td><a href="../userhome.php?id=' . $id . '">Edit</a></td>';
           echo '<td><a href="#" onclick="confirmDelete(' . $id . ')">Delete</a></td><td>';
           if ($row['active'] == 1) {
             echo '<a href="#"  onclick="confirmDeactivate(' . $id . ')">Deactivate</a>';

@@ -531,15 +531,15 @@ if(isloggedin()){
 						</div>
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">পাত্র/পাত্রীর ই-মেইল<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
-							<input type="text" id="edit-name" name="groom_bride_email" value="<?php echo $groom_bride_email;?>" class="form-text" required>
+							<input type="email" id="edit-name" name="groom_bride_email" value="<?php echo $groom_bride_email;?>" class="form-text" required>
 						</div>
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">পাত্র/পাত্রীর মোবাইল নাম্বার<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
-							<input type="text" id="edit-name" name="groom_bride_number" value="<?php echo $groom_bride_number;?>" class="form-text" required>
+							<input type="text" id="edit-name" name="groom_bride_number" value="<?php echo $groom_bride_number;?>" class="form-text" minlength="9" maxlength="15" required>
 						</div>
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">অভিভাবকের মোবাইল নাম্বার<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
-							<input type="text" id="edit-name" name="groom_bride_family_number" value="<?php echo $groom_bride_family_number;?>" class="form-text" required>
+							<input type="text" id="edit-name" name="groom_bride_family_number" value="<?php echo $groom_bride_family_number;?>" class="form-text" required minlength="9" maxlength="15">
 						</div>
 						<div class="shosurbari-biodata-field">
 							<label for="edit-name">উক্ত মোবাইল নাম্বারটি যেই অভিভাবকের তার নাম লিখুন এবং অভিভাবক পাত্র/পাত্রীর কে হয়?<span class="form-required" title="This field is required.">*</span> <span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>

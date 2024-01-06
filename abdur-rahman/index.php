@@ -207,33 +207,27 @@ tbody {
                             $row = mysqli_fetch_assoc($result);
                             $totalCustomers = $row['totalCustomers'];
                             // Calculate the totals for each payment method
-// Function to get the count of records for a specific payment method
-function getPaymentMethodCount($conn, $paymentMethod)
-{
-    $sql = "SELECT COUNT(*) as count FROM customer_sent_info_complete WHERE real_payment_method LIKE '%$paymentMethod%'";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        $count = $result->fetch_assoc()['count'];
-        return $count;
-    } else {
-        return 0; // No rows found
-    }
-}
-
-// Example usage
-$bkashTotal = getPaymentMethodCount($conn, 'বিকাশ');
-$nagadTotal = getPaymentMethodCount($conn, 'নগদ');
-$roketTotal = getPaymentMethodCount($conn, 'রকেট');
+                            // Function to get the count of records for a specific payment method
+                            function getPaymentMethodCount($conn, $paymentMethod)
+                            {
+                            $sql = "SELECT COUNT(*) as count FROM customer_sent_info_complete WHERE real_payment_method LIKE '%$paymentMethod%'";
+                            $result = $conn->query($sql);
+                            if ($result->num_rows > 0) {
+                            $count = $result->fetch_assoc()['count'];
+                            return $count;
+                            } else {
+                            return 0; // No rows found
+                            }
+                            }
+                            $bkashTotal = getPaymentMethodCount($conn, 'বিকাশ');
+                            $nagadTotal = getPaymentMethodCount($conn, 'নগদ');
+                            $roketTotal = getPaymentMethodCount($conn, 'রকেট');
                             // Query to get the total number of distinct user_ids in the 'customer' table
-                           
                             $sql = "SELECT COUNT(DISTINCT user_id) as totalUsers FROM customer_sent_info_complete WHERE user_id != 0 AND user_id IS NOT NULL";
                             $result = mysqli_query($conn, $sql);
                             $row = mysqli_fetch_assoc($result);
                             $totalUsers = $row['totalUsers'];
                             // Customers Activity and Sale Biodata Result END
-
-
                             // Which Package Howmany Sale START
                             // Biodata 1
                             $sqlValue1 = "SELECT COUNT(*) as countValue1 FROM customer_sent_info_complete WHERE payment_biodata_quantity REGEXP '১[[:space:]]*টি*'";
@@ -286,9 +280,6 @@ $roketTotal = getPaymentMethodCount($conn, 'রকেট');
                             $rowValue10 = mysqli_fetch_assoc($resultValue10);
                             $countValue10 = $rowValue10['countValue10'];
                             // Which Package Howmany Sale END
-
-
-
                             function banglaNumberToInteger($banglaNumber)
                             {
                                 $numberMap = [
@@ -303,35 +294,27 @@ $roketTotal = getPaymentMethodCount($conn, 'রকেট');
                                     '৯' => 9,
                                     '১০' => 10,
                                 ];
-                            
                                 // Remove 'টি' and spaces
                                 $cleanedNumber = str_replace(['টি', ' '], '', $banglaNumber);
-                            
                                 // Convert to integer using the mapping
                                 $integerValue = $numberMap[$cleanedNumber];
-                            
                                 return $integerValue;
                             }
-                            
                             function calculateBanglaNumberSumFromDatabase($conn)
                             {
                                 $sql = "SELECT payment_biodata_quantity FROM customer_sent_info_complete";
                                 $result = $conn->query($sql);
-                            
                                 if ($result->num_rows > 0) {
                                     $sum = 0;
-                            
                                     while ($row = $result->fetch_assoc()) {
                                         $banglaNumber = $row['payment_biodata_quantity'];
                                         $sum += banglaNumberToInteger($banglaNumber);
                                     }
-                            
                                     return $sum;
                                 } else {
                                     return 0; // No rows found
                                 }
                             }
-                            
                             // Example usage
                             $totalBiodata = calculateBanglaNumberSumFromDatabase($conn);
                             // Total Revenue/Profit END

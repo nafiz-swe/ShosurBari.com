@@ -89,6 +89,13 @@ if (isset($_SESSION['admin_id'])) {
   }
   </style>
   <div class="shosurbari-biodata-form">
+    <?php
+    // Check for error message and display it
+    if (isset($_SESSION['error_message'])) {
+      echo '<div class="shosurbari-register-error">' . $_SESSION['error_message'] . '</div>';
+      unset($_SESSION['error_message']); // Clear the error message
+    }
+    ?>
     <div class="shosurbari-animation-form">
       <form action="" method="POST" name="myForm" onsubmit="return validateForm()">
         <div class="flex-container">
@@ -98,25 +105,20 @@ if (isset($_SESSION['admin_id'])) {
             </div>
             <div class="form-group">
               <input type="text" id="fullname" placeholder="Full Name" name="fullname" value="" size="60" maxlength="60" class="form-text required" required>
-              <span id="fname_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
             </div>
             <div class="form-group">
               <input type="text" id="username" placeholder="Username" name="username" value="" size="60" maxlength="60" class="form-text required" required>
-              <span id="uname_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
             </div>
             <div class="form-group">
-              <input type="text" id="email" placeholder="Email" name="email" value="" size="60" maxlength="60" class="form-text required" required>
-              <span id="email_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+              <input type="email" id="email" placeholder="Email" name="email" value="" size="60" maxlength="60" class="form-text required" required>
             </div>
             <div class="form-group">
               <input type="password" id="pass_1" placeholder="New Password" name="password_1" size="60" maxlength="128" class="form-text required" required>
               <span class="show-password" style="color:#00c292;  font-size:15px; top:2px;"> <i style="color:black;  font-size:15px;" class="fa fa-eye" aria-hidden="true"></i></span> 
-              <span  id="pass_1_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
             </div>
             <div class="form-group">
               <input type="password" id="pass_2" placeholder="Confirm Password" name="password_2" size="60" maxlength="128" class="form-text required" required>
               <span class="show-password" style="color:#00c292;  font-size:15px; top:2px;"> <i style="color:black;  font-size:15px;" class="fa fa-eye" aria-hidden="true"></i></span> 
-              <span  id="pass_2_error" style="font-size:16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
             </div>
             <div class="form-actions">
               <button type="submit" id="edit-submit" name="op" class="btn_1 submit"><span></span> Admin Account</button>

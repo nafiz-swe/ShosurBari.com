@@ -59,7 +59,13 @@ if (isset($_SESSION['admin_id'])) {
   }
   </style>
   <div class="shosurbari-biodata-form">
-
+    <?php
+    // Check for error message and display it
+    if (isset($_SESSION['error_message'])) {
+      echo '<div class="shosurbari-register-error">' . $_SESSION['error_message'] . '</div>';
+      unset($_SESSION['error_message']); // Clear the error message
+    }
+    ?>
     <div class="shosurbari-animation-form">
       <form action="" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
         <div class="flex-container">
@@ -78,7 +84,7 @@ if (isset($_SESSION['admin_id'])) {
             </div>
             <div class="remember-forgot">
               <!-- <label><input type="checkbox" id="edit-remember" name="remember" value="1" <?php if(isset($_COOKIE['username'])) { echo "checked"; } ?>> Remember me</label> -->
-              <a href="forgot_password.php">Forgot password?</a>
+              <a href="admin_new_password.php">Forgot password?</a>
             </div>
 		        <div class="form-actions">
               <button  type="submit" id="edit-submit" name="op"  class="btn_1 submit"  > <span> </span>Admin Login</button>

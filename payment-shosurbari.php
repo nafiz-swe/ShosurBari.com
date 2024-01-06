@@ -268,7 +268,7 @@ if (isset($_COOKIE[$cookieName])) {
             </div>
           </div>
           <div class="sb-biodata-field">
-            <h2>কাস্টমার তথ্য</h2>
+            <h2>আগ্রহী ইউজারের তথ্য</h2>
           </div>
           <?php
             session_start();

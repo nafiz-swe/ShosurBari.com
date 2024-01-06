@@ -363,14 +363,14 @@ input#submit-btn {
 --           SHOSUR BARI - REGISTER PAGE         --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 .sb-register-login{
-    border: 1px solid #ccc;
     border-radius: 6px;
     width: 400px;
     gap: 1.5rem;
     padding: 20px;
     margin: 20px auto;
     background: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+    border: 1px solid rgba(0,0,0,.05);
 }
 /* Password Show Eye Icon Start */
 .form-group{
@@ -435,6 +435,18 @@ input#submit-btn {
 --             SHOSUR BARI - LOGIN PAGE          --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 /*Remember Check Box Start*/
+.shosurbari-register-error {
+    text-align: justify;
+    padding: 20px;
+    width: 400px;
+    gap: 1.5rem;
+    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+    border: 1px solid rgba(0,0,0,.05);
+    border-radius: 4px;
+    background: rgb(255, 221, 238);
+    color: #ff0000;
+    margin: 120px auto -90px auto;
+}
 .remember-forgot{
     display: flex;
     justify-content: space-between;
@@ -777,6 +789,11 @@ input[type=submit]:hover {
 --           max-width:1024px / E  N  D          --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 /* End & Start */
+@media (max-width:990px){
+.shosurbari-register-error {
+    margin: 20px auto -90px auto;
+}
+}
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 --          max-width:930px / S T A R T         --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
@@ -1057,7 +1074,9 @@ i .fa{
     margin-top: 30px;
     margin-bottom: auto;
 }
-.sb-register-login, .payment-form{
+.sb-register-login,
+.payment-form,
+.shosurbari-register-error {
     width: 350px;
 }
 #biodataForm fieldset {
@@ -1215,7 +1234,8 @@ input#submit-btn {
     margin-left: auto;
     margin-right: 25px;
 }
-.sb-register-login{
+.sb-register-login,
+.shosurbari-register-error {
     width: 300px;
 }
 #biodataForm fieldset {
@@ -1359,7 +1379,8 @@ input#submit-btn {
 .biodatalist{
     width: 260px;
 }
-.sb-register-login{
+.sb-register-login,
+.shosurbari-register-error {
     width: 270px;
 }
 #biodataForm fieldset {
@@ -1473,7 +1494,8 @@ ul.profile_item{
 .remember-forgot{
     display: block;
 }
-.sb-register-login{
+.sb-register-login,
+.shosurbari-register-error {
     width: 263px;
 }
 #biodataForm fieldset {

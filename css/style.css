@@ -303,18 +303,22 @@ input#submit-btn {
 /*Form Type End*/
 /* FORM SUBMIT BUTTON START */
 .btn_1{
-    background: linear-gradient(#06b6d4, #0aa4ca);
-    border-radius: 4px;
+    display: block;
+    margin: 25px auto 0px auto;
     width: 100%;
-    padding: 5px;
-    display: inline-block;
     color: #fff;
-    text-transform: uppercase;
-    outline: none;
-    border: none;
-    margin: 0px;
+    padding: 6px;
+    border-radius: 3px;
+    background: linear-gradient(#06b6d4, #0aa4ca);
+    cursor: pointer;
+    position: relative;
+    transition: all .2s ease;
+    white-space: nowrap;
     font-size: 17px;
-    transition: background-color 0.3s, color 0.3s;
+    height: 40px;
+    line-height: 27px;
+    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+    border: 1px solid rgba(0,0,0,.05);
 }
 .btn_1:hover {
     background: linear-gradient(#0aa4ca, #06b6d4);

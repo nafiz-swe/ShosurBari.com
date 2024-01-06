@@ -21,25 +21,20 @@
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
     function admin_register() {
         global $conn;
-    
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $fullname = $_POST['fullname'];
             $username = $_POST['username'];
             $email = $_POST['email'];
             $password_1 = $_POST['password_1'];
             $password_2 = $_POST['password_2'];
-    
             // Check if passwords match
             if ($password_1 !== $password_2) {
-                echo "Passwords do not match. Please enter matching passwords.";
+                $_SESSION['error_message'] = "Passwords do not match. Please enter matching passwords. '$password_2'";
                 return; // Exit the function if passwords don't match
             }
-    
             // Hash the password before storing it in the database
             $hashed_password = password_hash($password_1, PASSWORD_DEFAULT);
-    
             require_once("includes/dbconn.php");
-    
             // Use prepared statements to prevent SQL injection
             $stmt = $conn->prepare("SELECT COUNT(*) FROM admin WHERE username = ?");
             $stmt->bind_param("s", $username);
@@ -47,10 +42,10 @@
             $stmt->bind_result($username_exists);
             $stmt->fetch();
             $stmt->close();
-    
             // Check if the username is already taken
             if ($username_exists > 0) {
-                echo "Username already exists. Choose a different username.";
+                $_SESSION['error_message'] = "Username already exists. Choose a different username. '$username'";
+                return;
             } else {
                 // Use prepared statements to prevent SQL injection
                 $stmt = $conn->prepare("SELECT COUNT(*) FROM admin WHERE email = ?");
@@ -59,17 +54,16 @@
                 $stmt->bind_result($email_exists);
                 $stmt->fetch();
                 $stmt->close();
-    
                 // Check if the email is already taken
                 if ($email_exists > 0) {
-                    echo "Email already exists. Choose a different email.";
+                    $_SESSION['error_message'] = "Email already exists. Choose a different email. '$email'";
+                    return;
                 } else {
                     // Insert the new admin record using prepared statements
                     $stmt = $conn->prepare("INSERT INTO admin 
                         (fullname, username, email, password, active, deactivated, register_date, last_login) 
                         VALUES (?, ?, ?, ?, 1, 0, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'), DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))");
                     $stmt->bind_param("ssss", $fullname, $username, $email, $hashed_password);
-    
                     if ($stmt->execute()) {
                         $admin_id = $stmt->insert_id;
                         $_SESSION['admin_id'] = $admin_id;
@@ -77,35 +71,29 @@
                     } else {
                         echo "Error: " . $stmt->error;
                     }
-    
                     $stmt->close();
                 }
             }
         }
     }
-    
     /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
     --                S  T  A  R  T                  --
     --            Admin Login Function               --
     -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
     function admin_login() {
         global $conn;
-    
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $username = $_POST['username'];
             $password = $_POST['password'];
-    
             // Retrieve the hashed password, admin_id, and active status from the database
             $sql = "SELECT admin_id, password, active FROM admin WHERE (username = ? OR email = ?)";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("ss", $username, $username);
             $stmt->execute();
             $stmt->store_result();
-    
             if ($stmt->num_rows > 0) {
                 $stmt->bind_result($admin_id, $stored_password, $active);
                 $stmt->fetch();
-    
                 // Check if the admin account is active
                 if ($active == 1) {
                     // Verify the hashed input password with the stored hashed password
@@ -116,26 +104,27 @@
                         $update_stmt->bind_param("i", $admin_id);
                         $update_stmt->execute();
                         $update_stmt->close();
-    
                         $_SESSION['admin_id'] = $admin_id;
-    
                         // Redirect the user to the home.php page with the user ID as a parameter in the URL
                         header("location: ../abdur-rahman/index.php?id=$admin_id");
                     } else {
-                        echo "Invalid password";
+                        $_SESSION['error_message'] = "উফফ! আপনার Password এ সমস্যা দেখা দিয়েছে। '$password' এটি সঠিক নয়।";
+                        header("location: ../abdur-rahman/admin_login.php");
+                        exit();
                     }
                 } else {
-                    echo "Your account is currently deactivated. Please contact the administrator.";
+                    $_SESSION['error_message'] = "Your account is currently deactivated. Please contact the administrator.";
+                    header("location: ../abdur-rahman/admin_login.php");
+                    exit();
                 }
             } else {
-                echo "Invalid username or email";
+                $_SESSION['error_message'] = "উফফ! আপনার Email or Username এ সমস্যা দেখা দিয়েছে। '$username' এটি সঠিক নয়।";
+                header("location: ../abdur-rahman/admin_login.php");
+                exit();
             }
-    
             $stmt->close();
         }
     }
-    
-    
     /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
     --                S  T  A  R  T                  --
     --           Admin Logout Function               --
@@ -148,6 +137,51 @@
             return true;
         }
     }
+    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+    --                S  T  A  R  T                  --
+    --             Admin New Password                --
+    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+    function admin_new_password(){
+        include('includes/dbconn.php');
+        $email = "";
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+        $email = $_POST['email'];
+        $newPassword = $_POST['new_password'];
+        $confirmPassword = $_POST['confirm_password'];
+        if ($newPassword === $confirmPassword) {
+        // Hash the password securely
+        $hashed_password = password_hash($newPassword, PASSWORD_DEFAULT);
+        $sql = "UPDATE admin SET password = ? WHERE email = ?";
+        $stmt = $conn->prepare($sql);
+        if ($stmt) {
+        $stmt->bind_param("ss", $hashed_password, $email);
+        $stmt->execute();
+        if ($stmt->affected_rows > 0) {
+        $_SESSION['error_message'] = "ওয়াও! পাসওয়ার্ড সফলভাবে আপডেট হয়েছে৷ লগইন পেজ থেকে আপনার একাউন্ট লগইন করুন৷";
+        header("location: ../abdur-rahman/admin_new_password.php");
+        exit();
+        } else {
+        $_SESSION['error_message'] = "উফ দুঃখিত! ই-মেইলটি রেজিস্টারকৃত ই-মেইল না, অনুগ্রহ করে রেজিস্টারকৃত ই-মেইল দিয়ে আবার চেষ্টা করুন। '$email'";
+        header("location: ../abdur-rahman/admin_new_password.php");
+        exit();
+        }
+        $stmt->close();  // Close the prepared statement
+        } else {
+        $_SESSION['error_message'] = "উফ দুঃখিত! পাসওয়ার্ড আপডেট করার সময় একটি ত্রুটি ছিল৷ অনুগ্রহ করে আবার চেষ্টা করুন।" . mysqli_error($conn);
+        header("location: ../abdur-rahman/admin_new_password.php");
+        exit();
+        }
+        } else {
+        $_SESSION['error_message'] = "উফ দুঃখিত! নিউ পাসওয়ার্ড এবং কনফার্ম পাসওয়ার্ড মিলছে না। '$confirmPassword'";
+        header("location: ../abdur-rahman/admin_new_password.php");
+        exit();
+        }
+        }
+    }
+    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
+    --                S  T  A  R  T                  --
+    --             Admin New Password                --
+    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
     /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
     --                S  T  A  R  T                  --
     --  Request Biodata Info Sent To Customers Email --

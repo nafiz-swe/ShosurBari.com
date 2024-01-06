@@ -190,6 +190,8 @@ if (!isset($_SESSION['admin_id'])) {
           <th>আইডি নং (SBCM)</th>
           <th>রেজিস্টার ইউজার /</br> বায়োডাটা নং</th>
           <th>নাম</th>
+          <th>দেশ</th>
+          <th>মোবাইল কোড</th>
           <th>মোবাইল নাম্বার</th>
           <th>ইমেইল</th>
           <th>সাবজেক্ট</th>
@@ -204,6 +206,8 @@ if (!isset($_SESSION['admin_id'])) {
         echo '<td>' . $row['contact_id'] . '</td>';
         echo '<td>' . $row['user_id'] . '</td>';
         echo '<td>' . $row['name_contactus'] . '</td>';
+        echo '<td>' . $row['country_name'] . '</td>';
+        echo '<td>' . $row['country_code'] . '</td>';
         echo '<td>' . $row['number_contactus'] . '</td>';
         echo '<td>' . $row['email_contactus'] . '</td>';
         echo '<td>' . $row['subject'] . '</td>';
