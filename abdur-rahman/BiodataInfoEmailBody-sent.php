@@ -63,7 +63,7 @@ if ($result && mysqli_num_rows($result) > 0) {
         text-align: left;
         padding: 20px;
         background: #fff;
-        margin-bottom: 22px;
+        margin-bottom: 30px;
         box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
         border: 1px solid rgba(0,0,0,.05);
     }

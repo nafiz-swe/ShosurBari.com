@@ -624,34 +624,33 @@ ul.nav_1 li.last{
     display: flex;
 }
 .shosurbari-userhome-status{
-    margin-top: 15px;
+    margin-top: 20px;
     width:  210px;
+    animation: backgroundAnimation 24s infinite;
 }
 .shosurbari-userhome-status p{
-   font-size: 17px;
-   margin-bottom: 10px;
-}
-.shosurbari-userhome-status form {
-    border: 1px solid #ccc;
-    width: 210px;
-    border-radius: 2px;
+   font-size: 15px;
+   margin-bottom: 0px;
 }
 .shosurbari-userhome-status form button{
     margin-left: 0px;
-    width: 208px;
-    padding: 3px;
+    width: auto;
+    padding: 3px 7px;
     color: #fff;
-    border: 3px solid #fff;
-    border-radius: 5px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
     font-size: 16px;
-    height: 38px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 35px;
     background: linear-gradient(#06b6d4, #0aa4ca);
 }
 .shosurbari-userhome-status form button:hover{
     background: linear-gradient(#0aa4ca, #06b6d4);
     color: #fff;
 }
-.sb-biodata-total-view {
+.sb-biodata-total-view,
+.shosurbari-userhome-status {
     text-align: left;
     padding: 15px 10px;
     animation: backgroundAnimation 24s infinite; /* 8 colors * 3 seconds = 24 seconds */
@@ -686,13 +685,14 @@ ul.nav_1 li.last{
 }
 }
 .sb-biodata-total-view h1{
-    font-size: 28px;
+    font-size: 25px;
     margin: 0;
 }
 .sb-biodata-total-view h3{
-    font-size: 16px;
-    line-height: 28px;
+    font-size: 15px;
+    line-height: 24px;
     margin-bottom: 5px;
+    font-weight: 500;
 }
 .shosurbari-biodata-view {
     margin-top: 70px;
@@ -2448,10 +2448,15 @@ small.testi-meta1{
 .popup-message h3,
 #popup-message {
     margin-top: 0;
-    margin-bottom: 10px;
     text-align: center;
     color: #fff;
     font-size: 24px;
+}
+.popup-message h3{
+    margin-bottom: 0px;
+}
+#popup-message {
+    margin-bottom: 10px;
 }
 #popup-message  span {
     font-weight: bold;
@@ -2471,6 +2476,7 @@ small.testi-meta1{
 .popup-message button, .close-button, #close-button {
     display: block;
     margin-top: 15px;
+    margin-bottom: 15px;
     margin-left: auto;
     margin-right: auto;
     padding: 0px 10px;
@@ -2480,7 +2486,7 @@ small.testi-meta1{
     border-radius: 4px;
     cursor: pointer;
     height: 30px;
-    line-height: 32px;
+    line-height: 33px;
 }
 .popup-message button.close-button:hover, #close-button:hover {
     background: linear-gradient(#0aa4ca, #06b6d4);
@@ -3014,6 +3020,7 @@ ol li{
 }
 .shosurbari-dashboard p {
     text-align: justify;
+    font-size: 15px;
 }
 .shosurbari-order-dashboard,
 .shosurbari-receive-dashboard  {

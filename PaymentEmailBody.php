@@ -56,13 +56,12 @@ h2 {
     margin-top: 22px;
     margin-bottom: 22px;
     text-align: left;
-    line-height: 22px;
+    line-height: 25px;
 }
 .content h5 {
     text-align: justify;
     color: #696262;
     font-size: 12px;
-    margin-top: 15px;
     line-height: 20px;
 }
 .content p {
@@ -98,7 +97,7 @@ table {
 .sb-reg-info{
     padding: 20px;
     background: #fff;
-    margin-bottom: 22px;
+    margin-bottom: 32px;
     box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
     border: 1px solid rgba(0,0,0,.05);
 }

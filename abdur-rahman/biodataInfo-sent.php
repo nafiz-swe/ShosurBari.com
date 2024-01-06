@@ -24,7 +24,7 @@ if (!isset($_SESSION['admin_id'])) {
     background: #ddf4ff66;
     border: 1px solid #00c292;
     padding: 15px;
-    margin: 40px auto;
+    margin: 40px auto 10px auto;
   }
   .sb-biodata-info-sent h2 {
     font-size: 25px;

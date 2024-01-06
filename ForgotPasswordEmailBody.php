@@ -43,7 +43,7 @@ body {
     text-align: justify;
     color: #696262;
     font-size: 12px;
-    margin-top: 15px;
+    margin-top: 22px;
     line-height: 20px;
 }
 .content p {

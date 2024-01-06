@@ -221,9 +221,9 @@ if (!isset($_SESSION['admin_id'])) {
           <th>কাস্টমার ইমেইল</th>
           <th>কাস্টমার স্থায়ী ঠিকানা</th>
           <th>রিকোয়েস্ট বায়োডাটা /</br> পছন্দের বায়োডাটা</th>
-          <th>মোট বায়োডাটা</th>
-          <th>মোট টাকা</th>
           <th>পেমেন্ট মেথড</th>
+          <th>মোট টাকা</th>
+          <th>মোট বায়োডাটা</th>
           <th>বিকাশ নাম্বার</th>
           <th>বিকাশ ট্রানজেকশন আইডি</th>
           <th>নগদ নাম্বার</th>
@@ -257,9 +257,9 @@ if (!isset($_SESSION['admin_id'])) {
           echo '<td>' . $row['cust_email'] . '</td>';
           echo '<td>' . $row['cust_permanent_address'] . '</td>';
           echo '<td>' . $row['request_biodata_number'] . '</td>';
-          echo '<td>' . $row['biodata_quantities'] . '</td>';
-          echo '<td>' . $row['total_fee'] . '</td>';
           echo '<td>' . $row['payment_method'] . '</td>';
+          echo '<td>' . $row['total_fee'] . '</td>';
+          echo '<td>' . $row['biodata_quantities'] . '</td>';
           echo '<td>' . $row['bkash_number'] . '</td>';
           echo '<td>' . $row['bkash_transaction_id'] . '</td>';
           echo '<td>' . $row['nagad_number'] . '</td>';
