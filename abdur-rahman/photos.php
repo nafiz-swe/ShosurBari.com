@@ -113,14 +113,6 @@ if (!isset($_SESSION['admin_id'])) {
     color: white;
     background: #079f79;
   }
-
-
-
-
-
-
-
-
   h1{
     padding: 10px 0;
     padding-top:120px;
@@ -199,14 +191,13 @@ if (!isset($_SESSION['admin_id'])) {
     <h1>পাত্রপাত্রীদের প্রোফাইল ছবি</h1>
     <?php
     require_once("includes/dbconn.php");
-    $sql = "SELECT COUNT(DISTINCT user_id) AS user_count FROM photos";
-    $result = $conn->query($sql);
-    // Check if the query was successful
-    if ($result) {
-      $row = $result->fetch_assoc();
+    $sqlCount = "SELECT COUNT(DISTINCT user_id) AS user_count FROM photos";
+    $resultCount = $conn->query($sqlCount);
+    if ($resultCount) {
+      $row = $resultCount->fetch_assoc();
       $userCount = $row["user_count"];
     } else {
-      echo "Error: " . $conn->error;
+        echo "Error: " . $conn->error;
     }
     // Number of profiles to display per page
     $profilesPerPage = isset($_GET['per_page']) ? intval($_GET['per_page']) : 25;
@@ -238,22 +229,26 @@ if (!isset($_SESSION['admin_id'])) {
           </form>
         </div>';
         echo '</div>'; // Close the table-wrapper div
-
         echo '<div class="table-container">';
         echo "<table>";
         if (isset($_POST['search'])) {
           $searchUserId = mysqli_real_escape_string($conn, $_POST['search-user-id']);
-          $sql = "SELECT * FROM photos WHERE user_id = $searchUserId";
+          $sql = "SELECT id, user_id FROM photos WHERE user_id = $searchUserId ORDER BY id DESC";
           $result = mysqli_query($conn, $sql);
+          } else {
+            $sql = "SELECT id, user_id FROM photos ORDER BY id DESC LIMIT $profilesPerPage OFFSET $offset";
+            $result = mysqlexec($sql);
         }
         echo "<tr>";
-        echo "<th>বায়োডাটা নং</th>"; // Left heading
+        echo "<th>সিরিয়াল নং</th>";
+        echo "<th>বায়োডাটা নং</th>";
         // Dynamically generate column headings for images
         for ($i = 1; $i <= 20; $i++) {
           echo "<th>Image-$i</th>";
         }
         echo "</tr>";
         while ($row = mysqli_fetch_assoc($result)) {
+        $id = $row['id'];
         $profid = $row['user_id'];
         // Get the user's folder path
         $user_folder = "../profile/{$profid}/";
@@ -265,6 +260,7 @@ if (!isset($_SESSION['admin_id'])) {
           // Check if the user has photos
           if (count($user_photos) > 2) { // 2 because . and .. are also counted
           echo "<tr>";
+          echo "<td>{$id}</td>"; // Left heading content
           echo "<td>{$profid}</td>"; // Left heading content
           foreach ($user_photos as $photo) {
           if ($photo !== "." && $photo !== "..") {
@@ -272,7 +268,6 @@ if (!isset($_SESSION['admin_id'])) {
           if (!is_dir("{$user_folder}{$photo}")) {
             echo "<td>";
           // Use the previously stored timestamp for this image
-          // Assuming you have previously retrieved and stored timestamps in the $imageTimestamps array
           if (isset($imageTimestamps[$profid][$photo])) {
             $timestamp = strtotime($imageTimestamps[$profid][$photo]);
           } else {

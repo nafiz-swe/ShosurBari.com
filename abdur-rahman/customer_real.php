@@ -213,7 +213,7 @@ if (!isset($_SESSION['admin_id'])) {
         $searchUserId = mysqli_real_escape_string($conn, $searchUserId);
         $sql = "SELECT * FROM customer_sent_info_complete WHERE user_id = $searchUserId $limit";
       } else {
-        $sql = "SELECT * FROM customer_sent_info_complete ORDER BY payment_order_id DESC $limit OFFSET $start";
+        $sql = "SELECT * FROM customer_sent_info_complete ORDER BY id DESC $limit OFFSET $start";
       }
       $result = mysqli_query($conn, $sql);
       if (mysqli_num_rows($result) > 0) {
@@ -260,9 +260,10 @@ if (!isset($_SESSION['admin_id'])) {
           <th>তথ্য ১০ রিকোয়েস্ট বায়োডাটা</th>
           <th>তথ্য ১০ অভিভাবক</th>
           <th>তথ্য ১০ পাত্র-পাত্রীর</th>
-          <th>তথ্য প্রদানের তারিখ</th>
           <th>পেমেন্ট তারিখ</th>
+          <th>তথ্য প্রদানের তারিখ</th>
         </tr>';
+        // ..
         while ($row = mysqli_fetch_assoc($result)) {
           echo '<tr>';
           echo '<td>' . $row['id'] . '</td>';
@@ -316,8 +317,8 @@ if (!isset($_SESSION['admin_id'])) {
           echo '<td>' . $row['biodata_guardian_10'] . '</td>';
           echo '<td>' . $row['biodata_patropatri_10'] . '</td>';
 
-          echo '<td>' . $row['info_sent_time'] . '</td>';
           echo '<td>' . $row['cust_payment_date'] . '</td>';
+          echo '<td>' . $row['info_sent_time'] . '</td>';
           echo '</tr>';
         }
         echo '</table>';

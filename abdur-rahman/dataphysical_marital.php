@@ -213,7 +213,7 @@ if (!isset($_SESSION['admin_id'])) {
         LEFT JOIN 6bd_marriage_related_qs_male AS m ON p.user_id = m.user_id
         LEFT JOIN 7bd_marriage_related_qs_female AS f ON p.user_id = f.user_id
       WHERE p.user_id = $searchUserId
-      $limit OFFSET $start";
+      ORDER BY p.user_id DESC $limit OFFSET $start";
       } else {
       $sql = "SELECT
         p.user_id,
@@ -246,7 +246,7 @@ if (!isset($_SESSION['admin_id'])) {
       LEFT JOIN 6bd_7bd_marital_status AS mf ON p.user_id = mf.user_id
       LEFT JOIN 6bd_marriage_related_qs_male AS m ON p.user_id = m.user_id
       LEFT JOIN 7bd_marriage_related_qs_female AS f ON p.user_id = f.user_id
-      $limit OFFSET $start";
+      ORDER BY p.user_id DESC $limit OFFSET $start";
       }
       $result = mysqli_query($conn, $sql);
       if (mysqli_num_rows($result) > 0) {

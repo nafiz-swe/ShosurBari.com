@@ -149,8 +149,11 @@ if (!isset($_SESSION['admin_id'])) {
       </div>';
       echo '</div>'; // Close the table-wrapper div
       if (isset($_POST['search'])) {
-          $searchUserId = mysqli_real_escape_string($conn, $_POST['search-user-id']);
-          $sql = "SELECT * FROM 4bd_address_details WHERE user_id = $searchUserId $limit";
+        $searchUserId = mysqli_real_escape_string($conn, $_POST['search-user-id']);
+        $sql = "SELECT * FROM 4bd_address_details WHERE user_id = $searchUserId ORDER BY user_id DESC $limit";
+        $result = mysqli_query($conn, $sql);
+      } else {
+          $sql = "SELECT * FROM 4bd_address_details ORDER BY user_id DESC $limit OFFSET $start";
           $result = mysqli_query($conn, $sql);
       }
       if (mysqli_num_rows($result) > 0) {

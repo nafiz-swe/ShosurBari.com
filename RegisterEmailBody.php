@@ -2,19 +2,6 @@
 <head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-@import url('https://fonts.maateen.me/adorsho-lipi/font.css');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
-@font-face {
-font-family: 'AdorshoLipi';
-src: url('font/AdorshoLipi.eot');
-src: url('font/AdorshoLipi.woff') format('woff'),
-url('font/AdorshoLipi.ttf') format('truetype'),
-url('font/AdorshoLipi.svg#AdorshoLipi') format('svg'),
-url('font/AdorshoLipi.eot?#iefix') format('embedded-opentype');
-font-weight: normal;
-font-style: normal;
-}
 body {
     font-family: 'AdorshoLipi', 'Ubuntu', sans-serif !important;
     margin: 0;

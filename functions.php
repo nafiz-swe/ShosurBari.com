@@ -1452,12 +1452,11 @@
         $pic1 = ($_FILES['pic1']['name']);
         $sql = "SELECT id FROM photos WHERE user_id = '$id'";
         $result = mysqlexec($sql);
-        $currentDateTime = date('j F Y, g:i:s A');
         if (mysqli_num_rows($result) == 0) {
-            $sql = "INSERT INTO photos (id, user_id, pic1, profilecreationdate) VALUES ('', '$id', '$pic1', '$currentDateTime')";
+            $sql = "INSERT INTO photos (id, user_id, pic1, profilecreationdate) VALUES ('', '$id', '$pic1', DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             mysqlexec($sql);
         } else {
-            $sql = "UPDATE photos SET pic1 = '$pic1', profilecreationdate = '$currentDateTime' WHERE user_id=$id";
+            $sql = "UPDATE photos SET pic1 = '$pic1', profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p') WHERE user_id=$id";
             mysqlexec($sql);
         }
         // Writes the photo to the server

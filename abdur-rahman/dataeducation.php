@@ -218,7 +218,7 @@ if (!isset($_SESSION['admin_id'])) {
       LEFT JOIN 3bd_universityedu_method AS u ON s.user_id = u.user_id
       LEFT JOIN 3bd_kowmi_madrasaedu_method AS k ON s.user_id = k.user_id
       WHERE s.user_id = $searchUserId
-      $limit OFFSET $start";
+      ORDER BY s.user_id DESC $limit OFFSET $start";
       } else {
       $sql = "SELECT
         s.user_id,
@@ -254,7 +254,7 @@ if (!isset($_SESSION['admin_id'])) {
       LEFT JOIN 3bd_higher_secondaryedu_method AS h ON s.user_id = h.user_id
       LEFT JOIN 3bd_universityedu_method AS u ON s.user_id = u.user_id
       LEFT JOIN 3bd_kowmi_madrasaedu_method AS k ON s.user_id = k.user_id
-      $limit OFFSET $start";
+      ORDER BY s.user_id DESC $limit OFFSET $start";
       }
       $result = mysqli_query($conn, $sql);
       if (mysqli_num_rows($result) > 0) {

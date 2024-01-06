@@ -334,109 +334,74 @@ $roketTotal = getPaymentMethodCount($conn, 'রকেট');
                             
                             // Example usage
                             $totalBiodata = calculateBanglaNumberSumFromDatabase($conn);
-
-
-
-
-
-
-// Initialize variables to store sums for different time periods
-$valuesToFind = [145, 280, 390, 500, 600, 690, 770, 840, 900, 980];
-$totalSum = 0;
-$todaySum = 0;
-$thisWeekSum = 0;
-$lastWeekSum = 0;
-$thisMonthSum = 0;
-$lastMonthSum = 0;
-$thisYearSum = 0;
-$lastYearSum = 0;
-
-$query = "SELECT payment_amount, cust_payment_date FROM customer_sent_info_complete";
-$result = mysqli_query($conn, $query);
-
-if ($result) {
-    while ($row = mysqli_fetch_assoc($result)) {
-        $data = $row['payment_amount'];
-        $requestDate = DateTime::createFromFormat('D d F Y, g:i A', $row['cust_payment_date']);
-
-        // Use a regular expression to extract numbers from the text
-        preg_match_all('/\d+/', $data, $matches);
-        $quantities = $matches[0];
-
-        foreach ($quantities as $quantity) {
-            $quantity = (int) $quantity;
-
-            if (in_array($quantity, $valuesToFind)) {
-                $totalSum += $quantity;
-
-                $startOfDay = new DateTime('today');
-                $endOfDay = new DateTime('tomorrow');
-
-                if ($requestDate >= $startOfDay && $requestDate < $endOfDay) {
-                    $todaySum += $quantity;
-                }
-
-                $startOfThisWeek = new DateTime('last Saturday');
-                $endOfThisWeek = new DateTime('next Saturday');
-
-                // Adjust the end of the week to be on Friday
-                $endOfThisWeek->modify('-1 day');
-
-                if ($requestDate >= $startOfThisWeek && $requestDate < $endOfThisWeek) {
-                    $thisWeekSum += $quantity;
-                }
-
-                $startOfLastWeek = new DateTime('2 Saturdays ago');
-                $endOfLastWeek = new DateTime('last Friday');
-
-                if ($requestDate >= $startOfLastWeek && $requestDate <= $endOfLastWeek) {
-                    $lastWeekSum += $quantity;
-                }
-
-                $startOfMonth = new DateTime('first day of this month');
-                $endOfMonth = new DateTime('first day of next month');
-
-                if ($requestDate >= $startOfMonth && $requestDate < $endOfMonth) {
-                    $thisMonthSum += $quantity;
-                }
-
-                $startOfLastMonth = new DateTime('first day of last month');
-                $endOfLastMonth = new DateTime('first day of this month');
-
-                if ($requestDate >= $startOfLastMonth && $requestDate < $endOfLastMonth) {
-                    $lastMonthSum += $quantity;
-                }
-
-                $startOfYear = new DateTime('first day of this year');
-                $endOfYear = new DateTime('first day of next year');
-
-                if ($requestDate >= $startOfYear && $requestDate < $endOfYear) {
-                    $thisYearSum += $quantity;
-                }
-
-                $startOfLastYear = new DateTime('first day of last year');
-                $endOfLastYear = new DateTime('first day of this year');
-
-                if ($requestDate >= $startOfLastYear && $requestDate < $endOfLastYear) {
-                    $lastYearSum += $quantity;
-                }
-            }
-        }
-    }
-} else {
-    echo "Error in SQL query: " . mysqli_error($conn);
-}
-
-// Now you have $totalSum, $todaySum, $thisWeekSum, $lastWeekSum, $thisMonthSum, $lastMonthSum, $thisYearSum, $lastYearSum for different time periods.
-
-
-// Now you have $totalSum, $todaySum, $thisWeekSum, $lastWeekSum, $thisMonthSum, $lastMonthSum, $thisYearSum, $lastYearSum for different time periods.
-
-
-// Now you have $totalSum, $todaySum, $thisWeekSum, $lastWeekSum, $thisMonthSum, $lastMonthSum, $thisYearSum, $lastYearSum for different time periods.
-
-
-                            // Total Profit of Last time END
+                            // Total Revenue/Profit END
+                            // Initialize variables to store sums for different time periods
+                            $valuesToFind = [145, 280, 390, 500, 600, 690, 770, 840, 900, 980];
+                            $totalSum = 0;
+                            $todaySum = 0;
+                            $thisWeekSum = 0;
+                            $lastWeekSum = 0;
+                            $thisMonthSum = 0;
+                            $lastMonthSum = 0;
+                            $thisYearSum = 0;
+                            $lastYearSum = 0;
+                            $query = "SELECT payment_amount, info_sent_time FROM customer_sent_info_complete";
+                            $result = mysqli_query($conn, $query);
+                            if ($result) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    $data = $row['payment_amount'];
+                                    $requestDate = DateTime::createFromFormat('D d F Y, g:i A', $row['info_sent_time']);
+                                    // Use a regular expression to extract numbers from the text
+                                    preg_match_all('/\d+/', $data, $matches);
+                                    $quantities = $matches[0];
+                                    foreach ($quantities as $quantity) {
+                                        $quantity = (int) $quantity;
+                                        if (in_array($quantity, $valuesToFind)) {
+                                            $totalSum += $quantity;
+                                            $startOfDay = new DateTime('today');
+                                            $endOfDay = new DateTime('tomorrow');
+                                            if ($requestDate >= $startOfDay && $requestDate < $endOfDay) {
+                                                $todaySum += $quantity;
+                                            }
+                                            $startOfThisWeek = new DateTime('last Saturday');
+                                            $endOfThisWeek = new DateTime('next Saturday');
+                                            // Adjust the end of the week to be on Friday
+                                            $endOfThisWeek->modify('-1 day');
+                                            if ($requestDate >= $startOfThisWeek && $requestDate < $endOfThisWeek) {
+                                                $thisWeekSum += $quantity;
+                                            }
+                                            $startOfLastWeek = new DateTime('2 Saturdays ago');
+                                            $endOfLastWeek = new DateTime('last Friday');
+                                            if ($requestDate >= $startOfLastWeek && $requestDate <= $endOfLastWeek) {
+                                                $lastWeekSum += $quantity;
+                                            }
+                                            $startOfMonth = new DateTime('first day of this month');
+                                            $endOfMonth = new DateTime('first day of next month');
+                                            if ($requestDate >= $startOfMonth && $requestDate < $endOfMonth) {
+                                                $thisMonthSum += $quantity;
+                                            }
+                                            $startOfLastMonth = new DateTime('first day of last month');
+                                            $endOfLastMonth = new DateTime('first day of this month');
+                                            if ($requestDate >= $startOfLastMonth && $requestDate < $endOfLastMonth) {
+                                                $lastMonthSum += $quantity;
+                                            }
+                                            $startOfYear = new DateTime('first day of this year');
+                                            $endOfYear = new DateTime('first day of next year');
+                                            if ($requestDate >= $startOfYear && $requestDate < $endOfYear) {
+                                                $thisYearSum += $quantity;
+                                            }
+                                            $startOfLastYear = new DateTime('first day of last year');
+                                            $endOfLastYear = new DateTime('first day of this year');
+                                            if ($requestDate >= $startOfLastYear && $requestDate < $endOfLastYear) {
+                                                $lastYearSum += $quantity;
+                                            }
+                                        }
+                                    }
+                                }
+                            } else {
+                                echo "Error in SQL query: " . mysqli_error($conn);
+                            }
+                            // Total Revenue/Profit END
                             // Last Time Show, Sale Biodata START
                             function getRequestDateForLastCustomerId($conn) {
                                 // Query to retrieve the last inserted record's request_date
@@ -486,46 +451,35 @@ if ($result) {
                         </div>
                     </div>
                 </div>
-
-
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                     <div class="recent-post-title">
                         <h2 class="sb-all-page-view">Admins</h2>
                     </div>
                     <div class="email-statis-inner notika-shadow">
                     <?php
-if ($admins_result) {
-    echo "<div class='sb-admin-info'>";
-    echo "<table border='1'>";
-    echo "<tr><th>Full Name</th><th>Username</th><th>Email</th><th>Register Date</th><th>Last_Login</th><th>Status</th><th>Action</th></tr>";
-
-    while ($admin_row = mysqli_fetch_assoc($admins_result)) {
-        $admin_id = $admin_row['admin_id'];
-        $fullname = $admin_row['fullname'];
-        $username = $admin_row['username'];
-        $email = $admin_row['email'];
-        $register_date = $admin_row['register_date'];
-        $last_login = $admin_row['last_login'];
-        $status = $admin_row['active']; // Assuming 'active' is the column name for the active/deactivate status
-    
-        // Set the background color based on the status
-        $bgColor = ($status == '1') ? '' : '#ff0080';
-    
-        echo "<tr style='background-color: $bgColor;'><td>$fullname</td><td>$username</td><td>$email</td><td>$register_date</td><td>$last_login</td><td id='status_$admin_id'>$status</td>";
-        echo "<td><button onclick='confirmToggleStatus($admin_id)'>A/D</button></td></tr>";
-    }
-    
-
-    echo "</table>";
-    echo "</div>";
-
-}
-?>
-
+                    if ($admins_result) {
+                        echo "<div class='sb-admin-info'>";
+                        echo "<table border='1'>";
+                        echo "<tr><th>Full Name</th><th>Username</th><th>Email</th><th>Register Date</th><th>Last_Login</th><th>Status</th><th>Action</th></tr>";
+                        while ($admin_row = mysqli_fetch_assoc($admins_result)) {
+                            $admin_id = $admin_row['admin_id'];
+                            $fullname = $admin_row['fullname'];
+                            $username = $admin_row['username'];
+                            $email = $admin_row['email'];
+                            $register_date = $admin_row['register_date'];
+                            $last_login = $admin_row['last_login'];
+                            $status = $admin_row['active'];
+                            // Set the background color based on the status
+                            $bgColor = ($status == '1') ? '' : '#ff0080';
+                            echo "<tr style='background-color: $bgColor;'><td>$fullname</td><td>$username</td><td>$email</td><td>$register_date</td><td>$last_login</td><td id='status_$admin_id'>$status</td>";
+                            echo "<td><button onclick='confirmToggleStatus($admin_id)'>A/D</button></td></tr>";
+                        }
+                        echo "</table>";
+                        echo "</div>";
+                    }
+                    ?>
                     </div>
                 </div>
-                
-
             </div>
         </div>
     </div>

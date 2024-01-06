@@ -1456,7 +1456,7 @@ marquee {
 .card-content h1{
     text-align: center;
     text-transform: uppercase;
-    font-size: 19px;
+    font-size: 18px;
     color: black;
     width: 200px;
     margin-top: -70px;
@@ -2662,8 +2662,7 @@ ol li{
 }
 .shosurbari-faq {
     width: 70%;
-    margin: auto;
-    margin-bottom: 120px;
+    margin: 25px auto 120px auto;
 }
 .shosurbari-faq h1{
 	color: #000;
