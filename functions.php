@@ -496,7 +496,61 @@
             $sql = "INSERT INTO contact_us (user_id, name_contactus, number_contactus, country_code, country_name, email_contactus, subject, message_contactus, unread_message, read_message, message_sendingdate) 
                 VALUES ('$user_id', '$name_contactus', '$number_contactus', '$selectedCountryCode', '$selectedCountryName', '$email_contactus', '$subject', '$message_contactus', 1, 0, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             if (mysqli_query($conn, $sql)) {
-                header("location: index.php");
+                $contact_id = mysqli_insert_id($conn);
+                $_SESSION['contact_id'] = $contact_id;
+                $request_date = $row['message_sendingdate'];
+                $formatted_date = date('j F Y, g:i:s A', strtotime($request_date));
+                // SMTP email sending code
+                $to = $email_contactus;
+                $subject = "Your message have been received!";
+                ob_start();
+                include('ContactUsEmailBody.php');
+                $email_body = ob_get_clean();
+                $plain_text_message = "
+                Contact Message
+                Thank you for choosing ShosurBari.com! You will be contacted soon In Sha Allah. We look forward to serving you.                Contact Id: $contact_id
+                Full Name: $name_contactus
+                Phone Number: $number_contactus
+                Email: $email_contactus
+                Subject: $subject
+                Message: $message_contactus
+                Note: If you do not receive a response from us, leave a message on our Facebook page.
+                Connect with us:
+                - Website: https://www.shoshurbari.com
+                - Facebook: https://www.facebook.com/ShoshurBari.bd
+                - Email: info@shoshurbari.com
+                - YouTube: https://www.youtube.com/c/ShoshurBari
+                (c) 2022-23 ShosurBari.com | All Rights Reserved
+                ";
+                $headers = "From: nafizulislam.swe@gmail.com\r\n";
+                $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+                $smtp_host = "smtp.gmail.com";
+                $smtp_port = 587;
+                $smtp_username = "nafizulislam.swe@gmail.com";
+                $smtp_password = "dnngvzwetnirboae";
+                $smtp_secure = "tls";
+                require 'PHPMailer/PHPMailerAutoload.php';
+                $mail = new PHPMailer;
+                $mail->isSMTP();
+                $mail->Host = $smtp_host;
+                $mail->Port = $smtp_port;
+                $mail->SMTPSecure = $smtp_secure;
+                $mail->SMTPAuth = true;
+                $mail->Username = $smtp_username;
+                $mail->Password = $smtp_password;
+                $mail->setFrom($smtp_username, 'ShosurBari');
+                $mail->addAddress($to);
+                $mail->Subject = $subject;
+                $mail->Body = $email_body;
+                $mail->AltBody = $plain_text_message; // Plain text version of the email
+                if ($mail->send()) {
+                    echo 'success';
+                    // Flush the output buffer to send the response to the client immediately
+                    flush();
+                } else {
+                    echo 'no';
+                }
+                exit;
             } else {
                 echo "Error";
             }

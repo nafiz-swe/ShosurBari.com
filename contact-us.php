@@ -293,7 +293,7 @@ include_once("functions.php");
         block: 'center',
         });
         var errorDiv = document.getElementById('email-error');
-        errorDiv.innerHTML = "Please Enter a Valid Email. Only Used: (@gmail or @outlook or @hotmail or @yahoo).com";
+        errorDiv.innerHTML = "Please Enter a Valid Email. You can Use: '@' gmail, outlook, hotmail, yahoo '.com'";
         errorDiv.style.display = 'block';
         errorDiv.classList.add('fade-in');
         var colors = ['green', 'blue', 'red'];
@@ -403,7 +403,7 @@ include_once("functions.php");
       var popup = document.querySelector('.popup-message');
       popup.style.display = 'block';
       popup.querySelector('h3').innerHTML = 'ধন্যবাদ!';
-      popup.querySelector('p').innerHTML = 'সফল ভাবেই আপনার তথ্য জমা হয়েছে। শীঘ্রই আপনার সাথে যোগাযোগ করা হবে ইনশাআল্লাহ।';
+      popup.querySelector('p').innerHTML = 'আপনার তথ্য সফল ভাবেই জমা হয়েছে। শীঘ্রই আপনার সাথে যোগাযোগ করা হবে ইনশাআল্লাহ।';
       var closeButton = document.createElement('button');
       closeButton.innerHTML = 'ঠিক আছে';
       closeButton.classList.add('close-button');

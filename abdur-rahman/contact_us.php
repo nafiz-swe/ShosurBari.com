@@ -138,7 +138,7 @@ if (!isset($_SESSION['admin_id'])) {
         <button class="search-admin" type="submit" name="search">Search</button>
         <select style="margin-top: 20px; width: 200px;" name="search-criteria" id="search-criteria">
         <option>.....??</option>
-          <option value="contact_id">আইডি নং</option>
+          <option value="contact_id">আইডি নং (SBCM)</option>
           <option value="user_email">ই-মেইল</option>
           <option value="name_contactus">নাম</option>
           <option value="number_contactus">ফোন নাম্বার</option>
@@ -187,7 +187,7 @@ if (!isset($_SESSION['admin_id'])) {
         echo '<div class="table-container">';
         echo "<table>";
         echo '<tr>
-          <th>আইডি নং</th>
+          <th>আইডি নং (SBCM)</th>
           <th>রেজিস্টার ইউজার /</br> বায়োডাটা নং</th>
           <th>নাম</th>
           <th>মোবাইল নাম্বার</th>
