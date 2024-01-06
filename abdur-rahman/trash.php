@@ -104,17 +104,13 @@ th {
     color: white;
     background: #079f79;
   }
-
-
-
-
-
-
-
-
+  @media (max-width:990px){
+    h1{
+      margin-top: -100px;
+    }
+    }
   h1{
-    padding: 10px 0;
-    padding-top:120px;
+    padding: 170px 0 10px 0;
     text-align: center;
     font-size: 35px;
     color: #00c292;
