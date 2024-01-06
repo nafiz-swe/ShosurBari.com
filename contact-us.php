@@ -22,7 +22,8 @@ include_once("functions.php");
 <link href='//fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
 <!--font-Awesome-->
 <link href="css/font-awesome.css" rel="stylesheet"> 
-<!-- Country Code with Flag for Number input field -->
+<!-- Country Code with Flag for Number input field below 2 link-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/intlTelInput.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.8/js/intlTelInput.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.8/css/intlTelInput.css" />
@@ -44,6 +45,14 @@ include_once("functions.php");
 		</div>
 	</div>
   <style>
+  .shosurbari-form-error{
+    font-size: 16px;
+    margin-top: 0px;
+    background: rgb(255, 221, 238);
+    border-radius: 2px 2px 4px 4px;
+    text-align: center;
+    display: none;
+  }
   .sb-biodata-field{
     background: none;
   }
@@ -138,23 +147,25 @@ include_once("functions.php");
               </div>
               <div class="form-group">
                 <input type="text" id="name_contactus" placeholder="Full Name" name="name_contactus" value="" size="60" maxlength="60" class="form-text required">
-                <span id="name-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+                <span id="name-error" class="shosurbari-form-error"></span>
               </div>
               <div class="form-group">
                 <input type="email" id="email_contactus" placeholder="Email" name="email_contactus" value="" size="60" maxlength="60" class="form-text">
-                <span id="email-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+                <span id="email-error" class="shosurbari-form-error"></span>
               </div>
               <div class="form-group">
                 <input type="tel" id="number_contactus" placeholder="Phone Number" name="number_contactus" value="" size="60" minlength="10" maxlength="15" class="form-text required">
-                <span id="phone-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+                <input type="hidden" id="selectedCountryCode" name="selectedCountryCode">
+                <input type="hidden" id="selectedCountryName" name="selectedCountryName">
+                <span id="phone-error" class="shosurbari-form-error"></span>
               </div>
               <div class="form-group">
                 <input type="text" id="subject" placeholder="Subject :" name="subject" value=""   class="form-text required">
-                <span id="subject-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+                <span id="subject-error" class="shosurbari-form-error"></span>
               </div>
               <div class="form-group">
                 <textarea rows="6" id="message_contactus" name="message_contactus" placeholder="Type Your Message..." class="form-text-describe required" maxlength="2000"></textarea>
-                <span id="message-error" style="font-size: 16px; margin-top: 0px; background: #ffddee; border-radius: 1px 2px 4px 4px; text-align: center; display: none;"></span>
+                <span id="message-error" class="shosurbari-form-error"></span>
               </div>
               <div class="form-actions">
                 <button type="submit" id="edit-submit" name="op" class="btn_1 submit">Submit</button>
@@ -200,6 +211,25 @@ include_once("functions.php");
       preferredCountries: ["bd"]
       });
     });
+
+  // Phone Number Country Code With Country Flag Start
+  $(document).ready(function () {
+  var input = document.querySelector("#number_contactus");
+  var iti = window.intlTelInput(input, {
+  separateDialCode: true,
+  preferredCountries: ["bd"]
+  });
+  input.addEventListener("countrychange", function () {
+  var selectedCountry = iti.getSelectedCountryData();
+  $("#selectedCountryCode").val(selectedCountry.dialCode);
+  $("#selectedCountryName").val(selectedCountry.name);
+  });
+  // Set default country code and name if no country is selected
+  var defaultCountry = iti.getSelectedCountryData();
+  $("#selectedCountryCode").val(defaultCountry.dialCode);
+  $("#selectedCountryName").val(defaultCountry.name);
+  });
+  // Phone Number Country Code With Country Flag End
   </script>
   <!-- Contact Form Validation -->
   <script>

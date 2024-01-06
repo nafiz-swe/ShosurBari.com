@@ -491,8 +491,10 @@
             } else {
                 $user_id = 0; // Default value for non-logged-in users
             }
-            $sql = "INSERT INTO contact_us (user_id, name_contactus, number_contactus, email_contactus, subject, message_contactus, unread_message, read_message, message_sendingdate) 
-                VALUES ('$user_id', '$name_contactus', '$number_contactus', '$email_contactus', '$subject', '$message_contactus', 1, 0, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
+            $selectedCountryCode = $_POST['selectedCountryCode'];
+            $selectedCountryName = $_POST['selectedCountryName'];
+            $sql = "INSERT INTO contact_us (user_id, name_contactus, number_contactus, country_code, country_name, email_contactus, subject, message_contactus, unread_message, read_message, message_sendingdate) 
+                VALUES ('$user_id', '$name_contactus', '$number_contactus', '$selectedCountryCode', '$selectedCountryName', '$email_contactus', '$subject', '$message_contactus', 1, 0, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             if (mysqli_query($conn, $sql)) {
                 header("location: index.php");
             } else {
