@@ -2139,7 +2139,7 @@ require_once("includes/dbconn.php");
 		echo "</a>";
 		echo "</div></div>";
         $count++;
-    }
+		}
 	}
 	?>
     </div>

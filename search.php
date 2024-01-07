@@ -1740,39 +1740,30 @@ $result=search();
                 echo "<div class=\"sb_user\">";
                 echo "<table class=\"biodata_value_data\">";
                 echo "<tbody>";
-                
-                // Create rows for each piece of information
                 echo "<tr class=\"opened\">";
                 echo "<td class=\"sb_label\">ধর্ম</td>";
                 echo "<td class=\"sb_value\">{$religion}</td>";
                 echo "</tr>";
-                
                 echo "<tr class=\"opened\">";
                 echo "<td class=\"sb_label\">শারীরিক বর্ণ</td>";
                 echo "<td class=\"sb_value\">{$Skin_tones}</td>";
                 echo "</tr>";
-                
                 echo "<tr class=\"opened\">";
                 echo "<td class=\"sb_label\">উচ্চতা</td>";
                 echo "<td class=\"sb_value\">{$height}</td>";
                 echo "</tr>";
-                
                 echo "<tr class=\"opened\">";
                 echo "<td class=\"sb_label\">পেশা</td>";
                 echo "<td class=\"sb_value\">{$occupation_value}</td>";
                 echo "</tr>";
-                
                 echo "<tr class=\"opened\">";
                 echo "<td class=\"sb_label\">জন্ম সন</td>";
                 echo "<td class=\"sb_value\">{$dateofbirth}</td>";
                 echo "</tr>";
-                
                 echo "</tbody>";
                 echo "</table>";
-                
                 echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\"> <button class=\"view_sb_profile\"> সম্পূর্ণ বায়োডাটা</button></a>";
                 echo "</div></div>";
-                
                 $c_count++;
               }
             }
@@ -1790,7 +1781,7 @@ $result=search();
       </div>
       <script>
       // After Search Users Profiles Show Per Page
-      const profilesPerPage = 15;
+      const profilesPerPage = 9;
       // Total number of profiles found
       const totalProfiles = <?php echo $c_count ?>;
       // Calculate the total number of pages

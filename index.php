@@ -857,35 +857,27 @@ saveUniqueVisitor($conn, $ip_address);
             echo "<div class=\"sb_user_recentview\">";
             echo "<table class=\"biodata_value_data\">";
             echo "<tbody>";
-            
-            // Create rows for each piece of information
             echo "<tr class=\"opened\">";
             echo "<td class=\"sb_label\">বায়োডাটা</td>";
             echo "<td class=\"sb_value\">{$biodatagender}</td>";
             echo "</tr>";
-            
             echo "<tr class=\"opened\">";
             echo "<td class=\"sb_label\">ধর্ম</td>";
             echo "<td class=\"sb_value\">{$religion}</td>";
             echo "</tr>";
-            
             echo "<tr class=\"opened\">";
             echo "<td class=\"sb_label\">পেশা</td>";
             echo "<td class=\"sb_value\">{$occupation_value}</td>";
             echo "</tr>";
-            
             echo "<tr class=\"opened\">";
             echo "<td class=\"sb_label\">জন্ম সন</td>";
             echo "<td class=\"sb_value\">{$dateofbirth}</td>";
             echo "</tr>";
-            
             echo "</tbody>";
             echo "</table>";
-            
             echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\"><button class=\"view_sb_profile_recentview\">সম্পূর্ণ বায়োডাটা</button> </a>";
             echo "</div></div>";
             echo "</li>";
-            
             }
             }
           }
