@@ -145,44 +145,50 @@
                 $studentsOccupationsCondition = implode("','", $student_occupation_level);
                 $sql .= " AND student_occupation_level IN ('$studentsOccupationsCondition')";
             }
+            // Conditions for home_district_under_* columns
+            $districtConditions = array();
             // Check if "Any District" is selected
             if ($allDistrict) {
-            // If "Any District" is selected, return all columns for occupation
-            $sql .= " AND (home_district_under_barishal IS NOT NULL OR home_district_under_chattogram IS NOT NULL OR home_district_under_dhaka IS NOT NULL OR home_district_under_khulna IS NOT NULL OR home_district_under_mymensingh IS NOT NULL OR home_district_under_rajshahi IS NOT NULL OR home_district_under_rangpur IS NOT NULL OR home_district_under_sylhet IS NOT NULL)";
+                // If "Any District" is selected, return all columns for occupation
+                $districtConditions[] = "(home_district_under_barishal IS NOT NULL OR home_district_under_chattogram IS NOT NULL OR home_district_under_dhaka IS NOT NULL OR home_district_under_khulna IS NOT NULL OR home_district_under_mymensingh IS NOT NULL OR home_district_under_rajshahi IS NOT NULL OR home_district_under_rangpur IS NOT NULL OR home_district_under_sylhet IS NOT NULL)";
             } else {
-            // If specific occupation options are selected, include them in the query
-            if (!empty($home_district_under_barishal)) {
-                $barishalDivisionCondition = implode("','", $home_district_under_barishal);
-                $sql .= " AND home_district_under_barishal IN ('$barishalDivisionCondition')";
+                // If specific district options are selected, include them in the query
+                if (!empty($home_district_under_barishal)) {
+                    $barishalDivisionCondition = implode("','", $home_district_under_barishal);
+                    $districtConditions[] = "home_district_under_barishal IN ('$barishalDivisionCondition')";
+                }
+                if (!empty($home_district_under_chattogram)) {
+                    $chattogramDivisionCondition = implode("','", $home_district_under_chattogram);
+                    $districtConditions[] = "home_district_under_chattogram IN ('$chattogramDivisionCondition')";
+                }
+                if (!empty($home_district_under_dhaka)) {
+                    $dhakaDivisionCondition = implode("','", $home_district_under_dhaka);
+                    $districtConditions[] = "home_district_under_dhaka IN ('$dhakaDivisionCondition')";
+                }
+                if (!empty($home_district_under_khulna)) {
+                    $khulnaDivisionCondition = implode("','", $home_district_under_khulna);
+                    $districtConditions[] = "home_district_under_khulna IN ('$khulnaDivisionCondition')";
+                }
+                if (!empty($home_district_under_mymensingh)) {
+                    $mymensinghDivisionCondition = implode("','", $home_district_under_mymensingh);
+                    $districtConditions[] = "home_district_under_mymensingh IN ('$mymensinghDivisionCondition')";
+                }
+                if (!empty($home_district_under_rajshahi)) {
+                    $rajshahiDivisionCondition = implode("','", $home_district_under_rajshahi);
+                    $districtConditions[] = "home_district_under_rajshahi IN ('$rajshahiDivisionCondition')";
+                }
+                if (!empty($home_district_under_rangpur)) {
+                    $rangpurDivisionCondition = implode("','", $home_district_under_rangpur);
+                    $districtConditions[] = "home_district_under_rangpur IN ('$rangpurDivisionCondition')";
+                }
+                if (!empty($home_district_under_sylhet)) {
+                    $sylhetDivisionCondition = implode("','", $home_district_under_sylhet);
+                    $districtConditions[] = "home_district_under_sylhet IN ('$sylhetDivisionCondition')";
+                }
             }
-            if (!empty($home_district_under_chattogram)) {
-                $chattogramDivisionCondition = implode("','", $home_district_under_chattogram);
-                $sql .= " AND home_district_under_chattogram IN ('$chattogramDivisionCondition')";
-            }
-            if (!empty($home_district_under_dhaka)) {
-                $dhakaDivisionCondition = implode("','", $home_district_under_dhaka);
-                $sql .= " AND home_district_under_dhaka IN ('$dhakaDivisionCondition')";
-            }
-            if (!empty($home_district_under_khulna)) {
-                $khulnaDivisionCondition = implode("','", $home_district_under_khulna);
-                $sql .= " AND home_district_under_khulna IN ('$khulnaDivisionCondition')";
-            }
-            if (!empty($home_district_under_mymensingh)) {
-                $mymensinghDivisionCondition = implode("','", $home_district_under_mymensingh);
-                $sql .= " AND home_district_under_mymensingh IN ('$mymensinghDivisionCondition')";
-            }
-            if (!empty($home_district_under_rajshahi)) {
-                $rajshahiDivisionCondition = implode("','", $home_district_under_rajshahi);
-                $sql .= " AND home_district_under_rajshahi IN ('$rajshahiDivisionCondition')";
-            }
-            if (!empty($home_district_under_rangpur)) {
-                $rangpurDivisionCondition = implode("','", $home_district_under_rangpur);
-                $sql .= " AND home_district_under_rangpur IN ('$rangpurDivisionCondition')";
-            }
-            if (!empty($home_district_under_sylhet)) {
-                $sylhetDivisionCondition = implode("','", $home_district_under_sylhet);
-                $sql .= " AND home_district_under_sylhet IN ('$sylhetDivisionCondition')";
-            }
+            // Append the district conditions to the SQL query
+            if (!empty($districtConditions)) {
+                $sql .= " AND (" . implode(" OR ", $districtConditions) . ")";
             }
             $result = mysqlexec($sql);
             // Check if no matching data found for biodatagender, Skin_tones, religion, and marital status

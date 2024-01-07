@@ -318,20 +318,11 @@ require_once("includes/dbconn.php");
 			<div class="star"></div>
 			<div class="star"></div>
 			<div class="star"></div>
-			<div class="star"></div>
-			<div class="star"></div>
-			<div class="star"></div>
-			<div class="star"></div>
-			<div class="star"></div>
-			<div class="star"></div>
-			<div class="star"></div>
-			<div class="star"></div>
-			<div class="star"></div>
 		</div>
 	 	</div>
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 		<script>
-			// Profile Section Show With Scrolling Just for Mobile Responsive.
+			// Profile Section Show With Scrolling Just for Mobile Responsive. profile sticky
 			$(window).scroll(function() {
 			var scroll = $(window).scrollTop();
 			var headerHeight = $('.profile-header').outerHeight() * 0.9; // 90% of the profile-header height
@@ -350,17 +341,17 @@ require_once("includes/dbconn.php");
 				// Media width between 931px and 2000px
 				targetOffset -= -5;
 				} else if ($(window).width() >= 735 && $(window).width() <= 930) {
-				targetOffset += 635;
+				targetOffset += 695;
 				} else if ($(window).width() >= 385 && $(window).width() <= 734) {
-				targetOffset += 600;
+				targetOffset += 650;
 				} else if ($(window).width() >= 360 && $(window).width() <= 384) {
-				targetOffset += 610; 
+				targetOffset += 650; 
 				} else if ($(window).width() >= 353 && $(window).width() <= 359) {
 				targetOffset += 650;
 				} else if ($(window).width() >= 321 && $(window).width() <= 352) {
-				targetOffset += 690;      
+				targetOffset += 650;      
 				} else if ($(window).width() >= 260 && $(window).width() <= 320) {
-				targetOffset += 612;
+				targetOffset += 650;
 				}
 				$('html, body').animate({
 				scrollTop: targetOffset
@@ -371,7 +362,7 @@ require_once("includes/dbconn.php");
 		<div class="main-bd"> <!-- Main BioData-->
 			<div class="left-side">
 				<div class="profile-side">
-					<div class="biodatavalue_list" style="background: none; border-radius: 10px 10px 0px 0px; border-top: 3px solid #06b6d4; border-bottom: none; margin-top: 0px; border-left: 1px solid #dbdbdb; border-right: 1px solid #dbdbdb;">
+					<div class="biodatavalue_list" style="background: none; border-radius: 7px 7px 0px 0px; border-top: 3px solid #06b6d4; border-bottom: none; margin-top: 0px; border-left: none; border-right: none">
 						<h3 style="background: none; border-style: none;">সংক্ষেপে</h3>
 					</div>
 					<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
@@ -738,12 +729,34 @@ require_once("includes/dbconn.php");
 										echo "<div class=\"sbbio_number_recentview\"><span class=\"sb_biodatanumber_recentview\"> {$profid} <br> বায়োডাটা নং </span> </div>";
 										echo "</div>";
 										echo "<div class=\"sb_user_recentview\">";
-										echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> গাত্র বর্ণ </span>  <span class=\"sb_data_recentview\">{$Skin_tones_recentview1}</span></span>";
-										echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> উচ্চতা </span>  <span class=\"sb_data_recentview\">{$height_recentview1}</span></span>";
-										echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> পেশা </span>      <span class=\"sb_data_recentview\"> {$occupation_value}</span></span>";
-										echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> জেলা </span>      <span class=\"sb_data_recentview\"> {$home_district}</span></span>";
-										echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> জন্ম সন </span>        <span class=\"sb_data_recentview\"> {$dateofbirth_recentview1}</span></span>";
-										echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\"><button class=\"view_sb_profile_recentview\">সম্পূর্ণ বায়োডাটা</button> </a>";
+										echo "<table class=\"biodata_value_data\">";
+										echo "<tbody>";
+										// Create rows for each piece of information
+										echo "<tr class=\"opened\">";
+										echo "<td class=\"sb_label\">গাত্র বর্ণ</td>";
+										echo "<td class=\"sb_value\">{$Skin_tones_recentview1}</td>";
+										echo "</tr>";
+										echo "<tr class=\"opened\">";
+										echo "<td class=\"sb_label\">উচ্চতা</td>";
+										echo "<td class=\"sb_value\">{$height_recentview1}</td>";
+										echo "</tr>";
+										echo "<tr class=\"opened\">";
+										echo "<td class=\"sb_label\">পেশা</td>";
+										echo "<td class=\"sb_value\">{$occupation_value}</td>";
+										echo "</tr>";
+										echo "<tr class=\"opened\">";
+										echo "<td class=\"sb_label\">জেলা</td>";
+										echo "<td class=\"sb_value\">{$home_district}</td>";
+										echo "</tr>";
+										echo "<tr class=\"opened\">";
+										echo "<td class=\"sb_label\">জন্ম সন</td>";
+										echo "<td class=\"sb_value\">{$dateofbirth_recentview1}</td>";
+										echo "</tr>";
+										echo "</tbody>";
+										echo "</table>";
+										echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\">";
+										echo "<button class=\"view_sb_profile_recentview\">সম্পূর্ণ বায়োডাটা</button>";
+										echo "</a>";
 										echo "</div></div>";
 										$count++;
 									}
@@ -2008,6 +2021,7 @@ require_once("includes/dbconn.php");
 	</div>
 	<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 	--                 S  T  A  R  T  	             --
+	--               M  O  B  I  L  E 	             --
 	--    	 Recent View / Last View Profile    	 --
 	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 	<div class="sbbiodata_profile_recentview-mobile">
@@ -2081,8 +2095,8 @@ require_once("includes/dbconn.php");
 		if (isset($row['biodatagender']) && isset($defaultImages[$row['biodatagender']])) {
 			$defaultImage = $defaultImages[$row['biodatagender']];
 		}
-        echo "<div class=\"biodatarecent_viewlist\">";
-        echo "<div class=\"sbbio_header_recent_view\">";
+		echo "<div class=\"biodatarecent_viewlist\">";
+		echo "<div class=\"sbbio_header_recent_view\">";
 		// Start of Default Photo Show
 		echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\">";
 		if (!empty($pic1)) {
@@ -2092,16 +2106,38 @@ require_once("includes/dbconn.php");
 		}
 		echo "</a>";
 		// End of Default photo Show
-        echo "<div class=\"sbbio_number_recentview\"><span class=\"sb_biodatanumber_recentview\"> {$profid} <br> বায়োডাটা নং </span> </div>";
-        echo "</div>";
-        echo "<div class=\"sb_user_recentview\">";
-        echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> গাত্র বর্ণ </span>  <span class=\"sb_data_recentview\">{$Skin_tones_recentview2}</span></span>";
-        echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> উচ্চতা </span>  <span class=\"sb_data_recentview\">{$height_recentview2}</span></span>";
-        echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> পেশা </span>      <span class=\"sb_data_recentview\"> {$occupation_recentview2}</span></span>";
-        echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> জেলা </span>      <span class=\"sb_data_recentview\"> {$home_district2}</span></span>";
-        echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> জন্ম সন </span>        <span class=\"sb_data_recentview\"> {$dateofbirth_recentview2}</span></span>";
-        echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\"><button class=\"view_sb_profile_recentview\">সম্পূর্ণ বায়োডাটা</button> </a>";
-        echo "</div></div>";
+		echo "<div class=\"sbbio_number_recentview\"><span class=\"sb_biodatanumber_recentview\"> {$profid} <br> বায়োডাটা নং </span> </div>";
+		echo "</div>";
+		echo "<div class=\"sb_user_recentview\">";
+		echo "<table class=\"biodata_value_data\">";
+		echo "<tbody>";
+		// Create rows for each piece of information
+		echo "<tr class=\"opened\">";
+		echo "<td class=\"sb_label\">গাত্র বর্ণ</td>";
+		echo "<td class=\"sb_value\">{$Skin_tones_recentview2}</td>";
+		echo "</tr>";
+		echo "<tr class=\"opened\">";
+		echo "<td class=\"sb_label\">উচ্চতা</td>";
+		echo "<td class=\"sb_value\">{$height_recentview2}</td>";
+		echo "</tr>";
+		echo "<tr class=\"opened\">";
+		echo "<td class=\"sb_label\">পেশা</td>";
+		echo "<td class=\"sb_value\">{$occupation_recentview2}</td>";
+		echo "</tr>";
+		echo "<tr class=\"opened\">";
+		echo "<td class=\"sb_label\">জেলা</td>";
+		echo "<td class=\"sb_value\">{$home_district2}</td>";
+		echo "</tr>";
+		echo "<tr class=\"opened\">";
+		echo "<td class=\"sb_label\">জন্ম সন</td>";
+		echo "<td class=\"sb_value\">{$dateofbirth_recentview2}</td>";
+		echo "</tr>";
+		echo "</tbody>";
+		echo "</table>";
+		echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\">";
+		echo "<button class=\"view_sb_profile_recentview\">সম্পূর্ণ বায়োডাটা</button>";
+		echo "</a>";
+		echo "</div></div>";
         $count++;
     }
 	}

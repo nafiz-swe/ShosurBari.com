@@ -1729,22 +1729,50 @@ $result=search();
                 // Start of photo Show
                 echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\">";
                 if (!empty($pic1)) {
-                  echo "<img class=\"img-responsive\" src=\"profile/{$profid}/{$pic1}\"/>";
+                    echo "<img class=\"img-responsive\" src=\"profile/{$profid}/{$pic1}\"/>";
                 } else {
-                  echo "<img class=\"img-responsive\" src=\"images/{$defaultImage}\"/>";
+                    echo "<img class=\"img-responsive\" src=\"images/{$defaultImage}\"/>";
                 }
                 echo "</a>";
                 // End of photo Show
                 echo "<div class=\"sb_bio_number\"><span class=\"sb_biodatanumber\"> {$profid} <br> বায়োডাটা নং </span> </div>";
                 echo "</div>";
                 echo "<div class=\"sb_user\">";
-                echo "<span class=\"sb_single_data\"> <span class=\"sb_value\"> ধর্ম </span> <span class=\"sb_data\"> {$religion}</span></span>";
-                echo "<span class=\"sb_single_data\"> <span class=\"sb_value\"> শারীরিক বর্ণ </span> <span class=\"sb_data\">{$Skin_tones}</span></span>";
-                echo "<span class=\"sb_single_data\"> <span class=\"sb_value\"> উচ্চতা </span> <span class=\"sb_data\">{$height}</span></span>";
-                echo "<span class=\"sb_single_data\"> <span class=\"sb_value\"> পেশা </span> <span class=\"sb_data\"> {$occupation_value}</span></span>";
-                echo "<span class=\"sb_single_data\"> <span class=\"sb_value\"> জন্ম সন </span> <span class=\"sb_data\"> {$dateofbirth}</span></span>";
+                echo "<table class=\"biodata_value_data\">";
+                echo "<tbody>";
+                
+                // Create rows for each piece of information
+                echo "<tr class=\"opened\">";
+                echo "<td class=\"sb_label\">ধর্ম</td>";
+                echo "<td class=\"sb_value\">{$religion}</td>";
+                echo "</tr>";
+                
+                echo "<tr class=\"opened\">";
+                echo "<td class=\"sb_label\">শারীরিক বর্ণ</td>";
+                echo "<td class=\"sb_value\">{$Skin_tones}</td>";
+                echo "</tr>";
+                
+                echo "<tr class=\"opened\">";
+                echo "<td class=\"sb_label\">উচ্চতা</td>";
+                echo "<td class=\"sb_value\">{$height}</td>";
+                echo "</tr>";
+                
+                echo "<tr class=\"opened\">";
+                echo "<td class=\"sb_label\">পেশা</td>";
+                echo "<td class=\"sb_value\">{$occupation_value}</td>";
+                echo "</tr>";
+                
+                echo "<tr class=\"opened\">";
+                echo "<td class=\"sb_label\">জন্ম সন</td>";
+                echo "<td class=\"sb_value\">{$dateofbirth}</td>";
+                echo "</tr>";
+                
+                echo "</tbody>";
+                echo "</table>";
+                
                 echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\"> <button class=\"view_sb_profile\"> সম্পূর্ণ বায়োডাটা</button></a>";
                 echo "</div></div>";
+                
                 $c_count++;
               }
             }

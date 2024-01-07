@@ -44,7 +44,7 @@ saveUniqueVisitor($conn, $ip_address);
         </div>
       </marquee>
     </div>
-    <button onclick="document.getElementById('maintenanceNotice').style.display = 'none'">Close</button>
+    <button onclick="document.getElementById('maintenanceNotice').style.display = 'none'"><i class="fa fa-close" style="font-size: 18px; padding: 0 7px;"></i></button>
   </div>
 	<!-- ===========  Navigation Start =========== -->
 	<?php include_once("includes/navigation.php");?>
@@ -131,7 +131,6 @@ saveUniqueVisitor($conn, $ip_address);
   th, td {
     padding: 10px 5px;
     text-align: center;
-    border: 1px solid #ddd;
   }
   th {
     background: #f0f0f0;
@@ -847,22 +846,46 @@ saveUniqueVisitor($conn, $ip_address);
             // Start of Default Photo Show
             echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\">";
             if (!empty($pic1)) {
-            echo "<img class=\"img-responsive\" src=\"profile/{$profid}/{$pic1}\"/>";
+                echo "<img class=\"img-responsive\" src=\"profile/{$profid}/{$pic1}\"/>";
             } else {
-            echo "<img class=\"img-responsive\" src=\"images/{$defaultImage}\"/>";
+                echo "<img class=\"img-responsive\" src=\"images/{$defaultImage}\"/>";
             }
             echo "</a>";
             // End of Default photo Show
             echo "<div class=\"sbbio_number_recentview\"><span class=\"sb_biodatanumber_recentview\"> {$profid} <br> বায়োডাটা নং </span> </div>";
             echo "</div>";
             echo "<div class=\"sb_user_recentview\">";
-            echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> বায়োডাটা </span>  <span class=\"sb_data_recentview\">{$biodatagender}</span></span>";
-            echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> ধর্ম </span>  <span class=\"sb_data_recentview\">{$religion}</span></span>";
-            echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> পেশা </span>  <span class=\"sb_data_recentview\">{$occupation_value}</span></span>";
-            echo "<span class=\"sb_single_data_recentview\"> <span class=\"sb_value_recentview\"> জন্ম সন</span>        <span class=\"sb_data_recentview\"> {$dateofbirth}</span></span>";
+            echo "<table class=\"biodata_value_data\">";
+            echo "<tbody>";
+            
+            // Create rows for each piece of information
+            echo "<tr class=\"opened\">";
+            echo "<td class=\"sb_label\">বায়োডাটা</td>";
+            echo "<td class=\"sb_value\">{$biodatagender}</td>";
+            echo "</tr>";
+            
+            echo "<tr class=\"opened\">";
+            echo "<td class=\"sb_label\">ধর্ম</td>";
+            echo "<td class=\"sb_value\">{$religion}</td>";
+            echo "</tr>";
+            
+            echo "<tr class=\"opened\">";
+            echo "<td class=\"sb_label\">পেশা</td>";
+            echo "<td class=\"sb_value\">{$occupation_value}</td>";
+            echo "</tr>";
+            
+            echo "<tr class=\"opened\">";
+            echo "<td class=\"sb_label\">জন্ম সন</td>";
+            echo "<td class=\"sb_value\">{$dateofbirth}</td>";
+            echo "</tr>";
+            
+            echo "</tbody>";
+            echo "</table>";
+            
             echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\"><button class=\"view_sb_profile_recentview\">সম্পূর্ণ বায়োডাটা</button> </a>";
             echo "</div></div>";
             echo "</li>";
+            
             }
             }
           }
@@ -1295,7 +1318,7 @@ saveUniqueVisitor($conn, $ip_address);
     $("#flexiselDemo3").flexisel({
     visibleItems: 4,
     animationSpeed: 700,
-    autoPlay: true,
+    autoPlay: false,
     autoPlaySpeed: 9000,    		
     pauseOnHover: true,
     enableResponsiveBreakpoints: true,

@@ -1140,24 +1140,19 @@ section::before {
 .sb_featured_profile_head{
     border: 1px solid #ccc;
     border-radius: 6px;
-    width: 90%;
     gap: 1.5rem;
     padding: 0px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 15px;
-    margin-top: 30px;
-    background: white;
+    margin: 30px auto;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
     transition: transform .2s;
+}
+.sb_featured_profile_head:hover{
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    transform: scale(1.03);
 }
 .sb_featured_profile_head h3{
     margin-bottom: auto;
     margin-top: 30px;
-}
-.sb_featured_profile_head:hover{
-    background: #ecfeff;
-    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
-    transform: scale(1.03);
 }
 .sb_featured_profile_head img{
     width: 75px;
@@ -1349,11 +1344,11 @@ marquee {
 }
 .runtext-container button {
     background-color: red;
+    width: 70px;
     border: none;
     cursor: pointer;
     color: #fff;
     font-weight: bold;
-    font-size: 13px;
     border-radius: 3px;
 }
 /* Notice Board End */
@@ -1657,7 +1652,6 @@ span.m_3{
     clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
     animation: twinkle 1.5s linear infinite;
 }
-
 @keyframes twinkle {
     0%, 100% {
         opacity: 1;
@@ -1667,22 +1661,22 @@ span.m_3{
     }
 }
 .star:nth-child(1) { top: 8%; left: 5%; width: 12px; height: 12px; }
-.star:nth-child(2) { top: 54%; left: 80%; width: 10px; height: 10px; }
-.star:nth-child(3) { top: 52%; left: 60%; width: 10px; height: 15px; }
+.star:nth-child(2) { top: 60%; left: 80%; width: 10px; height: 10px; }
+.star:nth-child(3) { top: 52%; left: 60%; width: 7px; height: 7px; }
 .star:nth-child(4) { top: 10%; left: 25%; width: 8px; height: 8px; }
-.star:nth-child(5) { top: 15%; left: 70%; width: 15px; height: 15px; }
+.star:nth-child(5) { top: 15%; left: 70%; width: 12px; height: 12px; }
 .star:nth-child(6) { top: 70%; left: 5%; width: 14px; height: 14px; }
-.star:nth-child(7) { top: 20%; left: 50%; width: 11px; height: 11px; }
+/* .star:nth-child(7) { top: 20%; left: 50%; width: 11px; height: 11px; } */
 /* .star:nth-child(8) { top: 90%; left: 40%; width: 15px; height: 15px; } */
-.star:nth-child(9) { top: 25%; left: 35%; width: 14px; height: 14px; }
+/* .star:nth-child(9) { top: 25%; left: 35%; width: 14px; height: 14px; } */
 /* .star:nth-child(10) { top: 80%; left: 20%; width: 16px; height: 16px; } */
 .star:nth-child(11) { top: 30%; left: 10%; width: 8px; height: 8px; }
-.star:nth-child(12) { top: 75%; left: 85%; width: 14px; height: 14px; }
+/* .star:nth-child(12) { top: 75%; left: 85%; width: 14px; height: 14px; } */
 /* .star:nth-child(13) { top: 30%; left: 80%; width: 13px; height: 13px; } */
 /* .star:nth-child(14) { top: 78%; left: 70%; width: 17px; height: 17px; } */
 /* .star:nth-child(15) { top: 40%; left: 65%; width: 15px; height: 15px; } */
 .star:nth-child(16) { top: 80%; left: 53%; width: 6px; height: 6px; }
-.star:nth-child(17) { top: 40%; left: 45%; width: 13px; height: 13px; }
+.star:nth-child(17) { top: 40%; left: 30%; width: 13px; height: 13px; }
 /* .star:nth-child(18) { top: 60%; left: 30%; width: 10px; height: 10px; } */
 .star:nth-child(19) { top: 50%; left: 20%; width: 14px; height: 14px; }
 .star:nth-child(20) { top: 20%; left: 95%; width: 9px; height: 9px; }
@@ -1838,9 +1832,6 @@ span.m_3{
 .biodata_value_data tbody tr:nth-child(even) {
     background-color: #fff; /* Even row color */
 }
-.biodata_value_data tbody tr:nth-child(odd) {
-    background-color: rgba(245,246,252,.4); /* Odd row color */
-}
 .main-bd {
     width: 90%;
     display: flex;
@@ -1854,14 +1845,18 @@ span.m_3{
     margin-right: auto;
 }
 .profile-side {
-  	width: 100%;
+  	width: 400px;
 	font-family: "Bree Serif", serif;
   	z-index: 99;
-    background: linear-gradient(0deg, #00bbff61 0%,rgba(238,246,253,0) 100%);
+    background: #00bbff11;
+    box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+    border-left: 1px solid #06b6d424;
+    border-right: 1px solid #06b6d424;
+    border-bottom: 1px solid #06b6d424;
     margin-left: auto;
     margin-right: auto;
     padding-bottom: 10px;
-    border-radius: 7px;
+    border-radius:7px;
 }
 .profile-side p {
     margin-bottom: 7px;
@@ -2071,17 +2066,16 @@ button.copylink i {
     margin-right: auto;
     margin-bottom: auto;
     margin-top: 30px;
-    background: white;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
     transition: transform .2s;
+}
+.biodatarecent_viewlist:hover{
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    transform: scale(1.03);
 }
 .biodatarecent_viewlist h3{
     margin-bottom: auto;
     margin-top: 30px;
-}
-.biodatarecent_viewlist:hover{
-    background: #00bbff11;
-    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
-    transform: scale(1.03);
 }
 .biodatarecent_viewlist img{
     width: 75px;
@@ -2118,10 +2112,24 @@ button.copylink i {
     line-height: 22px;
 }
 .sb_user_recentview{
-    text-align: center;
     padding: 2px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    background: #00bbff11;
+}
+.sb_user_recentview td {
+    color: #000000;
+    padding: 2px 5px;
+    font-weight: 450;
+    position: inherit;
+    line-height: 25px;
+    font-size: 13.5px;
+    text-align: center;
+}
+.sb_user_recentview  .sb_value{
+    border-left: 1px solid #00bbff36;
+    width: 50%;
+}
+.sb_user_recentview  .sb_label{
+    width: 50%;
 }
 .sb_single_data_recentview{
     display: flex;
@@ -2162,15 +2170,11 @@ button.copylink i {
     border: 1px solid #d5d5d5;
     padding: 4px;
     margin-top: 5px;
-    margin-bottom: 3px;
     border-radius: 5px;
     background: linear-gradient(#06b6d4, #0aa4ca);
     color: white;
     width:100%;
     font-size: 15px;
-}
-.view_sb_profile_recentview:hover{
-    background: linear-gradient(#0aa4ca, #06b6d4);
 }
 .view_sb_profile_recentview a{
     color: white;
@@ -2196,20 +2200,22 @@ button.copylink i {
 /*Biodata Table Form / Data show Start*/
 td.day_label {
     color: #000000;
-    padding: 8px;
+    padding: 5px 8px;
     font-weight: 450;
     border: 1px #dbdbdb;
     border-style: groove;
     width: 45%;
     position: inherit;
+    line-height: 28px;
 }
 td.day_value {
-    color: black;
-    padding: 8px;
+    color: #6e6e6e;
+    padding: 5px 8px;
     font-weight: 400;
     border: 1px #dbdbdb;
     border-style: groove;
     width: 55%;
+    line-height: 28px;
 }
 /*Biodata Table Form / Data show End*/
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
@@ -3570,11 +3576,10 @@ i.icon_4{
     margin-right: auto;
     margin-bottom: auto;
     margin-top: 30px;
-    background: white;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
     transition: transform .2s;
 }
 .biodatalist:hover{
-    background: #ecfeff;
     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
     transform: scale(1.03);
 }
@@ -3611,9 +3616,8 @@ i.icon_4{
 }
 .sb_user{
     text-align: center;
-    padding: 5px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    padding: 2px;
+    background: #00bbff11;
 }
 .sb_single_data{
     display: flex;
@@ -3633,27 +3637,24 @@ i.icon_4{
     color: black;
     padding: 6px;
     font-size: 15px;
-    font-weight: 400;
-    border: 1px solid #ccc;
-    border-style: groove;
-    width: 35%;
-    position: inherit;
+    width: 50%;
+    border-left: 1px solid #00bbff36;
+    line-height: 28px;
 }
-.sb_user .sb_data{
+.sb_user .sb_label{
     color: black;
     padding: 6px;
     font-size: 15px;
     font-weight: 400;
-    border: 1px solid #ccc;
-    border-style: groove;
-    width: 65%;
+    width: 50%;
+    line-height: 28px;
     position: inherit;
 }
 .view_sb_profile {
     text-align: center;
     border: 1px solid #d5d5d5;
     padding: 5px;
-    margin-top: 10px;
+    margin-top: 5px;
     margin-bottom: 0px;
     border-radius: 4px;
     background: linear-gradient(#06b6d4, #0aa4ca);
@@ -4013,21 +4014,16 @@ label{
     .sb_user_recentview .sb_data_recentview {
         font-size: 14px;
     }
-    td.day_label {
-        font-size: 16px;
-    }
+    td.day_label,
     td.day_value {
-        font-size: 16px;
+        font-size: 15px;
     }
 }
 /* End & Start */
 @media (max-width:1600px){
-    td.day_label {
-        font-size: 16px;
-    }
-
+    td.day_label,
     td.day_value {
-        font-size: 16px;
+        font-size: 15px;
     }
 }
 /* End & Start */
@@ -4046,22 +4042,15 @@ label{
         margin-left: 0px;
         padding: 0px;
     }
-    .sb_user .sb_value{
-        font-size: 15px;
-        font-weight: 400;
-        width: 35%;
-    }
-    .sb_user .sb_data{
-        font-size: 15px;
-        font-weight: 400;
-        width: 65%;
-    }
 }
 /* End & Start */
 /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
 --          max-width:1280px / S T A R T         --
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
 @media (max-width:1280px){
+    .profile-side {
+        width: 100%;
+    }
     section{
         padding: 0px;
     }
@@ -4163,16 +4152,6 @@ label{
         width: 31%;
         margin-left: auto;
         margin-right: auto;
-    }
-    .sb_user .sb_value{
-        font-size: 14px;
-        font-weight: 400;
-        width: 42%;
-    }
-    .sb_user .sb_data{
-        font-size: 14px;
-        font-weight: 400;
-        width: 58%;
     }
     .profile-nav-info .address {
         font-size: 14px;
@@ -4359,9 +4338,7 @@ label{
         margin-left: auto;
         margin-right: 0;
     }
-    td.day_label {
-        font-size: 15px;
-    }
+    td.day_label,
     td.day_value {
         font-size: 15px;
     }
@@ -4421,14 +4398,6 @@ label{
         width: 45%;
         margin-left: auto;
         margin-right: auto;
-    }
-    .sb_user .sb_value{
-        font-size: 14px;
-        width: 38%;
-    }
-    .sb_user .sb_data{
-        font-size: 14px;
-        width: 62%;
     }
     .sb_biodatanumber{
         font-size: 20px;
@@ -4778,14 +4747,6 @@ label{
     .biodatalist{
         width: 45%;
     }
-    .sb_user .sb_value{
-        font-size: 13px;
-        width: 41%;
-    }
-    .sb_user .sb_data{
-        font-size: 13px;
-        width: 59%;
-    }
     .sb_biodatanumber{
         font-size: 22px;
     }
@@ -4822,6 +4783,9 @@ label{
     .shosurbari-trmcnd-prvplcy,
     .shosurbari-service {
         width: 90%;
+    }
+    .runtext-container .holder a {
+        font-size: 15px;
     }
     .about_middle{
         width: 90%;
@@ -5207,14 +5171,6 @@ label{
         margin-left: auto;
         padding: 0px;
     }
-    .sb_user .sb_value{
-        font-size: 14px;
-        width: 38%;
-    }
-    .sb_user .sb_data{
-        font-size: 14px;
-        width: 62%;
-    }
     .sb_biodatanumber{
         font-size: 22px;
     }
@@ -5459,14 +5415,6 @@ label{
         margin-right: 0px;
         margin-left: 0px;
         padding: 20px;
-    }
-    .sb_user .sb_value{
-        font-size: 14px;
-        width: 38%;
-    }
-    .sb_user .sb_data{
-        font-size: 14px;
-        width: 62%;
     }
     .sb_biodatanumber{
         font-size: 20px;
@@ -5720,14 +5668,6 @@ label{
         margin-left: 0px;
         padding: 10px;
     }
-    .sb_user .sb_value{
-        font-size: 14px;
-        width: 40%;
-    }
-    .sb_user .sb_data{
-        font-size: 14px;
-        width: 60%;
-    }
     .sb_biodatanumber{
         font-size: 20px;
     }
@@ -5786,14 +5726,6 @@ label{
         margin-right: 0px;
         margin-left: 0px;
         padding: 20px;
-    }
-    .sb_user .sb_value{
-        font-size: 14px;
-        width: 40%;
-    }
-    .sb_user .sb_data{
-        font-size: 14px;
-        width: 60%;
     }
     .sb_biodatanumber{
         font-size: 22px;
@@ -6126,14 +6058,6 @@ label{
         margin-left: 0px;
         padding: 20px;
     }
-    .sb_user .sb_value{
-        font-size: 14px;
-        width: 40%;
-    }
-    .sb_user .sb_data{
-        font-size: 14px;
-        width: 60%;
-    }
     .sb_biodatanumber{
         font-size: 22px;
     }
@@ -6363,14 +6287,6 @@ label{
         margin-left: 0px;
         padding: 20px;
     }
-    .sb_user .sb_value{
-        font-size: 14px;
-        width: 40%;
-    }
-    .sb_user .sb_data{
-        font-size: 14px;
-        width: 60%;
-    }
     .sb_biodatanumber{
         font-size: 22px;
     }
@@ -6592,14 +6508,6 @@ label{
         margin-left: 0px;
         padding: 20px;
     }
-    .sb_user .sb_value{
-        font-size: 14px;
-        width: 40%;
-    }
-    .sb_user .sb_data{
-        font-size: 14px;
-        width: 60%;
-    }
     .sb_biodatanumber{
         font-size: 20px;
     }
@@ -6707,14 +6615,6 @@ label{
         margin-right: 0px;
         margin-left: 0px;
         padding: 10px;
-    }
-    .sb_user .sb_value{
-        font-size: 14px;
-        width: 40%;
-    }
-    .sb_user .sb_data{
-        font-size: 14px;
-        width: 60%;
     }
     .sb_biodatanumber{
         font-size: 20px;
@@ -7009,14 +6909,6 @@ label{
         margin-right: 0px;
         margin-left: 0px;
         padding: 10px;
-    }
-    .sb_user .sb_value{
-        font-size: 13px;
-        width: 42%;
-    }
-    .sb_user .sb_data{
-        font-size: 13px;
-        width: 58%;
     }
     .sb_biodatanumber{
         font-size: 18px;
