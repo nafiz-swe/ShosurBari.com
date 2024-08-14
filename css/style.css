@@ -1,47 +1,12 @@
 @import url('https://fonts.maateen.me/adorsho-lipi/font.css');
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
-@font-face {
-font-family: 'SolaimanLipi';
-src: url('font/SolaimanLipi.eot');
-src: url('font/SolaimanLipi.woff') format('woff'),
-    url('font/SolaimanLipi.ttf') format('truetype'),
-    url('font/SolaimanLipi.svg#SolaimanLipiNormal') format('svg'),
-    url('font/SolaimanLipi.eot?#iefix') format('embedded-opentype');
-font-weight: normal;
-font-style: normal;
-}
-@font-face {
-font-family: 'AdorshoLipi';
-src: url('font/AdorshoLipi.eot');
-src: url('font/AdorshoLipi.woff') format('woff'),
-    url('font/AdorshoLipi.ttf') format('truetype'),
-    url('font/AdorshoLipi.svg#AdorshoLipi') format('svg'),
-    url('font/AdorshoLipi.eot?#iefix') format('embedded-opentype');
-font-weight: normal;
-font-style: normal;
-}
-@font-face {
-font-family: 'Mukti';
-src: url('font/Mukti.eot');
-src: url('font/Mukti.woff') format('woff'),
-    url('font/Mukti.ttf') format('truetype'),
-    url('font/Mukti.svg#Mukti') format('svg'),
-    url('font/Mukti.eot?#iefix') format('embedded-opentype');
-font-weight: normal;
-font-style: normal;
-}
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                S  T  A  R  T                  --
---     SHOSUR BARI SOME OPTION USED ALL PAGE     --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+/*START - SHOSUR BARI SOME OPTION USED ALL PAGE */
 html, body{
 	font-size: 100%;
     background:#FFF;
     padding-top: 20px;
     font-family: 'AdorshoLipi', 'Ubuntu', sans-serif !important;
-    /* font-family: 'Ubuntu', sans-serif; */
-    /* font-family: 'AdorshoLipi', Arial, sans-serif !important; */
 }
 element{
     --main-web-color:  #06b6d4;
@@ -69,7 +34,7 @@ body a{
     --progress: 0;
     height: 6px;
     width: var(--progress);
-    background-color: #fff;
+    background-color: #000; /*#fff;*/
 }
 h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
@@ -86,7 +51,7 @@ ol {
 }
 p {
     margin: 0;
-    line-height: 27px;
+    line-height: 25px;
 }
 button{
     transition: background-color 0.3s, color 0.3s;
@@ -102,7 +67,7 @@ button:hover {
     padding-right: 0px;
     padding-bottom: 0em;
     padding-left: 0px;
-    margin-bottom: 10px;
+    margin-bottom: 50px;
 }
 .breadcrumb1 ul{
 	padding:0;
@@ -145,8 +110,17 @@ form {
     background: none;
     border-radius: 4px;
 }
+.soshurbari-animation-icon img {
+    margin: auto;
+    width: 171px;
+    height: 46px; 
+}
+.soshurbari-animation-icon h3{
+    margin-bottom: 25px;
+    margin-top: 10px;
+}
 .input-group input[type="text"], select{
-    border-radius: 4px;
+    border-radius: 2px;
     border: 1px solid #ccc;
     -moz-transition: 0.3s;
     -o-transition: 0.3s;
@@ -163,7 +137,7 @@ form {
     background: linear-gradient(#fff 20%,#f6f6f6 50%,#eee 52%,#f4f4f4 100%);
     background-clip: padding-box;
     -webkit-box-shadow: 0 0 3px #fff inset, 0 1px 1px rgb(0 0 0 / 10%);
-    box-shadow: 0 0 3px #fff inset, 0 1px 1px rgb(0 0 0 / 10%);
+    box-shadow: inset 0 2px 1px #22222217;
 }
 .form-text-describe {
     display: block;
@@ -176,11 +150,12 @@ form {
     background-color: #4cafe809;
     background-image: none;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 2px;
     outline: none;
     -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
     -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    box-shadow: inset 0 2px 1px #22222217;
 }
 #bell {
     color: #0aa4ca;
@@ -219,11 +194,12 @@ label{
     background-color: #4cafe809;
     background-image: none;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 2px;
     outline: none;
     -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
     -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    box-shadow: inset 0 2px 1px #22222217;
 }
 .form-control:focus, .form-text:focus, .form-textarea:focus, .form-select:focus{
     border-color: #0aa4ca;
@@ -236,6 +212,7 @@ label{
     border: 1px solid #ccc;
     border-radius: 4px;
     height: 35px;
+    box-shadow: inset 0 2px 1px #22222217;
 }
 #sbprofid:focus, .sb_singlebio_mobilesearch input:focus {
     border-color: #0aa4ca;
@@ -308,7 +285,7 @@ input#submit-btn {
     width: 100%;
     color: #fff;
     padding: 6px;
-    border-radius: 3px;
+    border-radius: 2px;
     background: linear-gradient(#06b6d4, #0aa4ca);
     cursor: pointer;
     position: relative;
@@ -325,7 +302,7 @@ input#submit-btn {
     color: #fff;
 }
 .form-actions p{
-    font-size: 14px;
+    font-size: 15px;
     color: black;
 }
 .form-actions a{
@@ -358,15 +335,8 @@ input#submit-btn {
 }
 /*For Remember Form Size with Media responsive END*/
 /*Form Type End*/
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                    E   N   D                  --
---     SHOSUR BARI SOME OPTION USED ALL PAGE     --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-/* End & Start */
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                S  T  A  R  T                  --
---   SHOSUR BARI WIDTH SCREEN  NAVIGATION BAR    --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/* END - SHOSUR BARI SOME OPTION USED ALL PAGE */
+/* START - SHOSUR BARI WIDTH SCREEN  NAVIGATION BAR */
 .navigation {
     float: left;
     margin-right: 3%;
@@ -374,7 +344,7 @@ input#submit-btn {
 }
 .navbar-inner_1 {
     padding: 0px 0px;
-    background: #0aa4ca;
+    background: #ffff; /*0aa4ca;*/
     border: none;
     font-size: 0.85em;
     box-shadow: none; 
@@ -388,6 +358,7 @@ input#submit-btn {
     left: 0;
     right: 0;
     transition: box-shadow 0.3s;
+	border-bottom: 1.4px solid #f0f0f0;
 }
 .navbar-header.nav_2 {
     display: none;
@@ -472,8 +443,8 @@ input#submit-btn {
     right: 0 !important;
     left:inherit;
 }
-.nav_bottom{
-	background:none;
+.nav_bottom {
+    background: #fff; /*linear-gradient(#06b6d4, #0aa4ca);  For Mobile Navbar / Menu Bar Background Color*/
 }
 .nav-tabs > li > a,
 .nav-tabs > li > a:hover,
@@ -509,17 +480,17 @@ ul.nav_1{
 	margin: 0px 0 0 0;
 }
 ul.nav_1 li{
-	margin:1px;
+	margin: 0px 1px;/*1px;*/
 }
 .dropdown-menu{
-    background: linear-gradient(#06b6d4, #0aa4ca);
+    background: #fff; /*linear-gradient(#06b6d4, #0aa4ca); */
 }
 .dropdown-menu li a:hover{
-    background: linear-gradient(#0aa4ca, #06b6d4);
-    color: #fff;
+    background: linear-gradient(180deg, #00bbff61 0%,rgba(238,246,253,0) 100%); /*linear-gradient(#0aa4ca, #06b6d4); */
+    color: #000; /*#fff;*/
 }
 ul.nav_1 li a{
-    color:#fff;
+    color: #000; /*#fff;*/
 }
 .dropdown-menu>li>a {
     color: white;
@@ -528,43 +499,39 @@ ul.nav_1 li.last{
 	margin-right:0;
 }
 .nav .open>a, .nav .open>a:hover, .nav .open>a:focus, .nav>li>a:hover, .nav>li>a:focus{
-    border-radius:  3px;
-    background: linear-gradient(#0aa4ca, #06b6d4) !important;
-    color: #fff;
-    transform: scale(1);
+    border-radius:  0px; /*3px;*/
+    background: linear-gradient(180deg, #00bbff61 0%,rgba(238,246,253,0) 100%); /* linear-gradient(#0aa4ca, #06b6d4) !important; */
+   /* color: #000;
+    transform: scale(1); */
 }
 .login-navbar-img .img-responsive {
     width: 38px;
     height: 38px;
     border-radius: 50%;
-    border: 2px solid #fff;
+    border: 2px solid #000;  /*#fff;*/
     object-fit: cover;
+    background: #fff;
 }
-/* .login-navbar-icon a{
-    margin: 2px;
-} */
 .login-navbar-icon a i{
     font-size: 18px;
     margin-left: -5px;
     border-radius: 50%;
-    border: 2px solid #fff;
+    border: 2px solid #000;  /*#fff;*/
     padding: 8px;
 }
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                   E   N   D                   --
---   SHOSUR BARI WIDTH SCREEN  NAVIGATION BAR    --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-/* End & Start */
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                S  T  A  R  T                  --
---         SHOSUR BARI MY ACCOUNT SIDEBAR        --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/* END - SHOSUR BARI WIDTH SCREEN  NAVIGATION BAR */
+/*START - SHOSUR BARI MY ACCOUNT SIDEBAR*/
 .shosurbari-account-sidebar{
     margin-top: 40px;
+    margin-bottom: 40px;
     width: 210px;
+    display: flex;
 }
 .leftarea-sidebar {
     width: 210px;
+    margin-top: 20px;
+    margin-bottom: auto;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
 }
 .shosurbari-my-account {
     list-style: none;
@@ -572,22 +539,27 @@ ul.nav_1 li.last{
 }
 .shosurbari-my-account a {
     text-decoration: none;
-    color: #fff;
+    color: #000;
     display: block;
     padding: 15px 3px;
     font-size: 17px;
     text-align: left;
-    background: linear-gradient(#06b6d4, #0aa4ca);
+    background: #fff;
+    position: relative;
+    transition: inherit;
 }
-.shosurbari-my-account a:hover {
+.shosurbari-my-account a:hover{
     background: linear-gradient(#0aa4ca, #06b6d4);
+    color: #fff;
 }
-
+.shosurbari-my-account a:hover i {
+    color: #fff;
+}
 .shosurbari-my-account li {
     margin-bottom: 10px;
 }
 .shosurbari-my-account li i {
-    color: #fff;
+    color: #000;
     font-size: 20px;
     margin: auto;
     padding-left: 5px;
@@ -595,23 +567,17 @@ ul.nav_1 li.last{
 }
 .shosurbari-sidebar ul{
     background: #fff;
-    width: 210px;
-    border-radius: 2px;
-    border: 1px solid #ccc;
+    width: 100%;
 }
 .shosurbari-sidebar ul li{
-    background: #0aa4ca;
-    border: 1px solid #ccc;
+    background: #fff;
     margin: 5px;
     text-align: center;
-    border-radius:2px;
 }
 .shosurbari-sidebar .dropdown{
-    background: #0aa4ca;
-    border: 1px solid #ccc;
+    background: #fff;
     margin: 5px;
     text-align: center;
-    border-radius: 2px;
 }
 .shosurbari-sidebar .navbar-nav>li>.dropdown-menu{
     border-radius: 2px;
@@ -620,21 +586,25 @@ ul.nav_1 li.last{
 .shosurbari-sidebar {
     margin: auto;
     width: 100%;
-    padding-top: 0px 30px 30px 30px;
     display: flex;
     margin-bottom: 80px;
-}
-.shosurbari-account-sidebar {
-    display: flex;
 }
 .shosurbari-userhome-status{
     margin-top: 20px;
     width:  210px;
-    animation: backgroundAnimation 24s infinite;
+    /*animation: backgroundAnimation 24s infinite; */
 }
 .shosurbari-userhome-status p{
-   font-size: 15px;
-   margin-bottom: 0px;
+	font-size: 17px;
+	font-weight: bold;
+	color: #fff;
+    margin-bottom: 10px;
+    padding: 15px 10px;
+    background: linear-gradient(180deg, #00bbff61 0%, rgba(238, 246, 253, 0) 100%);
+    border-radius: 5px;
+    border: 1px solid #0aa4ca;
+   /*font-size: 14px;
+   margin-bottom: 0px; */
 }
 .shosurbari-userhome-status form button{
     margin-left: 0px;
@@ -642,11 +612,11 @@ ul.nav_1 li.last{
     padding: 3px 7px;
     color: #fff;
     border: 1px solid #ccc;
-    border-radius: 2px;
-    font-size: 16px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    height: 35px;
+    border-radius: 4px;
+    font-size: 13px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 26px;
     background: linear-gradient(#06b6d4, #0aa4ca);
 }
 .shosurbari-userhome-status form button:hover{
@@ -655,9 +625,10 @@ ul.nav_1 li.last{
 }
 .sb-biodata-total-view,
 .shosurbari-userhome-status {
-    text-align: left;
+    text-align: center;
     padding: 15px 10px;
-    animation: backgroundAnimation 24s infinite; /* 8 colors * 3 seconds = 24 seconds */
+    /* animation: backgroundAnimation 24s infinite; */
+	background: linear-gradient(360deg, #000000 -100%,rgb(73 101 129) 100%);
 }
 @keyframes backgroundAnimation {
 0% {
@@ -693,27 +664,28 @@ ul.nav_1 li.last{
     margin: 0;
 }
 .sb-biodata-total-view h3{
-    font-size: 15px;
+    /* font-size: 15px;
     line-height: 24px;
     margin-bottom: 5px;
-    font-weight: 500;
+    font-weight: 500; */
+	font-size: 17px;
+    font-weight: bold;
+    color: #fff;
+    padding: 15px 10px;
+    background: linear-gradient(180deg, #00bbff61 0%, rgba(238, 246, 253, 0) 100%);
+    border-radius: 5px;
+    border: 1px solid #0aa4ca;
+	line-height: normal;
+	margin-bottom: 0px;
 }
 .shosurbari-biodata-view {
-    margin-top: 70px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     flex-wrap: wrap;
     width: 210px;
     margin-left: 0;
 }
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                   E   N   D                   --
---         SHOSUR BARI MY ACCOUNT SIDEBAR        --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-/* End & Start */
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                S  T  A  R  T                  --
---      SHOSUR BARI MOBILE NAV / MENU BAR        --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/*END - SHOSUR BARI MY ACCOUNT SIDEBAR*/
+/*START - SHOSUR BARI MOBILE NAV / MENU BAR END*/
 ul.nav_1{
     font-size: 20px;
     font-weight: 500;
@@ -727,7 +699,7 @@ ul.nav_1{
 .bar1, .bar2, .bar3 {
     width: 25px;
     height: 3px;
-    background-color: #fff;
+    background-color: #000; /*#fff; */
     margin: 6px 0;
     transition: 0.4s;
 }
@@ -755,21 +727,14 @@ ul.nav_1{
     color: #fff;
 }
 /*Menu Bar Menu Icon End*/
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                   E   N   D                   --
---      SHOSUR BARI MOBILE NAV / MENU BAR        --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-/* End & Start */
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---              S  T  A  R  T                    --
---         SHOSUR BARI - FOOTER SECTION          --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/*END - SHOSUR BARI MOBILE NAV / MENU BAR */
+/* START - SHOSUR BARI - FOOTER SECTION */
 .shosurbari-copy-right {
     vertical-align: middle;
 }
 .shosurbari-copy-right p {
     display: inline;
-    padding-right: 10px; /* Add some spacing between the text and the image */
+    padding-right: 10px;
 }
 .shosurbari-payment {
     vertical-align: middle;
@@ -785,7 +750,7 @@ ul.nav_1{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    background: #06b6d4;
+    background: linear-gradient(360deg, #000000 0%,rgb(73 101 129) 100%); /*#06b6d4;*/
     padding: 1em 0;
     margin-top: 50px;
 }
@@ -798,19 +763,6 @@ ul.nav_1{
 }
 .shosurbari-copy-right p {
     margin: 0;
-}
-.col_2 {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0px;
-    padding: 25px;
-    padding-right: 0px;
-}
-.col_2 h4 {
-	color: #fff;
-	font-size:1.3em;
-	margin-bottom:1em;
-    text-align: right;
 }
 .col_2 p {
     color: white;
@@ -836,8 +788,8 @@ ul.footer_links li a{
 ul.footer_links li a:hover{
     padding: 4px;
     text-decoration: underline;
-    color: #000;
-    transform: scale(1.1);
+    color: #06b6d4; /*#000;
+    transform: scale(1.1); */
 }
 ul.footer_social {
     padding: 0;
@@ -874,44 +826,13 @@ i.fa1:hover {
     font-size: 13px;
 }
 .shosurbari-copy-right p img{
-    animation: backgroundAnimationDeveloped 10s linear infinite;
     font-size: 15px;
-    transition: transform 0.4s;
-    padding: 2px;
-}
-@keyframes backgroundAnimationDeveloped {
-0% {
-    background: green;
-}
-14.28% {
-    background: blue;
-}
-28.56% {
-    background: red;
-}
-42.84% {
-    background: #fdf4ff;
-}
-57.12% {
-    background: blue;
-}
-71.4% {
-    background:  red;
-}
-85.68% {
-    background: #fdf4ff;
-}
-100% {
-    background: green;
-}
+    transition: transform 0.3s;
+    padding: 1px;
 }
 .shosurbari-copy-right p img:hover{
 	text-decoration:none;
-    padding: 2px;
-    border-radius: 3px;
-    background: linear-gradient(#0aa4ca, #06b6d4);
-    color: #fff;
-    transform: scale(1.5);
+    transform: scale(1.3);
 }
 #scroll-up-btn {
     position: fixed;
@@ -932,15 +853,8 @@ i.fa1:hover {
     color: #fff;
     transform: scale(1.1);
 }
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                   E   N   D                   --
---         SHOSUR BARI - FOOTER SECTION          --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-/* End & Start */
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                  S  T  A  R  T                --
---           SHOSUR BARI   - HOME PAGE           --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/* END - SHOSUR BARI - FOOTER SECTION */
+/* START - SHOSUR BARI   - HOME PAGE */
 /*Banner Section Start*/
 .banner {
     display: flex;
@@ -974,14 +888,13 @@ section::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(180deg, #00bbff61 0%,rgba(238,246,253,0) 100%);
+    background: linear-gradient(360deg, #00bbff4a 0%, rgb(255 255 255 / 29%) 100%); /*linear-gradient(180deg, #00bbff61 0%,rgba(238,246,253,0) 100%); */
 }
 .sb-home-reg  {
     margin: auto;
     text-align: center;
 }
 /*Banner Section End*/
-/*Body Section Start*/
 /*Home Search Option Start*/
 .sb-home-reg2 button {
     background: none;
@@ -1118,21 +1031,27 @@ section::before {
 .sb-featured-profiles {
     width: 100%;
     margin: 120px auto 0 auto;
-    padding-top: 50px;
+    padding-top: 40px;
 }
 .nbs-flexisel-container{
-    margin-bottom: 120px;
+    margin-bottom: 110px;
 }
 .sb-home-search {
     width: 100%;
     margin: 0px auto;
-    padding-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
 }
 .sb-home-search h1 {
     text-align: center;
     line-height: 45px;
+}
+.sb-home-search p {
+    line-height: 25px;
+    font-size: 15px;
+    text-align: center;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 .sb_newbiodata{
     width: 80%;
@@ -1165,6 +1084,7 @@ section::before {
     margin-bottom: auto;
     margin-top: 0px;
     border: 2px solid #fff;
+    background: #fff;
 }
 #flexiselDemo3{
     left: 0px;
@@ -1273,7 +1193,6 @@ ul#flexiselDemo3 h3 a:hover{
     margin: 10px;
     padding: 8px 15px;
     white-space: nowrap;
-    /* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; */
     border: 1px solid rgba(0,0,0,.05);
     box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
     border-radius: 2px;
@@ -1290,68 +1209,6 @@ ul#flexiselDemo3 h3 a:hover{
     text-align: left;
     margin: 5px 0;
 }
-/* Notice Board Start */
-marquee {
-    margin-top: 10px;
-    width: 100%;
-}
-.runtext-container {
-    color: #000;
-    text-align: center;
-    position: fixed;
-    top: 0;
-    width: 92%;
-    left: 4%;
-    right: 4%;
-    z-index: 10000;
-    overflow: hidden;
-    display: flex;
-    justify-content: space-between;
-    background-color:#ddddff;
-    background-image:linear-gradient(180deg, #00bbff61 0%,rgba(238,246,253,0) 100%);
-    background-repeat:repeat-x;
-    border: 2px solid #00bbff61;
-    box-shadow:0 5px 20px rgba(0, 0, 0, 0.9);
-    overflow-x: hidden;
-    overflow-y: visible;
-    padding: 0 0 0 10px ;
-}
-.main-runtext {
-    margin: 0 auto;
-    overflow: visible;
-    position: relative;
-    height: 40px;
-    flex-grow: 1;
-}
-.runtext-container .holder {
-    position: relative;
-    overflow: visible;
-    display: inline;
-    float: left;
-}
-.runtext-container .holder .text-container {
-    display: inline;
-}
-.runtext-container .holder a {
-    text-decoration: none;
-    color: #000;
-    line-height: -0.5em;
-    font-size: 16px;
-}
-.runtext-container .holder a:hover {
-    text-decoration: none;
-    color: red;
-}
-.runtext-container button {
-    background-color: red;
-    width: 70px;
-    border: none;
-    cursor: pointer;
-    color: #fff;
-    font-weight: bold;
-    border-radius: 3px;
-}
-/* Notice Board End */
 .card-wrap{
     width: 230px;
     background: #fff;
@@ -1391,35 +1248,22 @@ marquee {
     margin: 0 auto;
     padding: 0 20px 20px 20px;
 }
-.sb-recommendation{
-    text-align: center;
-    background: #0aa4ca;
-    display: flex;
-    flex-direction: column;
-}
-.sb-recommendation h2{
-    text-align: center;
-    background: #0aa4ca;
-    font-size: 18px;
-    color: #fff;
-    margin: 10px auto;
-}
 .card-package p{
-    font-size: 14px;
+    font-size: 15px;
     padding-bottom: 5px;
     text-align: left;
-    font-weight: bold;
+    font-weight: 500;
 }
 .card-content p{
-    font-size: 14px;
+    font-size: 15px;
     margin-bottom: 25px;
     margin-top: 0px;
     width: 200px;
     text-align: justify;
-    line-height: 22px;
+    line-height: 23px;
 }
 .sb-package-avr-amount p{
-    font-size: 14px;
+    font-size: 15px;
     margin-bottom: 25px;
     margin-top: 0px;
     width: 200px;
@@ -1458,7 +1302,7 @@ marquee {
     font-size: 18px;
     color: black;
     width: 200px;
-    margin-top: -70px;
+    margin-top: -63px;
 }
 .card-content h2{
     font-size: 25px;
@@ -1548,68 +1392,6 @@ span.m_3{
     font-size: 18px;
     color: #fff;
 }
-.slide {
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	opacity: 0;
-	transition: opacity 1s;
-	box-sizing: border-box;
-    padding: 2px;
-}
-.slide.active {
-	opacity: 1;
-}
-.slide h1 {
-	font-size: clamp(3.5em, 5vmax, 3em);
-	position: absolute;
-	z-index: 1;
-	left: 0px;
-    top: 200px;
-    line-height: 80px;
-	width: 750px;
-	color: #e5007df0;
-	font-weight: 800;
-    text-align: left;
-    padding: 10px;
-    margin-bottom: 0px;
-    text-align: left;
-}
-.slide h5 {
-	font-size: 18px;
-	position: absolute;
-	z-index: 1;
-	top: 390px;
-	left: 0px;
-	width: 600px;
-    line-height: 25px;
-    color: #fff;
-    text-align: left;
-    margin-top: auto;
-    padding: 10px;
-}
-.slide-indicators {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 137px;
-	padding: 20px 40px;
-	display: none;
-}
-.slide-indicator {
-	height: 2px;
-	background: #ddd;
-	margin: 0 2px;
-	width: 20px;
-	transition: width 0.2s ease-out;
-}
-.slide-indicator.active {
-	background: linear-gradient(to right, #555 50%, #ddd 50%);
-	background-size: 200% 100%;
-	animation: slide linear infinite;
-	animation-duration: var(--duration);
-	width: 67px;
-}
 #banner_text{
     text-align: center;
     padding: 50px 50px 15px 50px;
@@ -1636,15 +1418,9 @@ span.m_3{
     margin: 25px auto 120px auto;
 }
 /*Body Section End*/
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                   E   N   D                   --
---           SHOSUR BARI   - HOME PAGE           --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/*END - SHOSUR BARI   - HOME PAGE */
 /* End & Start */
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                  S  T  A  R  T                --
---  SHOSUR BARI - USER PROFILE PAGE / VIEW BIO   --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/* START - SHOSUR BARI - USER PROFILE PAGE / VIEW BIO */
 /*Profile Short Heading Start*/
 .star {
     position: absolute;
@@ -1666,29 +1442,18 @@ span.m_3{
 .star:nth-child(4) { top: 10%; left: 25%; width: 8px; height: 8px; }
 .star:nth-child(5) { top: 15%; left: 70%; width: 12px; height: 12px; }
 .star:nth-child(6) { top: 70%; left: 5%; width: 14px; height: 14px; }
-/* .star:nth-child(7) { top: 20%; left: 50%; width: 11px; height: 11px; } */
-/* .star:nth-child(8) { top: 90%; left: 40%; width: 15px; height: 15px; } */
-/* .star:nth-child(9) { top: 25%; left: 35%; width: 14px; height: 14px; } */
-/* .star:nth-child(10) { top: 80%; left: 20%; width: 16px; height: 16px; } */
 .star:nth-child(11) { top: 30%; left: 10%; width: 8px; height: 8px; }
-/* .star:nth-child(12) { top: 75%; left: 85%; width: 14px; height: 14px; } */
-/* .star:nth-child(13) { top: 30%; left: 80%; width: 13px; height: 13px; } */
-/* .star:nth-child(14) { top: 78%; left: 70%; width: 17px; height: 17px; } */
-/* .star:nth-child(15) { top: 40%; left: 65%; width: 15px; height: 15px; } */
 .star:nth-child(16) { top: 80%; left: 53%; width: 6px; height: 6px; }
 .star:nth-child(17) { top: 40%; left: 30%; width: 13px; height: 13px; }
-/* .star:nth-child(18) { top: 60%; left: 30%; width: 10px; height: 10px; } */
 .star:nth-child(19) { top: 50%; left: 20%; width: 14px; height: 14px; }
 .star:nth-child(20) { top: 20%; left: 95%; width: 9px; height: 9px; }
-
 .profile-header {
     background: linear-gradient(180deg, #000000 0%,rgb(73 101 129) 100%);
-    /* background: linear-gradient(180deg, #00bbff61 0%,rgba(238,246,253,0) 100%); */
     display: flex;
     height: 140px;
     position: relative;
     box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
-    margin-top: 30px;
+    margin-top: 25px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -1744,6 +1509,7 @@ span.m_3{
     font-size: 15px;
     font-weight: 500;
     background:#0aa4ca;
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
     width: auto;
     padding: 0px;
     margin: auto;
@@ -1774,7 +1540,6 @@ span.m_3{
     font-family: sans-serif;
     font-weight: bold;
     color: #fff;
-    /* animation: textAnimation 10s linear infinite; */
 }
 .profile-nav-info .address {
     display: flex;
@@ -1896,12 +1661,12 @@ span.m_3{
 .contact-bio,
 .copy-sbbio-link {
     padding: 0px;
-    width: 120px;
+    width: 45%;
     border-radius: 4px;
     color: #fff;
     font-family: "Bree Serif";
-    font-size: 1rem;
-    margin: 20px auto 10px auto;
+    font-size: 17px;
+    margin: 20px auto;
     cursor: pointer;
     outline: none;
     transition:  0.3s ease-in-out;
@@ -1912,7 +1677,7 @@ span.m_3{
     padding: 0px;
     width: 100%;
     font-family: "Bree Serif";
-    font-size: 1rem;
+    font-size: 17px;
     margin: 0px auto;
     cursor: pointer;
     outline: none;
@@ -1921,10 +1686,10 @@ span.m_3{
 
 .choice-list-options {
     padding: 0px;
-    width: 160px;
+    width: 95%;
     border-radius: 4px;
     font-family: "Bree Serif";
-    font-size: 1rem;
+    font-size: 17px;
     margin: 10px auto 20px auto;
     cursor: pointer;
     outline: none;
@@ -1989,6 +1754,7 @@ button.sb-pay-confirm  {
     white-space: nowrap;
     height: 40px;
     line-height: 32px;
+    font-size: 17px;
 }
 button.copylink:hover {
     background: linear-gradient(#0aa4ca, #06b6d4);
@@ -2010,7 +1776,7 @@ button.choice-list-btn {
     transition: all .2s ease;
     white-space: nowrap;
     height: 40px;
-    line-height: 32px;
+    line-height: 30px;
 }
 button.choice-list-btn:hover {
     background: linear-gradient(#0aa4ca, #06b6d4);
@@ -2087,6 +1853,7 @@ button.copylink i {
     margin-right: auto;
     margin-bottom: auto;
     margin-top: 0px;
+    background: #fff;
     border: 2px solid #fff;
 }
 .sbbio_header_recent_view{
@@ -2101,7 +1868,7 @@ button.copylink i {
     padding: 2px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    line-height: 1.1;
+    line-height: 28px;
     margin-bottom: 20px;
     margin-top: 2px;
 }
@@ -2117,19 +1884,18 @@ button.copylink i {
 }
 .sb_user_recentview td {
     color: #000000;
-    padding: 2px 5px;
-    font-weight: 450;
+    padding: 5px;
     position: inherit;
-    line-height: 25px;
+    line-height: 20px;
     font-size: 13.5px;
     text-align: center;
 }
-.sb_user_recentview  .sb_value{
+.sb_user_recentview .sb_value{
     border-left: 1px solid #00bbff36;
-    width: 50%;
+    width: 67%;
 }
-.sb_user_recentview  .sb_label{
-    width: 50%;
+.sb_user_recentview .sb_label{
+    width: 33%;
 }
 .sb_single_data_recentview{
     display: flex;
@@ -2204,9 +1970,10 @@ td.day_label {
     font-weight: 450;
     border: 1px #dbdbdb;
     border-style: groove;
-    width: 45%;
+    width: 50%;
     position: inherit;
-    line-height: 28px;
+    line-height: 24px;
+    overflow-wrap: anywhere;
 }
 td.day_value {
     color: #6e6e6e;
@@ -2214,24 +1981,19 @@ td.day_value {
     font-weight: 400;
     border: 1px #dbdbdb;
     border-style: groove;
-    width: 55%;
-    line-height: 28px;
+    width: 50%;
+    line-height: 24px;
+    overflow-wrap: anywhere;
 }
 /*Biodata Table Form / Data show End*/
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                   E   N   D                   --
---  SHOSUR BARI - USER PROFILE PAGE / VIEW BIO   --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-/* End & Start */
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                  S  T  A  R  T                --
---            SHOSUR BARI - ABOUT PAGE           --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/*END - SHOSUR BARI - USER PROFILE PAGE / VIEW BIO */
+/* START - SHOSUR BARI - ABOUT PAGE */
 .shosurbari-details h1 {
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     margin-left: auto;
     margin-right: auto;
     text-align: left;
+    font-size: 25px;
     font-family: 'AdorshoLipi', 'Ubuntu', sans-serif !important;
 }
 .shosurbari-details p,
@@ -2429,21 +2191,15 @@ small.testi-meta1{
     margin-bottom: 3em;
 }
 /*Our Team End*/
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                   E   N   D                   --
---            SHOSUR BARI - ABOUT PAGE           --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-/* Start & End */
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                  S  T  A  R  T                --
---           SHOSUR BARI - CONTACT US PAGE       --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-/*About Page & Contact Page used same class / Follow About Page*/
+/* END - SHOSUR BARI - ABOUT PAGE */
+/* START - SHOSUR BARI - CONTACT US PAGE */
+/*About Page & Contact Page used same class*/
 /*PopUp Message For All PopUp Start*/
 .popup-message,
 .popup {
     display: none;
     position: fixed;
+    width: 400px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -2452,7 +2208,6 @@ small.testi-meta1{
     border: 1px solid rgba(0,0,0,.05);
     border-radius: 2px;
     padding: 15px;
-    width: 400px;
     z-index: 9999;
 }
 .popup-message h3,
@@ -2472,7 +2227,7 @@ small.testi-meta1{
     font-weight: bold;
 }
 #popup-message p{
-    font-size: 16px;
+    font-size: 15px;
     text-align: justify;
     color: #fff;
     margin-top: 10px;
@@ -2513,15 +2268,8 @@ small.testi-meta1{
     z-index: 9998;
 }
 /*PopUp Message For All PopUp End*/
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                   E   N   D                   --
---           SHOSUR BARI - CONTACT US PAGE       --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-/* End & Start */
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                  S  T  A  R  T                --
---      SHOSUR BARI - CONTACT BIODATA PAGE       --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/*END - SHOSUR BARI - CONTACT US PAGE */
+/* START - SHOSUR BARI - CONTACT BIODATA PAGE */
 /*Payment Form Start*/
 .payment-form {
     margin: 50px auto;
@@ -2550,7 +2298,7 @@ small.testi-meta1{
     font-size: 16px;
     font-weight: bold;
     line-height: 28px;
-    height: 50px;
+    height: auto;
 }
 #payment-message{
     color: #fff;
@@ -2583,20 +2331,14 @@ small.testi-meta1{
     display: none;
 }
 /*Payment Form End*/
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                   E   N   D                   --
---           SHOSUR BARI - CONTACT US PAGE       --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-/* End & Start */
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                  S  T  A  R  T                --
---SHOSUR BARI-TERMS & CONDITION PRIVACY & POLICY --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/* END - SHOSUR BARI - CONTACT US PAGE */
+/* START - SHOSUR BARI-TERMS & CONDITION PRIVACY & POLICY */
 .shosurbari-security h1 {
-    margin-bottom: 10px;
-    text-align: left;
+    margin-bottom: 0px;
     margin-left: auto;
     margin-right: auto;
+    text-align: left;
+    font-size: 25px;
     font-family: 'AdorshoLipi', 'Ubuntu', sans-serif !important;
 }
 .shosurbari-security h2,
@@ -2614,15 +2356,8 @@ small.testi-meta1{
 ol li{
     list-style-type: upper-roman;
 }
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                   E   N   D                   --
---SHOSUR BARI-TERMS & CONDITION PRIVACY & POLICY --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-/* End & Start */
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                  S  T  A  R  T                --
---  SHOSUR BARI - FREQUENTLY ASK QUESTION PAGE   --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/*END - SHOSUR BARI-TERMS & CONDITION PRIVACY & POLICY */
+/*START - SHOSUR BARI - FREQUENTLY ASK QUESTION PAGE */
 .jb-accordion-button{
     width: 100%;
     background: #0aa4ca;
@@ -2687,7 +2422,7 @@ ol li{
 }
 .shosurbari-faq p{
 	color: #555;
-    font-size: 16px;
+    font-size: 15px;
     line-height:1.8em;
     margin-bottom: 50px;
 }
@@ -2695,8 +2430,8 @@ ol li{
     padding: 0px;
 }
 .jb-accordion-content p{
-	font-size: 16px;
-    line-height: 1.5em;
+	font-size: 15px;
+    line-height: 23px;
     margin-bottom: 0;
     margin-top: 0px;
     border: 1px solid #cffafe;
@@ -2708,15 +2443,8 @@ ol li{
     margin-bottom: 0px;
     margin-top: 20px;
 }
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                   E   N   D                   --
---  SHOSUR BARI - FREQUENTLY ASK QUESTION PAGE   --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-/* End & Start */
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                  S  T  A  R  T                --
---           SHOSUR BARI - REGISTER PAGE         --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/* END - SHOSUR BARI - FREQUENTLY ASK QUESTION PAGE */
+/* START - SHOSUR BARI - REGISTER PAGE */
 .sb-register-login{
     border-radius: 6px;
     width: 400px;
@@ -2746,19 +2474,29 @@ ol li{
 .form-group input {
     padding-right: 25px;
     background: #4cafe809;
+    box-shadow: inset 0 2px 1px #22222217;
 }
 .form-group .show-password {
     position: absolute;
     right: 10px;
     padding: 6px;
-    font-size: 16px;
     cursor: pointer;
 }
-.form-group:hover .fa-eye {
-    color: #0aa4ca;
+.form-group .fa-eye-slash {
+    color: #000;
+    font-weight: 500;
 }
-.form-group:hover .fa-eye:before {
-    content: 'Show Password';
+.form-group:hover .fa-eye-slash {
+    color: #000;
+}
+.form-group .fa-eye {
+    color: #0aa4ca;
+    font-weight: 500;
+}
+.form-group:hover .fa-eye-slash:before {
+    content: 'Show';
+    color: #000;
+    font-weight: 500;
 }
 /* Password Show Eye Icon END */
 /*Gender Option Start*/
@@ -2771,13 +2509,14 @@ ol li{
     border-radius: 4px;
 }
 .gender-select-reg{
-    padding: 00px 10px;
+    padding: 0px 10px;
+	height: 40px;
     display: flex;
 	align-items: center;
 	border: 1px solid #ccc;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
+    border-radius: 2px;
     background: #4cafe809;
+	box-shadow: inset 0 2px 1px #22222217;
 }
 .gender-select-reg .gender-option{
     margin-top: 0px;
@@ -2920,15 +2659,8 @@ ol li{
     margin-bottom: 0px;
 }
 /*Used OR For Separate SignUp & SignIn Option End*/
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                   E   N   D                   --
---           SHOSUR BARI - REGISTER PAGE         --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-/* End & Start */
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                  S  T  A  R  T                --
---             SHOSUR BARI - LOGIN PAGE          --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/*END - SHOSUR BARI - REGISTER PAGE*/
+/*START -  SHOSUR BARI - LOGIN PAGE */
 /*Remember Check Box Start*/
 .remember-forgot{
     display: flex;
@@ -2985,24 +2717,18 @@ ol li{
     left: 4px;
 }
 /*Checkbox with Right Mark End */
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                   E   N   D                   --
---             SHOSUR BARI - LOGIN PAGE          --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/*START - SHOSUR BARI - LOGIN PAGE*/
 /* End & Start */
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                  S  T  A  R  T                --
---      SHOSUR BARI - ACCOUNT UPDATE PAGE        --
---       SHOSUR BARI - PHOTO UPDATE PAGE         --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-.shosurbari-user-account .form-actions {  /* Both Page*/
+/* START - SHOSUR BARI - ACCOUNT UPDATE PAGE
+& SHOSUR BARI - PHOTO UPDATE PAGE */
+.shosurbari-user-account .form-actions {
     width: 100%;
     margin-bottom: 0px;
     margin-top: 0px;
     text-align: center;
     font-size: 30px;
 }
-.shosurbari-user-account{  /* Both Page*/
+.shosurbari-user-account{
     border-radius: 6px;
     width: 400px;
     gap: 1.5rem;
@@ -3014,7 +2740,7 @@ ol li{
     margin-bottom: auto;
     overflow-x: auto;
 }
-.shosurbari-dashboard {  /* Both Page*/
+.shosurbari-dashboard {
     border-radius: 6px;
     width: auto;
     gap: 1.5rem;
@@ -3067,7 +2793,7 @@ ol li{
     line-height: 22px;
     font-size: 15px;
 }
-.shosurbari-user-account form{   /* Both Page*/
+.shosurbari-user-account form{
     background: white;
 }
 input[type=file] {
@@ -3198,13 +2924,16 @@ input[type=submit] {
 .delete-image form button {
     display: block;
     margin: 0 auto;
-    width: 120px;
-    background: #ff0080;
+    width: auto;
+    padding: 3px 7px;
     color: #fff;
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
     border-radius: 4px;
+    font-size: 16px;
+    height: 35px;
+    background: #ff0080;
 }
-.delete-image button:hover{
+.delete-image form button:hover{
     background: linear-gradient(#0aa4ca, #06b6d4);
     color: #fff;
 }
@@ -3219,16 +2948,10 @@ input[type=submit] {
     background: #fff;
     text-align: center;
 }
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                   E   N   D                   --
---      SHOSUR BARI - ACCOUNT UPDATE PAGE        --
---       SHOSUR BARI - PHOTO UPDATE PAGE         --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/*END SHOSUR BARI - ACCOUNT UPDATE PAGE
+& SHOSUR BARI - PHOTO UPDATE PAGE*/
 /* End & Start */
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                  S  T  A  R  T                --
---            SHOSUR BARI - SERVICE PAGE         --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/*START - SHOSUR BARI - SERVICE PAGE*/
 .page_header{
 	text-align:left;
 	margin-bottom: 2em;
@@ -3239,7 +2962,7 @@ input[type=submit] {
     font-weight: bold;
 }
 .page_header p{
-	font-size: 16px;
+	font-size: 15px;
     color:#000;
     line-height:1.8em;
     text-align: justify;
@@ -3253,15 +2976,8 @@ i.icon_4{
     font-size:70px;
     line-height: 120px;
 }
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                     E   N   D                 --
---            SHOSUR BARI - SERVICE PAGE         --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-/* End & Start */
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                S  T  A  R  T                  --
---   SHOSUR BARI BIODATA POST PAGE / FORM LIST   --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/*END - SHOSUR BARI - SERVICE PAGE */
+/*START - SHOSUR BARI BIODATA POST PAGE / FORM LIST */
 .sb-biodata{
     border-radius: 6px;
     width: 95%;
@@ -3273,33 +2989,24 @@ i.icon_4{
     background: white;
     box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
     border: 1px solid rgba(0,0,0,.05);
-   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
-}
-.sb-biodata-field{
-    padding: 10px 5px;
-    width: 100%;
-    margin-bottom: 10px;
-    margin-top: 0px;
-    background: linear-gradient(#06b6d4, #0aa4ca);
-    border-radius: 4px;
-}
-.sb-biodata-field h2{
-    text-align: center;
-    color: #fff;
-    margin: auto;
-    font-size: 28px;
 }
 .shosurbari-biodata{
     display: flex;
     flex-wrap: wrap;
 }
-.sb-register-login h2{
-    color: #fff;
-    font-size: 28px;
+.sb-register-login h2,
+.payment-form h2,
+.sb-biodata-field h2 {
     width: 100%;
     margin-top: 0px;
-    background: linear-gradient(#06b6d4, #0aa4ca);
+    margin-bottom: 30px;
     border-radius: 4px;
+    color: #000;
+    font-size: 23px;
+    font-weight: bold;
+    background: none;
+    text-align: center;
+    line-height: 27px;
 }
 .flex-container{
     display: flex;
@@ -3322,7 +3029,7 @@ i.icon_4{
     margin: auto;
     overflow: hidden;
     counter-reset: step;
-    padding: 10px 0px;
+    padding: 5px 0px 10px 0px;
     display: flex;
     justify-content: center;
     position: relative;
@@ -3405,7 +3112,7 @@ i.icon_4{
 }
 #biodataForm {
     width: 100%;
-    margin: 5px auto 0px auto;
+    margin: 0px auto;
     text-align: center;
     padding-bottom: 50px;
 }
@@ -3415,12 +3122,12 @@ i.icon_4{
     padding: 10px;
     box-sizing: border-box;
     margin: auto;
+    margin-top: 50px;
 }
 /*Hide all except first fieldset*/
 #biodataForm fieldset:not(:first-of-type) {
     display: none;
 }
-/*buttons*/
 #biodataForm .action-button,
 #biodataForm .biodata-submit {
     width: 47%;
@@ -3431,7 +3138,7 @@ i.icon_4{
     padding: 0;
     margin: 10px 0px;
     text-transform: uppercase;
-    font-size: 18px;
+    font-size: 17px;
     line-height: 28px;
     height: 40px;
     box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
@@ -3443,22 +3150,14 @@ i.icon_4{
     color: #fff;
 }
 #progressbar li:first-child:after {
-    /*connector not needed before the first step*/
     content: none;
 }
 .error-message-empty{
     color: #ff0080;
 }
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                    E   N   D                  --
---   SHOSUR BARI BIODATA POST PAGE / FORM LIST   --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-/* End & Start */
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                S  T  A  R  T                  --
---      SHOSUR BARI SEARCH PAGE / FIND USER      --
---  SHOSURBARI SINGLE / MULTIPLE BIODATA SEARCH  --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/*END - SHOSUR BARI BIODATA POST PAGE / FORM LIST */
+/*START - SHOSUR BARI SEARCH PAGE / FIND USER
+& SHOSURBARI SINGLE / MULTIPLE BIODATA SEARCH */
 .total_biodata{
     margin-top: 10px;
 }
@@ -3601,6 +3300,7 @@ i.icon_4{
     margin-bottom: auto;
     margin-top: 0px;
     border: 2px solid white;
+    background: #fff;
 }
 .sb_bio_number{
     text-align: center;
@@ -3639,7 +3339,7 @@ i.icon_4{
     font-size: 15px;
     width: 50%;
     border-left: 1px solid #00bbff36;
-    line-height: 28px;
+    line-height: 22px;
 }
 .sb_user .sb_label{
     color: black;
@@ -3647,7 +3347,7 @@ i.icon_4{
     font-size: 15px;
     font-weight: 400;
     width: 50%;
-    line-height: 28px;
+    line-height: 22px;
     position: inherit;
 }
 .view_sb_profile {
@@ -3689,9 +3389,10 @@ i.icon_4{
     width: 100%;
     padding-left: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 2px;
     height: 35px;
     margin-top: 10px;
+    box-shadow: inset 0 2px 1px #22222217;
 }
 .sb_singlebio_search input:focus {
     border: 1px solid #0aa4ca !important;
@@ -3934,16 +3635,9 @@ label{
     transform: rotate(180deg);
 }
 /* Multiple Biodata Search End*/
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                 E    N    D                   --
---      SHOSUR BARI SEARCH PAGE / FIND USER      --
---  SHOSURBARI SINGLE / MULTIPLE BIODATA SEARCH  --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-/* End & Start */
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---               S  T  A  R  T                   --
---          SHOSUR BARI CHOICE LIST PAGE         --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/*END - SHOSUR BARI SEARCH PAGE / FIND USER
+& SHOSURBARI SINGLE / MULTIPLE BIODATA SEARCH*/
+/* START - SHOSUR BARI CHOICE LIST PAGE*/
 .sb-biodata-amount-list {
     padding: 0 10px 0 10px;
     margin:  0 auto 15px auto;
@@ -3959,9 +3653,9 @@ label{
     margin-bottom: 30px;
 }
 .sb-biodata-amount-list p{
-    font-weight: 500;
     text-align: justify;
-    line-height: 28px;
+    line-height: 24px;
+    font-size: 15px;
 }
 .choice-list-id,
 .choice-list-id a{
@@ -3980,20 +3674,13 @@ label{
     cursor: pointer;
     font-size: 14px;
 }
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                 E    N    D                   --
---          SHOSUR BARI CHOICE LIST PAGE         --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-/* End & Start */
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---               S  T  A  R  T                   --
---      Media Responsive / Phone Responsive      --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/*END - SHOSUR BARI CHOICE LIST PAGE */
+/*START - Media Responsive / Phone Responsive */
 @media (min-width:1600px){
     .contact-bio,
     .copy-sbbio-link {
-        width: 160px;
-        margin: 20px auto 10px auto;
+        width: 45%;
+        margin: 20px auto;
     }
     button.chatbtn,
     button.copylink {
@@ -4016,14 +3703,14 @@ label{
     }
     td.day_label,
     td.day_value {
-        font-size: 15px;
+        font-size: 14px;
     }
 }
 /* End & Start */
 @media (max-width:1600px){
     td.day_label,
     td.day_value {
-        font-size: 15px;
+        font-size: 14px;
     }
 }
 /* End & Start */
@@ -4043,37 +3730,54 @@ label{
         padding: 0px;
     }
 }
-/* End & Start */
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---          max-width:1280px / S T A R T         --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/* min-width:1280px / S T A R T */
+@media (min-width:1280px){
+    .shosurbari-faq {
+        width: 800px;
+        margin: auto;
+        margin-bottom: 120px;
+        margin-top: 25px;
+    }
+    .nbs-flexisel-item {
+        float: left;
+        position: relative;
+        margin: auto 0px;
+        padding: 0px;
+        line-height: 17px;
+        min-height: 220px;
+    }
+    .sb_featured_profile_head {
+        width: 215px;
+    }
+    .nbs-flexisel-item:first-child{
+        margin-left: 0px;
+    }
+    .sb_newbiodata .nbs-flexisel-item li{
+      width: 33%;
+    }
+    .sb_newbiodata li{
+      width: 33%;
+    }
+    .nbs-flexisel-item li{
+      width: 33%;
+    }
+    .flex-container-shosurbaribio {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: -50px;
+        width: 1250px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+/* min-width:1280px / E N D */
+/* max-width:1280px / S T A R T */
 @media (max-width:1280px){
     .profile-side {
         width: 100%;
     }
     section{
         padding: 0px;
-    }
-    .slide{
-        padding: 0px;
-    }
-    .slide h1 {
-        font-size: clamp(3.5em, 5vmax, 3em);
-        left: 0px;
-        top: 100px;
-        line-height: 80px;
-        width: 750px;
-        padding: 20px;
-    }
-    .slide h5 {
-        font-size: 18px;
-        top: 290px;
-        left: 0px;
-        width: 600px;
-        line-height: 25px;
-        margin-top: auto;
-        text-align: left;
-        font-weight: 500;
     }
     h1, h2, h3, h4, h5, h6 {
         font-size: 45px;
@@ -4155,11 +3859,11 @@ label{
     }
     .profile-nav-info .address {
         font-size: 14px;
+        line-height: 22px;
     }
 }
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---           max-width:1280px / E  N  D          --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/* max-width:1280px / E  N  D */
+/* min-width:1200px / S T A R T */
 @media(min-width: 1200px){
     .navigationpro {
         width: 1200px;
@@ -4182,7 +3886,7 @@ label{
     }
     .sb-choice-list-notice {
         width: 1170px;
-        margin: 30px auto;
+        margin: 20px auto;
         padding-left: 15px;
         padding-right: 15px;
     }
@@ -4195,8 +3899,12 @@ label{
         padding-right: 15px;
     }
 }
-/* End & Start */
+/* min-width:1200px / E  N  D */
+/* max-width:1200px / S T A R T */
 @media(max-width: 1200px){
+    .sb-featured-profiles {
+        padding-top: 0;
+    }
     .shosurbari-sidebar {
         width: 936px;
         padding-bottom: 30px;
@@ -4206,7 +3914,7 @@ label{
     }
     .sb-choice-list-notice {
         width: 970px;
-        margin: 30px auto;
+        margin: 20px auto;
         padding-left: 15px;
         padding-right: 15px;
         text-align: justify;
@@ -4227,58 +3935,17 @@ label{
         text-align: justify;
     }
 }
-/* End & Start */
-@media (min-width:1280px){
-    .shosurbari-faq {
-        width: 800px;
-        margin: auto;
-        margin-bottom: 120px;
-    }
-    .nbs-flexisel-item {
-        float: left;
-        position: relative;
-        margin: auto 0px;
-        padding: 0px;
-        line-height: 17px;
-        min-height: 220px;
-    }
-    .sb_featured_profile_head {
-        width: 215px;
-    }
-    .nbs-flexisel-item:first-child{
-        margin-left: 0px;
-    }
-    .sb_newbiodata .nbs-flexisel-item li{
-      width: 33%;
-    }
-    .sb_newbiodata li{
-      width: 33%;
-    }
-    .nbs-flexisel-item li{
-      width: 33%;
-    }
-    .flex-container-shosurbaribio {
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: -50px;
-        width: 1250px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-/* End & Start */
+/* max-width:1200px / E  N  D */
 @media (min-width:1024px){
     .nbs-flexisel-container {
         position: relative;
         width: 920px;
         margin-left: auto;
         margin-right: auto;
-        margin-bottom: 120px;
+        margin-bottom: 100px;
     }
 }
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---          max-width:1024px / S T A R T         --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/* max-width:1024px / S T A R T */
 @media (max-width:1024px){
     section {
         height: 50vh;
@@ -4307,9 +3974,6 @@ label{
         display: block;
         padding: 10px 10px;
     }
-    .nav-tabs1>li.active>a, .nav-tabs1>li.active>a:focus, .nav-tabs1>li.active>a:hover {
-        padding: 6px;
-    }
     .profile-nav-info {
         width: 24%;
     }
@@ -4318,9 +3982,6 @@ label{
     }
     .profile-nav-info .address {
         font-size: 13px;
-    }
-    .nav-tabs1 {
-        font-size: 14px;
     }
     .see_sb_biodata {
         margin-left: auto;
@@ -4340,7 +4001,7 @@ label{
     }
     td.day_label,
     td.day_value {
-        font-size: 15px;
+        font-size: 14px;
     }
     .hvr-shutter-out-horizontal {
         padding: 8px 25px;
@@ -4410,7 +4071,7 @@ label{
         position: relative;
         margin-left: auto;
         margin-right: auto;
-        margin-bottom: 120px;
+        margin-bottom: 100px;
     }
     .navbar-nav > li > a {
         padding: 3px 8px;
@@ -4421,23 +4082,14 @@ label{
     .shosurbari-sidebar .dropdown{
         margin: 3px;
     }
-    .slide p{
-        font-size: clamp(0em, 4vmax, 3em);
-        top: 85px;
-        left: 60px;
-        width: 601px;
-        padding: 10px;
-        border-radius: 15px;
-    }
 }
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---           max-width:1024px / E  N  D          --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/* max-width:1024px / E N D */
 @media (min-width: 992px){
     .col-md-2 {
         width: 21.666667%;
     }
 }
+/* max-width:992px / S T A R T */
 @media (max-width: 992px){
     .navigationpro {
         display: block;
@@ -4455,9 +4107,6 @@ label{
         margin-left: 0;
     }
     ul.footer_social {
-        text-align: right;
-    }
-    .col_2 h6 {
         text-align: right;
     }
     .sb-choice-list-notice,
@@ -4481,9 +4130,8 @@ label{
       display: none;
     }
 }
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---          max-width:930px / S T A R T         --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/* max-width:992px / E N D */
+/* max-width:930px / S T A R T */
 @media (max-width:930px){
     section {
         height: 65vh;
@@ -4492,22 +4140,8 @@ label{
         margin-top: 100px;
         margin-bottom: 100px;
     }
-    .slide p{
-        font-size: 35px;
-        width: 520px;
-        border-radius: 10px;
-    }
     .banner{
         height: 450px;
-    }
-    .slide h1 {
-        font-size: clamp(2.8em, 5vmax, 3em);
-        top: 30px;
-        line-height: 70px;
-        width: 615px;
-    }
-    .slide h5 {
-        top: 200px;
     }
     .nbs-flexisel-item {
         float: left;
@@ -4531,9 +4165,6 @@ label{
         text-align: center;
     }
     ul.footer_links li{
-        text-align: center;
-    }
-    .col_2 h4 {
         text-align: center;
     }
     h1, h2, h3, h4, h5, h6 {
@@ -4610,7 +4241,6 @@ label{
         flex-direction: column;
         text-align: center;
         padding-bottom: 20px;
-        margin-top: 28px;
     }
     ul.nav_1 li {
         margin: 3px;
@@ -4632,13 +4262,6 @@ label{
     }
     .bg_left h4 {
         font-size: 1.3em;
-    }
-    .col_2 {
-        margin-bottom: 0em;
-        padding: 25px;
-    }
-    .col_2 h4 {
-        margin-bottom: 10px;
     }
     .faq-details {
         padding-left: 25px;
@@ -4701,12 +4324,10 @@ label{
         display: inline-block;
         border-bottom: none;
         border-radius: 4px;
-        font-size: 15px;
-        font-weight: 500;
-        background: linear-gradient(#06b6d4, #0aa4ca);
+        background: #0aa4ca;
         box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
         width: auto;
-        padding-top: 0px;
+        padding: 2px 5px;
         margin: auto;
         white-space: nowrap;
     }
@@ -4770,19 +4391,28 @@ label{
         padding: 0px;
     }
 }
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---          max-width:930px / E  N  D         --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-/* End & Start */
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---          max-width:768px / S T A R T          --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/* max-width:930px / E N D */
+/* max-width:768px / S T A R T */
 @media (max-width: 768px){
+    .navbar-collapse {
+        max-height: 600px !important;
+    }
     .sb-choice-list-notice,
     .shosurbari-about-contact,
     .shosurbari-trmcnd-prvplcy,
     .shosurbari-service {
         width: 90%;
+    }
+    .soshurbari-animation-icon img {
+        width: 152px;
+        height: 40px;
+    }
+    .sb-register-login h2,
+    .sb-biodata-field h2,
+    .current-page h4,
+    .soshurbari-animation-icon h3,
+    .payment-form h2 {
+        font-size: 20px;
     }
     .runtext-container .holder a {
         font-size: 15px;
@@ -4794,16 +4424,6 @@ label{
     .testi_grid .testi_grid_blockquote > div h3,
     .testi_grid .testi_grid_blockquote > div h4 {
         text-align: left;
-    }
-    .slide h1 {
-        font-size: clamp(2.3em, 5vmax, 3em);
-        top: 20px;
-        line-height: 60px;
-        width: 520px;
-    }
-    .slide h5 {
-        top: 163px;
-        width: 445px;
     }
     .sb-home-reg2{
         top: 0px;
@@ -4827,16 +4447,6 @@ label{
         width: 170px;
         margin-bottom: 15px;
     }
-    .slide p {
-        font-size: 30px;
-        width: 450px;
-        border-radius: 10px;
-        top: 60px;
-        left: 50px;
-    }
-    .sb-home-search {
-        margin-top: 15px;
-    }
     .testi_grid .testi_grid_blockquote{
         padding: 0px;
         margin-bottom: 40px;
@@ -4849,14 +4459,11 @@ label{
         margin-top: 0px;
         width: 590px;
     }
-    .slide{
-        height: 350px;
-    }
     .banner-content {
         height: 350px;
     }
     section{
-        margin-top: 25px;
+        margin-top: 20px;
         height: 40vh;
     }
     #banner_text{
@@ -4883,9 +4490,6 @@ label{
     .login-navbar-icon a i{
         font-size: 18px;
         margin: auto;
-    }
-    #biodataForm{
-        margin: 5px auto 0px auto;
     }
     .shosurbari-sidebar .dropdown{
         margin: 5px;
@@ -4923,6 +4527,7 @@ label{
     }
     .footer {
         padding: 1em 0;
+        padding-top: 30px;
     }
     .profile_search {
         padding: 2em 1em;
@@ -4937,11 +4542,11 @@ label{
         margin: 85px 0 0 0;
     }
     .navbar-nav > li > a {
-        padding: 0px 8px;
-        font-size: 14px;
+        padding: 7px;
+        font-size: 15px;
     }
     .grid_3{
-        margin-top: 45px;
+        margin-top: -20px;
     }
     .about_bottom {
         padding: 3em 0 2em;
@@ -4974,7 +4579,7 @@ label{
     .sbbiodata-search{
         display: none;
     }
-    /* Mobile Search Start / Multiple & Single Search */
+    /* Biodata Search - Start */
     .heart-divider {
         margin-top: 30px;
         margin-left: auto;
@@ -4989,8 +4594,6 @@ label{
         display: flex;
         width: 100%;
     }
-    /* Mobile Search End / Multiple & Single Search */
-    /* Mobile Search Start / Single Biodata*/
     .sb_singlebio_mobilesearch {
         width: 194px;
         margin-left: 50px;
@@ -5010,6 +4613,7 @@ label{
         border: 1px solid #ccc;
         border-radius: 4px;
         height: 35px;
+        box-shadow: inset 0 2px 1px #22222217;
     }
     .sb_singlebio_mobilesearch button{
         cursor: pointer;
@@ -5025,8 +4629,6 @@ label{
     .sb_singlebio_mobilesearch button:hover{
         background: linear-gradient(#0aa4ca, #06b6d4);
     }
-    /* Mobile Search End / Single Biodata*/
-    /* Mobile Search Start / Multiple Search Option */
     .sb_mobilesearch #search-button{
         width: 150px;
         margin-left: auto;
@@ -5092,11 +4694,7 @@ label{
         margin-right: 0px;
         width: 142%;
     }
-    /* Mobile Search End / Multiple Search Option */
-    .shosurbari-userhome-status form button {
-        font-size: 15px;
-        height: 39px;
-    }
+    /* Biodata Search - End */
     .nbs-flexisel-container{
         width: 696px;
         position: relative;
@@ -5123,17 +4721,17 @@ label{
     .nbs-flexisel-item:first-child{
         margin-left: 0px;
     }
-}
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---           max-width:768px / E  N  D           --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-/* Mobile Search Start*/
-@media only screen and (min-width: 768px) {
-    .sbbiodata-search-mobile form{
-        display: none;
+    .navbar-inner_1{
+        padding-bottom: 6px;
     }
-    .sb_singlebio_mobilesearch {
-        display: none;
+}
+/* max-width:768px / E  N  D  */
+/* For Mobile Search*/
+@media only screen and (min-width: 768px) {
+    .sbbiodata-search-mobile form,
+    .sb_singlebio_mobilesearch, 
+    .shosurbari-mobile-logo img {
+        display: none!important;
     }
     .navbar-collapse.collapse {
         display: block!important;
@@ -5144,23 +4742,16 @@ label{
         padding-right: 10px;
     }
 }
-/* Mobile Search End*/
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---          max-width:765px / S T A R T          --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/* max-width:765px / S T A R T  */
 @media (max-width: 765px) {
+    .profile-header{
+        margin-top: 20px; 
+    }
     .shosurbari-sidebar {
         width: auto;
     }
     ul.nav_1 li a{
-        color:#fff;
-        border: 1px solid #fff;
-    }
-    .navbar-toggle1 {
-        height: 40px;
-        margin: 0px 15px 0 0px;
-        color: #fff;
-        padding:0px;
+        color:#000; /*#fff;*/
     }
     .sb_biodata_profile {
         display: flex;
@@ -5177,31 +4768,27 @@ label{
     .biodatalist{
         width: 45%;
     }
+    .shosurbari-user-account,
+    .payment-form,
+    .sb-register-login,
+    .shosurbari-register-error,
+    .popup-message,
+    .popup {
+        width: 350px;
+    }
 }
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---           max-width:765px / E  N  D           --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-/* End & Start */
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---          max-width:736px / S T A R T          --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/* max-width:765px / E  N  D  */
+/* max-width:736px / S T A R T  */
 @media (max-width: 736px){
     .login-navbar-img .img-responsive,
     .login-navbar-icon a i{
         margin: 10px auto;
     }
-    .shosurbari-user-account,
-    .payment-form {
-        width: 350px;
-    }
-    .navbar-inner_1{
-        padding-bottom: 10px;
-    }
     .shosurbari-biodata-form {
         margin-top: -60px;
     }
-    section{
-        margin-top: 35px;
+    .navbar-nav > li > a {
+        padding: 0px 7px;
     }
     .nbs-flexisel-item {
         float: left;
@@ -5242,14 +4829,8 @@ label{
     .column_grid {
         padding: 0;
     }
-    .pull-right {
-        float: none!important;
-    }
     .navigation {
         margin-right: 30%;
-    }
-    .nav_bottom {
-        background: linear-gradient(#06b6d4, #0aa4ca); /* For Mobile Navbar / Menu Bar Background Color*/
     }
     .inline-block {
         display: inline-block;
@@ -5309,20 +4890,17 @@ label{
         width:100%;
         padding-bottom: 10px;
     }
-    .navbar-header.nav_2 {
-        display:block;
-    }
     .navbar-default .navbar-toggle {
         border-color:#2f374c;
         background-color:#2f374c;
         border-radius: 2px;
     }
     .dropdown-menu>li>a {
-        color: #fff !important;
+        color: #000 !important; /*#fff !important; */
     }
-    .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
+ /*   .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
         background-color:#06b6d4;
-    }
+    } */
     .col-sm-3, .col-sm-6{
         padding-left:0;
     }
@@ -5426,9 +5004,6 @@ label{
         margin-top: 30px;
         margin-bottom: auto;
     }
-    .profile-header {
-        margin-top: 80px;
-    }
     .sb_mobilesearch {
         margin-top: 20px;
     }
@@ -5459,16 +5034,13 @@ label{
     }
     /*404 Error Page End */
     .nbs-flexisel-container{
-        width: 538px; /* 399px; */
+        width: 538px;
         position: relative;
         margin-left: auto;
         margin-right: auto;
     }
 }
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---           max-width:736px / E  N  D           --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-
+/* max-width:736px / E N D */
 @media (min-width: 600px){
     #biodataForm fieldset {
         width: 550px;
@@ -5490,13 +5062,13 @@ label{
         margin-left: 160px;
     }
 }
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---          max-width:600px / S T A R T          --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/* max-width:600px / S T A R T  */
 @media (max-width: 600px){
+    .shosurbari-details h1,
     .shosurbari-details h2,
     .shosurbari-details h3,
     .shosurbari-details h4,
+    .shosurbari-security h1,
     .shosurbari-security h2,
     .shosurbari-security h3,
     .shosurbari-security h4,
@@ -5509,24 +5081,29 @@ label{
         margin-top:5px;
     }
     .shosurbari-sidebar {
-        margin-top: 10px;
-        padding-top: 30px;
         display: block;
+    }
+    .shosurbari-userhome-status,
+    .shosurbari-account-sidebar,
+    .shosurbari-sidebar ul,
+    .shosurbari-biodata-view {
+        width: 100%;
     }
     .shosurbari-dashboard{
         margin: 20px 10px;
     }
-    .sb-biodata-total-view {
-        text-align: center;
-        width: 350px;
-        margin-left: -68px;
-    }
     .shosurbari-my-account a {
         padding: 10px 3px;
+        text-align: left;
+        width: 190px;
+        margin: auto;
     }
     .leftarea-sidebar {
         margin: auto;
-        padding-bottom: 60px;
+        margin-bottom: 120px;
+        width: 70%;
+        padding-top: 10px;
+        padding-bottom: 10px; 
     }
     .sb-home-reg2 button {
         padding: 8px 5px;
@@ -5557,22 +5134,6 @@ label{
     }
     .banner{
         width: auto;
-    }
-    .slide h1 {
-        font-size: clamp(2em, 5vmax, 3em);
-        top: 30px;
-        line-height: 50px;
-        width: 450px;
-    }
-    .slide h5 {
-        top: 160px;
-    }
-    .slide p {
-        font-size: 26px;
-        width: 388px;
-        border-radius: 7px;
-        top: 40px;
-        left: 40px;
     }
     #banner_text{
         line-height: 40px;
@@ -5609,15 +5170,6 @@ label{
         font-size: 15px;
         top: 2px;
     }
-    .btn_1 {
-        font-size: 15px;
-    }
-    .sb-biodata-field h2{
-        font-size: 25px;
-    }
-    .current-page h4 {
-        font-size: 21px;
-    }
     #progressbar li:before{
         width: 25px;
         height: 25px;
@@ -5638,9 +5190,6 @@ label{
     }
     #terms-checkbox:checked::after{
         left: 5px;
-    }
-    .biodatarecent_viewlist {
-        width: 60%;
     }
     .sbbiodata_profile_recentview-mobile{
         width: 430px;
@@ -5672,14 +5221,13 @@ label{
         font-size: 20px;
     }
     .biodatalist{
-        width: 45%;
+        width: 350px;
         margin-left: auto;
         margin-right: auto;
         margin-top: 30px;
         margin-bottom: auto;
     }
-    .sb-register-login,
-    .shosurbari-register-error {
+    .biodatarecent_viewlist {
         width: 350px;
     }
     .nbs-flexisel-container{
@@ -5692,26 +5240,9 @@ label{
         width: 470px;
     }
 }
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---            max-width:600px / E  N  D          --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-/* End & Start */
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---          max-width:540px / S T A R T          --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/* max-width:600px / E N D  */
+/* max-width:540px / S T A R T  */
 @media (max-width: 540px){
-    .slide h1 {
-        font-size: clamp(2em, 5vmax, 3em);
-        top: -20px;
-        line-height: 50px;
-        width: 450px;
-    }
-    .slide h5 {
-        top: 110px;
-    }
-    .slide{
-        height: 260px;
-    }
     .banner-content {
         height: 260px;
     }
@@ -5731,17 +5262,20 @@ label{
         font-size: 22px;
     }
     .biodatalist{
-        width: 300px;
+        width: 340px;
         margin-left: auto;
         margin-right: auto;
         margin-top: 30px;
         margin-bottom: auto;
     }
+    .biodatarecent_viewlist {
+        width: 340px;
+    }
     .sb_mobilesearch #search-button {
         width: 151px;
     }
     .nbs-flexisel-container{
-        width: 422px; /* 399px; */
+        width: 422px;
         position: relative;
         margin-left: auto;
         margin-right: auto;
@@ -5762,25 +5296,29 @@ label{
         padding: 15px;
     }
 }
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---           max-width:540px / E  N  D           --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-/* End & Start */
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---          max-width:480px / S T A R T          --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/* max-width:540px / E N D  */
+/* max-width:480px / S T A R T  */
 @media (max-width:480px){
-    #biodataForm{
-        margin: 0px auto 0px auto;
-    }
+    .shosurbari-details h1,
     .shosurbari-details h2,
     .shosurbari-details h3,
     .shosurbari-details h4,
+    .shosurbari-security h1,
     .shosurbari-security h2,
     .shosurbari-security h3,
     .shosurbari-security h4,
     .shosurbari-security h5{
         font-size: 20px;
+    }
+    .sb-home-search h1 {
+        line-height: 40px;
+    }
+    .leftarea-sidebar {
+        width: 80%;
+    }
+    .biodatalist,
+    .biodatarecent_viewlist{
+        width: 90%;
     }
     .sb-home-reg2 h1 {
         padding: 5px;
@@ -5806,37 +5344,11 @@ label{
     .choice-list-id a span{
         font-size: 13px;
     }
-    .soshurbari-animation-icon h3,
-    .sb-register-login h2{
-        font-size: 20px;
-    }
-    .choice-list-options {
-        width: 150px;
-        font-size: 14px;
-    }
     .shosurbari-about {
         line-height: 40px;
     }
     .banner{
         height: 280px;
-    }
-    .slide h1 {
-        font-size: clamp(1.74em, 5vmax, 3px);
-        top: 5px;
-        line-height: 45px;
-        width: 367px;
-        padding: 10px;
-    }
-    .slide h5 {
-        font-size: 17px;
-        top: 95px;
-        width: 367px;
-        padding: 10px;
-    }
-    .slide p {
-        font-size: 23px;
-        width: 346px;
-        left: 30px;
     }
     h1, h2, h3, h4, h5, h6 {
         font-size: 28px;
@@ -5848,7 +5360,7 @@ label{
         margin-left: 100px;
     }
     .form-actions p {
-        font-size: 13px;
+        font-size: 15px;
     }
     .shosurbari-details p,
     .shosurbari-security p {
@@ -5859,15 +5371,6 @@ label{
     }
     .remember-forgot a {
         font-size: 13px;
-    }
-    .btn_1 {
-        font-size: 14px;
-    }
-    .sb-biodata-field h2{
-        font-size: 23px;
-    }
-    .current-page h4 {
-        font-size: 20px;
     }
     i.home_1 {
         font-size: 25px;
@@ -5899,12 +5402,6 @@ label{
     #terms-checkbox {
         width: 32px;
     }
-    .contact-bio,
-    .copy-sbbio-link {
-        font-size: 14px;
-        margin-left: auto;
-        margin-right: auto;
-    }
     .payment-confirm {
         font-size: 14px;
         margin-left: auto;
@@ -5921,11 +5418,6 @@ label{
     .sb_featured_profile_head {
         width: 90%;
     }
-    .shosurbari-user-account,
-    .payment-form {
-        width: 320px;
-    }
-
     .hvr-shutter-out-horizontal {
         font-size: 13px;
     }
@@ -5972,7 +5464,7 @@ label{
         margin: auto;
     }
     .nav>li>a {
-        padding: 8px 5px;
+        padding: 7px;
         line-height: 22px;
     }
     p.description {
@@ -5989,7 +5481,7 @@ label{
         font-size: 20px;
     }
     ul.phone li.phone_right p {
-        font-size: 12px;
+        font-size: 15px;
     }
     .row {
         margin-left: 0;
@@ -6071,8 +5563,12 @@ label{
         margin-left: auto;
         margin-right: 25px;
     }
-    .sb-register-login {
-        width: 300px;
+    .shosurbari-user-account,
+    .payment-form,
+    .sb-register-login,
+    .popup-message,
+    .popup{
+        width: 320px;
     }
     .shosurbari-register-error {
         width: 300px;
@@ -6093,16 +5589,11 @@ label{
     .sbbiodata_profile_recentview-mobile{
         width: 290px;
     }
-    .biodatarecent_viewlist {
-        width: 85%;
-    }
     #biodataForm fieldset {
         width: 404px;
     }
 }
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---           max-width:480px / E  N  D           --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/* max-width:480px / E N D  */
 @media (max-width: 479px){
     .nbs-flexisel-item {
         float: left;
@@ -6119,14 +5610,18 @@ label{
         margin-left: 0px;
     }
 }
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---          max-width:414px / S T A R T          --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/* max-width:414px / S T A R T  */
 @media (max-width:414px){
     .shosurbari-home-banner {
         width: 320px;
         height: 176px;
         top: 122px;
+    }
+    .nav-tabs1 {
+        padding: 2px 7px;
+    }
+    .leftarea-sidebar {
+        width: 90%;
     }
     .sb-home-reg2 {
         width: 320px;
@@ -6134,20 +5629,11 @@ label{
     .sb-home-reg2 {
         left: 20px;
     }
-    .popup-message,
-    .popup {
-        width: 340px;
-    }
     .sb-home-reg2 button {
         width: 170px;
     }
-    .slide p {
-        font-size: 22px;
-        width: 333px;
-        left: 23px;
-    }
     .message-footer p {
-        font-size: 16px;
+        font-size: 15px;
     }
     .wrap_1 {
         width: 375px;
@@ -6204,9 +5690,6 @@ label{
     }
     .col-sm-4.item_content {
         margin-bottom: 1em;
-    }
-    .footer {
-        padding: 1em 0;
     }
     .about_bottom {
         padding: 2em 0 0em;
@@ -6290,9 +5773,6 @@ label{
     .sb_biodatanumber{
         font-size: 22px;
     }
-    .biodatalist{
-        width: 280px;
-    }
     .gender-radio-select .gender-option label {
         font-size: 14px;
     }
@@ -6310,55 +5790,21 @@ label{
         width: 374px;
     }
 }
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---            max-width:414px / E  N  D          --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-/* End & Start */
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---          max-width: 384px / S T A R T          --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/* max-width:414px / E N D  */
+/* max-width:384px / S T A R T  */
 @media (max-width:384px){
     .search-title h4 {
         font-size: 20px;
         line-height: 30px;
     }
-    .sb-biodata-total-view {
-        text-align: center;
-        width: 200px;
-        margin-left: 0px;
-    }
     #close-button {
         margin-bottom: 15px;
-    }
-    .slide h1 {
-        font-size: clamp(1.66em, 5vmax, 3px);
-        top: 6px;
-        line-height: 37px;
-        width: 300px;
-        padding: 10px;
-    }
-    .slide h5 {
-        top: 82px;
-    }
-    .slide p {
-        font-size: 21px;
-        width: 317px;
-        left: 17px;
     }
     .update-image .camera-wrapper i {
         font-size: 17px;
         padding: 6px;
         margin-top: 115px;
         margin-left: 100px;
-    }
-    .btn_1 {
-        font-size: 13px;
-    }
-    .sb-biodata-field h2{
-        font-size: 21px;
-    }
-    .current-page h4 {
-        font-size: 19px;
     }
     i.home_1 {
         font-size: 24px;
@@ -6369,14 +5815,12 @@ label{
     .sb-terms-privacy-checkbox input {
         margin-top: -40px;
     }
-    a#profile-tab, a#home-tab, a#profile-tab1 {
-        font-size: 12px;
-    }
-    .nav-tabs1>li.active>a, .nav-tabs1>li.active>a:focus, .nav-tabs1>li.active>a:hover {
-        margin: 3px;
-    }
     .shosurbari-user-account,
-    .payment-form {
+    .payment-form,
+    .sb-register-login,
+    .shosurbari-register-error,
+    .popup-message,
+    .popup {
         width: 290px;
     }
     .wrap_1 {
@@ -6428,14 +5872,6 @@ label{
     }
     .menu > li {
         font-size:0.95em;
-    }
-    ul.login_details1 li p {
-        line-height: 1.5em;
-        margin: 1em 0;
-        font-size: 12px;
-    }
-    .phone_1 {
-        margin-right: 0%;
     }
     .span_1_of_3 {
         width: 32.2%;
@@ -6511,9 +5947,6 @@ label{
     .sb_biodatanumber{
         font-size: 20px;
     }
-    .biodatalist{
-        width: 260px;
-    }
     .sb_mobilesearch  .sb_singlebio_mobilesearch {
         width: 194px;
         margin-left: 10px;
@@ -6523,10 +5956,6 @@ label{
         width: 123px;
         margin-left: auto;
         margin-right: 10px;
-    }
-    .sb-register-login,
-    .shosurbari-register-error {
-        width: 270px;
     }
     .gender-select-reg .gender-option label {
         font-size: 12px;
@@ -6538,13 +5967,8 @@ label{
         width: 340px;
     }
 }
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---            max-width:384px / E  N  D          --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-/* End & Start */
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---       max-width:350px / S  T  A  R  T         --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/* max-width:384px / E N D  */
+/* max-width:350px / S T A R T  */
 @media (max-width: 350px) {
     .shosurbari-home-banner {
         width: 280px;
@@ -6572,33 +5996,11 @@ label{
         line-height: 25px;
         height: 35px;
     }
-    .popup-message,
-    .popup {
-        width: 310px;
-    }
-    .contact-bio,
-    .copy-sbbio-link {
-        font-size: 13px;
-        margin-left: 10px;
-        margin-right: 10px;
-    }
     .payment-confirm {
         font-size: 13px;
     }
     .payment-choich-list {
         font-size: 13px;
-    }
-    .choice-list-options {
-        width: 135px;
-        font-size: 13px;
-    }
-    .slide h1, .slide h5 {
-        width: 330px;
-    }
-    .slide p {
-        font-size: 18px;
-        width: 274px;
-        left: 2px;
     }
     h1, h2, h3, h4, h5, h6 {
         font-size: 25px;
@@ -6651,14 +6053,16 @@ label{
         margin-left: calc((30px - 35px) / 2);
         margin-right: calc((30px - 35px) / 2);
     }
+    .contact-bio,
+    .copy-sbbio-link,
+    .payment-confirm,
+    .payment-choich-list,
+    .choice-list-options {
+        font-size: 16px;
+    }
 }
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---            max-width:350px / E  N  D          --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-/* End & Start */
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---          max-width:320px / S T A R T          --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/* max-width:350px / E N D */
+/* max-width:320px / S T A R T  */
 @media (max-width:320px){
     .nbs-flexisel-nav-left {
         left: -12px;
@@ -6681,13 +6085,6 @@ label{
         top: 98px;
         left: -6px;
     }
-    .payment-amount{
-        height: 75px;
-    }
-    .popup-message,
-    .popup {
-        width: 263px;
-    }
     .sb-search-btn button, .sb-home-reg button {
         padding: 3px 1px;
         font-size: 13px;
@@ -6702,20 +6099,14 @@ label{
         padding: 2px;
     }
     .message-footer p {
-        font-size: 14px;
-    }
-    a#profile-tab, a#home-tab, a#profile-tab1 {
-        font-size: 14px;
-    }
-    .nav-tabs1>li.active>a, .nav-tabs1>li.active>a:focus, .nav-tabs1>li.active>a:hover {
-        margin: 5px;
+        font-size: 15px;
     }
     .nav-tabs1 {
         width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 0px;
+        padding: 2px 5px;
         margin: 0px;
         white-space: normal;
     }
@@ -6734,9 +6125,6 @@ label{
     }
     .sbbiodata_profile_recentview-mobile{
         width: 240px;
-    }
-    .biodatarecent_viewlist {
-        width: 90%;
     }
     .wrap_1 {
         width: 330px;
@@ -6772,11 +6160,8 @@ label{
     .bg_left {
         margin-bottom: 5px;
     }
-    .col_2 h4 {
-        font-size: 1.1em;
-    }
     .shosurbari-copy-right p {
-        font-size: 0.8125em;
+        font-size: 13px;
     }
     .jb-accordion-title {
         padding: 5px 10px 7px;
@@ -6786,10 +6171,7 @@ label{
         padding:0 5px;
     }
     .nav>li>a {
-        padding: 3px 5px;
-    }
-    .nav>li>a {
-        font-size: 12px;
+        padding: 7px;
     }
     .tab_box p {
         font-size: 0.8125em;
@@ -6913,9 +6295,6 @@ label{
     .sb_biodatanumber{
         font-size: 18px;
     }
-    .biodatalist{
-        width: 255px;
-    }
     .remember-forgot{
         display: block;
     }
@@ -6931,22 +6310,22 @@ label{
         margin-right: 6px;
     }
     .shosurbari-user-account,
-    .payment-form {
-        width: 263px;
-    }
+    .payment-form,
     .sb-register-login,
-    .shosurbari-register-error {
+    .shosurbari-register-error,
+    .popup-message,
+    .popup {
         width: 263px;
     }
     #biodataForm fieldset {
         width: 290px;
     }
+    .contact-bio,
+    .copy-sbbio-link,
+    .payment-confirm,
+    .payment-choich-list,
+    .choice-list-options {
+        font-size: 15px;
+    }
 }
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---           max-width:320px / E  N  D           --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-
-/*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
---                 E    N    D                   --
---      Media Responsive / Phone Responsive      --
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+/* max-width:320px / E N D */
