@@ -1,51 +1,70 @@
 <?php
 include_once("includes/basic_includes.php");
 include_once("functions.php");
-error_reporting(0);
 function englishToBanglaNumber($number) {
-  $englishDigits = range(0, 9);
-  $banglaDigits = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
-  return str_replace($englishDigits, $banglaDigits, $number);
+    $englishDigits = range(0, 9);
+    $banglaDigits = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
+    return $number !== null ? str_replace($englishDigits, $banglaDigits, $number) : '';
 }
 if (isloggedin()) {
-  $userId = $_SESSION['id'];
-  require_once("includes/dbconn.php");
-  $statusSql = "SELECT deactivated FROM users WHERE id = $userId";
-  $result = mysqli_query($conn, $statusSql);
-  $row = mysqli_fetch_assoc($result);
-  $deactivated = $row['deactivated'];
-  $totalViewCountSql = "SELECT view_count FROM `1bd_personal_physical` WHERE user_id = $userId";
-  $result = mysqli_query($conn, $totalViewCountSql);
-  $row = mysqli_fetch_assoc($result);
-  $totalViewCount = $row['view_count'];
-  $totalViewCountInBangla = englishToBanglaNumber($totalViewCount);
-  } else {
+    $userId = $_SESSION['id'];
+    require_once("includes/dbconn.php");
+    $statusSql = "SELECT deactivated FROM users WHERE id = $userId";
+    $result = mysqli_query($conn, $statusSql);
+    // Check if the result is not null before accessing the 'deactivated' key
+    if ($result !== null) {
+        $row = mysqli_fetch_assoc($result);
+        $deactivated = isset($row['deactivated']) ? $row['deactivated'] : null;
+    } else {
+        // Handle the case where $result is null
+        $deactivated = null;
+    }
+    $totalViewCountSql = "SELECT view_count FROM `1bd_personal_physical` WHERE user_id = $userId";
+    $result = mysqli_query($conn, $totalViewCountSql);
+    // Check if the result is not null before accessing the 'view_count' key
+    if ($result !== null) {
+        $row = mysqli_fetch_assoc($result);
+        $totalViewCount = isset($row['view_count']) ? $row['view_count'] : null;
+        $totalViewCountInBangla = englishToBanglaNumber($totalViewCount);
+    } else {
+        // Handle the case where $result is null
+        $totalViewCountInBangla = '';
+    }
+} else {
     header("location:login.php");
-  }
+}
 $conn->close();
 ?>
 <!DOCTYPE HTML>
 <html>
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2Q53085HTX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2Q53085HTX');
+</script>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6834867574094195"
+     crossorigin="anonymous"></script>
+		<meta name="google-adsense-account" content="ca-pub-6834867574094195" />
 <title>My Account | ShosurBari</title>
+<meta name="description" content="Manage your ShosurBari account seamlessly. Update your details, preferences, and stay informed about your matchmaking journey.">
 <link rel="icon" href="images/shosurbari-icon.png" type="image/png">
+<meta property="og:image" content="https://www.shosurbari.com/images/shosurbari-social-share.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="css/font-awesome.css" rel="stylesheet"> 
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<!-- Custom Theme files -->
-<link href="css/style.css" rel='stylesheet' type='text/css' />
 <link href='//fonts.googleapis.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
-<!--font-Awesome-->
-<link href="css/font-awesome.css" rel="stylesheet"> 
-<!--font-Awesome-->
-<!-- Side Bar Icon -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!-- Side Bar Icon -->
 </head>
 <body>
 	<!-- ===========  Navigation Start =========== -->
@@ -93,6 +112,7 @@ $conn->close();
   .shosurbari-users-request td {
     padding: 8px;
     font-size: 15px;
+    font-family: 'Ubuntu';
   }
   td a, td a:hover{
     text-decoration: none;
@@ -150,13 +170,23 @@ $conn->close();
     font-size:14px;
     height: 40px;
     line-height: 32px;
+    color: #000;
   }
+  @media (max-width: 736px){
+    .dropdown-menu li a {
+        color: #000 !important;
+    }
+    .dropdown-menu li a:hover{
+        background: linear-gradient(#0aa4ca, #06b6d4);
+        color: #fff !important;
+    }
+    }
   </style>
   <div class="grid_3">
     <div class="container">
       <div class="breadcrumb1">
         <ul>
-          <a href="my-account.php"><i class="fa fa-home home_1"></i></a>
+          <a href="index.php"><i class="fa fa-home home_1"></i></a>
           <span class="divider">&nbsp;|&nbsp;</span>
           <li class="current-page"><h4>My Account</h4></li>
         </ul>
@@ -176,29 +206,86 @@ $conn->close();
   </div>
   <div class="shosurbari-sidebar">
     <div class="leftarea-sidebar">
-      <div class="shosurbari-userhome-status">
-        <p><?php echo "Welcome: $username"; ?></p>
-        <!-- Display the account status -->
-        <p >Account Status:
-            <?php if ($deactivated == 0) {
-            echo '<span style="color: green;">Active</span>';
-            } else {
-            echo '<span style="color: red;">Deactivate</span>';
-            }
-            ?>
-        </p>
-        <form action="deactivate_account.php" method="post">
-          <?php if ($deactivated == 1) { ?>
-          <button type="submit" name="action" value="activate">Activation</button>
-          <?php } else { ?>
-          <button type="submit" name="action" value="deactivate">Deactivation</button>
-          <?php } ?>
-        </form> 
-      </div>
+		
+		
+		<div class="shosurbari-userhome-status">
+			<p><i class="fa fa-address-book"></i> <?php echo "User: $username"; ?></p>
+			<!-- Display the account status -->
+			<p><i class="fa fa-gears"></i> Account Status:
+				<?php
+				if ($deactivated == 0) {
+					echo '<span style="color: #00d400;">Active</span>';
+				} else {
+					echo '<span style="color: red;">Deactivated</span>';
+				}
+				?>
+			</p>
+				<form id="deactivateForm" action="deactivate_account.php" method="post" style="
+				font-size: 17px;
+				font-weight: bold;
+				color: #fff;
+				padding: 15px 10px;
+				background: linear-gradient(180deg, #00bbff61 0%, rgba(238, 246, 253, 0) 100%);
+				border-radius: 5px;
+				border: 1px solid #0aa4ca;">
+				<span style="font-size: 17px;font-weight: bold;"><i class="fa fa-recycle"></i> Switch Status:</span>
+				<?php if ($deactivated == 1) { ?>
+					<button type="submit" name="action" value="activate">Activation</button>
+				<?php } else { ?>
+					<button type="button" onclick="showReasonInput()">Deactivate</button>
+				<?php } ?>
+				<div id="reasonInput" style="display: none;">
+					<textarea style="max-width: 168px;margin-top: 7px;margin-bottom: 0px;padding: 5px 7px;color: #000;font-size: 13px;font-weight: 500;" name="reason" id="reason" rows="3" cols="25" placeholder="বায়োডাটা Deactivate / গোপন করতে চান কেন? কারণ লিখুন..."></textarea> <br>
+					<span id="reasonError" style="color: red; display: none; width: 190px; margin: auto;">অনুগ্রহ করে কমপক্ষে ৫০টি অক্ষর দিয়ে কারণ টি লিখুন৷</span>
+					<button type="button" onclick="confirmAction()">কনফার্ম</button>
+				</div>
+			</form>
+		</div>
+
+		<script>
+			function showReasonInput() {
+				var reasonInput = document.getElementById('reasonInput');
+				reasonInput.style.display = 'block';
+			}
+			function confirmAction() {
+				var action = "<?php echo ($deactivated == 1) ? 'প্রকাশিত/Activate' : 'গোপন/Deactivate'; ?>";
+				var reasonInput = document.getElementById('reasonInput');
+				var reason = reasonInput.querySelector('textarea[name="reason"]').value.trim();
+
+				if (reason.length < 50) {
+					document.getElementById('reasonError').style.display = 'block';
+					return false;
+				} else {
+					document.getElementById('reasonError').style.display = 'none';
+				}
+				// AJAX request to submit the form data
+				var xhr = new XMLHttpRequest();
+				xhr.onreadystatechange = function () {
+					if (xhr.readyState === XMLHttpRequest.DONE) {
+						if (xhr.status === 200) {
+							// Reload the page to display the latest reason
+							window.location.reload();
+						} else {
+							alert('Error: Unable to submit the form. Server responded with status: ' + xhr.status);
+						}
+					}
+				};
+				xhr.onerror = function () {
+					alert('সমস্যা দেখা দিয়েছে, অনুগ্রহ করে এডমিনের সাথে যোগাযোগ করুন।');
+				};
+				xhr.open('POST', 'deactivate_account.php', true);
+				xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+				xhr.send('action=deactivate&reason=' + encodeURIComponent(reason));
+
+				return confirm("আপনার বায়োডাটা সফল ভাবে " + action + " হয়েছে।");
+			}
+		</script>
+		
+		
       <div class="shosurbari-account-sidebar" id="bs-megadropdown-tabs">
         <ul class="shosurbari-my-account">
-          <li><a href="my-account.php"><i class="fa fa-dashboard"></i> ড্যাশবোর্ড</a></li>
-          <li><a href="biodata-post.php"><i class='fa fa-file-text-o'></i> বায়োডাটা পোস্ট</a></li>
+          <li><a href="my-account.php" style="background: linear-gradient(#06b6d4, #0aa4ca); color: #fff;"><i class="fa fa-dashboard" style="color: #fff;"></i> ড্যাশবোর্ড</a></li>
+          <li><a href="biodata-post.php"><i class='fa fa-file-text-o'></i> বায়োডাটা পোস্ট করুন</a></li>
           <li><a href="profile-photo.php?id=<?php echo $id;?>"><i class="fa fa-image"></i> বায়োডাটার ছবি</a></li>
           <li><a href="profile.php?/Biodata=<?php echo $id;?>"><i class='fa fa-address-card-o'></i> সম্পূর্ণ বায়োডাটা</a></li>
           <li class="dropdown">
@@ -220,14 +307,11 @@ $conn->close();
       <div class="shosurbari-biodata-view">
         <form action="" method="post" name="SbLogForm" onsubmit="return SbLogineForm()">
           <div class="sb-biodata-total-view">
-            <h3>আপনার বায়োডাটাটি দেখা হয়েছে-</h3>
-            <h1><?php
+            <h3><i class="fa fa-eye"></i> বায়োডাটাটি দেখা হয়েছে:
+            <?php
               // Display the view count for the logged-in user's profile
-              if (isset($totalViewCountInBangla)) {
-                echo "" . $totalViewCountInBangla;
-              }
-              ?> বার
-            </h1>
+              if (isset($totalViewCountInBangla)) { echo "$totalViewCountInBangla বার"; } ?>
+            </h3>
           </div>
         </form>
       </div>
@@ -249,7 +333,7 @@ $conn->close();
       $result3 = mysqlexec($sql3);
       ?>
       <h1>রিকোয়েস্ট বায়োডাটা পেমেন্ট তথ্য </h1>
-      <p style="margin-bottom: 20px;"><i id="bell" class="fa fa-bell"></i> আপনি যেকোনো বায়োডাটার সাথে যোগাযোগের জন্য সার্ভিস চার্জ প্রদান করার পর এখানে আপনার পেমেন্ট তথ্য দেখতে পাবেন।</p>
+      <p style="margin-bottom: 20px;"><i id="bell" class="fa fa-bell"></i> আপনি যেকোনো বায়োডাটার সাথে যোগাযোগের জন্য সার্ভিস চার্জ প্রদান করার পর এখানে আপনার পেমেন্ট তথ্যগুলো পেয়ে যাবেন।</p>
       <div class="shosurbari-order-dashboard">
         <table class="shosurbari-users-request">
           <tr>
@@ -337,7 +421,7 @@ $conn->close();
         </table>
       </div>
       <h1>বায়োডাটার সাথে যোগাযোগের তথ্য </h1>
-      <p style="margin-bottom: 20px;"><i id="bell" class="fa fa-bell"></i> আপনার পেমেন্ট সম্পন্ন হবার পর ২৪ ঘন্টার মধ্যে যোগাযোগের জন্য কাঙ্ক্ষিত তথ্য আপনাকে SMS বা ই-মেইলের মাধ্যমে পাঠিয়ে দেয়া হবে এবং এখানেও দেখতে পাবেন।</p>
+      <p style="margin-bottom: 20px;"><i id="bell" class="fa fa-bell"></i> আপনার পেমেন্ট সম্পন্ন হবার পর, ২৪ ঘন্টার মধ্যে যোগাযোগের জন্য অভিভাবকের মোবাইল নাম্বার আপনাকে SMS বা ই-মেইলের মাধ্যমে প্রদান করা হবে এবং যোগাযোগের তথ্যগুলো এখানেও পেয়ে যাবেন।</p>
       <div class="shosurbari-receive-dashboard">
         <table class="shosurbari-users-request">
           <tr>
@@ -430,63 +514,53 @@ $conn->close();
           ?>
         </table>
       </div>
-
       <h1> আপনার বায়োডাটা পছন্দ করেছে</h1>
-      <p style="margin-bottom: 20px;"><i id="bell" class="fa fa-bell"></i> বিয়ের জন্য আগ্রহী ইউজার আপনার বায়োডাটা পছন্দ করার পর, তার পেমেন্ট তথ্য যাচাই বাছাই করে শ্বশুরবাড়ির কাস্টমার সার্ভিস থেকে আপনার (বায়োডাটার) অভিভাবককে কল করবে। যদি আপনার (পাত্র-পাত্রীর) বিয়ে ঠিক না হয়ে থাকে তবেই আপনাদের যোগাযোগের তথ্য আগ্রহী ইউজারকে প্রদান করা হবে, তারপর এখানে সেই আগ্রহী ইউজারের বায়োডাটা (যদি থাকে), নাম, ইমেইল এবং স্থায়ী ঠিকানা দেখতে পাবেন।</p>
-      <div class="shosurbari-contactme-dashboard">
+      <p style="margin-bottom: 20px;"><i id="bell" class="fa fa-bell"></i> বিয়ের জন্য আগ্রহী ইউজার আপনার (পাত্র-পাত্রীর) বায়োডাটাটি পছন্দ করার পর, আগ্রহী ইউজারের পেমেন্ট তথ্য যাচাই বাছাই করে শ্বশুরবাড়ির কাস্টমার সার্ভিস থেকে আপনার অভিভাবককে কল করবে। যদি আপনার (পাত্র-পাত্রীর) বিয়ে ঠিক না হয়ে থাকে তবেই আপনাদের যোগাযোগের তথ্য আগ্রহী ইউজারকে প্রদান করা হবে, তারপর এখানে সেই আগ্রহী ইউজারের বায়োডাটা (যদি থাকে), নাম, ই-মেইল এবং স্থায়ী ঠিকানা দেখতে পাবেন।</p>
+        <div class="shosurbari-contactme-dashboard">
         <?php
-echo "<table class='shosurbari-users-request'>
+        echo "<table class='shosurbari-users-request'>
         <tr> 
-          <th>বায়োডাটা</th>
+          <th>বায়োডাটা নং</th>
           <th>নাম</th>
           <th>ই-মেইল</th>
           <th>স্থায়ী ঠিকানা</th>
           <th>তারিখ</th>
         </tr>";
-
-$currentID = null;
-
-while ($row = mysqli_fetch_assoc($result3)) {
-    if ($currentID !== $row['id']) {
-        // If a new ID is encountered, start a new row
+        $currentID = null;
+        while ($row = mysqli_fetch_assoc($result3)) {
+            if ($currentID !== $row['id']) {
+                // If a new ID is encountered, start a new row
+                if ($currentID !== null) {
+                    echo "</tr>";
+                }
+                echo "<tr>";
+                // echo "<td>" . $row['id'] . "</td>";
+                $currentID = $row['id'];
+            }
+            // Display other columns in the same row
+            echo "<td style='color: white; text-align: center;";
+            if ($row['user_id'] == 0) {
+                echo " background-color:#ff0080;'>বায়োডাটা নেই";
+            } elseif ($row['user_id'] == " ") {
+              echo "background:#22c55e;'><a style='color: white;' target='_blank' href='../profile.php?/Biodata=" . $row['user_id'] . "'>" . $row['user_id'] . " View</a></td>";
+            } else {
+              echo "background:#22c55e;'><a style='color: white;' target='_blank' href='../profile.php?/Biodata=" . $row['user_id'] . "'>" . $row['user_id'] . " View</a></td>";
+            }
+            echo "<td>" . $row['payment_cust_name'] . "</td>";
+            echo "<td>" . $row['payment_cust_email'] . "</td>";
+            echo "<td>" . $row['payment_cust_address'] . "</td>";
+            echo "<td>" . $row['info_sent_time'] . "</td>";
+        }
         if ($currentID !== null) {
             echo "</tr>";
         }
-        echo "<tr>";
-        // echo "<td>" . $row['id'] . "</td>";
-        $currentID = $row['id'];
-    }
-
-    // Display other columns in the same row
-    echo "<td style='color: white; text-align: center;";
-    if ($row['user_id'] == 0) {
-        echo " background-color:#ff0080;'>বায়োডাটা নেই";
-    } elseif ($row['user_id'] == " ") {
-      echo "background:#22c55e;'><a style='color: white;' target='_blank' href='../profile.php?/Biodata=" . $row['user_id'] . "'>" . $row['user_id'] . " View</a></td>";
-    } else {
-      echo "background:#22c55e;'><a style='color: white;' target='_blank' href='../profile.php?/Biodata=" . $row['user_id'] . "'>" . $row['user_id'] . " View</a></td>";
-    }
-    echo "<td>" . $row['payment_cust_name'] . "</td>";
-    echo "<td>" . $row['payment_cust_email'] . "</td>";
-    echo "<td>" . $row['payment_cust_address'] . "</td>";
-    echo "<td>" . $row['info_sent_time'] . "</td>";
-}
-
-if ($currentID !== null) {
-    echo "</tr>";
-}
-
-echo "</table>";
-?>
+        echo "</table>";
+        ?>
       </div>
-      <p><i id="bell" class="fa fa-bell"></i> যেকোনো প্রয়োজনে আমাদের সাথে যোগাযোগ করতে <a href="contact-us.php" target="_blank"> Contact</a> পেজ অনুসরণ করুন। অথবা আমাদের <a href="https://www.facebook.com/ShosurBari.bd" target="_blank"> FaceBook</a> পেজ ফলো করে সাথেই থাকুন</p>
+      <p><i id="bell" class="fa fa-bell"></i> যেকোনো প্রয়োজনে আমাদের সাথে যোগাযোগ করতে <a href="contact-us.php" target="_blank"> Contact</a> পেজ অনুসরণ করুন। অথবা আমাদের <a href="https://www.facebook.com/ShosurBari.Matrimony" target="_blank"> FaceBook</a> পেজ ফলো করে সাথেই থাকুন</p>
     </div>
   </div>
-	<!--=======================================
-	How Many Visitors View This Page.
-	This Script Connected to get_view_count.php
-	and page_views Database Table
-	========================================-->
+	<!--View This Page. Connected to get view count -->
 	<script>
 		$(document).ready(function() {
 		var pages = ["my-account"];
