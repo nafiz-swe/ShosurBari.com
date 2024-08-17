@@ -289,7 +289,7 @@ if (isloggedin()) {
 					<?php } ?>
 					<div id="reasonInput" style="display: none;">
 						<textarea style="max-width: 168px;margin-top: 7px;margin-bottom: 0px;padding: 5px 7px;color: #000;font-size: 13px;font-weight: 500;" name="reason" id="reason" rows="3" cols="25" placeholder="বায়োডাটা Deactivate / গোপন করতে চান কেন? কারণ লিখুন..."></textarea> <br>
-						<span id="reasonError" style="color: red; display: none; width: 190px; margin: auto;">অনুগ্রহ করে কমপক্ষে ৫০টি অক্ষর দিয়ে কারণ টি লিখুন৷</span>
+						<span id="reasonError" style="color: #ffda00; display: none; max-width: 168px; font-size: 13px; font-weight: 500; margin: auto;">অনুগ্রহ করে কমপক্ষে ৫০টি অক্ষর দিয়ে কারণ টি লিখুন৷</span>
 						<button type="button" onclick="confirmAction()">কনফার্ম</button>
 					</div>
 				</form>
