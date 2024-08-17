@@ -14,39 +14,27 @@ if(isloggedin()){
 <html>
 <head>
 <title>Personal Info Update | ShosurBari</title>
+<meta name="description" content="Elevate your ShosurBari presence with the Biodata Update Page. Seamlessly refine and enhance your profile, share new chapters of your life, and stay connected with potential life partners.">
 <link rel="icon" href="images/shosurbari-icon.png" type="image/png">
+<meta property="og:image" content="https://www.shosurbari.com/images/shosurbari-social-share.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/jquery.min.js"></script>
-<script src="js/optionsearch.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<!-- Custom Theme files -->
-<link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css">
 <link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="css/font-awesome.css" rel="stylesheet"> 
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/intlTelInput.min.js"></script>
 <link href='//fonts.googleapis.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
-<!--font-Awesome-->
-<link href="css/font-awesome.css" rel="stylesheet"> 
-<!--font-Awesome-->
 </head>
 <body>
 	<!-- ===========  Navigation Start =========== -->
 	<?php include_once("includes/navigation.php");?>
 	<!-- ===========  Navigation End ============= -->
 	<style>
-	.sb-biodata-field{
-		background: none;
-	}
-	.sb-biodata-field h2{
-		color: #000;
-		font-size: 23px;
-		font-weight: bold;
-		background: none;
-		text-align: left;
-	}
 	.shosurbari-biodata-form {
 		align-items: center;
 		flex-wrap: wrap;
@@ -61,18 +49,6 @@ if(isloggedin()){
 		display: flex;
 		align-items: center;
 		justify-content: center;
-	}
-	.soshurbari-animation-icon h3 {
-		font-size: 23px;
-		font-weight: bold;
-		margin-bottom: 15px;
-		margin-top: 15px;
-	}
-	.soshurbari-animation-icon img {
-		justify-content: flex-end;
-		margin: auto;
-		width: 37px;
-		height: 35px;
 	}
 	@media (max-width: 1400px){
 	.shosurbari-biodata-form{
@@ -89,45 +65,34 @@ if(isloggedin()){
 	}
 	}
 	</style>
-	<?php
-    session_start();
+    <?php
     if (isset($_SESSION['updateMessage'])) {
         $messageType = ($_SESSION['messageType'] == 'success') ? 'success' : 'error';
         $updateMessage = $_SESSION['updateMessage'];
-        echo "<div style='
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: " . ($messageType == 'success' ? '#22c55e' : '#ff0080') . ";
-        color: #fff;
-        box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
-        border: 1px solid rgba(0,0,0,.05);
-        border-radius: 2px;
-        padding: 10px;
-        width: 262px;
-        text-align: center;
-        z-index: 9999;
-        '>$updateMessage
-        <button class='cancel-button' style='
-        position: absolute;
-        cursor: pointer;
-        right: 3px;
-        margin-right: -20px;
-        margin-top: -67px;
-        margin-bottom: 15px;
-        padding-bottom: 5px;
-        line-height: 5px;
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        border: 1px solid #ccc;
-        font-size: 20px;
-        font-weight: 600;
-        color: white;
-        background: " . ($messageType == 'success' ? '#0aa4ca' : '#0aa4ca') . ";
-        ' onclick='this.parentNode.style.display = \"none\";'>x</button>
-        </div>";
+        echo "<div id='updateMessage' style='
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: " . ($messageType == 'success' ? '#22c55e' : '#ffddee') . ";
+            color: " . ($messageType == 'success' ? '#fff' : 'red') . ";
+            box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+            border: 1px solid rgba(0,0,0,.05);
+            border-radius: 2px;
+            padding: 10px;
+            width: 263px;
+            text-align: center;
+            z-index: 9999;
+        '>$updateMessage</div>";
+        //auto-hide the message after 7 seconds
+        echo "<script>
+                setTimeout(function() {
+                    var updateMessage = document.getElementById('updateMessage');
+                    if (updateMessage) {
+                        updateMessage.style.display = 'none';
+                    }
+                }, 7000);
+            </script>";
         unset($_SESSION['updateMessage']);
         unset($_SESSION['messageType']);
     }
@@ -152,6 +117,9 @@ if(isloggedin()){
 		<span class="grey-line"></span>
 		</div>
 	</div>
+	<div class="sb-choice-list-notice">
+      <p>একই অপশন যদি একাধিকবার ভিন্ন-ভিন্ন তথ্যে আপডেট হয়ে যায়, সেক্ষেত্রে যেই তথ্য প্রয়োজনীয় নয় সেই অপশনের তথ্য রিমুভ/ফাঁকা অপশন সিলেক্ট করে প্রয়োজনীয় তথ্যগুলো ঠিক রেখে পুনরায় আপডেট করুন।</p>
+	</div>
 	<div class="shosurbari-biodata">
 		<form action="" method="POST" id="biodataForm">
 		<?php
@@ -163,6 +131,7 @@ if(isloggedin()){
 				// Check if data exists for each field and set variables accordingly
 				$smoke = isset($row['smoke']) ? $row['smoke'] : '';
 				$occupation_sector = isset($row['occupation_sector']) ? $row['occupation_sector'] : '';
+				$no_occupation = isset($row['no_occupation']) ? $row['no_occupation'] : '';
 				$other_occupation_sector = isset($row['other_occupation_sector']) ? $row['other_occupation_sector'] : '';
 				$business_occupation_level = isset($row['business_occupation_level']) ? $row['business_occupation_level'] : '';
 				$student_occupation_level = isset($row['student_occupation_level']) ? $row['student_occupation_level'] : '';
@@ -179,12 +148,12 @@ if(isloggedin()){
 				$dress_code = isset($row['dress_code']) ? $row['dress_code'] : '';
 				$aboutme = isset($row['aboutme']) ? $row['aboutme'] : '';
 				$groom_bride_name = isset($row['groom_bride_name']) ? $row['groom_bride_name'] : '';
-				$groom_bride_email = isset($row['groom_bride_email']) ? $row['groom_bride_email'] : '';
 				$groom_bride_number = isset($row['groom_bride_number']) ? $row['groom_bride_number'] : '';
 				$groom_bride_family_number = isset($row['groom_bride_family_number']) ? $row['groom_bride_family_number'] : '';
 				$family_member_name_relation = isset($row['family_member_name_relation']) ? $row['family_member_name_relation'] : '';
 				// Show or hide fields based on the existence of data
 				$occupationSector = $occupation_sector ? 'block' : 'none';
+				$noOccupation = $no_occupation ? 'block' : 'none';
 				$otherOccupationSector = $other_occupation_sector ? 'block' : 'none';
 				$businessOccupationLevel = $business_occupation_level ? 'block' : 'none';
 				$studentOccupationLevel = $student_occupation_level ? 'block' : 'none';
@@ -204,7 +173,7 @@ if(isloggedin()){
 				<div class="sb-biodata" id="personalLife">
 					<div class="soshurbari-animation-icon">
                         <div class="sb-icon-laptop">
-                        <h3> <img src="images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
+                        <h3> <img src="images/shosurbari-logo-form.png"></h3>
                         </div>
                     </div>
 					<div class="sb-biodata-field">
@@ -212,7 +181,7 @@ if(isloggedin()){
 					</div>
 					<div class="sb-biodata-option">
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">ধূমপান করা হয়?<span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বাধ্যতামূলক নয়)</span></label>
+							<label>ধূমপান করা হয়?<span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বাধ্যতামূলক নয়)</span></label>
 							<select name="smoke">
 								<option hidden selected><?php echo $smoke;?></option>
 								<option></option>
@@ -227,22 +196,26 @@ if(isloggedin()){
 								<option hidden selected><?php echo $occupation_sector;?></option>
 								<option value="ব্যবসায়ী">ব্যবসায়ী</option>
 								<option value="শিক্ষার্থী">শিক্ষার্থী</option>
-								<option value="বি.এসসি. ইঞ্জিনিয়ার">বি.এসসি. ইঞ্জিনিয়ার</option>
+								<option value="ইঞ্জিনিয়ার">ইঞ্জিনিয়ার</option>
 								<option value="ডাক্তার/চিকিৎসা/স্বাস্থ্য">ডাক্তার/চিকিৎসা/স্বাস্থ্য</option>
 								<option value="শিক্ষক/প্রফেসর">শিক্ষক/প্রফেসর</option>
 								<option value="গোয়েন্দা/প্রতিরক্ষা/সশস্ত্রবাহিনী">গোয়েন্দা/প্রতিরক্ষা/সশস্ত্রবাহিনী</option>
 								<option value="সার্ভিস/ফাইন্যান্স/ফ্রিল্যান্সার/উদ্যোক্তা">সার্ভিস/ফাইন্যান্স/ফ্রিল্যান্সার/উদ্যোক্তা</option>
 								<option value="প্রবাসী/বিদেশ">প্রবাসী/বিদেশ</option>
-								<option value="গার্মেন্টস/পোশাক">গার্মেন্টস/পোশাক</option>
+								<option value="গার্মেন্টস/টেইলর">গার্মেন্টস/টেইলর</option>
 								<option value="টেকনিশিয়ান/মিস্ত্রি/কারিগর">টেকনিশিয়ান/মিস্ত্রি/কারিগর</option>
 								<option value="ড্রাইভার/চালক">ড্রাইভার/চালক</option>
 								<option value="অন্যান্য">অন্যান্য</option>
 								<option value="কিছু করিনা">কিছু করিনা</option>
 							</select>
 						</div>
+						<div class="shosurbari-biodata-field section" id="কিছু করিনা" style="display: <?php echo $noOccupation; ?>;">
+							<label>পেশার নাম <span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (এখানে লিখুন: কিছু করিনা অথবা Nothing)</span></label>
+							<input type="text" name="no_occupation" value="<?php echo $no_occupation;?>" class="form-text" maxlength="15">
+						</div>
 						<div class="shosurbari-biodata-field section"  id="অন্যান্য" style="display: <?php echo $otherOccupationSector; ?>;">
-							<label>পেশার নাম <span class="form-required" title="This field is required.">*</span></label>
-							<input type="text"  name="other_occupation_sector" value="<?php echo $other_occupation_sector;?>" class="form-text">
+							<label>পেশার নাম <span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (এখানে আপনার পেশার নাম লিখুন)</span></label>
+							<input type="text"  name="other_occupation_sector" value="<?php echo $other_occupation_sector;?>" class="form-text" maxlength="38">
 						</div>
 						<div class="shosurbari-biodata-field section"  id="ব্যবসায়ী" style="display: <?php echo $businessOccupationLevel; ?>;">
 							<label>ব্যবসার নামটি লিখুন<span class="form-required" title="This field is required.">*</span></label>
@@ -253,62 +226,21 @@ if(isloggedin()){
 							<select name="student_occupation_level">
 								<option hidden selected><?php echo $student_occupation_level;?></option>
 								<option></option>
-								<!-- মাদ্রাসা -->
-								<option class="label-search-options" disabled>মাদ্রাসা</option>
-								<option value="কওমী মাদ্রাসার শিক্ষার্থী">কওমী মাদ্রাসার শিক্ষার্থী</option>
-								<option class="label-search-options" disabled></option>
-								<!-- মাধ্যমিক/সমমান -->
-								<option class="label-search-options" disabled>মাধ্যমিক/সমমান</option>
-								<option value="মাধ্যমিক শিক্ষার্থী-জেনারেল">মাধ্যমিক শিক্ষার্থী-জেনারেল</option>
-								<option value="মাধ্যমিক শিক্ষার্থী-ভোকেশনাল">মাধ্যমিক শিক্ষার্থী-ভোকেশনাল</option>
-								<option value="দাখিল শিক্ষার্থী-আলিয়া মাদ্রাসা">দাখিল শিক্ষার্থী-আলিয়া মাদ্রাসা</option>
-								<option class="label-search-options" disabled></option>
-								<!-- উচ্চমাধ্যমিক/সমমান -->
-								<option class="label-search-options" disabled>উচ্চমাধ্যমিক/সমমান</option>
-								<option value="উচ্চমাধ্যমিক শিক্ষার্থী-জেনারেল">উচ্চমাধ্যমিক শিক্ষার্থী-জেনারেল</option>
-								<option value="উচ্চমাধ্যমিক শিক্ষার্থী-ভোকেশনাল">উচ্চমাধ্যমিক শিক্ষার্থী-ভোকেশনাল</option>
-								<option value="আলিম শিক্ষার্থী-আলিয়া মাদ্রাসা">আলিম শিক্ষার্থী-আলিয়া মাদ্রাসা</option>
-								<option class="label-search-options" disabled></option>
-								<!-- ডিপ্লোমা-আন্ডারগ্রাজুয়েট/গ্রাজুয়েট -->
-								<option class="label-search-options" disabled>ডিপ্লোমা-আন্ডারগ্রাজুয়েট/গ্রাজুয়েট</option>
-								<option value="ইঞ্জিনিয়ারিং-ডিপ্লোমা শিক্ষার্থী">ইঞ্জিনিয়ারিং-ডিপ্লোমা শিক্ষার্থী</option>
-								<option value="কৃষি-ডিপ্লোমা শিক্ষার্থী">কৃষি-ডিপ্লোমা শিক্ষার্থী</option>
-								<option value="হোমিওপ্যাথিক ডিপ্লোমা-শিক্ষার্থী">হোমিওপ্যাথিক ডিপ্লোমা-শিক্ষার্থী</option>
-								<option value="মেডিকেল অ্যাসিস্ট্যান্ট শিক্ষার্থী">মেডিকেল অ্যাসিস্ট্যান্ট শিক্ষার্থী</option>
-								<option value="মেডিকেল টেকনোলজি শিক্ষার্থী">মেডিকেল টেকনোলজি শিক্ষার্থী</option>
-								<option value="প্যারামেডিকেল শিক্ষার্থী">প্যারামেডিকেল শিক্ষার্থী</option>
-								<option value="নার্সিং শিক্ষার্থী">নার্সিং শিক্ষার্থী</option>
-								<option value="মিডওয়াইফারি শিক্ষার্থী">মিডওয়াইফারি শিক্ষার্থী</option>
-								<option class="label-search-options" disabled></option>
-								<!-- স্নাতক/ব্যাচেলর -->
-								<option class="label-search-options" disabled>স্নাতক/ব্যাচেলর</option>
-								<option value="মেডিকেল শিক্ষার্থী">মেডিকেল শিক্ষার্থী</option>
-								<option value="ফার্মেসী শিক্ষার্থী">ফার্মেসী শিক্ষার্থী</option> 
-								<option value="বি.এসসি. ইঞ্জিনিয়ারিং শিক্ষার্থী">বি.এসসি. ইঞ্জিনিয়ারিং শিক্ষার্থী</option>
-								<option value="বি.এসসি. শিক্ষার্থী">বি.এসসি. শিক্ষার্থী</option>
-								<option value="বি.এস.এস. শিক্ষার্থী">বি.এস.এস. শিক্ষার্থী</option>
-								<option value="বি.এ. শিক্ষার্থী">বি.এ. শিক্ষার্থী</option>
-								<option value="বি.কম. শিক্ষার্থী">বি.কম. শিক্ষার্থী</option> 
-								<option value="বি.বি.এ. শিক্ষার্থী">বি.বি.এ. শিক্ষার্থী</option>
-								<option value="এল.এল.বি. শিক্ষার্থী">এল.এল.বি. শিক্ষার্থী</option> 
-								<option value="ফাজিল শিক্ষার্থী-আলিয়া মাদ্রাসা">ফাজিল শিক্ষার্থী-আলিয়া মাদ্রাসা</option>
-								<option class="label-search-options" disabled></option>
-								<!-- স্নাতকোত্তর/মাস্টার্স -->
-								<option class="label-search-options" disabled>স্নাতকোত্তর/মাস্টার্স</option>
-								<option value="এম.এসসি. শিক্ষার্থী">এম.এসসি. শিক্ষার্থী</option>
-								<option value="এম.কম. শিক্ষার্থী">এম.কম. শিক্ষার্থী</option>
-								<option value="এম.এ. শিক্ষার্থী">এম.এ. শিক্ষার্থী</option>
-								<option value="এম.বি.এ. শিক্ষার্থী">এম.বি.এ. শিক্ষার্থী</option>  
-								<option value="এল.এল.এম. শিক্ষার্থী">এল.এল.এম. শিক্ষার্থী</option> 
-								<option value="কামিল শিক্ষার্থী-আলিয়া মাদ্রাসা">কামিল শিক্ষার্থী-আলিয়া মাদ্রাসা</option>
-								<option class="label-search-options" disabled></option>
-								<!-- অথবা -->
-								<option class="label-search-options" disabled>অথবা</option>
-								<option value="মাধ্যমিক/সমমান শিক্ষার্থী">মাধ্যমিক/সমমান শিক্ষার্থী</option>
-								<option value="উচ্চমাধ্যমিক/সমমান শিক্ষার্থী">উচ্চমাধ্যমিক/সমমান শিক্ষার্থী</option>
-								<option value="ডিপ্লোমা শিক্ষার্থী">ডিপ্লোমা শিক্ষার্থী</option>
-								<option value="স্নাতক/ব্যাচেলর শিক্ষার্থী">স্নাতক/ব্যাচেলর শিক্ষার্থী</option>
-								<option value="স্নাতকোত্তর/মাস্টার্স শিক্ষার্থী">স্নাতকোত্তর/মাস্টার্স শিক্ষার্থী</option>   
+								<!-- স্পেশাল -->
+								<option style="color: #0aa4ca;" class="label-search-options" disabled>স্পেশাল 👇</option>
+								<option value="শিক্ষার্থী-কওমী মাদ্রাসা">শিক্ষার্থী-কওমী মাদ্রাসা</option>
+								<option value="শিক্ষার্থী-মেডিকেল">শিক্ষার্থী-মেডিকেল</option>
+								<option value="শিক্ষার্থী-বি.এসসি. ইঞ্জিনিয়ারিং">শিক্ষার্থী-বি.এসসি. ইঞ্জিনিয়ারিং</option>
+								<!-- সকল শিক্ষার্থী -->
+								<option style="color: #0aa4ca;" class="label-search-options" disabled>সকল শিক্ষার্থী 👇</option>
+								<option value="শিক্ষার্থী-মাধ্যমিক/সমমান">শিক্ষার্থী-মাধ্যমিক/সমমান</option>
+								<option value="শিক্ষার্থী-উচ্চমাধ্যমিক/সমমান">শিক্ষার্থী-উচ্চমাধ্যমিক/সমমান</option>
+								<option value="শিক্ষার্থী-ডিপ্লোমা">শিক্ষার্থী-ডিপ্লোমা </option>
+								<option value="শিক্ষার্থী-ডিপ্লোমা আন্ডারগ্রাজুয়েট">শিক্ষার্থী-ডিপ্লোমা আন্ডারগ্রাজুয়েট</option>   
+								<option value="শিক্ষার্থী-ডিপ্লোমা পোস্টগ্রাজুয়েট">শিক্ষার্থী-ডিপ্লোমা পোস্টগ্রাজুয়েট</option>
+								<option value="শিক্ষার্থী-ডিগ্রী">শিক্ষার্থী-ডিগ্রী </option>   
+								<option value="শিক্ষার্থী-স্নাতক/ব্যাচেলর">শিক্ষার্থী-স্নাতক/ব্যাচেলর</option>
+								<option value="শিক্ষার্থী-স্নাতকোত্তর/মাস্টার্স">শিক্ষার্থী-স্নাতকোত্তর/মাস্টার্স</option>
 							</select>
 						</div>			
 						<div class="shosurbari-biodata-field section" id="ডাক্তার/চিকিৎসা/স্বাস্থ্য" style="display: <?php echo $healthOccupationLevel; ?>;">
@@ -326,18 +258,20 @@ if(isloggedin()){
 								<option value="মেডিকেল টেকনোলজিস্ট">মেডিকেল টেকনোলজিস্ট</option>
 								<option value="প্যারামেডিকেল">প্যারামেডিকেল</option>
 								<option value="নার্স">নার্স</option>
-								<option value="ওয়ার্ড বয়/ আয়া">ওয়ার্ড বয়/ আয়া</option>
+								<option value="ওয়ার্ড বয়">ওয়ার্ড বয়</option>
+								<option value="আয়া">আয়া</option>
 								<option value="মিডওয়াইফারি">মিডওয়াইফারি</option>
 								<option value="পল্লী চিকিৎসক">পল্লী চিকিৎসক</option>
 							</select>
 						</div>
-						<div class="shosurbari-biodata-field section" id="বি.এসসি. ইঞ্জিনিয়ার" style="display: <?php echo $engineerOccupationLevel; ?>;">
+						<div class="shosurbari-biodata-field section" id="ইঞ্জিনিয়ার" style="display: <?php echo $engineerOccupationLevel; ?>;">
 							<label>পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
 							<select name="engineer_occupation_level">
 								<option hidden selected><?php echo $engineer_occupation_level;?></option>
 								<option></option>
-								<option value="সাপোর্ট ইঞ্জিনিয়ার">সাপোর্ট ইঞ্জিনিয়ার</option> 
-								<option value="সফটওয়্যার ইঞ্জিনিয়ার">সফটওয়্যার ইঞ্জিনিয়ার</option> 
+								<option value="সাপোর্ট ইঞ্জিনিয়ার">সাপোর্ট ইঞ্জিনিয়ার</option>  
+								<option value="ডিপ্লোমা ইঞ্জিনিয়ার">ডিপ্লোমা ইঞ্জিনিয়ার</option>  
+								<option value="সফটওয়্যার ইঞ্জিনিয়ার">সফটওয়্যার ইঞ্জিনিয়ার</option>
 								<option value="টেক্সটাইল ইঞ্জিনিয়ার">টেক্সটাইল ইঞ্জিনিয়ার</option>
 								<option value="সিভিল ইঞ্জিনিয়ার">সিভিল ইঞ্জিনিয়ার</option>
 								<option value="ইলেকট্রিক্যাল ইঞ্জিনিয়ার">ইলেকট্রিক্যাল ইঞ্জিনিয়ার</option>
@@ -349,7 +283,7 @@ if(isloggedin()){
 								<option value="আর্কিটেকচার ইঞ্জিনিয়ার">আর্কিটেকচার ইঞ্জিনিয়ার</option>
 								<option value="মেকানিক্যাল ইঞ্জিনিয়ার">মেকানিক্যাল ইঞ্জিনিয়ার</option>
 								<option value="কেমিক্যাল ইঞ্জিনিয়ার">কেমিক্যাল ইঞ্জিনিয়ার</option>
-								<option value="বিয়োমেডিক্যাল ইঞ্জিনিয়ার">বিয়োমেডিক্যাল ইঞ্জিনিয়ার</option>
+								<option value="বায়োমেডিকেল ইঞ্জিনিয়ার">বায়োমেডিকেল ইঞ্জিনিয়ার</option>
 								<option value="এরোস্পেস ইঞ্জিনিয়ার">এরোস্পেস ইঞ্জিনিয়ার</option>
 							</select>
 						</div>
@@ -381,6 +315,7 @@ if(isloggedin()){
 								<option value="ডিজি.এফ.আই">ডিজি.এফ.আই</option>
 								<option value="সি.আই.ডি">সি.আই.ডি</option>
 								<option value="এস.বি">এস.বি</option>
+								<option value="র‍্যাব">র‍্যাব</option>
 								<option value="ডিবি">ডিবি</option>
 								<option value="আনসার">আনসার</option>
 								<option value="নিরাপত্তারক্ষী">নিরাপত্তারক্ষী</option>
@@ -397,11 +332,12 @@ if(isloggedin()){
 								<option value="বিদেশে পড়াশোনা">বিদেশে পড়াশোনা</option>
 							</select>
 						</div>
-						<div class="shosurbari-biodata-field section" id="গার্মেন্টস/পোশাক" style="display: <?php echo $garmentsOccupationLevel; ?>;">
+						<div class="shosurbari-biodata-field section" id="গার্মেন্টস/টেইলর" style="display: <?php echo $garmentsOccupationLevel; ?>;">
 							<label>পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
 							<select name="garments_occupation_level">
 								<option hidden selected><?php echo $garments_occupation_level;?></option>
 								<option></option>
+								<option value="ফ্যাশন ডিজাইনার">ফ্যাশন ডিজাইনার</option>
 								<option value="গার্মেন্টস ম্যানেজার">গার্মেন্টস ম্যানেজার</option>
 								<option value="গার্মেন্টস বায়িং হাউস">গার্মেন্টস বায়িং হাউস</option>
 								<option value="গার্মেন্টস শ্রমিক">গার্মেন্টস শ্রমিক</option>
@@ -418,6 +354,7 @@ if(isloggedin()){
 								<option value="বাস ড্রাইভার">বাস ড্রাইভার</option> 
 								<option value="মাইক্রো বাস ড্রাইভার">মাইক্রো বাস ড্রাইভার</option> 
 								<option value="কার ড্রাইভার">কার ড্রাইভার</option>
+								<option value="কাভার্ড ভ্যান ড্রাইভার">কাভার্ড ভ্যান ড্রাইভার</option> 
 								<option value="পিকআপ ড্রাইভার">পিকআপ ড্রাইভার</option> 
 								<option value="ট্রাক ড্রাইভার">ট্রাক ড্রাইভার</option>
 								<option value="লেগুনা চালক">লেগুনা চালক</option>
@@ -468,12 +405,12 @@ if(isloggedin()){
 								<option value="সিসি ক্যামেরা টেকনিশিয়ান">সিসি ক্যামেরা টেকনিশিয়ান</option>
 								<option value="ওয়েল্ডিং টেকনিশিয়ান">ওয়েল্ডিং টেকনিশিয়ান</option>
 								<option value="প্লাম্বার">প্লাম্বার</option>
-								<option value="স্যানিটারি মিস্ত্রি">স্যানিটারি মিস্ত্রি</option>
+								<option value="রং মিস্ত্রি">রং মিস্ত্রি</option>
+								<option value="রড মিস্ত্রি">রড মিস্ত্রি</option>
 								<option value="কাঠ মিস্ত্রি">কাঠ মিস্ত্রি</option>
 								<option value="রাজ মিস্ত্রি">রাজ মিস্ত্রি</option>
-								<option value="রড মিস্ত্রি">রড মিস্ত্রি</option>
-								<option value="রং মিস্ত্রি">রং মিস্ত্রি</option>
 								<option value="গ্যাস মিস্ত্রি">গ্যাস মিস্ত্রি</option>
+								<option value="স্যানিটারি মিস্ত্রি">স্যানিটারি মিস্ত্রি</option>
 								<option value="টাইলস ও মুজাইক মিস্ত্রি">টাইলস ও মুজাইক মিস্ত্রি</option>
 								<option value="থাই অ্যালুমিনিয়াম ও গ্লাস মিস্ত্রি">থাই অ্যালুমিনিয়াম ও গ্লাস মিস্ত্রি</option>
 							</select>
@@ -509,41 +446,36 @@ if(isloggedin()){
 						</script>
 						<div class="shosurbari-biodata-field" id="occupation_describe_field" style="display: <?php echo $occupationDescribe; ?>;">
 							<label>পেশার বিস্তারিত তথ্য<span class="form-required" title="This field is required.">*</span></label>
-							<textarea type="text" rows="8" name="occupation_describe" id="edit-name" class="form-text-describe" required><?php echo $occupation_describe;?></textarea>
+							<textarea type="text" rows="8" name="occupation_describe" class="form-text-describe"><?php echo $occupation_describe;?></textarea>
 						</div>
 						<div class="shosurbari-biodata-field">
 							<label>ঘরের বাহিরে সাধারণত কি ধরণের পোশাক পরেন?<span class="form-required" title="This field is required.">*</span></label>
 							<textarea type="text"  rows="8" name="dress_code"  class="form-text-describe" required><?php echo $dress_code;?></textarea>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label>ব্যক্তিগত ইচ্ছা, শখ, স্বপ্ন, পছন্দ-অপছন্দ, রুচিবোধ ইত্যাদি বিষয়ে লিখুন<span class="form-required" title="This field is required.">*</span></label>
-							<textarea type="text" rows="8" name="aboutme" class="form-text-describe" required><?php echo $aboutme;?></textarea>
+							<label>আপনার ব্যক্তিগত ইচ্ছা, শখ, স্বপ্ন, পছন্দ-অপছন্দ, রুচিবোধ ইত্যাদি বিষয়ে লিখুন<span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বাধ্যতামূলক নয়)</span></label>
+							<textarea type="text" rows="8" name="aboutme" class="form-text-describe"><?php echo $aboutme;?></textarea>
 						</div><br>
 						<div class="shosurbari-biodata-field">
-							<p style="text-align: justify; line-height: 28px;"><i id="bell" class="fa fa-bell" style="color: #0aa4ca; margin-right: 10px;"></i> নিচে অবশ্যই একটিভ মোবাইল নাম্বার এবং 
-								ই-মেইল লিখবেন। আগ্রহী ইউজার আপনার এই বায়োডাটাটি পছন্দ করার পর, তার পেমেন্ট তথ্য যাচাই-বাছাই করে শ্বশুরবাড়ি ডটকমের 
-								কাস্টমার সার্ভিস থেকে এই বায়োডাটার অভিভাবক কে কল করবে। আগ্রহী ইউজারকে আপনাদের যোগাযোগের তথ্য প্রদান করার ক্ষেত্রে অভিভাবক শ্বশুরবাড়ি ডটকমের কাস্টমার সার্ভিস কে অনুমতি দিলে আগ্রহী ইউজারকে ২৪ ঘন্টার মধ্যে যোগাযোগের তথ্য প্রদান করা হবে।
-							</p>
+						<p style="text-align: justify; line-height: 25px;"><i id="bell" class="fa fa-bell" style="color: #0aa4ca; margin-right: 10px;"></i> নিচে অবশ্যই একটিভ মোবাইল নাম্বার লিখবেন। 
+							বিয়ের জন্য আগ্রহী ইউজার এই বায়োডাটাটি পছন্দ করার পর, তার পেমেন্ট তথ্য যাচাই বাছাই করে শ্বশুরবাড়ির কাস্টমার সার্ভিস থেকে এই বায়োডাটার অভিভাবককে কল করবে। যদি আপনার (পাত্র-পাত্রীর) বিয়ে ঠিক না হয়ে থাকে তবেই অভিভাবকের মোবাইল নাম্বার আগ্রহী ইউজারকে প্রদান করা হবে।
+						</p>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">পাত্র/পাত্রীর নাম<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
-							<input type="text" id="edit-name" name="groom_bride_name" value="<?php echo $groom_bride_name;?>" class="form-text" required>
+							<label>পাত্র/পাত্রীর নাম<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
+							<input type="text" name="groom_bride_name" value="<?php echo $groom_bride_name;?>" class="form-text" required>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">পাত্র/পাত্রীর ই-মেইল<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
-							<input type="email" id="edit-name" name="groom_bride_email" value="<?php echo $groom_bride_email;?>" class="form-text" required>
+							<label>পাত্র/পাত্রীর মোবাইল নাম্বার<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
+							<input type="tel" name="groom_bride_number" value="<?php echo $groom_bride_number;?>" class="form-text" required>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">পাত্র/পাত্রীর মোবাইল নাম্বার<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
-							<input type="text" id="edit-name" name="groom_bride_number" value="<?php echo $groom_bride_number;?>" class="form-text" minlength="9" maxlength="15" required>
+							<label>অভিভাবকের মোবাইল নাম্বার<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
+							<input type="tel" name="groom_bride_family_number" value="<?php echo $groom_bride_family_number;?>" class="form-text" required>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">অভিভাবকের মোবাইল নাম্বার<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
-							<input type="text" id="edit-name" name="groom_bride_family_number" value="<?php echo $groom_bride_family_number;?>" class="form-text" required minlength="9" maxlength="15">
-						</div>
-						<div class="shosurbari-biodata-field">
-							<label for="edit-name">উক্ত মোবাইল নাম্বারটি যেই অভিভাবকের তার নাম লিখুন এবং অভিভাবক পাত্র/পাত্রীর কে হয়?<span class="form-required" title="This field is required.">*</span> <span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
-							<input type="text" id="edit-name" name="family_member_name_relation" value="<?php echo $family_member_name_relation;?>" class="form-text" required>
+							<label>উক্ত মোবাইল নাম্বারটি যেই অভিভাবকের তার নাম লিখুন এবং অভিভাবক পাত্র/পাত্রীর কে হয়?<span class="form-required" title="This field is required.">*</span> <span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
+							<input type="text" name="family_member_name_relation" placeholder="যেমন:- রকিবুল ইসলাম, বাবা" value="<?php echo $family_member_name_relation;?>" class="form-text" required>
 						</div>
 					</div>
 				</div>
@@ -551,11 +483,7 @@ if(isloggedin()){
 			</fieldset>
 		</form>
 	</div>	
-	<!--=======================================
-	How Many Visitors View This Page.
-	This Script Connected to get_view_count.php
-	and page_views Database Table
-	========================================-->
+	<!--View This Page. Connected to get view count -->
 	<script>
 	$(document).ready(function() {
 	var pages = ["update-personalInfo"];
