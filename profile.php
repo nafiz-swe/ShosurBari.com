@@ -207,71 +207,80 @@ error_reporting(0);
 				<?php if (!empty($profileid)) { ?>
 					<h3>বায়োডাটা নং : <span><?php echo $profileid;?></span></h3>
 				<?php } ?>
+				
 				<?php
-					$id=$_GET['/Biodata'];
-					$profileid=$id;
-					$sql = "SELECT * FROM 4bd_address_details  WHERE user_id = $id";
-					$result = mysqlexec($sql);
-					$row=mysqli_fetch_assoc($result);
-					//Biodata 4
-					if($row){
-					$home_district_under_barishal=$row['home_district_under_barishal'];
+				// Function to convert English numerals to Bangla numerals
+				function englishToBanglaNumber($number) {
+					$englishNumbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+					$banglaNumbers = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+					return str_replace($englishNumbers, $banglaNumbers, $number);
+				}
+				// Function to convert Bangla date to English
+				function banglaToEnglishDate($banglaDate) {
+					$banglaNumbers = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+					$englishNumbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+					return str_replace($banglaNumbers, $englishNumbers, $banglaDate);
+				}
+				// Function to calculate age
+				function calculateAge($dob) {
+					// Convert Bangla date to English
+					$dob = banglaToEnglishDate($dob);
+					// Convert Bangla month names to English
+					$banglaMonths = ['জানুয়ারী', 'ফেব্রুয়ারী', 'মার্চ', 'এপ্রিল', 'মে', 'জুন', 'জুলাই', 'আগস্ট', 'সেপ্টেম্বর', 'অক্টোবর', 'নভেম্বর', 'ডিসেম্বর'];
+					$englishMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+					$dob = str_replace($banglaMonths, $englishMonths, $dob);
+					// Debug: Output the converted date
+					echo "<!-- Debug: Converted DOB: $dob -->";
+					// Adjust the date format to match your input (e.g., 'd F, Y')
+					$dateFormat = 'd F, Y';
+					$dob = date_create_from_format($dateFormat, $dob);
+					if ($dob === false) {
+						return 'Invalid Date';
 					}
-					if($row){
-					$home_district_under_chattogram=$row['home_district_under_chattogram'];
-					}
-					if($row){
-					$home_district_under_dhaka=$row['home_district_under_dhaka'];
-					}
-					if($row){
-					$home_district_under_khulna=$row['home_district_under_khulna'];
-					}
-					if($row){
-					$home_district_under_mymensingh=$row['home_district_under_mymensingh'];
-					}
-					if($row){
-					$home_district_under_rajshahi=$row['home_district_under_rajshahi'];
-					}
-					if($row){
-					$home_district_under_rangpur=$row['home_district_under_rangpur'];
-					}
-					if($row){
-					$home_district_under_sylhet=$row['home_district_under_sylhet'];
-					}
-					$sql = "SELECT * FROM 1bd_personal_physical  WHERE user_id = $id";
-					$result = mysqlexec($sql);
-					$row = mysqli_fetch_assoc($result);
-					if($row){
-					$dob=$row['dateofbirth'];
-					}
+					$now = new DateTime();
+					$age = $now->diff($dob);
+					// Convert the age to Bangla numerals
+					$yearsInBangla = englishToBanglaNumber($age->y);
+					$monthsInBangla = englishToBanglaNumber($age->m);
+					return $yearsInBangla . ' বছর, ' . $monthsInBangla . ' মাস';
+				}
+				$id = $_GET['/Biodata'];
+				$profileid = $id;
+				// Fetch address details
+				$sql = "SELECT * FROM 4bd_address_details WHERE user_id = ?";
+				$stmt = mysqli_prepare($conn, $sql);
+				mysqli_stmt_bind_param($stmt, 'i', $id);
+				mysqli_stmt_execute($stmt);
+				$result = mysqli_stmt_get_result($stmt);
+				$row = mysqli_fetch_assoc($result);
+				$home_districts = [
+					'barishal' => $row['home_district_under_barishal'],
+					'chattogram' => $row['home_district_under_chattogram'],
+					'dhaka' => $row['home_district_under_dhaka'],
+					'khulna' => $row['home_district_under_khulna'],
+					'mymensingh' => $row['home_district_under_mymensingh'],
+					'rajshahi' => $row['home_district_under_rajshahi'],
+					'rangpur' => $row['home_district_under_rangpur'],
+					'sylhet' => $row['home_district_under_sylhet']
+				];
+				// Fetch personal details
+				$sql = "SELECT * FROM 1bd_personal_physical WHERE user_id = ?";
+				$stmt = mysqli_prepare($conn, $sql);
+				mysqli_stmt_bind_param($stmt, 'i', $id);
+				mysqli_stmt_execute($stmt);
+				$result = mysqli_stmt_get_result($stmt);
+				$row = mysqli_fetch_assoc($result);
+				$dob = $row['dateofbirth'];
 				?>
 				<div class="address">
-					<?php if (!empty($home_district_under_barishal)) { ?>
-					<td class="day_value closed">স্থায়ী ঠিকানা জেলা : <?php echo $home_district_under_barishal; ?></td><br>
-					<?php } ?>
-					<?php if (!empty($home_district_under_chattogram)) { ?>
-					<td class="day_value closed">স্থায়ী ঠিকানা জেলা : <?php echo $home_district_under_chattogram; ?></td><br>
-					<?php } ?>
-					<?php if (!empty($home_district_under_dhaka)) { ?>
-					<td class="day_value closed">স্থায়ী ঠিকানা জেলা : <?php echo $home_district_under_dhaka; ?></td><br>
-					<?php } ?>
-					<?php if (!empty($home_district_under_khulna)) { ?>
-					<td class="day_value closed">স্থায়ী ঠিকানা জেলা : <?php echo $home_district_under_khulna; ?></td><br>
-					<?php } ?>
-					<?php if (!empty($home_district_under_mymensingh)) { ?>
-					<td class="day_value closed">স্থায়ী ঠিকানা জেলা : <?php echo $home_district_under_mymensingh; ?></td><br>
-					<?php } ?>
-					<?php if (!empty($home_district_under_rajshahi)) { ?>
-					<td class="day_value closed">স্থায়ী ঠিকানা জেলা : <?php echo $home_district_under_rajshahi; ?></td><br>
-					<?php } ?>
-					<?php if (!empty($home_district_under_rangpur)) { ?>
-					<td class="day_value closed">স্থায়ী ঠিকানা জেলা : <?php echo $home_district_under_rangpur; ?></td><br>
-					<?php } ?>
-					<?php if (!empty($home_district_under_sylhet)) { ?>
-					<td class="day_value closed">স্থায়ী ঠিকানা জেলা : <?php echo $home_district_under_sylhet; ?></td><br>
+					<?php foreach ($home_districts as $district) { ?>
+						<?php if (!empty($district)) { ?>
+							<td class="day_value closed">স্থায়ী ঠিকানা জেলা : <?php echo $district; ?></td><br>
+						<?php } ?>
 					<?php } ?>
 					<?php if (!empty($dob)) { ?>
-					<td class="day_value closed">জন্ম সন : <?php echo $dob; ?></td>
+						<!-- <td class="day_value closed">জন্ম সন : < ? php echo $dob; ? > </td> -->
+						<td class="day_value closed">বয়স : <?php echo calculateAge($dob); ?></td>
 					<?php } ?>
 				</div>
     		</div>
@@ -975,7 +984,7 @@ error_reporting(0);
 											<?php endif; ?>
 											<?php if (!empty($physicalstatus)) : ?>
 											<tr class="opened">
-												<td class="day_label">শারীরিক-মানসিক কোনো সমস্যা/রোগ আছে কি?</td>
+												<td class="day_label">শারীরিক বা মানসিক কোনো সমস্যা আছে কি?</td>
 												<td class="day_value closed"><span><?php echo $physicalstatus; ?></span></td>
 											</tr>
 											<?php endif; ?>
@@ -1156,7 +1165,7 @@ error_reporting(0);
 											<?php endif; ?>
 											<?php if (!empty($aboutme)) : ?>
 											<tr class="opened">
-												<td class="day_label">ব্যক্তিগত ইচ্ছা, শখ, স্বপ্ন, পছন্দ-অপছন্দ, রুচিবোধ ইত্যাদি বিষয়</td>
+												<td class="day_label">নিজের সম্পর্কে কিছু লিখুন</td>
 												<td class="day_value closed"><span><?php echo $aboutme; ?></span></td>
 											</tr>
 											<?php endif; ?>
@@ -1869,7 +1878,7 @@ error_reporting(0);
 											<?php endif; ?>
 											<?php if (!empty($partner_height)) : ?>
 											<tr class="opened">
-												<td class="day_label">উচ্চতা</td>
+												<td class="day_label">নূন্যতম উচ্চতা</td>
 												<td class="day_value closed"><span><?php echo $partner_height; ?></span></td>
 											</tr>
 											<?php endif; ?>
@@ -1881,7 +1890,7 @@ error_reporting(0);
 											<?php endif; ?>
 											<?php if (!empty($partner_education)) : ?>
 											<tr class="opened">
-												<td class="day_label">শিক্ষাগত যোগ্যতা</td>
+												<td class="day_label">নূন্যতম শিক্ষাগত যোগ্যতা</td>
 												<td class="day_value closed"><span><?php echo $partner_education; ?></span></td>
 											</tr>
 											<?php endif; ?>
