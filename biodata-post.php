@@ -14,39 +14,27 @@ if(isloggedin()){
 <html>
 <head>
 <title>Post Biodata | ShosurBari</title>
+<meta name="description" content="Create and post your biodata on ShosurBari.com. Showcase your personality, preferences, and aspirations to find the perfect match.">
 <link rel="icon" href="images/shosurbari-icon.png" type="image/png">
+<meta property="og:image" content="https://www.shosurbari.com/images/shosurbari-social-share.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/jquery.min.js"></script>
-<script src="js/optionsearch.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<!-- Custom Theme files -->
-<link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css">
 <link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="css/font-awesome.css" rel="stylesheet"> 
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/intlTelInput.min.js"></script>
 <link href='//fonts.googleapis.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
-<!--font-Awesome-->
-<link href="css/font-awesome.css" rel="stylesheet"> 
-<!--font-Awesome-->
 </head>
 <body>
 	<!-- ===========  Navigation Start =========== -->
 	<?php include_once("includes/navigation.php");?>
 	<!-- ===========  Navigation End ============= -->
 	<style>
-	.sb-biodata-field{
-		background: none;
-	}
-	.sb-biodata-field h2{
-		color: #000;
-		font-size: 23px;
-		font-weight: bold;
-		background: none;
-		text-align: left;
-	}
 	.shosurbari-biodata-form {
 		align-items: center;
 		flex-wrap: wrap;
@@ -62,24 +50,28 @@ if(isloggedin()){
 		align-items: center;
 		justify-content: center;
 	}
-	.soshurbari-animation-icon h3 {
-		font-size: 23px;
-		font-weight: bold;
-		margin-bottom: 15px;
-		margin-top: 15px;
-	}
-	.soshurbari-animation-icon img {
-		justify-content: flex-end;
-		margin: auto;
-		width: 37px;
-		height: 35px;
+		@media screen and (min-width: 1400px) {
+    .popup-container {
+        width: 480px;
+    }
 	}
 	@media (max-width: 1400px){
 	.shosurbari-biodata-form{
 		width: auto;
 	}
+	.popup-container {
+        width: 450px;
+    }
+	}
+	@media screen and (max-width: 1200px) {
+    .popup-container {
+        width: 420px;
+    }
 	}
 	@media (max-width: 1024px) {
+	.popup-container {
+        width: 400px;
+    }
 	.shosurbari-animation-form {
 		flex-basis: 100%;
 		justify-content: center;
@@ -88,6 +80,31 @@ if(isloggedin()){
 		width: auto;
 	}
 	}
+		@media screen and (max-width: 768px) {
+    .popup-container {
+        width: 390px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .popup-container {
+        width: 380px;
+    }
+}
+@media screen and (max-width: 480px) {
+    .popup-container {
+        width: 350px;
+    }
+}
+@media screen and (max-width: 384px) {
+    .popup-container {
+        width: 300px;
+    }
+}
+@media screen and (max-width: 320px) {
+    .popup-container {
+        width: 250px;
+    }
+}
 	</style>
 	<div class="grid_3">
 		<div class="container">
@@ -101,12 +118,13 @@ if(isloggedin()){
 		</div>
 	</div>
 	<div class="sb-home-search">
-		<h1>পাত্র-পাত্রীর সঠিক তথ্য দিন</h1>
+		<h1>পাত্র-পাত্রীর তথ্য দিন</h1>
+        <p>সঠিক ও বিস্তারিত তথ্য প্রদানের মাধ্যমেই পাত্র-পাত্রীর সুন্দর ব্যক্তিত্বের প্রকাশ পাবে।</p>
 		<div class="sbhome-heart-divider">
-		<span class="grey-line"></span>
-			<i class="fa fa-heart pink-heart"></i>
-			<i class="fa fa-heart grey-heart"></i>
-		<span class="grey-line"></span>
+            <span class="grey-line"></span>
+                <i class="fa fa-heart pink-heart"></i>
+                <i class="fa fa-heart grey-heart"></i>
+            <span class="grey-line"></span>
 		</div>
 	</div>
 	<div class="shosurbari-biodata">
@@ -121,15 +139,12 @@ if(isloggedin()){
 				<li id="religionDetails" data-bengali-number="7">ধর্মীয়</li>
 				<li id="expectedPartner" data-bengali-number="8">জীবনসঙ্গীর-বিবরণ</li>
 			</ul>
-			<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-			--                S  T  A  R  T                  --
-			--      Personal & Physical  / sb-biodata-1      --
-			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+			<!-- START - Personal & Physical  / sb-biodata-1 -->
 			<fieldset>
 				<div class="sb-biodata" id="personalPhysical">
 					<div class="soshurbari-animation-icon">
                         <div class="sb-icon-laptop">
-                        <h3> <img src="images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
+							<h3> <img src="images/shosurbari-logo-form.png"></h3>
                         </div>
                     </div>
 					<div class="sb-biodata-field">
@@ -137,7 +152,7 @@ if(isloggedin()){
 					</div>
 					<div class="sb-biodata-option">
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">বায়োডাটার ধরণ<span class="form-required" title="This field is required.">*</span></label>
+							<label>বায়োডাটার ধরণ<span class="form-required" title="This field is required.">*</span></label>
 							<select name="biodatagender" required onchange="toggleGenderSections(this.value)">
 								<option hidden selected></option>
 								<option value="পাত্রের বায়োডাটা">পাত্রের বায়োডাটা</option>
@@ -182,7 +197,7 @@ if(isloggedin()){
 							</select>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label for="edit-pass">জন্ম মাস <span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (আসল)</span></label>
+							<label for="edit-pass">জন্ম মাস<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (আসল)</span></label>
 							<select name="month" required>
 								<option hidden selected></option>
 								<option value="জানুয়ারি">জানুয়ারি</option>
@@ -200,7 +215,7 @@ if(isloggedin()){
 							</select>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label for="edit-pass">জন্ম সাল <span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (আসল)</span></label>
+							<label for="edit-pass">জন্ম সাল<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (আসল)</span></label>
 							<select name="year" required>
 								<option hidden selected></option>
 								<option value="২০১৫">২০১৫</option>
@@ -262,7 +277,7 @@ if(isloggedin()){
 							</select>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">গাত্র বর্ণ<span class="form-required" title="This field is required.">*</span></label>
+							<label>শারীরিক বর্ণ<span class="form-required" title="This field is required.">*</span></label>
 							<select name="Skin_tones" required>
 								<option hidden selected></option>
 								<option value="উজ্জ্বল ফর্সা">উজ্জ্বল ফর্সা</option>
@@ -273,15 +288,63 @@ if(isloggedin()){
 							</select>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">উচ্চতা<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="height" value="" class="form-text" required>
+							<label>উচ্চতা<span class="form-required" title="This field is required.">*</span></label>
+							<select name="height" required>
+								<option hidden selected></option>
+								<option value="জানা নেই">জানা নেই</option>
+								<option style="color: #0aa4ca;" class="label-search-options" disabled="">৪ ফুটের সিরিয়াল 👇</option>
+								<option value="৪ ফুটের কম">৪ ফুটের কম </option>
+								<option value="৪ ফুট ০ ইঞ্চি">৪ ফুট ০ ইঞ্চি</option>
+								<option value="৪ ফুট ১ ইঞ্চি">৪ ফুট ১ ইঞ্চি </option>
+								<option value="৪ ফুট ২ ইঞ্চি">৪ ফুট ২ ইঞ্চি </option>
+								<option value="৪ ফুট ৩ ইঞ্চি">৪ ফুট ৩ ইঞ্চি</option>
+								<option value="৪ ফুট ৪ ইঞ্চি">৪ ফুট ৪ ইঞ্চি</option>
+								<option value="৪ ফুট ৫ ইঞ্চি">৪ ফুট ৫ ইঞ্চি</option>
+								<option value="৪ ফুট ৬ ইঞ্চি">৪ ফুট ৬ ইঞ্চি</option>
+								<option value="৪ ফুট ৭ ইঞ্চি">৪ ফুট ৭ ইঞ্চি</option>
+								<option value="৪ ফুট ৮ ইঞ্চি">৪ ফুট ৮ ইঞ্চি</option>
+								<option value="৪ ফুট ৯ ইঞ্চি">৪ ফুট ৯ ইঞ্চি</option>
+								<option value="৪ ফুট ১০ ইঞ্চি">৪ ফুট ১০ ইঞ্চি</option>
+								<option value="৪ ফুট ১১ ইঞ্চি">৪ ফুট ১১ ইঞ্চি</option>
+								<option style="color: #0aa4ca;" class="label-search-options" disabled="">৫ ফুটের সিরিয়াল 👇</option>
+								<option value="৫ ফুট ০ ইঞ্চি">৫ ফুট ০ ইঞ্চি</option>
+								<option value="৫ ফুট ১ ইঞ্চি">৫ ফুট ১ ইঞ্চি</option>
+								<option value="৫ ফুট ২ ইঞ্চি">৫ ফুট ২ ইঞ্চি</option>
+								<option value="৫ ফুট ৩ ইঞ্চি">৫ ফুট ৩ ইঞ্চি</option>
+								<option value="৫ ফুট ৪ ইঞ্চি">৫ ফুট ৪ ইঞ্চি</option>
+								<option value="৫ ফুট ৫ ইঞ্চি">৫ ফুট ৫ ইঞ্চি</option>
+								<option value="৫ ফুট ৬ ইঞ্চি">৫ ফুট ৬ ইঞ্চি</option>
+								<option value="৫ ফুট ৭ ইঞ্চি">৫ ফুট ৭ ইঞ্চি</option>
+								<option value="৫ ফুট ৮ ইঞ্চি">৫ ফুট ৮ ইঞ্চি</option>
+								<option value="৫ ফুট ৯ ইঞ্চি">৫ ফুট ৯ ইঞ্চি</option>
+								<option value="৫ ফুট ১০ ইঞ্চি">৫ ফুট ১০ ইঞ্চি</option>
+								<option value="৫ ফুট ১১ ইঞ্চি">৫ ফুট ১১ ইঞ্চি</option>
+								<option style="color: #0aa4ca;" class="label-search-options" disabled="">৬ ফুটের সিরিয়াল 👇</option>
+								<option value="৬ ফুট ০ ইঞ্চি">৬ ফুট ০ ইঞ্চি</option>
+								<option value="৬ ফুট ১ ইঞ্চি">৬ ফুট ১ ইঞ্চি</option>
+								<option value="৬ ফুট ২ ইঞ্চি">৬ ফুট ২ ইঞ্চি</option>
+								<option value="৬ ফুট ৩ ইঞ্চি">৬ ফুট ৩ ইঞ্চি</option>
+								<option value="৬ ফুট ৪ ইঞ্চি">৬ ফুট ৪ ইঞ্চি</option>
+								<option value="৬ ফুট ৫ ইঞ্চি">৬ ফুট ৫ ইঞ্চি</option>
+								<option value="৬ ফুট ৬ ইঞ্চি">৬ ফুট ৬ ইঞ্চি</option>
+								<option value="৬ ফুট ৭ ইঞ্চি">৬ ফুট ৭ ইঞ্চি</option>
+								<option value="৬ ফুট ৮ ইঞ্চি">৬ ফুট ৮ ইঞ্চি</option>
+								<option value="৬ ফুট ৯ ইঞ্চি">৬ ফুট ৯ ইঞ্চি</option>
+								<option value="৬ ফুট ১০ ইঞ্চি">৬ ফুট ১০ ইঞ্চি</option>
+								<option value="৬ ফুট ১১ ইঞ্চি">৬ ফুট ১১ ইঞ্চি</option>
+								<option style="color: #0aa4ca;" class="label-search-options" disabled="">৭ ফুটের সিরিয়াল 👇</option>
+								<option value="৭ ফুট ০ ইঞ্চি">৭ ফুট ০ ইঞ্চি</option>
+								<option value="৭ ফুট ১ ইঞ্চি">৭ ফুট ১ ইঞ্চি</option>
+								<option value="৭ ফুট ২ ইঞ্চি">৭ ফুট ২ ইঞ্চি</option>
+								<option value="৭ ফুট ২ ইঞ্চির উপরে">৭ ফুট ২ ইঞ্চির উপরে</option>
+							</select>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">ওজন<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="weight" value="" class="form-text" required>
+							<label>ওজন<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text"  name="weight" value="" class="form-text" required>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">রক্তের গ্রুপ<span class="form-required" title="This field is required.">*</span></label>
+							<label>রক্তের গ্রুপ<span class="form-required" title="This field is required.">*</span></label>
 							<select name="bloodgroup" required>
 								<option hidden selected></option>
 								<option value="A+">A+</option>
@@ -296,27 +359,20 @@ if(isloggedin()){
 							</select>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">শারীরিক-মানসিক কোনো সমস্যা/রোগ আছে কি?<span class="form-required" title="This field is required.">*</span></label>
-							<textarea type="text" rows="8" id="edit-name" name="physicalstatus" value="" class="form-text-describe" required></textarea>
+							<label>শারীরিক-মানসিক কোনো সমস্যা/রোগ আছে কি?<span class="form-required" title="This field is required.">*</span></label>
+							<textarea type="text" rows="8"  name="physicalstatus" value="" class="form-text-describe" required></textarea>
 						</div>
 					</div>
 				</div>
 				<input type="button" name="next" class="next action-button" value="পরবর্তী ধাপ" />
 			</fieldset>
-			<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-			--                   E   N   D                   --
-			--       Personal & Physical  / sb-biodata-1     --
-			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-			<!-- End & Start -->
-			<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-			--                S  T  A  R  T                  --
-			--     Personal & Life Style  / sb-biodata-2     --
-			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+			<!-- END - Personal & Physical  / sb-biodata-1 -->
+			<!-- START - Personal & Life Style  / sb-biodata-2 -->
 			<fieldset>
 				<div class="sb-biodata" id="personalLife">
 					<div class="soshurbari-animation-icon">
                         <div class="sb-icon-laptop">
-                        <h3> <img src="images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
+							<h3> <img src="images/shosurbari-logo-form.png"></h3>
                         </div>
                     </div>
 					<div class="sb-biodata-field">
@@ -324,7 +380,7 @@ if(isloggedin()){
 					</div>
 					<div class="sb-biodata-option">
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">ধূমপান করা হয়?<span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বাধ্যতামূলক নয়)</span></label>
+							<label>ধূমপান করা হয়?<span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বাধ্যতামূলক নয়)</span></label>
 							<select name="smoke">
 								<option hidden selected></option>
 								<option></option>
@@ -339,22 +395,27 @@ if(isloggedin()){
 								<option hidden selected></option>
 								<option value="ব্যবসায়ী">ব্যবসায়ী</option>
 								<option value="শিক্ষার্থী">শিক্ষার্থী</option>
-								<option value="বি.এসসি. ইঞ্জিনিয়ার">বি.এসসি. ইঞ্জিনিয়ার</option>
+								<option value="ইঞ্জিনিয়ার">ইঞ্জিনিয়ার</option>
 								<option value="ডাক্তার/চিকিৎসা/স্বাস্থ্য">ডাক্তার/চিকিৎসা/স্বাস্থ্য</option>
 								<option value="শিক্ষক/প্রফেসর">শিক্ষক/প্রফেসর</option>
 								<option value="গোয়েন্দা/প্রতিরক্ষা/সশস্ত্রবাহিনী">গোয়েন্দা/প্রতিরক্ষা/সশস্ত্রবাহিনী</option>
 								<option value="সার্ভিস/ফাইন্যান্স/ফ্রিল্যান্সার/উদ্যোক্তা">সার্ভিস/ফাইন্যান্স/ফ্রিল্যান্সার/উদ্যোক্তা</option>
+								<option value="দোকান/শোরুমের স্বত্বাধিকারী">দোকান/শোরুমের স্বত্বাধিকারী(মালিক)</option>
 								<option value="প্রবাসী/বিদেশ">প্রবাসী/বিদেশ</option>
-								<option value="গার্মেন্টস/পোশাক">গার্মেন্টস/পোশাক</option>
+								<option value="গার্মেন্টস/টেইলর">গার্মেন্টস/টেইলর</option>
 								<option value="টেকনিশিয়ান/মিস্ত্রি/কারিগর">টেকনিশিয়ান/মিস্ত্রি/কারিগর</option>
 								<option value="ড্রাইভার/চালক">ড্রাইভার/চালক</option>
 								<option value="অন্যান্য">অন্যান্য</option>
 								<option value="কিছু করিনা">কিছু করিনা</option>
 							</select>
 						</div>
+						<div class="shosurbari-biodata-field section" id="কিছু করিনা" style="display: none;">
+							<label>পেশার নাম <span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (এখানে লিখুন: কিছু করিনা অথবা Nothing)</span></label>
+							<input type="text" name="no_occupation" value="" class="form-text" maxlength="15">
+						</div>
 						<div class="shosurbari-biodata-field section"  id="অন্যান্য" style="display: none;">
-							<label>পেশার নাম <span class="form-required" title="This field is required.">*</span></label>
-							<input type="text"  name="other_occupation_sector" value="" class="form-text">
+							<label>পেশার নাম <span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (এখানে আপনার পেশার নাম লিখুন)</span></label>
+							<input type="text"  name="other_occupation_sector" value="" class="form-text" maxlength="38">
 						</div>
 						<div class="shosurbari-biodata-field section"  id="ব্যবসায়ী" style="display: none;">
 						<label>ব্যবসার নামটি লিখুন<span class="form-required" title="This field is required.">*</span></label>
@@ -365,62 +426,21 @@ if(isloggedin()){
 							<select name="student_occupation_level">
 								<option hidden selected></option>
 								<option></option>
-								<!-- মাদ্রাসা -->
-								<option class="label-search-options" disabled>মাদ্রাসা</option>
-								<option value="কওমী মাদ্রাসার শিক্ষার্থী">কওমী মাদ্রাসার শিক্ষার্থী</option>
-								<option class="label-search-options" disabled></option>
-								<!-- মাধ্যমিক/সমমান -->
-								<option class="label-search-options" disabled>মাধ্যমিক/সমমান</option>
-								<option value="মাধ্যমিক শিক্ষার্থী-জেনারেল">মাধ্যমিক শিক্ষার্থী-জেনারেল</option>
-								<option value="মাধ্যমিক শিক্ষার্থী-ভোকেশনাল">মাধ্যমিক শিক্ষার্থী-ভোকেশনাল</option>
-								<option value="দাখিল শিক্ষার্থী-আলিয়া মাদ্রাসা">দাখিল শিক্ষার্থী-আলিয়া মাদ্রাসা</option>
-								<option class="label-search-options" disabled></option>
-								<!-- উচ্চমাধ্যমিক/সমমান -->
-								<option class="label-search-options" disabled>উচ্চমাধ্যমিক/সমমান</option>
-								<option value="উচ্চমাধ্যমিক শিক্ষার্থী-জেনারেল">উচ্চমাধ্যমিক শিক্ষার্থী-জেনারেল</option>
-								<option value="উচ্চমাধ্যমিক শিক্ষার্থী-ভোকেশনাল">উচ্চমাধ্যমিক শিক্ষার্থী-ভোকেশনাল</option>
-								<option value="আলিম শিক্ষার্থী-আলিয়া মাদ্রাসা">আলিম শিক্ষার্থী-আলিয়া মাদ্রাসা</option>
-								<option class="label-search-options" disabled></option>
-								<!-- ডিপ্লোমা-আন্ডারগ্রাজুয়েট/গ্রাজুয়েট -->
-								<option class="label-search-options" disabled>ডিপ্লোমা-আন্ডারগ্রাজুয়েট/গ্রাজুয়েট</option>
-								<option value="ইঞ্জিনিয়ারিং-ডিপ্লোমা শিক্ষার্থী">ইঞ্জিনিয়ারিং-ডিপ্লোমা শিক্ষার্থী</option>
-								<option value="কৃষি-ডিপ্লোমা শিক্ষার্থী">কৃষি-ডিপ্লোমা শিক্ষার্থী</option>
-								<option value="হোমিওপ্যাথিক ডিপ্লোমা-শিক্ষার্থী">হোমিওপ্যাথিক ডিপ্লোমা-শিক্ষার্থী</option>
-								<option value="মেডিকেল অ্যাসিস্ট্যান্ট শিক্ষার্থী">মেডিকেল অ্যাসিস্ট্যান্ট শিক্ষার্থী</option>
-								<option value="মেডিকেল টেকনোলজি শিক্ষার্থী">মেডিকেল টেকনোলজি শিক্ষার্থী</option>
-								<option value="প্যারামেডিকেল শিক্ষার্থী">প্যারামেডিকেল শিক্ষার্থী</option>
-								<option value="নার্সিং শিক্ষার্থী">নার্সিং শিক্ষার্থী</option>
-								<option value="মিডওয়াইফারি শিক্ষার্থী">মিডওয়াইফারি শিক্ষার্থী</option>
-								<option class="label-search-options" disabled></option>
-								<!-- স্নাতক/ব্যাচেলর -->
-								<option class="label-search-options" disabled>স্নাতক/ব্যাচেলর</option>
-								<option value="মেডিকেল শিক্ষার্থী">মেডিকেল শিক্ষার্থী</option>
-								<option value="ফার্মেসী শিক্ষার্থী">ফার্মেসী শিক্ষার্থী</option> 
-								<option value="বি.এসসি. ইঞ্জিনিয়ারিং শিক্ষার্থী">বি.এসসি. ইঞ্জিনিয়ারিং শিক্ষার্থী</option>
-								<option value="বি.এসসি. শিক্ষার্থী">বি.এসসি. শিক্ষার্থী</option>
-								<option value="বি.এস.এস. শিক্ষার্থী">বি.এস.এস. শিক্ষার্থী</option>
-								<option value="বি.এ. শিক্ষার্থী">বি.এ. শিক্ষার্থী</option>
-								<option value="বি.কম. শিক্ষার্থী">বি.কম. শিক্ষার্থী</option> 
-								<option value="বি.বি.এ. শিক্ষার্থী">বি.বি.এ. শিক্ষার্থী</option>
-								<option value="এল.এল.বি. শিক্ষার্থী">এল.এল.বি. শিক্ষার্থী</option> 
-								<option value="ফাজিল শিক্ষার্থী-আলিয়া মাদ্রাসা">ফাজিল শিক্ষার্থী-আলিয়া মাদ্রাসা</option>
-								<option class="label-search-options" disabled></option>
-								<!-- স্নাতকোত্তর/মাস্টার্স -->
-								<option class="label-search-options" disabled>স্নাতকোত্তর/মাস্টার্স</option>
-								<option value="এম.এসসি. শিক্ষার্থী">এম.এসসি. শিক্ষার্থী</option>
-								<option value="এম.কম. শিক্ষার্থী">এম.কম. শিক্ষার্থী</option>
-								<option value="এম.এ. শিক্ষার্থী">এম.এ. শিক্ষার্থী</option>
-								<option value="এম.বি.এ. শিক্ষার্থী">এম.বি.এ. শিক্ষার্থী</option>  
-								<option value="এল.এল.এম. শিক্ষার্থী">এল.এল.এম. শিক্ষার্থী</option> 
-								<option value="কামিল শিক্ষার্থী-আলিয়া মাদ্রাসা">কামিল শিক্ষার্থী-আলিয়া মাদ্রাসা</option>
-								<option class="label-search-options" disabled></option>
-								<!-- অথবা -->
-								<option class="label-search-options" disabled>অথবা</option>
-								<option value="মাধ্যমিক/সমমান শিক্ষার্থী">মাধ্যমিক/সমমান শিক্ষার্থী</option>
-								<option value="উচ্চমাধ্যমিক/সমমান শিক্ষার্থী">উচ্চমাধ্যমিক/সমমান শিক্ষার্থী</option>
-								<option value="ডিপ্লোমা শিক্ষার্থী">ডিপ্লোমা শিক্ষার্থী</option>
-								<option value="স্নাতক/ব্যাচেলর শিক্ষার্থী">স্নাতক/ব্যাচেলর শিক্ষার্থী</option>
-								<option value="স্নাতকোত্তর/মাস্টার্স শিক্ষার্থী">স্নাতকোত্তর/মাস্টার্স শিক্ষার্থী</option>   
+								<!-- স্পেশাল -->
+								<option style="color: #0aa4ca;" class="label-search-options" disabled>স্পেশাল 👇</option>
+								<option value="শিক্ষার্থী-কওমী মাদ্রাসা">শিক্ষার্থী-কওমী মাদ্রাসা</option>
+								<option value="শিক্ষার্থী-মেডিকেল">শিক্ষার্থী-মেডিকেল</option>
+								<option value="শিক্ষার্থী-বি.এসসি. ইঞ্জিনিয়ারিং">শিক্ষার্থী-বি.এসসি. ইঞ্জিনিয়ারিং</option>
+								<!-- সকল শিক্ষার্থী -->
+								<option style="color: #0aa4ca;" class="label-search-options" disabled>সকল শিক্ষার্থী 👇</option>
+								<option value="শিক্ষার্থী-মাধ্যমিক/সমমান">শিক্ষার্থী-মাধ্যমিক/সমমান</option>
+								<option value="শিক্ষার্থী-উচ্চমাধ্যমিক/সমমান">শিক্ষার্থী-উচ্চমাধ্যমিক/সমমান</option>
+								<option value="শিক্ষার্থী-ডিপ্লোমা">শিক্ষার্থী-ডিপ্লোমা </option>
+								<option value="শিক্ষার্থী-ডিপ্লোমা আন্ডারগ্রাজুয়েট">শিক্ষার্থী-ডিপ্লোমা আন্ডারগ্রাজুয়েট</option>   
+								<option value="শিক্ষার্থী-ডিপ্লোমা পোস্টগ্রাজুয়েট">শিক্ষার্থী-ডিপ্লোমা পোস্টগ্রাজুয়েট</option>
+								<option value="শিক্ষার্থী-ডিগ্রী">শিক্ষার্থী-ডিগ্রী </option>   
+								<option value="শিক্ষার্থী-স্নাতক/ব্যাচেলর">শিক্ষার্থী-স্নাতক/ব্যাচেলর</option>
+								<option value="শিক্ষার্থী-স্নাতকোত্তর/মাস্টার্স">শিক্ষার্থী-স্নাতকোত্তর/মাস্টার্স</option>
 							</select>
 						</div>			
 						<div class="shosurbari-biodata-field section" id="ডাক্তার/চিকিৎসা/স্বাস্থ্য" style="display: none;">
@@ -438,18 +458,20 @@ if(isloggedin()){
 								<option value="মেডিকেল টেকনোলজিস্ট">মেডিকেল টেকনোলজিস্ট</option>
 								<option value="প্যারামেডিকেল">প্যারামেডিকেল</option>
 								<option value="নার্স">নার্স</option>
-								<option value="ওয়ার্ড বয়/ আয়া">ওয়ার্ড বয়/ আয়া</option>
+								<option value="ওয়ার্ড বয়">ওয়ার্ড বয়</option>
+								<option value="আয়া">আয়া</option>
 								<option value="মিডওয়াইফারি">মিডওয়াইফারি</option>
 								<option value="পল্লী চিকিৎসক">পল্লী চিকিৎসক</option>
 							</select>
 						</div>
-						<div class="shosurbari-biodata-field section" id="বি.এসসি. ইঞ্জিনিয়ার" style="display: none;">
+						<div class="shosurbari-biodata-field section" id="ইঞ্জিনিয়ার" style="display: none;">
 							<label>পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
 							<select name="engineer_occupation_level">
 								<option hidden selected></option>
 								<option></option>
-								<option value="সাপোর্ট ইঞ্জিনিয়ার">সাপোর্ট ইঞ্জিনিয়ার</option> 
-								<option value="সফটওয়্যার ইঞ্জিনিয়ার">সফটওয়্যার ইঞ্জিনিয়ার</option> 
+								<option value="সাপোর্ট ইঞ্জিনিয়ার">সাপোর্ট ইঞ্জিনিয়ার</option>  
+								<option value="ডিপ্লোমা ইঞ্জিনিয়ার">ডিপ্লোমা ইঞ্জিনিয়ার</option>  
+								<option value="সফটওয়্যার ইঞ্জিনিয়ার">সফটওয়্যার ইঞ্জিনিয়ার</option>
 								<option value="টেক্সটাইল ইঞ্জিনিয়ার">টেক্সটাইল ইঞ্জিনিয়ার</option>
 								<option value="সিভিল ইঞ্জিনিয়ার">সিভিল ইঞ্জিনিয়ার</option>
 								<option value="ইলেকট্রিক্যাল ইঞ্জিনিয়ার">ইলেকট্রিক্যাল ইঞ্জিনিয়ার</option>
@@ -461,7 +483,7 @@ if(isloggedin()){
 								<option value="আর্কিটেকচার ইঞ্জিনিয়ার">আর্কিটেকচার ইঞ্জিনিয়ার</option>
 								<option value="মেকানিক্যাল ইঞ্জিনিয়ার">মেকানিক্যাল ইঞ্জিনিয়ার</option>
 								<option value="কেমিক্যাল ইঞ্জিনিয়ার">কেমিক্যাল ইঞ্জিনিয়ার</option>
-								<option value="বিয়োমেডিক্যাল ইঞ্জিনিয়ার">বিয়োমেডিক্যাল ইঞ্জিনিয়ার</option>
+								<option value="বায়োমেডিকেল ইঞ্জিনিয়ার">বায়োমেডিকেল ইঞ্জিনিয়ার</option>
 								<option value="এরোস্পেস ইঞ্জিনিয়ার">এরোস্পেস ইঞ্জিনিয়ার</option>
 							</select>
 						</div>
@@ -493,9 +515,59 @@ if(isloggedin()){
 								<option value="ডিজি.এফ.আই">ডিজি.এফ.আই</option>
 								<option value="সি.আই.ডি">সি.আই.ডি</option>
 								<option value="এস.বি">এস.বি</option>
+								<option value="র‍্যাব">র‍্যাব</option>
 								<option value="ডিবি">ডিবি</option>
 								<option value="আনসার">আনসার</option>
 								<option value="নিরাপত্তারক্ষী">নিরাপত্তারক্ষী</option>
+							</select>
+						</div>
+							<div class="shosurbari-biodata-field section" id="দোকান/শোরুমের স্বত্বাধিকারী" style="display: none;">
+							<label>পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
+							<select name="shop_occupation_level">
+								<option hidden selected></option>
+								<option></option>
+								<option value="স্বত্বাধিকারী-গাড়ির শোরুম">স্বত্বাধিকারী-গাড়ির শোরুম</option>
+								<option value="স্বত্বাধিকারী-মোটরসাইকেলের শোরুম">স্বত্বাধিকারী-মোটরসাইকেলের শোরুম</option>
+								<option value="স্বত্বাধিকারী-ইলেকট্রনিক্স শোরুম/শপ">স্বত্বাধিকারী-ইলেকট্রনিক্স শোরুম/শপ</option>
+								<option value="স্বত্বাধিকারী-কম্পিউটার অ্যাক্সেসরিজ শপ">স্বত্বাধিকারী-কম্পিউটার অ্যাক্সেসরিজ শপ</option>
+								<option value="স্বত্বাধিকারী-মোবাইল অ্যাক্সেসরিজ শপ">স্বত্বাধিকারী-মোবাইল অ্যাক্সেসরিজ শপ</option>
+								<option value="স্বত্বাধিকারী-মোবাইল ফোনের শোরুম/শপ">স্বত্বাধিকারী-মোবাইল ফোনের শোরুম/শপ</option>
+								<option value="স্বত্বাধিকারী-ফার্নিচারের শোরুম/শপ">স্বত্বাধিকারী-ফার্নিচারের শোরুম/শপ</option>
+								<option value="স্বত্বাধিকারী-পোশাকের শোরুম/শপ">স্বত্বাধিকারী-পোশাকের শোরুম/শপ</option>
+								<option value="স্বত্বাধিকারী-জুতার শোরুম/শপ">স্বত্বাধিকারী-জুতার শোরুম/শপ</option>
+								<option value="স্বত্বাধিকারী-মুদির দোকান">স্বত্বাধিকারী-মুদির দোকান</option>
+								<option value="স্বত্বাধিকারী-ঔষুধের দোকান">স্বত্বাধিকারী-ঔষুধের দোকান</option>
+								<option value="স্বত্বাধিকারী-সার/কীটনাশকের দোকান">স্বত্বাধিকারী-সার/কীটনাশকের দোকান</option>
+								<option value="স্বত্বাধিকারী-মেডিক্যাল ইকুইপমেন্ট শপ">স্বত্বাধিকারী-মেডিক্যাল ইকুইপমেন্ট শপ</option>
+								<option value="স্বত্বাধিকারী-লাইব্রেরি/বুক শপ">স্বত্বাধিকারী-লাইব্রেরি/বুক শপ</option>
+								<option value="স্বত্বাধিকারী-স্টেশনারি শপ">স্বত্বাধিকারী-স্টেশনারি শপ</option>
+								<option value="স্বত্বাধিকারী-কসমেটিক্স শপ">স্বত্বাধিকারী-কসমেটিক্স শপ</option>
+								<option value="স্বত্বাধিকারী-অপটিক্যাল শপ">স্বত্বাধিকারী-অপটিক্যাল শপ</option>
+								<option value="স্বত্বাধিকারী-জুয়েলারি শপ">স্বত্বাধিকারী-জুয়েলারি শপ</option>
+								<option value="স্বত্বাধিকারী-বেকারির শপ">স্বত্বাধিকারী-বেকারির শপ</option>
+								<option value="স্বত্বাধিকারী-চকলেটের শপ">স্বত্বাধিকারী-চকলেটের শপ</option>
+								<option value="স্বত্বাধিকারী-রেস্তোরাঁ">স্বত্বাধিকারী-রেস্তোরাঁ</option>
+								<option value="স্বত্বাধিকারী-ক্যাফে">স্বত্বাধিকারী-ক্যাফে</option>
+								<option value="স্বত্বাধিকারী-খাবার হোটেল">স্বত্বাধিকারী-খাবার হোটেল</option>
+								<option value="স্বত্বাধিকারী-মিষ্টির দোকান">স্বত্বাধিকারী-মিষ্টির দোকান</option>
+								<option value="স্বত্বাধিকারী-চায়ের দোকান">স্বত্বাধিকারী-চায়ের দোকান</option>
+								<option value="স্বত্বাধিকারী-গোখাদ্য/ভূষিমালের দোকান">স্বত্বাধিকারী-গোখাদ্য/ভূষিমালের দোকান</option>
+								<option value="স্বত্বাধিকারী-ফলের দোকান">স্বত্বাধিকারী-ফলের দোকান</option>
+								<option value="স্বত্বাধিকারী-ফুলের দোকান">স্বত্বাধিকারী-ফুলের দোকান</option>
+								<option value="স্বত্বাধিকারী-খেলনার দোকান">স্বত্বাধিকারী-খেলনার দোকান</option>
+								<option value="স্বত্বাধিকারী-স্পোর্টস সামগ্রীর শপ">স্বত্বাধিকারী-স্পোর্টস সামগ্রীর শপ</option>
+								<option value="স্বত্বাধিকারী-প্লাস্টিক সামগ্রীর শপ">স্বত্বাধিকারী-প্লাস্টিক সামগ্রীর শপ</option>
+								<option value="স্বত্বাধিকারী-বাড়ির নির্মাণ সামগ্রীর দোকান">স্বত্বাধিকারী-বাড়ির নির্মাণ সামগ্রীর দোকান</option>
+								<option value="স্বত্বাধিকারী-গৃহসজ্জা সামগ্রীর শপ">স্বত্বাধিকারী-গৃহসজ্জা সামগ্রীর শপ</option>
+								<option value="স্বত্বাধিকারী-হোম ডেকোর শপ">স্বত্বাধিকারী-হোম ডেকোর শপ</option>
+								<option value="স্বত্বাধিকারী-হার্ডওয়্যার শপ">স্বত্বাধিকারী-হার্ডওয়্যার শপ</option>
+								<option value="স্বত্বাধিকারী-মোবাইল মেকানিক্স শপ">স্বত্বাধিকারী-মোবাইল মেকানিক্স শপ</option>
+								<option value="স্বত্বাধিকারী-অটোমোবাইল মেকানিক্স শপ">স্বত্বাধিকারী-অটোমোবাইল মেকানিক্স শপ</option>
+								<option value="স্বত্বাধিকারী-মোটরসাইকেল মেকানিক্স শপ">স্বত্বাধিকারী-মোটরসাইকেল মেকানিক্স শপ</option>
+								<option value="স্বত্বাধিকারী-ইলেকট্রনিক্স মেকানিক্স শপ">স্বত্বাধিকারী-ইলেকট্রনিক্স মেকানিক্স শপ</option>
+								<option value="স্বত্বাধিকারী-পোষা প্রাণীর শপ">স্বত্বাধিকারী-পোষা প্রাণীর শপ</option>
+								<option value="স্বত্বাধিকারী-পেইন্টের শপ">স্বত্বাধিকারী-পেইন্টের শপ</option>
+								<option value="স্বত্বাধিকারী-গার্ডেনিং এবং নার্সারি">স্বত্বাধিকারী-গার্ডেনিং এবং নার্সারি</option>
 							</select>
 						</div>
 						<div class="shosurbari-biodata-field section" id="প্রবাসী/বিদেশ" style="display: none;">
@@ -509,11 +581,12 @@ if(isloggedin()){
 								<option value="বিদেশে পড়াশোনা">বিদেশে পড়াশোনা</option>
 							</select>
 						</div>
-						<div class="shosurbari-biodata-field section" id="গার্মেন্টস/পোশাক" style="display: none;">
+						<div class="shosurbari-biodata-field section" id="গার্মেন্টস/টেইলর" style="display: none;">
 							<label>পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
 							<select name="garments_occupation_level">
 								<option hidden selected></option>
 								<option></option>
+								<option value="ফ্যাশন ডিজাইনার">ফ্যাশন ডিজাইনার</option>
 								<option value="গার্মেন্টস ম্যানেজার">গার্মেন্টস ম্যানেজার</option>
 								<option value="গার্মেন্টস বায়িং হাউস">গার্মেন্টস বায়িং হাউস</option>
 								<option value="গার্মেন্টস শ্রমিক">গার্মেন্টস শ্রমিক</option>
@@ -530,6 +603,7 @@ if(isloggedin()){
 								<option value="বাস ড্রাইভার">বাস ড্রাইভার</option> 
 								<option value="মাইক্রো বাস ড্রাইভার">মাইক্রো বাস ড্রাইভার</option> 
 								<option value="কার ড্রাইভার">কার ড্রাইভার</option>
+								<option value="কাভার্ড ভ্যান ড্রাইভার">কাভার্ড ভ্যান ড্রাইভার</option> 
 								<option value="পিকআপ ড্রাইভার">পিকআপ ড্রাইভার</option> 
 								<option value="ট্রাক ড্রাইভার">ট্রাক ড্রাইভার</option>
 								<option value="লেগুনা চালক">লেগুনা চালক</option>
@@ -580,12 +654,12 @@ if(isloggedin()){
 								<option value="সিসি ক্যামেরা টেকনিশিয়ান">সিসি ক্যামেরা টেকনিশিয়ান</option>
 								<option value="ওয়েল্ডিং টেকনিশিয়ান">ওয়েল্ডিং টেকনিশিয়ান</option>
 								<option value="প্লাম্বার">প্লাম্বার</option>
-								<option value="স্যানিটারি মিস্ত্রি">স্যানিটারি মিস্ত্রি</option>
+								<option value="রং মিস্ত্রি">রং মিস্ত্রি</option>
+								<option value="রড মিস্ত্রি">রড মিস্ত্রি</option>
 								<option value="কাঠ মিস্ত্রি">কাঠ মিস্ত্রি</option>
 								<option value="রাজ মিস্ত্রি">রাজ মিস্ত্রি</option>
-								<option value="রড মিস্ত্রি">রড মিস্ত্রি</option>
-								<option value="রং মিস্ত্রি">রং মিস্ত্রি</option>
 								<option value="গ্যাস মিস্ত্রি">গ্যাস মিস্ত্রি</option>
+								<option value="স্যানিটারি মিস্ত্রি">স্যানিটারি মিস্ত্রি</option>
 								<option value="টাইলস ও মুজাইক মিস্ত্রি">টাইলস ও মুজাইক মিস্ত্রি</option>
 								<option value="থাই অ্যালুমিনিয়াম ও গ্লাস মিস্ত্রি">থাই অ্যালুমিনিয়াম ও গ্লাস মিস্ত্রি</option>
 							</select>
@@ -613,7 +687,7 @@ if(isloggedin()){
 							if (selectedOccupationSection) {
 								selectedOccupationSection.style.display = "block";
 								// Show the occupation_describe_field if occupation is not "No Profession"
-								if (occupation !== "No Profession") {
+								if (occupation !== "কিছু করিনা") {
 								occupationDescribeField.style.display = "block";
 								}
 							}
@@ -621,87 +695,71 @@ if(isloggedin()){
 						</script>
 						<div class="shosurbari-biodata-field" id="occupation_describe_field" style="display: none;">
 							<label>পেশার বিস্তারিত তথ্য<span class="form-required" title="This field is required.">*</span></label>
-							<textarea type="text" rows="8" name="occupation_describe"  value="" id="edit-name" class="form-text-describe"></textarea>
+							<textarea type="text" rows="8" name="occupation_describe"  value=""  class="form-text-describe"></textarea>
 						</div>
 						<div class="shosurbari-biodata-field">
 							<label>ঘরের বাহিরে সাধারণত কি ধরণের পোশাক পরেন?<span class="form-required" title="This field is required.">*</span></label>
 							<textarea type="text"  rows="8" name="dress_code"  value="" class="form-text-describe" required></textarea>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label>ব্যক্তিগত ইচ্ছা, শখ, স্বপ্ন, পছন্দ-অপছন্দ, রুচিবোধ ইত্যাদি বিষয়ে লিখুন<span class="form-required" title="This field is required.">*</span></label>
-							<textarea type="text" rows="8" name="aboutme" value="" class="form-text-describe" required></textarea>
+							<label>আপনার ব্যক্তিগত ইচ্ছা, শখ, স্বপ্ন, পছন্দ-অপছন্দ, রুচিবোধ ইত্যাদি বিষয়ে লিখুন<span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বাধ্যতামূলক নয়)</span></label>
+							<textarea type="text" rows="8" name="aboutme" value="" class="form-text-describe"></textarea>
 						</div><br>
 						<div class="shosurbari-biodata-field">
-							<p style="text-align: justify; line-height: 28px;"><i id="bell" class="fa fa-bell" style="color: #0aa4ca; margin-right: 10px;"></i> নিচে অবশ্যই একটিভ মোবাইল নাম্বার এবং ই-মেইল লিখবেন। 
-							বিয়ের জন্য আগ্রহী ইউজার আপনার বায়োডাটা পছন্দ করার পর, তার পেমেন্ট তথ্য যাচাই বাছাই করে শ্বশুরবাড়ির কাস্টমার সার্ভিস থেকে আপনার অভিভাবককে কল করবে। যদি আপনার (পাত্র-পাত্রীর) বিয়ে ঠিক না হয়ে থাকে তবেই আপনাদের যোগাযোগের তথ্য আগ্রহী ইউজারকে প্রদান করা হবে।
+							<p style="text-align: justify; line-height: 25px;"><i id="bell" class="fa fa-bell" style="color: #0aa4ca; margin-right: 10px;"></i> নিচে অবশ্যই একটিভ মোবাইল নাম্বার লিখবেন। 
+                                বিয়ের জন্য আগ্রহী ইউজার এই বায়োডাটাটি পছন্দ করার পর, তার পেমেন্ট তথ্য যাচাই বাছাই করে শ্বশুরবাড়ির কাস্টমার সার্ভিস থেকে এই বায়োডাটার অভিভাবককে কল করবে। যদি আপনার (পাত্র-পাত্রীর) বিয়ে ঠিক না হয়ে থাকে তবেই অভিভাবকের মোবাইল নাম্বার আগ্রহী ইউজারকে প্রদান করা হবে।
 							</p>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">পাত্র/পাত্রীর নাম<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
-							<input type="text" id="edit-name" name="groom_bride_name" value="" class="form-text" required>
+							<label>পাত্র/পাত্রীর নাম<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
+							<input type="text" name="groom_bride_name" value="" class="form-text" required>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">পাত্র/পাত্রীর ই-মেইল<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
-							<input type="email" id="edit-name" name="groom_bride_email" value="" class="form-text" required>
+							<label>পাত্র/পাত্রীর মোবাইল নাম্বার<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
+							<input type="tel" name="groom_bride_number" value="" class="form-text" required>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">পাত্র/পাত্রীর মোবাইল নাম্বার<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
-							<input type="text" id="edit-name" name="groom_bride_number" value="" class="form-text" minlength="9" maxlength="15" required>
+							<label>অভিভাবকের মোবাইল নাম্বার<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
+							<input type="tel" name="groom_bride_family_number" value="" class="form-text" required>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">অভিভাবকের মোবাইল নাম্বার<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
-							<input type="text" id="edit-name" name="groom_bride_family_number" value="" class="form-text" minlength="9" maxlength="15" required>
-						</div>
-						<div class="shosurbari-biodata-field">
-							<label for="edit-name">উক্ত মোবাইল নাম্বারটি যেই অভিভাবকের তার নাম লিখুন এবং অভিভাবক পাত্র/পাত্রীর কে হয়?<span class="form-required" title="This field is required.">*</span> <span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
-							<input type="text" id="edit-name" name="family_member_name_relation" placeholder="যেমন:- রকিবুল ইসলাম, বাবা" value="" class="form-text" required>
+							<label>উক্ত মোবাইল নাম্বারটি যেই অভিভাবকের তার নাম লিখুন এবং অভিভাবক পাত্র/পাত্রীর কে হয়?<span class="form-required" title="This field is required.">*</span> <span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
+							<input type="text" name="family_member_name_relation" placeholder="যেমন:- রকিবুল ইসলাম, বাবা" value="" class="form-text" required>
 						</div>
 					</div>
 				</div>
 				<input type="button" name="previous" class="previous action-button" value="পূর্বের ধাপ" />
 				<input type="button" name="next" class="next action-button" value="পরবর্তী ধাপ" />
 			</fieldset>
-			<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-			--                   E   N   D                   --
-			--     Personal & Life Style  / sb-biodata-2     --
-			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-			<!-- End & Start -->
-			<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-			--                S  T  A  R  T                  --
-			--  Educational Qualifications  / sb-biodata-3   --
-			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+			<!-- END - Personal & Life Style  / sb-biodata-2 -->
+			<!-- START - Educational Qualifications  / sb-biodata-3 -->
 			<fieldset>
 				<div class="sb-biodata" id="educationalQualifications">
 					<div class="soshurbari-animation-icon">
                         <div class="sb-icon-laptop">
-                        <h3> <img src="images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
+							<h3> <img src="images/shosurbari-logo-form.png"></h3>
                         </div>
                     </div>
 					<div class="sb-biodata-field">
 						<h2>শিক্ষাগত যোগ্যতা</h2>
 					</div>
 					<div class="sb-biodata-option">
-						<div class="shosurbari-biodata-field">
-							<label for="edu-method">মাধ্যমিক/ সমমান কোন মাদ্ধমে পড়েছেন?<span class="form-required" title="This field is required.">*</span></label>
+                        <div class="shosurbari-biodata-field">
+							<label for="edu-method">মাধ্যমিক/সমমান কোন মাদ্ধমে পড়েছেন?<span class="form-required" title="This field is required.">*</span></label>
 							<select name="scndry_edu_method" id="secondary_edu_method" required>
-								<option hidden selected></option>
-								<option value="জেনারেল">জেনারেল</option>
+                                <option hidden selected></option>
+                                <option value="কওমী মাদ্রাসা">কওমী মাদ্রাসা</option>
 								<option value="আলিয়া মাদ্রাসা">আলিয়া মাদ্রাসা</option>
-								<option value="ভোকেশনাল">ভোকেশনাল</option>
-								<option value="কওমী মাদ্রাসা">কওমী মাদ্রাসা</option>
+                                <option value="জেনারেল">জেনারেল</option>
+                                <option value="ভোকেশনাল">ভোকেশনাল</option>
 								<option value="মাধ্যমিক পড়িনাই">মাধ্যমিক পড়িনাই</option>
-								<option value="অন্যান্য">অন্যান্য</option>
 							</select>
-						</div>
-						<div class="shosurbari-biodata-field"  id="maxedu_qualification">
-							<label for="highest_qualification">সর্বোচ্চ শিক্ষাগত যোগ্যতা<span class="form-required" title="This field is required.">*</span></span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বিস্তারিত লিখুন)</span></label>
-							<textarea type="text" rows="8"  id="maxedu_qualification" name="maxedu_qulfctn" value="" class="form-text-describe"></textarea>
 						</div>
 						<!-- For Kowmi Madrasa -->
 						<div class="shosurbari-biodata-field" id="hafez_field">
 							<label for="hafez">আপনি কি হাফেজ/হাফেজা?<span class="form-required" title="This field is required.">*</span></label>
 							<select name="qawmi_madrasa_hafez" id="hafez">
-								<option hidden selected></option>
+                                <option hidden selected></option>
 								<option></option>
 								<option value="হ্যাঁ">হ্যাঁ</option>
 								<option value="না">না</option>
@@ -710,7 +768,7 @@ if(isloggedin()){
 						<div class="shosurbari-biodata-field" id="dawra_pass_field">
 							<label for="dawra_pass">দাওরায়ে হাদিস পাস করেছেন? (মাস্টার্স)<span class="form-required" title="This field is required.">*</span></label>
 							<select name="qawmimadrasa_dawrapass" id="dawra_pass">
-								<option hidden selected></option>
+                                <option hidden selected></option>
 								<option></option>
 								<option value="হ্যাঁ">হ্যাঁ</option>
 								<option value="না, অধ্যায়নরত আছি">না, অধ্যায়নরত আছি </option>
@@ -720,7 +778,7 @@ if(isloggedin()){
 						<div class="shosurbari-biodata-field" id="dawra_passing_year_field">
 							<label for="dawra_passing_year">দাওরায়ে হাদিস পাসের বর্ষ<span class="form-required" title="This field is required.">*</span></label>
 							<select name="kowmi_dawrapas_year" id="dawra_passing_year">
-								<option hidden selected></option>
+                                <option hidden selected></option>
 								<option></option>
                                 <option value="২০২৫">২০২৫</option>
 								<option value="২০২৪">২০২৪</option>
@@ -763,7 +821,7 @@ if(isloggedin()){
 						<div class="shosurbari-biodata-field" id="current_edu_level_field">
 							<label for="current_edu_level">মাদ্রাসায় বর্তমান অধ্যায়নরত জামাত<span class="form-required" title="This field is required.">*</span></label>
 							<select name="kowmi_current_edu_level" id="current_edu_level">
-								<option hidden selected></option>
+                                <option hidden selected></option>
 								<option></option>
 								<option value="জামাতে তাইসীর">জামাতে তাইসীর</option>
 								<option value="জামাতে মীযান">জামাতে মীযান</option>
@@ -781,18 +839,18 @@ if(isloggedin()){
 						<div class="shosurbari-biodata-field" id="gnrl_mdrs_scnd_pass">
 							<label for="secondary_pass">মাধ্যমিক/সমমান পাস করেছেন?<span class="form-required" title="This field is required.">*</span></label>
 							<select name="gnrl_mdrs_secondary_pass" id="secondary_pass">
-								<option hidden selected></option>
+                                <option hidden selected></option>
 								<option></option>
 								<option value="হ্যাঁ">হ্যাঁ</option>
 								<option value="না, পরীক্ষার্থী">না, পরীক্ষার্থী</option>
 								<option value="না, অধ্যায়নরত আছি">না, অধ্যায়নরত আছি </option>
-								<option value="অধ্যায়ন বাদ দিয়েছি">অধ্যায়ন বাদ দিয়েছি</option>
+								<option value="না, অধ্যায়ন বাদ দিয়েছি">না, অধ্যায়ন বাদ দিয়েছি</option>
 							</select>
 						</div>
 						<div class="shosurbari-biodata-field" id="gnrl_mdrs_scnd_pass_year">
 							<label for="gnrl_mdrs_scnd_pass_year">মাধ্যমিক/সমমান পাসের বর্ষ<span class="form-required" title="This field is required.">*</span></label>
 							<select name="gnrl_mdrs_secondary_pass_year" id="gnrl_mdrs_scnd_pass_year">
-								<option hidden selected></option>
+                                <option hidden selected></option>
 								<option></option>
                                 <option value="২০২৫">২০২৫</option>
 								<option value="২০২৪">২০২৪</option>
@@ -835,7 +893,7 @@ if(isloggedin()){
 						<div class="shosurbari-biodata-field" id="gnrl_mdrs_scnd_exam_year">
 							<label for="gnrl_mdrs_scnd_exam_year">মাধ্যমিক/সমমান বোর্ড পরীক্ষার বর্ষ<span class="form-required" title="This field is required.">*</span></label>
 							<select name="gnrl_mdrs_secondary_end_year" id="gnrl_mdrs_scnd_exam_year">
-								<option hidden selected></option>
+                                <option hidden selected></option>
 								<option></option>
 								<option value="২০৩৫">২০৩৫</option>
 								<option value="২০৩৪">২০৩৪</option>
@@ -856,34 +914,44 @@ if(isloggedin()){
 							<input type="text" name="gnrlmdrs_secondary_running_std" id="gnrl_mdrs_running_stdn"  value="" class="form-text required">
 						</div>
 						<div class="shosurbari-biodata-field" id="higher_seconday_edumethod">
-							<label for="higherscndry_edumethod">উচ্চমাধ্যমিক/সমমান শিক্ষার মাধ্যম<span class="form-required" title="This field is required.">*</span></label>
+							<label for="higherscndry_edumethod">বর্তমান শিক্ষাগত যোগ্যতা<span class="form-required" title="This field is required.">*</span></label>
 							<select name="higher_secondary_edu_method" id="higherscndry_edumethod">
-								<option hidden selected></option>
+                                <option hidden selected></option>
 								<option></option>
-								<option value="জেনারেল">জেনারেল</option>
-								<option value="আলিয়া মাদ্রাসা">আলিয়া মাদ্রাসা</option>
-								<option value="ডিপ্লোমা">ডিপ্লোমা</option>
 								<option value="অধ্যায়ন বাদ দিয়েছি">অধ্যায়ন বাদ দিয়েছি</option>
-								<option value="অন্যান্য">অন্যান্য</option>
+								<option value="উচ্চমাধ্যমিক অধ্যায়নরত">উচ্চমাধ্যমিক অধ্যায়নরত</option>
+								<option value="উচ্চমাধ্যমিক পাস">উচ্চমাধ্যমিক পাস</option>
+                                <option value="ডিপ্লোমা অধ্যায়নরত">ডিপ্লোমা অধ্যায়নরত</option>
+                                <option value="ডিপ্লোমা পাস">ডিপ্লোমা পাস</option>
+								<option value="স্নাতক/অনার্স অধ্যায়নরত">স্নাতক/অনার্স অধ্যায়নরত</option>
+								<option value="স্নাতক/অনার্স পাস">স্নাতক/অনার্স পাস</option>
+								<option value="স্নাতকোত্তর/মাস্টার্স অধ্যায়নরত">স্নাতকোত্তর/মাস্টার্স অধ্যায়নরত</option>
+								<option value="স্নাতকোত্তর/মাস্টার্স পাস">স্নাতকোত্তর/মাস্টার্স পাস</option>
 							</select>
 						</div>
-						<!-- Secondary Education End -->
-						<!-- Higher Secondary start -->
-						<div class="shosurbari-biodata-field" id="gnrl_mdrs_hrscnd_pass">
-							<label for="hrsecondary_pass">উচ্চমাধ্যমিক/সমমান পাস করেছেন?<span class="form-required" title="This field is required.">*</span></label>
-							<select name="gnrlmdrs_hrsecondary_pass" id="hrsecondary_pass">
-								<option hidden selected></option>
-								<option></option>
-								<option value="হ্যাঁ">হ্যাঁ</option>
-								<option value="না, পরীক্ষার্থী">না, পরীক্ষার্থী</option>
-								<option value="না, এখনো অধ্যায়নরত">না, এখনো অধ্যায়নরত</option>
-							</select>
+						<div class="shosurbari-biodata-field" id="current_max_subject">
+							<label for="current_max_sub">সাবজেক্ট/গ্রুপের নাম লিখুন<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text" name="current_max_edu_subject" id="current_max_sub"  value="" class="form-text required">
 						</div>
-						<div class="shosurbari-biodata-field" id="gnrl_mdrs_hrscnd_pass_year">
-							<label for="edu-method">উচ্চমাধ্যমিক/সমমান পাসের বর্ষ<span class="form-required" title="This field is required.">*</span></label>
-							<select name="gnrlmdrs_hrsecondary_pass_year">
+						<div class="shosurbari-biodata-field" id="current_inst">
+							<label for="current_max_inst">শিক্ষা প্রতিষ্ঠানের নাম লিখুন<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text" name="current_max_institute" id="current_max_inst"  value="" class="form-text required">
+						</div>
+						<div class="shosurbari-biodata-field" id="current_passyear">
+							<label for="current_max_passyear">পাসের বর্ষ<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size:12px;" class="form-required" title="This field is required."> (কত সালে পাস করেছেন সিলেক্ট করুন অথবা আপনি যদি চলমান শিক্ষার্থী হয়ে থাকেন তাহলে আপনার সম্ভাব্য পাসের বর্ষ সিলেক্ট করুন)</span></label>
+							<select name="current_max_pass_year" id="current_max_passyear">
 								<option hidden selected></option>
 								<option></option>
+								<option value="২০৩৫">২০৩৫</option>
+								<option value="২০৩৪">২০৩৪</option>
+								<option value="২০৩৩">২০৩৩</option>
+								<option value="২০৩২">২০৩২</option>
+								<option value="২০৩১">২০৩১</option>
+								<option value="২০৩০">২০৩০</option>
+								<option value="২০২৯">২০২৯</option>
+								<option value="২০২৮">২০২৮</option>
+								<option value="২০২৭">২০২৭</option>
+								<option value="২০২৬">২০২৬</option>
                                 <option value="২০২৫">২০২৫</option>
 								<option value="২০২৪">২০২৪</option>
 								<option value="২০২৩">২০২৩</option>
@@ -920,215 +988,21 @@ if(isloggedin()){
                                 <option value="১৯৯২">১৯৯২</option>
                                 <option value="১৯৯১">১৯৯১</option>
                                 <option value="১৯৯০">১৯৯০</option>
+								<option value="১৯৮৯">১৯৮৯</option>
+								<option value="১৯৮৮">১৯৮৮</option>
+								<option value="১৯৮৭">১৯৮৭</option>
+								<option value="১৯৮৬">১৯৮৬</option>
+								<option value="১৯৮৫">১৯৮৫</option>
+								<option value="১৯৮৪">১৯৮৪</option>
+								<option value="১৯৮৩">১৯৮৩</option>
+								<option value="১৯৮২">১৯৮২</option>
+								<option value="১৯৮১">১৯৮১</option>
+								<option value="১৯৮০">১৯৮০</option>
 							</select>
 						</div>
-						<div class="shosurbari-biodata-field" id="gnrl_mdrs_hrscnd_exam_year">
-							<label for="edu-method">উচ্চমাধ্যমিক/সমমান বোর্ড পরীক্ষার বর্ষ<span class="form-required" title="This field is required.">*</span></label>
-							<select name="gnrlmdrs_hrsecondary_exam_year">
-								<option hidden selected></option>
-								<option></option>
-								<option value="২০৩৫">২০৩৫</option>
-								<option value="২০৩৪">২০৩৪</option>
-								<option value="২০৩৩">২০৩৩</option>
-								<option value="২০৩২">২০৩২</option>
-								<option value="২০৩১">২০৩১</option>
-								<option value="২০৩০">২০৩০</option>
-								<option value="২০২৯">২০২৯</option>
-								<option value="২০২৮">২০২৮</option>
-								<option value="২০২৭">২০২৭</option>
-								<option value="২০২৬">২০২৬</option>
-								<option value="২০২৫">২০২৫</option>
-								<option value="২০২৪">২০২৪</option>
-							</select>
-						</div>
-						<div class="shosurbari-biodata-field" id="higher_seconday_group">
-							<label for="edu-method">উচ্চমাধ্যমিক/সমমানে গ্রুপ?<span class="form-required" title="This field is required.">*</span></label>
-							<select name="gnrlmdrs_hrsecondary_group">
-								<option hidden selected></option>
-								<option></option>
-								<option value="বিজ্ঞান">বিজ্ঞান শাখা</option>
-								<option value="মানবিক শাখা">মানবিক শাখা</option>
-								<option value="ব্যবসা ও বাণিজ্য শাখা">ব্যবসা ও বাণিজ্য শাখা</option>
-							</select>
-						</div>
-						<div class="shosurbari-biodata-field" id="hrgnrl_mdrs_running_stdn">
-							<label for="hrgnrl_mdrs_running_stdn">উচ্চমাধ্যমিক/সমমানে বর্তমান অধ্যায়নরত ক্লাস<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text"  name="gnrlmdrs_hrsecondary_rningstd" id="hrgnrl_mdrs_running_stdn" value="" class="form-text required">
-						</div>
-						<!--Higher Seconday Education End -->
-						<!--Diploma Higher Seconday Start -->
-						<div class="shosurbari-biodata-field" id="doploma_hrscnd_pass">
-							<label for="doploma_hrscdmethod">ডিপ্লোমা পাস করেছেন?<span class="form-required" title="This field is required.">*</span></label>
-							<select name="diploma_hrsecondary_pass" id="doploma_hrscdmethod">
-								<option hidden selected></option>
-								<option></option>
-								<option value="হ্যাঁ">হ্যাঁ</option>
-								<option value="না, অধ্যায়নরত আছি">না, অধ্যায়নরত আছি </option>
-							</select>
-						</div>
-						<div class="shosurbari-biodata-field" id="doploma_hrscnd_pass_year">
-							<label for="doploma_hrscnd_pass_year">ডিপ্লোমা পাসের বর্ষ<span class="form-required" title="This field is required.">*</span></label>
-							<select name="diploma_hrsecondary_pass_year">
-								<option hidden selected></option>
-								<option></option>
-                                <option value="২০২৫">২০২৫</option>
-								<option value="২০২৪">২০২৪</option>
-								<option value="২০২৩">২০২৩</option>
-								<option value="২০২২">২০২২</option>
-								<option value="২০২১">২০২১</option>
-								<option value="২০২০">২০২০</option>
-								<option value="২০১৯">২০১৯</option>
-								<option value="২০১৮">২০১৮</option>
-								<option value="২০১৭">২০১৭</option>
-								<option value="২০১৬">২০১৬</option>
-								<option value="২০১৫">২০১৫</option>
-								<option value="২০১৪">২০১৪</option>
-								<option value="২০১৩">২০১৩</option>
-								<option value="২০১২">২০১২</option>
-								<option value="২০১১">২০১১</option>
-								<option value="২০১০">২০১০</option>
-								<option value="২০০৯">২০০৯</option>
-								<option value="২০০৮">২০০৮</option>
-								<option value="২০০৭">২০০৭</option>
-								<option value="২০০৬">২০০৬</option>
-								<option value="২০০৫">২০০৫</option>
-								<option value="২০০৪">২০০৪</option>
-								<option value="২০০৩">২০০৩</option>
-								<option value="২০০২">২০০২</option>
-								<option value="২০০১">২০০১</option>
-								<option value="২০০০">২০০০</option>
-                                <option value="১৯৯৯">১৯৯৯</option>
-                                <option value="১৯৯৮">১৯৯৮</option>
-                                <option value="১৯৯৭">১৯৯৭</option>
-                                <option value="১৯৯৬">১৯৯৬</option>
-                                <option value="১৯৯৫">১৯৯৫</option>
-                                <option value="১৯৯৪">১৯৯৪</option>
-                                <option value="১৯৯৩">১৯৯৩</option>
-                                <option value="১৯৯২">১৯৯২</option>
-                                <option value="১৯৯১">১৯৯১</option>
-                                <option value="১৯৯০">১৯৯০</option>
-							</select>
-						</div>
-						<div class="shosurbari-biodata-field" id="doploma_hrscnd_subject">
-							<label for="edu-method">ডিপ্লোমায় আপনার সাবজেক্ট<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" name="diploma_hrsecondary_sub" value="" id="diploma_secondary_subject" class="form-text required">
-						</div>
-						<div class="shosurbari-biodata-field" id="doploma_hrscnd_exam_year">
-							<label for="edu-method">ডিপ্লোমা অধ্যায়ন সম্পন্ন হবে<span class="form-required" title="This field is required.">*</span></label>
-							<select name="diploma_hrsecondary_endingyear">
-								<option hidden selected></option>
-								<option></option>
-								<option value="২০৩৫">২০৩৫</option>
-								<option value="২০৩৪">২০৩৪</option>
-								<option value="২০৩৩">২০৩৩</option>
-								<option value="২০৩২">২০৩২</option>
-								<option value="২০৩১">২০৩১</option>
-								<option value="২০৩০">২০৩০</option>
-								<option value="২০২৯">২০২৯</option>
-								<option value="২০২৮">২০২৮</option>
-								<option value="২০২৭">২০২৭</option>
-								<option value="২০২৬">২০২৬</option>
-								<option value="২০২৫">২০২৫</option>
-								<option value="২০২৪">২০২৪</option>
-							</select>
-						</div>
-						<div class="shosurbari-biodata-field" id="varsity_edumethod">
-							<label for="university_edumethod">স্নাতক/সমমান শিক্ষার মাধ্যম<span class="form-required" title="This field is required.">*</span></label>
-							<select name="varsity_edu_method" id="university_edumethod">
-								<option hidden selected></option>
-								<option></option>
-								<option value="জেনারেল">জেনারেল</option>
-								<option value="আলিয়া মাদ্রাসা">আলিয়া মাদ্রাসা</option>
-								<option value="ডিপ্লোমা">ডিপ্লোমা</option>
-								<option value="অধ্যায়ন বাদ দিয়েছি">অধ্যায়ন বাদ দিয়েছি</option>
-								<option value="অন্যান্য">অন্যান্য</option>
-							</select>
-						</div>
-						<!--Diploma Higher Seconday End -->
-						<!-- University Education Start -->
-						<div class="shosurbari-biodata-field" id="varsity_pass">
-							<label for="university_pass">স্নাতক/সমমান পাস করেছেন?<span class="form-required" title="This field is required.">*</span></label>
-							<select name="uvarsity_pass" id="university_pass">
-								<option hidden selected></option>
-								<option></option>
-								<option value="হ্যাঁ">হ্যাঁ</option>
-								<option value="না, অধ্যায়নরত আছি">না, অধ্যায়নরত আছি </option>
-							</select>
-						</div>
-						<div class="shosurbari-biodata-field" id="varsity_pass_year">
-							<label for="edu-method">স্নাতক/সমমান পাসের বর্ষ<span class="form-required" title="This field is required.">*</span></label>
-							<select name="varsity_passing_year">
-								<option hidden selected></option>
-								<option></option>
-                                <option value="২০২৫">২০২৫</option>
-								<option value="২০২৪">২০২৪</option>
-								<option value="২০২৩">২০২৩</option>
-								<option value="২০২২">২০২২</option>
-								<option value="২০২১">২০২১</option>
-								<option value="২০২০">২০২০</option>
-								<option value="২০১৯">২০১৯</option>
-								<option value="২০১৮">২০১৮</option>
-								<option value="২০১৭">২০১৭</option>
-								<option value="২০১৬">২০১৬</option>
-								<option value="২০১৫">২০১৫</option>
-								<option value="২০১৪">২০১৪</option>
-								<option value="২০১৩">২০১৩</option>
-								<option value="২০১২">২০১২</option>
-								<option value="২০১১">২০১১</option>
-								<option value="২০১০">২০১০</option>
-								<option value="২০০৯">২০০৯</option>
-								<option value="২০০৮">২০০৮</option>
-								<option value="২০০৭">২০০৭</option>
-								<option value="২০০৬">২০০৬</option>
-								<option value="২০০৫">২০০৫</option>
-								<option value="২০০৪">২০০৪</option>
-								<option value="২০০৩">২০০৩</option>
-								<option value="২০০২">২০০২</option>
-								<option value="২০০১">২০০১</option>
-								<option value="২০০০">২০০০</option>
-                                <option value="১৯৯৯">১৯৯৯</option>
-                                <option value="১৯৯৮">১৯৯৮</option>
-                                <option value="১৯৯৭">১৯৯৭</option>
-                                <option value="১৯৯৬">১৯৯৬</option>
-                                <option value="১৯৯৫">১৯৯৫</option>
-                                <option value="১৯৯৪">১৯৯৪</option>
-                                <option value="১৯৯৩">১৯৯৩</option>
-                                <option value="১৯৯২">১৯৯২</option>
-                                <option value="১৯৯১">১৯৯১</option>
-                                <option value="১৯৯০">১৯৯০</option>
-							</select>
-						</div>
-						<div class="shosurbari-biodata-field" id="varsity_subject">
-							<label for="edu-method">স্নাতক/সমমানে আপনার সাবজেক্ট<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" name="university_subject" id="varsity_subject"  value="" class="form-text required">
-						</div>
-						<div class="shosurbari-biodata-field" id="varsity_exam_year">
-							<label for="edu-method">স্নাতক/সমমান অধ্যায়ন সম্পন্ন হবে<span class="form-required" title="This field is required.">*</span></label>
-							<select name="varsity_ending_year">
-								<option hidden selected></option>
-								<option></option>
-								<option value="২০৩৫">২০৩৫</option>
-								<option value="২০৩৪">২০৩৪</option>
-								<option value="২০৩৩">২০৩৩</option>
-								<option value="২০৩২">২০৩২</option>
-								<option value="২০৩১">২০৩১</option>
-								<option value="২০৩০">২০৩০</option>
-								<option value="২০২৯">২০২৯</option>
-								<option value="২০২৮">২০২৮</option>
-								<option value="২০২৭">২০২৭</option>
-								<option value="২০২৬">২০২৬</option>
-								<option value="২০২৫">২০২৫</option>
-								<option value="২০২৪">২০২৪</option>
-							</select>
-						</div>
-						<div class="shosurbari-biodata-field" id="varsity_name">
-							<label for="edu-method">স্নাতকে/সমমানে শিক্ষা প্রতিষ্ঠান<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" name="uvarsity_name" value="" id="university_name" class="form-text required">
-						</div>
-						<!-- University Education End -->
 						<div class="shosurbari-biodata-field">
 							<label for="edu-method">অন্যান্য শিক্ষাগত যোগ্যতা<span style="color: gray; font-size:14px;" class="form-required" title="This field is required."> (বাধ্যতামূলক নয়)</span></label>
-							<textarea type="text" rows="8"  name="others_edu_qualification" value="" id="others_edu_qualification" class="form-text-describe"></textarea>
+							<textarea type="text" rows="8"  name="others_edu_qualification" id="others_edu_qualification" class="form-text-describe"></textarea>
 						</div>
 					</div>
 				</div>
@@ -1142,74 +1016,36 @@ if(isloggedin()){
 						document.getElementById("current_edu_level_field").style.display = "none";
 						document.getElementById("hafez_field").style.display = "none";
 						//Secondary
-						document.getElementById("maxedu_qualification").style.display = "none";
 						document.getElementById("gnrl_mdrs_scnd_pass").style.display = "none";
 						document.getElementById("gnrl_mdrs_scnd_pass_year").style.display = "none";
 						document.getElementById("gnrl_mdrs_scnd_exam_year").style.display = "none";  
 						document.getElementById("gnrl_mdrs_running_stdn").style.display = "none";
 						//Higher Secondary
 						document.getElementById("higher_seconday_edumethod").style.display = "none";
-						document.getElementById("gnrl_mdrs_hrscnd_pass").style.display = "none";
-						document.getElementById("gnrl_mdrs_hrscnd_pass_year").style.display = "none";
-						document.getElementById("gnrl_mdrs_hrscnd_exam_year").style.display = "none";
-						document.getElementById("higher_seconday_group").style.display = "none";
-						document.getElementById("hrgnrl_mdrs_running_stdn").style.display = "none";
-						//Diploma
-						document.getElementById("doploma_hrscnd_pass").style.display = "none";
-						document.getElementById("doploma_hrscnd_pass_year").style.display = "none";
-						document.getElementById("doploma_hrscnd_subject").style.display = "none";
-						document.getElementById("doploma_hrscnd_exam_year").style.display = "none";
-						document.getElementById("varsity_edumethod").style.display = "none";
-						//Varsity
-						document.getElementById("varsity_pass").style.display = "none";
-						document.getElementById("varsity_pass_year").style.display = "none";
-						document.getElementById("varsity_subject").style.display = "none";
-						document.getElementById("varsity_exam_year").style.display = "none";
-						document.getElementById("varsity_name").style.display = "none";
+                        document.getElementById("current_max_subject").style.display = "none";
+                        document.getElementById("current_inst").style.display = "none";
+                        document.getElementById("current_passyear").style.display = "none";
 						//Madrasa
 						var dawraPassField = document.getElementById("dawra_pass_field");
 						var dawraPassingYearField = document.getElementById("dawra_passing_year_field");
 						var currentEduLevelField = document.getElementById("current_edu_level_field");
 						var hafezField = document.getElementById("hafez_field");
 						//Secondary
-						var maxeduQualification = document.getElementById("maxedu_qualification");
 						var gnrlMdrsScndPass = document.getElementById("gnrl_mdrs_scnd_pass");
 						var gnrlMdrsScndPassYear = document.getElementById("gnrl_mdrs_scnd_pass_year");
 						var gnrlMdrsScndExamYear = document.getElementById("gnrl_mdrs_scnd_exam_year");
 						var gnrMmdrsRunningStdn = document.getElementById("gnrl_mdrs_running_stdn");
 						//Higher Secondary
 						var higherSecondayEdumethod = document.getElementById("higher_seconday_edumethod");
-						var gnrlMdrsHrscndPass = document.getElementById("gnrl_mdrs_hrscnd_pass");
-						var gnrlMdrsHrscndPassYear = document.getElementById("gnrl_mdrs_hrscnd_pass_year");
-						var gnrlMdrsHrscndExamYear = document.getElementById("gnrl_mdrs_hrscnd_exam_year");
-						var higherSecondayGroup = document.getElementById("higher_seconday_group");
-						var hrgnrlMdrsRunningStdn = document.getElementById("hrgnrl_mdrs_running_stdn");
-						//Diploma
-						var doplomaHrscndPass = document.getElementById("doploma_hrscnd_pass");
-						var doplomaHrscndPassYear = document.getElementById("doploma_hrscnd_pass_year");
-						var doplomaHrscndSubject = document.getElementById("doploma_hrscnd_subject");
-						var doplomaHrscndExamYear = document.getElementById("doploma_hrscnd_exam_year");
-						var varsityEdumethod = document.getElementById("varsity_edumethod");
-						//Varsity
-						var varsityPass = document.getElementById("varsity_pass");
-						var varsityPassYear = document.getElementById("varsity_pass_year");
-						var varsitySubject = document.getElementById("varsity_subject");
-						var varsityExamYear = document.getElementById("varsity_exam_year");
-						var varsityName = document.getElementById("varsity_name");
+                        var currentMaxSubject = document.getElementById("current_max_subject");
+                        var currentInst = document.getElementById("current_inst");
+                        var currentPassyear = document.getElementById("current_passyear");
 						// 1
-						var inputs = dawraPassField.getElementsByTagName("input");
-						for (var j = 0; j < inputs.length; j++) {
-						inputs[j].value = ""; 
-						}
 						var selects = dawraPassField.getElementsByTagName("select");
 						for (var k = 0; k < selects.length; k++) {
 						selects[k].selectedIndex = 0; 
 						}
 						// 2
-						var inputs = dawraPassingYearField.getElementsByTagName("input");
-						for (var j = 0; j < inputs.length; j++) {
-						inputs[j].value = ""; 
-						}
 						var selects = dawraPassingYearField.getElementsByTagName("select");
 						for (var k = 0; k < selects.length; k++) {
 						selects[k].selectedIndex = 0; 
@@ -1224,204 +1060,45 @@ if(isloggedin()){
 						selects[k].selectedIndex = 0; 
 						}
 						// 4
-						var inputs = hafezField.getElementsByTagName("input");
-						for (var j = 0; j < inputs.length; j++) {
-						inputs[j].value = ""; 
-						}
 						var selects = hafezField.getElementsByTagName("select");
 						for (var k = 0; k < selects.length; k++) {
 						selects[k].selectedIndex = 0; 
 						}
-						// 5
-						var inputs = maxeduQualification.getElementsByTagName("input");
-						for (var j = 0; j < inputs.length; j++) {
-						inputs[j].value = ""; 
-						}
-						var selects = maxeduQualification.getElementsByTagName("select");
-						for (var k = 0; k < selects.length; k++) {
-						selects[k].selectedIndex = 0; 
-						}
-						var textarea = maxeduQualification.getElementsByTagName("textarea");
-						for (var l = 0; l < textarea.length; l++) {
-							textarea[l].value = ""; 
-						}
+						// 5 Noo Need for Max edu
 						// 6
-						var inputs = gnrlMdrsScndPass.getElementsByTagName("input");
-						for (var j = 0; j < inputs.length; j++) {
-						inputs[j].value = ""; 
-						}
 						var selects = gnrlMdrsScndPass.getElementsByTagName("select");
 						for (var k = 0; k < selects.length; k++) {
 						selects[k].selectedIndex = 0; 
 						}
 						// 7
-						var inputs = gnrlMdrsScndPassYear.getElementsByTagName("input");
-						for (var j = 0; j < inputs.length; j++) {
-						inputs[j].value = ""; 
-						}
 						var selects = gnrlMdrsScndPassYear.getElementsByTagName("select");
 						for (var k = 0; k < selects.length; k++) {
 						selects[k].selectedIndex = 0; 
 						}
 						// 8
-						var inputs = gnrlMdrsScndExamYear.getElementsByTagName("input");
-						for (var j = 0; j < inputs.length; j++) {
-						inputs[j].value = ""; 
-						}
 						var selects = gnrlMdrsScndExamYear.getElementsByTagName("select");
 						for (var k = 0; k < selects.length; k++) {
 						selects[k].selectedIndex = 0; 
 						}
 						// 9
-						var inputs = gnrMmdrsRunningStdn.getElementsByTagName("input");
-						for (var j = 0; j < inputs.length; j++) {
-						inputs[j].value = ""; 
-						}
 						var selects = gnrMmdrsRunningStdn.getElementsByTagName("select");
 						for (var k = 0; k < selects.length; k++) {
 						selects[k].selectedIndex = 0; 
 						}
 						// 10
-						var inputs = higherSecondayEdumethod.getElementsByTagName("input");
-						for (var j = 0; j < inputs.length; j++) {
-						inputs[j].value = ""; 
-						}
 						var selects = higherSecondayEdumethod.getElementsByTagName("select");
 						for (var k = 0; k < selects.length; k++) {
 						selects[k].selectedIndex = 0; 
 						}
-						// 11
-						var inputs = gnrlMdrsHrscndPass.getElementsByTagName("input");
+                        var inputs = currentMaxSubject.getElementsByTagName("input");
 						for (var j = 0; j < inputs.length; j++) {
 						inputs[j].value = ""; 
 						}
-						var selects = gnrlMdrsHrscndPass.getElementsByTagName("select");
-						for (var k = 0; k < selects.length; k++) {
-						selects[k].selectedIndex = 0; 
-						}
-						// 12
-						var inputs = gnrlMdrsHrscndPassYear.getElementsByTagName("input");
+                        var inputs = currentInst.getElementsByTagName("input");
 						for (var j = 0; j < inputs.length; j++) {
 						inputs[j].value = ""; 
 						}
-						var selects = gnrlMdrsHrscndPassYear.getElementsByTagName("select");
-						for (var k = 0; k < selects.length; k++) {
-						selects[k].selectedIndex = 0; 
-						}
-						// 13
-						var inputs = gnrlMdrsHrscndExamYear.getElementsByTagName("input");
-						for (var j = 0; j < inputs.length; j++) {
-						inputs[j].value = ""; 
-						}
-						var selects = gnrlMdrsHrscndExamYear.getElementsByTagName("select");
-						for (var k = 0; k < selects.length; k++) {
-						selects[k].selectedIndex = 0; 
-						}
-						// 14
-						var inputs = higherSecondayGroup.getElementsByTagName("input");
-						for (var j = 0; j < inputs.length; j++) {
-						inputs[j].value = ""; 
-						}
-						var selects = higherSecondayGroup.getElementsByTagName("select");
-						for (var k = 0; k < selects.length; k++) {
-						selects[k].selectedIndex = 0; 
-						}
-						// 15
-						var inputs = hrgnrlMdrsRunningStdn.getElementsByTagName("input");
-						for (var j = 0; j < inputs.length; j++) {
-						inputs[j].value = ""; 
-						}
-						var selects = hrgnrlMdrsRunningStdn.getElementsByTagName("select");
-						for (var k = 0; k < selects.length; k++) {
-						selects[k].selectedIndex = 0; 
-						}
-						// 16
-						var inputs = doplomaHrscndPass.getElementsByTagName("input");
-						for (var j = 0; j < inputs.length; j++) {
-						inputs[j].value = ""; 
-						}
-						var selects = doplomaHrscndPass.getElementsByTagName("select");
-						for (var k = 0; k < selects.length; k++) {
-						selects[k].selectedIndex = 0; 
-						}
-						// 17
-						var inputs = doplomaHrscndPassYear.getElementsByTagName("input");
-						for (var j = 0; j < inputs.length; j++) {
-						inputs[j].value = ""; 
-						}
-						var selects = doplomaHrscndPassYear.getElementsByTagName("select");
-						for (var k = 0; k < selects.length; k++) {
-						selects[k].selectedIndex = 0; 
-						}
-						// 18
-						var inputs = doplomaHrscndSubject.getElementsByTagName("input");
-						for (var j = 0; j < inputs.length; j++) {
-						inputs[j].value = ""; 
-						}
-						var selects = doplomaHrscndSubject.getElementsByTagName("select");
-						for (var k = 0; k < selects.length; k++) {
-						selects[k].selectedIndex = 0; 
-						}
-						// 19
-						var inputs = doplomaHrscndExamYear.getElementsByTagName("input");
-						for (var j = 0; j < inputs.length; j++) {
-						inputs[j].value = ""; 
-						}
-						var selects = doplomaHrscndExamYear.getElementsByTagName("select");
-						for (var k = 0; k < selects.length; k++) {
-						selects[k].selectedIndex = 0; 
-						}
-						// 20
-						var inputs = varsityEdumethod.getElementsByTagName("input");
-						for (var j = 0; j < inputs.length; j++) {
-						inputs[j].value = ""; 
-						}
-						var selects = varsityEdumethod.getElementsByTagName("select");
-						for (var k = 0; k < selects.length; k++) {
-						selects[k].selectedIndex = 0; 
-						}
-						// 21
-						var inputs = varsityPass.getElementsByTagName("input");
-						for (var j = 0; j < inputs.length; j++) {
-						inputs[j].value = ""; 
-						}
-						var selects = varsityPass.getElementsByTagName("select");
-						for (var k = 0; k < selects.length; k++) {
-						selects[k].selectedIndex = 0; 
-						}
-						// 22
-						var inputs = varsityPassYear.getElementsByTagName("input");
-						for (var j = 0; j < inputs.length; j++) {
-						inputs[j].value = ""; 
-						}
-						var selects = varsityPassYear.getElementsByTagName("select");
-						for (var k = 0; k < selects.length; k++) {
-						selects[k].selectedIndex = 0; 
-						}
-						// 23
-						var inputs = varsitySubject.getElementsByTagName("input");
-						for (var j = 0; j < inputs.length; j++) {
-						inputs[j].value = ""; 
-						}
-						var selects = varsitySubject.getElementsByTagName("select");
-						for (var k = 0; k < selects.length; k++) {
-						selects[k].selectedIndex = 0; 
-						}
-						// 24
-						var inputs = varsityExamYear.getElementsByTagName("input");
-						for (var j = 0; j < inputs.length; j++) {
-						inputs[j].value = ""; 
-						}
-						var selects = varsityExamYear.getElementsByTagName("select");
-						for (var k = 0; k < selects.length; k++) {
-						selects[k].selectedIndex = 0; 
-						}
-						// 25
-						var inputs = varsityName.getElementsByTagName("input");
-						for (var j = 0; j < inputs.length; j++) {
-						inputs[j].value = ""; 
-						}
-						var selects = varsityName.getElementsByTagName("select");
+						var selects = currentPassyear.getElementsByTagName("select");
 						for (var k = 0; k < selects.length; k++) {
 						selects[k].selectedIndex = 0; 
 						}
@@ -1433,16 +1110,8 @@ if(isloggedin()){
 							document.getElementById("current_edu_level_field").style.display = "none";
 						}
 						// Show or hide
-						else if (selectedValue === "অন্যান্য") {
-							document.getElementById("maxedu_qualification").style.display = "block";
-						}
-						// Show or hide
 						else if (selectedValue === "জেনারেল" || selectedValue === "আলিয়া মাদ্রাসা" || selectedValue === "ভোকেশনাল") {
 							document.getElementById("gnrl_mdrs_scnd_pass").style.display = "block";
-						}
-						// Show or hide
-						else if (selectedValue === "মাধ্যমিক পড়িনাই") {
-							document.getElementById("maxedu_qualification").style.display = "block";
 						}
 					}
 					// Function to show or hide fields based on the selected value of dawra_pass_field
@@ -1477,6 +1146,9 @@ if(isloggedin()){
 						document.getElementById("gnrl_mdrs_scnd_exam_year").style.display = "none";
 						document.getElementById("gnrl_mdrs_running_stdn").style.display = "none";
 						document.getElementById("higher_seconday_edumethod").style.display = "block";
+                        document.getElementById("current_max_subject").style.display = "none";
+                        document.getElementById("current_inst").style.display = "none";
+                        document.getElementById("current_passyear").style.display = "none";
 						}
 						else if (selectValue === "না, পরীক্ষার্থী") {
 						//1
@@ -1484,24 +1156,10 @@ if(isloggedin()){
 						document.getElementById("gnrl_mdrs_scnd_exam_year").style.display = "block";
 						document.getElementById("gnrl_mdrs_running_stdn").style.display = "none";
 						document.getElementById("higher_seconday_edumethod").style.display = "none";
-						//2
-						document.getElementById("gnrl_mdrs_hrscnd_pass").style.display = "none";
-						document.getElementById("gnrl_mdrs_hrscnd_pass_year").style.display = "none";
-						document.getElementById("gnrl_mdrs_hrscnd_exam_year").style.display = "none";
-						document.getElementById("higher_seconday_group").style.display = "none";
-						document.getElementById("hrgnrl_mdrs_running_stdn").style.display = "none";
-						//3
-						document.getElementById("doploma_hrscnd_pass").style.display = "none";
-						document.getElementById("doploma_hrscnd_pass_year").style.display = "none";
-						document.getElementById("doploma_hrscnd_subject").style.display = "none";
-						document.getElementById("doploma_hrscnd_exam_year").style.display = "none";
-						document.getElementById("varsity_edumethod").style.display = "none";
-						//4
-						document.getElementById("varsity_pass").style.display = "none";
-						document.getElementById("varsity_pass_year").style.display = "none";
-						document.getElementById("varsity_subject").style.display = "none";
-						document.getElementById("varsity_exam_year").style.display = "none";
-						document.getElementById("varsity_name").style.display = "none";
+
+                        document.getElementById("current_max_subject").style.display = "none";
+                        document.getElementById("current_inst").style.display = "none";
+                        document.getElementById("current_passyear").style.display = "none";
 						}
 						else if (selectValue === "না, অধ্যায়নরত আছি") {
 						//1
@@ -1510,270 +1168,40 @@ if(isloggedin()){
 						document.getElementById("gnrl_mdrs_running_stdn").style.display = "block";
 						//2
 						document.getElementById("higher_seconday_edumethod").style.display = "none";
-						document.getElementById("gnrl_mdrs_hrscnd_pass").style.display = "none";
-						document.getElementById("gnrl_mdrs_hrscnd_pass_year").style.display = "none";
-						document.getElementById("gnrl_mdrs_hrscnd_exam_year").style.display = "none";
-						document.getElementById("higher_seconday_group").style.display = "none";
-						document.getElementById("hrgnrl_mdrs_running_stdn").style.display = "none";
-						//3
-						document.getElementById("doploma_hrscnd_pass").style.display = "none";
-						document.getElementById("doploma_hrscnd_pass_year").style.display = "none";
-						document.getElementById("doploma_hrscnd_subject").style.display = "none";
-						document.getElementById("doploma_hrscnd_exam_year").style.display = "none";
-						document.getElementById("varsity_edumethod").style.display = "none";
-						//4
-						document.getElementById("varsity_pass").style.display = "none";
-						document.getElementById("varsity_pass_year").style.display = "none";
-						document.getElementById("varsity_subject").style.display = "none";
-						document.getElementById("varsity_exam_year").style.display = "none";
-						document.getElementById("varsity_name").style.display = "none";
+                        document.getElementById("current_max_subject").style.display = "none";
+                        document.getElementById("current_inst").style.display = "none";
+                        document.getElementById("current_passyear").style.display = "none";
 						}
-						else if (selectValue === "অধ্যায়ন বাদ দিয়েছি") {
+						else if (selectValue === "না, অধ্যায়ন বাদ দিয়েছি") {
 						//1
 						document.getElementById("gnrl_mdrs_scnd_pass_year").style.display = "none";
 						document.getElementById("gnrl_mdrs_scnd_exam_year").style.display = "none";
 						document.getElementById("gnrl_mdrs_running_stdn").style.display = "none";
 						//2
 						document.getElementById("higher_seconday_edumethod").style.display = "none";
-						document.getElementById("gnrl_mdrs_hrscnd_pass").style.display = "none";
-						document.getElementById("gnrl_mdrs_hrscnd_pass_year").style.display = "none";
-						document.getElementById("gnrl_mdrs_hrscnd_exam_year").style.display = "none";
-						document.getElementById("higher_seconday_group").style.display = "none";
-						document.getElementById("hrgnrl_mdrs_running_stdn").style.display = "none";
-						//3
-						document.getElementById("doploma_hrscnd_pass").style.display = "none";
-						document.getElementById("doploma_hrscnd_pass_year").style.display = "none";
-						document.getElementById("doploma_hrscnd_subject").style.display = "none";
-						document.getElementById("doploma_hrscnd_exam_year").style.display = "none";
-						document.getElementById("varsity_edumethod").style.display = "none";
-						//4
-						document.getElementById("varsity_pass").style.display = "none";
-						document.getElementById("varsity_pass_year").style.display = "none";
-						document.getElementById("varsity_subject").style.display = "none";
-						document.getElementById("varsity_exam_year").style.display = "none";
-						document.getElementById("varsity_name").style.display = "none";
+                        document.getElementById("current_max_subject").style.display = "none";
+                        document.getElementById("current_inst").style.display = "none";
+                        document.getElementById("current_passyear").style.display = "none";
 						}
 					}
 					// Function to show or hide fields based on the selected value of dawra_pass_field
 					function toggleHrsecondaryFields() {
 						var selecteValue = document.getElementById("higherscndry_edumethod").value;
-						//1
-						document.getElementById("gnrl_mdrs_hrscnd_pass").style.display = "none";
-						document.getElementById("gnrl_mdrs_hrscnd_pass_year").style.display = "none";
-						document.getElementById("gnrl_mdrs_hrscnd_exam_year").style.display = "none";
-						document.getElementById("higher_seconday_group").style.display = "none";
-						document.getElementById("hrgnrl_mdrs_running_stdn").style.display = "none";
-						//2
-						document.getElementById("doploma_hrscnd_pass").style.display = "none";
-						document.getElementById("doploma_hrscnd_pass_year").style.display = "none";
-						document.getElementById("doploma_hrscnd_subject").style.display = "none";
-						document.getElementById("doploma_hrscnd_exam_year").style.display = "none";
+                        document.getElementById("current_max_subject").style.display = "none";
+                        document.getElementById("current_inst").style.display = "none";
+                        document.getElementById("current_passyear").style.display = "none";
 						// Show or hide fields based on the selected value
-						if (selecteValue === "জেনারেল" || selecteValue === "আলিয়া মাদ্রাসা") {
+						if (selecteValue === "উচ্চমাধ্যমিক অধ্যায়নরত" || selecteValue === "উচ্চমাধ্যমিক পাস" || selecteValue === "ডিপ্লোমা অধ্যায়নরত" || selecteValue === "ডিপ্লোমা পাস" || selecteValue === "স্নাতক/অনার্স অধ্যায়নরত" || selecteValue === "স্নাতক/অনার্স পাস" || selecteValue === "স্নাতকোত্তর/মাস্টার্স অধ্যায়নরত" || selecteValue === "স্নাতকোত্তর/মাস্টার্স পাস") {
 						//1
-						document.getElementById("gnrl_mdrs_hrscnd_pass").style.display = "block";
-						document.getElementById("gnrl_mdrs_hrscnd_pass_year").style.display = "none";
-						document.getElementById("gnrl_mdrs_hrscnd_exam_year").style.display = "none";
-						document.getElementById("higher_seconday_group").style.display = "none";
-						document.getElementById("hrgnrl_mdrs_running_stdn").style.display = "none";
-						//2
-						document.getElementById("doploma_hrscnd_pass").style.display = "none";
-						document.getElementById("doploma_hrscnd_pass_year").style.display = "none";
-						document.getElementById("doploma_hrscnd_subject").style.display = "none";
-						document.getElementById("doploma_hrscnd_exam_year").style.display = "none";
-						//3
-						document.getElementById("varsity_edumethod").style.display = "none";
-						document.getElementById("varsity_pass").style.display = "none";
-						document.getElementById("varsity_pass_year").style.display = "none";
-						document.getElementById("varsity_subject").style.display = "none";
-						document.getElementById("varsity_exam_year").style.display = "none";
-						document.getElementById("varsity_name").style.display = "none";
-						}
-						else if (selecteValue === "ডিপ্লোমা") {
-						//1
-						document.getElementById("gnrl_mdrs_hrscnd_pass").style.display = "none";
-						document.getElementById("gnrl_mdrs_hrscnd_pass_year").style.display = "none";
-						document.getElementById("gnrl_mdrs_hrscnd_exam_year").style.display = "none";
-						document.getElementById("higher_seconday_group").style.display = "none";
-						document.getElementById("hrgnrl_mdrs_running_stdn").style.display = "none";
-						//2
-						document.getElementById("doploma_hrscnd_pass").style.display = "block";
-						document.getElementById("doploma_hrscnd_pass_year").style.display = "none";
-						document.getElementById("doploma_hrscnd_subject").style.display = "none";
-						document.getElementById("doploma_hrscnd_exam_year").style.display = "none";
-						//3
-						document.getElementById("varsity_edumethod").style.display = "none";
-						document.getElementById("varsity_pass").style.display = "none";
-						document.getElementById("varsity_pass_year").style.display = "none";
-						document.getElementById("varsity_subject").style.display = "none";
-						document.getElementById("varsity_exam_year").style.display = "none";
-						document.getElementById("varsity_name").style.display = "none";
+                        document.getElementById("current_max_subject").style.display = "block";
+                        document.getElementById("current_inst").style.display = "block";
+                        document.getElementById("current_passyear").style.display = "block";
 						}
 						else if (selecteValue === "অধ্যায়ন বাদ দিয়েছি") {
 						//1
-						document.getElementById("gnrl_mdrs_hrscnd_pass").style.display = "none";
-						document.getElementById("gnrl_mdrs_hrscnd_pass_year").style.display = "none";
-						document.getElementById("gnrl_mdrs_hrscnd_exam_year").style.display = "none";
-						document.getElementById("higher_seconday_group").style.display = "none";
-						document.getElementById("hrgnrl_mdrs_running_stdn").style.display = "none";
-						//2
-						document.getElementById("doploma_hrscnd_pass").style.display = "none";
-						document.getElementById("doploma_hrscnd_pass_year").style.display = "none";
-						document.getElementById("doploma_hrscnd_subject").style.display = "none";
-						document.getElementById("doploma_hrscnd_exam_year").style.display = "none";
-						//3
-						document.getElementById("varsity_edumethod").style.display = "none";
-						document.getElementById("varsity_pass").style.display = "none";
-						document.getElementById("varsity_pass_year").style.display = "none";
-						document.getElementById("varsity_subject").style.display = "none";
-						document.getElementById("varsity_exam_year").style.display = "none";
-						document.getElementById("varsity_name").style.display = "none";
-						}
-						else if (selecteValue === "অন্যান্য") {
-						//1
-						document.getElementById("gnrl_mdrs_hrscnd_pass").style.display = "none";
-						document.getElementById("gnrl_mdrs_hrscnd_pass_year").style.display = "none";
-						document.getElementById("gnrl_mdrs_hrscnd_exam_year").style.display = "none";
-						document.getElementById("higher_seconday_group").style.display = "none";
-						document.getElementById("hrgnrl_mdrs_running_stdn").style.display = "none";
-						//2
-						document.getElementById("doploma_hrscnd_pass").style.display = "none";
-						document.getElementById("doploma_hrscnd_pass_year").style.display = "none";
-						document.getElementById("doploma_hrscnd_subject").style.display = "none";
-						document.getElementById("doploma_hrscnd_exam_year").style.display = "none";
-						//3
-						document.getElementById("varsity_edumethod").style.display = "none";
-						document.getElementById("varsity_pass").style.display = "none";
-						document.getElementById("varsity_pass_year").style.display = "none";
-						document.getElementById("varsity_subject").style.display = "none";
-						document.getElementById("varsity_exam_year").style.display = "none";
-						document.getElementById("varsity_name").style.display = "none";
-						}
-					}
-					// Function to show or hide fields based on the selected value of dawra_pass_field
-					function toggleHrgnrmdrsFields() {
-						var selecteValue = document.getElementById("hrsecondary_pass").value;
-						document.getElementById("gnrl_mdrs_hrscnd_pass_year").style.display = "none";
-						document.getElementById("gnrl_mdrs_hrscnd_exam_year").style.display = "none";
-						document.getElementById("higher_seconday_group").style.display = "none";
-						document.getElementById("hrgnrl_mdrs_running_stdn").style.display = "none";
-						document.getElementById("varsity_edumethod").style.display = "none";
-						if (selecteValue === "হ্যাঁ") {
-						document.getElementById("gnrl_mdrs_hrscnd_pass_year").style.display = "block";
-						document.getElementById("gnrl_mdrs_hrscnd_exam_year").style.display = "none";
-						document.getElementById("higher_seconday_group").style.display = "block";
-						document.getElementById("hrgnrl_mdrs_running_stdn").style.display = "none";
-						document.getElementById("varsity_edumethod").style.display = "block";
-						}
-						else if (selecteValue === "না, পরীক্ষার্থী") {
-						//1
-						document.getElementById("gnrl_mdrs_hrscnd_pass_year").style.display = "none";
-						document.getElementById("gnrl_mdrs_hrscnd_exam_year").style.display = "block";
-						document.getElementById("higher_seconday_group").style.display = "block";
-						document.getElementById("hrgnrl_mdrs_running_stdn").style.display = "none";
-						//2
-						document.getElementById("varsity_edumethod").style.display = "none";
-						document.getElementById("varsity_pass").style.display = "none";
-						document.getElementById("varsity_pass_year").style.display = "none";
-						document.getElementById("varsity_subject").style.display = "none";
-						document.getElementById("varsity_exam_year").style.display = "none";
-						document.getElementById("varsity_name").style.display = "none";
-						}
-						else if (selecteValue === "না, এখনো অধ্যায়নরত") {
-						//1
-						document.getElementById("gnrl_mdrs_hrscnd_pass_year").style.display = "none";
-						document.getElementById("gnrl_mdrs_hrscnd_exam_year").style.display = "none";
-						document.getElementById("higher_seconday_group").style.display = "block";
-						document.getElementById("hrgnrl_mdrs_running_stdn").style.display = "block";
-						//2
-						document.getElementById("varsity_edumethod").style.display = "none";
-						document.getElementById("varsity_pass").style.display = "none";
-						document.getElementById("varsity_pass_year").style.display = "none";
-						document.getElementById("varsity_subject").style.display = "none";
-						document.getElementById("varsity_exam_year").style.display = "none";
-						document.getElementById("varsity_name").style.display = "none";
-						}
-					}
-					// Function to show or hide fields based on the selected value of dawra_pass_field
-					function toggleDiplomaFields() {
-						var selecteValue = document.getElementById("doploma_hrscdmethod").value;
-						document.getElementById("doploma_hrscnd_pass_year").style.display = "none";
-						document.getElementById("doploma_hrscnd_subject").style.display = "none";
-						document.getElementById("doploma_hrscnd_exam_year").style.display = "none";
-						document.getElementById("varsity_edumethod").style.display = "none";
-						if (selecteValue === "হ্যাঁ") {
-						document.getElementById("doploma_hrscnd_pass_year").style.display = "block";
-						document.getElementById("doploma_hrscnd_subject").style.display = "block";
-						document.getElementById("doploma_hrscnd_exam_year").style.display = "none";
-						document.getElementById("varsity_edumethod").style.display = "block";
-						}
-						else if (selecteValue === "না, অধ্যায়নরত আছি") {
-						//1
-						document.getElementById("doploma_hrscnd_pass_year").style.display = "none";
-						document.getElementById("doploma_hrscnd_subject").style.display = "block";
-						document.getElementById("doploma_hrscnd_exam_year").style.display = "block";
-						document.getElementById("varsity_edumethod").style.display = "none";
-						//2
-						document.getElementById("varsity_edumethod").style.display = "none";
-						document.getElementById("varsity_pass").style.display = "none";
-						document.getElementById("varsity_pass_year").style.display = "none";
-						document.getElementById("varsity_subject").style.display = "none";
-						document.getElementById("varsity_exam_year").style.display = "none";
-						document.getElementById("varsity_name").style.display = "none";
-						}
-					}
-					// Function to show or hide fields based on the selected value of dawra_pass_field
-					function toggleVarsityFields() {
-						var selecteValue = document.getElementById("university_edumethod").value;
-						document.getElementById("varsity_pass").style.display = "none";
-						document.getElementById("varsity_pass_year").style.display = "none";
-						document.getElementById("varsity_subject").style.display = "none";
-						document.getElementById("varsity_exam_year").style.display = "none";
-						document.getElementById("varsity_name").style.display = "none";
-						// Show or hide fields based on the selected value
-						if (selecteValue === "জেনারেল" || "আলিয়া মাদ্রাসা" || "ডিপ্লোমা") {
-						document.getElementById("varsity_pass").style.display = "block";
-						document.getElementById("varsity_pass_year").style.display = "none";
-						document.getElementById("varsity_subject").style.display = "none";
-						document.getElementById("varsity_exam_year").style.display = "none";
-						document.getElementById("varsity_name").style.display = "none";
-						}
-						else if (selecteValue === "অধ্যায়ন বাদ দিয়েছি") {
-						document.getElementById("varsity_pass").style.display = "none";
-						document.getElementById("varsity_pass_year").style.display = "none";
-						document.getElementById("varsity_subject").style.display = "none";
-						document.getElementById("varsity_exam_year").style.display = "none";
-						document.getElementById("varsity_name").style.display = "none";
-						}
-						else if (selecteValue === "অন্যান্য") {
-						document.getElementById("varsity_pass").style.display = "none";
-						document.getElementById("varsity_pass_year").style.display = "none";
-						document.getElementById("varsity_subject").style.display = "none";
-						document.getElementById("varsity_exam_year").style.display = "none";
-						document.getElementById("varsity_name").style.display = "none";
-						}
-					}
-					// Function to show or hide fields based on the selected value of dawra_pass_field
-					function toggleVarsityPassFields() {
-						var selecteValue = document.getElementById("university_pass").value;
-						document.getElementById("varsity_pass").style.display = "none";
-						document.getElementById("varsity_pass_year").style.display = "none";
-						document.getElementById("varsity_subject").style.display = "none";
-						document.getElementById("varsity_exam_year").style.display = "none";
-						document.getElementById("varsity_name").style.display = "none";
-						if (selecteValue === "হ্যাঁ") {
-						document.getElementById("varsity_pass").style.display = "block";
-						document.getElementById("varsity_pass_year").style.display = "block";
-						document.getElementById("varsity_subject").style.display = "block";
-						document.getElementById("varsity_exam_year").style.display = "none";
-						document.getElementById("varsity_name").style.display = "block";
-						}
-						else if (selecteValue === "না, অধ্যায়নরত আছি") {
-						document.getElementById("varsity_pass").style.display = "block";
-						document.getElementById("varsity_pass_year").style.display = "none";
-						document.getElementById("varsity_subject").style.display = "block";
-						document.getElementById("varsity_exam_year").style.display = "block";
-						document.getElementById("varsity_name").style.display = "block";
+                        document.getElementById("current_max_subject").style.display = "none";
+                        document.getElementById("current_inst").style.display = "none";
+                        document.getElementById("current_passyear").style.display = "none";
 						}
 					}
 					// Attach the functions to the onchange events of the dropdowns
@@ -1782,36 +1210,23 @@ if(isloggedin()){
 					document.getElementById("gnrl_mdrs_scnd_pass").onchange = toggleSecondaryFields;
 					document.getElementById("higher_seconday_edumethod").onchange = toggleHrsecondaryFields;
 					document.getElementById("gnrl_mdrs_hrscnd_pass").onchange = toggleHrgnrmdrsFields;
-					document.getElementById("doploma_hrscnd_pass").onchange = toggleDiplomaFields;
-					document.getElementById("varsity_edumethod").onchange = toggleVarsityFields;
-					document.getElementById("varsity_pass").onchange = toggleVarsityPassFields;
 					// Trigger the functions initially to set the initial state
 					toggleSections();
 					toggleDawraFields();
 					toggleSecondaryFields();
 					toggleHrsecondaryFields();
 					toggleHrgnrmdrsFields();
-					toggleDiplomaFields();
-					toggleVarsityFields();
-					toggleVarsityPassFields();
 				</script>
 				<input type="button" name="previous" class="previous action-button" value="পূর্বের ধাপ" />
 				<input type="button" name="next" class="next action-button" value="পরবর্তী ধাপ" />
 			</fieldset>
-			<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-			--                   E   N   D                   --
-			--  Educational Qualifications  / sb-biodata-3   --
-			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-			<!-- End & Start -->
-			<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-			--                S  T  A  R  T                  --
-			--       Address Details  /  sb-biodata-4        --
-			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+			<!-- END -  Educational Qualifications  / sb-biodata-3  -->
+			<!-- START - Address Details  /  sb-biodata-4  -->
 			<fieldset>
 				<div class="sb-biodata" id="addressDetails">
 					<div class="soshurbari-animation-icon">
                         <div class="sb-icon-laptop">
-                        <h3> <img src="images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
+							<h3> <img src="images/shosurbari-logo-form.png"></h3>
                         </div>
                     </div>
 					<div class="sb-biodata-field">
@@ -1819,7 +1234,7 @@ if(isloggedin()){
 					</div>
 					<div class="sb-biodata-option">
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">আপনি কোন দেশের স্থায়ী নাগরিক/সিটিজেন<span class="form-required" title="This field is required.">*</span></label>
+							<label>আপনি কোন দেশের স্থায়ী নাগরিক/সিটিজেন<span class="form-required" title="This field is required.">*</span></label>
 							<select name="country_present_address" required>
 							<option hidden selected></option>
 								<option value="Afghanistan">Afghanistan</option>
@@ -2050,36 +1465,29 @@ if(isloggedin()){
 							}
 						</script>
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">বর্তমানে যেখানে থাকেন পুরো ঠিকানা লিখুন<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" name="present_address_location" id="edit-name"  value="" class="form-text required" required>
+							<label>বর্তমান যেখানে থাকেন শুধুমাত্র থানা এবং জেলার নাম লিখুন<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 12px;" class="form-required" title="This field is required."> (আপনি যদি বিদেশে থাকেন তাহলে- আপনার শহর এবং দেশের নাম লিখুন)</span></label>
+							<input type="text" name="present_address_location"   value="" class="form-text required" required>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label>উক্ত বর্তমান ঠিকানায় কোন উদ্দেশ্যে থাকা হয়, আপনার সাথে পরিবারের সদস্য থাকছে কিনা এবং সেখানে কত দিন যাবৎ থাকছেন?<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বিস্তারিত লিখুন)</span> </label>
+							<label>উক্ত বর্তমান ঠিকানায় যেই উদ্দেশ্যে থাকা হয়?<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বিস্তারিত লিখুন)</span> </label>
 							<textarea type="text" rows="8" name="present_address_living_purpose" value="" class="form-text-describe" required></textarea>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">বাল্যকালে কোন ঠিকানায় বড় হয়েছেন?<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="childhood" value="" class="form-text required" required>
+							<label>বাল্যকালে যেই ঠিকানায় বড় হয়েছেন শুধুমাত্র থানা এবং জেলার নাম লিখুন<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text"  name="childhood" value="" class="form-text required" required>
 						</div>
 					</div>
 				</div>
 				<input type="button" name="previous" class="previous action-button" value="পূর্বের ধাপ" />
 				<input type="button" name="next" class="next action-button" value="পরবর্তী ধাপ" />
 			</fieldset>
-			<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-			--                   E   N   D                   --
-			--       Address Details  /  sb-biodata-4        --
-			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-			<!-- End & Start -->
-			<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-			--                S  T  A  R  T                  --
-			--     Family Information  / sb-biodata-5        --
-			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+			<!-- END - Address Details  /  sb-biodata-4  -->
+			<!-- START - Family Information  / sb-biodata-5  -->
 			<fieldset>
 				<div class="sb-biodata" id="familyInfo">
 					<div class="soshurbari-animation-icon">
                         <div class="sb-icon-laptop">
-                        <h3> <img src="images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
+							<h3> <img src="images/shosurbari-logo-form.png"></h3>
                         </div>
                     </div>
 					<div class="sb-biodata-field">
@@ -2087,11 +1495,7 @@ if(isloggedin()){
 					</div>
 					<div class="sb-biodata-option">
 						<div class="shosurbari-biodata-field">
-							<label>পরিবারের প্রধান অভিভাবক কে?<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text"  name="family_major_guardian" value="" class="form-text" required>
-						</div>
-						<div class="shosurbari-biodata-field">
-							<label for="edit-name">বাবার নাম<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
+							<label>বাবার নাম<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
 							<input type="text"  name="father_name" value="" class="form-text" required>
 						</div>
 						<div class="shosurbari-biodata-field">
@@ -2119,8 +1523,12 @@ if(isloggedin()){
 							<textarea type="text" rows="8" name="brosis_info" value="" class="form-text-describe" required></textarea>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label>মামা/চাচাদের পেশা<span class="form-required" title="This field is required.">*</span></label>
-							<textarea type="text" rows="8" name="uncle_profession" value="" class="form-text-describe" required></textarea>
+							<label>মামা/চাচাদের পেশা<span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বাধ্যতামূলক নয়)</span></label>
+							<textarea type="text" rows="8" name="uncle_profession" value="" class="form-text-describe"></textarea>
+						</div>
+						<div class="shosurbari-biodata-field">
+							<label>পরিবারের প্রধান অভিভাবক কে?<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text"  name="family_major_guardian" value="" class="form-text" required>
 						</div>
 						<div class="shosurbari-biodata-field">
 							<label>পারিবারিক অর্থনৈতিক অবস্থা<span class="form-required" title="This field is required.">*</span></label>
@@ -2133,33 +1541,26 @@ if(isloggedin()){
 							</select>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label>পারিবারিক অর্থনৈতিক অবস্থার বর্ণনা<span class="form-required" title="This field is required.">*</span></label>
+							<label>পারিবারিক অর্থনৈতিক অবস্থার উৎস বর্ণনা করুন<span class="form-required" title="This field is required.">*</span></label>
 							<textarea type="text" rows="8" name="financial_condition" value="" class="form-text-describe" required></textarea>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label>পরিবারের সকলের সামাজিক এবং ধর্মীয় মূল্যবোধ কেমন? সামাজিক এবং ধর্মীয় বিধিনিষেধ কত টুকু মেনে চলে?<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বিস্তারিত লিখুন)</span></label>
-							<textarea type="text" rows="8" name="family_religious_condition"  value="" class="form-text-describe" required></textarea>
+							<label>পরিবারের সকলের সামাজিক এবং ধর্মীয় মূল্যবোধ কেমন? সামাজিক এবং ধর্মীয় যেই বিষয় গুলো মেনে চলে বিস্তারিত লিখুন<span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বাধ্যতামূলক নয়)</span></label>
+							<textarea type="text" rows="8" name="family_religious_condition"  value="" class="form-text-describe"></textarea>
 						</div>
 					</div>
 				</div>
 				<input type="button" name="previous" class="previous action-button" value="পূর্বের ধাপ" />
 				<input type="button" name="next" class="next action-button" value="পরবর্তী ধাপ" />
 			</fieldset>
-			<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-			--                   E   N   D                   --
-			--     Family Information  / sb-biodata-5        --
-			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-			<!-- End & Start -->
-            <!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-			--                S  T  A  R  T                  --
-			--   Male Marriage related Info / sb-biodata-6   --
-			--  Female Marriage related Info / sb-biodata-7  --
-			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+			<!-- END - Family Information  / sb-biodata-5  -->
+			<!-- START - Male Marriage related Info / sb-biodata-6 
+			& Female Marriage related Info / sb-biodata-7  -->
 			<fieldset>
 				<div class="sb-biodata" id="maleMarriageInfo">
 					<div class="soshurbari-animation-icon">
                         <div class="sb-icon-laptop">
-                        <h3> <img src="images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
+							<h3> <img src="images/shosurbari-logo-form.png"></h3>
                         </div>
                     </div>
 					<div class="sb-biodata-field">
@@ -2167,7 +1568,7 @@ if(isloggedin()){
 					</div>
 					<div class="sb-biodata-option">
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">বৈবাহিক অবস্থা<span class="form-required" title="This field is required.">*</span></label>
+							<label>বৈবাহিক অবস্থা<span class="form-required" title="This field is required.">*</span></label>
 							<select name="maritalstatus" required onchange="toggleMaritalStatus(this.value)">
 								<option hidden selected></option>
 								<option value="অবিবাহিত">অবিবাহিত</option>
@@ -2180,7 +1581,7 @@ if(isloggedin()){
 						<!-- Divorce Section Start -->
 						<div class="shosurbari-biodata-field" id="divorce-section" style="display: none;">
 							<div class="shosurbari-biodata-field">
-								<label for="edit-name">ডিভোর্সের কারণ বর্ণনা করুন এবং কতদিন সংসার করেছেন?<span class="form-required" title="This field is required.">*</span></label>
+								<label>ডিভোর্সের কারণ বর্ণনা করুন এবং কতদিন সংসার করেছেন?<span class="form-required" title="This field is required.">*</span></label>
 								<textarea type="text" rows="8" name="divorce_reason" class="form-text-describe"></textarea>
 							</div>
 						</div>
@@ -2188,7 +1589,7 @@ if(isloggedin()){
 						<!-- Widow Section Start-->
 						<div class="shosurbari-biodata-field" id="widow-section" style="display: none;">
 							<div class="shosurbari-biodata-field">
-								<label for="edit-name">স্বামী যেভাবে মারা গেছে এবং কতদিন সংসার করেছেন?<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বিস্তারিত লিখুন)</span></label>
+								<label>স্বামী যেভাবে মারা গেছে এবং কতদিন সংসার করেছেন?<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বিস্তারিত লিখুন)</span></label>
 								<textarea type="text"  rows="8" name="how_widow" value="" class="form-text-describe"></textarea>
 							</div>
 						</div>
@@ -2196,7 +1597,7 @@ if(isloggedin()){
 						<!-- Widower Section Start-->
 						<div class="shosurbari-biodata-field" id="widower-section" style="display: none;">
 							<div class="shosurbari-biodata-field">
-								<label for="edit-name">স্ত্রী যেভাবে মারা গেছে এবং কতদিন সংসার করেছেন?<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বিস্তারিত লিখুন)</span></label>
+								<label>স্ত্রী যেভাবে মারা গেছে এবং কতদিন সংসার করেছেন?<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বিস্তারিত লিখুন)</span></label>
 								<textarea type="text" rows="8" name="how_widower" value="" class="form-text-describe"></textarea>
 							</div>
 						</div>
@@ -2204,15 +1605,15 @@ if(isloggedin()){
 						<!-- Married Section Start-->
 						<div class="shosurbari-biodata-field" id="married-section" style="display: none;">
 							<div class="shosurbari-biodata-field">
-								<label for="edit-name">বর্তমান স্ত্রীর অনুমতি নিয়েছেন?<span class="form-required" title="This field is required.">*</span></label>
-								<input type="text" id="edit-name" name="get_wife_permission" value="" class="form-text">
+								<label>বর্তমান স্ত্রীর অনুমতি নিয়েছেন?<span class="form-required" title="This field is required.">*</span></label>
+								<input type="text"  name="get_wife_permission" value="" class="form-text">
 							</div>
 							<div class="shosurbari-biodata-field" id="married-family-permission">
-								<label for="edit-name">বর্তমান স্ত্রীর পরিবার থেকে অনুমতি নিয়েছেন?<span class="form-required" title="This field is required.">*</span></label>
-								<input type="text" id="edit-name" name="get_family_permission" value="" class="form-text">
+								<label>বর্তমান স্ত্রীর পরিবার থেকে অনুমতি নিয়েছেন?<span class="form-required" title="This field is required.">*</span></label>
+								<input type="text"  name="get_family_permission" value="" class="form-text">
 							</div>
 							<div class="shosurbari-biodata-field" id="why-again-married">
-								<label for="edit-name">আবার বিয়ে করার কারণ<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বিস্তারিত লিখুন)</span></label>
+								<label>আবার বিয়ে করার কারণ<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বিস্তারিত লিখুন)</span></label>
 								<textarea type="text" rows="8" name="why_again_married" value="" class="form-text-describe"></textarea>
 							</div>
 						</div>
@@ -2220,7 +1621,7 @@ if(isloggedin()){
 						<!-- This Sections For Divorce + Widow + Widower + Married Start-->
 						<div class="shosurbari-biodata-field" id="son-section" style="display: none;">
 							<div class="shosurbari-biodata-field">
-								<label for="edit-name">কয়টি সন্তান আছে<span class="form-required" title="This field is required.">*</span></label>
+								<label>কয়টি সন্তান আছে<span class="form-required" title="This field is required.">*</span></label>
 								<select name="how_many_son" onchange="toggleSonDetails(this.value)">
 									<option hidden selected></option>
 									<option></option>
@@ -2238,45 +1639,41 @@ if(isloggedin()){
 								</select>
 							</div>
 							<div class="shosurbari-biodata-field" id="son-details" style="display: none;">
-								<label for="edit-name">সন্তান সম্পর্কিত তথ্য<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বিস্তারিত লিখুন)</span></label>
+								<label>সন্তান সম্পর্কিত তথ্য<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বিস্তারিত লিখুন)</span></label>
 								<textarea type="text" rows="8" name="son_details"  value="" class="form-text-describe"></textarea>
 							</div>
 						</div>
 						<!-- This Sections For Divorce + Widow + Widower + Married End-->
 						<!-- Bellow Two Sections For Male or Female -->
 						<div class="shosurbari-biodata-field" id="male-allow-wife-job">
-							<label for="edit-name">বিয়ের পর স্ত্রীকে চাকরি করতে দিতে ইচ্ছুক?<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="allowjob_aftermarriage"  value="" class="form-text">
+							<label>বিয়ের পর স্ত্রীকে চাকরি করতে দিতে ইচ্ছুক? (স্ত্রী যদি চায়)<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text"  name="allowjob_aftermarriage"  value="" class="form-text">
 						</div>
 						<!--Top Male | & | Bellow Female-->
 						<div class="shosurbari-biodata-field" id="female-job-after-marriage">
-							<label for="edit-name">বিয়ের পর চাকরি করতে চান?<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="anyjob_aftermarriage" value="" class="form-text">
+							<label>বিয়ের পর চাকরি করতে চান?<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text"  name="anyjob_aftermarriage" value="" class="form-text">
 						</div>
 						<div class="shosurbari-biodata-field" id="male-allow-wife-study">
-							<label for="edit-name">বিয়ের পর স্ত্রীকে প্রাতিষ্ঠানিক পড়ালেখা করতে দিতে ইচ্ছুক?<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="allowstudy_aftermarriage" value="" class="form-text">
+							<label>বিয়ের পর স্ত্রীকে প্রাতিষ্ঠানিক পড়ালেখা করতে দিতে ইচ্ছুক? (স্ত্রী যদি চায়)<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text"  name="allowstudy_aftermarriage" value="" class="form-text">
 						</div>
 						<!--Top Male | & | Bellow Female-->
 						<div class="shosurbari-biodata-field" id="female-study-after-marriage">
-							<label for="edit-name">বিয়ের পর পড়াশোনা চালিয়ে যেতে চান?<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="studies_aftermarriage"   value="" class="form-text">
+							<label>বিয়ের পর পড়াশোনা চালিয়ে যেতে চান?<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text"  name="studies_aftermarriage"   value="" class="form-text">
 						</div>
 						<div class="shosurbari-biodata-field" id="male-live-with-wife">
-							<label for="edit-name">বিয়ের পর স্ত্রীকে নিয়ে কোথায় থাকবেন?<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="livewife_aftermarriage"  value="" class="form-text">
+							<label>বিয়ের পর স্ত্রীকে নিয়ে কোথায় থাকবেন?<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text"  name="livewife_aftermarriage"  value="" class="form-text">
 						</div>
 						<!--Top Male | & | Bellow Female-->
 						<div class="shosurbari-biodata-field" id="female-agree-marriage-student">
-							<label for="edit-name">শিক্ষার্থী বিয়ে করতে রাজি আছেন?<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="agree_marriage_student"   value="" class="form-text">
+							<label>শিক্ষার্থী বিয়ে করতে রাজি আছেন?<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text"  name="agree_marriage_student"   value="" class="form-text">
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">অন্য ধর্মের অনুসারী যে কাওকে বিয়ে করতে রাজি হবেন যদি সে আপনার ধর্ম গ্রহণ করে?<span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বাধ্যতামূলক নয়)</span></label>
-							<input type="text" id="edit-name" name="agree_marriage_other_religion"   value="" class="form-text">
-						</div>
-						<div class="shosurbari-biodata-field">
-							<label for="edit-name">বায়োডাটা টি যার তার আপনি কে হন?<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
+							<label>বায়োডাটা টি যার তার আপনি কে হন?<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (অপশনটি লুকায়িত থাকবে)</span></label>
 							<select name="profileby" required>
 								<option hidden selected></option>
 								<option value="নিজের জন্য">নিজের জন্য</option>
@@ -2415,21 +1812,14 @@ if(isloggedin()){
 					}
 				</script>
 			</fieldset>
-			<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-			--                   E   N   D                   --
-			--   Male Marriage related Info / sb-biodata-6   --
-			--  Female Marriage related Info / sb-biodata-7  --
-			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-			<!-- End & Start -->
-			<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-			--                S  T  A  R  T                  --
-			--        Religion Details / sb-biodata-8        --
-			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+			<!-- END - Male Marriage related Info / sb-biodata-6 
+			& Female Marriage related Info / sb-biodata-7  -->
+			<!-- START - Religion Details / sb-biodata-8 -->
 			<fieldset>
 				<div class="sb-biodata" id="religionDetails">
 					<div class="soshurbari-animation-icon">
                         <div class="sb-icon-laptop">
-                        <h3> <img src="images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
+							<h3> <img src="images/shosurbari-logo-form.png"></h3>
                         </div>
                     </div>
 					<div class="sb-biodata-field">
@@ -2448,29 +1838,21 @@ if(isloggedin()){
 							</select>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label for="about me">ধর্মীয় বিধিনিষেধ কতটুকু অনুসরণ করেন?<span class="form-required" title="This field is required.">*</span><span style="color: gray; font-size: 14px;" class="form-required" title="This field is required."> (বিস্তারিত লিখুন)</span></label>
-							<textarea type="text"  rows="8" name="yourreligion_condition" value="" class="form-text-describe" required></textarea>
+							<label for="about me">আপনি ধর্মীয় যেই বিষয় গুলো মেনে চলেন বিস্তারিত লিখুন<span class="form-required" title="This field is required.">*</span></label>
+							<textarea type="text"  rows="8" name="yourreligion_condition" value="" class="form-text-describe" placeholder="১০০% পারফেক্ট হওয়াটা অনেক চ্যালেঞ্জিং, সবার পক্ষে সম্ভব হয়ে ওঠেনা। তবে আপনি যেই বিষয় গুলো মেনে চলেন সুন্দর করে উপস্থাপন করুন..." required></textarea>
 						</div>
 					</div>
 				</div>
 				<input type="button" name="previous" class="previous action-button" value="পূর্বের ধাপ" />
 				<input type="button" name="next" class="next action-button" value="পরবর্তী ধাপ" />
 			</fieldset>
-			<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-			--                   E   N   D                   --
-			--        Religion Details / sb-biodata-8        --
-			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-			<!-- End & Start -->
-			<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-			--                S  T  A  R  T                  --
-			--     Expected Life Partner / sb-biodata-9      --
-			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-			<!--Fieldsets start-->
+			<!-- END -  Religion Details / sb-biodata-8 -->
+			<!-- START - Expected Life Partner / sb-biodata-9  -->
 			<fieldset>
 				<div class="sb-biodata" id="expectedPartner">
 					<div class="soshurbari-animation-icon">
                         <div class="sb-icon-laptop">
-                        <h3> <img src="images/shosurbari-icon.png"> শ্বশুরবাড়ি </h3>
+							<h3> <img src="images/shosurbari-logo-form.png"></h3>
                         </div>
                     </div>
 					<div class="sb-biodata-field">
@@ -2478,57 +1860,57 @@ if(isloggedin()){
 					</div>
 					<div class="sb-biodata-option">
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">জীবনসঙ্গীর নাগরিকত্ব/সিটিজেনশিপ কোন <span style="color: black; font-size: 15px;"> দেশ</span> আশা করেন<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="partner_citizen" value="" class="form-text" required>
+							<label>জীবনসঙ্গীর নাগরিকত্ব/সিটিজেনশিপ কোন <span style="color: black; font-size: 15px;"> দেশ</span> আশা করেন<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text"  name="partner_citizen" value="" class="form-text" required>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">জীবনসঙ্গী যেই <span style="color: black; font-size: 15px;">জেলার</span> আশা করেন<span class="form-required" title="This field is required.">*</span></label>
-							<textarea type="text" rows="8" id="edit-name" name="partner_district" value="" class="form-text-describe" required></textarea>
+							<label>জীবনসঙ্গী যেই <span style="color: black; font-size: 15px;">জেলার</span> আশা করেন<span class="form-required" title="This field is required.">*</span></label>
+							<textarea type="text" rows="8"  name="partner_district" value="" class="form-text-describe" required></textarea>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">জীবনসঙ্গীর <span style="color: black; font-size: 15px;">বৈবাহিক অবস্থা</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="partner_maritialstatus"  value=""  class="form-text" required>
+							<label>জীবনসঙ্গীর <span style="color: black; font-size: 15px;">বৈবাহিক অবস্থা</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text"  name="partner_maritialstatus"  value=""  class="form-text" required>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">জীবনসঙ্গীর <span style="color: black; font-size: 15px;">বয়স</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="partner_age" value="" class="form-text" required>
+							<label>জীবনসঙ্গীর <span style="color: black; font-size: 15px;">বয়স</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text"  name="partner_age" value="" class="form-text" required>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">জীবনসঙ্গীর <span style="color: black; font-size: 15px;">গাত্র বর্ণ</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="partner_skintones" value=""  class="form-text" required>
+							<label>জীবনসঙ্গীর <span style="color: black; font-size: 15px;">শারীরিক বর্ণ</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text"  name="partner_skintones" value=""  class="form-text" required>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">জীবনসঙ্গীর <span style="color: black; font-size: 15px;">উচ্চতা</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
-							<input type="text" id="edit-name" name="partner_height" value="" class="form-text" required>
+							<label>জীবনসঙ্গীর <span style="color: black; font-size: 15px;">উচ্চতা</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
+							<input type="text"  name="partner_height" value="" class="form-text" required>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">জীবনসঙ্গীর <span style="color: black; font-size: 15px;">শিক্ষাগত যোগ্যতা</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
-							<textarea type="text" rows="8" id="edit-name" name="partner_education" value="" class="form-text-describe" required></textarea>
+							<label>জীবনসঙ্গীর <span style="color: black; font-size: 15px;">শিক্ষাগত যোগ্যতা</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
+							<textarea type="text" rows="8"  name="partner_education" value="" class="form-text-describe" required></textarea>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">জীবনসঙ্গীর <span style="color: black; font-size: 15px;">পেশা</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
-							<textarea type="text" rows="8" id="edit-name" name="partner_profession" value="" class="form-text-describe" required></textarea>
+							<label>জীবনসঙ্গীর <span style="color: black; font-size: 15px;">পেশা</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
+							<textarea type="text" rows="8"  name="partner_profession" value="" class="form-text-describe" required></textarea>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">জীবনসঙ্গীর <span style="color: black; font-size: 15px;">অর্থনৈতিক অবস্থা</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
-							<textarea type="text" rows="8" id="edit-name" name="partner_financial" value="" class="form-text-describe" required></textarea>
+							<label>জীবনসঙ্গীর <span style="color: black; font-size: 15px;">অর্থনৈতিক অবস্থা</span> যেমনটা আশা করেন<span class="form-required" title="This field is required.">*</span></label>
+							<textarea type="text" rows="8"  name="partner_financial" value="" class="form-text-describe" required></textarea>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">জীবনসঙ্গীর যেসব <span style="color: black; font-size: 15px;">বৈশিষ্ঠ বা গুণাবলী </span>প্রত্যাশা করেন<span class="form-required" title="This field is required.">*</span></label>
-							<textarea type="text" rows="8" id="edit-name" name="partner_attributes" value="" class="form-text-describe" required></textarea>
-						</div> </br>
+							<label>জীবনসঙ্গীর যেসব <span style="color: black; font-size: 15px;">বৈশিষ্ঠ বা গুণাবলী </span>প্রত্যাশা করেন<span class="form-required" title="This field is required.">*</span></label>
+							<textarea type="text" rows="8"  name="partner_attributes" value="" class="form-text-describe" required></textarea>
+						</div> <br>
 						<div class="sb-biodata-field" style="margin-top: 15px; background: #06b6d4;">
-							<h2 style="text-align: center; color: #fff;">প্রতিশ্রুতি গ্রহণ</h2>
+							<h2 style="text-align: center; color: #fff; padding: 15px 0; line-height: 20px;">প্রতিশ্রুতি গ্রহণ</h2>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">পরিবারের অনুমতি নিয়ে বায়োডাটা জমা দিচ্ছেন?<span class="form-required" title="This field is required.">*</span></label>
+							<label>বিয়ের জন্য পাত্র/পাত্রী দেখার বিষয়টিতে আপনার পরিবার রাজি আছে?<span class="form-required" title="This field is required.">*</span></label>
 							<select name="parents_permission" required>
 								<option hidden selected></option>
 								<option value="হ্যাঁ">হ্যাঁ</option>
 							</select>
 						</div>
 						<div class="shosurbari-biodata-field">
-							<label for="edit-name">সৃষ্টিকর্তার শপথ করে সাক্ষ্য দিন, শুরু থেকে শেষ পর্যন্ত যে তথ্যগুলো দিয়েছেন সব সত্য?<span class="form-required" title="This field is required.">*</span></label>
+							<label>সৃষ্টিকর্তার শপথ করে সাক্ষ্য দিন, শুরু থেকে শেষ পর্যন্ত যে তথ্যগুলো দিয়েছেন সব সত্য?<span class="form-required" title="This field is required.">*</span></label>
 							<select name="real_info_commited" required>
 								<option hidden selected></option>
 								<option value="আমি সাক্ষ্য দিচ্ছিযে সকল তথ্য সত্য।">আমি সাক্ষ্য দিচ্ছিযে সকল তথ্য সত্য।</option>
@@ -2546,63 +1928,109 @@ if(isloggedin()){
         		<input type="button" name="previous" class="previous action-button" value="পূর্বের ধাপ" />
 				<button type="submit" id="edit-submit" name="op" class="biodata-submit"><span></span> জমাদিন</button>			
     		</fieldset> 
-			<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-			--                   E   N   D                   --
-			--     Expected Life Partner / sb-biodata-9      --
-			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+			<!-- END - Expected Life Partner / sb-biodata-9 -->
 		</form>
-		<?php
-		function showMessage($message, $messageType) {
-		$popupStyle = "
-		position: fixed;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		background: #ff0080; /* Always red for errors */
-		color: #fff;
-		box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05);
-		border: 1px solid rgba(0, 0, 0, .05);
-		border-radius: 2px;
-		padding: 10px;
-		width: 262px;
-		text-align: center;
-		z-index: 9999;
-		";
-		$buttonStyle = "
-		position: absolute;
-		cursor: pointer;
-		right: 3px;
-		margin-right: -20px;
-		margin-top: -73px;
-		margin-bottom: 15px;
-		padding-bottom: 5px;
-		line-height: 5px;
-		width: 32px;
-		height: 32px;
-		border-radius: 50%;
-		border: 1px solid #ccc;
-		font-size: 20px;
-		font-weight: 600;
-		color: white;
-		background: #0aa4ca;
-		";
-		echo "<div style='$popupStyle'>$message
-		<button class='cancel-button' style='$buttonStyle' onclick='this.parentNode.style.display = \"none\";'>x</button>
-		</div>";
-		}
-		// Check for error message
-		if (isset($_SESSION['error_message'])) {
-		$error_message = $_SESSION['error_message'];
-		unset($_SESSION['error_message']); // Clear the error message after displaying
-		showMessage($error_message, 'error');
-		}
-		?>
+		<!-- Popup message -->
+		<div class="popup-message">
+			<h3></h3>
+			<p></p>
+		</div>
+		<div class="overlay"></div>
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				// Function to show loading message
+				function showLoadingMessage() {
+					document.querySelector('.overlay').style.display = 'block';
+					var popup = document.querySelector('.popup-message');
+					popup.style.display = 'block';
+					popup.querySelector('h3').innerHTML = 'অপেক্ষা করুন...';
+					popup.querySelector('p').innerHTML = 'আপনার তথ্য জমা হচ্ছে।';
+				}
+				// Function to show error message
+				function showErrorMessage(message) {
+					document.querySelector('.overlay').style.display = 'block';
+					var popup = document.querySelector('.popup-message');
+					popup.style.display = 'block';
+					popup.querySelector('h3').innerHTML = 'সমস্যা দেখা দিয়েছে!';
+					popup.querySelector('p').innerHTML = 'অনুগ্রহ করে এডমিনের সাথে যোগাযোগ করুন।';
+					// Hide the message after 5 seconds
+					setTimeout(function () {
+						popup.style.display = 'none';
+						document.querySelector('.overlay').style.display = 'none';
+					}, 12000);
+				}
+				// Check for error message
+				<?php
+				if (isset($_SESSION['error_message'])) {
+					$error_message = $_SESSION['error_message'];
+					unset($_SESSION['error_message']); // Clear the error message after displaying
+					echo "showErrorMessage('$error_message');";
+				}
+				?>
+				// Submit form on button click
+				document.getElementById('edit-submit').addEventListener('click', function () {
+					showLoadingMessage(); // Show loading message on form submission
+					document.getElementById('biodataForm').submit(); // Submit the form
+				});
+			});
+		</script>
 	</div>
-	<!--=======================================
-	How Many Visitors View This Page.
-	This Script Connected to get_view_count.php
-	and page_views Database Table
-	========================================-->
+		<style>
+      /* Popup container */
+    .popup-container {
+        display: none;
+        position: fixed;
+        top: 15%;
+        left: 50%;
+        transform: translateX(-50%);
+		color: red;
+		box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+        z-index: 9999;
+    }
+/* Image style */
+.popup-container img {
+    display: block;
+    margin: 0 auto; /* Center the image horizontally */
+    max-width: 100%; /* Ensure the image doesn't exceed the container width */
+	box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+}
+    /* Button style */
+    .popup-btn {
+		padding: 7px 0px;
+		margin: 0px auto 0px auto;
+		background: rgb(255, 221, 238);
+		color: red;
+		font-weight: bold;
+		width: 100%;
+		border: none;
+		cursor: pointer;
+    }
+    /* Button hover effect */
+    .popup-btn:hover {
+		background: linear-gradient(#0aa4ca, #06b6d4);
+    }
+</style>
+<!-- Popup container -->
+<div id="popup" class="popup-container">
+	<img src="images/shosurbari-biodata-notice.jpg">
+    <button id="okButton" class="popup-btn">ঠিক আছে</button>
+</div>
+<script>
+    // Get the popup container
+    var popup = document.getElementById('popup');
+
+    // Get the OK button
+    var okButton = document.getElementById('okButton');
+
+    // Show the popup
+    popup.style.display = 'block';
+
+    // Hide the popup when OK button is clicked
+    okButton.addEventListener('click', function() {
+        popup.style.display = 'none';
+    });
+</script>
+	<!--View This Page. Connected to get view count -->
 	<script>
 		$(document).ready(function() {
 		var pages = ["biodata-post"];
@@ -2644,9 +2072,9 @@ if(isloggedin()){
 			var progressBarHeight = $('#progressbar').outerHeight();
 			var windowHeight = $(window).height();
 			var marginTop = (windowHeight - progressBarHeight) / 15;
-			var topMargin = 50;
+			var topMargin = 40;
 			if ($(window).width() <= 735) {
-			topMargin = 85; // Update the scroll top value for screens under 735px
+			topMargin = 80; // Update the scroll top value for screens under 735px
 			}
 			$('html, body').animate({ scrollTop: $('#progressbar').offset().top - marginTop - topMargin }, 800);
 		});
@@ -2663,9 +2091,9 @@ if(isloggedin()){
 			var progressBarHeight = $('#progressbar').outerHeight();
 			var windowHeight = $(window).height();
 			var marginTop = (windowHeight - progressBarHeight) / 15;
-			var topMargin = 50;
+			var topMargin = 40;
 			if ($(window).width() <= 735) {
-			topMargin = 85; // Update the scroll top value for screens under 735px
+			topMargin = 80; // Update the scroll top value for screens under 735px
 			}
 			$('html, body').animate({ scrollTop: $('#progressbar').offset().top - marginTop - topMargin }, 800);
 		});
