@@ -139,6 +139,7 @@ if(isloggedin()){
 				$engineer_occupation_level = isset($row['engineer_occupation_level']) ? $row['engineer_occupation_level'] : '';
 				$teacher_occupation_level = isset($row['teacher_occupation_level']) ? $row['teacher_occupation_level'] : '';
 				$defense_occupation_level = isset($row['defense_occupation_level']) ? $row['defense_occupation_level'] : '';
+				$shop_occupation_level = isset($row['shop_occupation_level']) ? $row['shop_occupation_level'] : '';
 				$foreigner_occupation_level = isset($row['foreigner_occupation_level']) ? $row['foreigner_occupation_level'] : '';
 				$garments_occupation_level = isset($row['garments_occupation_level']) ? $row['garments_occupation_level'] : '';
 				$driver_occupation_level = isset($row['driver_occupation_level']) ? $row['driver_occupation_level'] : '';
@@ -161,6 +162,7 @@ if(isloggedin()){
 				$engineerOccupationLevel = $engineer_occupation_level ? 'block' : 'none';
 				$teacherOccupationLevel = $teacher_occupation_level ? 'block' : 'none';
 				$defenseOccupationLevel = $defense_occupation_level ? 'block' : 'none';
+				$shopOccupationLevel = $shop_occupation_level ? 'block' : 'none';
 				$foreignerOccupationLevel = $foreigner_occupation_level ? 'block' : 'none';
 				$garmentsOccupationLevel = $garments_occupation_level ? 'block' : 'none';
 				$driverOccupationLevel = $driver_occupation_level ? 'block' : 'none';
@@ -201,6 +203,7 @@ if(isloggedin()){
 								<option value="শিক্ষক/প্রফেসর">শিক্ষক/প্রফেসর</option>
 								<option value="গোয়েন্দা/প্রতিরক্ষা/সশস্ত্রবাহিনী">গোয়েন্দা/প্রতিরক্ষা/সশস্ত্রবাহিনী</option>
 								<option value="সার্ভিস/ফাইন্যান্স/ফ্রিল্যান্সার/উদ্যোক্তা">সার্ভিস/ফাইন্যান্স/ফ্রিল্যান্সার/উদ্যোক্তা</option>
+								<option value="দোকান/শোরুমের স্বত্বাধিকারী">দোকান/শোরুমের স্বত্বাধিকারী(মালিক)</option>
 								<option value="প্রবাসী/বিদেশ">প্রবাসী/বিদেশ</option>
 								<option value="গার্মেন্টস/টেইলর">গার্মেন্টস/টেইলর</option>
 								<option value="টেকনিশিয়ান/মিস্ত্রি/কারিগর">টেকনিশিয়ান/মিস্ত্রি/কারিগর</option>
@@ -319,6 +322,55 @@ if(isloggedin()){
 								<option value="ডিবি">ডিবি</option>
 								<option value="আনসার">আনসার</option>
 								<option value="নিরাপত্তারক্ষী">নিরাপত্তারক্ষী</option>
+							</select>
+						</div>
+						<div class="shosurbari-biodata-field section" id="দোকান/শোরুমের স্বত্বাধিকারী" style="display: <?php echo $shopOccupationLevel; ?>;">
+							<label>পেশার অবস্থান<span class="form-required" title="This field is required.">*</span></label>
+							<select name="shop_occupation_level">
+								<option hidden selected><?php echo $shop_occupation_level;?></option>
+								<option></option>
+								<option value="স্বত্বাধিকারী-গাড়ির শোরুম">স্বত্বাধিকারী-গাড়ির শোরুম</option>
+								<option value="স্বত্বাধিকারী-মোটরসাইকেলের শোরুম">স্বত্বাধিকারী-মোটরসাইকেলের শোরুম</option>
+								<option value="স্বত্বাধিকারী-ইলেকট্রনিক্স শোরুম/শপ">স্বত্বাধিকারী-ইলেকট্রনিক্স শোরুম/শপ</option>
+								<option value="স্বত্বাধিকারী-কম্পিউটার অ্যাক্সেসরিজ শপ">স্বত্বাধিকারী-কম্পিউটার অ্যাক্সেসরিজ শপ</option>
+								<option value="স্বত্বাধিকারী-মোবাইল অ্যাক্সেসরিজ শপ">স্বত্বাধিকারী-মোবাইল অ্যাক্সেসরিজ শপ</option>
+								<option value="স্বত্বাধিকারী-মোবাইল ফোনের শোরুম/শপ">স্বত্বাধিকারী-মোবাইল ফোনের শোরুম/শপ</option>
+								<option value="স্বত্বাধিকারী-ফার্নিচারের শোরুম/শপ">স্বত্বাধিকারী-ফার্নিচারের শোরুম/শপ</option>
+								<option value="স্বত্বাধিকারী-পোশাকের শোরুম/শপ">স্বত্বাধিকারী-পোশাকের শোরুম/শপ</option>
+								<option value="স্বত্বাধিকারী-জুতার শোরুম/শপ">স্বত্বাধিকারী-জুতার শোরুম/শপ</option>
+								<option value="স্বত্বাধিকারী-মুদির দোকান">স্বত্বাধিকারী-মুদির দোকান</option>
+								<option value="স্বত্বাধিকারী-ঔষুধের দোকান">স্বত্বাধিকারী-ঔষুধের দোকান</option>
+								<option value="স্বত্বাধিকারী-সার/কীটনাশকের দোকান">স্বত্বাধিকারী-সার/কীটনাশকের দোকান</option>
+								<option value="স্বত্বাধিকারী-মেডিক্যাল ইকুইপমেন্ট শপ">স্বত্বাধিকারী-মেডিক্যাল ইকুইপমেন্ট শপ</option>
+								<option value="স্বত্বাধিকারী-লাইব্রেরি/বুক শপ">স্বত্বাধিকারী-লাইব্রেরি/বুক শপ</option>
+								<option value="স্বত্বাধিকারী-স্টেশনারি শপ">স্বত্বাধিকারী-স্টেশনারি শপ</option>
+								<option value="স্বত্বাধিকারী-কসমেটিক্স শপ">স্বত্বাধিকারী-কসমেটিক্স শপ</option>
+								<option value="স্বত্বাধিকারী-অপটিক্যাল শপ">স্বত্বাধিকারী-অপটিক্যাল শপ</option>
+								<option value="স্বত্বাধিকারী-জুয়েলারি শপ">স্বত্বাধিকারী-জুয়েলারি শপ</option>
+								<option value="স্বত্বাধিকারী-বেকারির শপ">স্বত্বাধিকারী-বেকারির শপ</option>
+								<option value="স্বত্বাধিকারী-চকলেটের শপ">স্বত্বাধিকারী-চকলেটের শপ</option>
+								<option value="স্বত্বাধিকারী-রেস্তোরাঁ">স্বত্বাধিকারী-রেস্তোরাঁ</option>
+								<option value="স্বত্বাধিকারী-ক্যাফে">স্বত্বাধিকারী-ক্যাফে</option>
+								<option value="স্বত্বাধিকারী-খাবার হোটেল">স্বত্বাধিকারী-খাবার হোটেল</option>
+								<option value="স্বত্বাধিকারী-মিষ্টির দোকান">স্বত্বাধিকারী-মিষ্টির দোকান</option>
+								<option value="স্বত্বাধিকারী-চায়ের দোকান">স্বত্বাধিকারী-চায়ের দোকান</option>
+								<option value="স্বত্বাধিকারী-গোখাদ্য/ভূষিমালের দোকান">স্বত্বাধিকারী-গোখাদ্য/ভূষিমালের দোকান</option>
+								<option value="স্বত্বাধিকারী-ফলের দোকান">স্বত্বাধিকারী-ফলের দোকান</option>
+								<option value="স্বত্বাধিকারী-ফুলের দোকান">স্বত্বাধিকারী-ফুলের দোকান</option>
+								<option value="স্বত্বাধিকারী-খেলনার দোকান">স্বত্বাধিকারী-খেলনার দোকান</option>
+								<option value="স্বত্বাধিকারী-স্পোর্টস সামগ্রীর শপ">স্বত্বাধিকারী-স্পোর্টস সামগ্রীর শপ</option>
+								<option value="স্বত্বাধিকারী-প্লাস্টিক সামগ্রীর শপ">স্বত্বাধিকারী-প্লাস্টিক সামগ্রীর শপ</option>
+								<option value="স্বত্বাধিকারী-বাড়ির নির্মাণ সামগ্রীর দোকান">স্বত্বাধিকারী-বাড়ির নির্মাণ সামগ্রীর দোকান</option>
+								<option value="স্বত্বাধিকারী-গৃহসজ্জা সামগ্রীর শপ">স্বত্বাধিকারী-গৃহসজ্জা সামগ্রীর শপ</option>
+								<option value="স্বত্বাধিকারী-হোম ডেকোর শপ">স্বত্বাধিকারী-হোম ডেকোর শপ</option>
+								<option value="স্বত্বাধিকারী-হার্ডওয়্যার শপ">স্বত্বাধিকারী-হার্ডওয়্যার শপ</option>
+								<option value="স্বত্বাধিকারী-মোবাইল মেকানিক্স শপ">স্বত্বাধিকারী-মোবাইল মেকানিক্স শপ</option>
+								<option value="স্বত্বাধিকারী-অটোমোবাইল মেকানিক্স শপ">স্বত্বাধিকারী-অটোমোবাইল মেকানিক্স শপ</option>
+								<option value="স্বত্বাধিকারী-মোটরসাইকেল মেকানিক্স শপ">স্বত্বাধিকারী-মোটরসাইকেল মেকানিক্স শপ</option>
+								<option value="স্বত্বাধিকারী-ইলেকট্রনিক্স মেকানিক্স শপ">স্বত্বাধিকারী-ইলেকট্রনিক্স মেকানিক্স শপ</option>
+								<option value="স্বত্বাধিকারী-পোষা প্রাণীর শপ">স্বত্বাধিকারী-পোষা প্রাণীর শপ</option>
+								<option value="স্বত্বাধিকারী-পেইন্টের শপ">স্বত্বাধিকারী-পেইন্টের শপ</option>
+								<option value="স্বত্বাধিকারী-গার্ডেনিং এবং নার্সারি">স্বত্বাধিকারী-গার্ডেনিং এবং নার্সারি</option>
 							</select>
 						</div>
 						<div class="shosurbari-biodata-field section" id="প্রবাসী/বিদেশ" style="display: <?php echo $foreignerOccupationLevel; ?>;">
