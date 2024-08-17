@@ -888,7 +888,7 @@ section::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(360deg, #00bbff4a 0%, rgb(255 255 255 / 29%) 100%); /*linear-gradient(180deg, #00bbff61 0%,rgba(238,246,253,0) 100%); */
+    background: linear-gradient(360deg, #00bbff4a 0%, rgb(5 149 226 / 45%) 100%); /*linear-gradient(180deg, #00bbff61 0%,rgba(238,246,253,0) 100%); */
 }
 .sb-home-reg  {
     margin: auto;
