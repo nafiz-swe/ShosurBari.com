@@ -2,28 +2,25 @@
 include_once("includes/basic_includes.php");
 include_once("functions.php");
 require_once("includes/dbconn.php");
+error_reporting(0);
 ?>
 <!DOCTYPE HTML>
 <html>
 <head>
 	<title>Biodata | ShosurBari</title>
+	<meta name="description" content="Dive into captivating stories of individuals at ShosurBari.com. Unearth detailed biodata profiles, each telling a unique tale. Connect with potential life partners and embark on a journey to find your extraordinary match.">
 	<link rel="icon" href="images/shosurbari-icon.png" type="image/png">
+	<meta property="og:image" content="https://www.shosurbari.com/images/shosurbari-social-share.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="js/optionsearch.js"></script>
+	<link href="css/style.css" rel='stylesheet' type='text/css' />
+	<link href="css/font-awesome.css" rel="stylesheet"> 
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<!-- Custom Theme files -->
-	<link href="css/style.css" rel='stylesheet' type='text/css' />
 	<link href='//fonts.googleapis.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
 	<link href='//fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
-	<!--font-Awesome-->
-	<link href="css/font-awesome.css" rel="stylesheet"> 
-	<!--font-Awesome-->
-	<!-- Emoji Picker -->
 	<script src="https://cdn.jsdelivr.net/npm/emojipickerjs@1.0.7/dist/js/emojiPicker.min.js"></script>
 </head>
 <body>
@@ -41,7 +38,7 @@ require_once("includes/dbconn.php");
 	@media(max-width:2150px){
 	.fixed {
 		position: fixed;
-		top: 72px;
+		top: 70px;
 		right: 5%;
 		width: 55.8%;
 		z-index: 100;
@@ -56,42 +53,31 @@ require_once("includes/dbconn.php");
 		width: 100%;
 		padding: 12px 25px;
 		margin: 5px auto;
+		height: 40px;
+		line-height: 20px;
 		font-size: 17px;
 		border-radius: 3px;
 	}
 	.nav-tabs1>li{
-		margin-left: 7px;
-		margin-right: 7px;
+		margin: auto 7px;
 	}
 	}
 	@media (max-width:1920px){
 	a#profile-tab, a#home-tab, a#profile-tab1 {
-		padding: 12px 20px;
-		font-size: 17px;
-	}
-	}
-	@media (max-width:1600px){
-	a#profile-tab, a#home-tab, a#profile-tab1 {
-		padding: 11px 15px;
-		font-size: 16px;
+	    padding: 13px;
 	}
 	}
 	@media (max-width:1400px){
 	a#profile-tab, a#home-tab, a#profile-tab1 {
-		padding: 11px 13px;
-		font-size: 15px;
+		padding: 10px;
+		font-size: 16px;
+		height: 35px;
 	}
 	}
 	@media (max-width:1280px){
 	.fixed {
 		right: 5%;
 		width: 61.2%;
-	}
-	a#profile-tab, a#home-tab, a#profile-tab1 {
-		padding: 10px;
-		font-size: 15px;
-		height: 35px;
-		line-height: 20px;
 	}
 	}
 	@media (max-width:1024px){
@@ -110,61 +96,56 @@ require_once("includes/dbconn.php");
 		width: 81%;
 	}
 	a#profile-tab, a#home-tab, a#profile-tab1 {
-		width: 100%;
 		padding: 10px;
-		font-size: 14px;
+		font-size: 15px;
 	}
-	}  
-	@media (max-width: 736px){
+	} 
+	@media (max-width: 768px){
 	.fixed {
-		top: 128px;
+		top: 64px;
 	}
-	}
+	} 
 	@media (max-width: 600px){
 	a#profile-tab, a#home-tab, a#profile-tab1 {
 		padding: 8px 10px;
 		line-height: 21px;
 	}
 	.nav-tabs1>li{
-		margin-left: 4px;
-		margin-right: 4px;
+		margin: auto 4px;
 	}
 	}
 	@media (max-width: 480px){
 	a#profile-tab, a#home-tab, a#profile-tab1 {
 		padding: 8px 5px;
-		font-size: 13px;
 		height: 33px;
 	}
 	.nav-tabs1>li{
-		margin-left: 3px;
-		margin-right: 3px;
+		margin: auto 3px;
 	}
 	}
-	@media (max-width: 384px){
+	@media (max-width: 414px){
 	a#profile-tab, a#home-tab, a#profile-tab1 {
-		padding: 7px 4px;
-		font-size: 12px;
-		height: 30px;
-		line-height: 19px;
+		padding: 8px 3px;
 	}
 	.nav-tabs1>li{
-		margin-left: 2px;
-		margin-right: 2px;
+	    margin: auto 0;
+	}
+}
+	@media (max-width: 384px){
+	a#profile-tab, a#home-tab, a#profile-tab1 {
+		padding: 6px 4px;
+		font-size: 13.3px;
+		height: 30px;
+		line-height: 21px;
 	}
 	}
 	@media (max-width: 350px){
 	a#profile-tab, a#home-tab, a#profile-tab1 {
-		padding: 5px 1px;
-		font-size: 12px;
-		height: 27px;
-		line-height: 21px;
+		padding: 6px 2px;
+		font-size: 13px;
 	}
 	}
 	@media (max-width: 320px){
-		a#profile-tab, a#home-tab, a#profile-tab1 {
-		padding: 6px 2px;
-	}
 	.nav-tabs1>li{
 		margin-left: 0px;
 		margin-right: 0px;
@@ -257,52 +238,49 @@ require_once("includes/dbconn.php");
 					if($row){
 					$home_district_under_sylhet=$row['home_district_under_sylhet'];
 					}
-					$sql = "SELECT profilecreationdate FROM 1bd_personal_physical WHERE user_id = $id";
+					$sql = "SELECT * FROM 1bd_personal_physical  WHERE user_id = $id";
 					$result = mysqlexec($sql);
 					$row = mysqli_fetch_assoc($result);
-					$profilecreationdate = '';
-					if ($row && !empty($row['profilecreationdate'])) {
-						$profileCreationDateTime = new DateTime($row['profilecreationdate']);
-						$formattedProfileCreationDate = $profileCreationDateTime->format('d F Y');
-						$profilecreationdate = $formattedProfileCreationDate;
+					if($row){
+					$dob=$row['dateofbirth'];
 					}
 				?>
 				<div class="address">
 					<?php if (!empty($home_district_under_barishal)) { ?>
-						<td class="day_value closed">স্থায়ী ঠিকানা জেলা : <?php echo $home_district_under_barishal; ?></td><br>
-						<?php } ?>
-						<?php if (!empty($home_district_under_chattogram)) { ?>
-						<td class="day_value closed">স্থায়ী ঠিকানা জেলা : <?php echo $home_district_under_chattogram; ?></td><br>
-						<?php } ?>
-						<?php if (!empty($home_district_under_dhaka)) { ?>
-						<td class="day_value closed">স্থায়ী ঠিকানা জেলা : <?php echo $home_district_under_dhaka; ?></td><br>
-						<?php } ?>
-						<?php if (!empty($home_district_under_khulna)) { ?>
-						<td class="day_value closed">স্থায়ী ঠিকানা জেলা : <?php echo $home_district_under_khulna; ?></td><br>
-						<?php } ?>
-						<?php if (!empty($home_district_under_mymensingh)) { ?>
-						<td class="day_value closed">স্থায়ী ঠিকানা জেলা : <?php echo $home_district_under_mymensingh; ?></td><br>
-						<?php } ?>
-						<?php if (!empty($home_district_under_rajshahi)) { ?>
-						<td class="day_value closed">স্থায়ী ঠিকানা জেলা : <?php echo $home_district_under_rajshahi; ?></td><br>
-						<?php } ?>
-						<?php if (!empty($home_district_under_rangpur)) { ?>
-						<td class="day_value closed">স্থায়ী ঠিকানা জেলা : <?php echo $home_district_under_rangpur; ?></td><br>
-						<?php } ?>
-						<?php if (!empty($home_district_under_sylhet)) { ?>
-						<td class="day_value closed">স্থায়ী ঠিকানা জেলা : <?php echo $home_district_under_sylhet; ?></td><br>
-						<?php } ?>
-						<?php if (!empty($profilecreationdate)) { ?>
-						<td class="day_value closed">পোস্ট তারিখ : <?php echo $profilecreationdate; ?></td>
-						<?php } ?>
+					<td class="day_value closed">স্থায়ী ঠিকানা জেলা : <?php echo $home_district_under_barishal; ?></td><br>
+					<?php } ?>
+					<?php if (!empty($home_district_under_chattogram)) { ?>
+					<td class="day_value closed">স্থায়ী ঠিকানা জেলা : <?php echo $home_district_under_chattogram; ?></td><br>
+					<?php } ?>
+					<?php if (!empty($home_district_under_dhaka)) { ?>
+					<td class="day_value closed">স্থায়ী ঠিকানা জেলা : <?php echo $home_district_under_dhaka; ?></td><br>
+					<?php } ?>
+					<?php if (!empty($home_district_under_khulna)) { ?>
+					<td class="day_value closed">স্থায়ী ঠিকানা জেলা : <?php echo $home_district_under_khulna; ?></td><br>
+					<?php } ?>
+					<?php if (!empty($home_district_under_mymensingh)) { ?>
+					<td class="day_value closed">স্থায়ী ঠিকানা জেলা : <?php echo $home_district_under_mymensingh; ?></td><br>
+					<?php } ?>
+					<?php if (!empty($home_district_under_rajshahi)) { ?>
+					<td class="day_value closed">স্থায়ী ঠিকানা জেলা : <?php echo $home_district_under_rajshahi; ?></td><br>
+					<?php } ?>
+					<?php if (!empty($home_district_under_rangpur)) { ?>
+					<td class="day_value closed">স্থায়ী ঠিকানা জেলা : <?php echo $home_district_under_rangpur; ?></td><br>
+					<?php } ?>
+					<?php if (!empty($home_district_under_sylhet)) { ?>
+					<td class="day_value closed">স্থায়ী ঠিকানা জেলা : <?php echo $home_district_under_sylhet; ?></td><br>
+					<?php } ?>
+					<?php if (!empty($dob)) { ?>
+					<td class="day_value closed">জন্ম সন : <?php echo $dob; ?></td>
+					<?php } ?>
 				</div>
     		</div>
 			<div class="see_sb_biodata">
 		    	<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
 					<ul id="myTab" class="nav nav-tabs nav-tabs1" role="tablist">
-						<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">আমার তথ্য</a></li>
-						<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">পারিবারিক তথ্য</a></li>
-						<li role="presentation"><a href="#profile1" role="tab" id="profile-tab1" data-toggle="tab" aria-controls="profile1">প্রত্যাশিত জীবনসঙ্গী</a></li>
+						<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">আমার-তথ্য</a></li>
+						<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">পারিবারিক-তথ্য</a></li>
+						<li role="presentation"><a href="#profile1" role="tab" id="profile-tab1" data-toggle="tab" aria-controls="profile1">প্রত্যাশিত-জীবনসঙ্গী</a></li>
 					</ul>
 				</div>
 			</div>
@@ -340,18 +318,18 @@ require_once("includes/dbconn.php");
 				if ($(window).width() >= 931 && $(window).width() <= 2000) {
 				// Media width between 931px and 2000px
 				targetOffset -= -5;
-				} else if ($(window).width() >= 735 && $(window).width() <= 930) {
-				targetOffset += 695;
-				} else if ($(window).width() >= 385 && $(window).width() <= 734) {
-				targetOffset += 650;
-				} else if ($(window).width() >= 360 && $(window).width() <= 384) {
-				targetOffset += 650; 
+				} else if ($(window).width() >= 737 && $(window).width() <= 930) {
+				targetOffset += 715;
+				} else if ($(window).width() >= 601 && $(window).width() <= 736) {
+				targetOffset +=708;
+				} else if ($(window).width() >= 360 && $(window).width() <= 600) {
+				targetOffset += 713; 
 				} else if ($(window).width() >= 353 && $(window).width() <= 359) {
-				targetOffset += 650;
+				targetOffset += 705;
 				} else if ($(window).width() >= 321 && $(window).width() <= 352) {
-				targetOffset += 650;      
+				targetOffset += 702;      
 				} else if ($(window).width() >= 260 && $(window).width() <= 320) {
-				targetOffset += 650;
+				targetOffset += 692;
 				}
 				$('html, body').animate({
 				scrollTop: targetOffset
@@ -365,14 +343,9 @@ require_once("includes/dbconn.php");
 					<div class="biodatavalue_list" style="background: none; border-radius: 7px 7px 0px 0px; border-top: 3px solid #06b6d4; border-bottom: none; margin-top: 0px; border-left: none; border-right: none">
 						<h3 style="background: none; border-style: none;">সংক্ষেপে</h3>
 					</div>
-					<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-					--               S  T  A  R  T                   --
-					--   Heading Section  / SB Short Biodata    --
-					-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+					<!-- START - Heading Section  / SB Short Biodata -->
 					<div class="user-bio">
-						<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-						--   SB Short Biodata / 1bd_personal_physical    --
-						-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+						<!-- SB Short Biodata / 1bd_personal_physical  -->
 						<?php
 							$id=$_GET['/Biodata'];
 							$profileid=$id;
@@ -397,15 +370,19 @@ require_once("includes/dbconn.php");
 							}
 							}
 						?>
-						<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-						--   SB Short Biodata / 2bd_personal_lifestyle   --
-						-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+						<!-- SB Short Biodata / 2bd_personal_lifestyle  -->
 						<?php
 							$id=$_GET['/Biodata'];
 							$profileid=$id;
 							$sql = "SELECT * FROM 2bd_personal_lifestyle  WHERE user_id = $id";
 							$result = mysqlexec($sql);
 							$row=mysqli_fetch_assoc($result);
+							if($row){
+							$no_occupation=$row['no_occupation'];
+							}
+							if($row){
+							$other_occupation_sector=$row['other_occupation_sector'];
+							}
 							if($row){
 							$business_occupation_level=$row['business_occupation_level'];
 							}
@@ -425,6 +402,9 @@ require_once("includes/dbconn.php");
 							$defense_occupation_level=$row['defense_occupation_level'];
 							}
 							if($row){
+							$shop_occupation_level=$row['shop_occupation_level'];
+							}
+							if($row){
 							$foreigner_occupation_level=$row['foreigner_occupation_level'];
 							}
 							if($row){
@@ -440,9 +420,7 @@ require_once("includes/dbconn.php");
 							$mistri_occupation_level=$row['mistri_occupation_level'];
 							}
 						?>
-						<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-						--     SB Short Biodata / 4bd_address_details    --
-						-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+						<!-- SB Short Biodata / 4bd_address_details  -->
 						<?php
 							$id=$_GET['/Biodata'];
 							$profileid=$id;
@@ -453,9 +431,18 @@ require_once("includes/dbconn.php");
 							$present_address_location=$row['present_address_location'];
 							}
 						?>
-						<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-						--     SB Short Biodata / 6bd_7bd_marital_status --
-						-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+						<!-- SB Short Biodata / 5bd_family_information  -->
+						<?php
+							$id=$_GET['/Biodata'];
+							$profileid=$id;
+							$sql = "SELECT * FROM 5bd_family_information  WHERE user_id = $id";
+							$result = mysqlexec($sql);
+							$row=mysqli_fetch_assoc($result);
+							if($row){
+							$family_class=$row['family_class'];
+							}
+						?>
+						<!-- SB Short Biodata / 6bd_7bd_marital_status  -->
 						<?php
 							$id=$_GET['/Biodata'];
 							$profileid=$id;
@@ -466,9 +453,7 @@ require_once("includes/dbconn.php");
 							$maritalstatus=$row['maritalstatus'];
 							}
 						?>
-						<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-						--    SB Short Biodata / 8bd_religion_details    --
-						-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+						<!--  SB Short Biodata / 8bd_religion_details  -->
 						<?php
 							$id=$_GET['/Biodata'];
 							$profileid=$id;
@@ -489,12 +474,6 @@ require_once("includes/dbconn.php");
 										<?php } ?>
 									</tr>
 									<tr class="opened">
-										<?php if (!empty($dob)) { ?>
-										<td class="day_label">জন্ম সন (আসল)</td>
-										<td class="day_value"><?php echo $dob; ?></td>
-										<?php } ?>
-									</tr>
-									<tr class="opened">
 										<?php if (!empty($religion)) { ?>
 										<td class="day_label">ধর্ম</td>
 										<td class="day_value"><?php echo $religion;?></td>
@@ -508,7 +487,7 @@ require_once("includes/dbconn.php");
 									</tr>
 									<tr class="opened">
 										<?php if (!empty($Skin_tones)) { ?>
-										<td class="day_label">গাত্র বর্ণ</td>
+										<td class="day_label">শারীরিক বর্ণ</td>
 										<td class="day_value"><?php echo $Skin_tones;?></td>
 										<?php } ?>
 									</tr>
@@ -522,6 +501,24 @@ require_once("includes/dbconn.php");
 										<?php if (!empty ($weight)) { ?>
 										<td class="day_label">ওজন</td>
 										<td class="day_value closed"><?php echo $weight;?></td>
+										<?php } ?>
+									</tr>
+									<tr class="opened">
+										<?php if (!empty($family_class)) { ?>
+										<td class="day_label">অর্থনৈতিক অবস্থা</td>
+										<td class="day_value"><?php echo $family_class; ?></td>
+										<?php } ?>
+									</tr>
+									<tr class="closed">
+										<?php if (!empty ($no_occupation)) { ?>
+										<td class="day_label">পেশা</td>
+										<td class="day_value closed"><?php echo $no_occupation;?></td>
+										<?php } ?>
+									</tr>
+									<tr class="closed">
+										<?php if (!empty ($other_occupation_sector)) { ?>
+										<td class="day_label">পেশা</td>
+										<td class="day_value closed"><?php echo $other_occupation_sector;?></td>
 										<?php } ?>
 									</tr>
 									<tr class="closed">
@@ -558,6 +555,12 @@ require_once("includes/dbconn.php");
 										<?php if (!empty ($defense_occupation_level)) { ?>
 										<td class="day_label">পেশা</td>
 										<td class="day_value closed"><?php echo $defense_occupation_level;?></td>
+										<?php } ?>
+									</tr>
+									<tr class="closed">
+										<?php if (!empty ($shop_occupation_level)) { ?>
+										<td class="day_label">পেশা</td>
+										<td class="day_value closed"><?php echo $shop_occupation_level;?></td>
 										<?php } ?>
 									</tr>
 									<tr class="closed">
@@ -600,10 +603,7 @@ require_once("includes/dbconn.php");
 							</table>
 						</div>
  					</div>
-					<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-					--                   E   N   D                   --
-					--   Heading Font Section  / SB Short Biodata    --
-					-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+					<!-- END - Heading Font Section  / SB Short Biodata -->
 					<div class="profile-btn">
 						<div class="contact-bio">
 							<a href="payment-shosurbari.php?/Biodata=<?php echo $profileid; ?>">
@@ -642,12 +642,13 @@ require_once("includes/dbconn.php");
 					</script>
 				</div>
 				<div class="sbbiodata_profile_recentview">
-					<h3>সর্বশেষ বায়োডাটা দেখেছেন</h3>
+					<h3>জনপ্রিয় বায়োডাটা</h3>
 					<?php
+                        if ($biodatagender == 'পাত্রের বায়োডাটা') {
 						$sql = "SELECT p.*, u.active
 						FROM 1bd_personal_physical p
 						INNER JOIN users u ON p.user_id = u.id
-						WHERE u.active = 1
+                        WHERE u.active = 1 AND p.biodatagender = 'পাত্রের বায়োডাটা'
 						ORDER BY p.view_count DESC LIMIT 6"; // Top 6 profiles by view_count of active users
 						$result = mysqlexec($sql);
 						$count = 1;
@@ -698,12 +699,15 @@ require_once("includes/dbconn.php");
 								if ($result3 && mysqli_num_rows($result3) > 0) {
 									$row3 = mysqli_fetch_assoc($result3);
 									$occupation_levels = array(
+										'no_occupation' => $row3['no_occupation'],
+										'other_occupation_sector' => $row3['other_occupation_sector'],
 										'business_occupation_level' => $row3['business_occupation_level'],
 										'student_occupation_level' => $row3['student_occupation_level'],
 										'health_occupation_level' => $row3['health_occupation_level'],
 										'engineer_occupation_level' => $row3['engineer_occupation_level'],
 										'teacher_occupation_level' => $row3['teacher_occupation_level'],
 										'defense_occupation_level' => $row3['defense_occupation_level'],
+										'shop_occupation_level' => $row3['shop_occupation_level'],
 										'foreigner_occupation_level' => $row3['foreigner_occupation_level'],
 										'garments_occupation_level' => $row3['garments_occupation_level'],
 										'driver_occupation_level' => $row3['driver_occupation_level'],
@@ -733,7 +737,7 @@ require_once("includes/dbconn.php");
 										echo "<tbody>";
 										// Create rows for each piece of information
 										echo "<tr class=\"opened\">";
-										echo "<td class=\"sb_label\">গাত্র বর্ণ</td>";
+										echo "<td class=\"sb_label\">শারীরিক বর্ণ</td>";
 										echo "<td class=\"sb_value\">{$Skin_tones_recentview1}</td>";
 										echo "</tr>";
 										echo "<tr class=\"opened\">";
@@ -764,21 +768,140 @@ require_once("includes/dbconn.php");
 							}
 						}
 						}
+                    } elseif ($biodatagender == 'পাত্রীর বায়োডাটা') {
+						$sql = "SELECT p.*, u.active
+						FROM 1bd_personal_physical p
+						INNER JOIN users u ON p.user_id = u.id
+                        WHERE u.active = 1 AND p.biodatagender = 'পাত্রীর বায়োডাটা'
+						ORDER BY p.view_count DESC LIMIT 6"; // Top 6 profiles by view_count of active users
+						$result = mysqlexec($sql);
+						$count = 1;
+						while ($row = mysqli_fetch_assoc($result)) {
+							if ($row['active'] == 1) {
+							$profid = $row['user_id'];
+							$Skin_tones_recentview1 = $row['Skin_tones'];
+							$height_recentview1 = $row['height'];
+							$dateofbirth_recentview1 = $row['dateofbirth'];
+							$sql2 = "SELECT * FROM photos WHERE user_id = $profid";
+							$result2 = mysqlexec($sql2);
+							$row2 = mysqli_fetch_assoc($result2);
+							$pic1 = $row2['pic1'];
+							$defaultImages = [
+								'পাত্রের বায়োডাটা' => "shosurbari-male-icon.jpg",
+								'পাত্রীর বায়োডাটা' => "shosurbari-female-icon.png",
+							];
+							$defaultImage = "shosurbari-default-icon.png";
+							if (isset($row['biodatagender']) && isset($defaultImages[$row['biodatagender']])) {
+								$defaultImage = $defaultImages[$row['biodatagender']];
+							}
+							// Getting home district
+							$sql5 = "SELECT * FROM 4bd_address_details WHERE user_id=$profid";
+							$result5 = mysqlexec($sql5);
+							if ($result5 && mysqli_num_rows($result5) > 0) {
+								$row5 = mysqli_fetch_assoc($result5);
+								$home_district = '';
+								if (!empty($row5['home_district_under_barishal'])) {
+								$home_district = $row5['home_district_under_barishal'];
+								} elseif (!empty($row5['home_district_under_chattogram'])) {
+								$home_district = $row5['home_district_under_chattogram'];
+								} elseif (!empty($row5['home_district_under_dhaka'])) {
+								$home_district = $row5['home_district_under_dhaka'];
+								} elseif (!empty($row5['home_district_under_khulna'])) {
+								$home_district = $row5['home_district_under_khulna'];
+								} elseif (!empty($row5['home_district_under_mymensingh'])) {
+								$home_district = $row5['home_district_under_mymensingh'];
+								} elseif (!empty($row5['home_district_under_rajshahi'])) {
+								$home_district = $row5['home_district_under_rajshahi'];
+								} elseif (!empty($row5['home_district_under_rangpur'])) {
+								$home_district = $row5['home_district_under_rangpur'];
+								} elseif (!empty($row5['home_district_under_sylhet'])) {
+								$home_district = $row5['home_district_under_sylhet'];
+								}
+								// Getting occupation level
+								$sql3 = "SELECT * FROM 2bd_personal_lifestyle WHERE user_id=$profid";
+								$result3 = mysqlexec($sql3);
+								if ($result3 && mysqli_num_rows($result3) > 0) {
+									$row3 = mysqli_fetch_assoc($result3);
+									$occupation_levels = array(
+										'no_occupation' => $row3['no_occupation'],
+										'other_occupation_sector' => $row3['other_occupation_sector'],
+										'business_occupation_level' => $row3['business_occupation_level'],
+										'student_occupation_level' => $row3['student_occupation_level'],
+										'health_occupation_level' => $row3['health_occupation_level'],
+										'engineer_occupation_level' => $row3['engineer_occupation_level'],
+										'teacher_occupation_level' => $row3['teacher_occupation_level'],
+										'defense_occupation_level' => $row3['defense_occupation_level'],
+										'shop_occupation_level' => $row3['shop_occupation_level'],
+										'foreigner_occupation_level' => $row3['foreigner_occupation_level'],
+										'garments_occupation_level' => $row3['garments_occupation_level'],
+										'driver_occupation_level' => $row3['driver_occupation_level'],
+										'service_andcommon_occupation_level' => $row3['service_andcommon_occupation_level'],
+										'mistri_occupation_level' => $row3['mistri_occupation_level'],
+									);
+									$occupation_levels = array_filter($occupation_levels); // Remove empty values
+									$occupation_count = count($occupation_levels);
+									if ($occupation_count > 0) {
+										$occupation_label = array_keys($occupation_levels)[0];
+										$occupation_value = $occupation_levels[$occupation_label];
+										echo "<div class=\"biodatarecent_viewlist\">";
+										echo "<div class=\"sbbio_header_recent_view\">";
+										// Start of Default Photo Show
+										echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\">";
+										if (!empty($pic1)) {
+											echo "<img class=\"img-responsive\" src=\"profile/{$profid}/{$pic1}\"/>";
+										} else {
+											echo "<img class=\"img-responsive\" src=\"images/{$defaultImage}\"/>";
+										}
+										echo "</a>";
+										// End of Default photo Show
+										echo "<div class=\"sbbio_number_recentview\"><span class=\"sb_biodatanumber_recentview\"> {$profid} <br> বায়োডাটা নং </span> </div>";
+										echo "</div>";
+										echo "<div class=\"sb_user_recentview\">";
+										echo "<table class=\"biodata_value_data\">";
+										echo "<tbody>";
+										// Create rows for each piece of information
+										echo "<tr class=\"opened\">";
+										echo "<td class=\"sb_label\">শারীরিক বর্ণ</td>";
+										echo "<td class=\"sb_value\">{$Skin_tones_recentview1}</td>";
+										echo "</tr>";
+										echo "<tr class=\"opened\">";
+										echo "<td class=\"sb_label\">উচ্চতা</td>";
+										echo "<td class=\"sb_value\">{$height_recentview1}</td>";
+										echo "</tr>";
+										echo "<tr class=\"opened\">";
+										echo "<td class=\"sb_label\">পেশা</td>";
+										echo "<td class=\"sb_value\">{$occupation_value}</td>";
+										echo "</tr>";
+										echo "<tr class=\"opened\">";
+										echo "<td class=\"sb_label\">জেলা</td>";
+										echo "<td class=\"sb_value\">{$home_district}</td>";
+										echo "</tr>";
+										echo "<tr class=\"opened\">";
+										echo "<td class=\"sb_label\">জন্ম সন</td>";
+										echo "<td class=\"sb_value\">{$dateofbirth_recentview1}</td>";
+										echo "</tr>";
+										echo "</tbody>";
+										echo "</table>";
+										echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\">";
+										echo "<button class=\"view_sb_profile_recentview\">সম্পূর্ণ বায়োডাটা</button>";
+										echo "</a>";
+										echo "</div></div>";
+										$count++;
+									}
+								}
+							}
+						}
+						}
+                    }
 					?>
     			</div>
 			</div>
-			<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-			--                S  T  A  R  T                  --
-			--    		  Profile Details Show   		 	 --
-			-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->	
+			<!-- START - Profile Details Show -->	
 			<div class="right-side"> <!-- Right-Side of Profile Sections-->
 				<div class="separate_biodata_sector">
 					<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
 						<div id="myTabContent" class="tab-content">
-							<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-							--                S  T  A  R  T                  --
-							--      Personal & Physical  / sb-biodata-1      --
-							-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->	
+							<!-- START -  Personal & Physical  / sb-biodata-1 -->	
 							<?php
 								$id=$_GET['/Biodata'];
 								$profileid=$id;
@@ -828,7 +951,7 @@ require_once("includes/dbconn.php");
 											<?php endif; ?>
 											<?php if (!empty($Skin_tones)) : ?>
 											<tr class="opened">
-												<td class="day_label">গাত্র বর্ণ</td>
+												<td class="day_label">শারীরিক বর্ণ</td>
 												<td class="day_value closed"><span><?php echo $Skin_tones; ?></span></td>
 											</tr>
 											<?php endif; ?>
@@ -860,15 +983,8 @@ require_once("includes/dbconn.php");
 									</table>
 								</div>
 								<div class="clearfix"> </div>
-								<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-								--                   E   N   D                   --
-								--       Personal & Physical  / sb-biodata-1     --
-								-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-								<!-- End & Start -->
-								<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-								--                S  T  A  R  T                  --
-								--     Personal & Life Style  / sb-biodata-2     --
-								-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+								<!-- END  Personal & Physical  / sb-biodata-1  -->
+								<!-- START - Personal & Life Style  / sb-biodata-2 -->
 								<?php
 									$id=$_GET['/Biodata'];
 									$profileid=$id;
@@ -878,6 +994,9 @@ require_once("includes/dbconn.php");
 									$row= mysqli_fetch_assoc($result);
 									if($row){
 									$smoke=$row['smoke'];
+									}
+									if($row){
+									$no_occupation=$row['no_occupation'];
 									}
 									if($row){
 									$other_occupation_sector=$row['other_occupation_sector'];
@@ -899,6 +1018,9 @@ require_once("includes/dbconn.php");
 									}
 									if($row){
 									$defense_occupation_level=$row['defense_occupation_level'];
+									}
+									if($row){
+									$shop_occupation_level=$row['shop_occupation_level'];
 									}
 									if($row){
 									$foreigner_occupation_level=$row['foreigner_occupation_level'];
@@ -934,6 +1056,12 @@ require_once("includes/dbconn.php");
 											<tr class="opened">
 												<td class="day_label">ধূমপান করা হয়?</td>
 												<td class="day_value"><?php echo $smoke; ?></td>
+											</tr>
+											<?php endif; ?>
+											<?php if (!empty($no_occupation)) : ?>
+											<tr class="opened">
+												<td class="day_label">পেশা</td>
+												<td class="day_value"><?php echo $no_occupation; ?></td>
 											</tr>
 											<?php endif; ?>
 											<?php if (!empty($other_occupation_sector)) : ?>
@@ -978,6 +1106,12 @@ require_once("includes/dbconn.php");
 												<td class="day_value closed"><?php echo $defense_occupation_level; ?></td>
 											</tr>
 											<?php endif; ?>
+											<?php if (!empty($shop_occupation_level)) : ?>
+											<tr class="closed">
+												<td class="day_label">পেশা</td>
+												<td class="day_value closed"><?php echo $shop_occupation_level; ?></td>
+											</tr>
+											<?php endif; ?>
 											<?php if (!empty($foreigner_occupation_level)) : ?>
 											<tr class="closed">
 												<td class="day_label">পেশা</td>
@@ -1016,7 +1150,7 @@ require_once("includes/dbconn.php");
 											<?php endif; ?>
 											<?php if (!empty($dress_code)) : ?>
 											<tr class="opened">
-												<td class="day_label">ঘর ও ঘরের বাহিরে পোশাকের ধরন</td>
+												<td class="day_label">ঘরের বাহিরে সাধারণত কি ধরণের পোশাক পরেন?</td>
 												<td class="day_value closed"><span><?php echo $dress_code; ?></span></td>
 											</tr>
 											<?php endif; ?>
@@ -1030,15 +1164,8 @@ require_once("includes/dbconn.php");
 				            		</table>
 				        		</div>
 				        		<div class="clearfix"> </div>
-								<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-								--                   E   N   D                   --
-								--     Personal & Life Style  / sb-biodata-2     --
-								-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-								<!-- End & Start -->
-								<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-								--                S  T  A  R  T                  --
-								--  Educational Qualifications  / sb-biodata-3   --
-								-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+								<!-- END - Personal & Life Style  / sb-biodata-2 -->
+								<!-- START  - Educational Qualifications  / sb-biodata-3 -->
 								<?php
 									$id=$_GET['/Biodata'];
 									$profileid=$id;
@@ -1050,7 +1177,7 @@ require_once("includes/dbconn.php");
 										$scndry_edu_method=$row['scndry_edu_method'];
 										}
 										if($row){
-										$maxedu_qulfctn=$row['maxedu_qulfctn'];
+										$others_edu_qualification=$row['others_edu_qualification'];
 										}
 										if($row){
 										$gnrl_mdrs_secondary_pass=$row['gnrl_mdrs_secondary_pass'];
@@ -1090,57 +1217,13 @@ require_once("includes/dbconn.php");
 										$higher_secondary_edu_method=$row['higher_secondary_edu_method'];
 										}
 										if($row){
-										$gnrlmdrs_hrsecondary_pass=$row['gnrlmdrs_hrsecondary_pass']; 
+										$current_max_edu_subject=$row['current_max_edu_subject']; 
 										}
 										if($row){
-										$gnrlmdrs_hrsecondary_pass_year=$row['gnrlmdrs_hrsecondary_pass_year'];
+										$current_max_institute=$row['current_max_institute'];
 										}
 										if($row){
-										$gnrlmdrs_hrsecondary_exam_year=$row['gnrlmdrs_hrsecondary_exam_year'];
-										}
-										if($row){
-										$gnrlmdrs_hrsecondary_group=$row['gnrlmdrs_hrsecondary_group'];
-										}
-										if($row){
-										$gnrlmdrs_hrsecondary_rningstd=$row['gnrlmdrs_hrsecondary_rningstd']; 
-										}
-										if($row){
-										$diploma_hrsecondary_pass=$row['diploma_hrsecondary_pass'];
-										}
-										if($row){
-										$diploma_hrsecondary_pass_year=$row['diploma_hrsecondary_pass_year'];
-										}
-										if($row){
-										$diploma_hrsecondary_sub=$row['diploma_hrsecondary_sub'];
-										}
-										if($row){
-										$diploma_hrsecondary_endingyear=$row['diploma_hrsecondary_endingyear']; 
-										}
-									}
-									$sql="SELECT * FROM 3bd_universityedu_method WHERE user_id = $id";
-									$result = mysqlexec($sql);
-									if($result){
-										$row=mysqli_fetch_assoc($result);
-										if($row){
-										$varsity_edu_method=$row['varsity_edu_method'];
-										}
-										if($row){
-										$uvarsity_pass=$row['uvarsity_pass'];
-										}
-										if($row){
-										$varsity_passing_year=$row['varsity_passing_year'];
-										}
-										if($row){
-										$university_subject=$row['university_subject']; 
-										}
-										if($row){
-										$varsity_ending_year=$row['varsity_ending_year'];
-										}
-										if($row){
-										$uvarsity_name=$row['uvarsity_name'];
-										}
-										if($row){
-										$others_edu_qualification=$row['others_edu_qualification'];
+										$current_max_pass_year=$row['current_max_pass_year'];
 										}
 									}
 								?>
@@ -1152,12 +1235,6 @@ require_once("includes/dbconn.php");
 											<tr class="opened">
 												<td class="day_label">মাধ্যমিক/সমমান শিক্ষার মাধ্যম</td>
 												<td class="day_value"><?php echo $scndry_edu_method; ?></td>
-											</tr>
-											<?php endif; ?>
-											<?php if (!empty($maxedu_qulfctn)) : ?>
-											<tr class="opened">
-												<td class="day_label">সর্বোচ্চ শিক্ষাগত যোগ্যতা</td>
-												<td class="day_value"><?php echo $maxedu_qulfctn; ?></td>
 											</tr>
 											<?php endif; ?>
 											<?php if (!empty($qawmi_madrasa_hafez)) : ?>
@@ -1210,98 +1287,26 @@ require_once("includes/dbconn.php");
 											<?php endif; ?>
 											<?php if (!empty($higher_secondary_edu_method)) : ?>
 											<tr class="opened">
-												<td class="day_label">উচ্চমাধ্যমিক/সমমান শিক্ষার মাধ্যম</td>
+												<td class="day_label">বর্তমান শিক্ষাগত যোগ্যতা</td>
 												<td class="day_value"><?php echo $higher_secondary_edu_method; ?></td>
 											</tr>
 											<?php endif; ?>
-											<?php if (!empty($gnrlmdrs_hrsecondary_pass)) : ?>
+											<?php if (!empty($current_max_edu_subject)) : ?>
 											<tr class="opened">
-												<td class="day_label">উচ্চমাধ্যমিক/সমমান পাস করেছেন?</td>
-												<td class="day_value"><?php echo $gnrlmdrs_hrsecondary_pass; ?></td>
+												<td class="day_label">সাবজেক্ট/গ্রুপ</td>
+												<td class="day_value"><?php echo $current_max_edu_subject; ?></td>
 											</tr>
 											<?php endif; ?>
-											<?php if (!empty($gnrlmdrs_hrsecondary_pass_year)) : ?>
+											<?php if (!empty($current_max_institute)) : ?>
 											<tr class="opened">
-												<td class="day_label">উচ্চমাধ্যমিক/সমমান পাসের বর্ষ</td>
-												<td class="day_value"><?php echo $gnrlmdrs_hrsecondary_pass_year; ?></td>
+												<td class="day_label">শিক্ষা প্রতিষ্ঠান</td>
+												<td class="day_value"><?php echo $current_max_institute; ?></td>
 											</tr>
 											<?php endif; ?>
-											<?php if (!empty($gnrlmdrs_hrsecondary_exam_year)) : ?>
+											<?php if (!empty($current_max_pass_year)) : ?>
 											<tr class="opened">
-												<td class="day_label">উচ্চমাধ্যমিক/সমমান বোর্ড পরীক্ষার বর্ষ</td>
-												<td class="day_value"><?php echo $gnrlmdrs_hrsecondary_exam_year; ?></td>
-											</tr>
-											<?php endif; ?>
-											<?php if (!empty($gnrlmdrs_hrsecondary_group)) : ?>
-											<tr class="opened">
-												<td class="day_label">উচ্চমাধ্যমিক/সমমানে গ্রুপ</td>
-												<td class="day_value"><?php echo $gnrlmdrs_hrsecondary_group; ?></td>
-											</tr>
-											<?php endif; ?>
-											<?php if (!empty($gnrlmdrs_hrsecondary_rningstd)) : ?>
-											<tr class="opened">
-												<td class="day_label">উচ্চমাধ্যমিক/সমমানে বর্তমান অধ্যায়নরত ক্লাস</td>
-												<td class="day_value"><?php echo $gnrlmdrs_hrsecondary_rningstd; ?></td>
-											</tr>
-											<?php endif; ?>
-											<?php if (!empty($diploma_hrsecondary_pass)) : ?>
-											<tr class="opened">
-												<td class="day_label">ডিপ্লোমা পাস করেছেন?</td>
-												<td class="day_value"><?php echo $diploma_hrsecondary_pass; ?></td>
-											</tr>
-											<?php endif; ?>
-											<?php if (!empty($diploma_hrsecondary_pass_year)) : ?>
-											<tr class="opened">
-												<td class="day_label">ডিপ্লোমা পাসের বর্ষ</td>
-												<td class="day_value"><?php echo $diploma_hrsecondary_pass_year; ?></td>
-											</tr>
-											<?php endif; ?>
-											<?php if (!empty($diploma_hrsecondary_sub)) : ?>
-											<tr class="opened">
-												<td class="day_label">ডিপ্লোমায় সাবজেক্ট</td>
-												<td class="day_value"><?php echo $diploma_hrsecondary_sub; ?></td>
-											</tr>
-											<?php endif; ?>
-											<?php if (!empty($diploma_hrsecondary_endingyear)) : ?>
-											<tr class="opened">
-												<td class="day_label">ডিপ্লোমা অধ্যায়ন সম্পন্ন হবে</td>
-												<td class="day_value"><?php echo $diploma_hrsecondary_endingyear; ?></td>
-											</tr>
-											<?php endif; ?>
-											<?php if (!empty($varsity_edu_method)) : ?>
-											<tr class="opened">
-												<td class="day_label">স্নাতক/সমমান শিক্ষার মাধ্যম</td>
-												<td class="day_value"><?php echo $varsity_edu_method; ?></td>
-											</tr>
-											<?php endif; ?>
-											<?php if (!empty($uvarsity_pass)) : ?>
-											<tr class="opened">
-												<td class="day_label">স্নাতক/সমমান পাস করেছেন?</td>
-												<td class="day_value"><?php echo $uvarsity_pass; ?></td>
-											</tr>
-											<?php endif; ?>
-											<?php if (!empty($varsity_passing_year)) : ?>
-											<tr class="opened">
-												<td class="day_label">স্নাতক/সমমান পাসের বর্ষ</td>
-												<td class="day_value"><?php echo $varsity_passing_year; ?></td>
-											</tr>
-											<?php endif; ?>
-											<?php if (!empty($university_subject)) : ?>
-											<tr class="opened">
-												<td class="day_label">স্নাতকে/সমমানে সাবজেক্ট</td>
-												<td class="day_value"><?php echo $university_subject; ?></td>
-											</tr>
-											<?php endif; ?>
-											<?php if (!empty($varsity_ending_year)) : ?>
-											<tr class="opened">
-												<td class="day_label">স্নাতক/সমমান অধ্যায়ন সম্পন্ন হবে</td>
-												<td class="day_value"><?php echo $varsity_ending_year; ?></td>
-											</tr>
-											<?php endif; ?>
-											<?php if (!empty($uvarsity_name)) : ?>
-											<tr class="opened">
-												<td class="day_label">স্নাতকে/সমমানে শিক্ষা প্রতিষ্ঠান</td>
-												<td class="day_value"><?php echo $uvarsity_name; ?></td>
+												<td class="day_label">পাসের বর্ষ</td>
+												<td class="day_value"><?php echo $current_max_pass_year; ?></td>
 											</tr>
 											<?php endif; ?>
 											<?php if (!empty($others_edu_qualification)) : ?>
@@ -1314,15 +1319,8 @@ require_once("includes/dbconn.php");
 									</table>
 								</div>
 								<div class="clearfix"> </div>
-								<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-								--                   E   N   D                   --
-								--  Educational Qualifications  / sb-biodata-3   --
-								-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-								<!-- End & Start -->
-								<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-								--                S  T  A  R  T                  --
-								--       Address Details  /  sb-biodata-4        --
-								-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+								<!-- END - Educational Qualifications  / sb-biodata-3 -->
+								<!-- START - Address Details  /  sb-biodata-4 -->
 								<?php
 									$id=$_GET['/Biodata'];
 									$profileid=$id;
@@ -1443,7 +1441,7 @@ require_once("includes/dbconn.php");
 											<?php endif; ?>
 											<?php if (!empty($present_address_living_purpose)) : ?>
 											<tr class="opened">
-												<td class="day_label">উক্ত বর্তমান ঠিকানায় যেই উদ্দেশ্যে থাকা হয়, সাথে পরিবারের সদস্য থাকছে কিনা এবং সেখানে কত দিন যাবৎ থাকছেন?</td>
+												<td class="day_label">উক্ত বর্তমান ঠিকানায় যেই উদ্দেশ্যে থাকা হয়?</td>
 												<td class="day_value"><?php echo $present_address_living_purpose; ?></td>
 											</tr>
 											<?php endif; ?>
@@ -1457,16 +1455,9 @@ require_once("includes/dbconn.php");
 				            		</table>
 				        		</div>
 				        		<div class="clearfix"> </div>
-								<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-								--                   E   N   D                   --
-								--       Address Details  /  sb-biodata-4        --
-								-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-								<!-- End & Start -->
-								<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-								--                S  T  A  R  T                  --
-								--   Male Marriage related Info / sb-biodata-6   --
-								--  Female Marriage related Info / sb-biodata-7  --
-								-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+								<!-- END - Address Details  /  sb-biodata-4  -->
+								<!-- START - Male Marriage related Info / sb-biodata-6
+								Female Marriage related Info / sb-biodata-7 -->
 								<?php
 									$id=$_GET['/Biodata'];
 									$profileid=$id;
@@ -1474,9 +1465,6 @@ require_once("includes/dbconn.php");
 									$result = mysqlexec($sql);
 									if($result){
 										$row=mysqli_fetch_assoc($result);
-										if($row){
-											$guardians_agree=$row['guardians_agree'];
-										}
 										if($row){
 											$allowstudy_aftermarriage=$row['allowstudy_aftermarriage'];
 										}
@@ -1491,9 +1479,6 @@ require_once("includes/dbconn.php");
 									$result = mysqlexec($sql);
 									if($result){
 										$row=mysqli_fetch_assoc($result);
-										if($row){
-											$guardians_agree=$row['guardians_agree'];
-										}
 										if($row){
 											$anyjob_aftermarriage=$row['anyjob_aftermarriage'];
 										}
@@ -1534,12 +1519,6 @@ require_once("includes/dbconn.php");
 										}
 										if($row){
 											$son_details=$row['son_details'];
-										}
-										if($row){
-											$agree_marriage_other_religion=$row['agree_marriage_other_religion'];
-										}
-										if($row){
-											$profilecreationdate=$row['profilecreationdate'];
 										}
 									}
 								?>
@@ -1606,17 +1585,10 @@ require_once("includes/dbconn.php");
 												<td class="day_value"><?php echo $son_details; ?></td>
 											</tr>
 											<?php endif; ?>
-											<!-- This sections for All Marital StatusShow just without Married -->
-											<?php if (!empty($guardians_agree)) : ?>
-											<tr class="opened">
-												<td class="day_label">পরিবারের অনুমতি নিয়ে বায়োডাটা পোস্ট করেছেন?</td>
-												<td class="day_value"><?php echo $guardians_agree; ?></td>
-											</tr>
-											<?php endif; ?>
 											<!-- bd_marriage_related_qs Male & Female -->
 											<?php if (!empty($allowstudy_aftermarriage)) : ?>
 											<tr class="opened">
-												<td class="day_label">স্ত্রীকে প্রাতিষ্ঠানিক পড়ালেখা করতে দিতে ইচ্ছুক?</td>
+												<td class="day_label">বিয়ের পর স্ত্রীকে প্রাতিষ্ঠানিক পড়ালেখা করতে দিতে ইচ্ছুক? (স্ত্রী যদি চায়)</td>
 												<td class="day_value"><?php echo $allowstudy_aftermarriage; ?></td>
 											</tr>
 											<?php endif; ?>
@@ -1629,7 +1601,7 @@ require_once("includes/dbconn.php");
 											<?php endif; ?>
 											<?php if (!empty($allowjob_aftermarriage)) : ?>
 											<tr class="opened">
-												<td class="day_label">স্ত্রীকে চাকরি করতে দিতে ইচ্ছুক?</td>
+												<td class="day_label">বিয়ের পর স্ত্রীকে চাকরি করতে দিতে ইচ্ছুক? (স্ত্রী যদি চায়)</td>
 												<td class="day_value"><?php echo $allowjob_aftermarriage; ?></td>
 											</tr>
 											<?php endif; ?>
@@ -1653,26 +1625,13 @@ require_once("includes/dbconn.php");
 												<td class="day_value"><?php echo $agree_marriage_student; ?></td>
 											</tr>
 											<?php endif; ?>
-											<?php if (!empty($agree_marriage_other_religion)) : ?>
-											<tr class="opened">
-												<td class="day_label">অন্য ধর্মের অনুসারী যে কাওকে বিয়ে করতে রাজি হবেন যদি সে আপনার ধর্ম গ্রহণ করে?</td>
-												<td class="day_value"><?php echo $agree_marriage_other_religion; ?></td>
-											</tr>
-											<?php endif; ?>
 										</tbody>
 									</table>
 								</div>
 				        		<div class="clearfix"> </div>
-								<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-								--                   E   N   D                   --
-								--   Male Marriage related Info / sb-biodata-6   --
-								--  Female Marriage related Info / sb-biodata-7  --
-								-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-								<!-- End & Start -->
-								<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-								--                S  T  A  R  T                  --
-								--        Religion Details / sb-biodata-8        --
-								-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+								<!-- END - Male Marriage related Info / sb-biodata-6
+								Female Marriage related Info / sb-biodata-7 -->
+								<!-- START - Religion Details / sb-biodata-8 -->
 								<?php
 									$id=$_GET['/Biodata'];
 									$profileid=$id;
@@ -1709,15 +1668,8 @@ require_once("includes/dbconn.php");
 								</div>
 							</div>
 							<div class="clearfix"> </div>
-							<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-							--                   E   N   D                   --
-							--        Religion Details / sb-biodata-8        --
-							-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-							<!-- End & Start -->
-							<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-							--                S  T  A  R  T                  --
-							--     Family Information  / sb-biodata-5        --
-							-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+							<!-- END - Religion Details / sb-biodata-8 -->
+							<!-- START - Family Information  / sb-biodata-5 -->
 							<?php
 								$id=$_GET['/Biodata'];
 								$profileid=$id;
@@ -1765,12 +1717,6 @@ require_once("includes/dbconn.php");
 									<table class="biodata_value_data">
 										<h3>পারিবারিক ও সামাজিক তথ্য</h3>
 										<tbody>
-											<?php if (!empty($family_major_guardian)) : ?>
-											<tr class="opened">
-												<td class="day_label">পরিবারের প্রধান অভিভাবক কে?</td>
-												<td class="day_value closed"><span><?php echo $family_major_guardian; ?></span></td>
-											</tr>
-											<?php endif; ?>
 											<?php if (!empty($father_alive)) : ?>
 											<tr class="opened">
 												<td class="day_label">বাবা বেঁচে আছেন?</td>
@@ -1813,6 +1759,12 @@ require_once("includes/dbconn.php");
 												<td class="day_value closed"><span><?php echo $uncle_profession; ?></span></td>
 											</tr>
 											<?php endif; ?>
+											<?php if (!empty($family_major_guardian)) : ?>
+											<tr class="opened">
+												<td class="day_label">পরিবারের প্রধান অভিভাবক কে?</td>
+												<td class="day_value closed"><span><?php echo $family_major_guardian; ?></span></td>
+											</tr>
+											<?php endif; ?>
 											<?php if (!empty($family_class)) : ?>
 											<tr class="opened">
 												<td class="day_label">পারিবারিক অর্থনৈতিক অবস্থা</td>
@@ -1836,15 +1788,8 @@ require_once("includes/dbconn.php");
 								</div>
 							</div>
 							<div class="clearfix"> </div>
-							<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-							--                   E   N   D                   --
-							--     Family Information  / sb-biodata-5        --
-							-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-							<!-- End & Start -->
-							<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-							--                S  T  A  R  T                  --
-							--     Expected Life Partner / sb-biodata-9      --
-							-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+							<!-- END - Family Information  / sb-biodata-5  -->
+							<!-- START - Expected Life Partner / sb-biodata-9 -->
 							<?php
 								$id=$_GET['/Biodata'];
 								$profileid=$id;
@@ -1918,7 +1863,7 @@ require_once("includes/dbconn.php");
 											<?php endif; ?>
 											<?php if (!empty($partner_skintones)) : ?>
 											<tr class="opened">
-												<td class="day_label">গাত্র বর্ণ</td>
+												<td class="day_label">শারীরিক বর্ণ</td>
 												<td class="day_value closed"><span><?php echo $partner_skintones; ?></span></td>
 											</tr>
 											<?php endif; ?>
@@ -1963,22 +1908,15 @@ require_once("includes/dbconn.php");
 								</div>
 							</div>
 							<div class="clearfix"> </div>
-							<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-							--                S  T  A  R  T                  --
-							--     Expected Life Partner / sb-biodata-9      --
-							-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-							<!-- End & Start -->
-							<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-							--                S  T  A  R  T                  --
-							--    	   Acceptance of commitment				 --
-							-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+							<!-- END -  Expected Life Partner / sb-biodata-9 -->
+							<!-- START - Acceptance of commitment  -->
 							<div class="biodatavalue_list">
 								<table class="biodata_value_data">
 									<h3>প্রতিশ্রুতি গ্রহণ</h3>
 									<tbody>
 										<?php if (!empty($parents_permission)) : ?>
 										<tr class="opened">
-											<td class="day_label">পরিবারের অনুমতি নিয়ে বায়োডাটা জমা দিয়েছেন?</td>
+											<td class="day_label">বিয়ের জন্য পাত্র/পাত্রী দেখার বিষয়টিতে আপনার পরিবার রাজি আছে?</td>
 											<td class="day_value"><?php echo $parents_permission;?></td>
 										</tr>
 										<?php endif; ?>
@@ -2009,149 +1947,259 @@ require_once("includes/dbconn.php");
 									</div></br>
 								</div>
 							</div>
-							<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-							--                 E    N    D   	             --
-							--    	   Acceptance of commitment				 --
-							-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+							<!-- END - Acceptance of commitment -->
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-	--                 S  T  A  R  T  	             --
-	--               M  O  B  I  L  E 	             --
-	--    	 Recent View / Last View Profile    	 --
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+	<!-- START - FOR MOBILE
+    Recent View / Last View Profile  -->
 	<div class="sbbiodata_profile_recentview-mobile">
-    <h3>সর্বশেষ বায়োডাটা দেখেছেন</h3>
-	<?php
-	$sql = "SELECT p.*, u.active
-	FROM 1bd_personal_physical p
-	INNER JOIN users u ON p.user_id = u.id
-	WHERE u.active = 1
-	ORDER BY p.view_count DESC LIMIT 6"; // Top 6 profiles by view_count of active users
-	$result = mysqlexec($sql);
-    $count = 1;
-    while ($row = mysqli_fetch_assoc($result)) {
-		if ($row['active'] == 1) {
-        $profid = $row['user_id'];
-        $Skin_tones_recentview2 = $row['Skin_tones'];
-        $height_recentview2 = $row['height'];
-        $dateofbirth_recentview2 = $row['dateofbirth'];
-        $sql3 = "SELECT * FROM 2bd_personal_lifestyle WHERE user_id=$profid";
-        $result3 = mysqlexec($sql3);
-        if ($result3 && mysqli_num_rows($result3) > 0) {
-            $row3 = mysqli_fetch_assoc($result3);
-            $occupation_levels = array(
-                'business_occupation_level' => $row3['business_occupation_level'],
-                'student_occupation_level' => $row3['student_occupation_level'],
-                'health_occupation_level' => $row3['health_occupation_level'],
-                'engineer_occupation_level' => $row3['engineer_occupation_level'],
-                'teacher_occupation_level' => $row3['teacher_occupation_level'],
-                'defense_occupation_level' => $row3['defense_occupation_level'],
-                'foreigner_occupation_level' => $row3['foreigner_occupation_level'],
-                'garments_occupation_level' => $row3['garments_occupation_level'],
-                'driver_occupation_level' => $row3['driver_occupation_level'],
-                'service_andcommon_occupation_level' => $row3['service_andcommon_occupation_level'],
-                'mistri_occupation_level' => $row3['mistri_occupation_level'],
-            );
-            $occupation_levels = array_filter($occupation_levels);
-            $occupation_recentview2 = reset($occupation_levels);
+        <h3>জনপ্রিয় বায়োডাটা</h3>
+        <?php
+        if ($biodatagender == 'পাত্রের বায়োডাটা') {
+        $sql = "SELECT p.*, u.active
+        FROM 1bd_personal_physical p
+        INNER JOIN users u ON p.user_id = u.id
+        WHERE u.active = 1 AND p.biodatagender = 'পাত্রের বায়োডাটা'
+        ORDER BY p.view_count DESC LIMIT 6"; // Top 6 profiles by view_count of active users
+        $result = mysqlexec($sql);
+        $count = 1;
+        while ($row = mysqli_fetch_assoc($result)) {
+            if ($row['active'] == 1) {
+            $profid = $row['user_id'];
+            $Skin_tones_recentview2 = $row['Skin_tones'];
+            $height_recentview2 = $row['height'];
+            $dateofbirth_recentview2 = $row['dateofbirth'];
+            $sql3 = "SELECT * FROM 2bd_personal_lifestyle WHERE user_id=$profid";
+            $result3 = mysqlexec($sql3);
+            if ($result3 && mysqli_num_rows($result3) > 0) {
+                $row3 = mysqli_fetch_assoc($result3);
+                $occupation_levels = array(
+					'no_occupation' => $row3['no_occupation'],
+					'other_occupation_sector' => $row3['other_occupation_sector'],
+                    'business_occupation_level' => $row3['business_occupation_level'],
+                    'student_occupation_level' => $row3['student_occupation_level'],
+                    'health_occupation_level' => $row3['health_occupation_level'],
+                    'engineer_occupation_level' => $row3['engineer_occupation_level'],
+                    'teacher_occupation_level' => $row3['teacher_occupation_level'],
+                    'defense_occupation_level' => $row3['defense_occupation_level'],
+					'shop_occupation_level' => $row3['shop_occupation_level'],
+                    'foreigner_occupation_level' => $row3['foreigner_occupation_level'],
+                    'garments_occupation_level' => $row3['garments_occupation_level'],
+                    'driver_occupation_level' => $row3['driver_occupation_level'],
+                    'service_andcommon_occupation_level' => $row3['service_andcommon_occupation_level'],
+                    'mistri_occupation_level' => $row3['mistri_occupation_level'],
+                );
+                $occupation_levels = array_filter($occupation_levels);
+                $occupation_recentview2 = reset($occupation_levels);
+            }
+            $sql4 = "SELECT * FROM 4bd_address_details WHERE user_id=$profid";
+            $result4 = mysqlexec($sql4);
+            if ($result4 && mysqli_num_rows($result4) > 0) {
+                $row4 = mysqli_fetch_assoc($result4);
+                $home_district2 = '';
+                if (!empty($row4['home_district_under_barishal'])) {
+                $home_district2 = $row4['home_district_under_barishal'];
+                } elseif (!empty($row4['home_district_under_chattogram'])) {
+                $home_district2 = $row4['home_district_under_chattogram'];
+                } elseif (!empty($row4['home_district_under_dhaka'])) {
+                $home_district2 = $row4['home_district_under_dhaka'];
+                } elseif (!empty($row4['home_district_under_khulna'])) {
+                $home_district2 = $row4['home_district_under_khulna'];
+                } elseif (!empty($row4['home_district_under_mymensingh'])) {
+                $home_district2 = $row4['home_district_under_mymensingh'];
+                } elseif (!empty($row4['home_district_under_rajshahi'])) {
+                $home_district2 = $row4['home_district_under_rajshahi'];
+                } elseif (!empty($row4['home_district_under_rangpur'])) {
+                $home_district2 = $row4['home_district_under_rangpur'];
+                } elseif (!empty($row4['home_district_under_sylhet'])) {
+                $home_district2 = $row4['home_district_under_sylhet'];
+                }
+            }
+            $sql2 = "SELECT * FROM photos WHERE user_id = $profid";
+            $result2 = mysqlexec($sql2);
+            $row2 = mysqli_fetch_assoc($result2);
+            $pic1 = $row2['pic1'];
+            $defaultImages = [
+                'পাত্রের বায়োডাটা' => "shosurbari-male-icon.jpg",
+                'পাত্রীর বায়োডাটা' => "shosurbari-female-icon.png",
+            ];
+            $defaultImage = "shosurbari-default-icon.png";
+            if (isset($row['biodatagender']) && isset($defaultImages[$row['biodatagender']])) {
+                $defaultImage = $defaultImages[$row['biodatagender']];
+            }
+            echo "<div class=\"biodatarecent_viewlist\">";
+            echo "<div class=\"sbbio_header_recent_view\">";
+            // Start of Default Photo Show
+            echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\">";
+            if (!empty($pic1)) {
+                echo "<img class=\"img-responsive\" src=\"profile/{$profid}/{$pic1}\"/>";
+            } else {
+                echo "<img class=\"img-responsive\" src=\"images/{$defaultImage}\"/>";
+            }
+            echo "</a>";
+            // End of Default photo Show
+            echo "<div class=\"sbbio_number_recentview\"><span class=\"sb_biodatanumber_recentview\"> {$profid} <br> বায়োডাটা নং </span> </div>";
+            echo "</div>";
+            echo "<div class=\"sb_user_recentview\">";
+            echo "<table class=\"biodata_value_data\">";
+            echo "<tbody>";
+            // Create rows for each piece of information
+            echo "<tr class=\"opened\">";
+            echo "<td class=\"sb_label\">শারীরিক বর্ণ</td>";
+            echo "<td class=\"sb_value\">{$Skin_tones_recentview2}</td>";
+            echo "</tr>";
+            echo "<tr class=\"opened\">";
+            echo "<td class=\"sb_label\">উচ্চতা</td>";
+            echo "<td class=\"sb_value\">{$height_recentview2}</td>";
+            echo "</tr>";
+            echo "<tr class=\"opened\">";
+            echo "<td class=\"sb_label\">পেশা</td>";
+            echo "<td class=\"sb_value\">{$occupation_recentview2}</td>";
+            echo "</tr>";
+            echo "<tr class=\"opened\">";
+            echo "<td class=\"sb_label\">জেলা</td>";
+            echo "<td class=\"sb_value\">{$home_district2}</td>";
+            echo "</tr>";
+            echo "<tr class=\"opened\">";
+            echo "<td class=\"sb_label\">জন্ম সন</td>";
+            echo "<td class=\"sb_value\">{$dateofbirth_recentview2}</td>";
+            echo "</tr>";
+            echo "</tbody>";
+            echo "</table>";
+            echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\">";
+            echo "<button class=\"view_sb_profile_recentview\">সম্পূর্ণ বায়োডাটা</button>";
+            echo "</a>";
+            echo "</div></div>";
+            $count++;
+            }
         }
-        $sql4 = "SELECT * FROM 4bd_address_details WHERE user_id=$profid";
-        $result4 = mysqlexec($sql4);
-        if ($result4 && mysqli_num_rows($result4) > 0) {
-            $row4 = mysqli_fetch_assoc($result4);
-            $home_district2 = '';
-			if (!empty($row4['home_district_under_barishal'])) {
-			$home_district2 = $row4['home_district_under_barishal'];
-			} elseif (!empty($row4['home_district_under_chattogram'])) {
-			$home_district2 = $row4['home_district_under_chattogram'];
-			} elseif (!empty($row4['home_district_under_dhaka'])) {
-			$home_district2 = $row4['home_district_under_dhaka'];
-			} elseif (!empty($row4['home_district_under_khulna'])) {
-			$home_district2 = $row4['home_district_under_khulna'];
-			} elseif (!empty($row4['home_district_under_mymensingh'])) {
-			$home_district2 = $row4['home_district_under_mymensingh'];
-			} elseif (!empty($row4['home_district_under_rajshahi'])) {
-			$home_district2 = $row4['home_district_under_rajshahi'];
-			} elseif (!empty($row4['home_district_under_rangpur'])) {
-			$home_district2 = $row4['home_district_under_rangpur'];
-			} elseif (!empty($row4['home_district_under_sylhet'])) {
-			$home_district2 = $row4['home_district_under_sylhet'];
-			}
-        }
-		$sql2 = "SELECT * FROM photos WHERE user_id = $profid";
-		$result2 = mysqlexec($sql2);
-		$row2 = mysqli_fetch_assoc($result2);
-		$pic1 = $row2['pic1'];
-		$defaultImages = [
-			'পাত্রের বায়োডাটা' => "shosurbari-male-icon.jpg",
-			'পাত্রীর বায়োডাটা' => "shosurbari-female-icon.png",
-		];
-		$defaultImage = "shosurbari-default-icon.png";
-		if (isset($row['biodatagender']) && isset($defaultImages[$row['biodatagender']])) {
-			$defaultImage = $defaultImages[$row['biodatagender']];
-		}
-		echo "<div class=\"biodatarecent_viewlist\">";
-		echo "<div class=\"sbbio_header_recent_view\">";
-		// Start of Default Photo Show
-		echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\">";
-		if (!empty($pic1)) {
-			echo "<img class=\"img-responsive\" src=\"profile/{$profid}/{$pic1}\"/>";
-		} else {
-			echo "<img class=\"img-responsive\" src=\"images/{$defaultImage}\"/>";
-		}
-		echo "</a>";
-		// End of Default photo Show
-		echo "<div class=\"sbbio_number_recentview\"><span class=\"sb_biodatanumber_recentview\"> {$profid} <br> বায়োডাটা নং </span> </div>";
-		echo "</div>";
-		echo "<div class=\"sb_user_recentview\">";
-		echo "<table class=\"biodata_value_data\">";
-		echo "<tbody>";
-		// Create rows for each piece of information
-		echo "<tr class=\"opened\">";
-		echo "<td class=\"sb_label\">গাত্র বর্ণ</td>";
-		echo "<td class=\"sb_value\">{$Skin_tones_recentview2}</td>";
-		echo "</tr>";
-		echo "<tr class=\"opened\">";
-		echo "<td class=\"sb_label\">উচ্চতা</td>";
-		echo "<td class=\"sb_value\">{$height_recentview2}</td>";
-		echo "</tr>";
-		echo "<tr class=\"opened\">";
-		echo "<td class=\"sb_label\">পেশা</td>";
-		echo "<td class=\"sb_value\">{$occupation_recentview2}</td>";
-		echo "</tr>";
-		echo "<tr class=\"opened\">";
-		echo "<td class=\"sb_label\">জেলা</td>";
-		echo "<td class=\"sb_value\">{$home_district2}</td>";
-		echo "</tr>";
-		echo "<tr class=\"opened\">";
-		echo "<td class=\"sb_label\">জন্ম সন</td>";
-		echo "<td class=\"sb_value\">{$dateofbirth_recentview2}</td>";
-		echo "</tr>";
-		echo "</tbody>";
-		echo "</table>";
-		echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\">";
-		echo "<button class=\"view_sb_profile_recentview\">সম্পূর্ণ বায়োডাটা</button>";
-		echo "</a>";
-		echo "</div></div>";
-        $count++;
-		}
-	}
-	?>
+        } elseif ($biodatagender == 'পাত্রীর বায়োডাটা') {
+        $sql = "SELECT p.*, u.active
+        FROM 1bd_personal_physical p
+        INNER JOIN users u ON p.user_id = u.id
+        WHERE u.active = 1 AND p.biodatagender = 'পাত্রীর বায়োডাটা'
+        ORDER BY p.view_count DESC LIMIT 6"; // Top 6 profiles by view_count of active users
+        $result = mysqlexec($sql);
+        $count = 1;
+        while ($row = mysqli_fetch_assoc($result)) {
+            if ($row['active'] == 1) {
+            $profid = $row['user_id'];
+            $Skin_tones_recentview2 = $row['Skin_tones'];
+            $height_recentview2 = $row['height'];
+            $dateofbirth_recentview2 = $row['dateofbirth'];
+            $sql3 = "SELECT * FROM 2bd_personal_lifestyle WHERE user_id=$profid";
+            $result3 = mysqlexec($sql3);
+            if ($result3 && mysqli_num_rows($result3) > 0) {
+                $row3 = mysqli_fetch_assoc($result3);
+                $occupation_levels = array(
+					'no_occupation' => $row3['no_occupation'],
+					'other_occupation_sector' => $row3['other_occupation_sector'],
+                    'business_occupation_level' => $row3['business_occupation_level'],
+                    'student_occupation_level' => $row3['student_occupation_level'],
+                    'health_occupation_level' => $row3['health_occupation_level'],
+                    'engineer_occupation_level' => $row3['engineer_occupation_level'],
+                    'teacher_occupation_level' => $row3['teacher_occupation_level'],
+                    'defense_occupation_level' => $row3['defense_occupation_level'],
+					'shop_occupation_level' => $row3['shop_occupation_level'],
+                    'foreigner_occupation_level' => $row3['foreigner_occupation_level'],
+                    'garments_occupation_level' => $row3['garments_occupation_level'],
+                    'driver_occupation_level' => $row3['driver_occupation_level'],
+                    'service_andcommon_occupation_level' => $row3['service_andcommon_occupation_level'],
+                    'mistri_occupation_level' => $row3['mistri_occupation_level'],
+                );
+                $occupation_levels = array_filter($occupation_levels);
+                $occupation_recentview2 = reset($occupation_levels);
+            }
+            $sql4 = "SELECT * FROM 4bd_address_details WHERE user_id=$profid";
+            $result4 = mysqlexec($sql4);
+            if ($result4 && mysqli_num_rows($result4) > 0) {
+                $row4 = mysqli_fetch_assoc($result4);
+                $home_district2 = '';
+                if (!empty($row4['home_district_under_barishal'])) {
+                $home_district2 = $row4['home_district_under_barishal'];
+                } elseif (!empty($row4['home_district_under_chattogram'])) {
+                $home_district2 = $row4['home_district_under_chattogram'];
+                } elseif (!empty($row4['home_district_under_dhaka'])) {
+                $home_district2 = $row4['home_district_under_dhaka'];
+                } elseif (!empty($row4['home_district_under_khulna'])) {
+                $home_district2 = $row4['home_district_under_khulna'];
+                } elseif (!empty($row4['home_district_under_mymensingh'])) {
+                $home_district2 = $row4['home_district_under_mymensingh'];
+                } elseif (!empty($row4['home_district_under_rajshahi'])) {
+                $home_district2 = $row4['home_district_under_rajshahi'];
+                } elseif (!empty($row4['home_district_under_rangpur'])) {
+                $home_district2 = $row4['home_district_under_rangpur'];
+                } elseif (!empty($row4['home_district_under_sylhet'])) {
+                $home_district2 = $row4['home_district_under_sylhet'];
+                }
+            }
+            $sql2 = "SELECT * FROM photos WHERE user_id = $profid";
+            $result2 = mysqlexec($sql2);
+            $row2 = mysqli_fetch_assoc($result2);
+            $pic1 = $row2['pic1'];
+            $defaultImages = [
+                'পাত্রের বায়োডাটা' => "shosurbari-male-icon.jpg",
+                'পাত্রীর বায়োডাটা' => "shosurbari-female-icon.png",
+            ];
+            $defaultImage = "shosurbari-default-icon.png";
+            if (isset($row['biodatagender']) && isset($defaultImages[$row['biodatagender']])) {
+                $defaultImage = $defaultImages[$row['biodatagender']];
+            }
+            echo "<div class=\"biodatarecent_viewlist\">";
+            echo "<div class=\"sbbio_header_recent_view\">";
+            // Start of Default Photo Show
+            echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\">";
+            if (!empty($pic1)) {
+                echo "<img class=\"img-responsive\" src=\"profile/{$profid}/{$pic1}\"/>";
+            } else {
+                echo "<img class=\"img-responsive\" src=\"images/{$defaultImage}\"/>";
+            }
+            echo "</a>";
+            // End of Default photo Show
+            echo "<div class=\"sbbio_number_recentview\"><span class=\"sb_biodatanumber_recentview\"> {$profid} <br> বায়োডাটা নং </span> </div>";
+            echo "</div>";
+            echo "<div class=\"sb_user_recentview\">";
+            echo "<table class=\"biodata_value_data\">";
+            echo "<tbody>";
+            // Create rows for each piece of information
+            echo "<tr class=\"opened\">";
+            echo "<td class=\"sb_label\">শারীরিক বর্ণ</td>";
+            echo "<td class=\"sb_value\">{$Skin_tones_recentview2}</td>";
+            echo "</tr>";
+            echo "<tr class=\"opened\">";
+            echo "<td class=\"sb_label\">উচ্চতা</td>";
+            echo "<td class=\"sb_value\">{$height_recentview2}</td>";
+            echo "</tr>";
+            echo "<tr class=\"opened\">";
+            echo "<td class=\"sb_label\">পেশা</td>";
+            echo "<td class=\"sb_value\">{$occupation_recentview2}</td>";
+            echo "</tr>";
+            echo "<tr class=\"opened\">";
+            echo "<td class=\"sb_label\">জেলা</td>";
+            echo "<td class=\"sb_value\">{$home_district2}</td>";
+            echo "</tr>";
+            echo "<tr class=\"opened\">";
+            echo "<td class=\"sb_label\">জন্ম সন</td>";
+            echo "<td class=\"sb_value\">{$dateofbirth_recentview2}</td>";
+            echo "</tr>";
+            echo "</tbody>";
+            echo "</table>";
+            echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\">";
+            echo "<button class=\"view_sb_profile_recentview\">সম্পূর্ণ বায়োডাটা</button>";
+            echo "</a>";
+            echo "</div></div>";
+            $count++;
+            }
+        }}
+	    ?>
     </div>
-	<!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-	--                 	 E   N   D	 	             --
-	--    	 Recent View / Last View Profile    	 --
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-	<!--=======================================
-	How Many Visitors View This Page.
-	This Script Connected to get_view_count.php
-	and page_views Database Table
-	========================================-->
+	<!-- END - FOR MOBILE
+    Recent View / Last View Profile  -->
+	<!--View This Page. Connected to get view count -->
 	<script>
 	$(document).ready(function() {
 		var userId = getUrlParameter('/Biodata');
