@@ -1,17 +1,12 @@
 <?php
     function mysqlexec($sql){
-          $host="localhost"; // Host name
-          $username="root"; // Mysql username
-          $password=""; // Mysql password
-          $db_name="matrimony"; // Database name
-        //  $host="sql211.infinityfree.com"; // Host name 
-        //  $username="if0_34380678"; // Mysql username 
-        //  $password="AJFC2H7KllI"; // Mysql password 
-        //  $db_name="if0_34380678_matrimony"; // Database name 
-        error_reporting(0);
+          $host="localhost"; 
+          $username="shosurbari_abdurrahman";
+          $password="SoftwareEngineer@480";
+          $db_name="shosur_bari";
         $conn=mysqli_connect("$host", "$username", "$password")or die("cannot connect");
         mysqli_select_db($conn,"$db_name")or die("cannot select DB");
-        mysqli_set_charset($conn, "utf8mb4"); //Bangla font show in database.
+        mysqli_set_charset($conn, "utf8mb4");
         if($result = mysqli_query($conn, $sql)){
             return $result;
         }
@@ -20,27 +15,22 @@
         }
     }
     // For Unique Visitors Count From Home Page Headin Sections Store - START
-    function saveUniqueVisitor($conn, $ip_address) {
-        $save_visitor_sql = "INSERT INTO unique_visitors (ip_address, visit_time) VALUES (?, NOW())";
-        $save_visitor_stmt = $conn->prepare($save_visitor_sql);
-        if (!$save_visitor_stmt) {
-            die("Error preparing statement: " . $conn->error);
-        }
-        $save_visitor_stmt->bind_param("s", $ip_address);
-        if (!$save_visitor_stmt) {
-            die("Error binding parameters: " . $save_visitor_stmt->error);
-        }
-        $save_visitor_stmt->execute();
-        if (!$save_visitor_stmt) {
-            die("Error executing statement: " . $save_visitor_stmt->error);
-        }
-        $save_visitor_stmt->close();
-    }
-    // For Unique Visitors Count From Home Page Headin Sections Store - END
-    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-    --                S  T  A  R  T                  --
-    --    User / Biodata Profile Search Function     --
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+	function saveUniqueVisitor($conn, $ip_address) {
+		$save_visitor_sql = "INSERT INTO unique_visitors (ip_address, visit_time) 
+							 VALUES (?, NOW()) 
+							 ON DUPLICATE KEY UPDATE visit_time = NOW()";
+		$save_visitor_stmt = $conn->prepare($save_visitor_sql);
+		if (!$save_visitor_stmt) {
+			die("Error preparing statement: " . $conn->error);
+		}
+		$save_visitor_stmt->bind_param("s", $ip_address);
+		if (!$save_visitor_stmt->execute()) {
+			die("Error executing statement: " . $save_visitor_stmt->error);
+		}
+		$save_visitor_stmt->close();
+	}
+    // END \ For Unique Visitors Count-From Home Page Headin
+    /*  START \  User / Biodata Profile Search Function */
     function search(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $biodatagender = isset($_POST['biodatagender']) ? $_POST['biodatagender'] : '';
@@ -63,11 +53,8 @@
             $home_district_under_sylhet = isset($_POST['home_district_under_sylhet']) ? $_POST['home_district_under_sylhet'] : [];
             // Remove the "Any Skin Tones" value from the array if present
             $Skin_tones = array_diff($Skin_tones, ["Any Skin Tones"]);
-            // Remove the "Any Religion" value from the array if present
             $religions = array_diff($religions, ["Any Religion"]);
-            // Remove the "Any Marital Status" value from the array if present
             $maritalStatus = array_diff($maritalStatus, ["Any Marital Status"]);
-            // Remove the "Any Marital Status" value from the array if present
             $family_class = array_diff($family_class, ["Any Family Class"]);
             $country_present_address = array_diff($country_present_address, ["Any Country"]);
             $scndry_edu_method = array_diff($scndry_edu_method, ["Any Education Method"]);
@@ -190,6 +177,7 @@
             if (!empty($districtConditions)) {
                 $sql .= " AND (" . implode(" OR ", $districtConditions) . ")";
             }
+            $sql .= " ORDER BY pp.user_id DESC"; // show top list biodata which biodata last post
             $result = mysqlexec($sql);
             // Check if no matching data found for biodatagender, Skin_tones, religion, and marital status
             if (empty($result) && !is_array($biodatagender) && empty($Skin_tones) && empty($religions) && empty($maritalStatus) && empty($family_class) && empty($country_present_address) && empty($scndry_edu_method) && empty($occupations) && empty($student_occupation_level) && empty($allDistrict) 
@@ -208,15 +196,8 @@
             return $result;
         }
     }
-    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-    --                   E   N   D                   --
-    --    User / Biodata Profile Search Function     --
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-    // End & Start
-    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-    --                S  T  A  R  T                  --
-    --           New User Register Function          --
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+    /* END   \ User / Biodata Profile Search Function */
+    /* START New User Register Function */
     function register() {
         global $conn;
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -236,30 +217,28 @@
             $email_exists = mysqli_fetch_array($email_result)[0];
             $username_exists = mysqli_fetch_array($username_result)[0];
             if ($username_exists > 0) {
-                $_SESSION['error_message'] = "উফফ! '$uname' এই Username দিয়ে ইতিমধ্যে একটি একাউন্ট রয়েছে। অনুগ্রহ করে Username পরিবর্তন করে আবার চেষ্টা করুন।";
+                $_SESSION['reg_error_message'] = "দুঃখিত! '$uname' এই Username দিয়ে ইতিমধ্যে একটি একাউন্ট রয়েছে। অনুগ্রহ করে Username পরিবর্ত করে আবার চেষ্টা করুন।";
                 exit();
             } elseif ($email_exists > 0) {
-                $_SESSION['error_message'] = "উফফ! '$email' এই Email দিয়ে ইতিমধ্যে একটি একাউন্ট রয়েছে। অনুগ্রহ করে আপনার একাউন্ট লগইন করুন।";
+                $_SESSION['reg_error_message'] = "দুঃখিত! '$email' এই Email দিয়ে ইতিমধ্যে একটি একাউন্ট রয়েছে। অনুগ্রহ করে আপনার একাউন্ট লগইন করুন।";
                 exit();
             } else {
                 $selectedCountryCode = $_POST['selectedCountryCode'];
                 $selectedCountryName = $_POST['selectedCountryName'];
                 $sql = "INSERT INTO users 
-                (fullname, username, gender, number, country_code, country_name, email, password, active, register_date) 
-                VALUES ('$fname', '$uname', '$gender', '$pnumber', '$selectedCountryCode', '$selectedCountryName', '$email', '$hashed_password', 1, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
+                (fullname, username, gender, number, country_code, country_name, email, password, active, deactivated, register_date) 
+                VALUES ('$fname', '$uname', '$gender', '$pnumber', '$selectedCountryCode', '$selectedCountryName', '$email', '$hashed_password', 1, 0, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
                 if (mysqli_query($conn, $sql)) {
-                $id = mysqli_insert_id($conn);
-                $_SESSION['id'] = $id;
-                $deactivate_sql = "INSERT INTO deactivate (user_id, status) VALUES ($id, 0)";
-                mysqli_query($conn, $deactivate_sql);
-                $to = $email;
+                    $id = mysqli_insert_id($conn);
+                    $_SESSION['id'] = $id;
+                    $to = $email;
                 $subject = "Congratulations! Your Account Is Live";
                 ob_start();
                 include('RegisterEmailBody.php');
                 $email_body = ob_get_clean();
                 $plain_text_message = "
                 Welcome to ShosurBari
-                Thank you for choosing ShosurBari.com! Your registration details have been received. We look forward to serving you.
+                Thank you for choosing ShosurBari.com! Your registration was successful. We look forward to serving you.
                 Biodata Number: $id
                 Full Name: $fname
                 Username: $uname
@@ -271,17 +250,17 @@
                 Note: Please remember to keep your passwords secure. Do not share them with anyone.
                 Connect with us:
                 - Website: https://www.shoshurbari.com
-                - Facebook: https://www.facebook.com/ShoshurBari.bd
+                - Facebook: https://www.facebook.com/ShoshurBari.Matrimony
                 - Email: info@shoshurbari.com
                 - YouTube: https://www.youtube.com/c/ShoshurBari
                 (c) 2022-23 ShosurBari.com | All Rights Reserved
                 ";
-                $headers = "From: nafizulislam.swe@gmail.com\r\n";
+                $headers = "From: shosurbari@gmail.com\r\n";
                 $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
                 $smtp_host = "smtp.gmail.com";
                 $smtp_port = 587;
-                $smtp_username = "nafizulislam.swe@gmail.com";
-                $smtp_password = "dnngvzwetnirboae";
+                $smtp_username = "shosurbari@gmail.com";
+                $smtp_password = "rbrmjhtvemwxymrm";
                 $smtp_secure = "tls";
                 require 'PHPMailer/PHPMailerAutoload.php';
                 $mail = new PHPMailer;
@@ -304,7 +283,7 @@
                 }
                     header("location: my-account.php");
                 } else {
-                    $_SESSION['error_message'] = "Error in registration: " . $conn->error;
+                    $_SESSION['reg_error_message'] = "Error in registration: " . $conn->error;
                     header("location: register.php");
                     exit();
                 }
@@ -320,15 +299,8 @@
             return true;
         }
     }
-    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-    --                   E   N   D                   --
-    --           New User Register Function          --
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-    // End & Start
-    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-    --                S  T  A  R  T                  --
-    --             User Account Update               --
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+    /* END  - New User Register Function */
+    /* START -  User Account Update */
     // Password updated From User Account
     function updateAccount($userId, $newPassword, $newFullName, $newGender) {
         require_once("includes/dbconn.php");
@@ -337,9 +309,9 @@
         $update_query = "UPDATE users SET password = '$hashed_password', fullname = '$newFullName', gender = '$newGender' WHERE id = $userId";
         $update_result = mysqli_query($conn, $update_query);
         if ($update_result) {
-            return true; // Account updated successfully
+            return true; //successfully
         } else {
-            return false; // Error updating account
+            return false; // Error
         }
     }
     // Check if the update account form is submitted
@@ -356,25 +328,18 @@
             // Update the account
             $accountUpdated = updateAccount($userId, $newPassword, $newFullName, $newGender);
             if ($accountUpdated) {
-            $_SESSION['updateMessage'] = '<i class="fa fa-check-circle" style="font-size: 30px; margin-bottom: 10px;"></i></br> একাউন্ট সফলভাবে আপডেট হয়েছে!';
+            $_SESSION['updateMessage'] = '<i class="fa fa-check-circle" style="font-size: 30px; margin-bottom: 10px;"></i></br>একাউন্ট আপডেট সফল হয়েছে!';
             $_SESSION['messageType'] = 'success';
             } else {
-            $_SESSION['updateMessage'] = '<i class="fa fa-times-circle" style="font-size: 30px; margin-bottom: 10px;"></i> </br>উফফ! সমস্যা দেখা দিয়েছে।';
+            $_SESSION['updateMessage'] = '<i class="fa fa-times-circle" style="font-size: 30px; margin-bottom: 10px;"></i> </br>সমস্যা দেখা দিয়েছে!';
             $_SESSION['messageType'] = 'error';
             }
             header("Location: account-update.php");
             exit();
         }
     }
-    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-    --                  E   N   D                    --
-    --             User Account Update               --
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-    // End & Start
-    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-    --                S  T  A  R  T                  --
-    --            Biodata Contact / Request          --
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+    /*END - User Account Update */
+    /*START - Biodata Contact / Request */
     function biodata_sale_customer() {
         require_once("includes/dbconn.php");
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -422,7 +387,7 @@
             $email_body = ob_get_clean();
             $plain_text_message = "
             Your Order is Processing! Order Details.
-            ধন্যবাদ! আপনার পেমেন্ট তথ্য সফল ভাবেই জমা হয়েছে। আপনার পেমেন্ট তথ্য যাচাই বাছাইয়ের পর ২৪ ঘন্টার মধ্যে আপনাকে SMS বা ই-মেইলের মাধ্যমে অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে।
+            ধন্যবাদ! আপনার পেমেন্ট তথ্য সফল ভাবে জমা হয়েছে। আপনার পেমেন্ট তথ্য যাচাই বাছাইয়ের পর ২৪ ঘন্টার মধ্যে আপনাকে SMS বা ই-মেইলের মাধ্যমে যোগাযোগের কাঙ্ক্ষিত তথ্য প্রদান করা হবে।
             Name: $cust_name
             Email: $cust_email
             Mobile Number: $cust_number
@@ -433,22 +398,22 @@
             Payment Number: $bkash_number || $nagad_number || $roket_number
             Transaction: $bkash_transaction_id || $nagad_transaction_id || $roket_transaction_id
             Date: $formatted_date = date('j F Y, g:i:s A', strtotime($request_date));                
-            বি:দ্র: ব্যক্তিগত কোনো কারণে অভিভাবক অনুমতি না দিলে যোগাযোগের তথ্য প্রদান না করে টাকা ফেরত দেয়া হবে।
+            বি:দ্র: বায়োডাটার (পাত্র-পাত্রীর) যদি বিয়ে ঠিক হয়ে যায় সেক্ষেত্রে আপনাকে যোগাযোগের তথ্য প্রদান না করে সার্ভিস চার্জ ফেরত দেয়া হবে।
             Connect with us:
             - Website: https://www.shoshurbari.com
-            - Facebook: https://www.facebook.com/ShoshurBari.bd
+            - Facebook: https://www.facebook.com/ShoshurBari.Matrimony
             - Email: info@shoshurbari.com
             - YouTube: https://www.youtube.com/c/ShoshurBari
             (c) 2022-23 ShosurBari.com | All Rights Reserved
             ";
-            $headers = "From: nafizulislam.swe@gmail.com\r\n";
-            $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-            $smtp_host = "smtp.gmail.com";
-            $smtp_port = 587;
-            $smtp_username = "nafizulislam.swe@gmail.com";
-            $smtp_password = "dnngvzwetnirboae";
-            $smtp_secure = "tls";
-            require 'PHPMailer/PHPMailerAutoload.php';
+				$headers = "From: shosurbari@gmail.com\r\n";
+				$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+				$smtp_host = "smtp.gmail.com";
+				$smtp_port = 587;
+				$smtp_username = "shosurbari@gmail.com";
+				$smtp_password = "rbrmjhtvemwxymrm";
+				$smtp_secure = "tls";
+				require 'PHPMailer/PHPMailerAutoload.php';
             $mail = new PHPMailer;
             $mail->isSMTP();
             $mail->Host = $smtp_host;
@@ -461,7 +426,7 @@
             $mail->addAddress($to);
             $mail->Subject = $subject;
             $mail->Body = $email_body;
-            $mail->AltBody = $plain_text_message; // Plain text version of the email
+            $mail->AltBody = $plain_text_message;
             if ($mail->send()) {
                 echo 'success';
                 // Flush the output buffer to send the response to the client immediately
@@ -475,15 +440,8 @@
         }
         }
     }
-    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-    --                   E   N   D                   --
-    --            Biodata Contact / Request          --
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-    // End & Start
-    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-    --                S  T  A  R  T                  --
-    --            User Contact Us Function           --
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+    /*END - Biodata Contact / Request */
+    /*START - User Contact Us Function */
     function contact_us() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $name_contactus = $_POST['name_contactus'];
@@ -499,6 +457,16 @@
             }
             $selectedCountryCode = $_POST['selectedCountryCode'];
             $selectedCountryName = $_POST['selectedCountryName'];
+            // Validate email address
+            if (!preg_match('/^[a-zA-Z0-9._%+-]+@(gmail|outlook|hotmail|yahoo)\.com$/', $email_contactus)) {
+                // Block email address if not from Gmail, Outlook, Hotmail, or Yahoo
+                return;
+            }
+            // Validate message_contactus to block links containing "www.", ".com", "https:", "http:", "https://", and "bit.ly"
+            if (preg_match('/www\.|\.com|http|https|http:|https:|https:\/\/|bit\.ly/', $message_contactus)) {
+                // Block message if it contains any of the specified patterns
+                return;
+            }
             $sql = "INSERT INTO contact_us (user_id, name_contactus, number_contactus, country_code, country_name, email_contactus, subject, message_contactus, unread_message, read_message, message_sendingdate) 
                 VALUES ('$user_id', '$name_contactus', '$number_contactus', '$selectedCountryCode', '$selectedCountryName', '$email_contactus', '$message_subject', '$message_contactus', 1, 0, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             if (mysqli_query($conn, $sql)) {
@@ -521,20 +489,20 @@
                 ই-মেইল: $email_contactus
                 বিষয়: $subject
                 মেসেজ: $message_contactus
-                বি:দ্র: আপনি যদি আমাদের কাছ থেকে প্রতিক্রিয়া না পান তবে আমাদের ফেসবুক পেজে একটি মেসেজ দিন।
+                বি:দ্র: আপনি যদি আমাদের কাছ থেকে ৭২ ঘন্টার মধ্যে কোনো প্রতিক্রিয়া না পান তবে আমাদের ফেসবুক পেজে একটি মেসেজ দিন।
                 Connect with us:
                 - Website: https://www.shoshurbari.com
-                - Facebook: https://www.facebook.com/ShoshurBari.bd
+                - Facebook: https://www.facebook.com/ShoshurBari.Matrimony
                 - Email: info@shoshurbari.com
                 - YouTube: https://www.youtube.com/c/ShoshurBari
                 (c) 2022-23 ShosurBari.com | All Rights Reserved
                 ";
-                $headers = "From: nafizulislam.swe@gmail.com\r\n";
+                $headers = "From: shosurbari@gmail.com\r\n";
                 $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
                 $smtp_host = "smtp.gmail.com";
                 $smtp_port = 587;
-                $smtp_username = "nafizulislam.swe@gmail.com";
-                $smtp_password = "dnngvzwetnirboae";
+                $smtp_username = "shosurbari@gmail.com";
+                $smtp_password = "rbrmjhtvemwxymrm";
                 $smtp_secure = "tls";
                 require 'PHPMailer/PHPMailerAutoload.php';
                 $mail = new PHPMailer;
@@ -549,29 +517,21 @@
                 $mail->addAddress($to);
                 $mail->Subject = $subject;
                 $mail->Body = $email_body;
-                $mail->AltBody = $plain_text_message; // Plain text version of the email
+                $mail->AltBody = $plain_text_message;
                 if ($mail->send()) {
-                    echo 'success';
-                    // Flush the output buffer to send the response to the client immediately
-                    flush();
+                    echo '';
                 } else {
-                    echo 'no';
+                    echo '';
                 }
-                exit;
+                header("location: contact-us.php");
             } else {
-                echo "Error";
+                header("location: contact-us.php");
+                exit();
             }
         }
-    }
-    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-    --                   E   N   D                   --
-    --            User Contact Us Function           --
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-    // End & Start
-    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-    --                  S  T  A  R  T                --
-    --        User Bio Data Save to Database         --
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+     }
+    /*END -  User Contact Us Function */
+    /*START - User Bio Data Save to Database */
     function post_biodata($id){
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             //Biodata 1 
@@ -579,7 +539,7 @@
             $day=$_POST['day'];
             $month=$_POST['month'];
             $year=$_POST['year'];
-            $dob=$day ." ". $month . "," .$year ;
+            $dob=$day ." ". $month . ", " .$year ;
             $height=$_POST['height'];
             $weight=$_POST['weight'];	
             $physicalstatus=$_POST['physicalstatus'];
@@ -588,6 +548,7 @@
             //Biodata 2
             $smoke=$_POST['smoke'];
             $occupation_sector=$_POST['occupation_sector'];
+            $no_occupation=$_POST['no_occupation'];
             $other_occupation_sector=$_POST['other_occupation_sector'];
             $business_occupation_level=$_POST['business_occupation_level'];
             $student_occupation_level=$_POST['student_occupation_level'];
@@ -595,6 +556,7 @@
             $engineer_occupation_level=$_POST['engineer_occupation_level'];
             $teacher_occupation_level=$_POST['teacher_occupation_level'];
             $defense_occupation_level=$_POST['defense_occupation_level'];
+			$shop_occupation_level=$_POST['shop_occupation_level'];
             $foreigner_occupation_level=$_POST['foreigner_occupation_level'];
             $garments_occupation_level=$_POST['garments_occupation_level'];
             $driver_occupation_level=$_POST['driver_occupation_level'];
@@ -604,42 +566,24 @@
             $dress_code=$_POST['dress_code'];
             $aboutme=$_POST['aboutme'];
             $groom_bride_name=$_POST['groom_bride_name'];		
-            $groom_bride_email=$_POST['groom_bride_email'];		
             $groom_bride_number=$_POST['groom_bride_number'];		
             $groom_bride_family_number=$_POST['groom_bride_family_number'];		
             $family_member_name_relation=$_POST['family_member_name_relation'];		
-            //Biodata 31 / 32 / 33 / 34
-            $scndry_edu_method=$_POST['scndry_edu_method'];
-            $maxedu_qulfctn=$_POST['maxedu_qulfctn'];
-            // Qawmi Madrasa
+            //Biodata 31 / 32 / 33
             $qawmi_madrasa_hafez=$_POST['qawmi_madrasa_hafez'];
             $qawmimadrasa_dawrapass=$_POST['qawmimadrasa_dawrapass'];
             $kowmi_dawrapas_year=$_POST['kowmi_dawrapas_year'];
             $kowmi_current_edu_level=$_POST['kowmi_current_edu_level'];
-            // Secondary
+            $scndry_edu_method=$_POST['scndry_edu_method'];
             $gnrl_mdrs_secondary_pass=$_POST['gnrl_mdrs_secondary_pass'];
             $gnrl_mdrs_secondary_pass_year=$_POST['gnrl_mdrs_secondary_pass_year'];
             $gnrl_mdrs_secondary_end_year=$_POST['gnrl_mdrs_secondary_end_year'];
             $gnrlmdrs_secondary_running_std=$_POST['gnrlmdrs_secondary_running_std'];
-            // Higher Secondary
-            $higher_secondary_edu_method=$_POST['higher_secondary_edu_method'];
-            $gnrlmdrs_hrsecondary_pass=$_POST['gnrlmdrs_hrsecondary_pass'];
-            $gnrlmdrs_hrsecondary_pass_year=$_POST['gnrlmdrs_hrsecondary_pass_year'];
-            $gnrlmdrs_hrsecondary_exam_year=$_POST['gnrlmdrs_hrsecondary_exam_year'];
-            $gnrlmdrs_hrsecondary_group=$_POST['gnrlmdrs_hrsecondary_group'];
-            $gnrlmdrs_hrsecondary_rningstd=$_POST['gnrlmdrs_hrsecondary_rningstd'];
-            $diploma_hrsecondary_pass=$_POST['diploma_hrsecondary_pass'];
-            $diploma_hrsecondary_pass_year=$_POST['diploma_hrsecondary_pass_year'];
-            $diploma_hrsecondary_sub=$_POST['diploma_hrsecondary_sub'];
-            $diploma_hrsecondary_endingyear=$_POST['diploma_hrsecondary_endingyear'];
-            // University
-            $varsity_edu_method=$_POST['varsity_edu_method'];
-            $uvarsity_pass=$_POST['uvarsity_pass'];
-            $varsity_passing_year=$_POST['varsity_passing_year'];
-            $university_subject=$_POST['university_subject'];
-            $varsity_ending_year=$_POST['varsity_ending_year'];
-            $uvarsity_name=$_POST['uvarsity_name'];
             $others_edu_qualification=$_POST['others_edu_qualification'];
+            $higher_secondary_edu_method=$_POST['higher_secondary_edu_method'];
+            $current_max_edu_subject=$_POST['current_max_edu_subject'];
+            $current_max_institute=$_POST['current_max_institute'];
+            $current_max_pass_year=$_POST['current_max_pass_year'];
             //Biodata 4
             $permanent_division=$_POST['permanent_division'];
             $home_district_under_barishal=$_POST['home_district_under_barishal'];
@@ -677,7 +621,6 @@
             $get_wife_permission=$_POST['get_wife_permission'];
             $get_family_permission=$_POST['get_family_permission'];
             $why_again_married=$_POST['why_again_married'];
-            $agree_marriage_other_religion=$_POST['agree_marriage_other_religion'];
             //6bd Male Questions
             $allowstudy_aftermarriage=$_POST['allowstudy_aftermarriage'];
             $allowjob_aftermarriage=$_POST['allowjob_aftermarriage'];
@@ -711,7 +654,6 @@
                 "3bd_secondaryedu_method",
                 "3bd_kowmi_madrasaedu_method",
                 "3bd_higher_secondaryedu_method",
-                "3bd_universityedu_method",
                 "4bd_address_details",
                 "5bd_family_information",
                 "6bd_7bd_marital_status",
@@ -731,7 +673,7 @@
                 if (mysqli_stmt_num_rows($checkStmt) > 0) {
                     // User ID already exists in at least one table
                     $exists = true;
-                    $_SESSION['error_message'] = "উফফ! সমস্যা দেখা দিয়েছে, অনুগ্রহ করে এডমিনের সাথে যোগাযোগ করুন।";
+                    $_SESSION['error_message'] = "সমস্যা দেখা দিয়েছে, অনুগ্রহ করে এডমিনের সাথে যোগাযোগ করুন।";
                     // Break the loop here, as there's no need to check for other tables
                     break;
                 }
@@ -747,13 +689,13 @@
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --     Personal & Life Style  / sb-biodata-2     --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-            $sql2 = "INSERT INTO 2bd_personal_lifestyle (user_id, smoke, occupation_sector, other_occupation_sector, business_occupation_level, student_occupation_level, health_occupation_level, engineer_occupation_level, teacher_occupation_level, defense_occupation_level, foreigner_occupation_level, garments_occupation_level, driver_occupation_level, service_andcommon_occupation_level, mistri_occupation_level, occupation_describe, dress_code, aboutme, groom_bride_name, groom_bride_email, groom_bride_number, groom_bride_family_number, family_member_name_relation, profilecreationdate) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
+            $sql2 = "INSERT INTO 2bd_personal_lifestyle (user_id, smoke, occupation_sector, no_occupation, other_occupation_sector, business_occupation_level, student_occupation_level, health_occupation_level, engineer_occupation_level, teacher_occupation_level, defense_occupation_level, shop_occupation_level, foreigner_occupation_level, garments_occupation_level, driver_occupation_level, service_andcommon_occupation_level, mistri_occupation_level, occupation_describe, dress_code, aboutme, groom_bride_name, groom_bride_number, groom_bride_family_number, family_member_name_relation, profilecreationdate) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             $stmt2 = mysqli_prepare($conn, $sql2);
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --  Educational Qualifications  / sb-biodata-3   --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --*/
-            $sql31 = "INSERT INTO 3bd_secondaryedu_method (user_id, scndry_edu_method, maxedu_qulfctn, gnrl_mdrs_secondary_pass, gnrl_mdrs_secondary_pass_year, gnrl_mdrs_secondary_end_year, gnrlmdrs_secondary_running_std, profilecreationdate) 
+            $sql31 = "INSERT INTO 3bd_secondaryedu_method (user_id, scndry_edu_method, gnrl_mdrs_secondary_pass, gnrl_mdrs_secondary_pass_year, gnrl_mdrs_secondary_end_year, gnrlmdrs_secondary_running_std, others_edu_qualification, profilecreationdate) 
             VALUES (?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             $stmt31 = mysqli_prepare($conn, $sql31);
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
@@ -765,15 +707,9 @@
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --  Educational Qualifications  / sb-biodata-3   --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --*/
-            $sql33 = "INSERT INTO 3bd_higher_secondaryedu_method (user_id, higher_secondary_edu_method, gnrlmdrs_hrsecondary_pass, gnrlmdrs_hrsecondary_pass_year, gnrlmdrs_hrsecondary_exam_year, gnrlmdrs_hrsecondary_group, gnrlmdrs_hrsecondary_rningstd, diploma_hrsecondary_pass, diploma_hrsecondary_pass_year, diploma_hrsecondary_sub, diploma_hrsecondary_endingyear, profilecreationdate) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
+            $sql33 = "INSERT INTO 3bd_higher_secondaryedu_method (user_id, higher_secondary_edu_method, current_max_edu_subject, current_max_institute, current_max_pass_year, profilecreationdate) 
+            VALUES (?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             $stmt33 = mysqli_prepare($conn, $sql33);
-            /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-            --  Educational Qualifications  / sb-biodata-3   --
-            -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --*/
-            $sql34 = "INSERT INTO 3bd_universityedu_method (user_id, varsity_edu_method, uvarsity_pass, varsity_passing_year, university_subject, varsity_ending_year, uvarsity_name, others_edu_qualification, profilecreationdate) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
-            $stmt34 = mysqli_prepare($conn, $sql34);
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --       Address Details  /  sb-biodata-4        --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
@@ -789,8 +725,8 @@
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --  Marriage related Info /Marital Status 6 & 7  --
             -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-            $sql61 = "INSERT INTO 6bd_7bd_marital_status (user_id, maritalstatus, divorce_reason, how_widow, how_widower, get_wife_permission, get_family_permission, why_again_married, how_many_son, son_details, agree_marriage_other_religion, profilecreationdate) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
+            $sql61 = "INSERT INTO 6bd_7bd_marital_status (user_id, maritalstatus, divorce_reason, how_widow, how_widower, get_wife_permission, get_family_permission, why_again_married, how_many_son, son_details, profilecreationdate) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
             $stmt61 = mysqli_prepare($conn, $sql61);
             /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
             --   Male Marriage related Info / sb-biodata-6   --
@@ -819,21 +755,19 @@
             // Personal & Physical
             mysqli_stmt_bind_param($stmt1, "ssssssss", $id, $biodatagender, $dob, $height, $weight, $physicalstatus, $Skin_tones, $bloodgroup);
             // Personal & Life Style
-            mysqli_stmt_bind_param($stmt2, "sssssssssssssssssssssss", $id, $smoke, $occupation_sector, $other_occupation_sector, $business_occupation_level, $student_occupation_level, $health_occupation_level, $engineer_occupation_level, $teacher_occupation_level, $defense_occupation_level, $foreigner_occupation_level, $garments_occupation_level, $driver_occupation_level, $service_andcommon_occupation_level, $mistri_occupation_level, $occupation_describe, $dress_code, $aboutme, $groom_bride_name, $groom_bride_email, $groom_bride_number, $groom_bride_family_number, $family_member_name_relation);
+            mysqli_stmt_bind_param($stmt2, "ssssssssssssssssssssssss", $id, $smoke, $occupation_sector, $no_occupation, $other_occupation_sector, $business_occupation_level, $student_occupation_level, $health_occupation_level, $engineer_occupation_level, $teacher_occupation_level, $defense_occupation_level, $shop_occupation_level, $foreigner_occupation_level, $garments_occupation_level, $driver_occupation_level, $service_andcommon_occupation_level, $mistri_occupation_level, $occupation_describe, $dress_code, $aboutme, $groom_bride_name, $groom_bride_number, $groom_bride_family_number, $family_member_name_relation);
             // Educational Qualifications (sb-biodata-3)
-            mysqli_stmt_bind_param($stmt31, "sssssss", $id, $scndry_edu_method, $maxedu_qulfctn, $gnrl_mdrs_secondary_pass, $gnrl_mdrs_secondary_pass_year, $gnrl_mdrs_secondary_end_year, $gnrlmdrs_secondary_running_std);
+            mysqli_stmt_bind_param($stmt31, "sssssss", $id, $scndry_edu_method, $gnrl_mdrs_secondary_pass, $gnrl_mdrs_secondary_pass_year, $gnrl_mdrs_secondary_end_year, $gnrlmdrs_secondary_running_std, $others_edu_qualification);
             // Educational Qualifications (sb-biodata-3)
             mysqli_stmt_bind_param($stmt32, "sssss", $id, $qawmi_madrasa_hafez, $qawmimadrasa_dawrapass, $kowmi_dawrapas_year, $kowmi_current_edu_level);
             // Educational Qualifications (sb-biodata-3)
-            mysqli_stmt_bind_param($stmt33, "sssssssssss", $id, $higher_secondary_edu_method, $gnrlmdrs_hrsecondary_pass, $gnrlmdrs_hrsecondary_pass_year, $gnrlmdrs_hrsecondary_exam_year, $gnrlmdrs_hrsecondary_group, $gnrlmdrs_hrsecondary_rningstd, $diploma_hrsecondary_pass, $diploma_hrsecondary_pass_year, $diploma_hrsecondary_sub, $diploma_hrsecondary_endingyear);
-            // Educational Qualifications (sb-biodata-3)
-            mysqli_stmt_bind_param($stmt34, "ssssssss", $id, $varsity_edu_method, $uvarsity_pass, $varsity_passing_year, $university_subject, $varsity_ending_year, $uvarsity_name, $others_edu_qualification);
+            mysqli_stmt_bind_param($stmt33, "sssss", $id, $higher_secondary_edu_method, $current_max_edu_subject, $current_max_institute, $current_max_pass_year);
             // Address Details (sb-biodata-4)
             mysqli_stmt_bind_param($stmt4, "ssssssssssssss", $id, $permanent_division, $home_district_under_barishal, $home_district_under_chattogram, $home_district_under_dhaka, $home_district_under_khulna, $home_district_under_mymensingh, $home_district_under_rajshahi, $home_district_under_rangpur, $home_district_under_sylhet, $country_present_address, $present_address_location, $present_address_living_purpose, $childhood);
             // Family Information (sb-biodata-5)
             mysqli_stmt_bind_param($stmt5, "sssssssssssss", $id, $family_major_guardian, $father_name, $father_alive, $fatheroccupation, $mother_alive, $motheroccupation, $brosis_number, $brosis_info, $uncle_profession, $family_class, $financial_condition, $family_religious_condition);
             // Marriage related Info/Marital Status 6 & 7
-            mysqli_stmt_bind_param($stmt61, "sssssssssss", $id, $maritalstatus, $divorce_reason, $how_widow, $how_widower, $get_wife_permission, $get_family_permission, $why_again_married, $how_many_son, $son_details, $agree_marriage_other_religion);
+            mysqli_stmt_bind_param($stmt61, "ssssssssss", $id, $maritalstatus, $divorce_reason, $how_widow, $how_widower, $get_wife_permission, $get_family_permission, $why_again_married, $how_many_son, $son_details);
             // Male Marriage related Info (sb-biodata-6)
             mysqli_stmt_bind_param($stmt62, "sssss", $id, $allowstudy_aftermarriage, $allowjob_aftermarriage, $livewife_aftermarriage, $profileby);
             // Female Marriage related Info (sb-biodata-7)
@@ -849,7 +783,6 @@
                 mysqli_stmt_execute($stmt31) &&
                 mysqli_stmt_execute($stmt32) &&
                 mysqli_stmt_execute($stmt33) &&
-                mysqli_stmt_execute($stmt34) &&
                 mysqli_stmt_execute($stmt4) &&
                 mysqli_stmt_execute($stmt5) &&
                 mysqli_stmt_execute($stmt61) &&
@@ -871,146 +804,149 @@
             }
         }
     }
-    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-    --                   E   N   D                   --
-    --        User Bio Data Save to Database         --
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-    // End & Start
-    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-    --                 S  T  A  R  T                 --
-    --             1bd_personal_physical             --
-    --   Male Marriage related Info / sb-biodata-6   --
-    --       User Bio Data Update to Database        --
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-    function physical_marital_update($id){
+    /*END - User Bio Data Save to Database*/
+    /*START - 1bd_personal_physical 
+    Male Marriage related Info / sb-biodata-6 
+    User Bio Data Update to Database  */
+    function physical_marital_update($id) {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        //Biodata 1 
-        $biodatagender=$_POST['biodatagender'];
-        $day=$_POST['day'];
-        $month=$_POST['month'];
-        $year=$_POST['year'];
-        $dob=$day ."-" . $month . "-" .$year ;
-        $height=$_POST['height'];
-        $weight=$_POST['weight'];	
-        $physicalstatus=$_POST['physicalstatus'];
-        $Skin_tones = $_POST['Skin_tones'];
-        $bloodgroup=$_POST['bloodgroup'];
-        //Biodata 6bd_7bd
-        $maritalstatus=$_POST['maritalstatus'];
-        $divorce_reason=$_POST['divorce_reason'];
-        $how_widow=$_POST['how_widow'];
-        $how_widower=$_POST['how_widower'];
-        $how_many_son=$_POST['how_many_son'];
-        $son_details=$_POST['son_details'];
-        $get_wife_permission=$_POST['get_wife_permission'];
-        $get_family_permission=$_POST['get_family_permission'];
-        $why_again_married=$_POST['why_again_married'];
-        $agree_marriage_other_religion=$_POST['agree_marriage_other_religion'];
-        //6bd Male Questions
-        $allowstudy_aftermarriage=$_POST['allowstudy_aftermarriage'];
-        $allowjob_aftermarriage=$_POST['allowjob_aftermarriage'];
-        $livewife_aftermarriage=$_POST['livewife_aftermarriage'];
-        $profileby=$_POST['profileby'];
-        //7bd Female Questions
-        $anyjob_aftermarriage=$_POST['anyjob_aftermarriage'];
-        $studies_aftermarriage=$_POST['studies_aftermarriage'];
-        $agree_marriage_student=$_POST['agree_marriage_student'];
-        require_once("includes/dbconn.php");
-        // 1bd_personal_physical
-        $sql="SELECT user_id FROM 1bd_personal_physical WHERE user_id=$id";
-        $result=mysqlexec($sql);
-        if(mysqli_num_rows($result)>=1){
-        $sql = "UPDATE 1bd_personal_physical SET 
-            biodatagender = '$biodatagender',
-            dateofbirth = '$dob',
-            height = '$height',
-            weight = '$weight',
-            physicalstatus = '$physicalstatus',
-            Skin_tones = '$Skin_tones',
-            bloodgroup = '$bloodgroup',
-            profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
-        WHERE user_id = '$id'";
-        $result=mysqlexec($sql);
-        if ($result)
-        {    echo "";}
-        }
-        $sql="SELECT user_id FROM 6bd_7bd_marital_status WHERE user_id=$id";
-        $result=mysqlexec($sql);
-        if(mysqli_num_rows($result)>=1){
-        $sql = "UPDATE 6bd_7bd_marital_status SET 
-            maritalstatus = '$maritalstatus',
-            divorce_reason = '$divorce_reason',
-            how_widow = '$how_widow',
-            how_widower = '$how_widower',
-            get_wife_permission = '$get_wife_permission',
-            get_family_permission = '$get_family_permission',
-            why_again_married = '$why_again_married',
-            agree_marriage_other_religion = '$agree_marriage_other_religion',
-            how_many_son = '$how_many_son',
-            son_details = '$son_details',
-            profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
-        WHERE user_id = '$id'";
-        $result=mysqlexec($sql);
-        if ($result)
-        {    echo "";}
-        }
-        $sql="SELECT user_id FROM 6bd_marriage_related_qs_male WHERE user_id=$id";
-        $result=mysqlexec($sql);
-        if(mysqli_num_rows($result)>=1){
-        $sql = "UPDATE 6bd_marriage_related_qs_male SET 
-            allowstudy_aftermarriage = '$allowstudy_aftermarriage',
-            allowjob_aftermarriage = '$allowjob_aftermarriage',
-            livewife_aftermarriage = '$livewife_aftermarriage',
-            profileby = '$profileby',
-            profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
-        WHERE user_id = '$id'";
-        $result=mysqlexec($sql);
-        if ($result)
-        {    echo "";}
-        }
-        $sql="SELECT user_id FROM 7bd_marriage_related_qs_female WHERE user_id=$id";
-        $result=mysqlexec($sql);
-        if(mysqli_num_rows($result)>=1){
-        $sql = "UPDATE 7bd_marriage_related_qs_female SET 
-            studies_aftermarriage = '$studies_aftermarriage',
-            anyjob_aftermarriage = '$anyjob_aftermarriage',
-            agree_marriage_student = '$agree_marriage_student',
-            profileby = '$profileby',
-            profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
-        WHERE user_id = '$id'";
-        $result=mysqlexec($sql);
-        if ($result) {
+            // Biodata 1
+            $biodatagender=$_POST['biodatagender'];
+            $day=$_POST['day'];
+            $month=$_POST['month'];
+            $year=$_POST['year'];
+            $dob=$day ." ". $month . ", " .$year ;
+            $height=$_POST['height'];
+            $weight=$_POST['weight'];	
+            $physicalstatus=$_POST['physicalstatus'];
+            $Skin_tones = $_POST['Skin_tones'];
+            $bloodgroup=$_POST['bloodgroup'];
+            //Biodata 6bd_7bd
+            $maritalstatus=$_POST['maritalstatus'];
+            $divorce_reason=$_POST['divorce_reason'];
+            $how_widow=$_POST['how_widow'];
+            $how_widower=$_POST['how_widower'];
+            $how_many_son=$_POST['how_many_son'];
+            $son_details=$_POST['son_details'];
+            $get_wife_permission=$_POST['get_wife_permission'];
+            $get_family_permission=$_POST['get_family_permission'];
+            $why_again_married=$_POST['why_again_married'];
+            //6bd Male Questions
+            $allowstudy_aftermarriage=$_POST['allowstudy_aftermarriage'];
+            $allowjob_aftermarriage=$_POST['allowjob_aftermarriage'];
+            $livewife_aftermarriage=$_POST['livewife_aftermarriage'];
+            $profileby=$_POST['profileby'];
+            //7bd Female Questions
+            $anyjob_aftermarriage=$_POST['anyjob_aftermarriage'];
+            $studies_aftermarriage=$_POST['studies_aftermarriage'];
+            $agree_marriage_student=$_POST['agree_marriage_student'];
+            require_once("includes/dbconn.php");
+            // 1bd_personal_physical
+            $sql = "SELECT user_id FROM 1bd_personal_physical WHERE user_id = $id";
+            $result = mysqlexec($sql);
+            if (mysqli_num_rows($result) >= 1) {
+                // User exists, perform update
+                $sql = "UPDATE 1bd_personal_physical SET 
+                    biodatagender = '$biodatagender',
+                    dateofbirth = '$dob',
+                    height = '$height',
+                    weight = '$weight',
+                    physicalstatus = '$physicalstatus',
+                    Skin_tones = '$Skin_tones',
+                    bloodgroup = '$bloodgroup',
+                    profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
+                    WHERE user_id = '$id'";
+            } else {
+                // User doesn't exist, perform insert
+                $sql = "INSERT INTO 1bd_personal_physical (user_id, biodatagender, dateofbirth, height, weight, physicalstatus, Skin_tones, bloodgroup, profilecreationdate)
+                    VALUES ('$id', '$biodatagender', '$dob', '$height', '$weight', '$physicalstatus', '$Skin_tones', '$bloodgroup', DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
+            }
+            $result = mysqlexec($sql);
+            if ($result) {
+                echo "";
+            }
+            $sql = "SELECT user_id FROM 6bd_7bd_marital_status WHERE user_id = $id";
+            $result = mysqlexec($sql);
+            if (mysqli_num_rows($result) >= 1) {
+                // User exists, perform update
+                $sql = "UPDATE 6bd_7bd_marital_status SET 
+                maritalstatus = '$maritalstatus',
+                divorce_reason = '$divorce_reason',
+                how_widow = '$how_widow',
+                how_widower = '$how_widower',
+                get_wife_permission = '$get_wife_permission',
+                get_family_permission = '$get_family_permission',
+                why_again_married = '$why_again_married',
+                how_many_son = '$how_many_son',
+                son_details = '$son_details',
+                profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
+                WHERE user_id = '$id'";
+            } else {
+                // User doesn't exist, perform insert
+                $sql = "INSERT INTO 6bd_7bd_marital_status (user_id, maritalstatus, divorce_reason, how_widow, how_widower, get_wife_permission, get_family_permission, why_again_married, how_many_son, son_details, profilecreationdate)
+                    VALUES ('$id', '$maritalstatus', '$divorce_reason', '$how_widow', '$how_widower', '$get_wife_permission', '$get_family_permission', '$why_again_married', '$how_many_son', '$son_details', DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
+            }
+            $result = mysqlexec($sql);
+            if ($result) {
+                echo "";
+            }
+            $sql = "SELECT user_id FROM 6bd_marriage_related_qs_male WHERE user_id = $id";
+            $result = mysqlexec($sql);
+            if (mysqli_num_rows($result) >= 1) {
+                // User exists, perform update
+                $sql = "UPDATE 6bd_marriage_related_qs_male SET 
+                allowstudy_aftermarriage = '$allowstudy_aftermarriage',
+                allowjob_aftermarriage = '$allowjob_aftermarriage',
+                livewife_aftermarriage = '$livewife_aftermarriage',
+                profileby = '$profileby',
+                profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
+                WHERE user_id = '$id'";
+            } else {
+                // User doesn't exist, perform insert
+                $sql = "INSERT INTO 6bd_marriage_related_qs_male (user_id, allowstudy_aftermarriage, allowjob_aftermarriage, livewife_aftermarriage, profileby, profilecreationdate)
+                VALUES ('$id', '$allowstudy_aftermarriage', '$allowjob_aftermarriage', '$livewife_aftermarriage', '$profileby', DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
+            }
+            $result = mysqlexec($sql);
+            if ($result) {
+                echo "";
+            }
+            $sql = "SELECT user_id FROM 7bd_marriage_related_qs_female WHERE user_id = $id";
+            $result = mysqlexec($sql);
+            if (mysqli_num_rows($result) >= 1) {
+                $sql = "UPDATE 7bd_marriage_related_qs_female SET 
+                studies_aftermarriage = '$studies_aftermarriage',
+                anyjob_aftermarriage = '$anyjob_aftermarriage',
+                agree_marriage_student = '$agree_marriage_student',
+                profileby = '$profileby',
+                profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
+                WHERE user_id = '$id'";
+            } else {
+                $sql = "INSERT INTO 7bd_marriage_related_qs_female (user_id, studies_aftermarriage, anyjob_aftermarriage, agree_marriage_student, profileby, profilecreationdate)
+                VALUES ('$id', '$studies_aftermarriage', '$anyjob_aftermarriage', '$agree_marriage_student', '$profileby', DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
+            }
+            $result = mysqlexec($sql);
             session_start();
-            $_SESSION['updateMessage'] = '<i class="fa fa-check-circle" style="font-size: 30px; margin-bottom: 10px;"></i></br> ডেটা সফলভাবে আপডেট হয়েছে!';
-            $_SESSION['messageType'] = 'success';
+            if ($result) {
+                $_SESSION['updateMessage'] = '<i class="fa fa-check-circle" style="font-size: 30px; margin-bottom: 10px;"></i></br> ডেটা আপডেট সফল হয়েছে!';
+                $_SESSION['messageType'] = 'success';
+            } else {
+                $_SESSION['updateMessage'] = '<i class="fa fa-times-circle" style="font-size: 30px; margin-bottom: 10px;"></i> </br> সমস্যা দেখা দিয়েছে!';
+                $_SESSION['messageType'] = 'error';
+            }
             header("Location: update-physical-marital.php");
             exit();
-        } else {
-            session_start();
-            $_SESSION['updateMessage'] = '<i class="fa fa-times-circle" style="font-size: 30px; margin-bottom: 10px;"></i> </br>উফফ! সমস্যা দেখা দিয়েছে।';
-            $_SESSION['messageType'] = 'error';
-            header("Location: update-physical-marital.php");
-            exit();
-        }
-        }
         }
     }
-    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-    --                   E   N   D                   --
-    --             1bd_personal_physical             --
-    --   Male Marriage related Info / sb-biodata-6   --
-    --       User Bio Data Update to Database        --
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-    //End & Start
-    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-    --                  S  T  A  R  T                --
-    --             2bd_personal_lifestyle            --
-    --       User Bio Data Update to Database        --
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+    /*END - 1bd_personal_physical 
+    Male Marriage related Info / sb-biodata-6 
+    User Bio Data Update to Database  */
+    /*START - 2bd_personal_lifestyle 
+    User Bio Data Update to Database  */
     function personal_info_update($id){
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $smoke=$_POST['smoke'];
         $occupation_sector=$_POST['occupation_sector'];
+        $no_occupation=$_POST['no_occupation'];
         $other_occupation_sector=$_POST['other_occupation_sector'];
         $business_occupation_level=$_POST['business_occupation_level'];
         $student_occupation_level=$_POST['student_occupation_level'];
@@ -1018,6 +954,7 @@
         $engineer_occupation_level=$_POST['engineer_occupation_level'];
         $teacher_occupation_level=$_POST['teacher_occupation_level'];
         $defense_occupation_level=$_POST['defense_occupation_level'];
+		$shop_occupation_level=$_POST['shop_occupation_level'];
         $foreigner_occupation_level=$_POST['foreigner_occupation_level'];
         $garments_occupation_level=$_POST['garments_occupation_level'];
         $driver_occupation_level=$_POST['driver_occupation_level'];
@@ -1027,7 +964,6 @@
         $dress_code=$_POST['dress_code'];
         $aboutme=$_POST['aboutme'];
         $groom_bride_name=$_POST['groom_bride_name'];		
-        $groom_bride_email=$_POST['groom_bride_email'];		
         $groom_bride_number=$_POST['groom_bride_number'];		
         $groom_bride_family_number=$_POST['groom_bride_family_number'];		
         $family_member_name_relation=$_POST['family_member_name_relation'];		
@@ -1038,6 +974,7 @@
         $sql = "UPDATE 2bd_personal_lifestyle SET 
             smoke = '$smoke',
             occupation_sector = '$occupation_sector',
+            no_occupation = '$no_occupation',
             other_occupation_sector = '$other_occupation_sector',
             business_occupation_level = '$business_occupation_level',
             student_occupation_level = '$student_occupation_level',
@@ -1045,6 +982,7 @@
             engineer_occupation_level = '$engineer_occupation_level',
             teacher_occupation_level = '$teacher_occupation_level',
             defense_occupation_level = '$defense_occupation_level',
+			shop_occupation_level = '$shop_occupation_level',
             foreigner_occupation_level = '$foreigner_occupation_level',
             garments_occupation_level = '$garments_occupation_level',
             driver_occupation_level = '$driver_occupation_level',
@@ -1054,7 +992,6 @@
             dress_code = '$dress_code',
             aboutme = '$aboutme',
             groom_bride_name = '$groom_bride_name',
-            groom_bride_email = '$groom_bride_email',
             groom_bride_number = '$groom_bride_number',
             groom_bride_family_number = '$groom_bride_family_number',
             family_member_name_relation = '$family_member_name_relation',
@@ -1063,13 +1000,13 @@
         $result=mysqlexec($sql);
         if ($result) {
             session_start();
-            $_SESSION['updateMessage'] = '<i class="fa fa-check-circle" style="font-size: 30px; margin-bottom: 10px;"></i></br> ডেটা সফলভাবে আপডেট হয়েছে!';
+            $_SESSION['updateMessage'] = '<i class="fa fa-check-circle" style="font-size: 30px; margin-bottom: 10px;"></i></br> ডেটা আপডেট সফল হয়েছে!';
             $_SESSION['messageType'] = 'success';
             header("Location: update-personalInfo.php");
             exit();
         } else {
             session_start();
-            $_SESSION['updateMessage'] = '<i class="fa fa-times-circle" style="font-size: 30px; margin-bottom: 10px;"></i> </br>উফফ! সমস্যা দেখা দিয়েছে।';
+            $_SESSION['updateMessage'] = '<i class="fa fa-times-circle" style="font-size: 30px; margin-bottom: 10px;"></i> </br> সমস্যা দেখা দিয়েছে!';
             $_SESSION['messageType'] = 'error';
             header("Location: update-personalInfo.php");
             exit();
@@ -1077,17 +1014,10 @@
         }
         }
     }
-    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-    --                   E   N   D                   --
-    --             2bd_personal_lifestyle            --
-    --       User Bio Data Update to Database        --
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-    //End & Start
-    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-    --                  S  T  A  R  T                --
-    --  Educational Qualifications  / sb-biodata-3   --
-    --       User Bio Data Update to Database        --
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+    /*END - 2bd_personal_lifestyle 
+    User Bio Data Update to Database  */
+    /*START - Educational Qualifications  / sb-biodata-3
+    User Bio Data Update to Database */
     function education_update($id){
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
        	//Biodata 3
@@ -1100,24 +1030,11 @@
         $gnrl_mdrs_secondary_pass_year=$_POST['gnrl_mdrs_secondary_pass_year'];
         $gnrl_mdrs_secondary_end_year=$_POST['gnrl_mdrs_secondary_end_year'];
         $gnrlmdrs_secondary_running_std=$_POST['gnrlmdrs_secondary_running_std'];
-        $higher_secondary_edu_method=$_POST['higher_secondary_edu_method'];
-        $gnrlmdrs_hrsecondary_pass=$_POST['gnrlmdrs_hrsecondary_pass'];
-        $gnrlmdrs_hrsecondary_pass_year=$_POST['gnrlmdrs_hrsecondary_pass_year'];
-        $gnrlmdrs_hrsecondary_exam_year=$_POST['gnrlmdrs_hrsecondary_exam_year'];
-        $gnrlmdrs_hrsecondary_group=$_POST['gnrlmdrs_hrsecondary_group'];
-        $gnrlmdrs_hrsecondary_rningstd=$_POST['gnrlmdrs_hrsecondary_rningstd'];
-        $diploma_hrsecondary_pass=$_POST['diploma_hrsecondary_pass'];
-        $diploma_hrsecondary_pass_year=$_POST['diploma_hrsecondary_pass_year'];
-        $diploma_hrsecondary_sub=$_POST['diploma_hrsecondary_sub'];
-        $diploma_hrsecondary_endingyear=$_POST['diploma_hrsecondary_endingyear'];
-        $varsity_edu_method=$_POST['varsity_edu_method'];
-        $uvarsity_pass=$_POST['uvarsity_pass'];
-        $varsity_passing_year=$_POST['varsity_passing_year'];
-        $university_subject=$_POST['university_subject'];
-        $varsity_ending_year=$_POST['varsity_ending_year'];
-        $uvarsity_name=$_POST['uvarsity_name'];
         $others_edu_qualification=$_POST['others_edu_qualification'];
-        $maxedu_qulfctn=$_POST['maxedu_qulfctn'];
+        $higher_secondary_edu_method=$_POST['higher_secondary_edu_method'];
+        $current_max_edu_subject=$_POST['current_max_edu_subject'];
+        $current_max_institute=$_POST['current_max_institute'];
+        $current_max_pass_year=$_POST['current_max_pass_year'];
         require_once("includes/dbconn.php");
         // Secondary Education
         $sql = "SELECT user_id FROM 3bd_secondaryedu_method WHERE user_id = $id";
@@ -1126,17 +1043,17 @@
             // User exists, perform update
             $sql = "UPDATE 3bd_secondaryedu_method SET 
                 scndry_edu_method = '$scndry_edu_method',
-                maxedu_qulfctn = '$maxedu_qulfctn',
                 gnrl_mdrs_secondary_pass = '$gnrl_mdrs_secondary_pass',
                 gnrl_mdrs_secondary_pass_year = '$gnrl_mdrs_secondary_pass_year',
                 gnrl_mdrs_secondary_end_year = '$gnrl_mdrs_secondary_end_year',
                 gnrlmdrs_secondary_running_std = '$gnrlmdrs_secondary_running_std',
+                others_edu_qualification = '$others_edu_qualification',
                 profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
                 WHERE user_id = '$id'";
         } else {
             // User doesn't exist, perform insert
-            $sql = "INSERT INTO 3bd_secondaryedu_method (user_id, scndry_edu_method, maxedu_qulfctn, gnrl_mdrs_secondary_pass, gnrl_mdrs_secondary_pass_year, gnrl_mdrs_secondary_end_year, gnrlmdrs_secondary_running_std, profilecreationdate)
-                VALUES ('$id', '$scndry_edu_method', '$maxedu_qulfctn', '$gnrl_mdrs_secondary_pass', '$gnrl_mdrs_secondary_pass_year', '$gnrl_mdrs_secondary_end_year', '$gnrlmdrs_secondary_running_std', DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
+            $sql = "INSERT INTO 3bd_secondaryedu_method (user_id, scndry_edu_method, gnrl_mdrs_secondary_pass, gnrl_mdrs_secondary_pass_year, gnrl_mdrs_secondary_end_year, gnrlmdrs_secondary_running_std, others_edu_qualification, profilecreationdate)
+                VALUES ('$id', '$scndry_edu_method', '$gnrl_mdrs_secondary_pass', '$gnrl_mdrs_secondary_pass_year', '$gnrl_mdrs_secondary_end_year', '$gnrlmdrs_secondary_running_std', '$others_edu_qualification', DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
         }
         $result = mysqlexec($sql);
         if ($result) {
@@ -1170,69 +1087,33 @@
             // User exists, perform update
             $sql = "UPDATE 3bd_higher_secondaryedu_method SET 
                 higher_secondary_edu_method = '$higher_secondary_edu_method',
-                gnrlmdrs_hrsecondary_pass = '$gnrlmdrs_hrsecondary_pass',
-                gnrlmdrs_hrsecondary_pass_year = '$gnrlmdrs_hrsecondary_pass_year',
-                gnrlmdrs_hrsecondary_exam_year = '$gnrlmdrs_hrsecondary_exam_year',
-                gnrlmdrs_hrsecondary_group = '$gnrlmdrs_hrsecondary_group',
-                gnrlmdrs_hrsecondary_rningstd = '$gnrlmdrs_hrsecondary_rningstd',
-                diploma_hrsecondary_pass = '$diploma_hrsecondary_pass',
-                diploma_hrsecondary_pass_year = '$diploma_hrsecondary_pass_year',
-                diploma_hrsecondary_sub = '$diploma_hrsecondary_sub',
-                diploma_hrsecondary_endingyear = '$diploma_hrsecondary_endingyear',
+                current_max_edu_subject = '$current_max_edu_subject',
+                current_max_institute = '$current_max_institute',
+                current_max_pass_year = '$current_max_pass_year',
                 profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
                 WHERE user_id = '$id'";
         } else {
             // User doesn't exist, perform insert
-            $sql = "INSERT INTO 3bd_higher_secondaryedu_method (user_id, higher_secondary_edu_method, gnrlmdrs_hrsecondary_pass, gnrlmdrs_hrsecondary_pass_year, gnrlmdrs_hrsecondary_exam_year, gnrlmdrs_hrsecondary_group, gnrlmdrs_hrsecondary_rningstd, diploma_hrsecondary_pass, diploma_hrsecondary_pass_year, diploma_hrsecondary_sub, diploma_hrsecondary_endingyear, profilecreationdate)
-                VALUES ('$id', '$higher_secondary_edu_method', '$gnrlmdrs_hrsecondary_pass', '$gnrlmdrs_hrsecondary_pass_year', '$gnrlmdrs_hrsecondary_exam_year', '$gnrlmdrs_hrsecondary_group', '$gnrlmdrs_hrsecondary_rningstd', '$diploma_hrsecondary_pass', '$diploma_hrsecondary_pass_year', '$diploma_hrsecondary_sub', '$diploma_hrsecondary_endingyear', DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
-        }
-        $result = mysqlexec($sql);
-        if ($result) {
-            echo "";
-        }        
-        $sql = "SELECT user_id FROM 3bd_universityedu_method WHERE user_id=$id";
-        $result = mysqlexec($sql);
-        if (mysqli_num_rows($result) >= 1) {
-            // User exists, perform update
-            $sql = "UPDATE 3bd_universityedu_method SET 
-                varsity_edu_method = '$varsity_edu_method',
-                uvarsity_pass = '$uvarsity_pass',
-                varsity_passing_year = '$varsity_passing_year',
-                university_subject = '$university_subject',
-                varsity_ending_year = '$varsity_ending_year',
-                uvarsity_name = '$uvarsity_name',
-                others_edu_qualification = '$others_edu_qualification',
-                profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')
-                WHERE user_id = '$id'";
-        } else {
-            // User doesn't exist, perform insert
-            $sql = "INSERT INTO 3bd_universityedu_method (user_id, varsity_edu_method, uvarsity_pass, varsity_passing_year, university_subject, varsity_ending_year, uvarsity_name, others_edu_qualification, profilecreationdate)
-            VALUES ('$id', '$varsity_edu_method', '$uvarsity_pass', '$varsity_passing_year', '$university_subject', '$varsity_ending_year', '$uvarsity_name', '$others_edu_qualification', DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
+            $sql = "INSERT INTO 3bd_higher_secondaryedu_method (user_id, higher_secondary_edu_method, current_max_edu_subject, current_max_institute, current_max_pass_year, profilecreationdate)
+                VALUES ('$id', '$higher_secondary_edu_method', '$current_max_edu_subject', '$current_max_institute', '$current_max_pass_year', DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
         }
         $result = mysqlexec($sql);
         session_start();
         if ($result) {
-            $_SESSION['updateMessage'] = '<i class="fa fa-check-circle" style="font-size: 30px; margin-bottom: 10px;"></i></br> ডেটা সফলভাবে আপডেট হয়েছে!';
+            $_SESSION['updateMessage'] = '<i class="fa fa-check-circle" style="font-size: 30px; margin-bottom: 10px;"></i></br> ডেটা আপডেট সফল হয়েছে!';
             $_SESSION['messageType'] = 'success';
         } else {
-            $_SESSION['updateMessage'] = '<i class="fa fa-times-circle" style="font-size: 30px; margin-bottom: 10px;"></i> </br>উফফ! সমস্যা দেখা দিয়েছে।';
+            $_SESSION['updateMessage'] = '<i class="fa fa-times-circle" style="font-size: 30px; margin-bottom: 10px;"></i> </br>সমস্যা দেখা দিয়েছে!';
             $_SESSION['messageType'] = 'error';
         }
         header("Location: update-education.php");
         exit();        
         }
     }
-    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-    --                   E   N   D                   --
-    --  Educational Qualifications  / sb-biodata-3   --
-    --       User Bio Data Update to Database        --
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-    //End & Start
-    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-    --                  S  T  A  R  T                --
-    --               4bd_address_details             --
-    --       User Bio Data Update to Database        --
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+    /*END - Educational Qualifications  / sb-biodata-3
+    User Bio Data Update to Database */
+    /*START - 4bd_address_details 
+    User Bio Data Update to Database */
     function address_update($id){
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     	//Biodata 4
@@ -1272,13 +1153,13 @@
         $result=mysqlexec($sql);
         if ($result) {
             session_start();
-            $_SESSION['updateMessage'] = '<i class="fa fa-check-circle" style="font-size: 30px; margin-bottom: 10px;"></i></br> ডেটা সফলভাবে আপডেট হয়েছে!';
+            $_SESSION['updateMessage'] = '<i class="fa fa-check-circle" style="font-size: 30px; margin-bottom: 10px;"></i></br> ডেটা আপডেট সফল হয়েছে!';
             $_SESSION['messageType'] = 'success';
             header("Location: update-address.php");
             exit();
         } else {
             session_start();
-            $_SESSION['updateMessage'] = '<i class="fa fa-times-circle" style="font-size: 30px; margin-bottom: 10px;"></i> </br>উফফ! সমস্যা দেখা দিয়েছে।';
+            $_SESSION['updateMessage'] = '<i class="fa fa-times-circle" style="font-size: 30px; margin-bottom: 10px;"></i> </br> সমস্যা দেখা দিয়েছে!';
             $_SESSION['messageType'] = 'error';
             header("Location: update-address.php");
             exit();
@@ -1286,17 +1167,10 @@
         }
         }
     }
-    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-    --                   E   N   D                   --
-    --              4bd_address_details              --
-    --       User Bio Data Update to Database        --
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-    //End & Start
-    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-    --                  S  T  A  R  T                --
-    --             5bd_family_information            --
-    --       User Bio Data Update to Database        --
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+    /*END - 4bd_address_details 
+    User Bio Data Update to Database */
+    /*START - 5bd_family_information 
+    User Bio Data Update to Database */
     function family_update($id){
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         //Biodata 5
@@ -1334,13 +1208,13 @@
         $result=mysqlexec($sql);
         if ($result) {
             session_start();
-            $_SESSION['updateMessage'] = '<i class="fa fa-check-circle" style="font-size: 30px; margin-bottom: 10px;"></i></br> ডেটা সফলভাবে আপডেট হয়েছে!';
+            $_SESSION['updateMessage'] = '<i class="fa fa-check-circle" style="font-size: 30px; margin-bottom: 10px;"></i></br> ডেটা আপডেট সফল হয়েছে!';
             $_SESSION['messageType'] = 'success';
             header("Location: update-family.php");
             exit();
         } else {
             session_start();
-            $_SESSION['updateMessage'] = '<i class="fa fa-times-circle" style="font-size: 30px; margin-bottom: 10px;"></i> </br>উফফ! সমস্যা দেখা দিয়েছে।';
+            $_SESSION['updateMessage'] = '<i class="fa fa-times-circle" style="font-size: 30px; margin-bottom: 10px;"></i> </br>সমস্যা দেখা দিয়েছে!';
             $_SESSION['messageType'] = 'error';
             header("Location: update-family.php");
             exit();
@@ -1348,17 +1222,10 @@
         }
         }
     }
-    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-    --                   E   N   D                   --
-    --             5bd_family_information            --
-    --       User Bio Data Update to Database        --
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-    //End & Start
-    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-    --                  S  T  A  R  T                --
-    --              8bd_religion_details            --
-    --       User Bio Data Update to Database        --
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+    /*END - 5bd_family_information 
+    User Bio Data Update to Database */
+    /*START - 8bd_religion_details
+    User Bio Data Update to Database */
     function religion_update($id) {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Biodata 8
@@ -1376,13 +1243,13 @@
                 $result = mysqlexec($sql);
                 if ($result) {
                     session_start();
-                    $_SESSION['updateMessage'] = '<i class="fa fa-check-circle" style="font-size: 30px; margin-bottom: 10px;"></i></br> ডেটা সফলভাবে আপডেট হয়েছে!';
+                    $_SESSION['updateMessage'] = '<i class="fa fa-check-circle" style="font-size: 30px; margin-bottom: 10px;"></i></br> ডেটা আপডেট সফল হয়েছে!';
                     $_SESSION['messageType'] = 'success';
                     header("Location: update-religion.php");
                     exit();
                 } else {
                     session_start();
-                    $_SESSION['updateMessage'] = '<i class="fa fa-times-circle" style="font-size: 30px; margin-bottom: 10px;"></i> </br>উফফ! সমস্যা দেখা দিয়েছে।';
+                    $_SESSION['updateMessage'] = '<i class="fa fa-times-circle" style="font-size: 30px; margin-bottom: 10px;"></i> </br>সমস্যা দেখা দিয়েছে!';
                     $_SESSION['messageType'] = 'error';
                     header("Location: update-religion.php");
                     exit();
@@ -1390,17 +1257,10 @@
             }
         }
     }
-    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-    --                   E   N   D                   --
-    --              8bd_religion_details             --
-    --       User Bio Data Update to Database        --
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-    //End & Start
-    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-    --                  S  T  A  R  T                --
-    --           9bd_expected_life_partner           --
-    --       User Bio Data Update to Database        --
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+    /*END - 8bd_religion_details
+    User Bio Data Update to Database */
+    /*START - 9bd_expected_life_partner
+    User Bio Data Update to Database */
     function partner_update($id){
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       	//Biodata 9
@@ -1440,55 +1300,49 @@
         $result=mysqlexec($sql);
         if ($result) {
             session_start();
-            $_SESSION['updateMessage'] = '<i class="fa fa-check-circle" style="font-size: 30px; margin-bottom: 10px;"></i></br> ডেটা সফলভাবে আপডেট হয়েছে!';
+            $_SESSION['updateMessage'] = '<i class="fa fa-check-circle" style="font-size: 30px; margin-bottom: 10px;"></i></br> ডেটা আপডেট সফল হয়েছে!';
             $_SESSION['messageType'] = 'success';
             header("Location: update-partnerInfo.php");
             exit();
         } else {
-            echo "Error updating data.";
+            session_start();
+            $_SESSION['updateMessage'] = '<i class="fa fa-times-circle" style="font-size: 30px; margin-bottom: 10px;"></i> </br>সমস্যা দেখা দিয়েছে!';
+            $_SESSION['messageType'] = 'error';
+            header("Location: update-partnerInfo.php");
+            exit();
         }
         }
         }
     }
-    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-    --                   E   N   D                   --
-    --           9bd_expected_life_partner           --
-    --       User Bio Data Update to Database        --
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
-    //End & Start
-    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-    --                S  T  A  R  T                  --
-    --           Function For Upload Photo           --
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+    /*END - 9bd_expected_life_partner
+    User Bio Data Update to Database */
+    /*START - Function For Upload Photo */
     function uploadphoto($id) {
-        $target = "profile/" . $id . "/";
-        if (!file_exists($target)) {
-            mkdir($target, 0777, true);
-        }
-        // Specifying target for each file
-        $target1 = $target . basename($_FILES['pic1']['name']);
-        // This gets all the other information from the form
-        $pic1 = ($_FILES['pic1']['name']);
-        $sql = "SELECT id FROM photos WHERE user_id = '$id'";
-        $result = mysqlexec($sql);
-        if (mysqli_num_rows($result) == 0) {
-            $sql = "INSERT INTO photos (id, user_id, pic1, profilecreationdate) VALUES ('', '$id', '$pic1', DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
-            mysqlexec($sql);
-        } else {
-            $sql = "UPDATE photos SET pic1 = '$pic1', profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p') WHERE user_id=$id";
-            mysqlexec($sql);
-        }
-        // Writes the photo to the server
-        if (move_uploaded_file($_FILES['pic1']['tmp_name'], $target1)) {
-            // Thanks!
-            echo "";
-        } else {
-            // Sorry,
-            echo "";
-        }
-    }    
-    /*-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-    --                   E   N   D                   --
-    --           Function For Upload Photo           --
-    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -*/
+    $target = "profile/" . $id . "/";
+    if (!file_exists($target)) {
+        mkdir($target, 0777, true);
+    }
+    // Specifying target for each file
+    $target1 = $target . basename($_FILES['pic1']['name']);
+    // This gets all the other information from the form
+    $pic1 = ($_FILES['pic1']['name']);
+    $sql = "SELECT id FROM photos WHERE user_id = '$id'";
+    $result = mysqlexec($sql);
+    if (mysqli_num_rows($result) == 0) {
+        $sql = "INSERT INTO photos (user_id, pic1, profilecreationdate) VALUES ('$id', '$pic1', DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p'))";
+        mysqlexec($sql);
+    } else {
+        $sql = "UPDATE photos SET pic1 = '$pic1', profilecreationdate = DATE_FORMAT(NOW(), '%a %d %M %Y, %h:%i %p')  WHERE user_id = '$id'";
+        mysqlexec($sql);
+    }
+    // Writes the photo to the server
+    if (move_uploaded_file($_FILES['pic1']['tmp_name'], $target1)) {
+        // Thanks!
+        echo "";
+    } else {
+        // Sorry,
+        echo "";
+    }
+    }
+    /*END - Function For Upload Photo */
 ?>
