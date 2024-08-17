@@ -8,44 +8,33 @@ saveUniqueVisitor($conn, $ip_address);
 <!DOCTYPE HTML>
 <html>
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2Q53085HTX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2Q53085HTX');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6834867574094195"
+  crossorigin="anonymous"></script>
 <title>Home | ShosurBari</title>
-<link rel="icon" href="images/shosurbari-icon.png" type="image/png">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="শ্বশুরবাড়ি: Explore ShosurBari.com to find your ideal life partner. Connect with grooms and brides in the Bengali community through our extensive network of matchmakers."/>
+<link rel="icon" href="images/shosurbari-icon.png" type="image/png"/>
+<meta property="og:image" content="https://www.shosurbari.com/images/shosurbari-social-share.png"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/optionsearch.js"></script>
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="css/font-awesome.css" rel="stylesheet"> 
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<!-- Custom Theme files -->
-<link href="css/style.css" rel='stylesheet' type='text/css' />
 <link href='//fonts.googleapis.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
-<!--font-Awesome-->
-<link href="css/font-awesome.css" rel="stylesheet"> 
-<!--font-Awesome-->
-<!--Below Link Search Filter Settings Icon Spring -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-  <div class="runtext-container" id="maintenanceNotice">
-    <div class="main-runtext">
-      <marquee direction="" onmouseover="this.stop();" onmouseout="this.start();">
-        <div class="holder">
-          <!-- 🛠️ মেনটেন্যান্স নোটিস: -->
-          <!-- <div class="text-container">
-            <a data-fancybox-group="gallery" class="fancybox"><span style="font-weight: bold; color: red;">🛠️ মেনটেন্যান্স নোটিস:</span> আমরা ওয়েবসাইট আপডেট করতে চলেছি, যার কারণে ওয়েবসাইটে যেকোনো সময় অসুবিধার মুখোমুখি হতে পারেন। আমরা শীঘ্রই সমস্যাটি সমাধান করতে চেষ্টা করব, আমরা তার জন্য দুঃখিত এবং আপনার সহযোগিতার জন্য আমরা কৃতজ্ঞ। ধন্যবাদ!</a>
-          </div> -->
-          <!-- নোটিস: শ্বশুরবাড়ি ডট কমের যাত্রা ( use for space: &nbsp; &nbsp;)--> 
-          <div class="text-container">
-            <a data-fancybox-group="gallery" class="fancybox"><span style="font-weight: bold; color: red;">জরুরি বিজ্ঞপ্তি:</span> শ্বশুরবাড়ি ডট কমের যাত্রা শুরু হয় ২০২২ থেকে। আমরা আপনাদের সুবিধার কথা চিন্তা করে আমাদের পূর্বের সকল নীতিমালা এবং ওয়েবসাইটের ফিচার পরিবর্তন করে ২০২৪ এর জানুয়ারি থেকে পুনরায় যাত্রা শুরু করেছি। কোনো সার্ভিস চার্জ ছাড়াই শ্বশুরবাড়ি ডটকমে একাউন্ট খুলে বায়োডাটা পোস্ট করুন। বায়োডাটা পোস্ট করে খুঁজেনিন সপ্নময় জীবনসঙ্গী। আপনার সহযোগিতার জন্য আমরা কৃতজ্ঞ। ধন্যবাদ!</a>
-          </div>
-        </div>
-      </marquee>
-    </div>
-    <button onclick="document.getElementById('maintenanceNotice').style.display = 'none'"><i class="fa fa-close" style="font-size: 18px; padding: 0 7px;"></i></button>
-  </div>
 	<!-- ===========  Navigation Start =========== -->
 	<?php include_once("includes/navigation.php");?>
 	<!-- ===========  Navigation End ============= -->
@@ -135,17 +124,6 @@ saveUniqueVisitor($conn, $ip_address);
   th {
     background: #f0f0f0;
   }
-  .sb-biodata-field{
-    background: none;
-  }
-  .sb-register-login h2{
-    color: #000;
-    font-size: 23px;
-    font-weight: bold;
-    background: none;
-    text-align: left;
-    line-height: 35px;
-  }
   .shosurbari-biodata-form {
     align-items: center;
     flex-wrap: wrap;
@@ -192,12 +170,23 @@ saveUniqueVisitor($conn, $ip_address);
     margin-left: 31px;
     margin-right: -20px;
   }
+@media screen and (min-width: 1400px) {
+    .popup-container {
+        width: 480px;
+    }
+	}
   @media (max-width: 1400px){
   .shosurbari-biodata-form{
     width: auto;
   }
+	.popup-container {
+    width: 450px;
+  }
   }
   @media screen and (max-width: 1200px) {
+	.popup-container {
+    width: 420px;
+  }
   .droop-down {
     display: block;
     flex-wrap: wrap;
@@ -242,6 +231,9 @@ saveUniqueVisitor($conn, $ip_address);
   .shosurbari-biodata-form {
     width: auto;
   }
+	  	.popup-container {
+    width: 400px;
+  }
   }
   /* Max Width 768px  */
   @media screen and (max-width: 768px) {
@@ -250,7 +242,10 @@ saveUniqueVisitor($conn, $ip_address);
     line-height: 32px;
   }
   .droop-down{
-    margin-top: -30px;
+    margin-top: 120px;
+  }
+	  	.popup-container {
+    width: 390px;
   }
   }
   /* Max Width 600px  */
@@ -271,23 +266,27 @@ saveUniqueVisitor($conn, $ip_address);
     font-size: 15px;
     padding: 8px;
   }
+	  	  	.popup-container {
+    width: 380px;
   }
+  }
+	@media screen and (max-width: 480px) {
+	.popup-container {
+     width: 350px;
+  }
+	  }
   /* Max Width 480px  */
-  @media (max-width:480px){
-  .soshurbari-animation-icon h3,
-  .sb-register-login h2{
-    font-size: 20px;
-  }
-  }
   /* Max Width 384px  */
   @media screen and (max-width: 384px) {
+	.popup-container {
+     width: 300px;
+  }
   .shosurbari-home-search {
     width: 210px;
   }
   .droop-down {
     padding: 20px 25px;
     width: 260px;
-    margin-top: 60px;
   }
   .droop-down h2 {
     font-size: 20px;
@@ -301,6 +300,11 @@ saveUniqueVisitor($conn, $ip_address);
     padding: 5px;
   }
   }
+@media screen and (max-width: 320px) {
+	.popup-container {
+     width: 250px;
+  }
+	  }
   </style>
   <section>
     <div class="shosurbari-home-banner">
@@ -318,7 +322,6 @@ saveUniqueVisitor($conn, $ip_address);
           ?>
         </div>
       </div>
-      <div class="slide-indicators" id="slide-indicators" target="_blank"></div>
     </div>
   </section>
 	<div class="droop-down">
@@ -379,15 +382,15 @@ saveUniqueVisitor($conn, $ip_address);
             <span class="search-options">সকল শিক্ষার্থী</span>
             <br>
             <!-- Students Sector-->
-            <input type="checkbox" name="student_occupation_level[]" value="কওমী মাদ্রাসার শিক্ষার্থী" class="SelectBox val student-option" onchange="handleStudentOptions(this)" />
+            <input type="checkbox" name="student_occupation_level[]" value="শিক্ষার্থী-কওমী মাদ্রাসা" class="SelectBox val student-option" onchange="handleStudentOptions(this)" />
             <span class="search-options">শিক্ষার্থী-কওমী মাদ্রাসা</span>
             <br>
             <!-- Students Sector-->
-            <input type="checkbox" name="student_occupation_level[]" value="বি.এসসি. ইঞ্জিনিয়ারিং শিক্ষার্থী" class="SelectBox val student-option" onchange="handleStudentOptions(this)" />
+            <input type="checkbox" name="student_occupation_level[]" value="শিক্ষার্থী-বি.এসসি. ইঞ্জিনিয়ারিং" class="SelectBox val student-option" onchange="handleStudentOptions(this)" />
             <span class="search-options">শিক্ষার্থী-বি.এসসি. ইঞ্জিনিয়ারিং</span>
             <br>
             <!-- Students Sector-->
-            <input type="checkbox" name="student_occupation_level[]" value="মেডিকেল শিক্ষার্থী" class="SelectBox val student-option" onchange="handleStudentOptions(this)" />
+            <input type="checkbox" name="student_occupation_level[]" value="শিক্ষার্থী-মেডিকেল" class="SelectBox val student-option" onchange="handleStudentOptions(this)" />
             <span class="search-options">শিক্ষার্থী-মেডিকেল</span>
             <br>
             <!-- Medical & Health Sector -->                  
@@ -395,8 +398,8 @@ saveUniqueVisitor($conn, $ip_address);
             <span class="search-options">ডাক্তার/চিকিৎসা/স্বাস্থ্য</span>
             <br>
             <!--  Engineers Sector-->                  
-            <input type="checkbox" name="occupation_sector[]" value="বি.এসসি. ইঞ্জিনিয়ার" class="SelectBox val" />
-            <span class="search-options">বি.এসসি. ইঞ্জিনিয়ার</span>
+            <input type="checkbox" name="occupation_sector[]" value="ইঞ্জিনিয়ার" class="SelectBox val" />
+            <span class="search-options">ইঞ্জিনিয়ার</span>
             <br>
             <!-- Teacher Profession -->                  
             <input type="checkbox" name="occupation_sector[]" value="শিক্ষক/প্রফেসর" class="SelectBox val" />
@@ -410,13 +413,17 @@ saveUniqueVisitor($conn, $ip_address);
             <input type="checkbox" name="occupation_sector[]" value="সার্ভিস/ফাইন্যান্স/ফ্রিল্যান্সার/উদ্যোক্তা" class="SelectBox val" />
             <span class="search-options">সার্ভিস/ফাইন্যান্স/ফ্রিল্যান্সার/উদ্যোক্তা</span>
             <br>
+			<!-- Shop Woner Sector-->                  
+            <input type="checkbox" name="occupation_sector[]" value="দোকান/শোরুমের স্বত্বাধিকারী" class="SelectBox val" />
+            <span class="search-options">দোকান/শোরুমের স্বত্বাধিকারী(মালিক)</span>
+            <br>
             <!-- Working Forign Sector-->                  
             <input type="checkbox" name="occupation_sector[]" value="প্রবাসী/বিদেশ" class="SelectBox val" />
             <span class="search-options">প্রবাসী/বিদেশ</span>
             <br>
             <!-- Garments Sector-->                  
-            <input type="checkbox" name="occupation_sector[]" value="গার্মেন্টস/পোশাক" class="SelectBox val" />
-            <span class="search-options">গার্মেন্টস/পোশাক</span>
+            <input type="checkbox" name="occupation_sector[]" value="গার্মেন্টস/টেইলর" class="SelectBox val" />
+            <span class="search-options">গার্মেন্টস/টেইলর</span>
             <br>
             <!--  Driver Profession -->                  
             <input type="checkbox" name="occupation_sector[]" value="ড্রাইভার/চালক" class="SelectBox val" />
@@ -742,11 +749,11 @@ saveUniqueVisitor($conn, $ip_address);
         echo "<div class=\"biodatalist\">";
         echo "<div class=\"sb_bio_header\">";
         // Start of Default Photo Show
-        echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\">";
+        echo "<a href=\"profile.php?/Biodata={$profid}\" aria-label=\"View Profile of User ID: {$profid}\">";
         if (!empty($pic1)) {
-        echo "<img class=\"img-responsive\" src=\"profile/{$profid}/{$pic1}\"/>";
+            echo "<img class=\"img-responsive\" src=\"profile/{$profid}/{$pic1}\" alt=\"Profile Picture of User ID: {$profid}\"/>";
         } else {
-        echo "<img class=\"img-responsive\" src=\"images/shosurbari-male-icon.jpg\"/>";
+            echo "<img class=\"img-responsive\" src=\"images/shosurbari-male-icon.jpg\" alt=\"Default Profile Picture\"/>";
         }
         echo "</a>";
         // End of Default photo Show
@@ -758,7 +765,7 @@ saveUniqueVisitor($conn, $ip_address);
         echo "<span class=\"sb_single_data\"> <span class=\"sb_value\"> উচ্চতা </span> <span class=\"sb_data\">{$height}</span></span>";
         echo "<span class=\"sb_single_data\"> <span class=\"sb_value\"> পেশা </span> <span class=\"sb_data\"> {$occupation_value}</span></span>";
         echo "<span class=\"sb_single_data\"> <span class=\"sb_value\"> জন্ম সন </span> <span class=\"sb_data\"> {$dateofbirth}</span></span>";
-        echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\"> <button class=\"view_sb_profile\"> সম্পূর্ণ বায়োডাটা</button></a>";
+        echo "<a href=\"profile.php?/Biodata={$profid}\" aria-label=\"View Biodata for User ID: {$profid}\"><button class=\"view_sb_profile\"> সম্পূর্ণ বায়োডাটা</button></a>";
         echo "</div></div>";
         $c_count++;
         }
@@ -767,10 +774,7 @@ saveUniqueVisitor($conn, $ip_address);
     }
     echo '<script> var count = ' . $c_count . '; </script>';
   ?>
-  <!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-  --                 S  T  A  R  T                 --
-  --    SHOSURBARI HOME PAGE / FEATURED PROFILES   --
-  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+  <!-- START - SHOSURBARI HOME PAGE / FEATURED PROFILES  -->
   <div class="grid_1">
     <div class="sb-featured-profiles">
       <h1><span class="shosurbari-heading-span"> জনপ্রিয়</span> বায়োডাটা</h1>
@@ -783,12 +787,11 @@ saveUniqueVisitor($conn, $ip_address);
     </div>
     <ul id="flexiselDemo3">
       <?php
-        // Modify the SQL query to join users and 1bd_personal_physical tables and check for activation status
         $sql = "SELECT p.*, u.active
         FROM 1bd_personal_physical p
         INNER JOIN users u ON p.user_id = u.id
         WHERE u.active = 1
-        ORDER BY p.view_count DESC LIMIT 20"; // Top 10 profiles by view_count of active users
+        ORDER BY p.view_count DESC LIMIT 20"; // Top 20 Views profiles by view_count of active users
         $result = mysqlexec($sql);
         if ($result) {
           while ($row = mysqli_fetch_assoc($result)) {
@@ -820,14 +823,16 @@ saveUniqueVisitor($conn, $ip_address);
             $result3 = mysqlexec($sql3);
             if ($result3 && mysqli_num_rows($result3) > 0) {
             $row3 = mysqli_fetch_assoc($result3);
-            $other_occupation_sector = $row3['other_occupation_sector'];
             $occupation_levels = array(
+            'no_occupation' => $row3['no_occupation'],
+            'other_occupation_sector' => $row3['other_occupation_sector'],
             'business_occupation_level' => $row3['business_occupation_level'],
             'student_occupation_level' => $row3['student_occupation_level'],
             'health_occupation_level' => $row3['health_occupation_level'],
             'engineer_occupation_level' => $row3['engineer_occupation_level'],
             'teacher_occupation_level' => $row3['teacher_occupation_level'],
             'defense_occupation_level' => $row3['defense_occupation_level'],
+			'shop_occupation_level' => $row3['shop_occupation_level'],
             'foreigner_occupation_level' => $row3['foreigner_occupation_level'],
             'garments_occupation_level' => $row3['garments_occupation_level'],
             'driver_occupation_level' => $row3['driver_occupation_level'],
@@ -844,11 +849,11 @@ saveUniqueVisitor($conn, $ip_address);
             echo "<div class=\"sb_featured_profile_head\">";
             echo "<div class=\"sbbio_header_recent_view\">";
             // Start of Default Photo Show
-            echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\">";
+            echo "<a href=\"profile.php?/Biodata={$profid}\" aria-label=\"View Profile of User ID: {$profid}\">";
             if (!empty($pic1)) {
-                echo "<img class=\"img-responsive\" src=\"profile/{$profid}/{$pic1}\"/>";
+                echo "<img class=\"img-responsive\" src=\"profile/{$profid}/{$pic1}\" alt=\"Profile Picture of User ID: {$profid}\"/>";
             } else {
-                echo "<img class=\"img-responsive\" src=\"images/{$defaultImage}\"/>";
+                echo "<img class=\"img-responsive\" src=\"images/{$defaultImage}\" alt=\"Default Profile Picture\"/>";
             }
             echo "</a>";
             // End of Default photo Show
@@ -875,7 +880,7 @@ saveUniqueVisitor($conn, $ip_address);
             echo "</tr>";
             echo "</tbody>";
             echo "</table>";
-            echo "<a href=\"profile.php?/Biodata={$profid}\" target=\"_blank\"><button class=\"view_sb_profile_recentview\">সম্পূর্ণ বায়োডাটা</button> </a>";
+            echo "<a href=\"profile.php?/Biodata={$profid}\" aria-label=\"View Biodata for User ID: {$profid}\"><button class=\"view_sb_profile_recentview\">সম্পূর্ণ বায়োডাটা</button></a>";
             echo "</div></div>";
             echo "</li>";
             }
@@ -886,16 +891,9 @@ saveUniqueVisitor($conn, $ip_address);
     </ul>
   </div>
   <script type="text/javascript" src="js/jquery.flexisel.js"></script>
-  <!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-  --                     E   N   D                 --
-  --    SHOSURBARI HOME PAGE / FEATURED PROFILES   --
-  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-  <!-- End & Start -->
-  <!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-  --                 S  T  A  R  T                 --
-  --      SHOSURBARI HOME PAGE / BODY CONTENT      --
-  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-  <div class="sb-home-search">
+  <!-- END - SHOSURBARI HOME PAGE / FEATURED PROFILES -->
+  <!-- START - SHOSURBARI HOME PAGE / BODY CONTENT -->
+  <!-- <div class="sb-home-search">
     <h1><span class="shosurbari-heading-span"> আমাদের </span>সার্ভিস</h1>
     <div class="sbhome-heart-divider">
       <span class="grey-line"></span>
@@ -903,22 +901,20 @@ saveUniqueVisitor($conn, $ip_address);
         <i class="fa fa-heart grey-heart"></i>
       <span class="grey-line"></span>
     </div>
-  </div>
-  <div class="shosurbari-user-info">
+  </div> -->
+  <!-- <div class="shosurbari-user-info">
     <div class="sb-biodata-amount-list">
-      <p><i id="bell" class="fa fa-bell"></i> বিয়ের জন্য শ্বশুরবাড়ি ডট কমের পাত্র-পাত্রীর সাথে যোগাযোগ করতে আগ্রহী হইলে সার্ভিস চার্জ প্রদান করতে হবে, বায়োডাটা কতৃপক্ষের থেকে কোনো সার্ভিস চার্জ নেয়া হয় না। সার্চ ফিল্টার ব্যবহার করে খুঁজেনিন স্বপ্নময় জীবনসঙ্গী। আপনার পেমেন্ট সম্পন্ন হবার পর ২৪ ঘন্টার মধ্যে যোগাযোগের জন্য কাঙ্ক্ষিত তথ্য আপনাকে পাঠিয়ে দেয়া হবে।
-      <span style="color:#06b6d4;">  বিস্তারিত জানতে নিচে আমাদের প্রশ্ন ও উত্তর সেকশনের ১০ থেকে ১৪ নাম্বার পর্যন্ত আর্টিকেল গুলো পড়ুন।</p>
+    <p><i id="bell" class="fa fa-bell"></i> বিয়ের জন্য শ্বশুরবাড়ি ডট কমের পাত্র-পাত্রীর সাথে যোগাযোগ করতে আগ্রহী হইলে সার্ভিস চার্জ প্রদান করতে হবে, বায়োডাটা কতৃপক্ষের থেকে কোনো সার্ভিস চার্জ নেয়া হয় না। সার্চ ফিল্টার ব্যবহার করে খুঁজেনিন স্বপ্নময় জীবনসঙ্গী। আপনার পেমেন্ট সম্পন্ন হবার পর, ২৪ ঘন্টার মধ্যে যোগাযোগের জন্য অভিভাবকের মোবাইল নাম্বার আপনাকে SMS বা ই-মেইলের মাধ্যমে প্রদান করা হবে।
+    <span style="color:#06b6d4;">  বিস্তারিত জানতে নিচে আমাদের প্রশ্ন ও উত্তর সেকশনের ১০ থেকে ১৪ নাম্বার পর্যন্ত আর্টিকেল গুলো পড়ুন।</p>
     </div>
     <div class="shoshurbari-package-card">
       <div class="card-header">
         <h1>BRONZE</h1>
       </div>
       <div class="card-package">
-        <h1>১৪৫ ৳</h1>
+        <h1>৭০ ৳</h1>
         <p>বায়োডাটা: ১টি</p>
-        <p class="sb-package-avr-amount">এভারেজ মূল্য: ১৪৫ ৳</p>
         <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
-        <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-close"></i></p>
         <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
       </div>
     </div>
@@ -927,11 +923,9 @@ saveUniqueVisitor($conn, $ip_address);
         <h1>SILVER</h1>
       </div>
       <div class="card-package">
-        <h1>২৮০ ৳</h1>
+        <h1>১৩৫ ৳</h1>
         <p>বায়োডাটা: ২টি</p>
-        <p class="sb-package-avr-amount">এভারেজ মূল্য: ১৪০ ৳</p>
         <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
-        <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-close"></i></p>
         <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
       </div>
     </div>
@@ -940,11 +934,9 @@ saveUniqueVisitor($conn, $ip_address);
         <h1>GOLD</h1>
       </div>
       <div class="card-package">
-        <h1>৩৯০ ৳</h1>
+        <h1>১৯৫ ৳</h1>
         <p>বায়োডাটা: ৩টি</p>
-        <p class="sb-package-avr-amount">এভারেজ মূল্য: ১৩০ ৳</p>
         <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
-        <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-close"></i></p>
         <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
       </div>
     </div>
@@ -953,27 +945,20 @@ saveUniqueVisitor($conn, $ip_address);
         <h1>PLATINUM</h1>
       </div>
       <div class="card-package">
-        <h1>৫০০ ৳</h1>
+        <h1>২৫০ ৳</h1>
         <p>বায়োডাটা: ৪টি</p>
-        <p class="sb-package-avr-amount">এভারেজ মূল্য: ১২৫ ৳</p>
         <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
-        <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-close"></i></p>
         <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
       </div>
     </div>
     <div class="shoshurbari-package-card">
-      <div class="sb-recommendation">
-        <h2>Our Recommendation</h2>
-      </div>
       <div class="card-header">
         <h1>DIAMOND</h1>
       </div>
       <div class="card-package">
-        <h1>৬০০ ৳</h1>
+        <h1>৩০০ ৳</h1>
         <p>বায়োডাটা: ৫টি</p>
-        <p class="sb-package-avr-amount">এভারেজ মূল্য: ১২০ ৳</p>
         <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
-        <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-check"></i></p>
         <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
       </div>
     </div>
@@ -982,11 +967,9 @@ saveUniqueVisitor($conn, $ip_address);
         <h1>TITANIUM</h1>
       </div>
       <div class="card-package">
-        <h1>৬৯০ ৳</h1>
+        <h1>৩৪৫ ৳</h1>
         <p>বায়োডাটা: ৬টি</p>
-        <p class="sb-package-avr-amount">এভারেজ মূল্য: ১১৫ ৳</p>
         <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
-        <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-check"></i></p>
         <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
       </div>
     </div>
@@ -995,11 +978,9 @@ saveUniqueVisitor($conn, $ip_address);
         <h1>RUBY</h1>
       </div>
       <div class="card-package">
-        <h1>৭৭০ ৳</h1>
+        <h1>৩৮৫ ৳</h1>
         <p>বায়োডাটা: ৭টি</p>
-        <p class="sb-package-avr-amount">এভারেজ মূল্য: ১১০ ৳</p>
         <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
-        <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-check"></i></p>
         <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
       </div>
     </div>
@@ -1008,11 +989,9 @@ saveUniqueVisitor($conn, $ip_address);
         <h1>EMERALD</h1>
       </div>
       <div class="card-package">
-        <h1>৮৪০ ৳</h1>
+        <h1>৪১৫ ৳</h1>
         <p>বায়োডাটা: ৮টি</p>
-        <p class="sb-package-avr-amount">এভারেজ মূল্য: ১০৫ ৳</p>
         <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
-        <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-check"></i></p>
         <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
       </div>
     </div>
@@ -1021,11 +1000,9 @@ saveUniqueVisitor($conn, $ip_address);
         <h1>SAPPHIRE</h1>
       </div>
       <div class="card-package">
-        <h1>৯০০ ৳</h1>
+        <h1>৪৪০ ৳</h1>
         <p>বায়োডাটা: ৯টি</p>
-        <p class="sb-package-avr-amount">এভারেজ মূল্য: ১০০ ৳</p>
         <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
-        <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-check"></i></p>
         <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
       </div>
     </div>
@@ -1034,15 +1011,13 @@ saveUniqueVisitor($conn, $ip_address);
         <h1>TOPAZ</h1>
       </div>
       <div class="card-package">
-        <h1>৯৮০ ৳</h1>
+        <h1>৪৬০ ৳</h1>
         <p>বায়োডাটা: ১০টি</p>
-        <p class="sb-package-avr-amount">এভারেজ মূল্য: ৯৮ ৳</p>
         <p>অভিভাবকের নাম্বার: <i class="fa fa-check"></i></p>
-        <p>পাত্র-পাত্রীর ই-মেইল: <i class="fa fa-check"></i></p>
-        <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-check"></i></p>
+        <p>পাত্র-পাত্রীর নাম্বার: <i class="fa fa-close"></i></p>
       </div>
     </div>
-  </div>
+  </div> -->
   <div class="sb-home-search">
     <h1><span class="shosurbari-heading-span"> প্রশ্ন </span>ও উত্তর</h1>
     <div class="sbhome-heart-divider">
@@ -1058,9 +1033,10 @@ saveUniqueVisitor($conn, $ip_address);
 				<div class="jb-accordion-wrapper">
 					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion1"><span class="shosurbari-faq-point">১</span> শ্বশুরবাড়ি ডটকম কী? এটি কাদের জন্য? <i class="fa fa-minus-circle"> </i></button>
 					<div id="accordion1" class="jb-accordion-content collapse in">
-            <p>শ্বশুরবাড়ি ডটকম একটি বাংলাদেশী ম্যাট্রিমনি ওয়েবসাইট। প্রাথমিক পর্যায়ে এটির যাত্রা শুরু হয় ২০২২ সাল থেকে। কোনো সার্ভিস চার্জ ছাড়াই একাউন্ট খুলে পাত্র-পাত্রী নিজে অথবা অভিভাবক বায়োডাটা পোস্ট করতে পারবে। 
-							একই সাথে পছন্দের পাত্র-পাত্রীর অভিভাবকের সাথে সরাসরি যোগাযোগ করা যায়। দেশি ও প্রবাসী বাংলাদেশী বাঙ্গালী পাত্র-পাত্রী খুঁজে পাওয়ার সহজ মাধ্যম।
-						</p>
+            <p>শ্বশুরবাড়ি ডটকম একটি বাংলাদেশী ম্যাট্রিমনি ওয়েবসাইট। কোনো সার্ভিস চার্জ ছাড়াই একাউন্ট খুলে পাত্র-পাত্রী নিজে অথবা অভিভাবক বায়োডাটা পোস্ট করতে পারবে। 
+              একই সাথে পছন্দের পাত্র-পাত্রীর অভিভাবকের সাথে সরাসরি যোগাযোগ করা যায়। দেশি ও প্রবাসী বাংলাদেশী বাঙ্গালী পাত্র-পাত্রী খুঁজে পাওয়ার সহজ মাধ্যম।
+              <br><br>বি:দ্র:  প্রাথমিক পর্যায়ে আমাদের যাত্রা শুরু হয় ২০২২ সাল থেকে। পূর্বের নীতিমালা পরিবর্তন করে আমরা পুনরায় ২০২৪ সাল থেকে আমাদের যাত্রা নতুন করে শুরু করেছি।
+            </p>
           </div>  
 				</div>
 				<div class="jb-accordion-wrapper">
@@ -1086,19 +1062,14 @@ saveUniqueVisitor($conn, $ip_address);
 				<div class="jb-accordion-wrapper">
 					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion5"><span class="shosurbari-faq-point">৫</span> কিভাবে বায়োডাটা পোস্ট করবো? <i class="fa fa-plus-circle"> </i></button>
 					<div id="accordion5" class="jb-accordion-content collapse">
-            <p>পাত্র-পাত্রী নিজেই অথবা অভিভাবক বায়োডাটা পোস্ট করতে পারবেন সহজেই। প্রথমে <a href="register.php">Register</a> পেজ থেকে বায়োডাটা পোস্ট কারীর Name, Username, Email, Number, Gender, Password অপশন পূরণ করে নতুন একটি একাউন্ট খুলতে হবে। তারপর পাত্র-পাত্রীর বায়োডাটা পোস্ট করতে পারবেন সহজেই।
-						<br><br>একাউন্ট সফল ভাবে রেজিস্ট্রার হবার পর, My Account পেজ থেকে “বায়োডাটা পোস্ট” সেকশনে ক্লিক করে হাতে যথেষ্ট সময় নিয়ে পাত্র-পাত্রীর বায়োডাটা পোস্ট করুন। প্রোফাইলে পাত্র-পাত্রীর ছবি আপলোড করা বাধ্যতা মূলক নয়।</p>
+            <p>পাত্র-পাত্রী নিজেই অথবা অভিভাবক বায়োডাটা পোস্ট করতে পারবেন সহজেই। প্রথমে <a href="register.php">Register</a> পেজ থেকে বায়োডাটা পোস্ট কারীর Name, Username, Email, Number, Gender, Password অপশন পূরণ করে নতুন একটি একাউন্ট খুলতে হবে। তারপর পাত্র-পাত্রীর বায়োডাটা পোস্ট করতে পারবেন।
+						<br><br>একাউন্ট সফল ভাবে রেজিস্টার হবার পর, My Account পেজ থেকে “বায়োডাটা পোস্ট” সেকশনে ক্লিক করে হাতে যথেষ্ট সময় নিয়ে পাত্র-পাত্রীর বায়োডাটা পোস্ট করুন। প্রোফাইলে পাত্র-পাত্রীর ছবি আপলোড করা বাধ্যতা মূলক নয়।</p>
 					</div>
 				</div>
 				<div class="jb-accordion-wrapper">
 					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion6"><span class="shosurbari-faq-point">৬</span> শ্বশুরবাড়ি ডটকমে বায়োডাটা পোস্ট করলে আমার তথ্য কতটুকু গোপন থাকবে? কতটুকু প্রকাশিত হবে? <i class="fa fa-plus-circle"> </i></button>
 					<div id="accordion6" class="jb-accordion-content collapse">
-						<p>পাত্র-পাত্রীর ও অভিভাবকের নাম, মোবাইল নাম্বার এবং ইমেইল গোপন থাকবে, বায়োডাটার বাকি সকল তথ্য সাধারণ ইউজাররা দেখতে পারবে।
-						<br> <br>যদি কেউ বিয়ের জন্য বায়োডাটার সাথে সরাসরি যোগাযোগ করতে আগ্রহী হয় তাহলে, আগ্রহী ইউজারকে সার্ভিস চার্জ প্রদান করতে হবে। দেখেনিন কোন কোন আগ্রহী ইউজারকে আমরা পাত্রপাত্রীর মোবাইল নাম্বার ইমেইল এবং অভিভাবকের নাম্বার প্রদান করি।
-            <br> <br> ১ থেকে ৪টি বায়োডাটার সাথে যোগাযোগ করতে চাওয়া আগ্রহী ইউজারকে শুধুমাত্র অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে।
-            <br> ৫ থেকে ৯টি বায়োডাটার সাথে যোগাযোগ করতে চাওয়া আগ্রহী ইউজারকে পাত্রপাত্রীর ই-মেইল এবং অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে।
-            <br> TOPAZ প্লান বা ১০টি বায়োডাটার সাথে যোগাযোগ করতে চাওয়া আগ্রহী ইউজারকে পাত্রপাত্রীর মোবাইল নাম্বার, ই-মেইল এবং অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে।
-						</p>
+						<p>পাত্র-পাত্রীর ও অভিভাবকের নাম, মোবাইল নাম্বার এবং ই-মেইল গোপন থাকবে, বায়োডাটার বাকি সকল তথ্য সাধারণ ইউজাররা দেখতে পারবে।</p>
 					</div>
 				</div>
 				<div class="jb-accordion-wrapper">
@@ -1110,40 +1081,39 @@ saveUniqueVisitor($conn, $ip_address);
 				<div class="jb-accordion-wrapper">
 					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion8"><span class="shosurbari-faq-point">৮</span> বায়োডাটা এডিট/আপডেট করবো কিভাবে? <i class="fa fa-plus-circle"> </i></button>
 					<div id="accordion8" class="jb-accordion-content collapse">
-						<p>আপনার একাউন্ট লগইন করে My Account পেজ থেকে “বায়োডাটা আপডেট” সেকশনে ক্লিক করুন ড্রপডাউন ৭টি অপশন পেয়ে যাবে। বায়োডাটার যেই অপশনটি আপডেট করতে চান সেই অপশনে ক্লিক করে সহজেই আপনার তথ্য পরিবর্তন করুন।</p>
+						<p>My Account পেজ থেকে “বায়োডাটা আপডেট” সেকশনে ক্লিক করার পর ড্রপডাউন ৭টি সেকশন পেয়ে যাবেন। বায়োডাটার যেই সেকশনটি আপডেট করতে চান সেই সেকশনে ক্লিক করে আপনার তথ্য পরিবর্তন করুন।
+              <br><br> একই অপশন যদি একাধিকবার ভিন্ন-ভিন্ন তথ্যে আপডেট হয়ে যায়, সেক্ষেত্রে যেই তথ্য প্রয়োজনীয় নয় সেই অপশনের তথ্য রিমুভ/ফাঁকা অপশন সিলেক্ট করে প্রয়োজনীয় তথ্যগুলো ঠিক রেখে পুনরায় আপডেট করুন।
+            </p>
 					</div>  
 				</div>
 				<div class="jb-accordion-wrapper">
 					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion9"><span class="shosurbari-faq-point">৯</span> বায়োডাটা যেকোনো সময় গোপন/ডিলিট করতে পারবো? <i class="fa fa-plus-circle"> </i></button>
 					<div id="accordion9" class="jb-accordion-content collapse">
-						<p>আপনার একাউন্ট সহজেই ডিএক্টিভেশন/গোপন করে রাখতে পারবেন তবে সহজেই ডিলিট করতে পারবেন না। আপনার একাউন্ট লগইন করে My Account পেজ থেকে যেকোনো সময় বায়োডাটাটি ডিএক্টিভেশন/গোপন করে রাখতে পারবেন। পরবর্তীতে আবার যেকোনো সময় আপনার একাউন্ট একটিভ করতে পারবেন।
-						<br> <br> একাউন্ট ডিলিট করতে চাইলে সরাসরি শ্বশুরবাড়ি ডটকমের এডমিনের সাথে যোগাযোগ করতে হবে। এডমিনের সাথে যোগাযোগ করতে আমাদের <a target="_blank" href="https://www.facebook.com/ShosurBari.bd">FaceBook</a> পেজ অনুসরণ করুন অথবা <a href="contact-us.php">Contacts</a> পেজে প্রবেশ করে আপনার সমস্যার কথা জানিয়ে Contact Us ফর্ম টি পূরণ করে Submit করুন। পরবর্তীতে আপনার সাথে এডমিন যোগাযোগ করে একাউন্ট ডিলিট করে দেবে।
+						<p>আপনার একাউন্ট লগইন করে My Account পেজ থেকে যেকোনো সময় বায়োডাটাটি ডিএকটিভেট/গোপন করে রাখতে পারবেন। পরবর্তীতে আবার যেকোনো সময় আপনার একাউন্ট একটিভ করতে পারবেন।
+						  <br> <br> একাউন্ট ডিলিট করার জন্য সরাসরি শ্বশুরবাড়ি ডটকমের এডমিনের সাথে যোগাযোগ করতে হবে। এডমিনের সাথে যোগাযোগ করতে আমাদের <a target="_blank" href="https://www.facebook.com/ShosurBari.Matrimony">FaceBook</a> পেজ অনুসরণ করুন অথবা <a href="contact-us.php">Contact Us</a> পেজে প্রবেশ করে আপনার সমস্যার কথা জানিয়ে Contact Us ফর্ম টি পূরণ করে জমা দিন। পরবর্তীতে আপনার সাথে এডমিন যোগাযোগ করে একাউন্ট ডিলিট করে দেবে।
 						</p>
 					</div>  
 				</div>
         <div class="jb-accordion-wrapper">
 					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion10"><span class="shosurbari-faq-point">১০</span> পেমেন্ট, বায়োডাটার লিমিটেশন এবং পছন্দের তালিকা<i class="fa fa-plus-circle"> </i></button>
 					<div id="accordion10" class="jb-accordion-content collapse">
-						<p>আপনি যেই কয়টি বায়োডাটার সাথে সরাসরি যোগাযোগ করতে আগ্রহী শুধুমাত্র সেই কয়টি বায়োডাটার জন্য পেমেন্ট করতে হবে। আপনি একই সাথে সর্বোচ্চ ১০টি বায়োডাটা পছন্দ করে পেমেন্ট করতে পারবেন। একই সাথে ১০টির অধিক বায়োডাটার সাথে যোগাযোগ করতে আগ্রহী হইলে আপনাকে ১০টি করে বায়োডাটা পছন্দের তালিকায় যুক্ত করে পেমেন্ট সম্পন্ন করতে হবে।
-            <br><br>শ্বশুরবাড়ি ডট কমে কোনো একাউন্ট ছাড়া পছন্দের তালিকায় কোনো বায়োডাটা যুক্ত করে রাখতে পারবেন না। এক সাথে একের অধিক বায়োডাটার সাথে যোগাযোগের জন্য এবং পছন্দের তালিকায় পছন্দের বায়োডাটা গুলো যুক্ত করতে অবশ্যই শ্বশুরবাড়ি ডট কমে আপনার একাউন্ট লগইন থাকতে হবে।
+						<p>আপনি যেই কয়টি বায়োডাটার সাথে সরাসরি যোগাযোগ করতে আগ্রহী শুধুমাত্র সেই কয়টি বায়োডাটার জন্য পেমেন্ট করতে হবে। আপনি একই সাথে সর্বোচ্চ ১০টি বায়োডাটা পছন্দ করে পেমেন্ট করতে পারবেন। একই সাথে ১০টির অধিক বায়োডাটার সাথে যোগাযোগ করতে আগ্রহী হইলে আপনাকে ১০টি করে বায়োডাটা পছন্দের তালিকায় যুক্ত/রিমুভ করে পেমেন্ট সম্পন্ন করতে হবে।
+              <br><br>শ্বশুরবাড়ি ডট কমে কোনো একাউন্ট ছাড়া পছন্দের তালিকায় কোনো বায়োডাটা যুক্ত করে রাখতে পারবেন না। এক সাথে একের অধিক বায়োডাটার সাথে যোগাযোগের জন্য এবং পছন্দের তালিকায় পছন্দের বায়োডাটা গুলো যুক্ত করতে অবশ্যই শ্বশুরবাড়ি ডট কমে আপনার একাউন্ট লগইন থাকতে হবে।
             </p>
 					</div>
 				</div>
 				<div class="jb-accordion-wrapper">
 					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion11"><span class="shosurbari-faq-point">১১</span> যেকোনো বায়োডাটা পছন্দ হবার পর পাত্র-পাত্রীর সাথে কিভাবে যোগাযোগ করবো? <i class="fa fa-plus-circle"> </i></button>
 					<div id="accordion11" class="jb-accordion-content collapse">
-						<p> বিয়ের জন্য শ্বশুরবাড়ি ডট কমের পাত্র-পাত্রীর সাথে যোগাযোগ করতে আগ্রহী হইলে সার্ভিস চার্জ প্রদান করতে হবে, বায়োডাটা কতৃপক্ষের থেকে কোনো সার্ভিস চার্জ নেয়া হয় না। আপনার পেমেন্ট সম্পন্ন হবার পর ২৪ ঘন্টার মধ্যে যোগাযোগের জন্য কাঙ্ক্ষিত তথ্য আপনাকে SMS বা ই-মেইলের মাধ্যমে পাঠিয়ে দেয়া হবে।
-						<br> <br>পরিবার ও পাত্র-পাত্রীর সম্পর্কে নিজ দায়িত্বে ভালভাবে খোঁজ নিয়ে তবেই বিয়ের কথা পাকা করুন। বিয়ের পূর্বেই পাত্র বা পাত্রীর পরিবারের সাথে টাকা লেনদেন করে প্রতারিত হবেন না। কোনো কিছু লেনদেন করে প্রতারিত হইলে কোনো ভাবেই শ্বশুরবাড়ি ডটকম কর্তৃপক্ষ দায়ী থাকিবে না। শ্বশুরবাড়ি ডটকম শুধুমাত্র দুইটি পরিবারের মধ্যে যোগাযোগের মাধ্যম হিসাবে পরিচালিত।
+            <p> বিয়ের জন্য শ্বশুরবাড়ি ডট কমের পাত্র-পাত্রীর সাথে যোগাযোগ করতে আগ্রহী হইলে সার্ভিস চার্জ প্রদান করতে হবে, বায়োডাটা কতৃপক্ষের থেকে কোনো সার্ভিস চার্জ নেয়া হয় না। আপনার পেমেন্ট সম্পন্ন হবার পর, ২৪ ঘন্টার মধ্যে যোগাযোগের জন্য অভিভাবকের মোবাইল নাম্বার আপনাকে SMS বা ই-মেইলের মাধ্যমে প্রদান করা হবে।
+						  <br> <br>পরিবার ও পাত্র-পাত্রীর সম্পর্কে নিজ দায়িত্বে ভালভাবে খোঁজ নিয়ে তবেই বিয়ের কথা পাকা করুন। বিয়ের পূর্বেই পাত্র বা পাত্রীর পরিবারের সাথে টাকা লেনদেন করে প্রতারিত হবেন না। কোনো কিছু লেনদেন করে প্রতারিত হইলে কোনো ভাবেই শ্বশুরবাড়ি ডটকম কর্তৃপক্ষ দায়ী থাকিবে না। শ্বশুরবাড়ি ডটকম শুধুমাত্র দুইটি পরিবারের মধ্যে যোগাযোগের মাধ্যম হিসাবে পরিচালিত।
 						</p>
 					</div>
 				</div>
 				<div class="jb-accordion-wrapper">
 					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion12"><span class="shosurbari-faq-point">১২</span> পাত্র-পাত্রীর সাথে যোগাযোগের জন্য পাত্র-পাত্রীর মোবাইল নাম্বার দেয়া হয়? <i class="fa fa-plus-circle"> </i></button>
 					<div id="accordion12" class="jb-accordion-content collapse">
-						<p>১ থেকে ৪টি বায়োডাটার সাথে যোগাযোগ করতে চাওয়া আগ্রহী ইউজারকে শুধুমাত্র অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে।
-            <br> <br>৫ থেকে ৯টি বায়োডাটার সাথে যোগাযোগ করতে চাওয়া আগ্রহী ইউজারকে পাত্রপাত্রীর ই-মেইল এবং অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে।
-            <br> <br>TOPAZ প্লান বা ১০টি বায়োডাটার সাথে যোগাযোগ করতে চাওয়া আগ্রহী ইউজারকে পাত্রপাত্রীর মোবাইল নাম্বার, ই-মেইল এবং অভিভাবকের মোবাইল নাম্বার প্রদান করা হবে।
-            </p>
+            <p>না! যোগাযোগের জন্য শুধুমাত্র পাত্র-পাত্রীর অভিভাবকের মোবাইল নাম্বার প্রদান করা হয়। যদি পাত্র-পাত্রীর পরিবারের প্রধান অভিভাবক পাত্র-পাত্রী নিজেই হয়ে থাকেন সে ক্ষেত্রে পাত্র-পাত্রীর মোবাইল নাম্বার প্রদান করা হবে। </p>
 					</div>
 				</div>
 				<div class="jb-accordion-wrapper">
@@ -1163,13 +1133,482 @@ saveUniqueVisitor($conn, $ip_address);
 				<div class="jb-accordion-wrapper">
 					<button type="button" class="jb-accordion-button" data-toggle="collapse" data-target="#accordion15"><span class="shosurbari-faq-point">১৫</span> যেকোনো প্রয়োজনে শ্বশুরবাড়ি ডটকমের এডমিনের সাথে কিভাবে যোগাযোগ করবো? <i class="fa fa-plus-circle"> </i></button>
 					<div id="accordion15" class="jb-accordion-content collapse">
-						<p>এডমিনের সাথে যোগাযোগ করতে আমাদের <a target="_blank" href="https://www.facebook.com/ShosurBari.bd">FaceBook</a> পেজ অনুসরণ করুন অথবা <a href="contact-us.php">Contacts</a> পেজে প্রবেশ করে আপনার সমস্যার কথা জানিয়ে Contact Us ফর্ম টি পূরণ করে Submit করুন। পরবর্তী যেকোনো সময় আপনার সাথে এডমিন যোগাযোগ করবে।</p>
+						<p>এডমিনের সাথে যোগাযোগ করতে আমাদের <a target="_blank" href="https://www.facebook.com/ShosurBari.Matrimony">FaceBook</a> পেজ অনুসরণ করুন অথবা <a href="contact-us.php">Contact Us</a> পেজে প্রবেশ করে আপনার সমস্যার কথা জানিয়ে Contact Us ফর্ম টি পূরণ করে জমা দিন। পরবর্তীতে যেকোনো সময় আপনার সাথে এডমিন যোগাযোগ করবে।</p>
 					</div>
 				</div>
 			</div>
 		</div>
   </div>
-  <?php
+		<style>
+    /* Popup container */
+@import url('https://fonts.googleapis.com/css2?family=Sen&display=swap');
+#confetti{
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+    .popup-container {
+        display: none;
+        position: fixed;
+        top: 15%;
+        left: 50%;
+        transform: translateX(-50%);
+		color: red;
+		box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+        z-index: 9999;
+    }
+			/* Image style */
+.popup-container img {
+    display: block;
+    margin: 0 auto; /* Center the image horizontally */
+    max-width: 100%; /* Ensure the image doesn't exceed the container width */
+    height: 100%; /* Maintain aspect ratio */
+	box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+}
+
+    /* Button style */
+    .popup-btn {
+		padding: 7px 0px;
+		margin: 0px auto 0px auto;
+		background: rgb(255, 221, 238);
+		color: red;
+		font-weight: bold;
+		width: 100%;
+        border: none;
+        cursor: pointer;
+		position: absolute;
+        z-index: 10000; /* Ensure button is above confetti */
+    }
+
+    /* Button hover effect */
+    .popup-btn:hover {
+		background: linear-gradient(#0aa4ca, #06b6d4);
+    }
+</style>
+
+<!-- Popup container -->
+<div id="popup" class="popup-container">
+	<img src="images/shosurbari-home-notice.png">
+    <button id="okButton" class="popup-btn">ঠিক আছে</button>
+		<canvas id="confetti"></canvas>
+
+</div>
+
+<script>
+    // Get the popup container
+    var popup = document.getElementById('popup');
+
+    // Get the OK button
+    var okButton = document.getElementById('okButton');
+
+    // Show the popup
+    popup.style.display = 'block';
+
+    // Hide the popup when OK button is clicked
+    okButton.addEventListener('click', function() {
+        popup.style.display = 'none';
+    });
+	
+	
+	// here start celibrations
+	var retina = window.devicePixelRatio,
+
+    // Math shorthands
+    PI = Math.PI,
+    sqrt = Math.sqrt,
+    round = Math.round,
+    random = Math.random,
+    cos = Math.cos,
+    sin = Math.sin,
+
+    // Local WindowAnimationTiming interface
+    rAF = window.requestAnimationFrame,
+    cAF = window.cancelAnimationFrame || window.cancelRequestAnimationFrame,
+    _now = Date.now || function () {return new Date().getTime();};
+
+// Local WindowAnimationTiming interface polyfill
+(function (w) {
+  /**
+				* Fallback implementation.
+				*/
+  var prev = _now();
+  function fallback(fn) {
+    var curr = _now();
+    var ms = Math.max(0, 16 - (curr - prev));
+    var req = setTimeout(fn, ms);
+    prev = curr;
+    return req;
+  }
+
+  /**
+				* Cancel.
+				*/
+  var cancel = w.cancelAnimationFrame
+  || w.webkitCancelAnimationFrame
+  || w.clearTimeout;
+
+  rAF = w.requestAnimationFrame
+  || w.webkitRequestAnimationFrame
+  || fallback;
+
+  cAF = function(id){
+    cancel.call(w, id);
+  };
+}(window));
+
+document.addEventListener("DOMContentLoaded", function() {
+  var speed = 50,
+      duration = (1.0 / speed),
+      confettiRibbonCount = 11,
+      ribbonPaperCount = 30,
+      ribbonPaperDist = 8.0,
+      ribbonPaperThick = 8.0,
+      confettiPaperCount = 95,
+      DEG_TO_RAD = PI / 180,
+      RAD_TO_DEG = 180 / PI,
+      colors = [
+        ["#df0049", "#660671"],
+        ["#00e857", "#005291"],
+        ["#2bebbc", "#05798a"],
+        ["#ffd200", "#b06c00"]
+      ];
+
+  function Vector2(_x, _y) {
+    this.x = _x, this.y = _y;
+    this.Length = function() {
+      return sqrt(this.SqrLength());
+    }
+    this.SqrLength = function() {
+      return this.x * this.x + this.y * this.y;
+    }
+    this.Add = function(_vec) {
+      this.x += _vec.x;
+      this.y += _vec.y;
+    }
+    this.Sub = function(_vec) {
+      this.x -= _vec.x;
+      this.y -= _vec.y;
+    }
+    this.Div = function(_f) {
+      this.x /= _f;
+      this.y /= _f;
+    }
+    this.Mul = function(_f) {
+      this.x *= _f;
+      this.y *= _f;
+    }
+    this.Normalize = function() {
+      var sqrLen = this.SqrLength();
+      if (sqrLen != 0) {
+        var factor = 1.0 / sqrt(sqrLen);
+        this.x *= factor;
+        this.y *= factor;
+      }
+    }
+    this.Normalized = function() {
+      var sqrLen = this.SqrLength();
+      if (sqrLen != 0) {
+        var factor = 1.0 / sqrt(sqrLen);
+        return new Vector2(this.x * factor, this.y * factor);
+      }
+      return new Vector2(0, 0);
+    }
+  }
+  Vector2.Lerp = function(_vec0, _vec1, _t) {
+    return new Vector2((_vec1.x - _vec0.x) * _t + _vec0.x, (_vec1.y - _vec0.y) * _t + _vec0.y);
+  }
+  Vector2.Distance = function(_vec0, _vec1) {
+    return sqrt(Vector2.SqrDistance(_vec0, _vec1));
+  }
+  Vector2.SqrDistance = function(_vec0, _vec1) {
+    var x = _vec0.x - _vec1.x;
+    var y = _vec0.y - _vec1.y;
+    return (x * x + y * y + z * z);
+  }
+  Vector2.Scale = function(_vec0, _vec1) {
+    return new Vector2(_vec0.x * _vec1.x, _vec0.y * _vec1.y);
+  }
+  Vector2.Min = function(_vec0, _vec1) {
+    return new Vector2(Math.min(_vec0.x, _vec1.x), Math.min(_vec0.y, _vec1.y));
+  }
+  Vector2.Max = function(_vec0, _vec1) {
+    return new Vector2(Math.max(_vec0.x, _vec1.x), Math.max(_vec0.y, _vec1.y));
+  }
+  Vector2.ClampMagnitude = function(_vec0, _len) {
+    var vecNorm = _vec0.Normalized;
+    return new Vector2(vecNorm.x * _len, vecNorm.y * _len);
+  }
+  Vector2.Sub = function(_vec0, _vec1) {
+    return new Vector2(_vec0.x - _vec1.x, _vec0.y - _vec1.y, _vec0.z - _vec1.z);
+  }
+
+  function EulerMass(_x, _y, _mass, _drag) {
+    this.position = new Vector2(_x, _y);
+    this.mass = _mass;
+    this.drag = _drag;
+    this.force = new Vector2(0, 0);
+    this.velocity = new Vector2(0, 0);
+    this.AddForce = function(_f) {
+      this.force.Add(_f);
+    }
+    this.Integrate = function(_dt) {
+      var acc = this.CurrentForce(this.position);
+      acc.Div(this.mass);
+      var posDelta = new Vector2(this.velocity.x, this.velocity.y);
+      posDelta.Mul(_dt);
+      this.position.Add(posDelta);
+      acc.Mul(_dt);
+      this.velocity.Add(acc);
+      this.force = new Vector2(0, 0);
+    }
+    this.CurrentForce = function(_pos, _vel) {
+      var totalForce = new Vector2(this.force.x, this.force.y);
+      var speed = this.velocity.Length();
+      var dragVel = new Vector2(this.velocity.x, this.velocity.y);
+      dragVel.Mul(this.drag * this.mass * speed);
+      totalForce.Sub(dragVel);
+      return totalForce;
+    }
+  }
+
+  function ConfettiPaper(_x, _y) {
+    this.pos = new Vector2(_x, _y);
+    this.rotationSpeed = (random() * 600 + 800);
+    this.angle = DEG_TO_RAD * random() * 360;
+    this.rotation = DEG_TO_RAD * random() * 360;
+    this.cosA = 1.0;
+    this.size = 5.0;
+    this.oscillationSpeed = (random() * 1.5 + 0.5);
+    this.xSpeed = 40.0;
+    this.ySpeed = (random() * 60 + 50.0);
+    this.corners = new Array();
+    this.time = random();
+    var ci = round(random() * (colors.length - 1));
+    this.frontColor = colors[ci][0];
+    this.backColor = colors[ci][1];
+    for (var i = 0; i < 4; i++) {
+      var dx = cos(this.angle + DEG_TO_RAD * (i * 90 + 45));
+      var dy = sin(this.angle + DEG_TO_RAD * (i * 90 + 45));
+      this.corners[i] = new Vector2(dx, dy);
+    }
+    this.Update = function(_dt) {
+      this.time += _dt;
+      this.rotation += this.rotationSpeed * _dt;
+      this.cosA = cos(DEG_TO_RAD * this.rotation);
+      this.pos.x += cos(this.time * this.oscillationSpeed) * this.xSpeed * _dt
+      this.pos.y += this.ySpeed * _dt;
+      if (this.pos.y > ConfettiPaper.bounds.y) {
+        this.pos.x = random() * ConfettiPaper.bounds.x;
+        this.pos.y = 0;
+      }
+    }
+    this.Draw = function(_g) {
+      if (this.cosA > 0) {
+        _g.fillStyle = this.frontColor;
+      } else {
+        _g.fillStyle = this.backColor;
+      }
+      _g.beginPath();
+      _g.moveTo((this.pos.x + this.corners[0].x * this.size) * retina, (this.pos.y + this.corners[0].y * this.size * this.cosA) * retina);
+      for (var i = 1; i < 4; i++) {
+        _g.lineTo((this.pos.x + this.corners[i].x * this.size) * retina, (this.pos.y + this.corners[i].y * this.size * this.cosA) * retina);
+      }
+      _g.closePath();
+      _g.fill();
+    }
+  }
+  ConfettiPaper.bounds = new Vector2(0, 0);
+
+  function ConfettiRibbon(_x, _y, _count, _dist, _thickness, _angle, _mass, _drag) {
+    this.particleDist = _dist;
+    this.particleCount = _count;
+    this.particleMass = _mass;
+    this.particleDrag = _drag;
+    this.particles = new Array();
+    var ci = round(random() * (colors.length - 1));
+    this.frontColor = colors[ci][0];
+    this.backColor = colors[ci][1];
+    this.xOff = (cos(DEG_TO_RAD * _angle) * _thickness);
+    this.yOff = (sin(DEG_TO_RAD * _angle) * _thickness);
+    this.position = new Vector2(_x, _y);
+    this.prevPosition = new Vector2(_x, _y);
+    this.velocityInherit = (random() * 2 + 4);
+    this.time = random() * 100;
+    this.oscillationSpeed = (random() * 2 + 2);
+    this.oscillationDistance = (random() * 40 + 40);
+    this.ySpeed = (random() * 40 + 80);
+    for (var i = 0; i < this.particleCount; i++) {
+      this.particles[i] = new EulerMass(_x, _y - i * this.particleDist, this.particleMass, this.particleDrag);
+    }
+    this.Update = function(_dt) {
+      var i = 0;
+      this.time += _dt * this.oscillationSpeed;
+      this.position.y += this.ySpeed * _dt;
+      this.position.x += cos(this.time) * this.oscillationDistance * _dt;
+      this.particles[0].position = this.position;
+      var dX = this.prevPosition.x - this.position.x;
+      var dY = this.prevPosition.y - this.position.y;
+      var delta = sqrt(dX * dX + dY * dY);
+      this.prevPosition = new Vector2(this.position.x, this.position.y);
+      for (i = 1; i < this.particleCount; i++) {
+        var dirP = Vector2.Sub(this.particles[i - 1].position, this.particles[i].position);
+        dirP.Normalize();
+        dirP.Mul((delta / _dt) * this.velocityInherit);
+        this.particles[i].AddForce(dirP);
+      }
+      for (i = 1; i < this.particleCount; i++) {
+        this.particles[i].Integrate(_dt);
+      }
+      for (i = 1; i < this.particleCount; i++) {
+        var rp2 = new Vector2(this.particles[i].position.x, this.particles[i].position.y);
+        rp2.Sub(this.particles[i - 1].position);
+        rp2.Normalize();
+        rp2.Mul(this.particleDist);
+        rp2.Add(this.particles[i - 1].position);
+        this.particles[i].position = rp2;
+      }
+      if (this.position.y > ConfettiRibbon.bounds.y + this.particleDist * this.particleCount) {
+        this.Reset();
+      }
+    }
+    this.Reset = function() {
+      this.position.y = -random() * ConfettiRibbon.bounds.y;
+      this.position.x = random() * ConfettiRibbon.bounds.x;
+      this.prevPosition = new Vector2(this.position.x, this.position.y);
+      this.velocityInherit = random() * 2 + 4;
+      this.time = random() * 100;
+      this.oscillationSpeed = random() * 2.0 + 1.5;
+      this.oscillationDistance = (random() * 40 + 40);
+      this.ySpeed = random() * 40 + 80;
+      var ci = round(random() * (colors.length - 1));
+      this.frontColor = colors[ci][0];
+      this.backColor = colors[ci][1];
+      this.particles = new Array();
+      for (var i = 0; i < this.particleCount; i++) {
+        this.particles[i] = new EulerMass(this.position.x, this.position.y - i * this.particleDist, this.particleMass, this.particleDrag);
+      }
+    };
+    this.Draw = function(_g) {
+      for (var i = 0; i < this.particleCount - 1; i++) {
+        var p0 = new Vector2(this.particles[i].position.x + this.xOff, this.particles[i].position.y + this.yOff);
+        var p1 = new Vector2(this.particles[i + 1].position.x + this.xOff, this.particles[i + 1].position.y + this.yOff);
+        if (this.Side(this.particles[i].position.x, this.particles[i].position.y, this.particles[i + 1].position.x, this.particles[i + 1].position.y, p1.x, p1.y) < 0) {
+          _g.fillStyle = this.frontColor;
+          _g.strokeStyle = this.frontColor;
+        } else {
+          _g.fillStyle = this.backColor;
+          _g.strokeStyle = this.backColor;
+        }
+        if (i == 0) {
+          _g.beginPath();
+          _g.moveTo(this.particles[i].position.x * retina, this.particles[i].position.y * retina);
+          _g.lineTo(this.particles[i + 1].position.x * retina, this.particles[i + 1].position.y * retina);
+          _g.lineTo(((this.particles[i + 1].position.x + p1.x) * 0.5) * retina, ((this.particles[i + 1].position.y + p1.y) * 0.5) * retina);
+          _g.closePath();
+          _g.stroke();
+          _g.fill();
+          _g.beginPath();
+          _g.moveTo(p1.x * retina, p1.y * retina);
+          _g.lineTo(p0.x * retina, p0.y * retina);
+          _g.lineTo(((this.particles[i + 1].position.x + p1.x) * 0.5) * retina, ((this.particles[i + 1].position.y + p1.y) * 0.5) * retina);
+          _g.closePath();
+          _g.stroke();
+          _g.fill();
+        } else if (i == this.particleCount - 2) {
+          _g.beginPath();
+          _g.moveTo(this.particles[i].position.x * retina, this.particles[i].position.y * retina);
+          _g.lineTo(this.particles[i + 1].position.x * retina, this.particles[i + 1].position.y * retina);
+          _g.lineTo(((this.particles[i].position.x + p0.x) * 0.5) * retina, ((this.particles[i].position.y + p0.y) * 0.5) * retina);
+          _g.closePath();
+          _g.stroke();
+          _g.fill();
+          _g.beginPath();
+          _g.moveTo(p1.x * retina, p1.y * retina);
+          _g.lineTo(p0.x * retina, p0.y * retina);
+          _g.lineTo(((this.particles[i].position.x + p0.x) * 0.5) * retina, ((this.particles[i].position.y + p0.y) * 0.5) * retina);
+          _g.closePath();
+          _g.stroke();
+          _g.fill();
+        } else {
+          _g.beginPath();
+          _g.moveTo(this.particles[i].position.x * retina, this.particles[i].position.y * retina);
+          _g.lineTo(this.particles[i + 1].position.x * retina, this.particles[i + 1].position.y * retina);
+          _g.lineTo(p1.x * retina, p1.y * retina);
+          _g.lineTo(p0.x * retina, p0.y * retina);
+          _g.closePath();
+          _g.stroke();
+          _g.fill();
+        }
+      }
+    }
+    this.Side = function(x1, y1, x2, y2, x3, y3) {
+      return ((x1 - x2) * (y3 - y2) - (y1 - y2) * (x3 - x2));
+    }
+  }
+  ConfettiRibbon.bounds = new Vector2(0, 0);
+  confetti = {};
+  confetti.Context = function(id) {
+    var i = 0;
+    var canvas = document.getElementById(id);
+    var canvasParent = canvas.parentNode;
+    var canvasWidth = canvasParent.offsetWidth;
+    var canvasHeight = canvasParent.offsetHeight;
+    canvas.width = canvasWidth * retina;
+    canvas.height = canvasHeight * retina;
+    var context = canvas.getContext('2d');
+    var interval = null;
+    var confettiRibbons = new Array();
+    ConfettiRibbon.bounds = new Vector2(canvasWidth, canvasHeight);
+    for (i = 0; i < confettiRibbonCount; i++) {
+      confettiRibbons[i] = new ConfettiRibbon(random() * canvasWidth, -random() * canvasHeight * 2, ribbonPaperCount, ribbonPaperDist, ribbonPaperThick, 45, 1, 0.05);
+    }
+    var confettiPapers = new Array();
+    ConfettiPaper.bounds = new Vector2(canvasWidth, canvasHeight);
+    for (i = 0; i < confettiPaperCount; i++) {
+      confettiPapers[i] = new ConfettiPaper(random() * canvasWidth, random() * canvasHeight);
+    }
+    this.resize = function() {
+      canvasWidth = canvasParent.offsetWidth;
+      canvasHeight = canvasParent.offsetHeight;
+      canvas.width = canvasWidth * retina;
+      canvas.height = canvasHeight * retina;
+      ConfettiPaper.bounds = new Vector2(canvasWidth, canvasHeight);
+      ConfettiRibbon.bounds = new Vector2(canvasWidth, canvasHeight);
+    }
+    this.start = function() {
+      this.stop()
+      var context = this;
+      this.update();
+    }
+    this.stop = function() {
+      cAF(this.interval);
+    }
+    this.update = function() {
+      var i = 0;
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      for (i = 0; i < confettiPaperCount; i++) {
+        confettiPapers[i].Update(duration);
+        confettiPapers[i].Draw(context);
+      }
+      for (i = 0; i < confettiRibbonCount; i++) {
+        confettiRibbons[i].Update(duration);
+        confettiRibbons[i].Draw(context);
+      }
+      this.interval = rAF(function() {
+        confetti.update();
+      });
+    }
+  };
+  var confetti = new confetti.Context('confetti');
+  confetti.start();
+  window.addEventListener('resize', function(event){
+    confetti.resize();
+  });
+});
+</script>
+  <!-- < ?php
     require_once("includes/dbconn.php");
     // Query to get male count
     $maleQuery = "SELECT COUNT(*) as maleCount FROM 1bd_personal_physical WHERE biodatagender = 'পাত্রের বায়োডাটা'";
@@ -1184,8 +1623,9 @@ saveUniqueVisitor($conn, $ip_address);
     // Calculate total biodata count
     $totalBiodataCount = $maleCount + $femaleCount;
     mysqli_close($conn);
-  ?>
-  <div class="sb-home-search">
+  ?> -->
+	
+ <!--  <div class="sb-home-search">
     <h1><span class="shosurbari-heading-span"> শ্বশুরবাড়ির </span>সেবা গ্রহীতা</h1>
     <div class="sbhome-heart-divider">
       <span class="grey-line"></span>
@@ -1197,41 +1637,41 @@ saveUniqueVisitor($conn, $ip_address);
   <div class="shosurbari-user-info">
     <div class="card-wrap">
       <div class="card-header one">
-        <img src="images/shosurbari-male-icon.jpg" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
+        <img src="images/shosurbari-male-icon.jpg" alt="ShosurBari Male" style="height: 75px; width: 75px; background: #fff; border-radius: 50%;">
       </div>
       <div class="card-content">
-        <h3>সর্বমোট পাত্র</h3>
-        <h2><?php echo $maleCount; ?> </h2>
+        <h1>সর্বমোট পাত্র</h1>
+        <h2>< ?php echo $maleCount; ?> </h2>
       </div>
     </div>
     <div class="card-wrap">
       <div class="card-header two">
-        <img src="images/shosurbari-female-icon.png" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
+        <img src="images/shosurbari-female-icon.png" alt="ShosurBari Female" style="height: 75px; width: 75px; background: #fff; border-radius: 50%;">
       </div>
       <div class="card-content">
-        <h3>সর্বমোট পাত্রী</h3>
-        <h2><?php echo $femaleCount; ?></h2>
+        <h1>সর্বমোট পাত্রী</h1>
+        <h2>< ?php echo $femaleCount; ?></h2>
       </div>
     </div>
     <div class="card-wrap">
       <div class="card-header three">
-        <img src="images/shosurbari-groom-bride.png" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
+        <img src="images/shosurbari-groom-bride.png" alt="ShosurBari Groom and Bride" style="height: 75px; width: 75px; background: #fff; border-radius: 50%; object-fit: cover;">
       </div>
       <div class="card-content">
-        <h3>মোট পাত্র-পাত্রী</h3>
-        <h2><?php echo $totalBiodataCount; ?></h2>
+        <h1>মোট পাত্র-পাত্রী</h1>
+        <h2>< ?php echo $totalBiodataCount; ?></h2>
       </div>
     </div>
     <div class="card-wrap">
       <div class="card-header four">
-        <img src="images/shosurbari-success-marriage.jpg" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
+        <img src="images/shosurbari-success-marriage.jpg" alt="ShosurBari Success Marriage" style="height: 75px; width: 75px; background: #fff; border-radius: 50%;">
       </div>
       <div class="card-content">
-        <h3>সফল বিবাহ</h3>
+        <h1>সফল বিবাহ</h1>
         <h2 style="font-size: 18px;">আপনার অপেক্ষায়</h2>
       </div>
     </div>
-  </div>
+  </div> -->
   <div class="sb-home-search">
     <h1><span class="shosurbari-heading-span"> শ্বশুরবাড়ির </span>সেবা গ্রহণ</h1>
     <div class="sbhome-heart-divider">
@@ -1244,7 +1684,7 @@ saveUniqueVisitor($conn, $ip_address);
   <div class="shosurbari-user-info">
     <div class="card-wrap">
       <div class="card-header one">
-        <img src="images/sb-home-createaccount.png" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
+        <img src="images/sb-home-createaccount.png" alt="Create Account Icon" style="height: 75px; width: 75px; background: #fff; border-radius: 50%;">
       </div>
       <div class="card-content">
         <h1>বায়োডাটা পোস্ট করুন</h1>
@@ -1253,7 +1693,7 @@ saveUniqueVisitor($conn, $ip_address);
     </div>
     <div class="card-wrap">
       <div class="card-header two">
-        <img src="images/sb-home-search.jpg" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
+        <img src="images/sb-home-search.jpg" alt="Search Icon" style="height: 75px; width: 75px; background: #fff; border-radius: 50%;">
       </div>
       <div class="card-content">
         <h1>বায়োডাটা খুঁজুন</h1>
@@ -1262,40 +1702,32 @@ saveUniqueVisitor($conn, $ip_address);
     </div>
     <div class="card-wrap">
       <div class="card-header three">
-        <img src="images/sb-home-contact.png" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
+        <img src="images/sb-home-contact.png" alt="Contact Icon" style="height: 75px; width: 75px; background: #fff; border-radius: 50%;">
       </div>
       <div class="card-content">
         <h1>যোগাযোগ করুন</h1>
-        <p>শ্বশুরবাড়ি ডটকমে বায়োডাটা পছন্দ হবার পর অভিভাবকের সাথে যোগাযোগ করতে চাইলে সামান্য কিছু সার্ভিস চার্জ প্রদান করতে হবে। বায়োডাটা কতৃপক্ষের থেকে সার্ভিস চার্জ নেয়া হয় না।</p>
+        <p>শ্বশুরবাড়ি ডটকমে বায়োডাটা পছন্দ হবার পর অভিভাবকের সাথে যোগাযোগ করতে আগ্রহী হইলে সার্ভিস চার্জ প্রদান করতে হবে। বায়োডাটা কতৃপক্ষের থেকে সার্ভিস চার্জ নেয়া হয় না।</p>
       </div>
     </div>
     <div class="card-wrap">
       <div class="card-header four">
-        <img src="images/sb-home-married.png" style="height: 75px; widht: 75px; background: #fff; border-radius: 50%;">
+        <img src="images/sb-home-married.png" alt="Married Icon" style="height: 75px; width: 75px; background: #fff; border-radius: 50%;">
       </div>
       <div class="card-content">
         <h1>বিবাহ সম্পন্ন করুন</h1>
-        <p>পরিবার ও পাত্র-পাত্রীর সম্পর্কে নিজ দায়িত্বে ভালভাবে খোঁজ নিয়ে তবেই বিয়ের কথা পাকা করুন। বিয়ের পূর্বেই পাত্র-পাত্রীর পরিবারের সাথে টাকা লেনদেন করে প্রতারিত হবেন না।</p>
+        <p>পরিবার ও পাত্র-পাত্রীর সম্পর্কে নিজ দায়িত্বে ভালভাবে খোঁজ নিয়ে তবেই বিয়ের কথা পাকা করুন। বিয়ের পূর্বেই পাত্রপাত্রীর পরিবারের সাথে টাকা লেনদেন করে প্রতারিত হবেন না।</p>
       </div>
     </div>
   </div>
-  <!-- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- --
-  --                   E   N   D                    --
-  --      SHOSURBARI HOME PAGE / BODY CONTENT      --
-  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-  <!--=======================================
-  How Many Visitors View This Page.
-  This Script Connected to get_view_count.php
-  and page_views Database Table
-  ========================================-->
+  <!--END - SHOSURBARI HOME PAGE / BODY CONTENT -->
+  <!-- How Many Visitors View This Page -->
   <script>
   $(document).ready(function() {
   var pages = ["index"];
-  // Fetch and display view counts for each page
   for (var i = 0; i < pages.length; i++) {
     var page = pages[i];
     $.ajax({
-    url: 'get_view_count.php?page=' + page, // Adjust the URL to your PHP script
+    url: 'get_view_count.php?page=' + page, 
     type: 'GET',
     success: function(data) {
     $('#viewCount' + page.replace("_", "")).html(data);
@@ -1310,7 +1742,7 @@ saveUniqueVisitor($conn, $ip_address);
     $("#flexiselDemo3").flexisel({
     visibleItems: 4,
     animationSpeed: 700,
-    autoPlay: false,
+    autoPlay: true,
     autoPlaySpeed: 9000,    		
     pauseOnHover: true,
     enableResponsiveBreakpoints: true,
@@ -1349,7 +1781,7 @@ saveUniqueVisitor($conn, $ip_address);
       var windowHeight = window.innerHeight;
       var errorDivHeight = errorDiv.offsetHeight;
       var scrollPosition = errorDiv.offsetTop - (windowHeight - errorDivHeight) / 2;
-      scrollPosition = Math.max(scrollPosition, 100);
+      scrollPosition = Math.max(scrollPosition, 350);
       window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
       return false;
       }
