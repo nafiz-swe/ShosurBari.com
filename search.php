@@ -7,23 +7,20 @@ $result=search();
 <html>
 <head>
 <title>Search | ShosurBari</title>
+<meta name="description" content="শ্বশুরবাড়ি: Effortlessly search for your preferred Bengali life partner on ShosurBari.com's dedicated page. Refine criteria and explore various options to connect with potential life partners for a joyful marriage journey.">
 <link rel="icon" href="images/shosurbari-icon.png" type="image/png">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<meta property="og:image" content="https://www.shosurbari.com/images/shosurbari-social-share.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/optionsearch.js"></script>
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="css/font-awesome.css" rel="stylesheet"> 
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<!-- Custom Theme files -->
-<link href="css/style.css" rel='stylesheet' type='text/css' />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link href='//fonts.googleapis.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
-<!--font-Awesome-->
-<link href="css/font-awesome.css" rel="stylesheet"> 
-<!--font-Awesome-->
 <!--Below Link Search Filter Settings Icon Spring -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -68,7 +65,7 @@ $result=search();
           <div class="search-title">
             <h4>একটি পাত্রপাত্রীর বায়োডাটা খুঁজুন</h4>
           </div>
-          <input type="text"  id="profid" name="profid" placeholder="Biodata Number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required>
+          <input type="text"  id="profid" name="profid" placeholder="বায়োডাটা নং" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required>
           <button type="submit" onclick="viewprofile();"  value="search">বায়োডাটা খুঁজুন</button>
           <script type="text/javascript">
             function viewprofile(){
@@ -677,15 +674,15 @@ $result=search();
                   <span class="search-options">সকল শিক্ষার্থী</span>
                   <br>
                   <!-- Students Sector-->
-                  <input type="checkbox" name="student_occupation_level[]" value="কওমী মাদ্রাসার শিক্ষার্থী" class="SelectBox val student-option" onchange="handleStudentOptions(this)" />
+                  <input type="checkbox" name="student_occupation_level[]" value="শিক্ষার্থী-কওমী মাদ্রাসা" class="SelectBox val student-option" onchange="handleStudentOptions(this)" />
                   <span class="search-options">শিক্ষার্থী-কওমী মাদ্রাসা</span>
                   <br>
                   <!-- Students Sector-->
-                  <input type="checkbox" name="student_occupation_level[]" value="বি.এসসি. ইঞ্জিনিয়ারিং শিক্ষার্থী" class="SelectBox val student-option" onchange="handleStudentOptions(this)" />
+                  <input type="checkbox" name="student_occupation_level[]" value="শিক্ষার্থী-বি.এসসি. ইঞ্জিনিয়ারিং" class="SelectBox val student-option" onchange="handleStudentOptions(this)" />
                   <span class="search-options">শিক্ষার্থী-বি.এসসি. ইঞ্জিনিয়ারিং</span>
                   <br>
                   <!-- Students Sector-->
-                  <input type="checkbox" name="student_occupation_level[]" value="মেডিকেল শিক্ষার্থী" class="SelectBox val student-option" onchange="handleStudentOptions(this)" />
+                  <input type="checkbox" name="student_occupation_level[]" value="শিক্ষার্থী-মেডিকেল" class="SelectBox val student-option" onchange="handleStudentOptions(this)" />
                   <span class="search-options">শিক্ষার্থী-মেডিকেল</span>
                   <br>
                   <!-- Medical & Health Sector -->                  
@@ -693,8 +690,8 @@ $result=search();
                   <span class="search-options">ডাক্তার/চিকিৎসা/স্বাস্থ্য</span>
                   <br>
                   <!--  Engineers Sector-->                  
-                  <input type="checkbox" name="occupation_sector[]" value="বি.এসসি. ইঞ্জিনিয়ার" class="SelectBox val" />
-                  <span class="search-options">বি.এসসি. ইঞ্জিনিয়ার</span>
+                  <input type="checkbox" name="occupation_sector[]" value="ইঞ্জিনিয়ার" class="SelectBox val" />
+                  <span class="search-options">ইঞ্জিনিয়ার</span>
                   <br>
                   <!-- Teacher Profession -->                  
                   <input type="checkbox" name="occupation_sector[]" value="শিক্ষক/প্রফেসর" class="SelectBox val" />
@@ -708,13 +705,17 @@ $result=search();
                   <input type="checkbox" name="occupation_sector[]" value="সার্ভিস/ফাইন্যান্স/ফ্রিল্যান্সার/উদ্যোক্তা" class="SelectBox val" />
                   <span class="search-options">সার্ভিস/ফাইন্যান্স/ফ্রিল্যান্সার/উদ্যোক্তা</span>
                   <br>
+				  <!-- Shop Woner Sector-->                  
+                  <input type="checkbox" name="occupation_sector[]" value="দোকান/শোরুমের স্বত্বাধিকারী" class="SelectBox val" />
+                  <span class="search-options">দোকান/শোরুমের স্বত্বাধিকারী(মালিক)</span>
+                  <br>
                   <!-- Working Forign Sector-->                  
                   <input type="checkbox" name="occupation_sector[]" value="প্রবাসী/বিদেশ" class="SelectBox val" />
                   <span class="search-options">প্রবাসী/বিদেশ</span>
                   <br>
                   <!-- Garments Sector-->                  
-                  <input type="checkbox" name="occupation_sector[]" value="গার্মেন্টস/পোশাক" class="SelectBox val" />
-                  <span class="search-options">গার্মেন্টস/পোশাক</span>
+                  <input type="checkbox" name="occupation_sector[]" value="গার্মেন্টস/টেইলর" class="SelectBox val" />
+                  <span class="search-options">গার্মেন্টস/টেইলর</span>
                   <br>
                   <!--  Driver Profession -->                  
                   <input type="checkbox" name="occupation_sector[]" value="ড্রাইভার/চালক" class="SelectBox val" />
@@ -757,10 +758,7 @@ $result=search();
                   <span class="search-options">ভোকেশনাল</span>
                   <br>
                   <input type="checkbox" name="scndry_edu_method[]" value="মাধ্যমিক পড়িনাই" class="SelectBox val" />
-                  <span class="search-options">পড়ালেখা করিনি</span>
-                  <br> 
-                  <input type="checkbox" name="scndry_edu_method[]" value="অন্যান্য" class="SelectBox val" />
-                  <span class="search-options">অন্যান্য</span>
+                  <span class="search-options">মাধ্যমিক পড়িনাই</span>
                 </div>
               </div>
             </div>
@@ -805,7 +803,7 @@ $result=search();
         <div class="search-title">
           <h4>একটি পাত্রপাত্রীর বায়োডাটা খুঁজুন</h4>
         </div>
-        <input type="text"  id="sbprofid" name="sbprofid" placeholder="Biodata Number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required>
+        <input type="text"  id="sbprofid" name="sbprofid" placeholder="বায়োডাটা নং" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required>
         <button type="submit" onclick="viewprofile2();"  value="search">বায়োডাটা খুঁজুন</button>
         <script type="text/javascript">
           function viewprofile2(){
@@ -1403,15 +1401,15 @@ $result=search();
               <span class="search-options">সকল শিক্ষার্থী</span>
               <br>
               <!-- Students Sector-->
-              <input type="checkbox" name="student_occupation_level[]" value="কওমী মাদ্রাসার শিক্ষার্থী" class="SelectBox val student-option" onchange="handleStudentOptions(this)" />
+              <input type="checkbox" name="student_occupation_level[]" value="শিক্ষার্থী-কওমী মাদ্রাসা" class="SelectBox val student-option" onchange="handleStudentOptions(this)" />
               <span class="search-options">শিক্ষার্থী-কওমী মাদ্রাসা</span>
               <br>
               <!-- Students Sector-->
-              <input type="checkbox" name="student_occupation_level[]" value="বি.এসসি. ইঞ্জিনিয়ারিং শিক্ষার্থী" class="SelectBox val student-option" onchange="handleStudentOptions(this)" />
+              <input type="checkbox" name="student_occupation_level[]" value="শিক্ষার্থী-বি.এসসি. ইঞ্জিনিয়ারিং" class="SelectBox val student-option" onchange="handleStudentOptions(this)" />
               <span class="search-options">শিক্ষার্থী-বি.এসসি. ইঞ্জিনিয়ারিং</span>
               <br>
               <!-- Students Sector-->
-              <input type="checkbox" name="student_occupation_level[]" value="মেডিকেল শিক্ষার্থী" class="SelectBox val student-option" onchange="handleStudentOptions(this)" />
+              <input type="checkbox" name="student_occupation_level[]" value="শিক্ষার্থী-মেডিকেল" class="SelectBox val student-option" onchange="handleStudentOptions(this)" />
               <span class="search-options">শিক্ষার্থী-মেডিকেল</span>
               <br>
               <!-- Medical & Health Sector -->                  
@@ -1419,8 +1417,8 @@ $result=search();
               <span class="search-options">ডাক্তার/চিকিৎসা/স্বাস্থ্য</span>
               <br>
               <!--  Engineers Sector-->                  
-              <input type="checkbox" name="occupation_sector[]" value="বি.এসসি. ইঞ্জিনিয়ার" class="SelectBox val" />
-              <span class="search-options">বি.এসসি. ইঞ্জিনিয়ার</span>
+              <input type="checkbox" name="occupation_sector[]" value="ইঞ্জিনিয়ার" class="SelectBox val" />
+              <span class="search-options">ইঞ্জিনিয়ার</span>
               <br>
               <!-- Teacher Profession -->                  
               <input type="checkbox" name="occupation_sector[]" value="শিক্ষক/প্রফেসর" class="SelectBox val" />
@@ -1434,13 +1432,17 @@ $result=search();
               <input type="checkbox" name="occupation_sector[]" value="সার্ভিস/ফাইন্যান্স/ফ্রিল্যান্সার/উদ্যোক্তা" class="SelectBox val" />
               <span class="search-options">সার্ভিস/ফাইন্যান্স/ফ্রিল্যান্সার/উদ্যোক্তা</span>
               <br>
+			  <!-- Shop Woner Sector-->                  
+			  <input type="checkbox" name="occupation_sector[]" value="দোকান/শোরুমের স্বত্বাধিকারী" class="SelectBox val" />
+			  <span class="search-options">দোকান/শোরুমের স্বত্বাধিকারী(মালিক)</span>
+			  <br>
               <!-- Working Forign Sector-->                  
               <input type="checkbox" name="occupation_sector[]" value="প্রবাসী/বিদেশ" class="SelectBox val" />
               <span class="search-options">প্রবাসী/বিদেশ</span>
               <br>
               <!-- Garments Sector-->                  
-              <input type="checkbox" name="occupation_sector[]" value="গার্মেন্টস/পোশাক" class="SelectBox val" />
-              <span class="search-options">গার্মেন্টস/পোশাক</span>
+              <input type="checkbox" name="occupation_sector[]" value="গার্মেন্টস/টেইলর" class="SelectBox val" />
+              <span class="search-options">গার্মেন্টস/টেইলর</span>
               <br>
               <!--  Driver Profession -->                  
               <input type="checkbox" name="occupation_sector[]" value="ড্রাইভার/চালক" class="SelectBox val" />
@@ -1483,10 +1485,7 @@ $result=search();
               <span class="search-options">ভোকেশনাল</span>
               <br>
               <input type="checkbox" name="scndry_edu_method[]" value="মাধ্যমিক পড়িনাই" class="SelectBox val" />
-              <span class="search-options">পড়ালেখা করিনি</span>
-              <br> 
-              <input type="checkbox" name="scndry_edu_method[]" value="অন্যান্য" class="SelectBox val" />
-              <span class="search-options">অন্যান্য</span>
+              <span class="search-options">মাধ্যমিক পড়িনাই</span>
             </div>
           </div>
         </div>
@@ -1690,14 +1689,16 @@ $result=search();
               $result3 = mysqlexec($sql3);
               if ($result3 && mysqli_num_rows($result3) > 0) {
                 $row3 = mysqli_fetch_assoc($result3);
-                $other_occupation_sector=$row3['other_occupation_sector'];
                 $occupation_levels = array(
+                'no_occupation' => $row3['no_occupation'],
+                'other_occupation_sector' => $row3['other_occupation_sector'],
                 'business_occupation_level' => $row3['business_occupation_level'],
                 'student_occupation_level' => $row3['student_occupation_level'],
                 'health_occupation_level' => $row3['health_occupation_level'],
                 'engineer_occupation_level' => $row3['engineer_occupation_level'],
                 'teacher_occupation_level' => $row3['teacher_occupation_level'],
                 'defense_occupation_level' => $row3['defense_occupation_level'],
+				'shop_occupation_level' => $row3['shop_occupation_level'],
                 'foreigner_occupation_level' => $row3['foreigner_occupation_level'],
                 'garments_occupation_level' => $row3['garments_occupation_level'],
                 'driver_occupation_level' => $row3['driver_occupation_level'],
@@ -2025,11 +2026,8 @@ $result=search();
         }, 500);
         var windowHeight = window.innerHeight;
         var errorDivHeight = errorDiv.offsetHeight;
-        // Calculate the scroll position to center the error message vertically
         var scrollPosition = errorDiv.offsetTop - (windowHeight - errorDivHeight) / 2;
-        // Ensure the scroll position doesn't go to the top of the display
         scrollPosition = Math.max(scrollPosition, 235);
-        // Scroll to the calculated position
         window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
         return false;
       }
@@ -2037,11 +2035,7 @@ $result=search();
     }
     // E   N   D  - WHEN SEARCH BIODATA, IF EMPTY GENDER SHOW ERROR
   </script>
-  <!--=======================================
-  How Many Visitors View This Page.
-  This Script Connected to get_view_count.php
-  and page_views Database Table
-  ========================================-->
+	<!--View This Page. Connected to get view count -->
   <script>
   $(document).ready(function() {
   var pages = ["search"];
