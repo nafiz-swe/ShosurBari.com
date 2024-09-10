@@ -2018,16 +2018,18 @@ if(isloggedin()){
 <script>
     // Get the popup container
     var popup = document.getElementById('popup');
-
     // Get the OK button
     var okButton = document.getElementById('okButton');
-
-    // Show the popup
-    popup.style.display = 'block';
-
-    // Hide the popup when OK button is clicked
+    // Check if the popup has been shown before using a unique key for home page
+    var isPopupShown = localStorage.getItem('biodataPopupShown');
+    // Show the popup if it hasn't been shown
+    if (!isPopupShown) {
+        popup.style.display = 'block';
+    }
+    // Hide the popup when OK button is clicked and store the state
     okButton.addEventListener('click', function() {
         popup.style.display = 'none';
+        localStorage.setItem('biodataPopupShown', 'true');
     });
 </script>
 	<!--View This Page. Connected to get view count -->
