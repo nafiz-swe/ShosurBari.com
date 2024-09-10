@@ -1187,34 +1187,42 @@ saveUniqueVisitor($conn, $ip_address);
 		background: linear-gradient(#0aa4ca, #06b6d4);
     }
 </style>
-
 <!-- Popup container -->
 <div id="popup" class="popup-container">
-	<img src="images/shosurbari-home-notice.png">
+    <img src="images/shosurbari-home-notice.png">
     <button id="okButton" class="popup-btn">ঠিক আছে</button>
-		<canvas id="confetti"></canvas>
-
+    <canvas id="confetti"></canvas>
 </div>
-
 <script>
     // Get the popup container
     var popup = document.getElementById('popup');
-
     // Get the OK button
     var okButton = document.getElementById('okButton');
-
-    // Show the popup
-    popup.style.display = 'block';
-
-    // Hide the popup when OK button is clicked
+    // Function to check if 24 hours have passed
+    function isExpired(timestamp) {
+        const currentTime = new Date().getTime();
+        const oneDay = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+        return currentTime - timestamp > oneDay;
+    }
+    // Check if the popup has been shown before and if 24 hours have passed
+    var popupData = JSON.parse(localStorage.getItem('homePopupShown'));
+    if (!popupData || isExpired(popupData.timestamp)) {
+        // Show the popup if it hasn't been shown or if 24 hours have passed
+        popup.style.display = 'block';
+    }
+    // Hide the popup when OK button is clicked and store the current timestamp
     okButton.addEventListener('click', function() {
         popup.style.display = 'none';
+        const data = {
+            shown: true,
+            timestamp: new Date().getTime() // Save current time as timestamp
+        };
+        localStorage.setItem('homePopupShown', JSON.stringify(data));
     });
 	
 	
-	// here start celibrations
-	var retina = window.devicePixelRatio,
-
+// here start celibrations
+var retina = window.devicePixelRatio,
     // Math shorthands
     PI = Math.PI,
     sqrt = Math.sqrt,
