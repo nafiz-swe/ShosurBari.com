@@ -2,8 +2,6 @@
 include_once("includes/basic_includes.php");
 include_once("functions.php");
 register(); 
-error_reporting(0);
-session_start();
 if (isset($_SESSION['id'])) {
   header("location: my-account.php");
   exit;
@@ -12,20 +10,29 @@ if (isset($_SESSION['id'])) {
 <!DOCTYPE HTML>
 <html>
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2Q53085HTX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2Q53085HTX');
+</script>
 <title>Register | ShosurBari</title>
+<meta name="description" content="শ্বশুরবাড়ি: Embark on your journey with ShosurBari. Register now for a personalized profile on this Bangladeshi matrimony platform, and let your unique story pave the way to finding your ideal life partner.">
 <link rel="icon" href="images/shosurbari-icon.png" type="image/png">
+<meta property="og:image" content="https://www.shosurbari.com/images/shosurbari-social-share.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" /><!-- eye icon password show -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-<script src="js/optionsearch.js"></script>
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="css/font-awesome.css" rel="stylesheet"> 
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<!-- Custom Theme files -->
-<link href="css/style.css" rel='stylesheet' type='text/css' />
 <link href='//fonts.googleapis.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
 <!-- Country Code with Flag for Number input field below 2 link -->
@@ -33,9 +40,6 @@ if (isset($_SESSION['id'])) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/intlTelInput.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.8/js/intlTelInput.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.8/css/intlTelInput.css" />
-<!--font-Awesome-->
-<link href="css/font-awesome.css" rel="stylesheet"> 
-<!--font-Awesome-->
 </head>
 <body>
 	<!-- ===========  Navigation Start =========== -->
@@ -53,24 +57,19 @@ if (isset($_SESSION['id'])) {
     </div>
   </div>
   <style>
-  .sb-biodata-field{
-    background: none;
-  }
-  .sb-register-login h2{
-    color: #000;
-    font-size: 23px;
-    font-weight: bold;
-    background: none;
-    text-align: left;
+  .form-group input{
+    font-family: 'Ubuntu';
   }
   .shosurbari-biodata-form {
     align-items: center;
     flex-wrap: wrap;
     width: 1400px;
     margin: auto;
-    padding-top: 30px;
     padding-bottom: 30px;
     margin-bottom: 70px;
+  }
+  .sb-biodata-field h2 {
+    margin-bottom: 40px;
   }
   .soshurbari-animation-icon,
   .shosurbari-animation-form {
@@ -78,18 +77,6 @@ if (isset($_SESSION['id'])) {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  .soshurbari-animation-icon h3 {
-    font-size: 23px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    margin-top: 15px;
-  }
-  .soshurbari-animation-icon img {
-    justify-content: flex-end;
-    margin: auto;
-    width: 37px;
-    height: 35px;
   }
   .shosurbari-form-error{
     font-size: 16px;
@@ -99,12 +86,28 @@ if (isset($_SESSION['id'])) {
     text-align: center;
     display: none;
   }
-  @media (max-width: 1400px){
+	@media screen and (min-width: 1400px) {
+    .popup-container {
+        width: 480px;
+    }
+	}
+@media (max-width: 1400px){
   .shosurbari-biodata-form{
     width: auto;
   }
+	.popup-container {
+        width: 450px;
+    }
   }
+	@media screen and (max-width: 1200px) {
+    .popup-container {
+        width: 420px;
+    }
+	  }
   @media (max-width: 1024px) {
+	.popup-container {
+        width: 400px;
+    }
   .shosurbari-animation-form {
     flex-basis: 100%;
     justify-content: center;
@@ -113,6 +116,31 @@ if (isset($_SESSION['id'])) {
     width: auto;
   }
   }
+@media screen and (max-width: 768px) {
+    .popup-container {
+        width: 390px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .popup-container {
+        width: 380px;
+    }
+}
+@media screen and (max-width: 480px) {
+    .popup-container {
+        width: 350px;
+    }
+}
+@media screen and (max-width: 384px) {
+    .popup-container {
+        width: 300px;
+    }
+}
+@media screen and (max-width: 320px) {
+    .popup-container {
+        width: 250px;
+    }
+}
   .popup {
     display: none;
     position: fixed;
@@ -135,9 +163,9 @@ if (isset($_SESSION['id'])) {
   }
   </style>
   <?php
-  if (isset($_SESSION['error_message'])) {
-    echo '<div class="shosurbari-register-error">' . $_SESSION['error_message'] . '</div>';
-    unset($_SESSION['error_message']);
+  if (isset($_SESSION['reg_error_message'])) {
+    echo '<div class="shosurbari-register-error">' . $_SESSION['reg_error_message'] . '</div>';
+    unset($_SESSION['reg_error_message']);
   }
   ?>
   <div class="shosurbari-biodata-form">
@@ -147,38 +175,38 @@ if (isset($_SESSION['id'])) {
           <div class="sb-register-login">
             <div class="soshurbari-animation-icon">
               <div class="sb-icon-laptop">
-                <h3> <img src="images/shosurbari-icon.png"> ShosurBari </h3>
+                <h3> <img src="images/shosurbari-logo-form.png"></h3>
               </div>
             </div>
             <div class="sb-biodata-field">
               <h2>Create new account</h2>
             </div>
             <div class="form-group">
-              <input type="text" id="fname" placeholder="Full Name" name="fname" value="" maxlength="60" class="form-text required">
+              <input type="text" id="fname" placeholder="Full Name" minlength="4" name="fname" value="" maxlength="60" class="form-text required">
               <span id="fname_error"  class="shosurbari-form-error"></span>
             </div>
             <div class="form-group">
-              <input type="text" id="uname" placeholder="Username" name="uname" value="" maxlength="60" class="form-text required">
+              <input type="text" id="uname" placeholder="Username" minlength="4" name="uname" value="" maxlength="30" class="form-text required">
               <span id="uname_error" class="shosurbari-form-error"></span>
             </div>
             <div class="form-group">
-              <input type="text" id="email" placeholder="Email" name="email" value="" maxlength="60" class="form-text required">
+              <input type="email" id="email" placeholder="Email" name="email" value="" maxlength="60" class="form-text required">
               <span id="email_error" class="shosurbari-form-error"></span>
             </div>
             <div class="form-group">
-              <input type="text" id="pnumber" placeholder="Phone Number" name="pnumber" value="" size="50" maxlength="15" class="form-text required">
+              <input type="tel" id="pnumber" placeholder="Phone Number" name="pnumber" value="" size="50" maxlength="14" class="form-text required">
               <input type="hidden" id="selectedCountryCode" name="selectedCountryCode">
               <input type="hidden" id="selectedCountryName" name="selectedCountryName">
               <span id="pnumber_error" class="shosurbari-form-error"></span>
             </div>
             <div class="form-group">
-              <input type="password" id="pass_1" placeholder="New Password" name="pass_1" maxlength="128" class="form-text required">
-              <span class="show-password" style="color:#0aa4ca;  font-size:15px; top:2px;"> <i style="color:black;  font-size:15px;" class="fa fa-eye" aria-hidden="true"></i></span> 
+              <input type="password" id="pass_1" placeholder="New Password" name="pass_1" maxlength="40" class="form-text required">
+              <span class="show-password" style="font-size:15px; top:2px;"> <i style="font-size:15px;" class="fa fa-eye-slash" aria-hidden="true"></i></span> 
               <span  id="pass_1_error" class="shosurbari-form-error"></span>
             </div>
             <div class="form-group">
-              <input type="password" id="pass_2" placeholder="Confirm Password" name="pass_2" maxlength="128" class="form-text required">
-              <span class="show-password" style="color:#0aa4ca;  font-size:15px; top:2px;"> <i style="color:black;  font-size:15px;" class="fa fa-eye" aria-hidden="true"></i></span> 
+              <input type="password" id="pass_2" placeholder="Confirm Password" name="pass_2" maxlength="40" class="form-text required">
+              <span class="show-password" style="font-size:15px; top:2px;"> <i style="font-size:15px;" class="fa fa-eye-slash" aria-hidden="true"></i></span> 
               <span  id="pass_2_error" class="shosurbari-form-error"></span>
             </div>
             <div class="gender-select-reg" id="gender-select-reg">
@@ -228,11 +256,64 @@ if (isset($_SESSION['id'])) {
       </form>
     </div>
   </div>
-  <!--=======================================
-  How Many Visitors View This Page.
-  This Script Connected to get_view_count.php
-  and page_views Database Table
-  ========================================-->
+		<style>
+    /* Popup container */
+    .popup-container {
+        display: none;
+        position: fixed;
+        top: 15%;
+        left: 50%;
+        transform: translateX(-50%);
+		color: red;
+		box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+        z-index: 9999;
+    }
+/* Image style */
+.popup-container img {
+    display: block;
+    margin: 0 auto; /* Center the image horizontally */
+    max-width: 100%; /* Ensure the image doesn't exceed the container width */
+	box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+}
+    /* Button style */
+    .popup-btn {
+		padding: 7px 0px;
+		margin: 0px auto 0px auto;
+		background: rgb(255, 221, 238);
+		color: red;
+		font-weight: bold;
+		width: 100%;
+		border: none;
+		cursor: pointer;
+    }
+    /* Button hover effect */
+    .popup-btn:hover {
+		background: linear-gradient(#0aa4ca, #06b6d4);
+    }
+</style>
+<!-- Popup container -->
+<div id="popup" class="popup-container">
+	<img src="images/shosurbari-reg-notice.png">
+    <button id="okButton" class="popup-btn">ঠিক আছে</button>
+</div>
+<script>
+    // Get the popup container
+    var popup = document.getElementById('popup');
+    // Get the OK button
+    var okButton = document.getElementById('okButton');
+    // Check if the popup has been shown before
+    var isPopupShown = localStorage.getItem('popupShown');
+    // Show the popup if it hasn't been shown
+    if (!isPopupShown) {
+        popup.style.display = 'block';
+    }
+    // Hide the popup when OK button is clicked and store the state
+    okButton.addEventListener('click', function() {
+        popup.style.display = 'none';
+        localStorage.setItem('popupShown', 'true');
+    });
+</script>
+	<!--View This Page. Connected to get view count -->
   <script>
     $(document).ready(function() {
     var pages = ["register"];
@@ -273,10 +354,10 @@ if (isset($_SESSION['id'])) {
       let input = this.previousElementSibling;
       if (input.type === "password") {
       input.type = "text";
-      this.innerHTML = "<i class='fa fa-eye-slash'></i>";
+      this.innerHTML = "<i class='fa fa-eye'></i>";
       } else {
       input.type = "password";
-      this.innerHTML = "<i class='fa fa-eye'></i>";
+      this.innerHTML = "<i class='fa fa-eye-slash'></i>";
       }
       });
     });
@@ -297,7 +378,7 @@ if (isset($_SESSION['id'])) {
       behavior: 'smooth',
       block: 'center',
       });
-      errorDiv.innerHTML = "উফফ! আপনার সম্পূর্ণ নাম লিখুন।";
+      errorDiv.innerHTML = "আপনার সম্পূর্ণ নাম লিখুন।";
       errorDiv.style.display = 'block';
       errorDiv.classList.add('fade-in');
       errorDiv.style.padding = '5px';
@@ -325,7 +406,7 @@ if (isset($_SESSION['id'])) {
       behavior: 'smooth',
       block: 'center',
       });
-      errorDiv.innerHTML = "উফফ! আপনার ডাকনাম লিখুন।";
+      errorDiv.innerHTML = "আপনার ডাকনাম লিখুন।";
       errorDiv.style.display = 'block';
       errorDiv.classList.add('fade-in');
       errorDiv.style.padding = '5px';
@@ -343,7 +424,7 @@ if (isset($_SESSION['id'])) {
       behavior: 'smooth',
       block: 'center',
       });
-      errorDiv.innerHTML = "উফফ! নামের মধ্যে কোন চিহ্ন, বাংলা বা স্পেস গ্রহণ যোগ্য নয়। নাম্বার গ্রহণ যোগ্য।";
+      errorDiv.innerHTML = "নামের মধ্যে কোন চিহ্ন, বাংলা বা স্পেস গ্রহণ যোগ্য নয়। নাম্বার গ্রহণ যোগ্য।";
       errorDiv.style.display = 'block';
       errorDiv.classList.add('fade-in');
       errorDiv.style.padding = '5px';
@@ -369,7 +450,7 @@ if (isset($_SESSION['id'])) {
       behavior: 'smooth',
       block: 'center',
       });
-      errorDiv.innerHTML = "উফফ! আপনার ই-মেইল লিখুন।";
+      errorDiv.innerHTML = "আপনার ই-মেইল লিখুন।";
       errorDiv.style.display = 'block';
       errorDiv.classList.add('fade-in');
       errorDiv.style.padding = '5px';
@@ -387,7 +468,7 @@ if (isset($_SESSION['id'])) {
       behavior: 'smooth',
       block: 'center',
       });
-      errorDiv.innerHTML = "উফফ! ই-মেইল হিসাবে শুধুমাত্র ব্যবহার করা যাবে: '@' gmail, outlook, hotmail, yahoo '.com'";
+      errorDiv.innerHTML = "দুঃখিত! আপনার ইমেলটি গ্রহণ যোগ্য নয়।";
       errorDiv.style.display = 'block';
       errorDiv.classList.add('fade-in');
       errorDiv.style.padding = '5px';
@@ -414,7 +495,7 @@ if (isset($_SESSION['id'])) {
       block: 'center',
       });
       var errorDiv = document.getElementById('pnumber_error');
-      errorDiv.innerHTML = "উফফ! আপনার মোবাইল নাম্বার লিখুন।";
+      errorDiv.innerHTML = "আপনার মোবাইল নাম্বার লিখুন।";
       errorDiv.style.display = 'block';
       errorDiv.classList.add('fade-in');
       errorDiv.style.padding = '5px';
@@ -425,7 +506,7 @@ if (isset($_SESSION['id'])) {
       colorIndex = (colorIndex + 1) % colors.length;
       }, 500);
       return false;
-    } else if (!/^[0-9]{9,15}$/.test(pnumber)) {
+    } else if (!/^[0-9]{7,14}$/.test(pnumber)) {
       var pnumberElement = document.getElementById('pnumber');
       pnumberElement.style.borderColor = "red";
       pnumberElement.scrollIntoView({
@@ -433,7 +514,7 @@ if (isset($_SESSION['id'])) {
       block: 'center',
       });
       var errorDiv = document.getElementById('pnumber_error');
-      errorDiv.innerHTML = "উফফ! নাম্বারের মধ্যে কোন চিহ্ন বা স্পেস গ্রহণ যোগ্য নয় এবং এর সীমা ৯ থেকে ১৫ ডিজিট।";
+      errorDiv.innerHTML = "নাম্বারের মধ্যে কোন চিহ্ন বা স্পেস গ্রহণ যোগ্য নয় এবং এর সীমা ৭ থেকে ১৪ ডিজিট।";
       errorDiv.style.display = 'block';
       errorDiv.classList.add('fade-in');
       errorDiv.style.padding = '5px';
@@ -460,7 +541,7 @@ if (isset($_SESSION['id'])) {
       block: 'center',
       });
       var errorDiv = document.getElementById('pass_1_error');
-      errorDiv.innerHTML = "উফফ! আপনার নতুন পাসওয়ার্ড লিখুন।";
+      errorDiv.innerHTML = "আপনার নতুন পাসওয়ার্ড লিখুন।";
       errorDiv.style.display = 'block';
       errorDiv.classList.add('fade-in');
       errorDiv.style.padding = '5px';
@@ -487,7 +568,7 @@ if (isset($_SESSION['id'])) {
       block: 'center',
       });
       var errorDiv = document.getElementById('pass_2_error');
-      errorDiv.innerHTML = "উফফ! আপনার উক্ত পাসওয়ার্ডটি পুনরায় লিখুন।";
+      errorDiv.innerHTML = "আপনার উক্ত পাসওয়ার্ডটি পুনরায় লিখুন।";
       errorDiv.style.display = 'block';
       errorDiv.classList.add('fade-in');
       errorDiv.style.padding = '5px';
@@ -506,7 +587,7 @@ if (isset($_SESSION['id'])) {
       block: 'center',
       });
       var errorDiv = document.getElementById('pass_2_error');
-      errorDiv.innerHTML = "উফফ! আপনার উক্ত পাসওয়ার্ডটির সাথে মিলছে না।";
+      errorDiv.innerHTML = "আপনার উক্ত পাসওয়ার্ডটির সাথে মিলছে না।";
       errorDiv.style.display = 'block';
       errorDiv.classList.add('fade-in');
       errorDiv.style.padding = '5px';
@@ -531,7 +612,7 @@ if (isset($_SESSION['id'])) {
     const genderError = document.querySelector('#gender-error');
     if (!maleRadio.checked && !femaleRadio.checked) {
       genderSelectReg.style.borderColor = "red";
-      genderError.innerHTML = 'উফফ! আপনার লিঙ্গ নির্বাচন করুন।';
+      genderError.innerHTML = 'আপনার লিঙ্গ নির্বাচন করুন।';
       genderError.style.display = 'block';
       genderError.classList.add('fade-in');
       genderError.style.padding = '5px';
