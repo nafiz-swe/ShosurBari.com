@@ -1,49 +1,68 @@
 <?php
 include_once("includes/basic_includes.php");
 include_once("functions.php");
-  contact_us(); 
-  error_reporting(0);
+//error_reporting(0);
+error_reporting(E_ALL);  // সব ধরনের এরর দেখাবে
+ini_set('display_errors', 1);  // এরর স্ক্রীনে দেখাবে
+
+contact_us(); 
+
+//include("includes/basic_includes.php");
+if(isset($_SESSION['id'])){
+  $id = $_SESSION['id'];
+  include("includes/dbconn.php");
+  $sql = "SELECT * FROM users WHERE id = $id";
+  $result = mysqlexec($sql);
+  if ($result && mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
+    $fullname = $row['fullname'];
+    $email = $row['email'];
+  }
+} else {
+  $fullname = '';
+  $email = '';
+}
 ?>
 <!DOCTYPE HTML>
 <html>
 <head>
 <title>Contact Us | ShosurBari</title>
-<link rel="icon" href="images/shosurbari-icon.png" type="image/png">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
-<link href='//fonts.googleapis.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
-<!--font-Awesome-->
-<link href="css/font-awesome.css" rel="stylesheet"> 
+<meta name="description" content="শ্বশুরবাড়ি: ShosurBari.com welcomes your inquiries and is ready to assist you. Our support team is committed to helping you in your exploration of Bangladeshi matrimony, guiding you towards your ideal life partner">
+<link rel="icon" href="images/shosurbari-icon.png" type="image/png"/>
+<meta property="og:image" content="https://www.shosurbari.com/images/shosurbari-social-share.png"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Atma" rel="stylesheet" media="print" onload="this.media='all'">
+<link href="https://fonts.maateen.me/adorsho-lipi/font.css" rel="stylesheet" media="print" onload="this.media='all'">
+<link href='//fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css' media="print" onload="this.media='all'">
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js" defer></script>
 <!-- Country Code with Flag for Number input field below 2 link-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/intlTelInput.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.8/js/intlTelInput.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.8/css/intlTelInput.css" />
-<!--font-Awesome-->
+<script defer>
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+        var gtmScript = document.createElement('script');
+        gtmScript.async = true;
+        gtmScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-2Q53085HTX';
+        document.head.appendChild(gtmScript);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-2Q53085HTX');
+    }, 3000);  // Delay for 3 seconds 
+});
+</script>  <!-- Google Analytics / Users Monitoring -->
 </head>
 <body>
 	<!-- ===========  Navigation Start =========== -->
 	<?php include_once("includes/navigation.php");?>
 	<!-- ===========  Navigation End ============= -->
-  <div class="grid_3">
-		<div class="container">
-			<div class="breadcrumb1">
-				<ul>
-					<a href="index.php"><i class="fa fa-home home_1"></i></a>
-					<span class="divider">&nbsp;|&nbsp;</span>
-					<li class="current-page"><h4>Contact Us</h4></li>
-				</ul>
-			</div>
-		</div>
-	</div>
   <style>
   .shosurbari-form-error{
     font-size: 16px;
@@ -53,22 +72,17 @@ include_once("functions.php");
     text-align: center;
     display: none;
   }
-  .sb-biodata-field{
-    background: none;
+  .sb-register-login{
+    margin: 0 auto 20px auto;
   }
-  .sb-register-login h2{
-    color: #000;
-    font-size: 23px;
-    font-weight: bold;
-    background: none;
-    text-align: left;
+  .sb-biodata-field h2 {
+    margin-bottom: 40px;
   }
   .shosurbari-biodata-form {
     align-items: center;
     flex-wrap: wrap;
     width: 1400px;
     margin: auto;
-    padding-top: 30px;
     padding-bottom: 30px;
     margin-bottom: 70px
   }
@@ -78,18 +92,6 @@ include_once("functions.php");
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  .soshurbari-animation-icon h3 {
-    font-size: 23px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    margin-top: 15px;
-  }
-  .soshurbari-animation-icon img {
-    justify-content: flex-end;
-    margin: auto;
-    width: 37px;
-    height: 35px;
   }
   @media (max-width: 1400px){
     .shosurbari-biodata-form{
@@ -106,6 +108,26 @@ include_once("functions.php");
     }
   }
   </style>
+  <div class="grid_3">
+		<div class="container">
+			<div class="breadcrumb1">
+				<ul>
+		  			<li><a href="index.php" aria-label="ShosurBari Home"><i class="fa fa-home home_1"></i></a></li>
+		  			<li><span class="divider">&nbsp;|&nbsp;</span></li>
+					<li class="current-page"><h4>Contact Us</h4></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+  <div class="sb-home-search">
+		<h1><span class="shosurbari-heading-span"> Contact </span>Us</h1>
+		<div class="sbhome-heart-divider">
+			<span class="grey-line"></span>
+			<i class="fa fa-heart pink-heart"></i>
+			<i class="fa fa-heart grey-heart"></i>
+			<span class="grey-line"></span>
+		</div>
+	</div>
   <div class="shosurbari-about-contact">
     <div class="shosurbari-details">
       <h1>How to Contact ShosurBari? </h1>
@@ -113,17 +135,6 @@ include_once("functions.php");
         We're here to help you! If you have any questions, feedback, or inquiries, please feel free to get
         in touch with us using the contact form below. Simply provide us with your details and message, and 
         we'll get back to you as soon as possible.
-      </p><br>
-      <p>
-        Please ensure that you provide accurate contact information so that we can 
-        reach you effectively. We value your privacy and assure you that your personal 
-        details will be handled with utmost confidentiality.
-      </p><br>
-      <p>
-        Our dedicated team is committed to providing excellent customer service, 
-        and we strive to respond to all inquiries promptly. Whether you have a 
-        question about our services, need assistance with your account, or have 
-        any other concerns, we're here to assist you.
       </p><br>
       <p>
         Thank you for choosing shosurbari.com as your trusted matrimonial service 
@@ -139,42 +150,23 @@ include_once("functions.php");
             <div class="sb-register-login">
               <div class="soshurbari-animation-icon">
                 <div class="sb-icon-laptop">
-                  <h3> <img src="images/shosurbari-icon.png"> ShosurBari </h3>
+                  <h3> <img src="images/shosurbari-logo-form.png" alt="ShosurBari Form Icon"></h3>
                 </div>
               </div>
               <div class="sb-biodata-field">
-                <h2>Contact Us</h2>
+                <h2>আমাদের সাথে যোগাযোগ</h2>
               </div>
-              <?php
-              session_start();
-              include("includes/basic_includes.php");
-              if(isset($_SESSION['id'])){
-              $id = $_SESSION['id'];
-              include("includes/dbconn.php");
-              $sql = "SELECT * FROM users WHERE id = $id";
-              $result = mysqlexec($sql);
-              if ($result && mysqli_num_rows($result) > 0) {
-              $row = mysqli_fetch_assoc($result);
-              $fullname = $row['fullname'];
-              $email = $row['email'];
-              $pnumber = $row['number'];
-              }
-              } else {
-              $fullname = '';
-              $email = '';
-              $pnumber = '';
-              }
-              ?>
+
               <div class="form-group">
-                <input type="text" id="name_contactus" placeholder="আপনার পুরো নাম" name="name_contactus" value="<?php echo $fullname; ?>" size="60" maxlength="60" class="form-text required">
+                <input type="text" id="name_contactus" placeholder="আপনার পুরো নাম" name="name_contactus" value="<?php echo $fullname; ?>" size="50" minlength="4" maxlength="50" class="form-text required">
                 <span id="name-error" class="shosurbari-form-error"></span>
               </div>
               <div class="form-group">
-                <input type="email" id="email_contactus" placeholder="আপনার ই-মেইল" name="email_contactus" value="<?php echo $email; ?>" size="60" maxlength="60" class="form-text">
+                <input type="email" id="email_contactus" style="font-family: 'Ubuntu';" placeholder="আপনার ই-মেইল" name="email_contactus" value="<?php echo $email; ?>" size="60" maxlength="60" class="form-text">
                 <span id="email-error" class="shosurbari-form-error"></span>
               </div>
               <div class="form-group">
-                <input type="tel" id="number_contactus" placeholder="আপনার ফোন নাম্বার" name="number_contactus" value="<?php echo $pnumber; ?>" size="50" maxlength="15" class="form-text required">
+                <input type="tel" id="number_contactus" placeholder="আপনার ফোন নাম্বার" name="number_contactus" value="" size="50" maxlength="14" class="form-text required">
                 <input type="hidden" id="selectedCountryCode" name="selectedCountryCode">
                 <input type="hidden" id="selectedCountryName" name="selectedCountryName">
                 <span id="phone-error" class="shosurbari-form-error"></span>
@@ -184,11 +176,11 @@ include_once("functions.php");
                 <span id="subject-error" class="shosurbari-form-error"></span>
               </div>
               <div class="form-group">
-                <textarea rows="6" id="message_contactus" name="message_contactus" placeholder=" ৫০০ অক্ষরের মধ্যে আপনার বার্তা লিখুন..." class="form-text-describe required" maxlength="500"></textarea>
+                <textarea rows="6" id="message_contactus" name="message_contactus" placeholder="কমপক্ষে ২০টি শব্দ/ওয়ার্ড এবং সর্বাধিক ৭০টি শব্দ/ওয়ার্ড এর মধ্যেই আপনার বার্তা লিখুন..." class="form-text-describe required" maxlength="550"></textarea>
                 <span id="message-error" class="shosurbari-form-error"></span>
               </div>
               <div class="form-actions">
-                <button type="submit" id="edit-submit" name="op" class="btn_1 submit">Submit</button>
+                <button type="submit" id="edit-submit" name="op" class="btn_1">জমা দিন</button>
               </div>
               <!-- Popup message -->
               <div class="popup-message">
@@ -202,11 +194,7 @@ include_once("functions.php");
       </div>
     </div>
   </div>
-  <!--=======================================
-  How Many Visitors View This Page.
-  This Script Connected to get_view_count.php
-  and page_views Database Table
-  ========================================-->
+	<!--View This Page. Connected to get view count -->
   <script>
   $(document).ready(function() {
   var pages = ["contact-us"];
@@ -253,6 +241,11 @@ include_once("functions.php");
   </script>
   <!-- Contact Form Validation -->
   <script>
+	    function convertToBanglaNumber(number) {
+    const banglaDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+    return number.toString().split('').map(digit => banglaDigits[digit]).join('');
+  }
+	  
     function validateForm() {
       var name = document.getElementById("name_contactus").value.trim();
       var email = document.getElementById("email_contactus").value.trim();
@@ -275,7 +268,7 @@ include_once("functions.php");
         block: 'center',
       });
       var errorDiv = document.getElementById('name-error');
-      errorDiv.innerHTML = "উফফ! আপনার সম্পূর্ণ নাম লিখুন।";
+      errorDiv.innerHTML = "আপনার সম্পূর্ণ নাম লিখুন।";
       errorDiv.style.display = 'block';
       errorDiv.classList.add('fade-in');
       errorDiv.style.padding = '5px';
@@ -296,49 +289,49 @@ include_once("functions.php");
     }
     // Email validation Start
     if (email == "") {
-      var emailElement = document.getElementById('email_contactus');
-      emailElement.style.borderColor = "red";
-      emailElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-      });
-      var errorDiv = document.getElementById('email-error');
-      errorDiv.innerHTML = "উফফ! আপনার ই-মেইল লিখুন।";
-      errorDiv.style.display = 'block';
-      errorDiv.classList.add('fade-in');
-      errorDiv.style.padding = '5px';
-      var colors = ['green', 'blue', 'red'];
-      var colorIndex = 0;
-      setInterval(function () {
-        errorDiv.style.color = colors[colorIndex];
-        colorIndex = (colorIndex + 1) % colors.length;
-      }, 500);
-      return false;
-    } else if (!/^[a-zA-Z0-9._-]+@(gmail|outlook|hotmail|yahoo).com$/.test(email)) {
-      var emailElement = document.getElementById('email_contactus');
-      emailElement.style.borderColor = "red";
-      emailElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-      });
-      var errorDiv = document.getElementById('email-error');
-      errorDiv.innerHTML = "উফফ! ই-মেইল হিসাবে শুধুমাত্র ব্যবহার করা যাবে: '@' gmail, outlook, hotmail, yahoo '.com'";
-      errorDiv.style.display = 'block';
-      errorDiv.classList.add('fade-in');
-      errorDiv.style.padding = '5px';
-      var colors = ['green', 'blue', 'red'];
-      var colorIndex = 0;
-      setInterval(function () {
-        errorDiv.style.color = colors[colorIndex];
-        colorIndex = (colorIndex + 1) % colors.length;
-      }, 500);
-      return false;
+        var emailElement = document.getElementById('email_contactus');
+        emailElement.style.borderColor = "red";
+        emailElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+        });
+        var errorDiv = document.getElementById('email-error');
+        errorDiv.innerHTML = "আপনার ই-মেইল লিখুন।";
+        errorDiv.style.display = 'block';
+        errorDiv.classList.add('fade-in');
+        errorDiv.style.padding = '5px';
+        var colors = ['green', 'blue', 'red'];
+        var colorIndex = 0;
+        setInterval(function () {
+            errorDiv.style.color = colors[colorIndex];
+            colorIndex = (colorIndex + 1) % colors.length;
+        }, 500);
+        return false;
+	} else if (!/^[a-zA-Z0-9._-]+@(gmail|icloud|outlook|hotmail|yahoo)\.com$/.test(email)) {
+        var emailElement = document.getElementById('email_contactus');
+        emailElement.style.borderColor = "red";
+        emailElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+        });
+        var errorDiv = document.getElementById('email-error');
+        errorDiv.innerHTML = "দুঃখিত! আপনার ইমেলটি গ্রহণ যোগ্য নয়।";
+        errorDiv.style.display = 'block';
+        errorDiv.classList.add('fade-in');
+        errorDiv.style.padding = '5px';
+        var colors = ['green', 'blue', 'red'];
+        var colorIndex = 0;
+        setInterval(function () {
+            errorDiv.style.color = colors[colorIndex];
+            colorIndex = (colorIndex + 1) % colors.length;
+        }, 500);
+        return false;
     } else {
-      document.getElementById('email_contactus').style.borderColor = "green";
-      var errorDiv = document.getElementById('email-error');
-      errorDiv.innerHTML = "";
-      errorDiv.style.display = 'none';
-      errorDiv.style.padding = '0';
+        document.getElementById('email_contactus').style.borderColor = "green";
+        var errorDiv = document.getElementById('email-error');
+        errorDiv.innerHTML = "";
+        errorDiv.style.display = 'none';
+        errorDiv.style.padding = '0';
     }
     // Phone number validation Start
     if (phone.trim().length === 0) {
@@ -347,7 +340,7 @@ include_once("functions.php");
         behavior: 'smooth',
         block: 'center',
       });
-      phoneError.innerHTML = "উফফ! আপনার মোবাইল নাম্বার লিখুন।";
+      phoneError.innerHTML = "আপনার মোবাইল নাম্বার লিখুন।";
       phoneError.style.display = 'block';
       phoneError.classList.add('fade-in');
       phoneError.style.padding = '5px';
@@ -358,13 +351,13 @@ include_once("functions.php");
         colorIndex = (colorIndex + 1) % colors.length;
       }, 500);
       return false;
-    } else if (!/^\d+$/.test(phone) || phone.length < 9 || phone.length > 15) {
+    } else if (!/^\d+$/.test(phone) || phone.length < 7 || phone.length > 14) {
       document.getElementById('number_contactus').style.borderColor = "red";
       document.getElementById('number_contactus').scrollIntoView({
         behavior: 'smooth',
         block: 'center',
       });
-      phoneError.innerHTML = "উফফ! নাম্বারের মধ্যে কোন চিহ্ন, বাংলা বা স্পেস গ্রহণ যোগ্য নয় এবং এর সীমা ৯ থেকে ১৫ ডিজিট।";
+      phoneError.innerHTML = "নাম্বারটি সঠিক নয়! এর মধ্যে কোন চিহ্ন, বাংলা বা স্পেস গ্রহণ যোগ্য নয়।";
       phoneError.style.display = 'block';
       phoneError.classList.add('fade-in');
       phoneError.style.padding = '5px';
@@ -388,7 +381,7 @@ include_once("functions.php");
         behavior: 'smooth',
         block: 'center',
       });
-      subjectError.innerHTML = "উফফ! আপনার মেসেজের বিষয় লিখুন।";
+      subjectError.innerHTML = "আপনার মেসেজের বিষয় লিখুন।";
       subjectError.style.display = 'block';
       subjectError.classList.add('fade-in');
       subjectError.style.padding = '5px';
@@ -405,29 +398,57 @@ include_once("functions.php");
       subjectError.style.display = 'none';
       subjectError.style.padding = '0';
     }
-    // Validate Message Start
-    if (message === "") {
+    // Message Validation
+    if (message === "" || /www\.|\.com|\.org|\.net|http|https|http:|https:|https:\/\/|bit\.ly|xyz|==/.test(message)) {
       messageInput.style.borderColor = "red";
       messageInput.scrollIntoView({
         behavior: 'smooth',
         block: 'center',
       });
-      messageError.innerHTML = "উফফ! আপনার মেসেজ লিখুন।";
+      messageError.innerHTML = "আপনার মেসেজ লিখুন, লিংক অনুমোদিত নয়।";
       messageError.style.display = 'block';
       messageError.classList.add('fade-in');
       messageError.style.padding = '5px';
-      var colors = ['green', 'blue', 'red'];
-      var colorIndex = 0;
-      setInterval(function () {
-        messageError.style.color = colors[colorIndex];
-        colorIndex = (colorIndex + 1) % colors.length;
-      }, 500);
-      return false;
+      valid = false;
     } else {
-      messageInput.style.borderColor = "green";
-      messageError.innerHTML = "";
-      messageError.style.display = 'none';
-      messageError.style.padding = '0';
+      // Count valid words (3 or more characters)
+      var words = message.split(/\s+/).filter(word => word.length >= 3);
+      var wordCount = words.length;
+      // Validate word count: minimum 20 words, maximum 70 words 
+      if (wordCount < 20) {
+        messageInput.style.borderColor = "red";
+        messageInput.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+        });
+        messageError.innerHTML = "কমপক্ষে ২০টি শব্দ/ওয়ার্ড লিখতে হবে।";
+        messageError.style.display = 'block';
+        messageError.classList.add('fade-in');
+        messageError.style.padding = '5px';
+        valid = false;
+      } else if (wordCount > 70) {
+        var extraWords = wordCount - 70;
+        // Logging extra words to check if it's working
+        console.log("Extra words: " + extraWords);
+        var extraWordsBangla = convertToBanglaNumber(extraWords);
+        // Logging converted Bangla number to check if it's working
+        console.log("Extra words in Bangla: " + extraWordsBangla);
+        messageInput.style.borderColor = "red";
+        messageInput.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+        });
+        messageError.innerHTML = "সর্বাধিক ৭০টি শব্দ/ওয়ার্ড লিখতে পারবেন। দয়া করে অতিরিক্ত " + extraWordsBangla + "টি শব্দ/ওয়ার্ড মুছে ফেলুন।";
+        messageError.style.display = 'block';
+        messageError.classList.add('fade-in');
+        messageError.style.padding = '5px';
+        valid = false;
+      } else {
+        messageInput.style.borderColor = "green";
+        messageError.innerHTML = "";
+        messageError.style.display = 'none';
+        messageError.style.padding = '0';
+      }
     }
     return valid;
   }
@@ -447,7 +468,7 @@ include_once("functions.php");
       var popup = document.querySelector('.popup-message');
       popup.style.display = 'block';
       popup.querySelector('h3').innerHTML = 'ধন্যবাদ!';
-      popup.querySelector('p').innerHTML = 'আপনার তথ্য সফল ভাবেই জমা হয়েছে। শীঘ্রই আপনার সাথে যোগাযোগ করা হবে ইনশাআল্লাহ।';
+      popup.querySelector('p').innerHTML = 'আপনার তথ্য সফল ভাবে জমা হয়েছে। শীঘ্রই আপনার সাথে যোগাযোগ করা হবে।';
       var closeButton = document.createElement('button');
       closeButton.innerHTML = 'ঠিক আছে';
       closeButton.classList.add('close-button');
