@@ -8,20 +8,33 @@ error_reporting(0);
 <html>
 <head>
 	<title>Biodata | ShosurBari</title>
-	<meta name="description" content="Dive into captivating stories of individuals at ShosurBari.com. Unearth detailed biodata profiles, each telling a unique tale. Connect with potential life partners and embark on a journey to find your extraordinary match.">
-	<link rel="icon" href="images/shosurbari-icon.png" type="image/png">
-	<meta property="og:image" content="https://www.shosurbari.com/images/shosurbari-social-share.png">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
 	<link href="css/style.css" rel='stylesheet' type='text/css' />
-	<link href="css/font-awesome.css" rel="stylesheet"> 
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<link href='//fonts.googleapis.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
-	<link href='//fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
-	<script src="https://cdn.jsdelivr.net/npm/emojipickerjs@1.0.7/dist/js/emojiPicker.min.js"></script>
+	<meta name="description" content="Dive into captivating stories of individuals at ShosurBari.com. Unearth detailed biodata profiles, each telling a unique tale. Connect with potential life partners and embark on a journey to find your extraordinary match.">
+<link rel="icon" href="images/shosurbari-icon.png" type="image/png"/>
+<meta property="og:image" content="https://www.shosurbari.com/images/shosurbari-social-share.png"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.maateen.me/adorsho-lipi/font.css" rel="stylesheet" media="print" onload="this.media='all'">
+<link href='//fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css' media="print" onload="this.media='all'">
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js" defer></script> 
+<script src="https://cdn.jsdelivr.net/npm/emojipickerjs@1.0.7/dist/js/emojiPicker.min.js"></script>
+<script defer>
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+        var gtmScript = document.createElement('script');
+        gtmScript.async = true;
+        gtmScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-2Q53085HTX';
+        document.head.appendChild(gtmScript);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-2Q53085HTX');
+    }, 3000);  // Delay for 3 seconds 
+});
+</script>  <!-- Google Analytics / Users Monitoring -->
 </head>
 <body>
 	<!-- ===========  Navigation Start =========== -->
@@ -38,7 +51,7 @@ error_reporting(0);
 	@media(max-width:2150px){
 	.fixed {
 		position: fixed;
-		top: 70px;
+		top: 72px;
 		right: 5%;
 		width: 55.8%;
 		z-index: 100;
@@ -47,7 +60,7 @@ error_reporting(0);
 		border-radius: 0px 0px 4px 4px;
 		display: flex;
 		justify-content: center;
-		background:#0aa4ca;
+		background:#007a9a;
 	}
 	a#profile-tab, a#home-tab, a#profile-tab1 {
 		width: 100%;
@@ -89,6 +102,11 @@ error_reporting(0);
 		padding: 10px 5px;
 	}
 	}
+	@media (max-width: 992px){
+	.fixed {
+		top: 65px;
+	}
+	}
 	@media (max-width:930px){
 	.fixed {
 		left: 10px;
@@ -99,12 +117,7 @@ error_reporting(0);
 		padding: 10px;
 		font-size: 15px;
 	}
-	} 
-	@media (max-width: 768px){
-	.fixed {
-		top: 64px;
-	}
-	} 
+	}  
 	@media (max-width: 600px){
 	a#profile-tab, a#home-tab, a#profile-tab1 {
 		padding: 8px 10px;
@@ -185,10 +198,10 @@ error_reporting(0);
 						}
 					}
 					$defaultImages = [
-						'পাত্রের বায়োডাটা' => "shosurbari-male-icon.jpg",
-						'পাত্রীর বায়োডাটা' => "shosurbari-female-icon.png",
+						'পাত্রের বায়োডাটা' => "shosurbari-male-icon.webp",
+						'পাত্রীর বায়োডাটা' => "shosurbari-female-icon.webp",
 					];
-					$defaultImage = "shosurbari-default-icon.png";
+					$defaultImage = "shosurbari-default-icon.webp";
 					if (isset($row['biodatagender']) && isset($defaultImages[$row['biodatagender']])) {
 						$defaultImage = $defaultImages[$row['biodatagender']];
 					}
@@ -205,7 +218,7 @@ error_reporting(0);
 			</div>
 			<div class="profile-nav-info">
 				<?php if (!empty($profileid)) { ?>
-					<h3>বায়োডাটা নং : <span><?php echo $profileid;?></span></h3>
+					<h3>বায়োডাটা নং : <span style="font-family: math;"><?php echo $profileid;?></span></h3>
 				<?php } ?>
 				
 				<?php
@@ -226,7 +239,7 @@ error_reporting(0);
 					// Convert Bangla date to English
 					$dob = banglaToEnglishDate($dob);
 					// Convert Bangla month names to English
-					$banglaMonths = ['জানুয়ারী', 'ফেব্রুয়ারী', 'মার্চ', 'এপ্রিল', 'মে', 'জুন', 'জুলাই', 'আগস্ট', 'সেপ্টেম্বর', 'অক্টোবর', 'নভেম্বর', 'ডিসেম্বর'];
+					$banglaMonths = ['জানুয়ারি', 'ফেব্রুয়ারি', 'মার্চ', 'এপ্রিল', 'মে', 'জুন', 'জুলাই', 'আগস্ট', 'সেপ্টেম্বর', 'অক্টোবর', 'নভেম্বর', 'ডিসেম্বর'];
 					$englishMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 					$dob = str_replace($banglaMonths, $englishMonths, $dob);
 					// Debug: Output the converted date
@@ -328,17 +341,17 @@ error_reporting(0);
 				// Media width between 931px and 2000px
 				targetOffset -= -5;
 				} else if ($(window).width() >= 737 && $(window).width() <= 930) {
-				targetOffset += 715;
+				targetOffset += 710;
 				} else if ($(window).width() >= 601 && $(window).width() <= 736) {
-				targetOffset +=708;
+				targetOffset +=703;
 				} else if ($(window).width() >= 360 && $(window).width() <= 600) {
-				targetOffset += 713; 
+				targetOffset += 708; 
 				} else if ($(window).width() >= 353 && $(window).width() <= 359) {
-				targetOffset += 705;
+				targetOffset += 700;
 				} else if ($(window).width() >= 321 && $(window).width() <= 352) {
-				targetOffset += 702;      
+				targetOffset += 697;      
 				} else if ($(window).width() >= 260 && $(window).width() <= 320) {
-				targetOffset += 692;
+				targetOffset += 687;
 				}
 				$('html, body').animate({
 				scrollTop: targetOffset
@@ -349,7 +362,7 @@ error_reporting(0);
 		<div class="main-bd"> <!-- Main BioData-->
 			<div class="left-side">
 				<div class="profile-side">
-					<div class="biodatavalue_list" style="background: none; border-radius: 7px 7px 0px 0px; border-top: 3px solid #06b6d4; border-bottom: none; margin-top: 0px; border-left: none; border-right: none">
+					<div class="biodatavalue_list" style="background: none; border-radius: 7px 7px 0px 0px; border-top: 3px solid #007a9a; border-bottom: none; margin-top: 0px; border-left: none; border-right: none">
 						<h3 style="background: none; border-style: none;">সংক্ষেপে</h3>
 					</div>
 					<!-- START - Heading Section  / SB Short Biodata -->
@@ -630,7 +643,7 @@ error_reporting(0);
 						if (!empty($profileid)) {
 						echo '<form method="POST" action="choice-list.php">';
 						echo '<input type="hidden" name="add_to_choice_list" value="' . $profileid . '">';
-						echo '<button type="submit" class="choice-list-btn"><i class="fa fa-heart"> </i> পছন্দের তালিকায়</button>';
+						echo '<button type="submit" class="choice-list-btn"><i class="fa fa-heart"> </i> পছন্দের তালিকায় রাখুন</button>';
 						echo '</form>';
 						}
 						?>
@@ -672,10 +685,10 @@ error_reporting(0);
 							$row2 = mysqli_fetch_assoc($result2);
 							$pic1 = $row2['pic1'];
 							$defaultImages = [
-								'পাত্রের বায়োডাটা' => "shosurbari-male-icon.jpg",
-								'পাত্রীর বায়োডাটা' => "shosurbari-female-icon.png",
+								'পাত্রের বায়োডাটা' => "shosurbari-male-icon.webp",
+								'পাত্রীর বায়োডাটা' => "shosurbari-female-icon.webp",
 							];
-							$defaultImage = "shosurbari-default-icon.png";
+							$defaultImage = "shosurbari-default-icon.webp";
 							if (isset($row['biodatagender']) && isset($defaultImages[$row['biodatagender']])) {
 								$defaultImage = $defaultImages[$row['biodatagender']];
 							}
@@ -738,8 +751,8 @@ error_reporting(0);
 											echo "<img class=\"img-responsive\" src=\"images/{$defaultImage}\"/>";
 										}
 										echo "</a>";
-										// End of Default photo Show
-										echo "<div class=\"sbbio_number_recentview\"><span class=\"sb_biodatanumber_recentview\"> {$profid} <br> বায়োডাটা নং </span> </div>";
+										// End of Default photo Show										
+										echo "<div class=\"sbbio_number_recentview\"><span class=\"sb_biodatanumber_recentview\" style=\"font-family: math; font-weight: bold;\">{$profid}</span><br><span class=\"sb_biodatanumber_recentview\"> বায়োডাটা নং </span></div>";
 										echo "</div>";
 										echo "<div class=\"sb_user_recentview\">";
 										echo "<table class=\"biodata_value_data\">";
@@ -796,10 +809,10 @@ error_reporting(0);
 							$row2 = mysqli_fetch_assoc($result2);
 							$pic1 = $row2['pic1'];
 							$defaultImages = [
-								'পাত্রের বায়োডাটা' => "shosurbari-male-icon.jpg",
-								'পাত্রীর বায়োডাটা' => "shosurbari-female-icon.png",
+								'পাত্রের বায়োডাটা' => "shosurbari-male-icon.webp",
+								'পাত্রীর বায়োডাটা' => "shosurbari-female-icon.webp",
 							];
-							$defaultImage = "shosurbari-default-icon.png";
+							$defaultImage = "shosurbari-default-icon.webp";
 							if (isset($row['biodatagender']) && isset($defaultImages[$row['biodatagender']])) {
 								$defaultImage = $defaultImages[$row['biodatagender']];
 							}
@@ -863,7 +876,8 @@ error_reporting(0);
 										}
 										echo "</a>";
 										// End of Default photo Show
-										echo "<div class=\"sbbio_number_recentview\"><span class=\"sb_biodatanumber_recentview\"> {$profid} <br> বায়োডাটা নং </span> </div>";
+										echo "<div class=\"sbbio_number_recentview\"><span class=\"sb_biodatanumber_recentview\" style=\"font-family: math; font-weight: bold;\">{$profid}</span><br><span class=\"sb_biodatanumber_recentview\"> বায়োডাটা নং </span></div>";
+
 										echo "</div>";
 										echo "<div class=\"sb_user_recentview\">";
 										echo "<table class=\"biodata_value_data\">";
@@ -985,7 +999,7 @@ error_reporting(0);
 											<?php if (!empty($physicalstatus)) : ?>
 											<tr class="opened">
 												<td class="day_label">শারীরিক বা মানসিক কোনো সমস্যা আছে কি?</td>
-												<td class="day_value closed"><span><?php echo $physicalstatus; ?></span></td>
+												<td class="day_value closed"><span><?php echo nl2br(htmlspecialchars($physicalstatus)); ?></span></td>
 											</tr>
 											<?php endif; ?>
 										</tbody>
@@ -1154,19 +1168,19 @@ error_reporting(0);
 											<?php if (!empty($occupation_describe)) : ?>
 											<tr class="opened">
 												<td class="day_label">পেশার বিস্তারিত তথ্য</td>
-												<td class="day_value closed"><span><?php echo $occupation_describe; ?></span></td>
+												<td class="day_value closed"><span><?php echo nl2br(htmlspecialchars($occupation_describe)); ?></span></td>
 											</tr>
 											<?php endif; ?>
 											<?php if (!empty($dress_code)) : ?>
 											<tr class="opened">
 												<td class="day_label">ঘরের বাহিরে সাধারণত কি ধরণের পোশাক পরেন?</td>
-												<td class="day_value closed"><span><?php echo $dress_code; ?></span></td>
+												<td class="day_value closed"><span><?php echo nl2br(htmlspecialchars($dress_code)); ?></span></td>
 											</tr>
 											<?php endif; ?>
 											<?php if (!empty($aboutme)) : ?>
 											<tr class="opened">
 												<td class="day_label">নিজের সম্পর্কে কিছু লিখুন</td>
-												<td class="day_value closed"><span><?php echo $aboutme; ?></span></td>
+												<td class="day_value closed"><span><?php echo nl2br(htmlspecialchars($aboutme)); ?></span></td>
 											</tr>
 											<?php endif; ?>
 										</tbody>
@@ -1242,13 +1256,13 @@ error_reporting(0);
 										<tbody>
 											<?php if (!empty($scndry_edu_method)) : ?>
 											<tr class="opened">
-												<td class="day_label">মাধ্যমিক/সমমান শিক্ষার মাধ্যম</td>
+												<td class="day_label">মাধ্যমিক বা সমমান শিক্ষার মাধ্যম</td>
 												<td class="day_value"><?php echo $scndry_edu_method; ?></td>
 											</tr>
 											<?php endif; ?>
 											<?php if (!empty($qawmi_madrasa_hafez)) : ?>
 											<tr class="opened">
-												<td class="day_label">আপনি কি হাফেজ/হাফেজা?</td>
+												<td class="day_label">আপনি কি হাফেজ বা হাফেজা?</td>
 												<td class="day_value"><?php echo $qawmi_madrasa_hafez; ?></td>
 											</tr>
 											<?php endif; ?>
@@ -1272,25 +1286,25 @@ error_reporting(0);
 											<?php endif; ?>
 											<?php if (!empty($gnrl_mdrs_secondary_pass)) : ?>
 											<tr class="opened">
-												<td class="day_label">মাধ্যমিক/সমমান পাস করেছেন?</td>
+												<td class="day_label">মাধ্যমিক বা সমমান পাস করেছেন?</td>
 												<td class="day_value"><?php echo $gnrl_mdrs_secondary_pass; ?></td>
 											</tr>
 											<?php endif; ?>
 											<?php if (!empty($gnrl_mdrs_secondary_pass_year)) : ?>
 											<tr class="opened">
-												<td class="day_label">মাধ্যমিক/সমমান পাসের বর্ষ</td>
+												<td class="day_label">মাধ্যমিক বা সমমান পাসের বর্ষ</td>
 												<td class="day_value"><?php echo $gnrl_mdrs_secondary_pass_year; ?></td>
 											</tr>
 											<?php endif; ?>
 											<?php if (!empty($gnrl_mdrs_secondary_end_year)) : ?>
 											<tr class="opened">
-												<td class="day_label">মাধ্যমিক/সমমান বোর্ড পরীক্ষার বর্ষ</td>
+												<td class="day_label">মাধ্যমিক বা সমমান বোর্ড পরীক্ষার বর্ষ</td>
 												<td class="day_value"><?php echo $gnrl_mdrs_secondary_end_year; ?></td>
 											</tr>
 											<?php endif; ?>
 											<?php if (!empty($gnrlmdrs_secondary_running_std)) : ?>
 											<tr class="opened">
-												<td class="day_label">মাধ্যমিক/সমমানে বর্তমান অধ্যায়নরত ক্লাস</td>
+												<td class="day_label">মাধ্যমিক বা সমমানে বর্তমান অধ্যায়নরত ক্লাস</td>
 												<td class="day_value"><?php echo $gnrlmdrs_secondary_running_std; ?></td>
 											</tr>
 											<?php endif; ?>
@@ -1302,7 +1316,7 @@ error_reporting(0);
 											<?php endif; ?>
 											<?php if (!empty($current_max_edu_subject)) : ?>
 											<tr class="opened">
-												<td class="day_label">সাবজেক্ট/গ্রুপ</td>
+												<td class="day_label">সাবজেক্ট বা গ্রুপ</td>
 												<td class="day_value"><?php echo $current_max_edu_subject; ?></td>
 											</tr>
 											<?php endif; ?>
@@ -1314,14 +1328,14 @@ error_reporting(0);
 											<?php endif; ?>
 											<?php if (!empty($current_max_pass_year)) : ?>
 											<tr class="opened">
-												<td class="day_label">পাসের বর্ষ</td>
+												<td class="day_label">পাসের বর্ষ (পাস করেছেন বা পাস করবেন)</td>
 												<td class="day_value"><?php echo $current_max_pass_year; ?></td>
 											</tr>
 											<?php endif; ?>
 											<?php if (!empty($others_edu_qualification)) : ?>
 											<tr class="opened">
 												<td class="day_label">অন্যান্য শিক্ষাগত যোগ্যতা</td>
-												<td class="day_value"><?php echo $others_edu_qualification; ?></td>
+												<td class="day_value"><?php echo nl2br(htmlspecialchars($others_edu_qualification)); ?></td>
 											</tr>
 											<?php endif; ?>
 										</tbody>
@@ -1384,7 +1398,7 @@ error_reporting(0);
 										<tbody>
 											<?php if (!empty($country_present_address)) : ?>
 											<tr class="opened">
-												<td class="day_label">যেই দেশের স্থায়ী নাগরিক/সিটিজেন</td>
+												<td class="day_label">যেই দেশের স্থায়ী নাগরিক বা সিটিজেন</td>
 												<td class="day_value"><?php echo $country_present_address;?></td>
 											</tr>
 											<?php endif; ?>
@@ -1451,7 +1465,7 @@ error_reporting(0);
 											<?php if (!empty($present_address_living_purpose)) : ?>
 											<tr class="opened">
 												<td class="day_label">উক্ত বর্তমান ঠিকানায় যেই উদ্দেশ্যে থাকা হয়?</td>
-												<td class="day_value"><?php echo $present_address_living_purpose; ?></td>
+												<td class="day_value"><?php echo nl2br(htmlspecialchars($present_address_living_purpose)); ?></td>
 											</tr>
 											<?php endif; ?>
 											<?php if (!empty($childhood)) : ?>
@@ -1546,21 +1560,21 @@ error_reporting(0);
 											<?php if (!empty($divorce_reason)) : ?>
 											<tr class="opened">
 												<td class="day_label">ডিভোর্সের কারণ</td>
-												<td class="day_value"><?php echo $divorce_reason; ?></td>
+												<td class="day_value"><?php echo nl2br(htmlspecialchars($divorce_reason)); ?></td>
 											</tr>
 											<?php endif; ?>
 											<!-- If Widow -->
 											<?php if (!empty($how_widow)) : ?>
 											<tr class="opened">
 												<td class="day_label">স্বামী যেভাবে মারা গেছেন</td>
-												<td class="day_value"><?php echo $how_widow; ?></td>
+												<td class="day_value"><?php echo nl2br(htmlspecialchars($how_widow)); ?></td>
 											</tr>
 											<?php endif; ?>
 											<!-- If Widower -->
 											<?php if (!empty($how_widower)) : ?>
 											<tr class="opened">
 												<td class="day_label">স্ত্রী যেভাবে মারা গেছেন</td>
-												<td class="day_value"><?php echo $how_widower; ?></td>
+												<td class="day_value"><?php echo nl2br(htmlspecialchars($how_widower)); ?></td>
 											</tr>
 											<?php endif; ?>
 											<!-- If Married -->
@@ -1591,7 +1605,7 @@ error_reporting(0);
 											<?php if (!empty($son_details)) : ?>
 											<tr class="opened">
 												<td class="day_label">সন্তান সম্পর্কিত তথ্য</td>
-												<td class="day_value"><?php echo $son_details; ?></td>
+												<td class="day_value"><?php echo nl2br(htmlspecialchars($son_details)); ?></td>
 											</tr>
 											<?php endif; ?>
 											<!-- bd_marriage_related_qs Male & Female -->
@@ -1669,7 +1683,7 @@ error_reporting(0);
 											<?php if (!empty($yourreligion_condition)) : ?>
 											<tr class="opened">
 												<td class="day_label">ধর্মীয় বিষয়াবলি</td>
-												<td class="day_value"><?php echo $yourreligion_condition;?></td>
+												<td class="day_value"><?php echo nl2br(htmlspecialchars($yourreligion_condition));?></td>
 											</tr>
 											<?php endif; ?>
 										</tbody>
@@ -1724,7 +1738,7 @@ error_reporting(0);
 							<div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
 								<div class="biodatavalue_list">
 									<table class="biodata_value_data">
-										<h3>পারিবারিক ও সামাজিক তথ্য</h3>
+										<h3>পারিবারিক তথ্য</h3>
 										<tbody>
 											<?php if (!empty($father_alive)) : ?>
 											<tr class="opened">
@@ -1752,20 +1766,20 @@ error_reporting(0);
 											<?php endif; ?>
 											<?php if (!empty($brosis_number)) : ?>
 											<tr class="opened">
-												<td class="day_label">ভাইবোন কয়জন</td>
+												<td class="day_label">আপনারা ভাইবোন কয়জন</td>
 												<td class="day_value closed"><span><?php echo $brosis_number; ?></span></td>
 											</tr>
 											<?php endif; ?>
 											<?php if (!empty($brosis_info)) : ?>
 											<tr class="opened">
 												<td class="day_label">ভাইবোন সম্পর্কিত তথ্য</td>
-												<td class="day_value closed"><span><?php echo $brosis_info; ?></span></td>
+												<td class="day_value closed"><span><?php echo nl2br(htmlspecialchars($brosis_info)); ?></span></td>
 											</tr>
 											<?php endif; ?>
 											<?php if (!empty($uncle_profession)) : ?>
 											<tr class="opened">
-												<td class="day_label">মামা/চাচাদের পেশা</td>
-												<td class="day_value closed"><span><?php echo $uncle_profession; ?></span></td>
+												<td class="day_label">মামা এবং চাচাদের পেশা</td>
+												<td class="day_value closed"><span><?php echo nl2br(htmlspecialchars($uncle_profession)); ?></span></td>
 											</tr>
 											<?php endif; ?>
 											<?php if (!empty($family_major_guardian)) : ?>
@@ -1783,13 +1797,13 @@ error_reporting(0);
 											<?php if (!empty($financial_condition)) : ?>
 											<tr class="opened">
 												<td class="day_label">অর্থনৈতিক অবস্থার বর্ণনা</td>
-												<td class="day_value closed"><span><?php echo $financial_condition; ?></span></td>
+												<td class="day_value closed"><span><?php echo nl2br(htmlspecialchars($financial_condition)); ?></span></td>
 											</tr>
 											<?php endif; ?>
 											<?php if (!empty($family_religious_condition)) : ?>
 											<tr class="opened">
-												<td class="day_label">পরিবারের সকলের সামাজিক এবং ধর্মীয় মূল্যবোধ কেমন? সামাজিক এবং ধর্মীয় বিধিনিষেধ কত টুকু মেনে চলে?</td>
-												<td class="day_value closed"><span><?php echo $family_religious_condition; ?></span></td>
+												<td class="day_label">পরিবারের সকলেই যেখানে স্থায়ী ভাবে বসবাস করবে বা করে, সেই বাসা বা বাড়ির বর্ণনা</td>
+												<td class="day_value closed"><span><?php echo nl2br(htmlspecialchars($family_religious_condition)); ?></span></td>
 											</tr>
 											<?php endif; ?>
 										</tbody>
@@ -1854,7 +1868,7 @@ error_reporting(0);
 										<tbody>
 											<?php if (!empty($partner_citizen)) : ?>
 											<tr class="opened">
-												<td class="day_label">দেশ (স্থায়ী নাগরিক/সিটিজেন)</td>
+												<td class="day_label">দেশ (স্থায়ী নাগরিক বা সিটিজেন)</td>
 												<td class="day_value"><?php echo $partner_citizen; ?></td>
 											</tr>
 											<?php endif; ?>
@@ -2033,10 +2047,10 @@ error_reporting(0);
             $row2 = mysqli_fetch_assoc($result2);
             $pic1 = $row2['pic1'];
             $defaultImages = [
-                'পাত্রের বায়োডাটা' => "shosurbari-male-icon.jpg",
-                'পাত্রীর বায়োডাটা' => "shosurbari-female-icon.png",
+                'পাত্রের বায়োডাটা' => "shosurbari-male-icon.webp",
+                'পাত্রীর বায়োডাটা' => "shosurbari-female-icon.webp",
             ];
-            $defaultImage = "shosurbari-default-icon.png";
+            $defaultImage = "shosurbari-default-icon.webp";
             if (isset($row['biodatagender']) && isset($defaultImages[$row['biodatagender']])) {
                 $defaultImage = $defaultImages[$row['biodatagender']];
             }
@@ -2051,7 +2065,8 @@ error_reporting(0);
             }
             echo "</a>";
             // End of Default photo Show
-            echo "<div class=\"sbbio_number_recentview\"><span class=\"sb_biodatanumber_recentview\"> {$profid} <br> বায়োডাটা নং </span> </div>";
+			echo "<div class=\"sbbio_number_recentview\"><span class=\"sb_biodatanumber_recentview\" style=\"font-family: math; font-weight: bold;\">{$profid}</span><br><span class=\"sb_biodatanumber_recentview\"> বায়োডাটা নং </span></div>";
+
             echo "</div>";
             echo "<div class=\"sb_user_recentview\">";
             echo "<table class=\"biodata_value_data\">";
@@ -2151,10 +2166,10 @@ error_reporting(0);
             $row2 = mysqli_fetch_assoc($result2);
             $pic1 = $row2['pic1'];
             $defaultImages = [
-                'পাত্রের বায়োডাটা' => "shosurbari-male-icon.jpg",
-                'পাত্রীর বায়োডাটা' => "shosurbari-female-icon.png",
+                'পাত্রের বায়োডাটা' => "shosurbari-male-icon.webp",
+                'পাত্রীর বায়োডাটা' => "shosurbari-female-icon.webp",
             ];
-            $defaultImage = "shosurbari-default-icon.png";
+            $defaultImage = "shosurbari-default-icon.webp";
             if (isset($row['biodatagender']) && isset($defaultImages[$row['biodatagender']])) {
                 $defaultImage = $defaultImages[$row['biodatagender']];
             }
@@ -2169,7 +2184,8 @@ error_reporting(0);
             }
             echo "</a>";
             // End of Default photo Show
-            echo "<div class=\"sbbio_number_recentview\"><span class=\"sb_biodatanumber_recentview\"> {$profid} <br> বায়োডাটা নং </span> </div>";
+			echo "<div class=\"sbbio_number_recentview\"><span class=\"sb_biodatanumber_recentview\" style=\"font-family: math; font-weight: bold;\">{$profid}</span><br><span class=\"sb_biodatanumber_recentview\"> বায়োডাটা নং </span></div>";
+
             echo "</div>";
             echo "<div class=\"sb_user_recentview\">";
             echo "<table class=\"biodata_value_data\">";
